@@ -87,20 +87,39 @@ def test_write_result_summary_redacts_session_material(tmp_path: Path) -> None:
     assert payload["result"]["status"] == "ERROR"
 
 
-def test_copy_safe_diagnostics_only_exports_sanitized_reports(tmp_path: Path) -> None:
+def test_copy_safe_diagnostics_exports_structural_coverage_but_not_raw_wire(tmp_path: Path) -> None:
     run_dir = tmp_path / "run"
     run_dir.mkdir()
     (run_dir / "diagnostic.json").write_text('{"token":"[REDACTED]"}', encoding="utf-8")
     (run_dir / "diagnostic.md").write_text("safe report", encoding="utf-8")
+    (run_dir / "path-coverage.json").write_text(
+        '{"branch_points":[{"mode_id":"CHOICE","missing":["right"]}]}',
+        encoding="utf-8",
+    )
+    (run_dir / "path-catalog.json").write_text(
+        '{"paths":[{"id":"CHOICE","coverage_required":true}]}',
+        encoding="utf-8",
+    )
+    (run_dir / "wager-catalog.json").write_text(
+        '{"plans":[{"coverage_bet":20}]}',
+        encoding="utf-8",
+    )
     (run_dir / "raw-request.json").write_text('{"token":"SECRET"}', encoding="utf-8")
+    (run_dir / "browser.har").write_text('{"token":"SECRET"}', encoding="utf-8")
 
     out = tmp_path / "out"
     copied = copy_safe_diagnostics(run_dir, out)
 
-    assert copied == ["diagnostic.json", "diagnostic.md"]
-    assert (out / "diagnostic.json").is_file()
-    assert (out / "diagnostic.md").is_file()
+    assert copied == [
+        "diagnostic.json",
+        "diagnostic.md",
+        "path-coverage.json",
+        "path-catalog.json",
+        "wager-catalog.json",
+    ]
+    assert all((out / name).is_file() for name in copied)
     assert not (out / "raw-request.json").exists()
+    assert not (out / "browser.har").exists()
 
 
 def test_action_diagnostic_uses_the_active_bgaming_provider() -> None:
