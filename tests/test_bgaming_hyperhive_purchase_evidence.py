@@ -116,6 +116,20 @@ def test_contract_evidence_traces_req_alias_object_bet_fields() -> None:
     assert shorthand_evidence["req_alias_object_bet_shorthand"] is True
 
 
+def test_production_req_bet_evidence_accepts_only_linked_alias_object() -> None:
+    linked = (
+        'const r={bet:stake,bet_type:"bet"};'
+        'const request={method:"play",params:{token:t,req:r}};'
+    )
+    unrelated = (
+        'const r={bet:stake};const q={bet_type:"bet"};'
+        'const request={method:"play",params:{token:t,req:q}};'
+    )
+
+    assert hyperhive_wire._has_req_bet_evidence(linked) is True
+    assert hyperhive_wire._has_req_bet_evidence(unrelated) is False
+
+
 def test_mode_diagnostic_metadata_preserves_source_free_contract_evidence() -> None:
     mode = {
         "id": "SPIN",
