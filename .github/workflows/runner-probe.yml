@@ -1,0 +1,23 @@
+name: Hosted runner probe
+
+on:
+  push:
+    branches:
+      - feat/farm-contract-export-v1
+    paths:
+      - ".github/workflows/runner-probe.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: windows-latest
+    timeout-minutes: 5
+    steps:
+      - name: Prove hosted runner started
+        shell: pwsh
+        run: |
+          Write-Host "Hosted Windows runner started"
+          Write-Host "OS=$env:RUNNER_OS"
