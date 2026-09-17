@@ -480,23 +480,16 @@ def finalize_policy_artifacts(result: GameTestResult) -> GameTestResult:
     init_data = _read_json(init_path) if init_path is not None else {}
     profile = _read_json(profile_path) if profile_path is not None else {}
 
-    unresolved: list[str] = []
+    # Server multiplier metadata is useful diagnostic/catalog evidence, but it
+    # does not prove that the current client exposes an executable purchase.
+    # Keep such modes visible as coverage_required=False and never downgrade an
+    # otherwise complete result merely because generic server metadata exists.
     if init_data:
-        unresolved = _append_unproven_advertised_purchases(
+        _append_unproven_advertised_purchases(
             result,
             init_data,
             profile,
         )
-    if unresolved:
-        if result.status == "OK":
-            result.status = "PARCIAL"
-        message = (
-            "BGaming compras anunciadas sin wire cliente demostrado: "
-            + ", ".join(unresolved[:20])
-            + "."
-        )
-        if message not in str(result.error or ""):
-            result.error = (str(result.error or "").strip() + " " + message).strip()
 
     plans: list[dict[str, Any]] = []
     seen: set[str] = set()
