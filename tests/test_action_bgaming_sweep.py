@@ -9,6 +9,7 @@ from tester_spin.action_bgaming_sweep import (
     SweepConfig,
     build_sweep_summary,
     load_sweep_config,
+    make_sweep_provider,
     resolve_sweep_games,
 )
 from tester_spin.models import Game
@@ -86,6 +87,13 @@ def test_sweep_uses_active_bgaming_farm_adapter(tmp_path: Path) -> None:
     game = _game("Fixture", "fixture", "fixture")
     assert provider.farm_contract_dir(game) == provider.game_dir(game)
     assert provider.effective_test_concurrency(4) == 3
+
+
+def test_sweep_provider_skips_automatic_har_capture(tmp_path: Path) -> None:
+    provider = make_sweep_provider(tmp_path, concurrency=3)
+
+    assert provider.effective_test_concurrency(4) == 3
+    assert provider.capture_analysis_har is False
 
 
 def test_sweep_summary_preserves_ok_but_not_ready_signal() -> None:
