@@ -524,6 +524,7 @@ def install_observed_wire_adapter() -> None:
                         if not feature_proven or not variant_proven:
                             mode["executable"] = False
                             mode["discovery_state"] = "DISCOVERED_LITERAL_ONLY"
+                            mode["coverage_required"] = False
 
             if profile.bet_type:
                 for mode in modes:
