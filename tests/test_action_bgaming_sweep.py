@@ -77,6 +77,14 @@ def test_resolve_sweep_games_deduplicates_cohort_targets() -> None:
     assert [g.slug for g in resolved] == ["multi-rush"]
 
 
+def test_sweep_uses_active_bgaming_farm_adapter() -> None:
+    import tester_spin.action_bgaming_sweep as action_module
+    from tester_spin.providers import BGamingProvider as ActiveBGamingProvider
+
+    assert action_module.BGamingProvider is ActiveBGamingProvider
+    assert ActiveBGamingProvider.__mro__[1].__module__ == "tester_spin.providers.bgaming_paths_v2"
+
+
 def test_sweep_summary_preserves_ok_but_not_ready_signal() -> None:
     records = [
         {
