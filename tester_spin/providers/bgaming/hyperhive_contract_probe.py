@@ -12,6 +12,61 @@ _installed = False
 _evidence_by_session: weakref.WeakKeyDictionary[Any, dict[str, Any]] = weakref.WeakKeyDictionary()
 
 
+def _params_req_aliases(text: str) -> set[str]:
+    return set(
+        re.findall(
+            r'\bparams\s*:\s*\{[^{}]{0,2000}\breq\s*:\s*([A-Za-z_$][A-Za-z0-9_$]*)(?=[,}])',
+            text or "",
+        )
+    )
+
+
+def _has_req_bet_type_evidence(text: str) -> bool:
+    """Prove normal-spin bet_type only from the req object that is serialized.
+
+    HyperHive clients can assign ``bet_type='freebet'`` only for freebet spins,
+    while unrelated helpers elsewhere in the bundle may contain ``req.bet_type``.
+    When ``params.req`` is an identifier, only that same alias is authoritative.
+    A literal ``freebet`` assignment is deliberately not evidence that normal
+    spins carry a bet_type field.
+    """
+    source = text or ""
+    aliases = _params_req_aliases(source)
+    if aliases:
+        for alias in aliases:
+            escaped = re.escape(alias)
+            for object_match in re.finditer(
+                rf'(?:\b(?:const|let|var)\s+)?\b{escaped}\s*=\s*\{{([^{{}}]{{0,2000}})\}}',
+                source,
+            ):
+                body = object_match.group(1)
+                for value in re.findall(
+                    r'(?:^|,)\s*bet_type\s*:\s*["\']([^"\']+)["\']',
+                    body,
+                ):
+                    if value.casefold() != "freebet":
+                        return True
+
+            assignment_patterns = (
+                rf'\b{escaped}\.bet_type\s*=\s*["\']([^"\']+)["\']',
+                rf'\b{escaped}\[["\']bet_type["\']\]\s*=\s*["\']([^"\']+)["\']',
+            )
+            for pattern in assignment_patterns:
+                for value in re.findall(pattern, source):
+                    if value.casefold() != "freebet":
+                        return True
+        return False
+
+    # Clients that serialize req inline have no alias to trace. Preserve the
+    # direct, req-scoped contract shapes used by those games.
+    return bool(
+        re.search(
+            r'(?:\breq\s*:\s*\{[^{}]{0,1600}\bbet_type\s*:|\.req\.bet_type\s*=|\.req\[["\']bet_type["\']\]\s*=)',
+            source,
+        )
+    )
+
+
 def _wire_contract_evidence(text: str) -> dict[str, Any]:
     """Return source-free syntax evidence for HyperHive request discovery.
 
@@ -41,12 +96,7 @@ def _wire_contract_evidence(text: str) -> dict[str, Any]:
         for name, pattern in patterns.items()
     }
 
-    aliases = set(
-        re.findall(
-            r'\bparams\s*:\s*\{[^{}]{0,2000}\breq\s*:\s*([A-Za-z_$][A-Za-z0-9_$]*)(?=[,}])',
-            compact,
-        )
-    )
+    aliases = _params_req_aliases(compact)
     evidence["params_req_identifier"] = bool(aliases)
     alias_bet = False
     alias_bet_type = False
@@ -77,6 +127,7 @@ def _wire_contract_evidence(text: str) -> dict[str, Any]:
     evidence["req_alias_bet_type_dot_assignment"] = alias_bet_type
     evidence["req_alias_object_bet_value"] = alias_object_bet_value
     evidence["req_alias_object_bet_shorthand"] = alias_object_bet_shorthand
+    evidence["normal_req_bet_type"] = _has_req_bet_type_evidence(compact)
 
     evidence["bet_token_count"] = min(9999, len(re.findall(r"\bbet\b", compact)))
     evidence["req_token_count"] = min(9999, len(re.findall(r"\breq\b", compact)))
@@ -123,13 +174,13 @@ def _read_evidence(runtime: Any) -> dict[str, Any]:
 
 
 def install_contract_probe() -> None:
-    """Attach safe structural evidence to modes and final diagnostic results."""
+    """Attach safe structural evidence and contextual req predicates."""
     global _installed
     with _install_lock:
         if _installed:
             return
 
-        from tester_spin.providers.bgaming import hyperhive
+        from tester_spin.providers.bgaming import hyperhive, hyperhive_wire
 
         original_discover_modes = hyperhive.discover_modes_from_bundle
         original_run_hyperhive_test = hyperhive.run_hyperhive_test
@@ -183,6 +234,7 @@ def install_contract_probe() -> None:
         hyperhive.discover_modes_from_bundle = probed_discover_modes
         hyperhive.run_hyperhive_test = probed_run_hyperhive_test
         hyperhive._mode_diagnostic_metadata = _mode_diagnostic_metadata
+        hyperhive_wire._has_req_bet_type_evidence = _has_req_bet_type_evidence
 
         execution_module = sys.modules.get("tester_spin.providers.bgaming.execution")
         if execution_module is not None:
@@ -192,6 +244,7 @@ def install_contract_probe() -> None:
 
 
 __all__ = [
+    "_has_req_bet_type_evidence",
     "_wire_contract_evidence",
     "_mode_diagnostic_metadata",
     "install_contract_probe",
