@@ -350,6 +350,18 @@ def install_hyperhive_transport_adapter() -> None:
 
         hyperhive._download_engine_contract = complete_engine_contract
         hyperhive._rpc = contextual_rpc
+
+        # Install a source-free structural probe after the live wire adapter so
+        # Actions can explain why a contract was accepted/rejected without
+        # exporting proprietary client source or any session material.
+        from tester_spin.providers.bgaming import hyperhive_wire
+        from tester_spin.providers.bgaming.hyperhive_contract_probe import (
+            _wire_contract_evidence,
+            install_contract_probe,
+        )
+
+        hyperhive_wire._wire_contract_evidence = _wire_contract_evidence
+        install_contract_probe()
         _installed = True
 
 
