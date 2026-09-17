@@ -66,6 +66,29 @@ class HARToolTesterSpinApp(CurrentTesterSpinApp):
             command=self._open_selected_har_folder,
         )
         self.open_har_folder_btn.pack(side="left", padx=(8, 0))
+        self.open_diagnostic_btn = ttk.Button(
+            folder_button.master, text="Árbol y diagnóstico",
+            command=self._open_selected_diagnostic,
+        )
+        self.open_diagnostic_btn.pack(side="left", padx=(8, 0))
+
+    def _open_selected_diagnostic(self) -> None:
+        from tester_spin.run_tree import latest_run_report
+        game = self._selected_game_for_har()
+        if game is None:
+            messagebox.showinfo("Tester-Spin", "Seleccioná un juego para consultar su árbol y diagnóstico.")
+            return
+        try:
+            provider = self.registry.get(game.provider)
+            folder = provider.farm_contract_dir(game)
+            report = latest_run_report(folder) if folder is not None else None
+            if report is None:
+                messagebox.showinfo("Tester-Spin", "Todavía no hay un informe de esta versión. Ejecutá una prueba del juego para generarlo.")
+                return
+            _open_directory(report)
+            self._append_log(f"[{game.name}] árbol y diagnóstico: {report}")
+        except Exception as exc:
+            messagebox.showerror("Tester-Spin", f"No se pudo abrir el diagnóstico.\n\n{type(exc).__name__}: {exc}")
 
     def _selected_game_for_har(self) -> Game | None:
         selection = list(self.tree.selection())
