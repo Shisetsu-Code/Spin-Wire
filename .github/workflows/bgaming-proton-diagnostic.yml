@@ -7,6 +7,7 @@ on:
       - feat/farm-contract-export-v1
     paths:
       - ".github/workflows/bgaming-proton-diagnostic.yml"
+      - ".github/diagnostic-target.txt"
       - "tester_spin/action_bgaming_diagnostic.py"
       - "tester_spin/providers/bgaming/**"
       - "tester_spin/scheduler.py"
@@ -26,7 +27,6 @@ jobs:
     env:
       PYTHONUNBUFFERED: "1"
       TESTER_SPIN_PUBLISH_RESULTS: "0"
-      DIAG_GAME: "Alien Fruits 3"
       DIAG_SPINS: "1"
       DIAG_TIMEOUT: "60"
       DIAG_MAX_PAGES: "100"
@@ -34,6 +34,23 @@ jobs:
     steps:
       - name: Checkout Spin-Wire
         uses: actions/checkout@v4
+
+      - name: Load diagnostic target
+        shell: bash
+        run: |
+          set -euo pipefail
+          target_file=".github/diagnostic-target.txt"
+          if [ ! -s "$target_file" ]; then
+            echo "Diagnostic target file is missing or empty: $target_file" >&2
+            exit 1
+          fi
+          target="$(tr -d '\r' < "$target_file" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//' | sed '/^#/d;/^$/d' | head -n 1)"
+          if [ -z "$target" ]; then
+            echo "Diagnostic target file has no usable game name." >&2
+            exit 1
+          fi
+          printf 'DIAG_GAME=%s\n' "$target" >> "$GITHUB_ENV"
+          printf 'Diagnostic target: %s\n' "$target"
 
       - name: Set up Python
         uses: actions/setup-python@v5
