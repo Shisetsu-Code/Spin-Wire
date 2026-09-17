@@ -1,12 +1,15 @@
 from __future__ import annotations
 
 import re
+import sys
 import threading
+import weakref
 from typing import Any
 
 
 _install_lock = threading.Lock()
 _installed = False
+_evidence_by_session: weakref.WeakKeyDictionary[Any, dict[str, Any]] = weakref.WeakKeyDictionary()
 
 
 def _wire_contract_evidence(text: str) -> dict[str, Any]:
@@ -24,8 +27,6 @@ def _wire_contract_evidence(text: str) -> dict[str, Any]:
         "req_bet_object_value": r'\breq\s*:\s*\{[^{}]{0,2000}\bbet\s*:',
         "req_bet_dot_assignment": r'\.req\.bet\s*=',
         "req_bet_bracket_assignment": r'\.req\[["\']bet["\']\]\s*=',
-        # Minified ES2015 clients often serialize `{req:{bet,bet_type:"bet"}}`.
-        # Object shorthand is semantically the same field presence as `bet:x`.
         "req_bet_shorthand": (
             r'\breq\s*:\s*\{(?:bet(?=[,}])|[^{}]{0,2000},bet(?=[,}]))'
         ),
@@ -49,8 +50,42 @@ def _wire_contract_evidence(text: str) -> dict[str, Any]:
     return evidence
 
 
+def _mode_diagnostic_metadata(mode: dict[str, Any]) -> dict[str, Any]:
+    metadata: dict[str, Any] = {
+        "id": str(mode.get("id") or ""),
+        "kind": str(mode.get("kind") or ""),
+        "observed": bool(mode.get("observed", False)),
+        "validated": bool(mode.get("validated", False)),
+        "executable": bool(mode.get("executable")),
+        "discovery_state": str(mode.get("discovery_state") or "DISCOVERED"),
+        "wire_method": str(mode.get("wire_method") or "play"),
+        "request_options": dict(mode.get("request") or mode.get("request_options") or {}),
+        "source": str(mode.get("source") or ""),
+    }
+    evidence = mode.get("contract_evidence")
+    if isinstance(evidence, dict):
+        metadata["contract_evidence"] = dict(evidence)
+    if isinstance(mode.get("coverage_required"), bool):
+        metadata["coverage_required"] = bool(mode["coverage_required"])
+    return metadata
+
+
+def _remember_evidence(runtime: Any, evidence: dict[str, Any]) -> None:
+    try:
+        _evidence_by_session[runtime.session] = dict(evidence)
+    except (AttributeError, TypeError):
+        pass
+
+
+def _read_evidence(runtime: Any) -> dict[str, Any]:
+    try:
+        return dict(_evidence_by_session.get(runtime.session) or {})
+    except (AttributeError, TypeError):
+        return {}
+
+
 def install_contract_probe() -> None:
-    """Attach safe structural evidence to modes without changing execution."""
+    """Attach safe structural evidence to modes and final diagnostic results."""
     global _installed
     with _install_lock:
         if _installed:
@@ -59,6 +94,7 @@ def install_contract_probe() -> None:
         from tester_spin.providers.bgaming import hyperhive
 
         original_discover_modes = hyperhive.discover_modes_from_bundle
+        original_run_hyperhive_test = hyperhive.run_hyperhive_test
 
         def probed_discover_modes(
             runtime,
@@ -83,6 +119,7 @@ def install_contract_probe() -> None:
             evidence = _wire_contract_evidence(
                 resolved_bundle + "\n" + (engine_contract or "")
             )
+            _remember_evidence(runtime, evidence)
             base = next(
                 (
                     mode for mode in modes
@@ -94,8 +131,32 @@ def install_contract_probe() -> None:
                 base["contract_evidence"] = evidence
             return modes
 
+        def probed_run_hyperhive_test(*args, **kwargs):
+            runtime = kwargs.get("runtime")
+            result = original_run_hyperhive_test(*args, **kwargs)
+            evidence = _read_evidence(runtime) if runtime is not None else {}
+            if evidence:
+                for mode in result.discovered_modes:
+                    if isinstance(mode, dict) and str(mode.get("id") or "") == "SPIN":
+                        mode["contract_evidence"] = evidence
+                        break
+            return result
+
         hyperhive.discover_modes_from_bundle = probed_discover_modes
+        hyperhive.run_hyperhive_test = probed_run_hyperhive_test
+        hyperhive._mode_diagnostic_metadata = _mode_diagnostic_metadata
+
+        # execution.py imports run_hyperhive_test by value during package import.
+        # Patch that already-loaded binding too, without importing recursively.
+        execution_module = sys.modules.get("tester_spin.providers.bgaming.execution")
+        if execution_module is not None:
+            setattr(execution_module, "run_hyperhive_test", probed_run_hyperhive_test)
+
         _installed = True
 
 
-__all__ = ["_wire_contract_evidence", "install_contract_probe"]
+__all__ = [
+    "_wire_contract_evidence",
+    "_mode_diagnostic_metadata",
+    "install_contract_probe",
+]
