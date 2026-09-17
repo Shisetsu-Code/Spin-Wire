@@ -1,0 +1,8 @@
+{
+  "concurrency": 3,
+  "spins": 1,
+  "timeout_seconds": 60,
+  "max_catalog_pages": 100,
+  "targets": ["*"],
+  "run_nonce": "baseline-1"
+}
