@@ -12,6 +12,7 @@ on:
       - "tester_spin/providers/bgaming/**"
       - "tester_spin/scheduler.py"
       - "tests/test_action_bgaming_diagnostic.py"
+      - "tests/test_bgaming_hyperhive_purchase_evidence.py"
 
 permissions:
   contents: read
@@ -70,7 +71,9 @@ jobs:
         run: |
           set -euo pipefail
           python -m compileall -q tester_spin/action_bgaming_diagnostic.py
-          python -m pytest -q tests/test_action_bgaming_diagnostic.py
+          python -m pytest -q \
+            tests/test_action_bgaming_diagnostic.py \
+            tests/test_bgaming_hyperhive_purchase_evidence.py
 
       - name: Install WireGuard tools
         shell: bash
