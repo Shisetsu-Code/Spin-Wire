@@ -220,7 +220,7 @@ def build_bgaming_farm_contract(
         kind = str(raw_mode.get("kind") or "UNKNOWN").upper()
         command = str(raw_mode.get("wire_command") or "").strip()
         evidence = _mode_evidence(raw_mode, result_status=result.status)
-        required = True
+        required = raw_mode.get("coverage_required") is not False
 
         item: dict[str, Any] = {
             "id": mode_id,
@@ -250,7 +250,7 @@ def build_bgaming_farm_contract(
             if label not in unresolved_continuations:
                 unresolved_continuations.append(label)
 
-        if evidence != "DEMOSTRADO":
+        if required and evidence != "DEMOSTRADO":
             unresolved.append(f"MODE_NOT_DEMONSTRATED:{mode_id}:{evidence}")
 
     if not spin_demonstrated:
