@@ -6,23 +6,13 @@ on:
     branches:
       - feat/farm-contract-export-v1
     paths:
-      - ".github/workflows/bgaming-proton-diagnostic.yml"
       - ".github/diagnostic-target.txt"
-      - "tester_spin/action_bgaming_diagnostic.py"
-      - "tester_spin/providers/bgaming/**"
-      - "tester_spin/providers/path_coverage.py"
-      - "tester_spin/scheduler.py"
-      - "tests/test_action_bgaming_diagnostic.py"
-      - "tests/test_bgaming_farm_contract.py"
-      - "tests/test_bgaming_hyperhive_purchase_evidence.py"
-      - "tests/test_bgaming_sweep_concurrency.py"
-      - "tests/test_path_coverage.py"
 
 permissions:
   contents: read
 
 concurrency:
-  group: bgaming-proton-diagnostic
+  group: bgaming-proton-wireguard
   cancel-in-progress: false
 
 jobs:
@@ -79,6 +69,7 @@ jobs:
             tests/test_action_bgaming_diagnostic.py \
             tests/test_bgaming_farm_contract.py \
             tests/test_bgaming_hyperhive_purchase_evidence.py \
+            tests/test_bgaming_path_policy.py \
             tests/test_bgaming_sweep_concurrency.py \
             tests/test_path_coverage.py
 
