@@ -88,6 +88,19 @@ def test_contract_evidence_reports_structure_without_source_literals() -> None:
     assert "secretValue" not in serialized
 
 
+def test_contract_evidence_traces_identifier_passed_as_params_req() -> None:
+    text = (
+        'const r={};r.bet=stake;r.bet_type="bet";'
+        'const request={method:"play",params:{token:t,req:r}};'
+    )
+
+    evidence = hyperhive_wire._wire_contract_evidence(text)
+
+    assert evidence["params_req_identifier"] is True
+    assert evidence["req_alias_bet_dot_assignment"] is True
+    assert evidence["req_alias_bet_type_dot_assignment"] is True
+
+
 def test_mode_diagnostic_metadata_preserves_source_free_contract_evidence() -> None:
     mode = {
         "id": "SPIN",
