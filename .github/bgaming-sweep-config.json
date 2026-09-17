@@ -3,6 +3,12 @@
   "spins": 1,
   "timeout_seconds": 60,
   "max_catalog_pages": 100,
-  "targets": ["*"],
-  "run_nonce": "baseline-1"
+  "targets": [
+    "Alien Fruits 3",
+    "Adventures",
+    "Multi Rush",
+    "Elvis Frog in Vegas",
+    "Aztec's Claw Wild Dice"
+  ],
+  "run_nonce": "capability-controls-1"
 }
