@@ -2,17 +2,13 @@ from __future__ import annotations
 
 import argparse
 import json
-import os
-import shutil
-import sys
 import threading
 from pathlib import Path
-from typing import Any, Iterable
+from typing import Iterable
 
+from tester_spin.action_sanitize import copy_safe_diagnostics, sanitize_action_value
 from tester_spin.models import Game, GameTestResult
 from tester_spin.providers.bgaming import BGamingProvider
-from tester_spin.providers.bgaming.runtime import sanitize_error_text, sanitize_session_url
-from tester_spin.run_diagnostics import sanitize
 from tester_spin.scheduler import run_game_tests
 
 
@@ -52,19 +48,6 @@ def select_game(games: Iterable[Game], query: str) -> Game:
     )
 
 
-def _sanitize_value(value: Any) -> Any:
-    if isinstance(value, dict):
-        return {str(key): _sanitize_value(item) for key, item in value.items()}
-    if isinstance(value, (list, tuple)):
-        return [_sanitize_value(item) for item in value]
-    if isinstance(value, str):
-        cleaned = sanitize_error_text(value)
-        if cleaned.startswith(("http://", "https://")):
-            cleaned = sanitize_session_url(cleaned)
-        return sanitize(cleaned)
-    return value
-
-
 def write_result_summary(
     path: Path,
     result: GameTestResult,
@@ -80,36 +63,9 @@ def write_result_summary(
     }
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(
-        json.dumps(_sanitize_value(payload), ensure_ascii=False, indent=2),
+        json.dumps(sanitize_action_value(payload), ensure_ascii=False, indent=2),
         encoding="utf-8",
     )
-
-
-def copy_safe_diagnostics(run_dir: Path, output_dir: Path) -> list[str]:
-    """Export only reports produced by run_diagnostics, never raw wire captures."""
-    copied: list[str] = []
-    output_dir.mkdir(parents=True, exist_ok=True)
-    for name in ("diagnostic.json", "diagnostic.md"):
-        source = run_dir / name
-        if not source.is_file():
-            continue
-        target = output_dir / name
-        if source.suffix == ".json":
-            try:
-                value = json.loads(source.read_text(encoding="utf-8"))
-            except (OSError, ValueError):
-                continue
-            target.write_text(
-                json.dumps(_sanitize_value(value), ensure_ascii=False, indent=2),
-                encoding="utf-8",
-            )
-        else:
-            target.write_text(
-                str(_sanitize_value(source.read_text(encoding="utf-8", errors="replace"))),
-                encoding="utf-8",
-            )
-        copied.append(name)
-    return copied
 
 
 def _parser() -> argparse.ArgumentParser:
@@ -141,7 +97,7 @@ def main(argv: list[str] | None = None) -> int:
     log_path = output_dir / "spin-wire.log"
 
     def progress(message: str) -> None:
-        text = str(_sanitize_value(str(message)))
+        text = str(sanitize_action_value(str(message)))
         print(text, flush=True)
         with log_path.open("a", encoding="utf-8") as handle:
             handle.write(text + "\n")
@@ -188,7 +144,7 @@ def main(argv: list[str] | None = None) -> int:
         )
         return 0
     except BaseException as exc:
-        detail = _sanitize_value(f"{type(exc).__name__}: {exc}")
+        detail = sanitize_action_value(f"{type(exc).__name__}: {exc}")
         failure = {
             "schema": "spin-wire/action-bgaming-diagnostic/v1",
             "query": args.game,
