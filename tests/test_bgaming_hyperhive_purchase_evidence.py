@@ -2,8 +2,6 @@ from __future__ import annotations
 
 import requests
 
-# Import the active provider package so the same production HyperHive adapters
-# used by the GUI and Actions runner are installed for these tests.
 from tester_spin.providers.bgaming import BGamingProvider  # noqa: F401
 from tester_spin.providers.bgaming import hyperhive, hyperhive_wire
 from tester_spin.providers.bgaming.runtime import BGamingRuntime
@@ -99,6 +97,23 @@ def test_contract_evidence_traces_identifier_passed_as_params_req() -> None:
     assert evidence["params_req_identifier"] is True
     assert evidence["req_alias_bet_dot_assignment"] is True
     assert evidence["req_alias_bet_type_dot_assignment"] is True
+
+
+def test_contract_evidence_traces_req_alias_object_bet_fields() -> None:
+    text = (
+        'const r={bet:stake,bet_type:"bet"};'
+        'const request={method:"play",params:{token:t,req:r}};'
+    )
+    shorthand = (
+        'const bet=stake;const r={bet};'
+        'const request={method:"play",params:{token:t,req:r}};'
+    )
+
+    evidence = hyperhive_wire._wire_contract_evidence(text)
+    shorthand_evidence = hyperhive_wire._wire_contract_evidence(shorthand)
+
+    assert evidence["req_alias_object_bet_value"] is True
+    assert shorthand_evidence["req_alias_object_bet_shorthand"] is True
 
 
 def test_mode_diagnostic_metadata_preserves_source_free_contract_evidence() -> None:
