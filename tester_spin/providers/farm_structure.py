@@ -4,7 +4,7 @@ from copy import deepcopy
 from typing import Any
 
 
-_WAGER_KINDS = {"SPIN", "ANTE_BET", "PURCHASE"}
+_WAGER_KINDS = {"SPIN", "ANTE_BET", "PURCHASE", "VARIANT"}
 _CHOICE_KINDS = {
     "CONTINUATION",
     "CHOICE_CONTINUATION",
