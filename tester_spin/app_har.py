@@ -9,6 +9,7 @@ from typing import Any
 from tkinter import messagebox, ttk
 
 from tester_spin.app_current import CurrentTesterSpinApp
+from tester_spin.app_project_actions import ProjectActionsMixin
 from tester_spin.models import Game
 from tester_spin.providers import RedTigerProvider, RubyPlayProvider
 
@@ -37,7 +38,7 @@ def _find_button_by_text(root: Any, text: str):
     return None
 
 
-class HARToolTesterSpinApp(CurrentTesterSpinApp):
+class HARToolTesterSpinApp(ProjectActionsMixin, CurrentTesterSpinApp):
     """Current GUI plus direct access to per-game HAR diagnostics."""
 
     def __init__(self) -> None:
@@ -59,6 +60,9 @@ class HARToolTesterSpinApp(CurrentTesterSpinApp):
         folder_button = _find_button_by_text(self, "Abrir carpeta")
         if folder_button is None:
             return
+
+        catalog_section = self.crawl_btn.master.master
+        self._build_project_actions(catalog_section.master, catalog_section)
 
         self.open_har_folder_btn = ttk.Button(
             folder_button.master,
