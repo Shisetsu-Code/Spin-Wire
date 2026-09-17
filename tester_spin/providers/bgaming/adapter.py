@@ -35,15 +35,22 @@ class BGamingProvider(BGamingExecutionMixin, ProviderAdapter):
     catalog_url = "https://bgaming.com/game-type/slots"
     min_catalog_reconcile_ratio = 0.70
     # BGaming's public demo origin showed repeated HTTP 502 responses under
-    # parallel stateful sessions. Keep provider execution serial until the
-    # transport has been validated under a higher concurrency level.
+    # parallel stateful sessions. Normal provider execution remains serial. A
+    # dedicated diagnostic sweep may opt into a small, explicit instance cap.
     max_test_concurrency = 1
 
-    def __init__(self, data_root: Path) -> None:
+    def __init__(
+        self,
+        data_root: Path,
+        *,
+        test_concurrency_cap: int | None = None,
+    ) -> None:
         self.data_root = data_root
         self.provider_root = data_root / "providers" / self.key
         self.provider_root.mkdir(parents=True, exist_ok=True)
         self.http = self._new_session()
+        if test_concurrency_cap is not None:
+            self.max_test_concurrency = max(1, min(4, int(test_concurrency_cap)))
 
     @staticmethod
     def _new_session() -> requests.Session:
