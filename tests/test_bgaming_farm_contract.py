@@ -155,10 +155,38 @@ class BGamingFarmContractTests(unittest.TestCase):
                 by_id["PURCHASE_FREESPIN_BUY"]["evidence"],
                 "DEMOSTRADO",
             )
-            # A continuation observed inside a fully terminal OK run is proven by
-            # that terminal path even though SpinAttempt is keyed by root mode.
             self.assertEqual(by_id["FREESPIN"]["evidence"], "DEMOSTRADO")
             self.assertEqual(validate_bgaming_farm_contract(contract), [])
+
+    def test_optional_literal_only_purchase_does_not_block_ready_contract(self) -> None:
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            _write_game_json(root, profile=_profile())
+            result = _result()
+            result.discovered_modes.append(
+                {
+                    "id": "PURCHASE_LITERAL_ONLY",
+                    "kind": "PURCHASE",
+                    "wire_command": "spin",
+                    "purchased_feature": "buy_bonus",
+                    "observed": False,
+                    "validated": False,
+                    "executable": False,
+                    "coverage_required": False,
+                    "discovery_state": "DISCOVERED_LITERAL_ONLY",
+                }
+            )
+
+            contract = build_bgaming_farm_contract(_game(), result, root)
+
+            self.assertTrue(contract["ready"], contract["unresolved"])
+            by_id = {mode["id"]: mode for mode in contract["modes"]}
+            self.assertFalse(by_id["PURCHASE_LITERAL_ONLY"]["required"])
+            self.assertEqual(by_id["PURCHASE_LITERAL_ONLY"]["evidence"], "SOLO_ANUNCIADO")
+            self.assertFalse(
+                any("PURCHASE_LITERAL_ONLY" in reason for reason in contract["unresolved"]),
+                contract["unresolved"],
+            )
 
     def test_non_demonstrated_required_mode_blocks_promotion(self) -> None:
         for evidence in ("NO_VALIDADO", "CANDIDATO_WIRE", "SOLO_ANUNCIADO"):
@@ -190,7 +218,7 @@ class BGamingFarmContractTests(unittest.TestCase):
 
     def test_unvalidated_or_unknown_profile_blocks_promotion(self) -> None:
         for profile in (_profile(validated=False), _profile(family="unknown")):
-            with tempfile.TemporaryDirectory() as temp:
+            with self.subTest(profile=profile), tempfile.TemporaryDirectory() as temp:
                 root = Path(temp)
                 _write_game_json(root, profile=profile)
                 contract = build_bgaming_farm_contract(_game(), _result(), root)
