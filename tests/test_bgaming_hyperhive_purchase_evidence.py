@@ -25,9 +25,6 @@ def _runtime() -> BGamingRuntime:
 def test_known_purchase_literal_without_req_scope_is_discovery_only() -> None:
     runtime = _runtime()
     try:
-        # The base play serializer is proven, but buy_bonus is only a loose
-        # client literal. That proves vocabulary, not that this game's live
-        # request serializer/menu makes the purchase available.
         bundle = (
             'var request={req:{bet:stake,bet_type:"bet"}};'
             'function metadata(){return {purchased_feature:"buy_bonus"}};'
@@ -89,3 +86,25 @@ def test_contract_evidence_reports_structure_without_source_literals() -> None:
     serialized = repr(evidence)
     assert "do-not-export" not in serialized
     assert "secretValue" not in serialized
+
+
+def test_mode_diagnostic_metadata_preserves_source_free_contract_evidence() -> None:
+    mode = {
+        "id": "SPIN",
+        "kind": "SPIN",
+        "request": {"bet_type": "bet"},
+        "source": "live-client-evidence-incomplete",
+        "executable": False,
+        "discovery_state": "CONTRACT_UNRESOLVED",
+        "contract_evidence": {
+            "method_play": True,
+            "req_bet_shorthand": True,
+            "bet_token_count": 4,
+            "syntax_signatures": ["method_play", "req_bet_shorthand"],
+        },
+    }
+
+    metadata = hyperhive._mode_diagnostic_metadata(mode)
+
+    assert metadata["contract_evidence"]["req_bet_shorthand"] is True
+    assert metadata["request_options"] == {"bet_type": "bet"}
