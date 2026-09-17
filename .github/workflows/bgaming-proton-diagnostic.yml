@@ -2,36 +2,6 @@ name: BGaming Proton diagnostic
 
 on:
   workflow_dispatch:
-    inputs:
-      game:
-        description: "Nombre, slug o ID BGaming"
-        required: true
-        default: "Alien Fruits 3"
-        type: string
-      spins:
-        description: "Muestras por ruta"
-        required: true
-        default: "1"
-        type: choice
-        options:
-          - "1"
-          - "2"
-          - "3"
-      timeout_seconds:
-        description: "Timeout por operación"
-        required: true
-        default: "60"
-        type: choice
-        options:
-          - "30"
-          - "60"
-          - "90"
-          - "120"
-      max_catalog_pages:
-        description: "Máximo de páginas de catálogo a recorrer"
-        required: true
-        default: "100"
-        type: string
   push:
     branches:
       - feat/farm-contract-export-v1
@@ -56,10 +26,10 @@ jobs:
     env:
       PYTHONUNBUFFERED: "1"
       TESTER_SPIN_PUBLISH_RESULTS: "0"
-      DIAG_GAME: ${{ github.event.inputs.game || 'Alien Fruits 3' }}
-      DIAG_SPINS: ${{ github.event.inputs.spins || '1' }}
-      DIAG_TIMEOUT: ${{ github.event.inputs.timeout_seconds || '60' }}
-      DIAG_MAX_PAGES: ${{ github.event.inputs.max_catalog_pages || '100' }}
+      DIAG_GAME: "Alien Fruits 3"
+      DIAG_SPINS: "1"
+      DIAG_TIMEOUT: "60"
+      DIAG_MAX_PAGES: "100"
 
     steps:
       - name: Checkout Spin-Wire
