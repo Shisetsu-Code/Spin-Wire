@@ -8,7 +8,7 @@ from tester_spin.providers.bgaming.farm_contract import (
     validate_bgaming_farm_contract,
 )
 from tester_spin.providers.bgaming_paths_v2 import BGamingProvider as _BGamingProvider
-from tester_spin.providers.farm_structure import attach_execution_structure, select_domains
+from tester_spin.providers.farm_structure import build_execution_structure, select_domains
 
 
 class BGamingProvider(_BGamingProvider):
@@ -34,7 +34,23 @@ class BGamingProvider(_BGamingProvider):
                 "purchase_features",
             ),
         )
-        return attach_execution_structure(contract, provider_domains=domains)
+
+        # contract["modes"] intentionally keeps weak/discovery-only rows for
+        # auditability. The future farm execution surface must be stricter: it
+        # may expose only paths actually demonstrated to terminal/base. This
+        # prevents an optional literal/server-advertised purchase from becoming
+        # executable merely because the overall game is otherwise ready.
+        raw_modes = contract.get("modes")
+        demonstrated_modes = [
+            mode
+            for mode in (raw_modes if isinstance(raw_modes, list) else [])
+            if isinstance(mode, dict) and mode.get("evidence") == "DEMOSTRADO"
+        ]
+        contract["execution_structure"] = build_execution_structure(
+            demonstrated_modes,
+            provider_domains=domains,
+        )
+        return contract
 
     def validate_farm_contract(self, contract: dict) -> list[str]:
         return validate_bgaming_farm_contract(contract)
