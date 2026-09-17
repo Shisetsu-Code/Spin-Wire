@@ -11,7 +11,7 @@ from typing import Any, Iterable
 from tester_spin.action_bgaming_diagnostic import select_game
 from tester_spin.action_sanitize import copy_safe_diagnostics, sanitize_action_value
 from tester_spin.models import Game, GameTestResult
-from tester_spin.providers.bgaming import BGamingProvider
+from tester_spin.providers import BGamingProvider
 from tester_spin.scheduler import run_game_tests
 
 
