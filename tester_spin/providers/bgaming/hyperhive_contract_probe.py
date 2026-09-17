@@ -26,7 +26,9 @@ def _wire_contract_evidence(text: str) -> dict[str, Any]:
         "req_bet_bracket_assignment": r'\.req\[["\']bet["\']\]\s*=',
         # Minified ES2015 clients often serialize `{req:{bet,bet_type:"bet"}}`.
         # Object shorthand is semantically the same field presence as `bet:x`.
-        "req_bet_shorthand": r'\breq\s*:\s*\{[^{}]{0,2000}(?:^|[,{])bet(?=[,}])',
+        "req_bet_shorthand": (
+            r'\breq\s*:\s*\{(?:bet(?=[,}])|[^{}]{0,2000},bet(?=[,}]))'
+        ),
         "req_bet_type_object": r'\breq\s*:\s*\{[^{}]{0,2000}\bbet_type\s*:',
         "req_bet_type_dot_assignment": r'\.req\.bet_type\s*=',
         "req_bet_type_bracket_assignment": r'\.req\[["\']bet_type["\']\]\s*=',
