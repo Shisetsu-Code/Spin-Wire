@@ -19,6 +19,7 @@ on:
       - "tester_spin/scheduler.py"
       - "tests/test_action_bgaming_*.py"
       - "tests/test_bgaming_farm_contract.py"
+      - "tests/test_bgaming_farm_contract_edge_cases.py"
       - "tests/test_bgaming_hyperhive_purchase_evidence.py"
       - "tests/test_bgaming_path_policy.py"
       - "tests/test_bgaming_sweep_concurrency.py"
@@ -45,6 +46,7 @@ jobs:
             tests/test_action_bgaming_diagnostic.py \
             tests/test_action_bgaming_sweep.py \
             tests/test_bgaming_farm_contract.py \
+            tests/test_bgaming_farm_contract_edge_cases.py \
             tests/test_bgaming_hyperhive_purchase_evidence.py \
             tests/test_bgaming_path_policy.py \
             tests/test_bgaming_sweep_concurrency.py \
