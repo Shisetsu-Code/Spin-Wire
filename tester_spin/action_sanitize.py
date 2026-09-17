@@ -8,6 +8,15 @@ from tester_spin.providers.bgaming.runtime import sanitize_error_text, sanitize_
 from tester_spin.run_diagnostics import sanitize
 
 
+_SAFE_DIAGNOSTIC_FILES = (
+    "diagnostic.json",
+    "diagnostic.md",
+    "path-coverage.json",
+    "path-catalog.json",
+    "wager-catalog.json",
+)
+
+
 def sanitize_action_value(value: Any) -> Any:
     if isinstance(value, dict):
         return {str(key): sanitize_action_value(item) for key, item in value.items()}
@@ -22,10 +31,10 @@ def sanitize_action_value(value: Any) -> Any:
 
 
 def copy_safe_diagnostics(run_dir: Path, output_dir: Path) -> list[str]:
-    """Export only sanitized reports, never raw wire captures or HAR files."""
+    """Export only sanitized structural reports, never raw wire captures/HAR."""
     copied: list[str] = []
     output_dir.mkdir(parents=True, exist_ok=True)
-    for name in ("diagnostic.json", "diagnostic.md"):
+    for name in _SAFE_DIAGNOSTIC_FILES:
         source = run_dir / name
         if not source.is_file():
             continue
@@ -36,12 +45,20 @@ def copy_safe_diagnostics(run_dir: Path, output_dir: Path) -> list[str]:
             except (OSError, ValueError):
                 continue
             target.write_text(
-                json.dumps(sanitize_action_value(value), ensure_ascii=False, indent=2),
+                json.dumps(
+                    sanitize_action_value(value),
+                    ensure_ascii=False,
+                    indent=2,
+                ),
                 encoding="utf-8",
             )
         else:
             target.write_text(
-                str(sanitize_action_value(source.read_text(encoding="utf-8", errors="replace"))),
+                str(
+                    sanitize_action_value(
+                        source.read_text(encoding="utf-8", errors="replace")
+                    )
+                ),
                 encoding="utf-8",
             )
         copied.append(name)
