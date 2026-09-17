@@ -50,6 +50,8 @@ def _wire_contract_evidence(text: str) -> dict[str, Any]:
     evidence["params_req_identifier"] = bool(aliases)
     alias_bet = False
     alias_bet_type = False
+    alias_object_bet_value = False
+    alias_object_bet_shorthand = False
     for alias in aliases:
         escaped = re.escape(alias)
         if re.search(
@@ -62,8 +64,19 @@ def _wire_contract_evidence(text: str) -> dict[str, Any]:
             compact,
         ):
             alias_bet_type = True
+        for object_match in re.finditer(
+            rf'\b{escaped}\s*=\s*\{{([^{{}}]{{0,2000}})\}}',
+            compact,
+        ):
+            body = object_match.group(1)
+            if re.search(r'(?:^|,)bet:', body):
+                alias_object_bet_value = True
+            if re.search(r'(?:^|,)bet(?=,|$)', body):
+                alias_object_bet_shorthand = True
     evidence["req_alias_bet_dot_assignment"] = alias_bet
     evidence["req_alias_bet_type_dot_assignment"] = alias_bet_type
+    evidence["req_alias_object_bet_value"] = alias_object_bet_value
+    evidence["req_alias_object_bet_shorthand"] = alias_object_bet_shorthand
 
     evidence["bet_token_count"] = min(9999, len(re.findall(r"\bbet\b", compact)))
     evidence["req_token_count"] = min(9999, len(re.findall(r"\breq\b", compact)))
