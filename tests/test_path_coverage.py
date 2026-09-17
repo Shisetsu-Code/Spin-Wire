@@ -160,6 +160,28 @@ class PathCoverageTests(unittest.TestCase):
             self.assertEqual(result.status, "PARCIAL")
             self.assertIn("unknown_buy", result.error)
 
+    def test_explicit_nonrequired_actionable_mode_is_diagnostic_only(self) -> None:
+        with tempfile.TemporaryDirectory() as temp:
+            result = self._result(Path(temp))
+            result.discovered_modes.append(
+                {
+                    "id": "PURCHASE_LITERAL_ONLY",
+                    "kind": "PURCHASE",
+                    "observed": False,
+                    "executable": False,
+                    "coverage_required": False,
+                    "discovery_state": "DISCOVERED_LITERAL_ONLY",
+                    "feature_buy": "buy_bonus",
+                }
+            )
+
+            enforce_complete_path_coverage(result)
+
+            self.assertEqual(result.status, "OK")
+            report = build_path_coverage_report(result)
+            self.assertTrue(report["complete"])
+            self.assertEqual(report["branch_points"], [])
+
     def test_discovered_only_metadata_is_not_forced_executable(self) -> None:
         with tempfile.TemporaryDirectory() as temp:
             result = self._result(Path(temp))
