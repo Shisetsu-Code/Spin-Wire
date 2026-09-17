@@ -69,6 +69,15 @@ def load_sweep_config(path: Path) -> SweepConfig:
     )
 
 
+def make_sweep_provider(data_root: Path, *, concurrency: int) -> BGamingProvider:
+    """Use live runtime evidence first; capture HAR only in focused diagnostics."""
+    return BGamingProvider(
+        data_root,
+        test_concurrency_cap=concurrency,
+        capture_analysis_har=False,
+    )
+
+
 def resolve_sweep_games(games: Iterable[Game], targets: list[str]) -> list[Game]:
     items = list(games)
     if targets == ["*"]:
@@ -250,7 +259,7 @@ def main(argv: list[str] | None = None) -> int:
 
     try:
         config = load_sweep_config(Path(args.config))
-        provider = BGamingProvider(data_root, test_concurrency_cap=config.concurrency)
+        provider = make_sweep_provider(data_root, concurrency=config.concurrency)
         progress(
             f"BGaming sweep: catálogo, concurrency={config.concurrency}, "
             f"spins={config.spins}, targets={list(config.targets)!r}."
