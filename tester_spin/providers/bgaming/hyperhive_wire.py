@@ -331,13 +331,38 @@ def apply_observed_play_wire(
 
 
 def _has_req_bet_evidence(text: str) -> bool:
-    """Require direct live-client evidence that bet belongs to JSON-RPC req."""
-    return bool(
-        re.search(
-            r'(?:\breq\s*:\s*\{[^{}]{0,1600}\bbet\s*:|\.req\.bet\s*=|\.req\[["\']bet["\']\]\s*=)',
-            text or "",
+    """Require live-client proof that the bet field belongs to JSON-RPC req.
+
+    Accept direct req.bet forms and one additional minifier-safe pattern: an
+    object identifier passed specifically as params.req whose own object literal
+    contains a top-level bet field. The alias must be the same identifier; a
+    loose bet object elsewhere in the bundle is never sufficient.
+    """
+    source = text or ""
+    if re.search(
+        r'(?:\breq\s*:\s*\{[^{}]{0,1600}\bbet\s*:|\.req\.bet\s*=|\.req\[["\']bet["\']\]\s*=)',
+        source,
+    ):
+        return True
+
+    aliases = set(
+        re.findall(
+            r'\bparams\s*:\s*\{[^{}]{0,2000}\breq\s*:\s*([A-Za-z_$][A-Za-z0-9_$]*)(?=[,}])',
+            source,
         )
     )
+    for alias in aliases:
+        escaped = re.escape(alias)
+        for object_match in re.finditer(
+            rf'(?:\b(?:const|let|var)\s+)?\b{escaped}\s*=\s*\{{([^{{}}]{{0,2000}})\}}',
+            source,
+        ):
+            body = object_match.group(1)
+            if re.search(r'(?:^|,)\s*bet\s*:', body):
+                return True
+            if re.search(r'(?:^|,)\s*bet\s*(?=,|$)', body):
+                return True
+    return False
 
 
 def _has_req_bet_type_evidence(text: str) -> bool:
@@ -429,14 +454,9 @@ def install_observed_wire_adapter() -> None:
             *,
             timeout_s: float,
         ) -> str:
-            # HyperHive's outer /hyperhive document is only a launcher. Load the
-            # fresh inner /?token=<play_token> client first so runtime.script_urls
-            # contains the game scripts that actually serialize method=play.
             try:
                 prepare_hyperhive_client(runtime, timeout_s=timeout_s)
             except Exception:
-                # Discovery remains fail-closed below. Do not authorize a wager
-                # merely because the inner document could not be loaded.
                 pass
             text = original_download_engine_contract(runtime, timeout_s=timeout_s)
             _set_profile(runtime, analyze_engine_wire(text))
@@ -459,9 +479,6 @@ def install_observed_wire_adapter() -> None:
             bundle_text: str | None = None,
             engine_contract: str = "",
         ):
-            # run_hyperhive_test downloads one bundle before engine discovery.
-            # Engine discovery loads the inner iframe, so refresh the bundle here
-            # to include scripts discovered from that live inner document.
             try:
                 prepare_hyperhive_client(runtime, timeout_s=timeout_s)
             except Exception:
@@ -495,8 +512,6 @@ def install_observed_wire_adapter() -> None:
                     ):
                         request.pop("bet_type", None)
 
-                # Fail closed from live evidence only. Historical HARs are useful
-                # to design/test this parser, never to authorize a live wager.
                 if not req_bet_observed:
                     base["executable"] = False
                     base["discovery_state"] = "CONTRACT_UNRESOLVED"
@@ -506,11 +521,6 @@ def install_observed_wire_adapter() -> None:
                             mode["executable"] = False
                             mode["discovery_state"] = "BASE_CONTRACT_UNRESOLVED"
                 else:
-                    # A known purchased_feature string in a bundle is vocabulary,
-                    # not proof that this game's live request serializer/menu can
-                    # send it. Require req-scoped wire evidence before automatic
-                    # execution. Strong custom_req variants are synthesized later
-                    # from customizeFeatureBuyRequestData and remain executable.
                     for mode in modes[1:]:
                         if mode.get("kind") != "PURCHASE" or not mode.get("executable"):
                             continue
@@ -541,10 +551,6 @@ def install_observed_wire_adapter() -> None:
                         base["discovery_state"] = "OBSERVED_ENGINE_CONTRACT"
                         base["source"] = "live-inner-client+engine-contract"
 
-            # Some HyperHive games expose one transport purchase feature (for
-            # example buy_bonus) while the actual normal/super choice is encoded
-            # by booleans inside custom_req. Learn those variants from the live
-            # game's customizeFeatureBuyRequestData implementation.
             if modes and profile.purchase_custom_variants:
                 feature_names = _purchase_feature_names(combined)
                 mode_features = {
@@ -555,8 +561,6 @@ def install_observed_wire_adapter() -> None:
                 candidate_features = sorted(
                     feature for feature in (feature_names | mode_features) if feature
                 )
-                # Ambiguous multiple purchase transports stay discovery-only;
-                # do not guess which transport feature owns the boolean variants.
                 if len(candidate_features) == 1:
                     feature = candidate_features[0]
                     filtered: list[dict[str, Any]] = []
