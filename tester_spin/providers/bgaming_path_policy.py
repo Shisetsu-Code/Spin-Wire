@@ -215,6 +215,7 @@ def scoped_choice_domains(
 
 
 def _remember_profile(profile: Any) -> Any:
+    _LOCAL.profile_family = getattr(profile, "family", "")
     features = getattr(profile, "purchase_features", None)
     _LOCAL.client_purchase_features = {
         str(item) for item in features if str(item)
@@ -245,11 +246,13 @@ def _discover_purchase_modes_policy(data: dict[str, Any]) -> list[dict[str, Any]
         mode
         for mode in advertised
         if _purchase_is_client_proven(str(mode.get("name") or ""), client_features)
+        or (getattr(_LOCAL, "profile_family", "") == "api-v2" and mode.get("level") is None)
     ]
 
 
 def begin_policy_run() -> None:
     _LOCAL.client_purchase_features = None
+    _LOCAL.profile_family = ""
     _LOCAL.coverage_active = True
     _LOCAL.hyperhive_raw_init = None
     _LOCAL.hyperhive_wager_plan = None
@@ -257,6 +260,7 @@ def begin_policy_run() -> None:
 
 def end_policy_run() -> None:
     _LOCAL.client_purchase_features = None
+    _LOCAL.profile_family = ""
     _LOCAL.coverage_active = False
     _LOCAL.hyperhive_raw_init = None
     _LOCAL.hyperhive_wager_plan = None

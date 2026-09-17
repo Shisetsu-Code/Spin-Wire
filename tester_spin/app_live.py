@@ -196,6 +196,8 @@ class LiveTesterSpinApp(TesterSpinApp):
         if current is not None and not game.last_test_at:
             # Fresh catalogue objects do not carry historical test state. Preserve
             # the row state already loaded from SQLite/D1 while streaming a recrawl.
+            game.manual_ok_at = current.manual_ok_at
+            game.manual_ok_note = current.manual_ok_note
             game.last_status = current.last_status
             game.last_error = current.last_error
             game.last_test_at = current.last_test_at
@@ -207,7 +209,7 @@ class LiveTesterSpinApp(TesterSpinApp):
         values = (
             game.name,
             game.symbol or "—",
-            game.last_status or "PENDIENTE",
+            game.display_status or "PENDIENTE",
             game.last_test_at or "—",
             game.url,
         )

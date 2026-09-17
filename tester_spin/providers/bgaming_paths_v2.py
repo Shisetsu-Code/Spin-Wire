@@ -171,6 +171,11 @@ def _purchase_mode_authorized(mode: dict[str, Any]) -> bool:
     if _policy._purchase_is_client_proven(name, explicit_features):
         return True
 
+    # API-v2 already defines spin.options.purchased_feature. Probe only exact
+    # scalar values advertised by init; nested levels still need client evidence.
+    if getattr(_policy._LOCAL, "profile_family", "") == "api-v2" and level is None:
+        return True
+
     dynamic = bool(getattr(_policy._LOCAL, "dynamic_purchased_feature", False))
     level_supported = bool(
         getattr(_policy._LOCAL, "purchase_feature_level_supported", False)

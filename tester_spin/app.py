@@ -8,7 +8,7 @@ import threading
 import tkinter as tk
 import webbrowser
 from pathlib import Path
-from tkinter import messagebox, ttk
+from tkinter import messagebox, simpledialog, ttk
 
 from PIL import Image, ImageTk
 
@@ -173,6 +173,12 @@ class TesterSpinApp(tk.Tk):
         ttk.Label(detail_frame, textvariable=self.selection_var, font=("TkDefaultFont", 12, "bold"), wraplength=420).pack(anchor="w")
         self.detail_text = tk.Text(detail_frame, height=18, wrap="word", state="disabled")
         self.detail_text.pack(fill="both", expand=True, pady=(8, 8))
+        manual_actions = ttk.Frame(detail_frame)
+        manual_actions.pack(fill="x", pady=(0, 6))
+        ttk.Button(manual_actions, text="Marcar OK manual",
+                   command=lambda: self._set_selected_manual_ok(True)).pack(side="left")
+        ttk.Button(manual_actions, text="Quitar OK manual",
+                   command=lambda: self._set_selected_manual_ok(False)).pack(side="left", padx=(8, 0))
         detail_actions = ttk.Frame(detail_frame)
         detail_actions.pack(fill="x")
         ttk.Button(detail_actions, text="Abrir juego", command=self._open_selected_url).pack(side="left")
@@ -320,7 +326,7 @@ class TesterSpinApp(tk.Tk):
             values = (
                 game.name,
                 game.symbol or "—",
-                game.last_status or "PENDIENTE",
+                game.display_status or "PENDIENTE",
                 game.last_test_at or "—",
                 game.url,
             )
@@ -346,6 +352,42 @@ class TesterSpinApp(tk.Tk):
         except Exception:
             return ""
 
+    def _set_selected_manual_ok(self, enabled: bool) -> None:
+        if self._worker and self._worker.is_alive():
+            messagebox.showinfo("Tester-Spin", "Esperá a que termine la tarea en curso.")
+            return
+        selection = self.tree.selection()
+        if len(selection) != 1:
+            messagebox.showinfo("Tester-Spin", "Seleccioná un solo juego para revisar.")
+            return
+        game = self._games.get(selection[0])
+        if game is None:
+            return
+        note = ""
+        if enabled:
+            note = simpledialog.askstring(
+                "Marcar OK manual",
+                f"{game.name}\nNota opcional (por ejemplo: no tiene compras).\n"
+                "Aceptar marca este resultado como revisado. Una prueba nueva se evaluará nuevamente.",
+                initialvalue=game.manual_ok_note, parent=self)
+            if note is None:
+                return
+        try:
+            self.storage.set_manual_ok(game.provider, game.slug, note, enabled=enabled)
+        except Exception as exc:
+            messagebox.showerror("Tester-Spin", str(exc))
+            return
+        self._refresh_games()
+        self.tree.selection_set(selection[0])
+        self._show_selected_game()
+        from tester_spin.manual_review import write_review
+        try:
+            report = write_review(self.storage.latest_results(), self.data_root / "reports")
+            self._append_log(f"Lista de revisión actualizada: {report}")
+        except Exception as exc:
+            self._append_log(f"La marca se guardó; no se pudo actualizar la lista: {exc}")
+        self.status_var.set(f"{game.name}: {'OK manual' if enabled else 'marca manual retirada'}")
+
     def _show_selected_game(self) -> None:
         selection = self.tree.selection()
         if not selection:
@@ -360,7 +402,9 @@ class TesterSpinApp(tk.Tk):
             f"Proveedor: {game.provider}\n"
             f"ID interno: {game.symbol or 'sin resolver'}\n"
             f"Slug: {game.slug}\n"
-            f"Estado: {game.last_status}\n"
+            f"Estado: {game.display_status}\n"
+            f"Resultado automático: {game.last_status}\n"
+            f"Revisión manual: {game.manual_ok_at or '—'} {game.manual_ok_note}\n"
             f"Última prueba: {game.last_test_at or '—'}\n"
             f"Error: {game.last_error or '—'}\n\n"
             f"Página:\n{game.url}\n\n"

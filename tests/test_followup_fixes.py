@@ -31,7 +31,7 @@ class FollowupFixTests(unittest.TestCase):
         calls = []
         def send(cmd, **kwargs):
             calls.append(cmd)
-            return SimpleNamespace(status_code=200), {}, {'flow': {'state': 'select_bonus', 'available_actions': ['play_bonus_game']}}
+            return SimpleNamespace(status_code=200), {}, {'flow': {'state': 'select_bonus', 'available_actions': ['unknown_bonus_choice']}}
         with tempfile.TemporaryDirectory() as temp, audit_scope():
             proof = bgaming_check(send, {'bet': 1}, Path(temp), threading.Event())
             self.assertEqual(proof['status'], 'REVIEW_REQUIRED')

@@ -58,6 +58,12 @@ class Storage:
                     PRIMARY KEY(provider, slug)
                 );
 
+                CREATE TABLE IF NOT EXISTS manual_validations (
+                    result_id INTEGER PRIMARY KEY,
+                    approved_at TEXT NOT NULL,
+                    note TEXT NOT NULL DEFAULT ''
+                );
+
                 CREATE TABLE IF NOT EXISTS test_results (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
                     provider TEXT NOT NULL,
@@ -296,7 +302,7 @@ class Storage:
                 """,
                 (provider,),
             ).fetchall()
-        return [self._row_to_game(row) for row in rows]
+        return self._with_manual_validation([self._row_to_game(row) for row in rows])
 
     def get_game(self, provider: str, slug: str) -> Game | None:
         with self._lock, self._connect() as con:
@@ -304,7 +310,56 @@ class Storage:
                 "SELECT * FROM games WHERE provider=? AND slug=?",
                 (provider, slug),
             ).fetchone()
-        return None if row is None else self._row_to_game(row)
+        return None if row is None else self._with_manual_validation([self._row_to_game(row)])[0]
+
+    def _with_manual_validation(self, games: list[Game]) -> list[Game]:
+        with self._lock, self._connect() as con:
+            rows = con.execute("""
+                SELECT r.provider, r.slug, v.approved_at, v.note
+                FROM manual_validations v JOIN test_results r ON r.id=v.result_id
+                WHERE r.id=(SELECT MAX(t.id) FROM test_results t
+                            WHERE t.provider=r.provider AND t.slug=r.slug)
+            """).fetchall()
+        approved = {(r["provider"], r["slug"]): r for r in rows}
+        for game in games:
+            row = approved.get(game.key)
+            if row:
+                game.manual_ok_at = row["approved_at"]
+                game.manual_ok_note = row["note"]
+        return games
+
+    def set_manual_ok(self, provider: str, slug: str, note: str = "", *, enabled: bool = True) -> None:
+        """Approve the latest stored result without changing automatic evidence."""
+        with self._lock, self._connect() as con:
+            row = con.execute(
+                "SELECT MAX(id) FROM test_results WHERE provider=? AND slug=?",
+                (provider, slug),
+            ).fetchone()
+            if row[0] is None:
+                raise ValueError("El juego todavía no tiene un resultado para revisar.")
+            if enabled:
+                con.execute("INSERT OR REPLACE INTO manual_validations VALUES (?, ?, ?)",
+                            (row[0], utc_now_iso(), note.strip()))
+            else:
+                con.execute("DELETE FROM manual_validations WHERE result_id=?", (row[0],))
+
+    def latest_results(self) -> list[dict]:
+        """Latest automatic evidence plus a separate human assessment, if present."""
+        with self._lock, self._connect() as con:
+            rows = con.execute("""
+                SELECT r.payload_json, v.approved_at, v.note
+                FROM test_results r LEFT JOIN manual_validations v ON v.result_id=r.id
+                WHERE r.id IN (SELECT MAX(id) FROM test_results GROUP BY provider, slug)
+                ORDER BY r.provider, r.slug
+            """).fetchall()
+        results = []
+        for row in rows:
+            result = json.loads(row["payload_json"])
+            if row["approved_at"]:
+                result["manual_validation"] = {
+                    "status": "OK MANUAL", "approved_at": row["approved_at"], "note": row["note"]}
+            results.append(result)
+        return results
 
     def update_thumbnail(self, provider: str, slug: str, thumbnail_path: str) -> None:
         with self._lock, self._connect() as con:

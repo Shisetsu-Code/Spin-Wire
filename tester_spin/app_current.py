@@ -159,7 +159,7 @@ class CurrentTesterSpinApp(LiveTesterSpinApp):
 
         counts: dict[str, int] = {}
         for game in games:
-            status = str(game.last_status or "PENDIENTE").strip().upper() or "PENDIENTE"
+            status = str(game.display_status or "PENDIENTE").strip().upper() or "PENDIENTE"
             counts[status] = counts.get(status, 0) + 1
         detail = ", ".join(f"{key}={counts[key]}" for key in sorted(counts))
         if not messagebox.askyesno(
@@ -303,19 +303,20 @@ class CurrentTesterSpinApp(LiveTesterSpinApp):
     def _update_count_summary(self) -> None:
         counts = {
             "OK": 0,
+            "OK MANUAL": 0,
             "PARCIAL": 0,
             "ERROR": 0,
             "SIN_DEMO": 0,
             "PENDIENTE": 0,
         }
         for game in self._games.values():
-            status = str(game.last_status or "PENDIENTE").strip().upper() or "PENDIENTE"
+            status = str(game.display_status or "PENDIENTE").strip().upper() or "PENDIENTE"
             if status not in counts:
                 status = "PENDIENTE"
             counts[status] += 1
         self.count_var.set(
             f"{len(self._games)} juegos | OK {counts['OK']} | "
-            f"PARCIAL {counts['PARCIAL']} | ERROR {counts['ERROR']} | "
+            f"OK manual {counts['OK MANUAL']} | PARCIAL {counts['PARCIAL']} | ERROR {counts['ERROR']} | "
             f"SIN_DEMO {counts['SIN_DEMO']} | "
             f"PENDIENTE {counts['PENDIENTE']}"
         )
@@ -399,6 +400,8 @@ class CurrentTesterSpinApp(LiveTesterSpinApp):
                     game = self._games.get(iid)
                     if game is not None:
                         game.symbol = result.symbol or game.symbol
+                        game.manual_ok_at = ""
+                        game.manual_ok_note = ""
                         game.last_status = result.status
                         game.last_error = result.error
                         game.last_test_at = result.finished_at

@@ -44,14 +44,12 @@ def export_reports(root, storage, progress):
     """Publishable snapshot: latest stored run per game, never raw HAR/session data."""
     root = Path(root).resolve()
     progress('Preparando el último resultado de cada juego...')
-    with storage._lock, storage._connect() as db:
-        rows = db.execute('SELECT payload_json FROM test_results WHERE id IN '
-                          '(SELECT MAX(id) FROM test_results GROUP BY provider, slug) ORDER BY provider, slug').fetchall()
+    rows = storage.latest_results()
     stage = root/'data'/('report-export-'+uuid4().hex)
     stage.mkdir(parents=True)
     index = []
     for number, row in enumerate(rows, 1):
-        result = json.loads(row[0])
+        result = row
         provider, slug = result['provider'], result['slug']
         if any(not re.fullmatch(r'[\w.-]+', str(v)) or v in {'.','..'} for v in (provider, slug)):
             raise ValueError('Proveedor o identificador inválido en los resultados')
@@ -64,7 +62,7 @@ def export_reports(root, storage, progress):
                 if source.is_file():
                     _inside(source, root/'data'/'providers')
                     _write(target/name, json.loads(source.read_text(encoding='utf-8-sig')))
-        index.append({'provider':provider, 'game':result['game_name'], 'status':result['status'],
+        index.append({'provider':provider, 'game':result['game_name'], 'status':(result.get('manual_validation') or {}).get('status', result['status']),
                       'report':f'{provider}/{slug}/result.json'})
         if number == 1 or number % 25 == 0 or number == len(rows):
             progress(f'Exportando informes: {number}/{len(rows)}')
@@ -135,6 +133,8 @@ def clear_history(root, storage, provider, progress):
                 saved = backup/path.relative_to(root);saved.parent.mkdir(parents=True, exist_ok=True);saved.write_bytes(original)
                 edited.append((path, original))
                 path.write_text(json.dumps(value, ensure_ascii=False, indent=2), encoding='utf-8')
+            db.execute('DELETE FROM manual_validations WHERE result_id IN '
+                       '(SELECT id FROM test_results WHERE provider=?)', (provider,))
             db.execute('DELETE FROM test_results WHERE provider=?', (provider,))
             db.execute("UPDATE games SET last_status='PENDIENTE', last_error='', last_test_at='', last_latency_ms=NULL WHERE provider=?", (provider,))
             db.commit()

@@ -1140,7 +1140,7 @@ class BGamingExecutionMixin:
                                     base_options.update(mode_spec.get("options", {}))
                                 for purchase_key in ('purchased_feature', 'purchased_feature_level'):
                                     base_options.pop(purchase_key, None)
-                                proof = bgaming_check(send_api_command, base_options, attempt_dir, stop_event, extra_data=request_extra_data if legacy_line_bets else None, legacy=legacy_line_bets) if terminal and not warnings else pending_return(attempt_dir, 'Ronda anterior sin cierre validado')
+                                proof = bgaming_check(send_api_command, base_options, attempt_dir, stop_event, extra_data=request_extra_data if legacy_line_bets else None, legacy=legacy_line_bets, initial_balance=previous_total) if terminal and not warnings else pending_return(attempt_dir, 'Ronda anterior sin cierre validado')
                                 if proof['status'] != 'CONFIRMED':
                                     warnings.append('Regreso al juego base pendiente: '+proof['status'])
                                 if proof.get('probes') and proof['probes'][-1].get('captures'):
@@ -1287,6 +1287,10 @@ class BGamingExecutionMixin:
                         proof = spin_remote_proof(data)
                         proof["mode_id"] = mode_id
                         proof["step"] = wire_steps
+                        proof["observed_debit"] = infer_observed_debit(data, previous_total)
+                        proof["purchase_behavior"] = (
+                            "closed_purchase_response" if purchase_name and flow.get("state") == "closed"
+                            else "event_entry" if purchase_name else "base_round")
                         proof["expected_debit"] = expected_debit
                         proof["expected_outcome_bet"] = (
                             expected_outcome_bet
@@ -1449,6 +1453,7 @@ class BGamingExecutionMixin:
                             cont_proof["mode_id"] = mode_id
                             cont_proof["step"] = wire_steps
                             cont_proof["expected_debit"] = 0
+                            cont_proof["observed_debit"] = infer_observed_debit(cont_data, before_total)
                             if continuation_command == "preselection_game":
                                 cont_proof["bonus_multiplier"] = (
                                     preselection_multiplier(cont_data)
@@ -1614,6 +1619,24 @@ class BGamingExecutionMixin:
                             )
                         )
                     except Exception as exc:
+                        if (audit_enabled() and isinstance(purchase, dict)
+                                and isinstance(exc, requests.HTTPError) and exc.response is not None
+                                and exc.response.status_code in {400, 422} and not stop_event.is_set()
+                                and not legacy_line_bets):
+                            from tester_spin.providers.bgaming.rejected_purchase import probe_rejected_purchase
+                            base_options = {"bet": default_bet}
+                            if active_profile is not None:
+                                base_options.update(active_profile.spin_options)
+                            base_options.update(mode_spec.get("options", {}))
+                            base_options.pop("purchased_feature", None)
+                            base_options.pop("purchased_feature_level", None)
+                            try:
+                                recovery = probe_rejected_purchase(
+                                    lambda: post_command(runtime, "init", timeout_s=timeout_s),
+                                    send_api_command, base_options, attempt_dir / "rejected-purchase-probe", stop_event)
+                                progress(f"[{game.name}] {mode_id}: comprobación tras rechazo={recovery['status']}; la compra sigue sin validar.")
+                            except Exception as recovery_exc:
+                                progress(f"[{game.name}] comprobación tras rechazo: {sanitize_error_text(str(recovery_exc))}")
                         if active_profile is not None and active_profile.family == API_V2:
                             runtime_needs_refresh = True
                         elapsed_ms = (time.monotonic() - attempt_started) * 1000.0

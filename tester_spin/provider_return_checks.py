@@ -49,17 +49,26 @@ def redtiger_check(runtime, directory, timeout_s, stop_event):
     return verify_return_to_base(directory, play, stop_event=stop_event)
 
 
-def bgaming_check(send, base_options, directory, stop_event, *, extra_data=None, legacy=False):
+def bgaming_check(send, base_options, directory, stop_event, *, extra_data=None, legacy=False, initial_balance=None):
     from tester_spin.providers.bgaming.runtime import (
         legacy_safe_terminal_command, provider_error_envelope, flow_continuation_command,
     )
 
+    previous_balance = initial_balance
+
     def play(target):
+        nonlocal previous_balance
         response, request, data = send('spin', options_payload=dict(base_options), extra_data_payload=extra_data)
         captures = []
         had_event = False
         for step in range(1, 257):
-            captures.append(save_exchange(target, request, data, step))
+            capture = save_exchange(target, request, data, step)
+            from tester_spin.providers.bgaming.runtime import balance_total, infer_observed_debit
+            capture['observed_debit'] = infer_observed_debit(data, previous_balance)
+            capture['balance_before'] = previous_balance
+            capture['balance_after'] = balance_total(data)
+            previous_balance = balance_total(data)
+            captures.append(capture)
             if response.status_code >= 400 or provider_error_envelope(data) is not None or data.get('error'):
                 return dict(ok=False, base=False, known=False, captures=captures)
             if stop_event.is_set():
@@ -71,11 +80,14 @@ def bgaming_check(send, base_options, directory, stop_event, *, extra_data=None,
                 flow = data.get('flow') or {}
                 command = flow_continuation_command(data)
             closed = flow.get('state') == 'closed' and 'spin' in (flow.get('available_actions') or [])
+            modifier = (flow.get('purchased_feature') or {})
+            modifier_name = str(modifier.get('name') or '') if isinstance(modifier, dict) else ''
             if closed:
-                return dict(ok=True, base=not had_event, known=True, captures=captures)
+                return dict(ok=True, base=not had_event and not modifier_name, known=True,
+                            captures=captures, active_purchase=modifier_name)
             # These commands have a demonstrated parameter-free continuation.
             # Advertised choices do not become executable just by being listed.
-            if not command or (not legacy and command not in {'freespin', 'respin'}):
+            if not command:
                 return dict(ok=True, base=False, known=False, captures=captures,
                             pending_state=flow.get('state'), available_actions=flow.get('available_actions'))
             if step == 256:

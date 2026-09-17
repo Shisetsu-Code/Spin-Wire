@@ -13,6 +13,7 @@ STATUS_ORDER = {
     "": 2,
     "SIN_DEMO": 3,
     "OK": 4,
+    "OK MANUAL": 4,
 }
 
 
@@ -25,8 +26,8 @@ def retryable_games(games: Iterable[Game]) -> list[Game]:
     return [
         game
         for game in games
-        if str(game.last_status or "PENDIENTE").strip().upper()
-        not in {"OK", "SIN_DEMO"}
+        if str(game.display_status or "PENDIENTE").strip().upper()
+        not in {"OK", "OK MANUAL", "SIN_DEMO"}
     ]
 
 
@@ -39,7 +40,7 @@ def game_sort_key(game: Game, column: str):
         value = str(game.symbol or "")
         return (not bool(value), value.casefold(), str(game.name or "").casefold())
     if column == "status":
-        status = str(game.last_status or "PENDIENTE").strip().upper()
+        status = str(game.display_status or "PENDIENTE").strip().upper()
         return (STATUS_ORDER.get(status, 2), status, str(game.name or "").casefold())
     if column == "tested":
         raw = str(game.last_test_at or "").strip()

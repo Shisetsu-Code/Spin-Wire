@@ -25,6 +25,13 @@ class Game:
     last_test_at: str = ""
     last_latency_ms: float | None = None
 
+    manual_ok_at: str = ""
+    manual_ok_note: str = ""
+
+    @property
+    def display_status(self) -> str:
+        return "OK MANUAL" if self.manual_ok_at else self.last_status
+
     @property
     def key(self) -> tuple[str, str]:
         return self.provider, self.slug

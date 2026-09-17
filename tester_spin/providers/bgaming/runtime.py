@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from tester_spin.providers.bgaming.response_rounds import response_rounds
+
 import hashlib
 import json
 import re
@@ -371,6 +373,7 @@ def spin_remote_proof(payload: dict[str, Any]) -> dict[str, Any]:
         "freespins_issued": features.get("freespins_issued"),
         "freespins_left": features.get("freespins_left"),
         "response_sha256": response_fingerprint(payload),
+        "bundled_outcomes": response_rounds(payload),
     }
 
 
@@ -1333,7 +1336,6 @@ def pending_flow_actions(data: dict[str, Any]) -> list[str]:
     continuation = flow_continuation_command(data)
     handled = {"init", "spin"}
     handled.update(SAFE_CONTINUATION_COMMANDS)
-    handled.update(CONTINUATION_BY_STATE)
     if continuation:
         handled.add(continuation)
     return sorted(actions - handled)
@@ -1515,7 +1517,7 @@ def validate_spin(
         # Continuations may be balance/flow-only. FrozenFruit and Hottest666,
         # for example, return valid freespin steps without screen/seed while
         # still providing numeric win, balance and an authoritative flow.
-        if command == "spin":
+        if command == "spin" and not flow_continuation_command(data):
             warnings.append(
                 f"{command} sin screen ni outcome.storage.seed autoritativos"
             )

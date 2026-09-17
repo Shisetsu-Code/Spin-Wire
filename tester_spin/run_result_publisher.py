@@ -54,6 +54,7 @@ def _repo_root() -> Path | None:
             check=True,
             capture_output=True,
             text=True,
+            encoding="utf-8",
             timeout=10,
             **_subprocess_window_kwargs(),
         )
@@ -76,6 +77,7 @@ def _git(repo: Path, *args: str, input_text: str | None = None, env: dict[str, s
         input=input_text,
         capture_output=True,
         text=True,
+        encoding="utf-8",
         check=check,
         timeout=45,
         env=merged,
