@@ -65,7 +65,7 @@ def _wire_contract_evidence(text: str) -> dict[str, Any]:
         ):
             alias_bet_type = True
         for object_match in re.finditer(
-            rf'\b{escaped}\s*=\s*\{{([^{{}}]{{0,2000}})\}}',
+            rf'(?:const|let|var)?{escaped}\s*=\s*\{{([^{{}}]{{0,2000}})\}}',
             compact,
         ):
             body = object_match.group(1)
