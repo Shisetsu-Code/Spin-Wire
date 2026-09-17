@@ -10,7 +10,7 @@ from pathlib import Path
 from typing import Any, Iterable
 
 from tester_spin.models import Game, GameTestResult
-from tester_spin.providers.bgaming.adapter import BGamingProvider
+from tester_spin.providers.bgaming import BGamingProvider
 from tester_spin.providers.bgaming.runtime import sanitize_error_text, sanitize_session_url
 from tester_spin.run_diagnostics import sanitize
 from tester_spin.scheduler import run_game_tests
