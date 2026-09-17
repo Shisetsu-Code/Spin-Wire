@@ -10,11 +10,13 @@ on:
       - "tester_spin/action_bgaming_*.py"
       - "tester_spin/action_sanitize.py"
       - "tester_spin/providers/bgaming/**"
+      - "tester_spin/providers/bgaming_path_policy.py"
       - "tester_spin/providers/path_coverage.py"
       - "tester_spin/scheduler.py"
       - "tests/test_action_bgaming_*.py"
       - "tests/test_bgaming_farm_contract.py"
       - "tests/test_bgaming_hyperhive_purchase_evidence.py"
+      - "tests/test_bgaming_path_policy.py"
       - "tests/test_bgaming_sweep_concurrency.py"
       - "tests/test_path_coverage.py"
 
@@ -40,5 +42,6 @@ jobs:
             tests/test_action_bgaming_sweep.py \
             tests/test_bgaming_farm_contract.py \
             tests/test_bgaming_hyperhive_purchase_evidence.py \
+            tests/test_bgaming_path_policy.py \
             tests/test_bgaming_sweep_concurrency.py \
             tests/test_path_coverage.py
