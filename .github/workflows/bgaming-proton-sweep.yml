@@ -1,0 +1,145 @@
+name: BGaming Proton sweep
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - feat/farm-contract-export-v1
+    paths:
+      - ".github/workflows/bgaming-proton-sweep.yml"
+      - ".github/bgaming-sweep-config.json"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: bgaming-proton-sweep
+  cancel-in-progress: false
+
+jobs:
+  sweep:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    env:
+      PYTHONUNBUFFERED: "1"
+      TESTER_SPIN_PUBLISH_RESULTS: "0"
+
+    steps:
+      - name: Checkout Spin-Wire
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install Spin-Wire dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install --disable-pip-version-check -r requirements.txt pytest
+          python -m playwright install --with-deps chromium
+
+      - name: Verify sweep and BGaming gates
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m compileall -q tester_spin/action_bgaming_sweep.py
+          python -m pytest -q \
+            tests/test_action_bgaming_sweep.py \
+            tests/test_action_bgaming_diagnostic.py \
+            tests/test_bgaming_farm_contract.py \
+            tests/test_bgaming_hyperhive_purchase_evidence.py \
+            tests/test_bgaming_sweep_concurrency.py \
+            tests/test_path_coverage.py
+
+      - name: Install WireGuard tools
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update -y
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y wireguard-tools resolvconf
+
+      - name: Record direct runner egress
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p action-sweep
+          curl --fail --silent --show-error --max-time 20 -4 https://api.ipify.org > action-sweep/egress-before.txt
+
+      - name: Configure Proton WireGuard
+        shell: bash
+        env:
+          PROTON_WG_CONF_B64: ${{ secrets.PROTON_WG_CONF_B64 }}
+        run: |
+          set -euo pipefail
+          if [ -z "${PROTON_WG_CONF_B64:-}" ]; then
+            echo "PROTON_WG_CONF_B64 is not configured in this repository." >&2
+            exit 1
+          fi
+          umask 077
+          printf '%s' "$PROTON_WG_CONF_B64" | base64 --decode > proton.conf
+          sudo install -m 600 proton.conf /etc/wireguard/proton.conf
+          rm -f proton.conf
+
+      - name: Connect Proton and verify tunnel
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo wg-quick up proton >/dev/null
+          sleep 3
+          before_ip="$(cat action-sweep/egress-before.txt)"
+          after_ip="$(curl --fail --silent --show-error --max-time 20 -4 https://api.ipify.org)"
+          handshake="$(sudo wg show proton latest-handshakes | awk '{print $2}' | sort -nr | head -1)"
+          handshake="${handshake:-0}"
+          if [ "$handshake" -le 0 ]; then
+            echo "WireGuard did not report a Proton handshake." >&2
+            exit 1
+          fi
+          if [ "$after_ip" = "$before_ip" ]; then
+            echo "Public IPv4 did not change after enabling Proton." >&2
+            exit 1
+          fi
+          printf '%s\n' "$after_ip" > action-sweep/egress-proton.txt
+          echo "Proton tunnel verified."
+
+      - name: Run BGaming sweep
+        shell: bash
+        env:
+          RUNNER_TEMP_DIR: ${{ runner.temp }}
+        run: |
+          set -euo pipefail
+          python -m tester_spin.action_bgaming_sweep \
+            --config .github/bgaming-sweep-config.json \
+            --data-root "$RUNNER_TEMP_DIR/spin-wire-bgaming-data" \
+            --output-dir action-sweep
+
+      - name: Disconnect Proton and remove config
+        if: always()
+        shell: bash
+        run: |
+          sudo wg-quick down proton >/dev/null 2>&1 || true
+          sudo rm -f /etc/wireguard/proton.conf
+          rm -f proton.conf
+
+      - name: Publish sweep summary
+        if: always()
+        shell: bash
+        run: |
+          if [ -f action-sweep/summary.json ]; then
+            echo '### BGaming sweep' >> "$GITHUB_STEP_SUMMARY"
+            echo '' >> "$GITHUB_STEP_SUMMARY"
+            echo '```json' >> "$GITHUB_STEP_SUMMARY"
+            python -c 'import json; from pathlib import Path; d=json.loads(Path("action-sweep/summary.json").read_text()); print(json.dumps({"catalog_size":d.get("catalog_size"),"selected_size":d.get("selected_size"),"completed_size":d.get("completed_size"),"status_counts":d.get("status_counts"),"ok_not_ready_count":d.get("ok_not_ready_count"),"status":d.get("status")}, indent=2))' >> "$GITHUB_STEP_SUMMARY"
+            echo '```' >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Upload sanitized sweep evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: bgaming-proton-sweep-${{ github.run_id }}
+          path: action-sweep/
+          if-no-files-found: warn
+          retention-days: 7
