@@ -101,3 +101,11 @@ def test_copy_safe_diagnostics_only_exports_sanitized_reports(tmp_path: Path) ->
     assert (out / "diagnostic.json").is_file()
     assert (out / "diagnostic.md").is_file()
     assert not (out / "raw-request.json").exists()
+
+
+def test_action_diagnostic_uses_the_active_bgaming_provider() -> None:
+    import tester_spin.action_bgaming_diagnostic as action_module
+    from tester_spin.providers.bgaming import BGamingProvider as ActiveBGamingProvider
+
+    assert action_module.BGamingProvider is ActiveBGamingProvider
+    assert "tester_spin.providers.bgaming" in action_module.BGamingProvider.__module__
