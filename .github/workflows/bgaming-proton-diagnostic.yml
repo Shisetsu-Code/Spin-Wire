@@ -32,6 +32,15 @@ on:
         required: true
         default: "100"
         type: string
+  push:
+    branches:
+      - feat/farm-contract-export-v1
+    paths:
+      - ".github/workflows/bgaming-proton-diagnostic.yml"
+      - "tester_spin/action_bgaming_diagnostic.py"
+      - "tester_spin/providers/bgaming/**"
+      - "tester_spin/scheduler.py"
+      - "tests/test_action_bgaming_diagnostic.py"
 
 permissions:
   contents: read
@@ -47,6 +56,10 @@ jobs:
     env:
       PYTHONUNBUFFERED: "1"
       TESTER_SPIN_PUBLISH_RESULTS: "0"
+      DIAG_GAME: ${{ github.event.inputs.game || 'Alien Fruits 3' }}
+      DIAG_SPINS: ${{ github.event.inputs.spins || '1' }}
+      DIAG_TIMEOUT: ${{ github.event.inputs.timeout_seconds || '60' }}
+      DIAG_MAX_PAGES: ${{ github.event.inputs.max_catalog_pages || '100' }}
 
     steps:
       - name: Checkout Spin-Wire
@@ -153,10 +166,10 @@ jobs:
         run: |
           set -euo pipefail
           python -m tester_spin.action_bgaming_diagnostic \
-            --game "${{ inputs.game }}" \
-            --spins "${{ inputs.spins }}" \
-            --timeout "${{ inputs.timeout_seconds }}" \
-            --max-pages "${{ inputs.max_catalog_pages }}" \
+            --game "$DIAG_GAME" \
+            --spins "$DIAG_SPINS" \
+            --timeout "$DIAG_TIMEOUT" \
+            --max-pages "$DIAG_MAX_PAGES" \
             --data-root "$RUNNER_TEMP_DIR/spin-wire-bgaming-data" \
             --output-dir action-diagnostics
 
