@@ -40,6 +40,31 @@ def _wire_contract_evidence(text: str) -> dict[str, Any]:
         name: bool(re.search(pattern, compact))
         for name, pattern in patterns.items()
     }
+
+    aliases = set(
+        re.findall(
+            r'\bparams\s*:\s*\{[^{}]{0,2000}\breq\s*:\s*([A-Za-z_$][A-Za-z0-9_$]*)(?=[,}])',
+            compact,
+        )
+    )
+    evidence["params_req_identifier"] = bool(aliases)
+    alias_bet = False
+    alias_bet_type = False
+    for alias in aliases:
+        escaped = re.escape(alias)
+        if re.search(
+            rf'(?:\b{escaped}\.bet\s*=|\b{escaped}\[["\']bet["\']\]\s*=)',
+            compact,
+        ):
+            alias_bet = True
+        if re.search(
+            rf'(?:\b{escaped}\.bet_type\s*=|\b{escaped}\[["\']bet_type["\']\]\s*=)',
+            compact,
+        ):
+            alias_bet_type = True
+    evidence["req_alias_bet_dot_assignment"] = alias_bet
+    evidence["req_alias_bet_type_dot_assignment"] = alias_bet_type
+
     evidence["bet_token_count"] = min(9999, len(re.findall(r"\bbet\b", compact)))
     evidence["req_token_count"] = min(9999, len(re.findall(r"\breq\b", compact)))
     evidence["bet_type_token_count"] = min(9999, len(re.findall(r"\bbet_type\b", compact)))
@@ -146,8 +171,6 @@ def install_contract_probe() -> None:
         hyperhive.run_hyperhive_test = probed_run_hyperhive_test
         hyperhive._mode_diagnostic_metadata = _mode_diagnostic_metadata
 
-        # execution.py imports run_hyperhive_test by value during package import.
-        # Patch that already-loaded binding too, without importing recursively.
         execution_module = sys.modules.get("tester_spin.providers.bgaming.execution")
         if execution_module is not None:
             setattr(execution_module, "run_hyperhive_test", probed_run_hyperhive_test)
