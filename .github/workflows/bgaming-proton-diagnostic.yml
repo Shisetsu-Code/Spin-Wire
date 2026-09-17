@@ -1,0 +1,183 @@
+name: BGaming Proton diagnostic
+
+on:
+  workflow_dispatch:
+    inputs:
+      game:
+        description: "Nombre, slug o ID BGaming"
+        required: true
+        default: "Alien Fruits 3"
+        type: string
+      spins:
+        description: "Muestras por ruta"
+        required: true
+        default: "1"
+        type: choice
+        options:
+          - "1"
+          - "2"
+          - "3"
+      timeout_seconds:
+        description: "Timeout por operación"
+        required: true
+        default: "60"
+        type: choice
+        options:
+          - "30"
+          - "60"
+          - "90"
+          - "120"
+      max_catalog_pages:
+        description: "Máximo de páginas de catálogo a recorrer"
+        required: true
+        default: "100"
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: bgaming-proton-diagnostic
+  cancel-in-progress: false
+
+jobs:
+  diagnostic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      PYTHONUNBUFFERED: "1"
+      TESTER_SPIN_PUBLISH_RESULTS: "0"
+
+    steps:
+      - name: Checkout Spin-Wire
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install Spin-Wire dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install --disable-pip-version-check -r requirements.txt pytest
+          python -m playwright install --with-deps chromium
+
+      - name: Install WireGuard tools
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update -y
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y wireguard-tools resolvconf
+
+      - name: Record direct runner egress
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p action-diagnostics
+          before_ip="$(curl --fail --silent --show-error --max-time 20 -4 https://api.ipify.org)"
+          printf '%s\n' "$before_ip" > action-diagnostics/egress-before.txt
+          echo "Direct runner egress recorded."
+
+      - name: Configure Proton WireGuard
+        shell: bash
+        env:
+          PROTON_WG_CONF_B64: ${{ secrets.PROTON_WG_CONF_B64 }}
+        run: |
+          set -euo pipefail
+          if [ -z "${PROTON_WG_CONF_B64:-}" ]; then
+            echo "PROTON_WG_CONF_B64 is not configured in this repository." >&2
+            exit 1
+          fi
+          umask 077
+          printf '%s' "$PROTON_WG_CONF_B64" | base64 --decode > proton.conf
+          sudo install -m 600 proton.conf /etc/wireguard/proton.conf
+          rm -f proton.conf
+
+      - name: Connect Proton and verify tunnel
+        id: proton
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo wg-quick up proton
+          sleep 3
+
+          after_ip="$(curl --fail --silent --show-error --max-time 20 -4 https://api.ipify.org)"
+          before_ip="$(cat action-diagnostics/egress-before.txt)"
+          handshake="$(sudo wg show proton latest-handshakes | awk '{print $2}' | sort -nr | head -1)"
+          handshake="${handshake:-0}"
+
+          if [ "$handshake" -le 0 ]; then
+            echo "WireGuard did not report a Proton handshake." >&2
+            exit 1
+          fi
+          if [ "$after_ip" = "$before_ip" ]; then
+            echo "Public IPv4 did not change after enabling Proton." >&2
+            exit 1
+          fi
+
+          printf '%s\n' "$after_ip" > action-diagnostics/egress-proton.txt
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          before = Path('action-diagnostics/egress-before.txt').read_text().strip()
+          after = Path('action-diagnostics/egress-proton.txt').read_text().strip()
+          Path('action-diagnostics/network.json').write_text(
+              json.dumps({
+                  'schema': 'spin-wire/proton-egress/v1',
+                  'direct_ipv4': before,
+                  'proton_ipv4': after,
+                  'ip_changed': before != after,
+                  'wireguard_handshake': True,
+              }, indent=2) + '\n',
+              encoding='utf-8',
+          )
+          PY
+          sudo wg show proton
+          echo "Proton WireGuard tunnel verified; public IPv4 changed."
+
+      - name: Run Spin-Wire BGaming diagnostic
+        shell: bash
+        env:
+          RUNNER_TEMP_DIR: ${{ runner.temp }}
+        run: |
+          set -euo pipefail
+          python -m tester_spin.action_bgaming_diagnostic \
+            --game "${{ inputs.game }}" \
+            --spins "${{ inputs.spins }}" \
+            --timeout "${{ inputs.timeout_seconds }}" \
+            --max-pages "${{ inputs.max_catalog_pages }}" \
+            --data-root "$RUNNER_TEMP_DIR/spin-wire-bgaming-data" \
+            --output-dir action-diagnostics
+
+      - name: Disconnect Proton and remove config
+        if: always()
+        shell: bash
+        run: |
+          sudo wg-quick down proton >/dev/null 2>&1 || true
+          sudo rm -f /etc/wireguard/proton.conf
+          rm -f proton.conf
+
+      - name: Publish diagnostic summary
+        if: always()
+        shell: bash
+        run: |
+          if [ -f action-diagnostics/summary.json ]; then
+            echo '### Spin-Wire BGaming diagnostic' >> "$GITHUB_STEP_SUMMARY"
+            echo '' >> "$GITHUB_STEP_SUMMARY"
+            echo '```json' >> "$GITHUB_STEP_SUMMARY"
+            cat action-diagnostics/summary.json >> "$GITHUB_STEP_SUMMARY"
+            echo '```' >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Upload sanitized diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: bgaming-proton-diagnostic-${{ github.run_id }}
+          path: action-diagnostics/
+          if-no-files-found: warn
+          retention-days: 7
