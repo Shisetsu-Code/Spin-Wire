@@ -1,0 +1,43 @@
+name: BGaming focused CI
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - feat/farm-contract-export-v1
+    paths:
+      - ".github/workflows/bgaming-focused-ci.yml"
+      - "tester_spin/action_bgaming_*.py"
+      - "tester_spin/action_sanitize.py"
+      - "tester_spin/providers/bgaming/**"
+      - "tester_spin/providers/path_coverage.py"
+      - "tester_spin/scheduler.py"
+      - "tests/test_action_bgaming_*.py"
+      - "tests/test_bgaming_farm_contract.py"
+      - "tests/test_bgaming_hyperhive_purchase_evidence.py"
+      - "tests/test_bgaming_sweep_concurrency.py"
+      - "tests/test_path_coverage.py"
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install dependencies
+        run: python -m pip install --disable-pip-version-check -r requirements.txt pytest
+      - name: BGaming focused tests
+        run: |
+          python -m pytest -q \
+            tests/test_action_bgaming_diagnostic.py \
+            tests/test_bgaming_farm_contract.py \
+            tests/test_bgaming_hyperhive_purchase_evidence.py \
+            tests/test_bgaming_sweep_concurrency.py \
+            tests/test_path_coverage.py
