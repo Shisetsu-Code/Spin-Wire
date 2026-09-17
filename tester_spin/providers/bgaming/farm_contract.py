@@ -71,6 +71,39 @@ def _load_profile(metadata: dict[str, Any]) -> BGamingProfile | None:
     return BGamingProfile.from_dict(metadata.get("provider_protocol"))
 
 
+def _coverage_mode_demonstrated(mode: dict[str, Any], *, result_status: str) -> bool:
+    """Recognize provider-generated finite branch coverage as remote evidence.
+
+    Exhaustive BGaming adapters synthesize CHOICE_* bookkeeping modes only after
+    replaying fresh sessions. They do not own a standalone SpinAttempt, so their
+    proof is the required/covered domain plus the final successful result.
+    """
+    if result_status != "OK" or mode.get("coverage_required") is not True:
+        return False
+    required = mode.get("required_options")
+    covered = mode.get("covered_options")
+    if not isinstance(required, list) or not required:
+        return False
+    if not isinstance(covered, list):
+        return False
+    required_keys = {str(value) for value in required}
+    covered_keys = {str(value) for value in covered}
+    if not required_keys.issubset(covered_keys):
+        return False
+
+    target = max(1, int(mode.get("required_samples") or 1))
+    counts = mode.get("sample_counts")
+    if isinstance(counts, dict):
+        for option in required:
+            try:
+                observed = int(counts.get(str(option), counts.get(option, 0)) or 0)
+            except (TypeError, ValueError):
+                return False
+            if observed < target:
+                return False
+    return True
+
+
 def _mode_evidence(mode: dict[str, Any], *, result_status: str) -> str:
     kind = str(mode.get("kind") or "").upper()
     evidence_level = str(mode.get("evidence_level") or "")
@@ -81,6 +114,9 @@ def _mode_evidence(mode: dict[str, Any], *, result_status: str) -> str:
         and execution_state == "PROVEN_TERMINAL"
         and bool(mode.get("validated"))
     ):
+        return "DEMOSTRADO"
+
+    if _coverage_mode_demonstrated(mode, result_status=result_status):
         return "DEMOSTRADO"
 
     # Continuations are executed inside a root-mode attempt, so they do not get
@@ -157,6 +193,7 @@ def _mode_options(
     profile: BGamingProfile | None,
 ) -> dict[str, Any]:
     command = str(mode.get("wire_command") or "").strip()
+    kind = str(mode.get("kind") or "").upper()
     options: dict[str, Any] = {}
 
     if profile is not None and command:
@@ -166,13 +203,29 @@ def _mode_options(
         if isinstance(command_options, dict):
             options.update(command_options)
 
-    if str(mode.get("kind") or "").upper() == "PURCHASE":
+    if kind == "PURCHASE":
         purchased_feature = str(mode.get("purchased_feature") or "").strip()
         if purchased_feature:
             options["purchased_feature"] = purchased_feature
         level = mode.get("purchased_feature_level")
         if level is not None:
             options["purchased_feature_level"] = level
+    elif kind == "VARIANT":
+        variant_identifier = str(mode.get("identifier") or "").strip()
+        if variant_identifier:
+            options["identifier"] = variant_identifier
+
+    for key in (
+        "required_options",
+        "covered_options",
+        "required_samples",
+        "sample_counts",
+        "path_prefix",
+        "option_field",
+        "branch_signature",
+    ):
+        if key in mode:
+            options[key] = mode[key]
 
     return options
 
@@ -234,7 +287,10 @@ def build_bgaming_farm_contract(
             item["cost_multiplier"] = raw_mode["cost_multiplier"]
         modes.append(item)
 
-        if mode_id == "SPIN" and evidence == "DEMOSTRADO":
+        if evidence == "DEMOSTRADO" and (
+            mode_id == "SPIN"
+            or (family == SWITCHABLE and kind == "VARIANT")
+        ):
             spin_demonstrated = True
 
         if kind == "CONTINUATION":
