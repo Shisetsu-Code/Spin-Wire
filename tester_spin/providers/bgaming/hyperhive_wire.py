@@ -204,6 +204,19 @@ def _purchase_feature_names(text: str) -> set[str]:
     return out
 
 
+def _req_literal_values(text: str, key: str) -> set[str]:
+    """Return literal values proven to be serialized specifically into req."""
+    escaped = re.escape(str(key or ""))
+    values: set[str] = set()
+    for pattern in (
+        rf'\breq\s*:\s*\{{[^{{}}]{{0,1600}}\b{escaped}\b\s*:\s*["\']([A-Za-z0-9_\-]+)["\']',
+        rf'\.req\.{escaped}\s*=\s*["\']([A-Za-z0-9_\-]+)["\']',
+        rf'\.req\[["\']{escaped}["\']\]\s*=\s*["\']([A-Za-z0-9_\-]+)["\']',
+    ):
+        values.update(re.findall(pattern, text or ""))
+    return {str(value).casefold() for value in values if str(value).strip()}
+
+
 def _variant_suffix(variant: dict[str, Any], index: int) -> str:
     true_keys = [key for key, value in variant.items() if value is True]
     if len(true_keys) == 1:
@@ -468,6 +481,8 @@ def install_observed_wire_adapter() -> None:
             combined = resolved_bundle + "\n" + (engine_contract or "")
             req_bet_observed = _has_req_bet_evidence(combined)
             req_bet_type_observed = _has_req_bet_type_evidence(combined)
+            req_purchase_features = _req_literal_values(combined, "purchased_feature")
+            req_bonus_multiplier_types = _req_literal_values(combined, "bonus_multiplier_type")
 
             if modes:
                 base = modes[0]
@@ -490,6 +505,25 @@ def install_observed_wire_adapter() -> None:
                         if mode.get("kind") == "PURCHASE" and mode.get("executable"):
                             mode["executable"] = False
                             mode["discovery_state"] = "BASE_CONTRACT_UNRESOLVED"
+                else:
+                    # A known purchased_feature string in a bundle is vocabulary,
+                    # not proof that this game's live request serializer/menu can
+                    # send it. Require req-scoped wire evidence before automatic
+                    # execution. Strong custom_req variants are synthesized later
+                    # from customizeFeatureBuyRequestData and remain executable.
+                    for mode in modes[1:]:
+                        if mode.get("kind") != "PURCHASE" or not mode.get("executable"):
+                            continue
+                        purchase_request = mode.get("request")
+                        if not isinstance(purchase_request, dict):
+                            continue
+                        feature = str(purchase_request.get("purchased_feature") or "").casefold()
+                        variant = str(purchase_request.get("bonus_multiplier_type") or "").casefold()
+                        feature_proven = bool(feature and feature in req_purchase_features)
+                        variant_proven = bool(not variant or variant in req_bonus_multiplier_types)
+                        if not feature_proven or not variant_proven:
+                            mode["executable"] = False
+                            mode["discovery_state"] = "DISCOVERED_LITERAL_ONLY"
 
             if profile.bet_type:
                 for mode in modes:
