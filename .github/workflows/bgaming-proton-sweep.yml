@@ -14,7 +14,9 @@ permissions:
 
 concurrency:
   group: bgaming-proton-sweep
-  cancel-in-progress: false
+  # A newly queued sweep supersedes an older catalog snapshot. This also lets a
+  # corrected/optimized sweep replace an obsolete long-running one cleanly.
+  cancel-in-progress: true
 
 jobs:
   sweep:
@@ -51,6 +53,7 @@ jobs:
             tests/test_action_bgaming_diagnostic.py \
             tests/test_bgaming_farm_contract.py \
             tests/test_bgaming_hyperhive_purchase_evidence.py \
+            tests/test_bgaming_path_policy.py \
             tests/test_bgaming_sweep_concurrency.py \
             tests/test_path_coverage.py
 
