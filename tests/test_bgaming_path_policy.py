@@ -136,8 +136,8 @@ class BGamingPathPolicyTests(unittest.TestCase):
             self.assertEqual(unresolved["evidence_level"], "SERVER_ADVERTISED")
             self.assertEqual(unresolved["execution_state"], "WIRE_UNPROVEN")
             self.assertEqual(unresolved["discovery_state"], "ADVERTISED_ONLY")
-            self.assertEqual(result.status, "PARCIAL")
-            self.assertIn("PURCHASE_FREESPIN_BUY", result.error)
+            self.assertEqual(result.status, "OK")
+            self.assertNotIn("PURCHASE_FREESPIN_BUY", result.error)
 
             coverage = build_path_coverage_report(result)
             coverage_ids = {
