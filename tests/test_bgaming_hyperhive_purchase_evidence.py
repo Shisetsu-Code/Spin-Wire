@@ -45,6 +45,7 @@ def test_known_purchase_literal_without_req_scope_is_discovery_only() -> None:
     purchase = by_id["PURCHASE_BUY_BONUS"]
     assert purchase["executable"] is False
     assert purchase["discovery_state"] == "DISCOVERED_LITERAL_ONLY"
+    assert purchase["coverage_required"] is False
 
 
 def test_request_scoped_purchase_literal_remains_executable() -> None:
@@ -67,3 +68,4 @@ def test_request_scoped_purchase_literal_remains_executable() -> None:
     purchase = by_id["PURCHASE_BUY_BONUS"]
     assert purchase["executable"] is True
     assert purchase["discovery_state"] == "WIRE_PATTERN"
+    assert purchase.get("coverage_required") is not False
