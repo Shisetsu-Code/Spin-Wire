@@ -37,7 +37,7 @@ No se implementa:
 - un DSL universal de requests;
 - lógica que suponga que todos los juegos tienen `PURCHASE`, `ANTE`, `CHANCE`, `GAMBLE` u otra capacidad opcional.
 
-La interpretación de resultados, comparación de artifacts/HAR y diseño de nuevas reglas de protocolo se realiza externamente durante la depuración. Spin-Wire sólo recopila evidencia, ejecuta contratos que comprende y falla cerrado cuando no tiene evidencia suficiente.
+La interpretación de resultados, comparación de artifacts/HAR y diseño de nuevas reglas de protocolo se realiza externamente durante la depuración. Spin-Wire sólo recopila evidencia, ejecuta contratos que comprende y falla cerrado cuando existe una **ruta alcanzable demostrada** que todavía no sabe ejecutar o cerrar.
 
 ## Definición de cobertura
 
@@ -105,9 +105,11 @@ No bloquean `OK` por sí solos:
 
 Estos casos se representan como `DISCOVERED_ONLY`, `DISCOVERED_LITERAL_ONLY` o estado equivalente y deben llevar `coverage_required=false`.
 
-### Evidencia desconocida
+### Evidencia ambigua
 
-Si existe indicio de una capacidad pero no se puede decidir si está disponible para el juego, el sistema debe fallar cerrado de forma diagnóstica. No debe inventar un request ni marcar automáticamente una compra como obligatoria.
+Un indicio ambiguo tampoco convierte una capacidad en obligatoria. Si no existe correlación suficiente con el runtime actual, se conserva como diagnóstico con `coverage_required=false`.
+
+Sólo debe bloquear `OK` cuando durante una ruta ya demostrada aparece un estado, menú, respuesta o continuación **alcanzable** que requiere una acción y Spin-Wire no conoce todavía su contrato. En ese caso el juego queda `PARCIAL` porque existe una rama real sin resolver, no porque se haya encontrado vocabulario sospechoso en el cliente.
 
 ## Separación entre discovery y ejecución
 
@@ -135,7 +137,7 @@ Se añadirá un modo de ejecución de catálogo completo reutilizando el adaptad
 El barrido:
 
 1. obtiene el catálogo autoritativo;
-2. resuelve únicamente juegos con demo;
+2. resuelve juegos con demo y registra por separado los que no tienen demo;
 3. ejecuta juegos con concurrencia limitada;
 4. usa un único runner y un único túnel Proton por corrida;
 5. usa inicialmente concurrencia 3-4 para evitar conflictos de sesión/red y limitar carga;
@@ -147,17 +149,19 @@ La concurrencia ocurre dentro del runner. No se deben levantar múltiples peers 
 
 ## Resultado global del barrido
 
-El reporte global debe permitir separar al menos:
+Spin-Wire debe exportar hechos simples por juego: estado final, familia de runtime, modos descubiertos, cobertura pendiente, error sanitizado y ubicación de artifacts diagnósticos. La categorización analítica de los no-OK se realiza fuera del programa.
+
+Durante la depuración esos hechos se agrupan como:
 
 - `OK`;
-- `PARCIAL_CAPABILITY_FALSE_POSITIVE`: una capacidad débil fue interpretada como obligatoria;
+- falso parcial por capability inexistente;
 - `PARCIAL_BRANCH`: existe una rama demostrada sin cubrir;
 - `ERROR_PROTOCOL`: servidor rechazó el wire o apareció un contrato desconocido;
 - `ERROR_DEMO`: demo/resolución/bootstrap no disponible;
 - `ERROR_INFRA`: red, Proton, runner o dependencia;
 - `SIN_DEMO`.
 
-El programa no necesita realizar una clasificación inteligente compleja. Debe exportar datos suficientes para que el diagnóstico externo pueda agrupar resultados por causa.
+El programa no implementa clustering ni heurísticas complejas para producir estas categorías; debe exportar datos suficientes para que el diagnóstico externo las determine de forma reproducible.
 
 ## Cohortes de depuración
 
@@ -172,7 +176,7 @@ Las dimensiones útiles son:
 - estado de cobertura;
 - firma de transición/continuación.
 
-El agrupamiento puede realizarse fuera de Spin-Wire a partir del resumen y artifacts. Spin-Wire no necesita implementar clustering ni heurísticas complejas.
+El agrupamiento se realiza fuera de Spin-Wire a partir del resumen y artifacts. Spin-Wire no necesita implementar clustering ni heurísticas complejas.
 
 Cuando varios juegos presentan la misma causa, se corrige una regla genérica y se vuelve a ejecutar el cohort completo.
 
