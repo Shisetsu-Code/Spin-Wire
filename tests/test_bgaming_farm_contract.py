@@ -188,6 +188,41 @@ class BGamingFarmContractTests(unittest.TestCase):
                 contract["unresolved"],
             )
 
+    def test_optional_unproven_purchase_is_not_exported_as_executable_wager(self) -> None:
+        from tester_spin.providers import BGamingProvider
+
+        with tempfile.TemporaryDirectory() as temp:
+            provider = BGamingProvider(Path(temp))
+            game = _game()
+            _write_game_json(provider.game_dir(game), profile=_profile())
+            result = _result()
+            result.discovered_modes.append(
+                {
+                    "id": "PURCHASE_LITERAL_ONLY",
+                    "kind": "PURCHASE",
+                    "wire_command": "spin",
+                    "purchased_feature": "buy_bonus",
+                    "observed": False,
+                    "validated": False,
+                    "executable": False,
+                    "coverage_required": False,
+                    "discovery_state": "DISCOVERED_LITERAL_ONLY",
+                }
+            )
+
+            contract = provider.build_farm_contract(game, result)
+
+            self.assertTrue(contract["ready"], contract["unresolved"])
+            self.assertIn(
+                "PURCHASE_LITERAL_ONLY",
+                {mode["id"] for mode in contract["modes"]},
+            )
+            wager_ids = {
+                wager["mode_id"]
+                for wager in contract["execution_structure"]["wagers"]
+            }
+            self.assertNotIn("PURCHASE_LITERAL_ONLY", wager_ids)
+
     def test_non_demonstrated_required_mode_blocks_promotion(self) -> None:
         for evidence in ("NO_VALIDADO", "CANDIDATO_WIRE", "SOLO_ANUNCIADO"):
             with self.subTest(evidence=evidence), tempfile.TemporaryDirectory() as temp:
