@@ -15,6 +15,7 @@ on:
       - "tests/test_action_bgaming_diagnostic.py"
       - "tests/test_bgaming_farm_contract.py"
       - "tests/test_bgaming_hyperhive_purchase_evidence.py"
+      - "tests/test_bgaming_sweep_concurrency.py"
       - "tests/test_path_coverage.py"
 
 permissions:
@@ -78,6 +79,7 @@ jobs:
             tests/test_action_bgaming_diagnostic.py \
             tests/test_bgaming_farm_contract.py \
             tests/test_bgaming_hyperhive_purchase_evidence.py \
+            tests/test_bgaming_sweep_concurrency.py \
             tests/test_path_coverage.py
 
       - name: Install WireGuard tools
