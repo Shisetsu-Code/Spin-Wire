@@ -104,10 +104,19 @@ def _implicit_uncovered_action(mode: dict[str, Any]) -> dict[str, Any] | None:
     Providers use slightly different metadata vocabularies. The shared invariant is
     intentionally conservative: only gameplay-like kinds participate. Pure
     DISCOVERED_ONLY/telemetry rows remain diagnostics. If an actionable row says
-    ``executable=False`` or ``observed=False``, it cannot silently coexist with OK.
+    ``executable=False`` or ``observed=False``, it cannot silently coexist with OK,
+    unless the provider explicitly marks it diagnostic-only with
+    ``coverage_required=False``.
     """
     kind = str(mode.get("kind") or "").upper()
     if kind not in _ACTIONABLE_KINDS:
+        return None
+    if mode.get("coverage_required") is False:
+        return None
+    # HyperHive carries this state through its neutral discovered-mode mapping;
+    # it means the string exists in client code but no live req serializer/menu
+    # evidence proved that the action is actually available to this game.
+    if str(mode.get("discovery_state") or "").upper() == "DISCOVERED_LITERAL_ONLY":
         return None
     if mode.get("coverage_required") is True:
         return None
