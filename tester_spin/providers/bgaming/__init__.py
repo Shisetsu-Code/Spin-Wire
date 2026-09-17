@@ -42,6 +42,19 @@ install_har_script_bridge()
 class BGamingProvider(_BGamingProvider):
     """BGaming provider with suite-level reusable diagnostic artifact capture."""
 
+    def __init__(
+        self,
+        data_root: Path,
+        *,
+        test_concurrency_cap: int | None = None,
+        capture_analysis_har: bool = True,
+    ) -> None:
+        super().__init__(
+            data_root,
+            test_concurrency_cap=test_concurrency_cap,
+        )
+        self.capture_analysis_har = bool(capture_analysis_har)
+
     def har_artifact_dir(self, game: Game) -> Path | None:
         game_dir = self.game_dir(game)
         existing = select_best_har(game_dir)
@@ -163,6 +176,18 @@ class BGamingProvider(_BGamingProvider):
         progress: Progress,
     ) -> None:
         game_dir = self.game_dir(game)
+        if not self.capture_analysis_har:
+            append_har_debug(
+                game_dir,
+                "prepare_automatic_har_disabled",
+                reason="caller_disabled_for_sweep",
+            )
+            progress(
+                f"[{game.name}] HAR automático: captura omitida para barrido; "
+                "el runtime se analizará directamente."
+            )
+            return
+
         automatic_har = game_dir / "analysis" / "browser.har"
         incomplete_backup = game_dir / "analysis" / "browser.bootstrap-only.bak"
         moved_incomplete_automatic = False
