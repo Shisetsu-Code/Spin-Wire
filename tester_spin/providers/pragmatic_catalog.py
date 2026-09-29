@@ -115,6 +115,8 @@ def extract_dynamic_games(provider, text: str, base_url: str) -> list[Game]:
     def merge(game: Game | None) -> None:
         if game is None:
             return
+        if game.slug.casefold() in _RESERVED_SLUGS:
+            return
         current = found.get(game.slug)
         if current is None:
             found[game.slug] = game
