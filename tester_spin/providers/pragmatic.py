@@ -771,7 +771,14 @@ class PragmaticProvider(ProviderAdapter):
                     launch_url = request.url
                 if request.resource_type not in {"xhr", "fetch", "document"}:
                     return
-                raw_request = request.post_data or urlparse(request.url).query
+                # Playwright decodes ``post_data`` as UTF-8.  Asset telemetry
+                # can be binary, so a decoding failure must not escape this
+                # response listener and abort unrelated doInit/doSpin capture.
+                try:
+                    raw_request = request.post_data
+                except UnicodeDecodeError:
+                    raw_request = ""
+                raw_request = raw_request or urlparse(request.url).query
                 fields = _parse_wire(raw_request)
                 action = str(fields.get("action") or "")
                 if action not in {"doInit", "doSpin"}:
