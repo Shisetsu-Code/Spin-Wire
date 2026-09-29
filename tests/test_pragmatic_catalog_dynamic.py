@@ -97,6 +97,18 @@ class PragmaticDynamicCatalogTests(unittest.TestCase):
         self.assertEqual(games[0].name, "Big Bass Blast")
         self.assertTrue(games[0].thumbnail_url.endswith("/blast.webp"))
 
+    def test_discards_footer_and_locale_links_that_are_not_games(self) -> None:
+        payload = (
+            '<a href="/en/games/footer-facebook/">Facebook</a>'
+            '<a href="/en/games/en-gb/">English</a>'
+            '<a href="/en/games/big-bass-blast/">Big Bass Blast</a>'
+        )
+        with tempfile.TemporaryDirectory() as temp:
+            games = extract_dynamic_games(
+                self._provider(temp), payload, "https://www.pragmaticplay.com/en/games/"
+            )
+        self.assertEqual([game.slug for game in games], ["big-bass-blast"])
+
 
 if __name__ == "__main__":
     unittest.main()

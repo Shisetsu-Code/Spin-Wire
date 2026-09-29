@@ -24,7 +24,14 @@ _GAME_URL_RE = re.compile(
     re.I,
 )
 
-_RESERVED_SLUGS = {"page", "search", "category", "categories", "tag", "feed"}
+# Navigation, locale and footer URLs live under the same /games/ path as real
+# cards.  They must never become runnable titles in a slot-only catalogue.
+_RESERVED_SLUGS = {
+    "page", "search", "category", "categories", "tag", "feed",
+    "footer-facebook", "footer-instagram", "footer-linkedin",
+    "footer-twitter-new", "poweredbtcky", "pp-white-logo", "revisit",
+    "de", "en-gb", "id-id", "it", "pl", "pt",
+}
 _LOAD_MORE_RE = re.compile(r"(?:load\s+more\s+games|cargar\s+m[aá]s\s+juegos)", re.I)
 
 _LINK_KEYS = {
