@@ -25,6 +25,7 @@ def provider_for(key: str, data_root: Path):
     from tester_spin.providers import (
         BGamingProvider,
         BelatraProvider,
+        KAGamingProvider,
         OneSpin4WinProvider,
         PragmaticProvider,
         RedTigerProvider,
@@ -36,6 +37,7 @@ def provider_for(key: str, data_root: Path):
         OneSpin4WinProvider,
         BelatraProvider,
         BGamingProvider,
+        KAGamingProvider,
         RubyPlayProvider,
         RedTigerProvider,
     )
