@@ -22,3 +22,7 @@ class KAGamingProviderTests(unittest.TestCase):
         self.assertEqual(rmp["method"], "POST")
         self.assertIn("/kaga/command/spin", rmp["endpoint_template"])
         self.assertIn("ctx", rmp["required_header"])
+        start = result.discovered_modes[0]["rmp_start_game"]
+        self.assertIn("/kaga/rmp/startGame", start["endpoint_template"])
+        self.assertIn("sid", start["returns"])
+        self.assertIn("ida", start["ctx_fields"])

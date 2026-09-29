@@ -27,20 +27,28 @@ def main() -> int:
     parser.add_argument("--base-url", default="https://gamesdemo.kaga88.com")
     parser.add_argument("--wait", type=float, default=20.0)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--headed", action="store_true", help="abre Chromium visible para superar desafíos de navegador")
     args = parser.parse_args()
 
     captured: list[dict[str, str]] = []
-    requests: list[dict[str, str]] = []
+    requests: list[dict[str, object]] = []
 
     with sync_playwright() as playwright:
-        browser = playwright.chromium.launch(headless=True)
+        browser = playwright.chromium.launch(headless=not args.headed)
         context = browser.new_context(record_har_path=str(args.output.with_suffix(".har")))
         page = context.new_page()
 
         def on_request(request) -> None:
             url = request.url
             if len(requests) < 500:
-                requests.append({"method": request.method, "url": url, "resource_type": request.resource_type})
+                requests.append({
+                    "method": request.method,
+                    "url": url,
+                    "resource_type": request.resource_type,
+                    "headers": {key: value for key, value in request.headers.items()
+                                if key.lower() in {"content-type", "ctx", "origin", "referer"}},
+                    "post_data": request.post_data if request.resource_type in {"fetch", "xhr"} else None,
+                })
 
         def on_socket(socket) -> None:
             captured.append({"event": "open", "url": socket.url})
@@ -52,7 +60,7 @@ def main() -> int:
         url = build_launch_url(args.base_url, args.game_id, language="es")
         page.goto(url, wait_until="domcontentloaded", timeout=30_000)
         deadline = time.monotonic() + max(1.0, args.wait)
-        while time.monotonic() < deadline and not captured:
+        while time.monotonic() < deadline:
             page.wait_for_timeout(250)
         args.output.parent.mkdir(parents=True, exist_ok=True)
         args.output.write_text(

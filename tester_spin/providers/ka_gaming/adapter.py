@@ -97,6 +97,17 @@ class KAGamingProvider(ProviderAdapter):
                         "required_header": "ctx",
                         "evidence": ["CapyGo123", "GoldenBull"],
                     },
+                    "rmp_start_game": {
+                        "method": "POST",
+                        "endpoint_template": "https://rmp{host}/kaga/rmp/startGame?ak=<accessKey>&cr=<currency>&m=<mode>&u=<user>",
+                        "content_type": "application/json",
+                        "request_fields": ["on?", "un", "pn", "ak", "gn", "loc", "to", "cr", "gm", "tb", "mi", "mc", "psp?", "jrd?", "to2?"],
+                        "required_header": "ctx",
+                        "ctx_fields": ["u?", "c?", "dt?", "dv?", "av", "ida", "idv", "lg", "do", "as", "ak"],
+                        "signature": "sha256(client-side signed ctx; timestamp-bound)",
+                        "returns": ["sid", "cps", "sel", "psp?"],
+                        "evidence": "game.min.2070.js: Bca, Fc.G8e, Cc.I9e",
+                    },
                 })
             else:
                 mode["reason"] = "WIRE_CONTRACT_NOT_OBSERVED"
