@@ -33,6 +33,11 @@ def games_from_catalog(payload: Any, *, language: str) -> list[Game]:
         if game_id in seen:
             raise ValueError(f"KA Gaming: gameId duplicado: {game_id}")
         seen.add(game_id)
+        # KA Gaming publica fish, crash, table, video poker and other titles in
+        # the same endpoint. Only the explicit provider classification is safe
+        # authority for a slot; unknown types stay out of the slot catalogue.
+        if str(row.get("gameType") or "").strip().casefold() != "slots":
+            continue
         name = str(row.get("gameName") or game_id).strip()
         icon = str(row.get("iconURLPrefix") or "").strip()
         thumbnail = f"{icon}{'&' if '?' in icon else '?'}type=square" if icon else ""

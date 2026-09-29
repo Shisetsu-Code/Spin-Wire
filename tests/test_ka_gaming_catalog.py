@@ -6,13 +6,13 @@ from tester_spin.providers.ka_gaming.catalog import build_launch_url, games_from
 
 
 def payload() -> dict:
-    return {"status": "ok", "statusCode": 0, "numGames": 2, "gameLaunchURL": "https://demo.kaga88.com/launch", "games": [{"gameId": "A", "gameName": "Alpha", "iconURLPrefix": "https://icons/a"}, {"gameId": "B", "gameName": "Beta"}]}
+    return {"status": "ok", "statusCode": 0, "numGames": 2, "gameLaunchURL": "https://demo.kaga88.com/launch", "games": [{"gameId": "A", "gameName": "Alpha", "gameType": "slots", "iconURLPrefix": "https://icons/a"}, {"gameId": "B", "gameName": "Beta", "gameType": "table"}]}
 
 
 class KAGamingCatalogTests(unittest.TestCase):
     def test_valid_catalog_builds_deterministic_games(self) -> None:
         games = games_from_catalog(payload(), language="es")
-        self.assertEqual([game.slug for game in games], ["a", "b"])
+        self.assertEqual([game.slug for game in games], ["a"])
         self.assertEqual(games[0].symbol, "A")
         self.assertIn("g=A", games[0].url)
         self.assertIn("loc=es", games[0].url)
