@@ -14,6 +14,12 @@ import sys
 import threading
 from pathlib import Path
 
+# Workers are spawned under Windows with the active console code page.  Provider
+# diagnostics deliberately contain protocol symbols, so force UTF-8 before a
+# child inherits the environment and turns a successful run into a logging error.
+os.environ.setdefault("PYTHONUTF8", "1")
+os.environ.setdefault("PYTHONIOENCODING", "utf-8")
+
 
 def provider_for(key: str, data_root: Path):
     from tester_spin.providers import (
