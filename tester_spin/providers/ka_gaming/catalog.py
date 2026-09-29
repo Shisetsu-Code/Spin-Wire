@@ -32,13 +32,15 @@ def declared_modes_from_row(row: dict[str, Any]) -> list[dict[str, Any]]:
     if str(row.get("gameType") or "").strip().casefold() != "slots":
         return []
     variant = str(row.get("variantType") or "slots").strip().upper()
-    modes = [{"id": "SPIN", "kind": variant, "source": "catalog", "executable": False}]
+    # Catalog metadata is useful for triage but is not runtime evidence.  Keep
+    # it visible without turning an advertised feature into a required branch.
+    modes = [{"id": "SPIN", "kind": variant, "source": "catalog", "executable": False, "coverage_required": False}]
     feature_ids = {str(feature).strip().casefold() for feature in row.get("availableFeatures", [])}
     if bool(row.get("supportsBuyFeature")):
         feature_ids.add("bp")
     for feature in sorted(feature_ids):
         mode_id = _FEATURE_MODE_IDS.get(feature, f"FEATURE_{feature.upper()}")
-        modes.append({"id": mode_id, "kind": "FEATURE", "source": "catalog", "executable": False})
+        modes.append({"id": mode_id, "kind": "FEATURE", "source": "catalog", "executable": False, "coverage_required": False})
     return modes
 
 

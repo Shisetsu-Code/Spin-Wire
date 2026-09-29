@@ -76,7 +76,7 @@ class KAGamingProvider(ProviderAdapter):
     def _discovered_modes(self, game: Game) -> list[dict[str, object]]:
         declared = [dict(mode) for mode in self._catalog_modes.get(game.slug, [])]
         if not declared:
-            declared = [{"id": "SPIN", "kind": "SLOTS", "source": "fallback", "executable": False}]
+            declared = [{"id": "SPIN", "kind": "SLOTS", "source": "fallback", "executable": False, "coverage_required": False}]
         for mode in declared:
             if mode["id"] == "SPIN":
                 mode.update({
