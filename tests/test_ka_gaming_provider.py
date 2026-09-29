@@ -18,3 +18,7 @@ class KAGamingProviderTests(unittest.TestCase):
         self.assertEqual(result.successful_spins, 0)
         self.assertIn("vds", result.error)
         self.assertEqual(result.discovered_modes[0]["request_type"], "fr")
+        rmp = result.discovered_modes[0]["rmp_spin"]
+        self.assertEqual(rmp["method"], "POST")
+        self.assertIn("/kaga/command/spin", rmp["endpoint_template"])
+        self.assertIn("ctx", rmp["required_header"])

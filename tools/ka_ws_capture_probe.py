@@ -30,11 +30,17 @@ def main() -> int:
     args = parser.parse_args()
 
     captured: list[dict[str, str]] = []
+    requests: list[dict[str, str]] = []
 
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(headless=True)
         context = browser.new_context(record_har_path=str(args.output.with_suffix(".har")))
         page = context.new_page()
+
+        def on_request(request) -> None:
+            url = request.url
+            if len(requests) < 500:
+                requests.append({"method": request.method, "url": url, "resource_type": request.resource_type})
 
         def on_socket(socket) -> None:
             captured.append({"event": "open", "url": socket.url})
@@ -42,13 +48,17 @@ def main() -> int:
             socket.on("framereceived", lambda payload: captured.append({"event": "received", "payload": str(payload)[:2000]}))
 
         page.on("websocket", on_socket)
+        page.on("request", on_request)
         url = build_launch_url(args.base_url, args.game_id, language="es")
         page.goto(url, wait_until="domcontentloaded", timeout=30_000)
         deadline = time.monotonic() + max(1.0, args.wait)
         while time.monotonic() < deadline and not captured:
             page.wait_for_timeout(250)
         args.output.parent.mkdir(parents=True, exist_ok=True)
-        args.output.write_text(json.dumps({"launch_url": url, "events": captured}, ensure_ascii=False, indent=2), encoding="utf-8")
+        args.output.write_text(
+            json.dumps({"launch_url": url, "events": captured, "requests": requests}, ensure_ascii=False, indent=2),
+            encoding="utf-8",
+        )
         context.close()
         browser.close()
 

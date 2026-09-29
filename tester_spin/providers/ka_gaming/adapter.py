@@ -81,10 +81,22 @@ class KAGamingProvider(ProviderAdapter):
             if mode["id"] == "SPIN":
                 mode.update({
                     "reason": "SESSION_VDS_CAPTURE_REQUIRED",
-                    "transport": "websocket",
+                    "transport": "websocket+rmp-http",
                     "endpoint_template": "wss://pml{host}/kaga/fish/{gameId}?vds=<session>&ak=accessKey",
                     "request_type": "fr",
                     "request_fields": ["rt", "mid", "a", "l", "c", "b", "bt"],
+                    # Playwright asset evidence from a real normal spin in both
+                    # CapyGo123 (lines) and GoldenBull (ways).  `ctx` and the
+                    # startGame response remain session-bound, so this is a
+                    # discovered candidate rather than an executable contract.
+                    "rmp_spin": {
+                        "method": "POST",
+                        "endpoint_template": "https://rmp{host}/kaga/command/spin?ak=<accessKey>&cr=<currency>&m=<mode>&u=<user>",
+                        "content_type": "application/json",
+                        "request_fields": ["gn", "sel", "sid", "cps", "atb", "dn", "psp?", "pos?"],
+                        "required_header": "ctx",
+                        "evidence": ["CapyGo123", "GoldenBull"],
+                    },
                 })
             else:
                 mode["reason"] = "WIRE_CONTRACT_NOT_OBSERVED"
