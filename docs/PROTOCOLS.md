@@ -1874,4 +1874,20 @@ La decisión se deriva del contrato combinado bundle+engine y nunca del nombre
 del juego.
 # KA Gaming
 
-El catálogo público se consulta en `https://rmpdemo.kaga88.com/kaga/publicGameList?lang=es`. Sólo es autoritativo si `status/statusCode`, `numGames`, IDs únicos y `gameLaunchURL` validan. El launcher demo requiere parámetros por juego; no se almacenan sesiones. No hay todavía request/response de spin demostrada en este repositorio: el runtime queda `PARCIAL` y conserva discovery sin adivinar payloads.
+El catálogo público se consulta en `https://rmpdemo.kaga88.com/kaga/publicGameList?lang=es`. Sólo es autoritativo si `status/statusCode`, `numGames`, IDs únicos y `gameLaunchURL` validan. El launcher demo requiere parámetros por juego; no se almacenan sesiones. El transporte y la forma del request de spin están demostrados, pero el runtime queda `PARCIAL` hasta capturar una sesión `vds` válida sin adivinar ni persistir credenciales.
+## KA Gaming (catálogo y transporte confirmado, 2026-09-29)
+
+- Catálogo público: `GET https://rmpdemo.kaga88.com/kaga/publicGameList?lang=es`.
+- Sólo se catalogan filas con `gameType == "slots"`; la respuesta también incluye fish, crash, table, video poker y otros.
+- Demo: `https://gamesdemo.kaga88.com/?g=<gameId>&p=demo&...`.
+- El motor común `game.min.<id>.js` abre un WebSocket a
+  `wss://pml<host>/kaga/fish/<gameId>?vds=<base64-session>&ak=accessKey`
+  para hosts `games*.kaga88.com`. El nombre histórico `fish` forma parte de la
+  ruta para slots también; no debe utilizarse para clasificar el juego.
+- Un giro normal se serializa como JSON con `rt: "fr"`, `mid` correlativo y
+  campos `a`, `l`, `c`, `b`, `bt`. El cliente también utiliza `rt: "lr"`
+  durante el bootstrap y `rt: "hbr"` como heartbeat.
+- `vds` contiene material de sesión firmado/efímero. No se debe fabricar ni
+  persistir, y el adaptador marca el modo como parcial hasta que exista una
+  captura autorizada de una sesión válida que permita reproducirlo de forma
+  segura.

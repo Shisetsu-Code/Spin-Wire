@@ -41,5 +41,27 @@ class KAGamingProvider(ProviderAdapter):
 
     def test_game(self, game: Game, *, spins: int, timeout_s: float, stop_event: threading.Event, progress: Progress) -> GameTestResult:
         del timeout_s, stop_event
-        progress(f"[{game.name}] KA Gaming: bootstrap descubierto; falta contrato de spin observado.")
-        return GameTestResult(provider=self.key, slug=game.slug, game_name=game.name, game_url=game.url, symbol=game.symbol, requested_spins=spins, successful_spins=0, failed_spins=0, status="PARCIAL", error="KA Gaming: falta contrato de spin/modos demostrado; no se envió apuesta.", discovered_modes=[{"id": "SPIN", "executable": False, "reason": "CONTRACT_UNRESOLVED"}])
+        progress(f"[{game.name}] KA Gaming: transporte WebSocket confirmado; falta capturar vds de una sesión para ejecutar el spin.")
+        return GameTestResult(
+            provider=self.key,
+            slug=game.slug,
+            game_name=game.name,
+            game_url=game.url,
+            symbol=game.symbol,
+            requested_spins=spins,
+            successful_spins=0,
+            failed_spins=0,
+            status="PARCIAL",
+            error="KA Gaming: WebSocket y mensaje de giro confirmados, pero vds es una credencial de sesión efímera; no se envió apuesta fuera del navegador.",
+            discovered_modes=[
+                {
+                    "id": "SPIN",
+                    "executable": False,
+                    "reason": "SESSION_VDS_CAPTURE_REQUIRED",
+                    "transport": "websocket",
+                    "endpoint_template": "wss://pml{host}/kaga/fish/{gameId}?vds=<session>&ak=accessKey",
+                    "request_type": "fr",
+                    "request_fields": ["rt", "mid", "a", "l", "c", "b", "bt"],
+                }
+            ],
+        )
