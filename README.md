@@ -8,7 +8,12 @@ GUI extensible en Python para catalogar juegos por proveedor y probar automátic
 
 ## Primera versión
 
-Proveedores disponibles: **Pragmatic Play**, **1spin4win (D1)**, **Belatra Games** y **BGaming**.
+Proveedores disponibles: **Pragmatic Play**, **1spin4win (D1)**, **Belatra Games**, **BGaming** y **KA Gaming**.
+
+### KA Gaming
+
+- Catálogo público validado desde `publicGameList`, con conteo e IDs comprobados antes de reconciliar.
+- Las demos se registran para discovery; hasta observar el contrato real de spin/modos, cada prueba queda `PARCIAL` y no envía apuestas inferidas.
 
 > Para retomar el proyecto en otro chat o después de perder contexto, leer primero:
 > - [docs/HANDOFF.md](docs/HANDOFF.md) — estado completo, arquitectura, decisiones y próximos pasos.

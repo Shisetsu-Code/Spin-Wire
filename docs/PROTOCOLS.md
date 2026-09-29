@@ -1872,3 +1872,6 @@ convención distinta. Overrides explícitos tienen prioridad:
 
 La decisión se deriva del contrato combinado bundle+engine y nunca del nombre
 del juego.
+# KA Gaming
+
+El catálogo público se consulta en `https://rmpdemo.kaga88.com/kaga/publicGameList?lang=es`. Sólo es autoritativo si `status/statusCode`, `numGames`, IDs únicos y `gameLaunchURL` validan. El launcher demo requiere parámetros por juego; no se almacenan sesiones. No hay todavía request/response de spin demostrada en este repositorio: el runtime queda `PARCIAL` y conserva discovery sin adivinar payloads.

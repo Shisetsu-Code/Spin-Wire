@@ -4,6 +4,7 @@ from tester_spin.providers.belatra_farm_adapter import BelatraProvider
 from tester_spin.providers.one_spin4win_farm_adapter import OneSpin4WinProvider
 from tester_spin.providers.pragmatic_farm_adapter import PragmaticProvider
 from tester_spin.providers.redtiger.farm_adapter import RedTigerProvider
+from tester_spin.providers.ka_gaming.farm_adapter import KAGamingProvider
 from tester_spin.providers.rubyplay.farm_adapter import RubyPlayProvider
 
 __all__ = [
@@ -15,4 +16,5 @@ __all__ = [
     "BGamingProvider",
     "RubyPlayProvider",
     "RedTigerProvider",
+    "KAGamingProvider",
 ]
