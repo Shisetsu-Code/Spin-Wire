@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import threading
 from pathlib import Path
 
@@ -7,7 +8,7 @@ from curl_cffi import requests
 
 from tester_spin.models import Game, GameTestResult
 from tester_spin.providers.base import GameCallback, Progress, ProviderAdapter
-from tester_spin.providers.ka_gaming.catalog import CATALOG_URL, games_from_catalog
+from tester_spin.providers.ka_gaming.catalog import CATALOG_URL, declared_modes_from_row, games_from_catalog
 
 
 class KAGamingProvider(ProviderAdapter):
@@ -21,6 +22,15 @@ class KAGamingProvider(ProviderAdapter):
         self.provider_root = self.data_root / "providers" / self.key
         self.provider_root.mkdir(parents=True, exist_ok=True)
         self.http = requests.Session(impersonate="chrome", headers={"Accept-Language": "es-ES,es;q=0.9"})
+        self._modes_path = self.provider_root / "catalog_modes.json"
+        self._catalog_modes = self._load_catalog_modes()
+
+    def _load_catalog_modes(self) -> dict[str, list[dict[str, object]]]:
+        try:
+            raw = json.loads(self._modes_path.read_text(encoding="utf-8"))
+            return raw if isinstance(raw, dict) else {}
+        except (OSError, ValueError):
+            return {}
 
     def crawl_catalog(self, *, stop_event: threading.Event, progress: Progress, max_pages: int = 100, on_game: GameCallback | None = None) -> list[Game]:
         del max_pages
@@ -29,7 +39,14 @@ class KAGamingProvider(ProviderAdapter):
             return []
         response = self.http.get(self.catalog_url, params={"lang": "es"}, headers={"Origin": "https://www.kaga88.com", "Referer": "https://www.kaga88.com/"}, timeout=30)
         response.raise_for_status()
-        games = games_from_catalog(response.json(), language="es")
+        payload = response.json()
+        games = games_from_catalog(payload, language="es")
+        self._catalog_modes = {
+            str(row["gameId"]).casefold(): declared_modes_from_row(row)
+            for row in payload["games"]
+            if isinstance(row, dict) and str(row.get("gameType") or "").casefold() == "slots"
+        }
+        self._modes_path.write_text(json.dumps(self._catalog_modes, ensure_ascii=False, indent=2), encoding="utf-8")
         if stop_event.is_set():
             self.set_catalog_authority(False, "crawl detenido por el usuario")
             return games
@@ -53,15 +70,22 @@ class KAGamingProvider(ProviderAdapter):
             failed_spins=0,
             status="PARCIAL",
             error="KA Gaming: WebSocket y mensaje de giro confirmados, pero vds es una credencial de sesión efímera; no se envió apuesta fuera del navegador.",
-            discovered_modes=[
-                {
-                    "id": "SPIN",
-                    "executable": False,
+            discovered_modes=self._discovered_modes(game),
+        )
+
+    def _discovered_modes(self, game: Game) -> list[dict[str, object]]:
+        declared = [dict(mode) for mode in self._catalog_modes.get(game.slug, [])]
+        if not declared:
+            declared = [{"id": "SPIN", "kind": "SLOTS", "source": "fallback", "executable": False}]
+        for mode in declared:
+            if mode["id"] == "SPIN":
+                mode.update({
                     "reason": "SESSION_VDS_CAPTURE_REQUIRED",
                     "transport": "websocket",
                     "endpoint_template": "wss://pml{host}/kaga/fish/{gameId}?vds=<session>&ak=accessKey",
                     "request_type": "fr",
                     "request_fields": ["rt", "mid", "a", "l", "c", "b", "bt"],
-                }
-            ],
-        )
+                })
+            else:
+                mode["reason"] = "WIRE_CONTRACT_NOT_OBSERVED"
+        return declared

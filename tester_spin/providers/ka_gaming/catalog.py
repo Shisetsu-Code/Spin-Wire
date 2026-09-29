@@ -8,6 +8,15 @@ from tester_spin.models import Game
 
 CATALOG_URL = "https://rmpdemo.kaga88.com/kaga/publicGameList"
 
+_FEATURE_MODE_IDS = {
+    "fg": "FREE_GAMES",
+    "bp": "BONUS_PURCHASE",
+    "br": "BONUS_RESPIN",
+    "sk": "SKILL_FEATURE",
+    "spg": "SPECIAL_GAME",
+    "wl": "WILD_FEATURE",
+}
+
 
 def build_launch_url(base_url: str, game_id: str, *, language: str) -> str:
     parsed = urlparse(str(base_url))
@@ -16,6 +25,21 @@ def build_launch_url(base_url: str, game_id: str, *, language: str) -> str:
     user = (zlib.crc32(game_id.encode("utf-8")) % 1_000_000_000) + 1
     query = urlencode({"g": game_id, "p": "demo", "u": user, "t": 123, "ak": "accessKey", "cr": "USD", "loc": language, "l": "https://www.kaga88.com/"})
     return f"{base_url.rstrip('/')}/?{query}"
+
+
+def declared_modes_from_row(row: dict[str, Any]) -> list[dict[str, Any]]:
+    """Return catalog-declared modes without claiming their wire contract works."""
+    if str(row.get("gameType") or "").strip().casefold() != "slots":
+        return []
+    variant = str(row.get("variantType") or "slots").strip().upper()
+    modes = [{"id": "SPIN", "kind": variant, "source": "catalog", "executable": False}]
+    feature_ids = {str(feature).strip().casefold() for feature in row.get("availableFeatures", [])}
+    if bool(row.get("supportsBuyFeature")):
+        feature_ids.add("bp")
+    for feature in sorted(feature_ids):
+        mode_id = _FEATURE_MODE_IDS.get(feature, f"FEATURE_{feature.upper()}")
+        modes.append({"id": mode_id, "kind": "FEATURE", "source": "catalog", "executable": False})
+    return modes
 
 
 def games_from_catalog(payload: Any, *, language: str) -> list[Game]:

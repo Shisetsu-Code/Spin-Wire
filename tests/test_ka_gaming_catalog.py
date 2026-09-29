@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import unittest
 
-from tester_spin.providers.ka_gaming.catalog import build_launch_url, games_from_catalog
+from tester_spin.providers.ka_gaming.catalog import build_launch_url, declared_modes_from_row, games_from_catalog
 
 
 def payload() -> dict:
@@ -10,6 +10,12 @@ def payload() -> dict:
 
 
 class KAGamingCatalogTests(unittest.TestCase):
+
+    def test_declared_modes_keep_catalog_features_non_executable(self) -> None:
+        modes = declared_modes_from_row({"gameType": "slots", "variantType": "ways", "availableFeatures": ["fg", "bp"], "supportsBuyFeature": True})
+        self.assertEqual(modes[0], {"id": "SPIN", "kind": "WAYS", "source": "catalog", "executable": False})
+        self.assertIn({"id": "FREE_GAMES", "kind": "FEATURE", "source": "catalog", "executable": False}, modes)
+        self.assertIn({"id": "BONUS_PURCHASE", "kind": "FEATURE", "source": "catalog", "executable": False}, modes)
     def test_valid_catalog_builds_deterministic_games(self) -> None:
         games = games_from_catalog(payload(), language="es")
         self.assertEqual([game.slug for game in games], ["a"])
