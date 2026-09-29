@@ -1891,3 +1891,8 @@ El catálogo público se consulta en `https://rmpdemo.kaga88.com/kaga/publicGame
   persistir, y el adaptador marca el modo como parcial hasta que exista una
   captura autorizada de una sesión válida que permita reproducirlo de forma
   segura.
+- Verificación visual demo: `CapyGo123` (lines), `GoldenBull` (ways) y
+  `HotCoinBF` cargaron y completaron un giro normal. En `HotCoinBF`, el flujo
+  `BONUS_PURCHASE` mostró tres opciones y, al seleccionar la menor, descontó
+  20 créditos demo e inició 10 juegos gratis. Esto demuestra el modo de UI,
+  no su payload WebSocket, que sigue pendiente de captura.
