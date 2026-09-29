@@ -57,3 +57,15 @@ class CoverageHistoryTests(unittest.TestCase):
             (run/'result.json').write_text(json.dumps(old.to_dict()),encoding='utf-8')
             fresh=result([]);retain_pending_branches(root,fresh)
             self.assertEqual(fresh.discovered_modes[0]['required_options'],['0'])
+
+    def test_foreign_history_is_archived_without_failing_current_game(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp)
+            foreign={'provider':'test','slug':'other-game','pending':{'BUY':{'id':'BUY'}}}
+            (root/'coverage-history.json').write_text(json.dumps(foreign),encoding='utf-8')
+            fresh=result([])
+            retain_pending_branches(root,fresh)
+            self.assertTrue((root/'coverage-history.foreign-1.json').exists())
+            current=json.loads((root/'coverage-history.json').read_text(encoding='utf-8'))
+            self.assertEqual(current['provider'],'test')
+            self.assertEqual(current['slug'],'game')

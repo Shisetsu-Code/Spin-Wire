@@ -78,6 +78,7 @@ def main() -> int:
     parser.add_argument("--timeout", type=float, default=35.0, help="provider request timeout")
     parser.add_argument("--wall-timeout", type=float, default=60.0, help="hard timeout for an entire game")
     parser.add_argument("--statuses", nargs="+", default=["ERROR", "PARCIAL", "SIN_DEMO"])
+    parser.add_argument("--game", help="slug exacto para reintentar un único juego ya almacenado")
     args = parser.parse_args()
 
     # Provider discovery launches Python helpers.  On Windows the inherited
@@ -98,6 +99,10 @@ def main() -> int:
     provider = provider_for(args.provider, data_root)
     allowed = {status.upper() for status in args.statuses}
     games = [game for game in storage.list_games(provider.key) if game.last_status.upper() in allowed]
+    if args.game:
+        games = [game for game in games if game.slug == args.game]
+        if not games:
+            raise SystemExit(f"No hay un juego pendiente con slug={args.game!r} para {provider.key}.")
     if args.limit:
         games = games[: args.limit]
     print(f"QUEUE provider={provider.key} games={len(games)} statuses={sorted(allowed)}", flush=True)

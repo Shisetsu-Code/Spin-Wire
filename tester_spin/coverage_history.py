@@ -49,8 +49,17 @@ def retain_pending_branches(directory, result):
         if path.exists():
             saved = json.loads(path.read_text(encoding='utf-8'))
             if saved.get('provider') != result.provider or saved.get('slug') != result.slug:
-                raise ValueError('Historial de cobertura pertenece a otro juego')
-            pending = saved['pending']
+                # A stale directory must not turn an otherwise valid game run into
+                # an ERROR. Preserve the foreign history for inspection and start a
+                # fresh history for this game.
+                suffix = 1
+                archived = root / f"coverage-history.foreign-{suffix}.json"
+                while archived.exists():
+                    suffix += 1
+                    archived = root / f"coverage-history.foreign-{suffix}.json"
+                path.replace(archived)
+            else:
+                pending = saved.get('pending', {})
         else:
             # One-time migration; never mistake other games or arbitrary JSON for history.
             files = sorted((root/'tests').glob('*/result.json'), key=lambda p:p.stat().st_mtime_ns)
