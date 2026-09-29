@@ -1872,9 +1872,6 @@ convención distinta. Overrides explícitos tienen prioridad:
 
 La decisión se deriva del contrato combinado bundle+engine y nunca del nombre
 del juego.
-# KA Gaming
-
-El catálogo público se consulta en `https://rmpdemo.kaga88.com/kaga/publicGameList?lang=es`. Sólo es autoritativo si `status/statusCode`, `numGames`, IDs únicos y `gameLaunchURL` validan. El launcher demo requiere parámetros por juego; no se almacenan sesiones. El transporte y la forma del request de spin están demostrados, pero el runtime queda `PARCIAL` hasta capturar una sesión `vds` válida sin adivinar ni persistir credenciales.
 ## KA Gaming (catálogo y transporte confirmado, 2026-09-29)
 
 - Catálogo público: `GET https://rmpdemo.kaga88.com/kaga/publicGameList?lang=es`.
@@ -1896,3 +1893,26 @@ El catálogo público se consulta en `https://rmpdemo.kaga88.com/kaga/publicGame
   `BONUS_PURCHASE` mostró tres opciones y, al seleccionar la menor, descontó
   20 créditos demo e inició 10 juegos gratis. Esto demuestra el modo de UI,
   no su payload WebSocket, que sigue pendiente de captura.
+
+### Bootstrap RMP HTTP
+
+El mismo cliente público también declara el flujo HTTP RMP que antecede al
+spin. No se trata como contrato ejecutable hasta tener una sesión de navegador
+autorizada, pero sí queda modelado para evitar redescubrir sus campos:
+
+```text
+POST /kaga/rmp/startGame
+  → respuesta con sid, cps, sel y psp opcional
+POST /kaga/command/spin
+```
+
+`startGame` recibe `un`, `pn`, `ak`, `gn`, `loc`, `to`, `cr`, `gm`, `tb`,
+`mi` y `mc`; puede incluir `on`, `psp`, `jrd` y `to2`. El spin usa `gn`,
+`sel`, `sid`, `cps`, `atb`, `dn`, más `psp`/`pos` cuando el estado lo exige.
+
+Ambos POST requieren el header `ctx`. El cliente lo construye con campos de
+fingerprint y versión (`av`, `ida`, `idv`, `lg`, `do`, `ak`, entre otros) y
+una firma SHA-256 ligada al timestamp y al payload. Nunca persistir `ctx`,
+`vds`, `sid` ni `psp`; son credenciales de una sola sesión. La evidencia del
+contrato está en `game.min.2070.js` (`Bca`, `Fc.G8e`, `Cc.I9e`) y en los juegos
+`CapyGo123` y `GoldenBull`.

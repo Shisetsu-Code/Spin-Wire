@@ -2,7 +2,7 @@
 
 > Documento principal de continuidad. Si esta conversación se pierde o el proyecto se retoma en otro chat, leer este archivo antes de modificar código.
 >
-> Estado documentado: 2026-09-08.
+> Estado documentado: 2026-09-29.
 >
 > Repositorio: `Shisetsu-Code/Tester-Spin`.
 >
@@ -33,6 +33,7 @@ El proyecto NO debe marcar `OK` sólo porque una página o demo devuelve HTTP 20
 | 1spin4win / D1 | `1spin4win` | Webflow HTML paginado | WebSocket directo | Spin base funcional |
 | Belatra Games | `belatra` | Next.js/RSC categoría 2 | HTTP cifrado `POST /game` endpoint-first | Spin base funcional; features/buy/free-spins pendientes |
 | BGaming | `bgaming` | HTML inicial + WordPress REST `/wp-json/bg/v1/games/search` | HTTP JSON API v2 `init/spin` | Spin base funcional; features no observadas quedan PARCIAL |
+| KA Gaming | `ka_gaming` | `publicGameList` filtrado a slots | WebSocket + RMP HTTP `startGame/spin` | Contrato de sesión modelado; requiere sesión de navegador válida para ejecutar |
 
 ## 3. Comandos habituales
 
