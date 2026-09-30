@@ -207,4 +207,4 @@ La GUI activa incluye dos controles para corregir detecciones erróneas sin toca
 
 ## Estado de Hacksaw (30/09/2026)
 
-Prueba remota completada sobre los 184 juegos: **179 OK, 4 parciales y 1 error**. Los 16 antes bloqueados por el límite de demo pasaron tras la reanudación autorizada. No quedan juegos sin probar. [Resultados, formatos y casos pendientes](docs/HACKSAW_CATALOG_VALIDATION.md). Esta documentación describe la integración local de trabajo; su publicación no implica que el código sin confirmar ya esté disponible en la rama remota.
+Prueba remota completada sobre los 184 juegos: **181 OK, 2 parciales y 1 error**. Los 16 antes bloqueados por el límite de demo pasaron tras la reanudación autorizada. No quedan juegos sin probar. [Resultados, formatos y casos pendientes](docs/HACKSAW_CATALOG_VALIDATION.md). Esta documentación describe la integración local de trabajo; su publicación no implica que el código sin confirmar ya esté disponible en la rama remota.

@@ -41,7 +41,6 @@
 1490,Divine Drop,OK,True,2,4,6,,4.8
 2004,Donny and Danny,OK,True,2,4,6,,5.5
 1530,Donny Dough,OK,True,2,4,6,,4.6
-1608,Donut Division,PARCIAL,False,2,4,5,Hacksaw: continuación desconocida pendiente de captura Cobertura de ramificaciones pendiente: BUY_fs -> ['fs']; BUY_fs_2 -> ['fs_2'].,3.5
 1172,Dork Unit,OK,True,2,3,5,,4.3
 1430,Dorks of the Deep,OK,True,2,4,6,,5.3
 1144,Double Rainbow,OK,True,2,2,4,,3.9
@@ -99,7 +98,6 @@
 2438,Le Football Fan,OK,True,2,4,6,,5.1
 2470,Le Hooligan,OK,True,2,4,6,,4.6
 1787,Le King,OK,True,2,4,6,,5.3
-1562,Le Pharaoh,PARCIAL,False,2,4,5,Hacksaw: continuación desconocida pendiente de captura Cobertura de ramificaciones pendiente: BUY_bonus -> ['bonus']; BUY_bonus_2 -> ['bonus_2'].,3.6
 2413,Le Prechaun,OK,True,2,5,7,,6.1
 1965,Le Santa,OK,True,2,4,6,,5.0
 2613,Le Sortudo,OK,True,2,2,4,,4.6
@@ -183,3 +181,5 @@
 1093,Xpander,OK,True,2,1,3,,2.8
 1508,Ze Zeus,OK,True,2,4,6,,5.6
 2077,Zeus Ze Zecond,OK,True,2,4,6,,6.2
+1608,Donut Division,OK,True,2,4,8,,9.2
+1562,Le Pharaoh,OK,True,2,4,8,,10.9

@@ -2,7 +2,7 @@
 
 Integración del 30/09/2026: proveedor registrado en el selector y la cola de reintentos, con **184 juegos y 184 miniaturas**. Se usan los identificadores numéricos oficiales para conservar juegos sin página individual y URLs con caracteres codificados.
 
-Estado actualizado: **los 184 juegos fueron probados**, con 179 OK y contrato listo, 4 parciales por elecciones no modeladas y 1 error del proveedor. Los 16 antes bloqueados por el límite de demo pasaron al reanudar; no quedan juegos sin probar. Ver [resultados completos y casos pendientes](HACKSAW_CATALOG_VALIDATION.md).
+Estado actualizado: **los 184 juegos fueron probados**, con 181 OK y contrato listo, 2 parciales por elecciones no modeladas y 1 error del proveedor. Los 16 antes bloqueados por el límite de demo pasaron al reanudar; no quedan juegos sin probar. Ver [resultados completos y casos pendientes](HACKSAW_CATALOG_VALIDATION.md).
 
 El primer representante validado fue **Fist of Destruction Megamultiplier**, ID **2536**, cliente **1.12.3**, con las siguientes compras:
 
@@ -22,9 +22,9 @@ La prueba en el navegador remoto reportó incompatibilidad de dispositivo y su a
 
 La integración conserva selectores previos si falla un reintento y respeta la duración mínima de ronda según las unidades del cliente. La actualización del catálogo no autoriza eliminar entradas a partir de una respuesta incompleta.
 
-Verificación: 21 pruebas de Hacksaw aprobadas, incluida cobertura, muestras por intento, selectores, confirmación de la misma ronda y exportación sin sesiones. Revisión independiente sin problemas pendientes.
+Verificación: 23 pruebas de Hacksaw aprobadas, incluida cobertura, muestras por intento, selectores, confirmación de la misma ronda y exportación sin sesiones. Revisión independiente sin problemas pendientes.
 
-Suite completa: 759 pruebas y 73 subtests aprobados; cuatro fallos previos de BGaming:
+Suite completa: 761 pruebas y 73 subtests aprobados; cuatro fallos previos de BGaming:
 
 - `test_big_bucks_bundle_uses_bet_only_and_buy_bonus_x120`
 - `test_blazing_bundle_discovers_betting_actions_and_purchases`

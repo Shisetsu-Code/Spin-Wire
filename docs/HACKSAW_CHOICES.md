@@ -23,3 +23,8 @@ Validación: 2 giros base, 6 opciones de compra y las 2 rutas de cada compra con
 Pruebas locales: 21 tests de Hacksaw aprobados, incluida la protección contra opciones tardías y compras de prueba sin límite. La revisión independiente aprobó los ajustes.
 
 El contrato exportado excluye valores de sesión y ronda. Evidencia de red completa conservada localmente en la carpeta de datos de Tester Spin.
+
+
+## Otras familias de elección
+
+Se agregaron wild/warehouse (Donut Division) y fs/lives (Le Pharaoh), con el mismo campo continueInstructions.action. Ambas rutas se verificaron en cada una de sus dos compras. [Detalle](HACKSAW_ADDITIONAL_CHOICES.md). Stormborn y Strength of Hercules conservan sus elecciones pendientes; no se habilitan acciones desconocidas por similitud de nombre.

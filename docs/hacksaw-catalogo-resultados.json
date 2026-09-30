@@ -3,9 +3,9 @@
   "probados": 184,
   "completo": true,
   "conteos": {
-    "OK": 179,
+    "OK": 181,
     "ERROR": 1,
-    "PARCIAL": 4
+    "PARCIAL": 2
   },
   "juegos": [
     {
@@ -469,17 +469,6 @@
       "intentos": 6,
       "error": "",
       "segundos": 4.6
-    },
-    {
-      "id": "1608",
-      "juego": "Donut Division",
-      "estado": "PARCIAL",
-      "contrato_listo": false,
-      "giros_base": 2,
-      "compras": 4,
-      "intentos": 5,
-      "error": "Hacksaw: continuación desconocida pendiente de captura Cobertura de ramificaciones pendiente: BUY_fs -> ['fs']; BUY_fs_2 -> ['fs_2'].",
-      "segundos": 3.5
     },
     {
       "id": "1172",
@@ -1107,17 +1096,6 @@
       "intentos": 6,
       "error": "",
       "segundos": 5.3
-    },
-    {
-      "id": "1562",
-      "juego": "Le Pharaoh",
-      "estado": "PARCIAL",
-      "contrato_listo": false,
-      "giros_base": 2,
-      "compras": 4,
-      "intentos": 5,
-      "error": "Hacksaw: continuación desconocida pendiente de captura Cobertura de ramificaciones pendiente: BUY_bonus -> ['bonus']; BUY_bonus_2 -> ['bonus_2'].",
-      "segundos": 3.6
     },
     {
       "id": "2413",
@@ -2031,9 +2009,28 @@
       "intentos": 6,
       "error": "",
       "segundos": 6.2
+    },
+    {
+      "id": "1608",
+      "juego": "Donut Division",
+      "estado": "OK",
+      "contrato_listo": true,
+      "giros_base": 2,
+      "compras": 4,
+      "intentos": 8,
+      "error": "",
+      "segundos": 9.2
+    },
+    {
+      "id": "1562",
+      "juego": "Le Pharaoh",
+      "estado": "OK",
+      "contrato_listo": true,
+      "giros_base": 2,
+      "compras": 4,
+      "intentos": 8,
+      "error": "",
+      "segundos": 10.9
     }
-  ],
-  "fecha": "2026-09-30",
-  "pendientes_sin_probar": [],
-  "pausado_por_usuario": false
+  ]
 }

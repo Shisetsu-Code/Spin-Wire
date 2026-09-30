@@ -16,6 +16,6 @@ El cierre está probado mediante `round.status=completed`, sin acciones pendient
 
 La tercera captura aportó Epic Bullets and Bounty (2185), con elecciones `play` y `gamble` dentro de las compras x100 y x200. Ambas rutas se implementaron y verificaron con sesiones demo nuevas; ver [detalle de elecciones](HACKSAW_CHOICES.md).
 
-Después se inició el barrido del catálogo a pedido del usuario. El balance y las limitaciones actuales están en [prueba del catálogo](HACKSAW_CATALOG_VALIDATION.md). Ya no aplica la declaración anterior de que sólo se probaron tres representantes. El usuario autorizó después la reanudación y se completaron los 184 juegos: 179 OK, 4 parciales y 1 error. No quedan juegos bloqueados o sin probar.
+Después se inició el barrido del catálogo a pedido del usuario. El balance y las limitaciones actuales están en [prueba del catálogo](HACKSAW_CATALOG_VALIDATION.md). Ya no aplica la declaración anterior de que sólo se probaron tres representantes. El usuario autorizó después la reanudación y se completaron los 184 juegos: 181 OK, 2 parciales y 1 error. No quedan juegos bloqueados o sin probar.
 
-Las 21 pruebas de Hacksaw pasan. La suite completa mantiene 759 pruebas aprobadas y cuatro fallos previos de BGaming.
+Las 23 pruebas de Hacksaw pasan. La suite completa mantiene 761 pruebas aprobadas y cuatro fallos previos de BGaming.
