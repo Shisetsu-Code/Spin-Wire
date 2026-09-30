@@ -18,3 +18,7 @@ El adaptador incorpora compras sólo donde se importó evidencia del juego; no e
 La prueba posterior desde el adaptador devolvió HTTP404 en startGame para los cuatro juegos. Por tanto sus últimas entradas de Tester Spin siguen ERROR; no se sustituyen por resultados OK a partir de una prueba anterior. Las tres ejecuciones iniciales completas demuestran el formato, pero falta repetirlas desde el adaptador cuando la demo responda nuevamente.
 
 Los HAR y respuestas completas quedan en las carpetas locales de KA. La metadata importada excluye sesiones y firmas. Tests específicos de compras y RMP: 11 aprobados, incluida compra ignorada, aislamiento por juego y rechazo de estados desconocidos. Los cuatro fallos previos de BGaming siguen separados de este trabajo.
+
+## Aplicación al catálogo
+
+El usuario estableció ampliar los formatos aprendidos a todos los juegos aplicables y revisar las excepciones. pos=[1] ahora se propone a los 60 juegos con compras anunciadas del catálogo de 828 juegos. Ya no se limita a los cuatro HAR. El barrido quedó interrumpido después de tres HTTP404 en startGame, sin apostar; no se confirmó compatibilidad adicional. Ver [estándar y resultado](PROVIDER_VALIDATION_STANDARD.md).

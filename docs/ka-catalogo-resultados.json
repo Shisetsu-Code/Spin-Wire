@@ -1,0 +1,39 @@
+{
+  "catalogo": 828,
+  "con_compra": 60,
+  "probados": 3,
+  "pendientes": 825,
+  "conteos": {
+    "ERROR": 3
+  },
+  "bloqueo_comun": true,
+  "juegos": [
+    {
+      "symbol": "BaWangBieJi",
+      "juego": "Adiós, mi concubina",
+      "status": "ERROR",
+      "base_ok": 0,
+      "compra_probada": false,
+      "compra_ok": false,
+      "error": "HTTPError: HTTP Error 404: "
+    },
+    {
+      "symbol": "AliceInWonderland",
+      "juego": "Alicia en el país de las maravillas",
+      "status": "ERROR",
+      "base_ok": 0,
+      "compra_probada": false,
+      "compra_ok": false,
+      "error": "HTTPError: HTTP Error 404: "
+    },
+    {
+      "symbol": "Ares",
+      "juego": "Ares Dios de la Guerra",
+      "status": "ERROR",
+      "base_ok": 0,
+      "compra_probada": false,
+      "compra_ok": false,
+      "error": "HTTPError: HTTP Error 404: "
+    }
+  ]
+}
