@@ -203,3 +203,8 @@ La GUI activa incluye dos controles para corregir detecciones erróneas sin toca
 - El fallback DOM exige señales fuertes de tarjeta de juego. No acepta data URIs, imágenes genéricas ni URLs externas con una ruta parecida a /games/.
 - Si el fallback no es autoritativo, Tester-Spin mezcla los juegos válidos detectados con game.json históricos preservados bajo data/providers/pragmatic para evitar que una caída temporal haga desaparecer cientos de títulos de la GUI.
 - Existe además una guardia global: una reducción anómala de más del 40% respecto del catálogo previo bloquea reconciliación aunque el crawler se marque autoritativo.
+
+
+## Estado de Hacksaw (30/09/2026)
+
+Prueba remota del catálogo: 134 juegos OK, 2 parciales, 1 error del proveedor, 16 bloqueados por el límite de demo y 31 sin probar. El recorrido está pausado por instrucción del usuario; continuar sólo cuando lo indique. [Resultados, formatos y pasos para retomar](docs/HACKSAW_CATALOG_VALIDATION.md). Esta documentación describe la integración local de trabajo; su publicación no implica que el código sin confirmar ya esté disponible en la rama remota.

@@ -1,0 +1,154 @@
+﻿id,juego,estado,contrato_listo,giros_base,compras,intentos,error,segundos
+1400,2 Wild 2 Die,OK,True,2,6,8,,6.2
+2296,3 Cursed Chests: Hold & Win,OK,True,2,4,6,,5.0
+1756,Aiko and the Wind Spirit,OK,True,2,4,6,,5.9
+1201,Alpha Eagle,OK,True,2,4,6,,5.0
+2492,Arizona James and The Lost Relics,OK,True,2,4,8,,9.9
+1977,Army of Ares,OK,True,2,4,6,,5.0
+1066,Aztec Twist,OK,True,2,1,3,,2.8
+1928,Bash Bros,OK,True,2,4,6,,4.8
+1426,Beam Boys,ERROR,False,0,8,1,Hacksaw: ValueError: Hacksaw: statusCode no exitoso o ausente,1.7
+1279,Beast Below,OK,True,2,4,6,,4.3
+1356,Benny the Beer,OK,True,2,5,7,,5.4
+1251,Bloodthirst,OK,True,2,3,5,,3.9
+1213,Book of Time,OK,True,2,5,7,,5.4
+1783,Booze Bash,OK,True,2,3,5,,4.7
+1189,Born Wild,OK,True,2,2,4,,3.7
+1422,Bouncy Bombs,OK,True,2,5,7,,5.3
+1205,Break Bones,OK,True,2,1,3,,3.6
+1176,Buffalo Stack'n'Sync,OK,True,2,3,5,,4.8
+1799,Bullets and Bounty,OK,True,2,5,8,,7.8
+1055,Cash Compass,OK,True,2,0,2,,2.5
+1456,Cash Crew,OK,True,2,4,6,,5.7
+1099,Cash Quest,OK,True,2,1,3,,3.4
+1059,Chaos Crew,OK,True,2,1,3,,3.2
+1352,Chaos Crew 2,OK,True,2,6,8,,7.2
+1867,Chaos Crew 3,OK,True,2,4,6,,5.1
+2019,Circle of Life,OK,True,2,4,6,,5.4
+1602,Cloud Princess,OK,True,2,4,6,,4.7
+1048,Cubes,OK,True,2,0,2,,2.4
+1069,Cubes 2,OK,True,2,2,4,,3.5
+1434,Cursed Crypt,OK,True,2,5,7,,6.2
+1263,Cursed Seas,OK,True,2,3,5,,4.7
+2334,Dandy Diamonds,OK,True,2,4,6,,6.3
+1685,Danny Dollar,OK,True,2,4,6,,5.5
+2143,Dark Spiral,OK,True,2,4,6,,5.1
+1392,Dark Summoning,OK,True,2,3,5,,4.4
+1442,Dawn of Kings,OK,True,2,7,9,,7.8
+2000,Deal With Death,OK,True,2,4,6,,5.1
+2319,Death Becomes You,OK,True,2,5,7,,5.9
+1348,Densho,OK,True,2,4,6,,4.2
+1490,Divine Drop,OK,True,2,4,6,,4.8
+2004,Donny and Danny,OK,True,2,4,6,,5.5
+1530,Donny Dough,OK,True,2,4,6,,4.6
+1608,Donut Division,PARCIAL,False,2,4,5,Hacksaw: continuación desconocida pendiente de captura Cobertura de ramificaciones pendiente: BUY_fs -> ['fs']; BUY_fs_2 -> ['fs_2'].,3.5
+1172,Dork Unit,OK,True,2,3,5,,4.3
+1430,Dorks of the Deep,OK,True,2,4,6,,5.3
+1144,Double Rainbow,OK,True,2,2,4,,3.9
+2253,Dr Zappo,OK,True,2,4,6,,5.8
+1360,Dragon's Domain,OK,True,2,4,6,,5.5
+1314,Drop'em,OK,True,2,5,7,,6.2
+1620,Duel at Dawn,OK,True,2,5,7,,5.9
+2190,Dusk Princess,OK,True,2,4,6,,5.0
+2082,Dynasty of Death,OK,True,2,4,6,,5.5
+2185,Epic Bullets and Bounty,OK,True,2,6,10,,9.3
+2408,Epic Ze Zeus,OK,True,2,5,7,,5.4
+2148,Eternal Duel,OK,True,2,5,7,,6.1
+1570,Evil Eyes,OK,True,2,5,7,,6.1
+1740,Eye of Medusa,OK,True,2,4,6,,5.1
+1344,Eye of the Panda,OK,True,2,4,6,,4.7
+1271,Fear the Dark,OK,True,2,4,6,,5.1
+1372,Feel the Beat,OK,True,2,5,7,,5.8
+1715,Fighter Pit,OK,True,2,5,7,,5.8
+1640,Fire my Laser,OK,True,2,4,6,,4.8
+1408,Fist of Destruction,OK,True,2,5,7,,6.5
+2536,Fist of Destruction Megamultiplier,OK,True,2,5,7,,5.9
+1185,Forest Fortune,OK,True,2,1,3,,2.8
+1225,Frank's Farm,OK,True,2,3,5,,5.1
+1229,Freds Food Truck,OK,True,2,3,5,,4.2
+1693,FRKN Bananas,OK,True,2,4,6,,5.0
+1197,Fruit Duel,OK,True,2,2,4,,4.3
+1081,Frutz,OK,True,2,3,5,,4.9
+1580,Get the CHEESE,OK,True,2,4,6,,5.9
+1160,Gladiator Legends,OK,True,2,4,6,,5.2
+2303,Great Game Rockies,OK,True,2,4,6,,6.2
+2620,Great Game Serengeti,OK,True,2,5,7,,5.9
+1221,Gronk's Gems,OK,True,2,3,5,,4.2
+2166,Grug Make Fire,OK,True,2,4,6,,4.6
+1164,Hand Of Anubis,OK,True,2,2,4,,4.2
+1140,Harvest Wilds,OK,True,2,3,5,,4.8
+1091,Hop'N'Pop,OK,True,2,3,5,,4.2
+2062,Hot Ross,OK,True,2,6,8,,6.5
+1666,Hounds of Hell,OK,True,2,4,8,,8.5
+1364,Immortal Desire,OK,True,2,3,5,,5.0
+1791,Invictus,OK,True,2,4,6,,4.7
+1168,Itero,OK,True,2,2,4,,3.9
+1946,Jaws of Justice,OK,True,2,4,6,,4.5
+1452,Jelly Slice,OK,True,2,3,5,,4.4
+1117,Joker Bombs,OK,True,2,1,3,,3.2
+1259,Keep 'em Cool,OK,True,2,2,4,,4.0
+1494,Keep'em,OK,True,2,4,6,,4.8
+1127,King Carrot,OK,True,2,1,3,,3.2
+1438,Klowns,OK,True,2,4,6,,5.1
+1309,Le Bandit,OK,True,2,4,6,,5.0
+2465,Le Bandit Hold & Win,OK,True,2,2,4,,4.8
+2195,Le Bunny,OK,True,2,4,6,,4.7
+1924,Le Cowboy,OK,True,2,4,8,,8.2
+2229,Le Digger,OK,True,2,4,8,,8.8
+2057,Le Fisherman,OK,True,2,5,7,,6.1
+2438,Le Football Fan,OK,True,2,4,6,,5.1
+2470,Le Hooligan,OK,True,2,4,6,,4.6
+1787,Le King,OK,True,2,4,6,,5.3
+1562,Le Pharaoh,PARCIAL,False,2,4,5,Hacksaw: continuación desconocida pendiente de captura Cobertura de ramificaciones pendiente: BUY_bonus -> ['bonus']; BUY_bonus_2 -> ['bonus_2'].,3.6
+2413,Le Prechaun,OK,True,2,5,7,,6.1
+1965,Le Santa,OK,True,2,4,6,,5.0
+2613,Le Sortudo,OK,True,2,2,4,,4.6
+1689,Le Viking,OK,True,2,4,6,,5.2
+1830,Le Zeus,OK,True,2,4,6,,5.7
+1070,Let It Snow,OK,True,2,0,2,,2.1
+1460,Life and Death,OK,True,2,4,6,,4.7
+1247,Magic Piggy,OK,True,2,5,7,,5.6
+2258,Magic Piggy OG,OK,True,2,4,6,,5.0
+1681,Marlin Masters,OK,True,2,4,6,,5.1
+2108,Marlin Masters Atlantis,OK,True,2,4,6,,5.2
+2378,Marlin Masters OG,OK,True,2,4,6,,4.5
+1811,Marlin Masters: The Big Haul,OK,True,2,5,7,,5.6
+2356,Max Win Machine,OK,True,2,4,6,,4.0
+1275,Mayan Stackways,OK,True,2,4,6,,4.6
+1824,Miami Mayhem,OK,True,2,5,7,,5.8
+1049,Miami Multiplier,OK,True,2,0,2,,3.0
+1305,Mighty Masks,OK,True,2,3,5,,4.4
+2248,Minted Mike,OK,True,2,4,6,,5.6
+2219,Munchy Milo,OK,True,2,4,6,,5.5
+1071,Mystery Motel,OK,True,2,3,5,,4.9
+2328,Nitro Nights,OK,True,2,4,6,,5.3
+1584,Octo Attack,OK,True,2,4,6,,5.5
+1043,OmNom,OK,True,2,0,2,,2.1
+1474,Orb of Destiny,OK,True,2,4,6,,4.8
+1083,Outlaws Inc.,OK,True,2,3,5,,4.8
+1675,Phoenix DuelReels,OK,True,2,4,8,,8.0
+2234,Power of Ten,OK,True,2,5,7,,5.4
+2115,Pray for Six,OK,True,2,4,6,,4.8
+1736,Pray for Three,OK,True,2,4,6,,5.5
+1217,Pug Life,OK,True,2,4,6,,4.8
+1732,Rad Maxx,OK,True,2,4,6,,4.9
+1817,Rainbow Princess,OK,True,2,4,6,,6.6
+2274,Red Rascal,OK,True,2,5,7,,5.4
+1728,Reign of Rome,OK,True,2,5,7,,6.1
+1233,Rip City,OK,True,2,5,7,,5.1
+1616,Rise of Ymir,BLOQUEADO_DEMO,False,0,5,1,Demo mode limit reached! (statusCode 21); no evalúa compatibilidad,1.7
+1102,Rocket Reels,BLOQUEADO_DEMO,False,0,1,1,Demo mode limit reached! (statusCode 21); no evalúa compatibilidad,1.7
+1267,Ronin Stackways,BLOQUEADO_DEMO,False,0,4,1,Demo mode limit reached! (statusCode 21); no evalúa compatibilidad,1.7
+1209,Rotten,BLOQUEADO_DEMO,False,0,4,1,Demo mode limit reached! (statusCode 21); no evalúa compatibilidad,1.7
+1404,Rusty & Curly,BLOQUEADO_DEMO,False,0,4,1,Demo mode limit reached! (statusCode 21); no evalúa compatibilidad,1.7
+2243,Sand and Ashes,BLOQUEADO_DEMO,False,0,4,1,Demo mode limit reached! (statusCode 21); no evalúa compatibilidad,1.7
+1554,Shaolin Master,BLOQUEADO_DEMO,False,0,3,1,Demo mode limit reached! (statusCode 21); no evalúa compatibilidad,1.8
+1534,SixSixSix,BLOQUEADO_DEMO,False,0,4,1,Demo mode limit reached! (statusCode 21); no evalúa compatibilidad,1.7
+1482,Slayers Inc,BLOQUEADO_DEMO,False,0,7,1,Demo mode limit reached! (statusCode 21); no evalúa compatibilidad,1.7
+1981,Smoking Dragon,BLOQUEADO_DEMO,False,0,5,1,Demo mode limit reached! (statusCode 21); no evalúa compatibilidad,1.7
+1558,Snow Slingers,BLOQUEADO_DEMO,False,0,4,1,Demo mode limit reached! (statusCode 21); no evalúa compatibilidad,1.7
+1938,Spear of Athena,BLOQUEADO_DEMO,False,0,4,1,Demo mode limit reached! (statusCode 21); no evalúa compatibilidad,1.8
+1752,Spinman,BLOQUEADO_DEMO,False,0,4,1,Demo mode limit reached! (statusCode 21); no evalúa compatibilidad,1.7
+1084,Stack'Em,BLOQUEADO_DEMO,False,0,1,1,Demo mode limit reached! (statusCode 21); no evalúa compatibilidad,1.7
+1871,Steamrunners,BLOQUEADO_DEMO,False,0,4,1,Demo mode limit reached! (statusCode 21); no evalúa compatibilidad,2.0
+2213,Rise of Fortuna,BLOQUEADO_DEMO,False,0,5,1,Demo mode limit reached! (statusCode 21); no evalúa compatibilidad,1.7
