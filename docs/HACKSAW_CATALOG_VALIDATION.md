@@ -1,40 +1,37 @@
-# Hacksaw: prueba del catálogo y pausa
+# Hacksaw: resultado completo del catálogo
 
-Estado al 30/09/2026. El catálogo local contiene 184 juegos. Se probó en serie, con dos giros base y las compras anunciadas por cada autenticación; cuando apareció una elección compatible se probaron las rutas disponibles y el cierre de la misma ronda.
+Estado al 30/09/2026. Se intentaron los **184 juegos** del catálogo local: **179 OK**, **4 PARCIAL**, **1 ERROR**. No quedan juegos sin probar ni bloqueados por el límite de demo en el resultado final.
 
-| Resultado | Juegos |
-|---|---:|
-| OK y contrato listo | 134 |
-| Parcial: elección pendiente | 2 |
-| Error del proveedor | 1 |
-| Bloqueados por límite de demo | 16 |
-| Sin probar | 31 |
+La prueba ejecutó dos giros base y las compras anunciadas en cada autenticación. Cuando apareció una elección compatible, se probaron las rutas y el cierre de la misma ronda. `OK` y contrato listo corresponden a esas acciones observadas; no garantizan recorrer todos los eventos aleatorios o todas las repeticiones posibles de una elección.
 
-**El recorrido está pausado por instrucción del usuario. Reanudar Hacksaw solamente cuando el usuario lo indique.** No hay reintentos programados. Tras una pausa se comprobó nuevamente el límite y la API siguió devolviendo `statusCode: 21`, `Demo mode limit reached!`.
+## Casos pendientes
 
-## Casos que requieren seguimiento
+| Juego | ID | Resultado | Motivo observado |
+|---|---|---|---|
+| Donut Division | 1608 | PARCIAL | Compra en started, acciones wild / warehouse |
+| Le Pharaoh | 1562 | PARCIAL | Compra en started, acciones fs / lives |
+| Stormborn | 1875 | PARCIAL | Compra en started, acciones ts / fs |
+| Strength of Hercules | 1697 | PARCIAL | Compra en started, acciones fs / labyrinth |
+| Beam Boys | 1426 | ERROR | Apuesta devuelve statusCode 1; sin cierre terminal |
 
-- Donut Division (1608): compra devuelve `started` con acciones `wild` y `warehouse`. Falta comprobar y modelar esas elecciones.
-- Le Pharaoh (1562): compra devuelve `started` con acciones `fs` y `lives`. Falta comprobar y modelar esas elecciones.
-- Beam Boys (1426): apuesta devuelve `statusCode: 1`. No alcanzó cierre terminal.
-- Desde Rise of Fortuna (2213), 16 juegos quedaron afectados por el límite de la demo. Esos resultados no demuestran incompatibilidad del juego ni del adaptador. Rise of Fortuna había iniciado la ejecución antes del bloqueo.
+Las cuatro compras requieren comprobar y modelar sus elecciones. No se adivinaron payloads ni se declararon listas. Beam Boys conserva el error observado en la primera pasada y no se volvió a probar durante la reanudación.
 
-La aplicación puede mostrar ERROR/PARCIAL para los resultados del límite, porque el adaptador actual los registra como error remoto genérico. El listado adjunto los clasifica como `BLOQUEADO_DEMO` para evitar confundirlos con fallos de compatibilidad; esa clasificación es del informe, no un nuevo estado implementado en la aplicación.
+## Límite de demo y reanudación
 
-## Cómo retomar
+La primera pasada dejó 134 OK, 2 parciales, 1 error, 16 bloqueados y 31 sin probar. El servidor devolvió `statusCode: 21`, `Demo mode limit reached!`, incluso después de esperar. Se pausó a pedido del usuario y se publicó el estado parcial.
 
-Cuando el usuario autorice continuar, comprobar primero un juego bloqueado con una sesión demo nueva. Si persiste el código 21, pausar de nuevo. Si se libera, repetir los 16 bloqueados y recorrer los 31 sin probar; conservar el historial anterior. Revisar después las elecciones de Donut Division y Le Pharaoh. No cambiar credenciales, identidades ni mecanismos de acceso para eludir el límite.
+El usuario luego indicó que había conectado una VPN y autorizó reanudar. Rise of Fortuna completó la comprobación inicial. Se recorrieron los 47 pendientes: los 16 antes bloqueados pasaron; entre los 31 restantes, 29 pasaron y dos quedaron parciales. No se cambió el protocolo ni se reutilizaron sesiones grabadas. Esto no determina cómo contabiliza el servidor su límite de demo.
 
-`OK` significa que las acciones ejecutadas en esta corrida terminaron correctamente. Dos giros y las compras no garantizan recorrer todos los eventos aleatorios o todas las posibles repeticiones de una elección.
+El recorrido está terminado; no hay reintentos programados. Los cinco casos de seguimiento quedan pendientes de trabajo posterior.
 
 ## Resultados y evidencia
 
-- [Listado completo y pendientes en JSON](hacksaw-catalogo-resultados.json).
-- [Juegos intentados en CSV](hacksaw-catalogo-resultados.csv).
+- [Listado completo en JSON](hacksaw-catalogo-resultados.json).
+- [Listado completo en CSV](hacksaw-catalogo-resultados.csv).
 - [Integración y formato común](HACKSAW.md).
 - [Capturas manuales](HACKSAW_MANUAL_VALIDATION.md).
 - [Compras con play/gamble](HACKSAW_CHOICES.md).
 
-Las solicitudes y respuestas completas se conservan localmente en `data/providers/hacksaw/<ID>/`. No publicar HAR, sesiones o identificadores efímeros. Los archivos compartidos aquí contienen resultados resumidos sin credenciales.
+Las solicitudes y respuestas completas están conservadas localmente en `data/providers/hacksaw/<ID>/`. No publicar HAR, sesiones o identificadores efímeros. Los listados compartidos contienen resultados resumidos sin credenciales. El historial de Tester Spin conserva también los intentos anteriores afectados por el límite; estos listados muestran el resultado seleccionado tras la reanudación.
 
-Validación de código previa al barrido: 21 tests de Hacksaw aprobados y revisión independiente sin hallazgos pendientes. Suite completa: 759 tests y 73 subtests aprobados; cuatro fallos preexistentes de BGaming. No se atribuyen al recorrido remoto del catálogo.
+Validación de código previa al barrido: 21 tests de Hacksaw y revisión independiente aprobados. Suite completa: 759 tests y 73 subtests aprobados, con cuatro fallos preexistentes de BGaming. El barrido y su reanudación no requirieron cambios de código del adaptador.

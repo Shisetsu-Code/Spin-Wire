@@ -136,19 +136,50 @@
 2274,Red Rascal,OK,True,2,5,7,,5.4
 1728,Reign of Rome,OK,True,2,5,7,,6.1
 1233,Rip City,OK,True,2,5,7,,5.1
-1616,Rise of Ymir,BLOQUEADO_DEMO,False,0,5,1,Demo mode limit reached! (statusCode 21); no evalúa compatibilidad,1.7
-1102,Rocket Reels,BLOQUEADO_DEMO,False,0,1,1,Demo mode limit reached! (statusCode 21); no evalúa compatibilidad,1.7
-1267,Ronin Stackways,BLOQUEADO_DEMO,False,0,4,1,Demo mode limit reached! (statusCode 21); no evalúa compatibilidad,1.7
-1209,Rotten,BLOQUEADO_DEMO,False,0,4,1,Demo mode limit reached! (statusCode 21); no evalúa compatibilidad,1.7
-1404,Rusty & Curly,BLOQUEADO_DEMO,False,0,4,1,Demo mode limit reached! (statusCode 21); no evalúa compatibilidad,1.7
-2243,Sand and Ashes,BLOQUEADO_DEMO,False,0,4,1,Demo mode limit reached! (statusCode 21); no evalúa compatibilidad,1.7
-1554,Shaolin Master,BLOQUEADO_DEMO,False,0,3,1,Demo mode limit reached! (statusCode 21); no evalúa compatibilidad,1.8
-1534,SixSixSix,BLOQUEADO_DEMO,False,0,4,1,Demo mode limit reached! (statusCode 21); no evalúa compatibilidad,1.7
-1482,Slayers Inc,BLOQUEADO_DEMO,False,0,7,1,Demo mode limit reached! (statusCode 21); no evalúa compatibilidad,1.7
-1981,Smoking Dragon,BLOQUEADO_DEMO,False,0,5,1,Demo mode limit reached! (statusCode 21); no evalúa compatibilidad,1.7
-1558,Snow Slingers,BLOQUEADO_DEMO,False,0,4,1,Demo mode limit reached! (statusCode 21); no evalúa compatibilidad,1.7
-1938,Spear of Athena,BLOQUEADO_DEMO,False,0,4,1,Demo mode limit reached! (statusCode 21); no evalúa compatibilidad,1.8
-1752,Spinman,BLOQUEADO_DEMO,False,0,4,1,Demo mode limit reached! (statusCode 21); no evalúa compatibilidad,1.7
-1084,Stack'Em,BLOQUEADO_DEMO,False,0,1,1,Demo mode limit reached! (statusCode 21); no evalúa compatibilidad,1.7
-1871,Steamrunners,BLOQUEADO_DEMO,False,0,4,1,Demo mode limit reached! (statusCode 21); no evalúa compatibilidad,2.0
-2213,Rise of Fortuna,BLOQUEADO_DEMO,False,0,5,1,Demo mode limit reached! (statusCode 21); no evalúa compatibilidad,1.7
+2213,Rise of Fortuna,OK,True,2,5,7,,8.5
+1616,Rise of Ymir,OK,True,2,5,7,,7.1
+1102,Rocket Reels,OK,True,2,1,3,,3.3
+1267,Ronin Stackways,OK,True,2,4,6,,6.3
+1209,Rotten,OK,True,2,4,6,,7.4
+1404,Rusty & Curly,OK,True,2,4,6,,7.0
+2243,Sand and Ashes,OK,True,2,4,6,,6.5
+1554,Shaolin Master,OK,True,2,3,5,,5.1
+1534,SixSixSix,OK,True,2,4,8,,9.4
+1482,Slayers Inc,OK,True,2,7,9,,8.5
+1981,Smoking Dragon,OK,True,2,5,7,,6.9
+1558,Snow Slingers,OK,True,2,4,6,,6.7
+1938,Spear of Athena,OK,True,2,4,6,,6.9
+1752,Spinman,OK,True,2,4,6,,5.6
+1084,Stack'Em,OK,True,2,1,3,,3.0
+1871,Steamrunners,OK,True,2,4,6,,6.4
+1042,Stick'Em,OK,True,2,0,2,,3.4
+1875,Stormborn,PARCIAL,False,2,4,5,Hacksaw: continuación desconocida pendiente de captura Cobertura de ramificaciones pendiente: BUY_bonus -> ['bonus']; BUY_bonus_2 -> ['bonus_2'].,4.2
+1243,Stormforged,OK,True,2,6,8,,7.0
+1697,Strength of Hercules,PARCIAL,False,2,5,6,Hacksaw: continuación desconocida pendiente de captura Cobertura de ramificaciones pendiente: BUY_bonus -> ['bonus']; BUY_bonus_2 -> ['bonus_2'].,5.5
+1914,Sun Princess,OK,True,2,4,6,,6.6
+2138,Superstar Sevens,OK,True,2,4,6,,6.2
+2458,Supreme Zeus,OK,True,2,4,6,,6.0
+1478,Tai the Toad,OK,True,2,5,7,,7.1
+1096,Tasty Treats,OK,True,2,1,3,,3.9
+1237,Temple of Torment,OK,True,2,4,6,,7.2
+1135,The Bowery Boys,OK,True,2,3,5,,5.6
+1803,The Count,OK,True,2,4,6,,6.2
+1897,The Luxe,OK,True,2,3,5,,4.7
+1058,The Respinners,OK,True,2,0,2,,3.1
+1891,The Wildwood Curse,OK,True,2,4,6,,7.2
+1744,Tiger Legends,OK,True,2,4,6,,6.4
+1181,Time Spinners,OK,True,2,2,4,,5.6
+1087,Toshi Video Club,OK,True,2,1,3,,4.0
+1971,Toshi Ways Club,OK,True,2,4,6,,6.3
+1514,Twisted Lab,OK,True,2,5,7,,7.0
+1760,Ultimate Slot of America,OK,True,2,5,7,,6.5
+1193,Undead Fortune,OK,True,2,5,7,,7.1
+1340,Vending Machine,OK,True,2,3,5,,6.2
+1067,Wanted Dead Or a Wild,OK,True,2,3,5,,5.1
+1131,Warrior Ways,OK,True,2,2,4,,4.1
+1612,Wings of Horus,OK,True,2,4,6,,5.4
+1711,Wishbringer,OK,True,2,4,6,,6.6
+1396,Xmas Drop,OK,True,2,5,7,,7.4
+1093,Xpander,OK,True,2,1,3,,2.8
+1508,Ze Zeus,OK,True,2,4,6,,5.6
+2077,Zeus Ze Zecond,OK,True,2,4,6,,6.2

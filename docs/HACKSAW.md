@@ -2,7 +2,7 @@
 
 Integración del 30/09/2026: proveedor registrado en el selector y la cola de reintentos, con **184 juegos y 184 miniaturas**. Se usan los identificadores numéricos oficiales para conservar juegos sin página individual y URLs con caracteres codificados.
 
-Estado actualizado: la prueba del catálogo alcanzó 134 juegos OK, 2 parciales y 1 error propio del proveedor. Otros 16 quedaron bloqueados por el límite de la demo y 31 siguen sin probar. El usuario pidió pausar hasta nueva indicación. Ver [resultados del catálogo y cómo retomar](HACKSAW_CATALOG_VALIDATION.md).
+Estado actualizado: **los 184 juegos fueron probados**, con 179 OK y contrato listo, 4 parciales por elecciones no modeladas y 1 error del proveedor. Los 16 antes bloqueados por el límite de demo pasaron al reanudar; no quedan juegos sin probar. Ver [resultados completos y casos pendientes](HACKSAW_CATALOG_VALIDATION.md).
 
 El primer representante validado fue **Fist of Destruction Megamultiplier**, ID **2536**, cliente **1.12.3**, con las siguientes compras:
 

@@ -1,12 +1,11 @@
 {
   "total_catalogo": 184,
-  "probados": 153,
-  "completo": false,
+  "probados": 184,
+  "completo": true,
   "conteos": {
-    "OK": 134,
+    "OK": 179,
     "ERROR": 1,
-    "PARCIAL": 2,
-    "BLOQUEADO_DEMO": 16
+    "PARCIAL": 4
   },
   "juegos": [
     {
@@ -1517,308 +1516,524 @@
       "segundos": 5.1
     },
     {
+      "id": "2213",
+      "juego": "Rise of Fortuna",
+      "estado": "OK",
+      "contrato_listo": true,
+      "giros_base": 2,
+      "compras": 5,
+      "intentos": 7,
+      "error": "",
+      "segundos": 8.5
+    },
+    {
       "id": "1616",
       "juego": "Rise of Ymir",
-      "estado": "BLOQUEADO_DEMO",
-      "contrato_listo": false,
-      "giros_base": 0,
+      "estado": "OK",
+      "contrato_listo": true,
+      "giros_base": 2,
       "compras": 5,
-      "intentos": 1,
-      "error": "Demo mode limit reached! (statusCode 21); no evalúa compatibilidad",
-      "segundos": 1.7
+      "intentos": 7,
+      "error": "",
+      "segundos": 7.1
     },
     {
       "id": "1102",
       "juego": "Rocket Reels",
-      "estado": "BLOQUEADO_DEMO",
-      "contrato_listo": false,
-      "giros_base": 0,
+      "estado": "OK",
+      "contrato_listo": true,
+      "giros_base": 2,
       "compras": 1,
-      "intentos": 1,
-      "error": "Demo mode limit reached! (statusCode 21); no evalúa compatibilidad",
-      "segundos": 1.7
+      "intentos": 3,
+      "error": "",
+      "segundos": 3.3
     },
     {
       "id": "1267",
       "juego": "Ronin Stackways",
-      "estado": "BLOQUEADO_DEMO",
-      "contrato_listo": false,
-      "giros_base": 0,
+      "estado": "OK",
+      "contrato_listo": true,
+      "giros_base": 2,
       "compras": 4,
-      "intentos": 1,
-      "error": "Demo mode limit reached! (statusCode 21); no evalúa compatibilidad",
-      "segundos": 1.7
+      "intentos": 6,
+      "error": "",
+      "segundos": 6.3
     },
     {
       "id": "1209",
       "juego": "Rotten",
-      "estado": "BLOQUEADO_DEMO",
-      "contrato_listo": false,
-      "giros_base": 0,
+      "estado": "OK",
+      "contrato_listo": true,
+      "giros_base": 2,
       "compras": 4,
-      "intentos": 1,
-      "error": "Demo mode limit reached! (statusCode 21); no evalúa compatibilidad",
-      "segundos": 1.7
+      "intentos": 6,
+      "error": "",
+      "segundos": 7.4
     },
     {
       "id": "1404",
       "juego": "Rusty & Curly",
-      "estado": "BLOQUEADO_DEMO",
-      "contrato_listo": false,
-      "giros_base": 0,
+      "estado": "OK",
+      "contrato_listo": true,
+      "giros_base": 2,
       "compras": 4,
-      "intentos": 1,
-      "error": "Demo mode limit reached! (statusCode 21); no evalúa compatibilidad",
-      "segundos": 1.7
+      "intentos": 6,
+      "error": "",
+      "segundos": 7.0
     },
     {
       "id": "2243",
       "juego": "Sand and Ashes",
-      "estado": "BLOQUEADO_DEMO",
-      "contrato_listo": false,
-      "giros_base": 0,
+      "estado": "OK",
+      "contrato_listo": true,
+      "giros_base": 2,
       "compras": 4,
-      "intentos": 1,
-      "error": "Demo mode limit reached! (statusCode 21); no evalúa compatibilidad",
-      "segundos": 1.7
+      "intentos": 6,
+      "error": "",
+      "segundos": 6.5
     },
     {
       "id": "1554",
       "juego": "Shaolin Master",
-      "estado": "BLOQUEADO_DEMO",
-      "contrato_listo": false,
-      "giros_base": 0,
+      "estado": "OK",
+      "contrato_listo": true,
+      "giros_base": 2,
       "compras": 3,
-      "intentos": 1,
-      "error": "Demo mode limit reached! (statusCode 21); no evalúa compatibilidad",
-      "segundos": 1.8
+      "intentos": 5,
+      "error": "",
+      "segundos": 5.1
     },
     {
       "id": "1534",
       "juego": "SixSixSix",
-      "estado": "BLOQUEADO_DEMO",
-      "contrato_listo": false,
-      "giros_base": 0,
+      "estado": "OK",
+      "contrato_listo": true,
+      "giros_base": 2,
       "compras": 4,
-      "intentos": 1,
-      "error": "Demo mode limit reached! (statusCode 21); no evalúa compatibilidad",
-      "segundos": 1.7
+      "intentos": 8,
+      "error": "",
+      "segundos": 9.4
     },
     {
       "id": "1482",
       "juego": "Slayers Inc",
-      "estado": "BLOQUEADO_DEMO",
-      "contrato_listo": false,
-      "giros_base": 0,
+      "estado": "OK",
+      "contrato_listo": true,
+      "giros_base": 2,
       "compras": 7,
-      "intentos": 1,
-      "error": "Demo mode limit reached! (statusCode 21); no evalúa compatibilidad",
-      "segundos": 1.7
+      "intentos": 9,
+      "error": "",
+      "segundos": 8.5
     },
     {
       "id": "1981",
       "juego": "Smoking Dragon",
-      "estado": "BLOQUEADO_DEMO",
-      "contrato_listo": false,
-      "giros_base": 0,
+      "estado": "OK",
+      "contrato_listo": true,
+      "giros_base": 2,
       "compras": 5,
-      "intentos": 1,
-      "error": "Demo mode limit reached! (statusCode 21); no evalúa compatibilidad",
-      "segundos": 1.7
+      "intentos": 7,
+      "error": "",
+      "segundos": 6.9
     },
     {
       "id": "1558",
       "juego": "Snow Slingers",
-      "estado": "BLOQUEADO_DEMO",
-      "contrato_listo": false,
-      "giros_base": 0,
+      "estado": "OK",
+      "contrato_listo": true,
+      "giros_base": 2,
       "compras": 4,
-      "intentos": 1,
-      "error": "Demo mode limit reached! (statusCode 21); no evalúa compatibilidad",
-      "segundos": 1.7
+      "intentos": 6,
+      "error": "",
+      "segundos": 6.7
     },
     {
       "id": "1938",
       "juego": "Spear of Athena",
-      "estado": "BLOQUEADO_DEMO",
-      "contrato_listo": false,
-      "giros_base": 0,
+      "estado": "OK",
+      "contrato_listo": true,
+      "giros_base": 2,
       "compras": 4,
-      "intentos": 1,
-      "error": "Demo mode limit reached! (statusCode 21); no evalúa compatibilidad",
-      "segundos": 1.8
+      "intentos": 6,
+      "error": "",
+      "segundos": 6.9
     },
     {
       "id": "1752",
       "juego": "Spinman",
-      "estado": "BLOQUEADO_DEMO",
-      "contrato_listo": false,
-      "giros_base": 0,
+      "estado": "OK",
+      "contrato_listo": true,
+      "giros_base": 2,
       "compras": 4,
-      "intentos": 1,
-      "error": "Demo mode limit reached! (statusCode 21); no evalúa compatibilidad",
-      "segundos": 1.7
+      "intentos": 6,
+      "error": "",
+      "segundos": 5.6
     },
     {
       "id": "1084",
       "juego": "Stack'Em",
-      "estado": "BLOQUEADO_DEMO",
-      "contrato_listo": false,
-      "giros_base": 0,
+      "estado": "OK",
+      "contrato_listo": true,
+      "giros_base": 2,
       "compras": 1,
-      "intentos": 1,
-      "error": "Demo mode limit reached! (statusCode 21); no evalúa compatibilidad",
-      "segundos": 1.7
+      "intentos": 3,
+      "error": "",
+      "segundos": 3.0
     },
     {
       "id": "1871",
       "juego": "Steamrunners",
-      "estado": "BLOQUEADO_DEMO",
-      "contrato_listo": false,
-      "giros_base": 0,
+      "estado": "OK",
+      "contrato_listo": true,
+      "giros_base": 2,
       "compras": 4,
-      "intentos": 1,
-      "error": "Demo mode limit reached! (statusCode 21); no evalúa compatibilidad",
-      "segundos": 2.0
-    },
-    {
-      "id": "2213",
-      "juego": "Rise of Fortuna",
-      "estado": "BLOQUEADO_DEMO",
-      "contrato_listo": false,
-      "giros_base": 0,
-      "compras": 5,
-      "intentos": 1,
-      "error": "Demo mode limit reached! (statusCode 21); no evalúa compatibilidad",
-      "segundos": 1.7
-    }
-  ],
-  "pendientes_sin_probar": [
-    {
-      "id": "2458",
-      "juego": "Supreme Zeus | casino game image"
-    },
-    {
-      "id": "2138",
-      "juego": "Superstar Sevens | casino game image"
-    },
-    {
-      "id": "2077",
-      "juego": "Zeus Ze Zecond | casino game image"
-    },
-    {
-      "id": "1971",
-      "juego": "Toshi Ways Club | casino game image"
-    },
-    {
-      "id": "1914",
-      "juego": "Sun Princess | casino game image"
-    },
-    {
-      "id": "1803",
-      "juego": "The Count | casino game image"
-    },
-    {
-      "id": "1891",
-      "juego": "The Wildwood Curse | casino game image"
-    },
-    {
-      "id": "1875",
-      "juego": "Stormborn | casino game image"
-    },
-    {
-      "id": "1744",
-      "juego": "Tiger Legends | casino game image"
-    },
-    {
-      "id": "1897",
-      "juego": "The Luxe | casino game image"
-    },
-    {
-      "id": "1760",
-      "juego": "Ultimate Slot of America | casino game image"
-    },
-    {
-      "id": "1711",
-      "juego": "Wishbringer | casino game image"
-    },
-    {
-      "id": "1697",
-      "juego": "Strength of Hercules | casino game image"
-    },
-    {
-      "id": "1612",
-      "juego": "Wings of Horus | casino game image"
-    },
-    {
-      "id": "1478",
-      "juego": "Tai the Toad | casino game image"
-    },
-    {
-      "id": "1514",
-      "juego": "Twisted Lab | casino game image"
-    },
-    {
-      "id": "1508",
-      "juego": "Ze Zeus | casino game image"
-    },
-    {
-      "id": "1396",
-      "juego": "Xmas Drop | casino game image"
-    },
-    {
-      "id": "1340",
-      "juego": "Vending Machine | casino game image"
-    },
-    {
-      "id": "1237",
-      "juego": "Temple of Torment | casino game image"
-    },
-    {
-      "id": "1243",
-      "juego": "Stormforged | casino game image"
-    },
-    {
-      "id": "1193",
-      "juego": "Undead Fortune | casino game image"
-    },
-    {
-      "id": "1181",
-      "juego": "Time Spinners | casino game image"
-    },
-    {
-      "id": "1131",
-      "juego": "Warrior Ways | casino game image"
-    },
-    {
-      "id": "1135",
-      "juego": "The Bowery Boys | casino game image"
-    },
-    {
-      "id": "1096",
-      "juego": "Tasty Treats | casino game image"
-    },
-    {
-      "id": "1067",
-      "juego": "Wanted Dead Or a Wild | casino game image"
-    },
-    {
-      "id": "1087",
-      "juego": "Toshi Video Club | casino game image"
-    },
-    {
-      "id": "1093",
-      "juego": "Xpander | casino game image"
-    },
-    {
-      "id": "1058",
-      "juego": "The Respinners | casino game image"
+      "intentos": 6,
+      "error": "",
+      "segundos": 6.4
     },
     {
       "id": "1042",
-      "juego": "Stick'Em | casino game image"
+      "juego": "Stick'Em",
+      "estado": "OK",
+      "contrato_listo": true,
+      "giros_base": 2,
+      "compras": 0,
+      "intentos": 2,
+      "error": "",
+      "segundos": 3.4
+    },
+    {
+      "id": "1875",
+      "juego": "Stormborn",
+      "estado": "PARCIAL",
+      "contrato_listo": false,
+      "giros_base": 2,
+      "compras": 4,
+      "intentos": 5,
+      "error": "Hacksaw: continuación desconocida pendiente de captura Cobertura de ramificaciones pendiente: BUY_bonus -> ['bonus']; BUY_bonus_2 -> ['bonus_2'].",
+      "segundos": 4.2
+    },
+    {
+      "id": "1243",
+      "juego": "Stormforged",
+      "estado": "OK",
+      "contrato_listo": true,
+      "giros_base": 2,
+      "compras": 6,
+      "intentos": 8,
+      "error": "",
+      "segundos": 7.0
+    },
+    {
+      "id": "1697",
+      "juego": "Strength of Hercules",
+      "estado": "PARCIAL",
+      "contrato_listo": false,
+      "giros_base": 2,
+      "compras": 5,
+      "intentos": 6,
+      "error": "Hacksaw: continuación desconocida pendiente de captura Cobertura de ramificaciones pendiente: BUY_bonus -> ['bonus']; BUY_bonus_2 -> ['bonus_2'].",
+      "segundos": 5.5
+    },
+    {
+      "id": "1914",
+      "juego": "Sun Princess",
+      "estado": "OK",
+      "contrato_listo": true,
+      "giros_base": 2,
+      "compras": 4,
+      "intentos": 6,
+      "error": "",
+      "segundos": 6.6
+    },
+    {
+      "id": "2138",
+      "juego": "Superstar Sevens",
+      "estado": "OK",
+      "contrato_listo": true,
+      "giros_base": 2,
+      "compras": 4,
+      "intentos": 6,
+      "error": "",
+      "segundos": 6.2
+    },
+    {
+      "id": "2458",
+      "juego": "Supreme Zeus",
+      "estado": "OK",
+      "contrato_listo": true,
+      "giros_base": 2,
+      "compras": 4,
+      "intentos": 6,
+      "error": "",
+      "segundos": 6.0
+    },
+    {
+      "id": "1478",
+      "juego": "Tai the Toad",
+      "estado": "OK",
+      "contrato_listo": true,
+      "giros_base": 2,
+      "compras": 5,
+      "intentos": 7,
+      "error": "",
+      "segundos": 7.1
+    },
+    {
+      "id": "1096",
+      "juego": "Tasty Treats",
+      "estado": "OK",
+      "contrato_listo": true,
+      "giros_base": 2,
+      "compras": 1,
+      "intentos": 3,
+      "error": "",
+      "segundos": 3.9
+    },
+    {
+      "id": "1237",
+      "juego": "Temple of Torment",
+      "estado": "OK",
+      "contrato_listo": true,
+      "giros_base": 2,
+      "compras": 4,
+      "intentos": 6,
+      "error": "",
+      "segundos": 7.2
+    },
+    {
+      "id": "1135",
+      "juego": "The Bowery Boys",
+      "estado": "OK",
+      "contrato_listo": true,
+      "giros_base": 2,
+      "compras": 3,
+      "intentos": 5,
+      "error": "",
+      "segundos": 5.6
+    },
+    {
+      "id": "1803",
+      "juego": "The Count",
+      "estado": "OK",
+      "contrato_listo": true,
+      "giros_base": 2,
+      "compras": 4,
+      "intentos": 6,
+      "error": "",
+      "segundos": 6.2
+    },
+    {
+      "id": "1897",
+      "juego": "The Luxe",
+      "estado": "OK",
+      "contrato_listo": true,
+      "giros_base": 2,
+      "compras": 3,
+      "intentos": 5,
+      "error": "",
+      "segundos": 4.7
+    },
+    {
+      "id": "1058",
+      "juego": "The Respinners",
+      "estado": "OK",
+      "contrato_listo": true,
+      "giros_base": 2,
+      "compras": 0,
+      "intentos": 2,
+      "error": "",
+      "segundos": 3.1
+    },
+    {
+      "id": "1891",
+      "juego": "The Wildwood Curse",
+      "estado": "OK",
+      "contrato_listo": true,
+      "giros_base": 2,
+      "compras": 4,
+      "intentos": 6,
+      "error": "",
+      "segundos": 7.2
+    },
+    {
+      "id": "1744",
+      "juego": "Tiger Legends",
+      "estado": "OK",
+      "contrato_listo": true,
+      "giros_base": 2,
+      "compras": 4,
+      "intentos": 6,
+      "error": "",
+      "segundos": 6.4
+    },
+    {
+      "id": "1181",
+      "juego": "Time Spinners",
+      "estado": "OK",
+      "contrato_listo": true,
+      "giros_base": 2,
+      "compras": 2,
+      "intentos": 4,
+      "error": "",
+      "segundos": 5.6
+    },
+    {
+      "id": "1087",
+      "juego": "Toshi Video Club",
+      "estado": "OK",
+      "contrato_listo": true,
+      "giros_base": 2,
+      "compras": 1,
+      "intentos": 3,
+      "error": "",
+      "segundos": 4.0
+    },
+    {
+      "id": "1971",
+      "juego": "Toshi Ways Club",
+      "estado": "OK",
+      "contrato_listo": true,
+      "giros_base": 2,
+      "compras": 4,
+      "intentos": 6,
+      "error": "",
+      "segundos": 6.3
+    },
+    {
+      "id": "1514",
+      "juego": "Twisted Lab",
+      "estado": "OK",
+      "contrato_listo": true,
+      "giros_base": 2,
+      "compras": 5,
+      "intentos": 7,
+      "error": "",
+      "segundos": 7.0
+    },
+    {
+      "id": "1760",
+      "juego": "Ultimate Slot of America",
+      "estado": "OK",
+      "contrato_listo": true,
+      "giros_base": 2,
+      "compras": 5,
+      "intentos": 7,
+      "error": "",
+      "segundos": 6.5
+    },
+    {
+      "id": "1193",
+      "juego": "Undead Fortune",
+      "estado": "OK",
+      "contrato_listo": true,
+      "giros_base": 2,
+      "compras": 5,
+      "intentos": 7,
+      "error": "",
+      "segundos": 7.1
+    },
+    {
+      "id": "1340",
+      "juego": "Vending Machine",
+      "estado": "OK",
+      "contrato_listo": true,
+      "giros_base": 2,
+      "compras": 3,
+      "intentos": 5,
+      "error": "",
+      "segundos": 6.2
+    },
+    {
+      "id": "1067",
+      "juego": "Wanted Dead Or a Wild",
+      "estado": "OK",
+      "contrato_listo": true,
+      "giros_base": 2,
+      "compras": 3,
+      "intentos": 5,
+      "error": "",
+      "segundos": 5.1
+    },
+    {
+      "id": "1131",
+      "juego": "Warrior Ways",
+      "estado": "OK",
+      "contrato_listo": true,
+      "giros_base": 2,
+      "compras": 2,
+      "intentos": 4,
+      "error": "",
+      "segundos": 4.1
+    },
+    {
+      "id": "1612",
+      "juego": "Wings of Horus",
+      "estado": "OK",
+      "contrato_listo": true,
+      "giros_base": 2,
+      "compras": 4,
+      "intentos": 6,
+      "error": "",
+      "segundos": 5.4
+    },
+    {
+      "id": "1711",
+      "juego": "Wishbringer",
+      "estado": "OK",
+      "contrato_listo": true,
+      "giros_base": 2,
+      "compras": 4,
+      "intentos": 6,
+      "error": "",
+      "segundos": 6.6
+    },
+    {
+      "id": "1396",
+      "juego": "Xmas Drop",
+      "estado": "OK",
+      "contrato_listo": true,
+      "giros_base": 2,
+      "compras": 5,
+      "intentos": 7,
+      "error": "",
+      "segundos": 7.4
+    },
+    {
+      "id": "1093",
+      "juego": "Xpander",
+      "estado": "OK",
+      "contrato_listo": true,
+      "giros_base": 2,
+      "compras": 1,
+      "intentos": 3,
+      "error": "",
+      "segundos": 2.8
+    },
+    {
+      "id": "1508",
+      "juego": "Ze Zeus",
+      "estado": "OK",
+      "contrato_listo": true,
+      "giros_base": 2,
+      "compras": 4,
+      "intentos": 6,
+      "error": "",
+      "segundos": 5.6
+    },
+    {
+      "id": "2077",
+      "juego": "Zeus Ze Zecond",
+      "estado": "OK",
+      "contrato_listo": true,
+      "giros_base": 2,
+      "compras": 4,
+      "intentos": 6,
+      "error": "",
+      "segundos": 6.2
     }
   ],
-  "pausado_por_usuario": true,
-  "fecha": "2026-09-30"
+  "fecha": "2026-09-30",
+  "pendientes_sin_probar": [],
+  "pausado_por_usuario": false
 }
