@@ -69,3 +69,9 @@ class ResponseObserverTests(unittest.TestCase):
         change = o.observe({'spinMode': 'Normal', 'hasState': True}, action='spin')
         self.assertEqual(change['classification'], 'NEW_RESPONSE')
         self.assertIn('/hasState', change['changed_paths'])
+
+    def test_ka_reel_symbols_are_results_but_active_feature_is_a_state_change(self):
+        o=ResponseObserver('ka_gaming')
+        o.observe({'md':{'st':[1,2,3],'fs':False}},action='spin')
+        self.assertEqual(o.observe({'md':{'st':[4,5,6],'fs':False}},action='spin')['classification'],'SEEN')
+        self.assertEqual(o.observe({'md':{'st':[4,5,6],'fs':True}},action='spin')['classification'],'NEW_RESPONSE')

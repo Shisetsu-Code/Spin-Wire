@@ -38,7 +38,8 @@ def run_game_tests(
             f"límite seguro del proveedor={concurrency}; se ejecutará en serie."
         )
     spins_per_game = max(1, int(spins_per_game))
-    delay_between_starts_s = max(0.0, float(delay_between_starts_s))
+    delay_between_starts_s = max(0.0, float(delay_between_starts_s),
+                                 float(getattr(provider, "min_game_start_interval_s", 0.0)))
     timeout_s = max(1.0, float(timeout_s))
 
     def execute(game: Game, game_progress: Progress) -> GameTestResult:
@@ -155,18 +156,27 @@ def run_game_tests(
             game_progress(message)
         return result
 
+    def deliver_result(result):
+        try:
+            on_result(result)
+        except Exception as exc:
+            progress(f"[{result.game_name}] No se pudo registrar el resultado: {type(exc).__name__}: {exc}. "
+                     f"La corrida continúa; capturas: {result.run_dir or 'sin carpeta'}")
+
     in_flight: dict[Future[GameTestResult], Game] = {}
     next_index = 0
-    last_start = 0.0
+    last_start = None
 
     with ThreadPoolExecutor(max_workers=concurrency, thread_name_prefix="game-test") as pool:
         while (next_index < len(queue) or in_flight) and not stop_event.is_set():
             while next_index < len(queue) and len(in_flight) < concurrency and not stop_event.is_set():
-                if last_start and delay_between_starts_s > 0:
+                if last_start is not None and delay_between_starts_s > 0:
                     remaining = delay_between_starts_s - (time.monotonic() - last_start)
                     if remaining > 0 and stop_event.wait(remaining):
                         break
 
+                if stop_event.is_set():
+                    break
                 game = queue[next_index]
                 next_index += 1
                 progress(
@@ -198,7 +208,7 @@ def run_game_tests(
                         symbol=game.symbol,
                         error=f"{type(exc).__name__}: {exc}",
                     )
-                on_result(result)
+                deliver_result(result)
 
         if stop_event.is_set():
             progress("Detención solicitada; esperando las pruebas que ya estaban en vuelo...")
@@ -218,4 +228,4 @@ def run_game_tests(
                         symbol=game.symbol,
                         error=f"{type(exc).__name__}: {exc}",
                     )
-                on_result(result)
+                deliver_result(result)

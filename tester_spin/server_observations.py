@@ -68,17 +68,24 @@ STATE_FIELDS = frozenset({
 })
 
 
-def _shape(value, path='', state=False):
+def _shape(value, path='', state=False, provider=None):
     result = {}
     if isinstance(value, dict):
         result[path] = 'object'
         for key, item in sorted(value.items()):
             escaped = str(key).replace('~', '~0').replace('/', '~1')
-            result.update(_shape(item, path+'/'+escaped, str(key).lower() in STATE_FIELDS))
+            item_state = str(key).lower() in STATE_FIELDS
+            if provider == 'ka_gaming' and path == '/md':
+                # KA st is the reel screen, unlike scalar state codes elsewhere.
+                if key == 'st' and isinstance(item, list):
+                    item_state = False
+                elif key in {'fs', 'rf', 'acb', 'mb', 'fsr'}:
+                    item_state = True
+            result.update(_shape(item, path+'/'+escaped, item_state, provider))
     elif isinstance(value, list):
         result[path] = 'array'
         # Union shapes across every element; array length and ordering are noise.
-        shapes = [_shape(item, path+'/*', state) for item in value]
+        shapes = [_shape(item, path+'/*', state, provider) for item in value]
         for key in sorted({key for shape in shapes for key in shape}):
             result[key] = sorted({json.dumps(shape[key], sort_keys=True) for shape in shapes if key in shape})
     else:
@@ -115,7 +122,7 @@ class ResponseObserver:
     def observe(self, payload, *, action):
         if not isinstance(payload, (dict, list)):
             return {'classification': 'UNPARSED', 'changed_paths': [], 'review_required': True}
-        shape = _shape(payload)
+        shape = _shape(payload, provider=self.provider)
         signature = hashlib.sha256(json.dumps(shape, sort_keys=True, ensure_ascii=False).encode()).hexdigest()
         seen = self.seen.setdefault(action, set())
         baseline = self.baselines.get(action)

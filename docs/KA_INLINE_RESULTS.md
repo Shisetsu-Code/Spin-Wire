@@ -9,3 +9,8 @@ Se verificó directamente la respuesta guardada: el nuevo adaptador la clasifica
 La prueba de Abeja reina (BumbleBee) completó 32 giros y luego recibió HTTP404: ese resultado es un fallo de acceso, separado del bloque as de 3x Monos.
 
 Pruebas específicas de ejecución y compras: 14 aprobadas. Revisión independiente sin hallazgos pendientes. La evidencia completa permanece en los datos locales de Tester Spin y no se publica con sesiones o identificadores efímeros.
+
+
+## Actualización 2026-10-01
+
+También se reconocen los formatos observados de AgentAngels (`asi, st, swm, sw, swu, fsw, tw`) y Ares (los anteriores más `sm`), con validación estructural y numérica. Las tiradas gratis naturales se continúan aunque el juego no tenga compras. Para resultados y limitaciones vigentes, consultar [KA_CURRENT_STATUS.md](KA_CURRENT_STATUS.md); el conteo de pruebas anterior corresponde al cambio original.

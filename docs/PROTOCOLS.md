@@ -1916,3 +1916,18 @@ una firma SHA-256 ligada al timestamp y al payload. Nunca persistir `ctx`,
 `vds`, `sid` ni `psp`; son credenciales de una sola sesión. La evidencia del
 contrato está en `game.min.2070.js` (`Bca`, `Fc.G8e`, `Cc.I9e`) y en los juegos
 `CapyGo123` y `GoldenBull`.
+
+### Aproximación por formatos de compra — 2026-09-30
+
+La prioridad acordada es identificar compras y reutilizar serializers por proveedor/familia. No repetir un barrido por juego; los errores temporales quedan pendientes. El inventario `data/purchase-families.json` agrupa 11 formatos estructurales del catálogo actual, distingue declaración de catálogo de compra validada y conserva representantes para capturar formatos sin prueba.
+
+Formatos observados: BGaming API v2 `purchased_feature` escalar o con `purchased_feature_level`, y variantes JSON-RPC `play`; Pragmatic `doSpin/pur`; RedTiger `featureBuy`; RubyPlay `buy_feature/buy_feature_type`. Belatra mantiene 38 compras detectadas sin validación remota en los últimos resultados. KA mantiene 60 compras anunciadas, todavía sin payload de compra observado.
+
+KA GoldenBull confirmó en navegador y sesión HTTP fresca el giro base RMP: startGame devuelve `un`/`si`, usados como `ctx.u`/`ctx.c`; el spin usa el estado devuelto y la firma del cliente público. El runtime valida cps contra la tabla anunciada y solicita endSession al terminar. El cierre se verifica con pruebas aisladas; su confirmación remota está pendiente. Los HTTP 404 posteriores también afectaron al representante previamente válido: no prueban incompatibilidad de las otras familias. Dejar descansar las demos y volver sólo sobre un representante de compra.
+
+BGaming Bling Blitz Diamond Drop quedó validado mediante HAR real para giro base JSON-RPC. El capturador KA guarda evidencia al cerrar el navegador y conserva frames completos.
+
+
+## KA Gaming: actualización 2026-10-01
+
+Consultar [estado actual](KA_CURRENT_STATUS.md) para firma 2071, sesión por prueba, compra `pos=[1]`, cierre posterior a `fsr=0` y eventos gratuitos naturales. El endpoint RMP comparte un máximo de 30 requests/s por proceso y separación configurable. HTTP 404 detiene el lote; los demás errores permiten continuar. Los ejemplos antiguos son evidencia histórica, no garantía de compatibilidad de todo el catálogo.

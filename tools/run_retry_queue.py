@@ -30,6 +30,9 @@ def provider_for(key: str, data_root: Path):
         PragmaticProvider,
         RedTigerProvider,
         RubyPlayProvider,
+        ThreeOaksProvider,
+        YggdrasilProvider,
+        HacksawProvider,
     )
 
     providers = (
@@ -40,6 +43,9 @@ def provider_for(key: str, data_root: Path):
         KAGamingProvider,
         RubyPlayProvider,
         RedTigerProvider,
+        ThreeOaksProvider,
+        YggdrasilProvider,
+        HacksawProvider,
     )
     for provider_type in providers:
         provider = provider_type(data_root)

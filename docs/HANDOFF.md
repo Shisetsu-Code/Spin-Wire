@@ -2,11 +2,13 @@
 
 > Documento principal de continuidad. Si esta conversación se pierde o el proyecto se retoma en otro chat, leer este archivo antes de modificar código.
 >
-> Estado documentado: 2026-09-29.
+> Estado actualizado: 2026-10-01. Las secciones fechadas posteriores conservan contexto histórico.
 >
-> Repositorio: `Shisetsu-Code/Tester-Spin`.
+> Repositorio: `Shisetsu-Code/Spin-Wire`.
 >
-> Rama estable de trabajo: `main`.
+> Rama de este trabajo: `feat/farm-contract-export-v1`.
+
+Estado vigente de KA y límites de lo validado: [KA_CURRENT_STATUS.md](KA_CURRENT_STATUS.md). Esta referencia sustituye las cifras antiguas de compras candidatas y los requisitos históricos de sesión manual.
 
 ## 1. Objetivo del proyecto
 
@@ -33,7 +35,7 @@ El proyecto NO debe marcar `OK` sólo porque una página o demo devuelve HTTP 20
 | 1spin4win / D1 | `1spin4win` | Webflow HTML paginado | WebSocket directo | Spin base funcional |
 | Belatra Games | `belatra` | Next.js/RSC categoría 2 | HTTP cifrado `POST /game` endpoint-first | Spin base funcional; features/buy/free-spins pendientes |
 | BGaming | `bgaming` | HTML inicial + WordPress REST `/wp-json/bg/v1/games/search` | HTTP JSON API v2 `init/spin` | Spin base funcional; features no observadas quedan PARCIAL |
-| KA Gaming | `ka_gaming` | `publicGameList` filtrado a slots | WebSocket + RMP HTTP `startGame/spin` | Contrato de sesión modelado; requiere sesión de navegador válida para ejecutar |
+| KA Gaming | `ka_gaming` | `publicGameList` filtrado a slots | WebSocket + RMP HTTP `startGame/spin` | RMP activo: firma refrescada y sesión nueva por prueba; compras y juegos gratis observados |
 
 ## 3. Comandos habituales
 
@@ -84,7 +86,7 @@ Nunca afirmar que una rama está validada hasta que el workflow CI correspondien
   - entry point de la aplicación;
   - captura excepciones de arranque;
   - escribe `app-startup-error.log`;
-  - abre `tester_spin.app_current.main`.
+  - abre `tester_spin.app_har.main`.
 
 - `launcher.py`
   - entry point del ejecutable autoactualizable;
@@ -1512,3 +1514,13 @@ Evidencia 2026-09-09:
 - El grafo de scripts recorre referencias estáticas BGaming con límites de
   profundidad/tamaño y excluye terceros.
 - Ninguna de estas reglas depende de nombre, slug o identifier del juego.
+
+### Aproximación por formatos de compra — 2026-09-30
+
+La prioridad acordada es identificar compras y reutilizar serializers por proveedor/familia. No repetir un barrido por juego; los errores temporales quedan pendientes. El inventario `data/purchase-families.json` agrupa 11 formatos estructurales del catálogo actual, distingue declaración de catálogo de compra validada y conserva representantes para capturar formatos sin prueba.
+
+Formatos observados: BGaming API v2 `purchased_feature` escalar o con `purchased_feature_level`, y variantes JSON-RPC `play`; Pragmatic `doSpin/pur`; RedTiger `featureBuy`; RubyPlay `buy_feature/buy_feature_type`. Belatra mantiene 38 compras detectadas sin validación remota en los últimos resultados. KA mantiene 60 compras anunciadas, todavía sin payload de compra observado.
+
+KA GoldenBull confirmó en navegador y sesión HTTP fresca el giro base RMP: startGame devuelve `un`/`si`, usados como `ctx.u`/`ctx.c`; el spin usa el estado devuelto y la firma del cliente público. El runtime valida cps contra la tabla anunciada y solicita endSession al terminar. El cierre se verifica con pruebas aisladas; su confirmación remota está pendiente. Los HTTP 404 posteriores también afectaron al representante previamente válido: no prueban incompatibilidad de las otras familias. Dejar descansar las demos y volver sólo sobre un representante de compra.
+
+BGaming Bling Blitz Diamond Drop quedó validado mediante HAR real para giro base JSON-RPC. El capturador KA guarda evidencia al cerrar el navegador y conserva frames completos.

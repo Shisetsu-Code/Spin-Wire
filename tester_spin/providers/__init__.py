@@ -6,6 +6,9 @@ from tester_spin.providers.pragmatic_farm_adapter import PragmaticProvider
 from tester_spin.providers.redtiger.farm_adapter import RedTigerProvider
 from tester_spin.providers.ka_gaming.farm_adapter import KAGamingProvider
 from tester_spin.providers.rubyplay.farm_adapter import RubyPlayProvider
+from tester_spin.providers.three_oaks import ThreeOaksProvider
+from tester_spin.providers.yggdrasil import YggdrasilProvider
+from tester_spin.providers.hacksaw import HacksawProvider
 
 __all__ = [
     "ProviderAdapter",
@@ -17,4 +20,7 @@ __all__ = [
     "RubyPlayProvider",
     "RedTigerProvider",
     "KAGamingProvider",
+    "ThreeOaksProvider",
+    "YggdrasilProvider",
+    "HacksawProvider",
 ]

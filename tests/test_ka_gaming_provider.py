@@ -10,13 +10,13 @@ from tester_spin.providers.ka_gaming.adapter import KAGamingProvider
 
 
 class KAGamingProviderTests(unittest.TestCase):
-    def test_session_bound_runtime_stays_partial(self) -> None:
+    def test_unofficial_launcher_is_rejected_before_a_session(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             provider = KAGamingProvider(Path(directory))
             result = provider.test_game(Game("ka_gaming", "a", "Alpha", "https://demo/?g=A", symbol="A"), spins=1, timeout_s=1, stop_event=threading.Event(), progress=lambda _: None)
-        self.assertEqual(result.status, "PARCIAL")
+        self.assertEqual(result.status, "ERROR")
         self.assertEqual(result.successful_spins, 0)
-        self.assertIn("vds", result.error)
+        self.assertIn("launcher no oficial", result.error)
         self.assertEqual(result.discovered_modes[0]["request_type"], "fr")
         rmp = result.discovered_modes[0]["rmp_spin"]
         self.assertEqual(rmp["method"], "POST")

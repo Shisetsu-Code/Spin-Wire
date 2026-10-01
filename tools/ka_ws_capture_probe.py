@@ -12,7 +12,7 @@ import sys
 import time
 from pathlib import Path
 
-from playwright.sync_api import sync_playwright
+from playwright.sync_api import Error, sync_playwright
 
 ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
@@ -32,6 +32,19 @@ def main() -> int:
 
     captured: list[dict[str, str]] = []
     requests: list[dict[str, object]] = []
+    url = build_launch_url(args.base_url, args.game_id, language="es")
+    args.output.parent.mkdir(parents=True, exist_ok=True)
+    stop_reason = "completed"
+    error = ""
+
+    def save_capture() -> None:
+        temporary = args.output.with_suffix(".json.tmp")
+        temporary.write_text(
+            json.dumps({"launch_url": url, "events": captured, "requests": requests,
+                        "stop_reason": stop_reason, "error": error}, ensure_ascii=False, indent=2),
+            encoding="utf-8",
+        )
+        temporary.replace(args.output)
 
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(headless=not args.headed)
@@ -49,29 +62,45 @@ def main() -> int:
                                 if key.lower() in {"content-type", "ctx", "origin", "referer"}},
                     "post_data": request.post_data if request.resource_type in {"fetch", "xhr"} else None,
                 })
+                save_capture()
 
         def on_socket(socket) -> None:
             captured.append({"event": "open", "url": socket.url})
-            socket.on("framesent", lambda payload: captured.append({"event": "sent", "payload": str(payload)[:2000]}))
-            socket.on("framereceived", lambda payload: captured.append({"event": "received", "payload": str(payload)[:2000]}))
+            save_capture()
+
+            def frame(event: str, payload) -> None:
+                captured.append({"event": event, "payload": str(payload)})
+                save_capture()
+
+            socket.on("framesent", lambda payload: frame("sent", payload))
+            socket.on("framereceived", lambda payload: frame("received", payload))
 
         page.on("websocket", on_socket)
         page.on("request", on_request)
-        url = build_launch_url(args.base_url, args.game_id, language="es")
-        page.goto(url, wait_until="domcontentloaded", timeout=30_000)
-        deadline = time.monotonic() + max(1.0, args.wait)
-        while time.monotonic() < deadline:
-            page.wait_for_timeout(250)
-        args.output.parent.mkdir(parents=True, exist_ok=True)
-        args.output.write_text(
-            json.dumps({"launch_url": url, "events": captured, "requests": requests}, ensure_ascii=False, indent=2),
-            encoding="utf-8",
-        )
-        context.close()
-        browser.close()
+        try:
+            page.goto(url, wait_until="domcontentloaded", timeout=30_000)
+            deadline = time.monotonic() + max(1.0, args.wait)
+            while time.monotonic() < deadline:
+                page.wait_for_timeout(250)
+        except Error as exc:
+            if page.is_closed():
+                stop_reason = "browser_closed"
+            else:
+                stop_reason = "capture_error"
+                error = str(exc)
+        finally:
+            save_capture()
+            try:
+                context.close()
+            except Error:
+                pass
+            try:
+                browser.close()
+            except Error:
+                pass
 
     print(json.dumps({"events": len(captured), "output": str(args.output)}, ensure_ascii=False))
-    return 0
+    return 1 if error else 0
 
 
 if __name__ == "__main__":

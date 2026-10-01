@@ -185,11 +185,18 @@ class CurrentTesterSpinApp(LiveTesterSpinApp):
                 delay_between_starts_s=max(0.0, float(self.delay_var.get())),
                 timeout_s=max(1.0, float(self.timeout_var.get())),
             )
+            operation_delay_s = float(self.operation_delay_var.get().replace(",", "."))
+            import math
+            if not math.isfinite(operation_delay_s) or operation_delay_s < 0:
+                raise ValueError("Delay entre operaciones inválido")
         except ValueError:
-            messagebox.showerror("Tester-Spin", "Revisá concurrencia, repeticiones, delay y timeout.")
+            messagebox.showerror("Tester-Spin", "Revisá concurrencia, repeticiones, delays y timeout.")
             return
 
         provider = self._provider()
+        if provider.key == "ka_gaming":
+            from tester_spin.providers.ka_gaming.limits import REQUEST_GATE
+            REQUEST_GATE.configure_delay(operation_delay_s)
         requested_concurrency = config.concurrency
         effective_concurrency = provider.effective_test_concurrency(requested_concurrency)
         if effective_concurrency != requested_concurrency:
@@ -216,7 +223,7 @@ class CurrentTesterSpinApp(LiveTesterSpinApp):
             )
             + ", "
             f"repeticiones/modo={config.spins_per_game}, "
-            f"delay={config.delay_between_starts_s}s ==="
+            f"delay={config.delay_between_starts_s}s, delay operaciones KA={operation_delay_s}s ==="
         )
 
         batch_results = []

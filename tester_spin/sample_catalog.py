@@ -80,12 +80,18 @@ def _choices(provider: str, root: Path, files: list[Path]) -> list[dict[str, Any
                     for row in summary.get("choice_continuations", [])
                     if isinstance(row, dict) and row.get("selected") is not None
                 ]
-    elif provider in {"bgaming", "rubyplay"}:
+    elif provider in {"bgaming", "rubyplay", "hacksaw"}:
         for path in files:
             if "request" not in path.name or path.suffix != ".json":
                 continue
             data = _read(path)
             if not isinstance(data, dict):
+                continue
+            if provider == "hacksaw":
+                instruction = data.get("continueInstructions")
+                action = instruction.get("action") if isinstance(instruction, dict) else None
+                if isinstance(action, str) and action in {"play", "gamble", "wild", "warehouse", "fs", "lives"}:
+                    choices.append({"command": "bet", "field": "continueInstructions.action", "value": action})
                 continue
             if provider == "bgaming":
                 choice = _bgaming_choice(data)

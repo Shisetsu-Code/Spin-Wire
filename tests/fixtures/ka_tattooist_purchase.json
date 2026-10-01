@@ -1,0 +1,216 @@
+{
+  "initial": {
+    "sel": 25,
+    "cps": 1,
+    "atb": 0,
+    "dn": 0.01,
+    "fs": false,
+    "rf": 0,
+    "acb": 0,
+    "fsr": 0,
+    "mb": false
+  },
+  "responses": [
+    {
+      "sel": 25,
+      "cps": 1,
+      "atb": 0,
+      "dn": 0.01,
+      "fs": false,
+      "rf": 0,
+      "acb": 1,
+      "fsr": 12,
+      "mb": false,
+      "pos": [
+        1
+      ]
+    },
+    {
+      "sel": 25,
+      "cps": 1,
+      "atb": 0,
+      "dn": 0.01,
+      "fs": true,
+      "rf": 0,
+      "acb": 1,
+      "fsr": 14,
+      "mb": false
+    },
+    {
+      "sel": 25,
+      "cps": 1,
+      "atb": 0,
+      "dn": 0.01,
+      "fs": true,
+      "rf": 0,
+      "acb": 1,
+      "fsr": 13,
+      "mb": false
+    },
+    {
+      "sel": 25,
+      "cps": 1,
+      "atb": 0,
+      "dn": 0.01,
+      "fs": true,
+      "rf": 0,
+      "acb": 1,
+      "fsr": 12,
+      "mb": false
+    },
+    {
+      "sel": 25,
+      "cps": 1,
+      "atb": 0,
+      "dn": 0.01,
+      "fs": true,
+      "rf": 0,
+      "acb": 1,
+      "fsr": 11,
+      "mb": false
+    },
+    {
+      "sel": 25,
+      "cps": 1,
+      "atb": 0,
+      "dn": 0.01,
+      "fs": true,
+      "rf": 0,
+      "acb": 1,
+      "fsr": 10,
+      "mb": false
+    },
+    {
+      "sel": 25,
+      "cps": 1,
+      "atb": 0,
+      "dn": 0.01,
+      "fs": true,
+      "rf": 0,
+      "acb": 1,
+      "fsr": 9,
+      "mb": false
+    },
+    {
+      "sel": 25,
+      "cps": 1,
+      "atb": 0,
+      "dn": 0.01,
+      "fs": true,
+      "rf": 0,
+      "acb": 1,
+      "fsr": 8,
+      "mb": false
+    },
+    {
+      "sel": 25,
+      "cps": 1,
+      "atb": 0,
+      "dn": 0.01,
+      "fs": true,
+      "rf": 0,
+      "acb": 1,
+      "fsr": 7,
+      "mb": false
+    },
+    {
+      "sel": 25,
+      "cps": 1,
+      "atb": 0,
+      "dn": 0.01,
+      "fs": true,
+      "rf": 0,
+      "acb": 1,
+      "fsr": 6,
+      "mb": false
+    },
+    {
+      "sel": 25,
+      "cps": 1,
+      "atb": 0,
+      "dn": 0.01,
+      "fs": true,
+      "rf": 0,
+      "acb": 1,
+      "fsr": 6,
+      "mb": false
+    },
+    {
+      "sel": 25,
+      "cps": 1,
+      "atb": 0,
+      "dn": 0.01,
+      "fs": true,
+      "rf": 0,
+      "acb": 1,
+      "fsr": 5,
+      "mb": false
+    },
+    {
+      "sel": 25,
+      "cps": 1,
+      "atb": 0,
+      "dn": 0.01,
+      "fs": true,
+      "rf": 0,
+      "acb": 1,
+      "fsr": 4,
+      "mb": false
+    },
+    {
+      "sel": 25,
+      "cps": 1,
+      "atb": 0,
+      "dn": 0.01,
+      "fs": true,
+      "rf": 0,
+      "acb": 1,
+      "fsr": 3,
+      "mb": false
+    },
+    {
+      "sel": 25,
+      "cps": 1,
+      "atb": 0,
+      "dn": 0.01,
+      "fs": true,
+      "rf": 0,
+      "acb": 1,
+      "fsr": 2,
+      "mb": false
+    },
+    {
+      "sel": 25,
+      "cps": 1,
+      "atb": 0,
+      "dn": 0.01,
+      "fs": true,
+      "rf": 0,
+      "acb": 1,
+      "fsr": 1,
+      "mb": false
+    },
+    {
+      "sel": 25,
+      "cps": 1,
+      "atb": 0,
+      "dn": 0.01,
+      "fs": true,
+      "rf": 0,
+      "acb": 1,
+      "fsr": 0,
+      "mb": false
+    },
+    {
+      "sel": 25,
+      "cps": 1,
+      "atb": 0,
+      "dn": 0.01,
+      "fs": false,
+      "rf": 0,
+      "acb": 0,
+      "fsr": 0,
+      "mb": false
+    }
+  ]
+}

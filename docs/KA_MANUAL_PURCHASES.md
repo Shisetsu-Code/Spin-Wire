@@ -1,5 +1,7 @@
 # KA Gaming: compras observadas en cuatro HAR
 
+> Evidencia histórica del 30/09. El estado vigente está en [KA_CURRENT_STATUS.md](KA_CURRENT_STATUS.md): 14 juegos con compra y cierre controlado de TheNaughtyTattooist validado el 01/10.
+
 Capturas del 30/09/2026: JadeQuest, ChaosCombat, StellarFantasia y CarnivalBeauty. Incluyen 65 solicitudes de giro, cuatro de ellas con pos=[1]. No incluyen cuerpos de respuesta ni bootstrap de sesión; no se reutilizaron sus credenciales.
 
 El formato común es POST https://rmpdemo.kaga88.com/kaga/command/spin con gn, sel, sid, cps, atb y dn. La compra agrega pos=[1]. El cliente público game.min.2070.js confirma su serialización; las pruebas nuevas de la demo confirmaron que inicia juegos gratis.
@@ -21,4 +23,4 @@ Los HAR y respuestas completas quedan en las carpetas locales de KA. La metadata
 
 ## Aplicación al catálogo
 
-El usuario estableció ampliar los formatos aprendidos a todos los juegos aplicables y revisar las excepciones. pos=[1] ahora se propone a los 60 juegos con compras anunciadas del catálogo de 828 juegos. Ya no se limita a los cuatro HAR. El barrido quedó interrumpido después de tres HTTP404 en startGame, sin apostar; no se confirmó compatibilidad adicional. Ver [estándar y resultado](PROVIDER_VALIDATION_STANDARD.md).
+El usuario estableció ampliar los formatos aprendidos a todos los juegos aplicables y revisar las excepciones. En esa etapa pos=[1] se propuso a 60 candidatos del catálogo de 828 juegos. Ese criterio fue sustituido por la lista confirmada de 14 juegos con compra; el indicador público no bastaba. El barrido quedó interrumpido después de tres HTTP404 en startGame, sin apostar; no se confirmó compatibilidad adicional. Ver [estándar y resultado](PROVIDER_VALIDATION_STANDARD.md).

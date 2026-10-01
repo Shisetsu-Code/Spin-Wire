@@ -11,6 +11,16 @@ from tester_spin.providers.base import GameCallback, Progress, ProviderAdapter
 from tester_spin.providers.ka_gaming.catalog import CATALOG_URL, declared_modes_from_row, games_from_catalog
 
 
+# Official website purchase filter supplied by the user, 2026-10-01.
+# The legacy publicGameList bp flag also labels ordinary bonus games.
+PURCHASE_GAME_IDS = frozenset({
+    "hotcoinbf", "kickcashmonkey2", "buzzkillbonanza", "thenaughtytattooist",
+    "chaoscombat", "carnivalbeauty", "seasidepelican", "tropicalholiday",
+    "playfulkitten", "inkpaintingmaster", "fantasyoktoberfest",
+    "stellarfantasia", "jadequest", "thiefdog",
+})
+
+
 class KAGamingProvider(ProviderAdapter):
     key = "ka_gaming"
     display_name = "KA Gaming"
@@ -37,7 +47,12 @@ class KAGamingProvider(ProviderAdapter):
         if stop_event.is_set():
             self.set_catalog_authority(False, "crawl detenido por el usuario")
             return []
+        from tester_spin.providers.ka_gaming.limits import REQUEST_GATE
+        REQUEST_GATE.acquire(stop_event)
         response = self.http.get(self.catalog_url, params={"lang": "es"}, headers={"Origin": "https://www.kaga88.com", "Referer": "https://www.kaga88.com/"}, timeout=30)
+        if response.status_code == 404:
+            stop_event.set()
+            progress("KA Gaming: HTTP 404; ejecuciÃ³n detenida.")
         response.raise_for_status()
         payload = response.json()
         games = games_from_catalog(payload, language="es")
@@ -53,12 +68,24 @@ class KAGamingProvider(ProviderAdapter):
         self.set_catalog_authority(True)
         for game in games:
             if on_game: on_game(game)
-        progress(f"KA Gaming catálogo terminado: {len(games)} juegos; autoridad=sí.")
+        progress(f"KA Gaming catÃ¡logo terminado: {len(games)} juegos; autoridad=sÃ­.")
         return games
 
     def test_game(self, game: Game, *, spins: int, timeout_s: float, stop_event: threading.Event, progress: Progress) -> GameTestResult:
-        del timeout_s, stop_event
-        progress(f"[{game.name}] KA Gaming: transporte WebSocket confirmado; falta capturar vds de una sesión para ejecutar el spin.")
+        from tester_spin.providers.ka_gaming.runtime import refresh_signing_profile, run_rmp_game
+        try:
+            profile = refresh_signing_profile(game, http=self.http, root=self.provider_root,
+                timeout_s=timeout_s, stop_event=stop_event, progress=progress)
+        except Exception as exc:
+            return GameTestResult(provider=self.key, slug=game.slug, game_name=game.name,
+                game_url=game.url, requested_spins=spins, successful_spins=0, failed_spins=spins,
+                status="ERROR", discovered_modes=self._discovered_modes(game),
+                error=f"Actualización de cliente KA: {type(exc).__name__}: {exc}")
+        if profile is not None:
+            return run_rmp_game(game, http=self.http, root=self.provider_root, profile=profile,
+                modes=self._discovered_modes(game), spins=spins, timeout_s=timeout_s,
+                stop_event=stop_event, progress=progress)
+        progress(f"[{game.name}] KA Gaming: transporte WebSocket confirmado; falta capturar vds de una sesiÃ³n para ejecutar el spin.")
         return GameTestResult(
             provider=self.key,
             slug=game.slug,
@@ -69,7 +96,7 @@ class KAGamingProvider(ProviderAdapter):
             successful_spins=0,
             failed_spins=0,
             status="PARCIAL",
-            error="KA Gaming: WebSocket y mensaje de giro confirmados, pero vds es una credencial de sesión efímera; no se envió apuesta fuera del navegador.",
+            error="KA Gaming: WebSocket y mensaje de giro confirmados, pero vds es una credencial de sesiÃ³n efÃ­mera; no se enviÃ³ apuesta fuera del navegador.",
             discovered_modes=self._discovered_modes(game),
         )
 
@@ -77,6 +104,8 @@ class KAGamingProvider(ProviderAdapter):
         declared = [dict(mode) for mode in self._catalog_modes.get(game.slug, [])]
         if not declared:
             declared = [{"id": "SPIN", "kind": "SLOTS", "source": "fallback", "executable": False, "coverage_required": False}]
+        if game.slug.casefold() not in PURCHASE_GAME_IDS:
+            declared = [m for m in declared if m["id"] not in {"BONUS_PURCHASE", "BUY_POS_1"}]
         for mode in declared:
             if mode["id"] == "SPIN":
                 mode.update({
@@ -111,4 +140,17 @@ class KAGamingProvider(ProviderAdapter):
                 })
             else:
                 mode["reason"] = "WIRE_CONTRACT_NOT_OBSERVED"
+        if game.slug.casefold() in PURCHASE_GAME_IDS:
+            declared = [m for m in declared if m["id"] != "BONUS_PURCHASE"]
+            declared.append({"id":"BUY_POS_1","kind":"PURCHASE","pos":[1],
+                "source":"provider-family-candidate","validated":False,"observed":False,
+                "executable":False,"coverage_required":True,"request_shape":{"pos":[1]},"cost_multiplier":None})
+        try:
+            imported = json.loads((self.provider_root / game.slug / "purchase_modes.json").read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            imported = []
+        for mode in imported if isinstance(imported, list) else []:
+            if isinstance(mode, dict) and mode.get("id") == "BUY_POS_1" and mode.get("pos") == [1] and mode.get("source") == "manual-har":
+                declared = [m for m in declared if m["id"] not in {"BONUS_PURCHASE", "BUY_POS_1"}]
+                declared.append({**mode, "validated": False, "executable": False})
         return declared

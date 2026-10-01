@@ -233,6 +233,37 @@ class SchedulerConcurrencyTests(unittest.TestCase):
                 (Path(temp) / "analysis" / "farm-contract-candidate.json").is_file()
             )
 
+    def test_result_callback_error_does_not_abort_remaining_games(self):
+        with tempfile.TemporaryDirectory() as temp:
+            provider=_OrderingProvider(Path(temp))
+            games=[Game('limited',str(i),str(i),'https://example.test') for i in range(3)]
+            calls=[];stop=threading.Event()
+            def callback(result):
+                calls.append(result.slug)
+                if len(calls)==1:raise RuntimeError('temporary persistence failure')
+            run_game_tests(provider,games,concurrency=1,spins_per_game=1,
+                delay_between_starts_s=0,timeout_s=1,stop_event=stop,
+                progress=lambda _:None,on_result=callback)
+            self.assertEqual(calls,['0','1','2'])
+            self.assertFalse(stop.is_set())
+
+    def test_provider_error_does_not_abort_other_games(self):
+        with tempfile.TemporaryDirectory() as temp:
+            provider=_OrderingProvider(Path(temp))
+            original=provider.test_game
+            def test(game,**kwargs):
+                if game.slug=='0':raise RuntimeError('HTTP 500')
+                return original(game,**kwargs)
+            provider.test_game=test
+            games=[Game('limited',str(i),str(i),'https://example.test') for i in range(3)]
+            results=[];stop=threading.Event()
+            run_game_tests(provider,games,concurrency=1,spins_per_game=1,
+                delay_between_starts_s=0,timeout_s=1,stop_event=stop,
+                progress=lambda _:None,on_result=results.append)
+            self.assertEqual(len(results),3)
+            self.assertEqual(results[0].status,'ERROR')
+            self.assertFalse(stop.is_set())
+
 
 if __name__ == "__main__":
     unittest.main()

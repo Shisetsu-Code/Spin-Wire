@@ -61,6 +61,7 @@ class TesterSpinApp(tk.Tk):
         self.concurrency_var = tk.StringVar(value="3")
         self.spins_var = tk.StringVar(value="1")
         self.delay_var = tk.StringVar(value="1.0")
+        self.operation_delay_var = tk.StringVar(value="0.2")
         self.timeout_var = tk.StringVar(value="30")
         self.status_var = tk.StringVar(value="Listo")
         self.count_var = tk.StringVar(value="0 juegos")
@@ -111,6 +112,12 @@ class TesterSpinApp(tk.Tk):
         ):
             ttk.Label(row2, text=label + ":").pack(side="left", padx=(0 if label == "Juegos simultáneos" else 16, 5))
             ttk.Entry(row2, textvariable=var, width=width).pack(side="left")
+
+        operation_row = ttk.Frame(opts)
+        operation_row.pack(fill="x", pady=(8, 0))
+        ttk.Label(operation_row, text="Delay entre operaciones KA (s):").pack(side="left", padx=(0, 5))
+        ttk.Entry(operation_row, textvariable=self.operation_delay_var, width=7).pack(side="left")
+        ttk.Label(operation_row, text="Pausa compartida entre peticiones; 0 desactiva la pausa. Se mantiene el máximo de 30 requests/s.").pack(side="left", padx=(12, 0))
 
         self.test_selected_btn = ttk.Button(row2, text="PROBAR SELECCIONADOS", command=self._test_selected)
         self.test_selected_btn.pack(side="left", padx=(20, 8))
@@ -265,11 +272,18 @@ class TesterSpinApp(tk.Tk):
             repetitions = max(1, int(self.spins_var.get()))
             delay_s = max(0.0, float(self.delay_var.get()))
             timeout_s = max(1.0, float(self.timeout_var.get()))
+            operation_delay_s = float(self.operation_delay_var.get().replace(",", "."))
+            import math
+            if not math.isfinite(operation_delay_s) or operation_delay_s < 0:
+                raise ValueError("Delay entre operaciones inválido")
         except ValueError:
             messagebox.showerror("Tester-Spin", "Revisá concurrencia, repeticiones, delay y timeout.")
             return
 
         provider = self._provider()
+        if provider.key == "ka_gaming":
+            from tester_spin.providers.ka_gaming.limits import REQUEST_GATE
+            REQUEST_GATE.configure_delay(operation_delay_s)
         self._stop_event = threading.Event()
         self._test_total = len(games)
         self._test_done = 0
@@ -279,7 +293,7 @@ class TesterSpinApp(tk.Tk):
         self.progress.configure(mode="determinate", maximum=max(1, len(games)), value=0)
         self._append_log(
             f"=== INICIO: proveedor={provider.display_name}, juegos={len(games)}, "
-            f"simultáneos={concurrency}, repeticiones/modo={repetitions}, delay={delay_s}s ==="
+            f"simultáneos={concurrency}, repeticiones/modo={repetitions}, delay={delay_s}s, delay operaciones KA={operation_delay_s}s ==="
         )
 
         def on_result(result: GameTestResult) -> None:

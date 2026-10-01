@@ -24,7 +24,7 @@ def _pairs(root: Path, attempt_dir: Path, metadata: dict) -> tuple[list, str, li
         if any(part in {'bootstrap', 'discovery', 'return-to-base'} for part in local_parts[:-1]):
             continue
         stem = path.stem
-        match = re.fullmatch(r'(.*?)[.-](request|response)', stem)
+        match = re.fullmatch(r'(.*?)[.-](request|response)(?:\.raw)?', stem)
         if match:
             label = match[1]
         elif stem in {'request', 'response'}:

@@ -132,5 +132,17 @@ class RunTreeTests(unittest.TestCase):
             self.assertFalse(path['offline_replay_ready'])
             self.assertTrue(path['gaps'])
 
+    def test_raw_json_responses_are_paired_and_read_instead_of_unparsed(self):
+        mod=self.module()
+        with tempfile.TemporaryDirectory() as temp:
+            root=Path(temp); result=self.fixture(root)
+            for p in root.rglob('*.response.json'):
+                p.rename(p.with_name(p.name.replace('.response.json','.response.raw.json')))
+            tree=mod.write_run_tree(result)
+            self.assertTrue(all(p['offline_replay_ready'] for p in tree['trajectories']))
+            self.assertEqual(tree['trajectories'][0]['steps'][0]['observed_response']['state'],'same-observed-state')
+            observations=json.loads((root/'server-observations.json').read_text())
+            self.assertEqual(observations['unparsed'],0)
+
 
 if __name__=='__main__': unittest.main()
