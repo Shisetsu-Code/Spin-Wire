@@ -1,0 +1,444 @@
+[
+  {
+    "direction": "sent",
+    "payload": {
+      "type": "1",
+      "data": "10,0,0,1"
+    }
+  },
+  {
+    "direction": "received",
+    "payload": {
+      "type": 3,
+      "st": 5,
+      "b": 9330,
+      "w": 20,
+      "l": 10,
+      "b3": 0,
+      "b8": 0,
+      "b9": 15,
+      "b10": 0,
+      "b11": 20
+    }
+  },
+  {
+    "direction": "sent",
+    "payload": {
+      "type": "1",
+      "data": "10,0,0"
+    }
+  },
+  {
+    "direction": "received",
+    "payload": {
+      "type": 3,
+      "st": 6,
+      "b": 9330,
+      "w": 0,
+      "l": 10,
+      "b3": 0,
+      "b8": 1,
+      "b9": 15,
+      "b10": 0,
+      "b11": 20
+    }
+  },
+  {
+    "direction": "sent",
+    "payload": {
+      "type": "1",
+      "data": "10,0,0"
+    }
+  },
+  {
+    "direction": "received",
+    "payload": {
+      "type": 3,
+      "st": 6,
+      "b": 9330,
+      "w": 6,
+      "l": 10,
+      "b3": 0,
+      "b8": 2,
+      "b9": 15,
+      "b10": 6,
+      "b11": 26
+    }
+  },
+  {
+    "direction": "sent",
+    "payload": {
+      "type": "1",
+      "data": "10,0,0"
+    }
+  },
+  {
+    "direction": "received",
+    "payload": {
+      "type": 3,
+      "st": 6,
+      "b": 9330,
+      "w": 0,
+      "l": 10,
+      "b3": 0,
+      "b8": 3,
+      "b9": 15,
+      "b10": 0,
+      "b11": 26
+    }
+  },
+  {
+    "direction": "sent",
+    "payload": {
+      "type": "1",
+      "data": "10,0,0"
+    }
+  },
+  {
+    "direction": "received",
+    "payload": {
+      "type": 3,
+      "st": 6,
+      "b": 9330,
+      "w": 96,
+      "l": 10,
+      "b3": 0,
+      "b8": 4,
+      "b9": 15,
+      "b10": 96,
+      "b11": 122
+    }
+  },
+  {
+    "direction": "sent",
+    "payload": {
+      "type": "1",
+      "data": "10,0,0"
+    }
+  },
+  {
+    "direction": "received",
+    "payload": {
+      "type": 3,
+      "st": 6,
+      "b": 9330,
+      "w": 0,
+      "l": 10,
+      "b3": 0,
+      "b8": 5,
+      "b9": 15,
+      "b10": 0,
+      "b11": 122
+    }
+  },
+  {
+    "direction": "sent",
+    "payload": {
+      "type": "1",
+      "data": "10,0,0"
+    }
+  },
+  {
+    "direction": "received",
+    "payload": {
+      "type": 3,
+      "st": 6,
+      "b": 9330,
+      "w": 0,
+      "l": 10,
+      "b3": 0,
+      "b8": 6,
+      "b9": 15,
+      "b10": 0,
+      "b11": 122
+    }
+  },
+  {
+    "direction": "sent",
+    "payload": {
+      "type": "1",
+      "data": "10,0,0"
+    }
+  },
+  {
+    "direction": "received",
+    "payload": {
+      "type": 3,
+      "st": 6,
+      "b": 9330,
+      "w": 0,
+      "l": 10,
+      "b3": 0,
+      "b8": 7,
+      "b9": 15,
+      "b10": 0,
+      "b11": 122
+    }
+  },
+  {
+    "direction": "sent",
+    "payload": {
+      "type": "1",
+      "data": "10,0,0"
+    }
+  },
+  {
+    "direction": "received",
+    "payload": {
+      "type": 3,
+      "st": 6,
+      "b": 9330,
+      "w": 0,
+      "l": 10,
+      "b3": 0,
+      "b8": 8,
+      "b9": 15,
+      "b10": 0,
+      "b11": 122
+    }
+  },
+  {
+    "direction": "sent",
+    "payload": {
+      "type": "1",
+      "data": "10,0,0"
+    }
+  },
+  {
+    "direction": "received",
+    "payload": {
+      "type": 3,
+      "st": 6,
+      "b": 9330,
+      "w": 15,
+      "l": 10,
+      "b3": 0,
+      "b8": 9,
+      "b9": 15,
+      "b10": 15,
+      "b11": 137
+    }
+  },
+  {
+    "direction": "sent",
+    "payload": {
+      "type": "1",
+      "data": "10,0,0"
+    }
+  },
+  {
+    "direction": "received",
+    "payload": {
+      "type": 3,
+      "st": 6,
+      "b": 9330,
+      "w": 0,
+      "l": 10,
+      "b3": 0,
+      "b8": 10,
+      "b9": 15,
+      "b10": 0,
+      "b11": 137
+    }
+  },
+  {
+    "direction": "sent",
+    "payload": {
+      "type": "1",
+      "data": "10,0,0"
+    }
+  },
+  {
+    "direction": "received",
+    "payload": {
+      "type": 3,
+      "st": 6,
+      "b": 9330,
+      "w": 0,
+      "l": 10,
+      "b3": 0,
+      "b8": 11,
+      "b9": 15,
+      "b10": 0,
+      "b11": 137
+    }
+  },
+  {
+    "direction": "sent",
+    "payload": {
+      "type": "1",
+      "data": "10,0,0"
+    }
+  },
+  {
+    "direction": "received",
+    "payload": {
+      "type": 3,
+      "st": 6,
+      "b": 9330,
+      "w": 141,
+      "l": 10,
+      "b3": 0,
+      "b8": 12,
+      "b9": 15,
+      "b10": 141,
+      "b11": 278
+    }
+  },
+  {
+    "direction": "sent",
+    "payload": {
+      "type": "1",
+      "data": "10,0,0"
+    }
+  },
+  {
+    "direction": "received",
+    "payload": {
+      "type": 3,
+      "st": 6,
+      "b": 9330,
+      "w": 12,
+      "l": 10,
+      "b3": 0,
+      "b8": 13,
+      "b9": 15,
+      "b10": 12,
+      "b11": 290
+    }
+  },
+  {
+    "direction": "sent",
+    "payload": {
+      "type": "1",
+      "data": "10,0,0"
+    }
+  },
+  {
+    "direction": "received",
+    "payload": {
+      "type": 3,
+      "st": 6,
+      "b": 9330,
+      "w": 0,
+      "l": 10,
+      "b3": 0,
+      "b8": 14,
+      "b9": 15,
+      "b10": 0,
+      "b11": 290
+    }
+  },
+  {
+    "direction": "sent",
+    "payload": {
+      "type": "1",
+      "data": "10,0,0"
+    }
+  },
+  {
+    "direction": "received",
+    "payload": {
+      "type": 3,
+      "st": 12,
+      "b": 9620,
+      "w": 0,
+      "l": 10,
+      "b3": 0,
+      "b8": 15,
+      "b9": 15,
+      "b10": 0,
+      "b11": 290
+    }
+  },
+  {
+    "direction": "sent",
+    "payload": {
+      "type": "1",
+      "data": "10,0,0"
+    }
+  },
+  {
+    "direction": "received",
+    "payload": {
+      "type": 3,
+      "st": 3,
+      "b": 9610,
+      "w": 0,
+      "l": 10,
+      "b3": 0
+    }
+  },
+  {
+    "direction": "sent",
+    "payload": {
+      "type": "1",
+      "data": "10,0,0"
+    }
+  },
+  {
+    "direction": "received",
+    "payload": {
+      "type": 3,
+      "st": 3,
+      "b": 9680,
+      "w": 80,
+      "l": 10,
+      "b3": 0
+    }
+  },
+  {
+    "direction": "sent",
+    "payload": {
+      "type": "1",
+      "data": "10,0,0"
+    }
+  },
+  {
+    "direction": "received",
+    "payload": {
+      "type": 3,
+      "st": 3,
+      "b": 9870,
+      "w": 200,
+      "l": 10,
+      "b3": 0
+    }
+  },
+  {
+    "direction": "sent",
+    "payload": {
+      "type": "1",
+      "data": "10,0,0"
+    }
+  },
+  {
+    "direction": "received",
+    "payload": {
+      "type": 3,
+      "st": 3,
+      "b": 9864,
+      "w": 4,
+      "l": 10,
+      "b3": 0
+    }
+  },
+  {
+    "direction": "sent",
+    "payload": {
+      "type": "1",
+      "data": "10,0,0"
+    }
+  },
+  {
+    "direction": "received",
+    "payload": {
+      "type": 3,
+      "st": 3,
+      "b": 9864,
+      "w": 10,
+      "l": 10,
+      "b3": 0
+    }
+  }
+]

@@ -54,7 +54,7 @@ Proveedores integrados: **Pragmatic Play**, **1spin4win (D1)**, **Belatra Games*
 
 ### 1spin4win (D1)
 
-- [Compras D1](docs/ONE_SPIN4WIN_PURCHASES.md): detección en el cliente por juego; una compra pendiente impide aprobar el juego sólo por su tirada base.
+- [Compras D1](docs/ONE_SPIN4WIN_PURCHASES.md): detección y ejecución por perfil del cliente; compra y giro normal se prueban por separado, y una compra pendiente impide aprobar el juego sólo por su tirada base.
 
 - El HAR de catálogo aportado muestra que el portfolio público de `1spin4win.com/games` es Webflow CMS renderizado en HTML; cada página se parsea desde `div.item_portfolio` y el “cargar más” se sigue directamente mediante `a.w-pagination-next[href]`.
 - La URL demo publicada en `gs.1spin4win.com:10443` se usa para resolver los assets reales del juego. El resolver intenta primero extraer `gameURL`, nombre interno y versión desde HTML/JS.

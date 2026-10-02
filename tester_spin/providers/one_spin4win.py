@@ -707,12 +707,15 @@ class OneSpin4WinProvider(ProviderAdapter):
     @classmethod
     def _d1_result_terminal(cls, payload: dict[str, Any]) -> bool:
         # Missing st follows the legacy client default (no bonusSpins).
-        return cls._int_field(payload.get("st", 0), -1) in cls.D1_TERMINAL_STATES
+        state = cls._int_field(payload.get("st", 0), -1)
+        total = cls._int_field(payload.get("b9"), -1)
+        current = cls._int_field(payload.get("b8"), -1)
+        return state in cls.D1_TERMINAL_STATES or (state == 12 and total > 0 and current == total)
 
     @classmethod
     def _d1_feature_active(cls, payload: dict[str, Any]) -> bool:
         state = cls._int_field(payload.get("st"), 0)
-        return state in {5, 6, 11, 12}
+        return state in {5, 6, 11, 12} and not cls._d1_result_terminal(payload)
 
     def _recv_protocol_json(
         self,
@@ -754,6 +757,7 @@ class OneSpin4WinProvider(ProviderAdapter):
         timeout_s: float,
         attempt_dir: Path,
         wire_guard: int = 128,
+        feature_selector: int | None = None,
     ) -> tuple[bool, bool, float, str, list[dict[str, Any]], str]:
         started = time.monotonic()
         spec = self._discover_runtime_spec(
@@ -815,19 +819,27 @@ class OneSpin4WinProvider(ProviderAdapter):
                     f"b3={init_payload.get('b3')!r}"
                 )
 
+            if feature_selector is not None:
+                if not any(mode.get('executable') and mode.get('feature_selector') == feature_selector for mode in spec.get('purchase_modes', [])):
+                    raise RuntimeError('D1: compra deshabilitada o selector sin contrato en este juego.')
+                if self._d1_feature_active(init_payload):
+                    raise RuntimeError('D1: sesión con bonus activo; no se inicia otra compra.')
+            purchase_accepted = feature_selector is None
             result_payload: dict[str, Any] | None = None
             terminal = False
             steps = 0
             while steps < wire_guard:
                 steps += 1
                 play_data = f"{lines},{bet_index},0"
+                if feature_selector is not None and steps == 1:
+                    play_data += f",{feature_selector}"
                 play_wire = self._wire_message("1", play_data)
                 ws.send(play_wire)
                 frames.append(
                     {
                         "direction": "sent",
-                        "classification": "spin" if steps == 1 else "continuation",
-                        "spin_shape": classify_spin_message({"type":"1", "data":play_data}),
+                        "classification": ("purchase" if feature_selector is not None else "spin") if steps == 1 else "continuation",
+                        "spin_shape": classify_spin_message({"type":"1", "data":play_data}, purchase_selectors={feature_selector} if feature_selector is not None else set()),
                         "payload": self._frame_preview(play_wire),
                     }
                 )
@@ -851,7 +863,20 @@ class OneSpin4WinProvider(ProviderAdapter):
                 if result_payload is None:
                     raise TimeoutError("D1: no llegó resultado type=3 de la tirada.")
 
-                if self._d1_result_terminal(result_payload):
+                if feature_selector is not None and steps == 1:
+                    current = self._int_field(result_payload.get('b8'), -1)
+                    total = self._int_field(result_payload.get('b9'), -1)
+                    purchase_accepted = self._d1_feature_active(result_payload) and total > 0 and 0 <= current <= total
+                    if not purchase_accepted:
+                        warning = 'D1: la solicitud de compra no inició un bonus reconocido.'
+                        break
+                settled_bonus = (result_payload.get('st') == 12
+                                 and self._int_field(result_payload.get('b9'), -1) > 0
+                                 and self._int_field(result_payload.get('b8'), -1) == self._int_field(result_payload.get('b9'), -2))
+                if result_payload.get('st') == 12 and not settled_bonus:
+                    warning = 'D1: cierre de bonus con contadores incompletos; no se envía otra apuesta.'
+                    break
+                if purchase_accepted and (self._d1_result_terminal(result_payload) or settled_bonus):
                     terminal = True
                     break
                 if not self._d1_feature_active(result_payload):
@@ -870,7 +895,7 @@ class OneSpin4WinProvider(ProviderAdapter):
 
             if audit_enabled():
                 from tester_spin.provider_return_checks import d1_check
-                proof = d1_check(self, ws, frames, lines, bet_index, result_payload.get('st') if result_payload else None, attempt_dir, timeout_s) if terminal else pending_return(attempt_dir, 'Estado D1 no resuelto')
+                proof = d1_check(self, ws, frames, lines, bet_index, result_payload.get('st') if result_payload else None, attempt_dir, timeout_s, initial_terminal=self._d1_result_terminal(result_payload)) if terminal else pending_return(attempt_dir, 'Estado D1 no resuelto')
                 if proof['status'] != 'CONFIRMED':
                     warning = (warning+' Regreso al juego base pendiente: '+proof['status']).strip()
                     terminal = False
@@ -879,6 +904,8 @@ class OneSpin4WinProvider(ProviderAdapter):
                 "spec": spec,
                 "terminal": terminal,
                 "wire_steps": steps,
+                "operation": "PURCHASE" if feature_selector is not None else "SPIN",
+                "purchase_accepted": purchase_accepted if feature_selector is not None else None,
                 "warning": warning,
                 "frames": frames,
                 "final_result": result_payload,
@@ -1006,7 +1033,9 @@ class OneSpin4WinProvider(ProviderAdapter):
             "contra el WebSocket del cliente oficial."
         )
 
-        for number in range(1, repetitions + 1):
+        jobs = [("SPIN", None)] * repetitions
+        purchases_added = False
+        for number, (mode_id, selector) in enumerate(jobs, 1):
             if stop_event.is_set() or audit_blocked():
                 break
             attempt_dir = run_dir / f"attempt-{number:03d}"
@@ -1017,6 +1046,7 @@ class OneSpin4WinProvider(ProviderAdapter):
                         game,
                         timeout_s=timeout_s,
                         attempt_dir=attempt_dir,
+                        **({"feature_selector": selector} if selector is not None else {}),
                     )
                 )
                 responded += int(ok)
@@ -1027,7 +1057,12 @@ class OneSpin4WinProvider(ProviderAdapter):
                         (attempt_dir / "runtime-spec.json").read_text(encoding="utf-8")
                     )
                     resolved_symbol = str(spec.get("game_name") or resolved_symbol)
-                    purchase_modes.extend(spec.get("purchase_modes") or [])
+                    if not purchases_added and mode_id == 'SPIN':
+                        purchase_modes.extend(spec.get("purchase_modes") or [])
+                        for mode in purchase_modes:
+                            if mode.get('executable') and mode.get('feature_selector') is not None:
+                                jobs.extend([(mode['id'], mode['feature_selector'])] * repetitions)
+                        purchases_added = True
                 except Exception:
                     pass
 
@@ -1035,8 +1070,8 @@ class OneSpin4WinProvider(ProviderAdapter):
                     SpinAttempt(
                         number=number,
                         ok=ok,
-                        mode_id="SPIN",
-                        mode_kind="SPIN",
+                        mode_id=mode_id,
+                        mode_kind="SPIN" if selector is None else "PURCHASE",
                         elapsed_ms=elapsed_ms,
                         symbol=resolved_symbol,
                         endpoint=endpoint,
@@ -1045,14 +1080,14 @@ class OneSpin4WinProvider(ProviderAdapter):
                             1
                             for frame in frames
                             if frame.get("direction") == "sent"
-                            and frame.get("classification") in {"spin", "continuation"}
+                            and frame.get("classification") in {"spin", "purchase", "continuation"}
                         ),
                         warning=warning,
                         artifact_dir=str(attempt_dir),
                     )
                 )
                 progress(
-                    f"[{game.name}] SPIN {number}/{repetitions}: "
+                    f"[{game.name}] {mode_id} {number}/{len(jobs)}: "
                     f"{'OK' if terminal else 'PARCIAL'} {elapsed_ms:.0f} ms, "
                     f"frames={len(frames)}"
                     + (f"; {warning}" if warning else "")
@@ -1064,15 +1099,15 @@ class OneSpin4WinProvider(ProviderAdapter):
                     SpinAttempt(
                         number=number,
                         ok=False,
-                        mode_id="SPIN",
-                        mode_kind="SPIN",
+                        mode_id=mode_id,
+                        mode_kind="SPIN" if selector is None else "PURCHASE",
                         symbol=resolved_symbol,
                         terminal=False,
                         error=message,
                         artifact_dir=str(attempt_dir),
                     )
                 )
-                progress(f"[{game.name}] SPIN {number}/{repetitions}: ERROR {message}")
+                progress(f"[{game.name}] {mode_id} {number}/{len(jobs)}: ERROR {message}")
 
         elapsed_total = (time.monotonic() - started) * 1000.0
         attempted = len(attempts)
@@ -1094,7 +1129,7 @@ class OneSpin4WinProvider(ProviderAdapter):
             slug=game.slug,
             game_name=game.name,
             game_url=game.url,
-            requested_spins=repetitions,
+            requested_spins=len(jobs),
             successful_spins=successes,
             failed_spins=sum(1 for attempt in attempts if not attempt.ok),
             status=status,
@@ -1106,7 +1141,7 @@ class OneSpin4WinProvider(ProviderAdapter):
                     "transport": "websocket",
                     "catalog_transport": "webflow_html",
                     "automated": True,
-                    "spin_validated": successes > 0,
+                    "spin_validated": any(attempt.mode_kind == "SPIN" and attempt.ok and attempt.terminal and not attempt.warning for attempt in attempts),
                     "wire_prefix": "A/u2",
                     "init_type": "0",
                     "spin_type": "1",
@@ -1120,6 +1155,10 @@ class OneSpin4WinProvider(ProviderAdapter):
             run_dir=str(run_dir),
             attempts=attempts,
         )
+        for mode in purchase_modes:
+            completed = sum(1 for attempt in attempts if attempt.mode_id == mode['id'] and attempt.ok and attempt.terminal and not attempt.warning)
+            mode['validated'] = completed >= repetitions
+            mode['covered_options'] = [mode['id']] if mode['validated'] else []
         apply_purchase_coverage(result, purchase_modes)
         run_dir.mkdir(parents=True, exist_ok=True)
         (run_dir / "result.json").write_text(

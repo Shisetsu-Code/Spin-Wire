@@ -1524,3 +1524,8 @@ Formatos observados: BGaming API v2 `purchased_feature` escalar o con `purchased
 KA GoldenBull confirmó en navegador y sesión HTTP fresca el giro base RMP: startGame devuelve `un`/`si`, usados como `ctx.u`/`ctx.c`; el spin usa el estado devuelto y la firma del cliente público. El runtime valida cps contra la tabla anunciada y solicita endSession al terminar. El cierre se verifica con pruebas aisladas; su confirmación remota está pendiente. Los HTTP 404 posteriores también afectaron al representante previamente válido: no prueban incompatibilidad de las otras familias. Dejar descansar las demos y volver sólo sobre un representante de compra.
 
 BGaming Bling Blitz Diamond Drop quedó validado mediante HAR real para giro base JSON-RPC. El capturador KA guarda evidencia al cerrar el navegador y conserva frames completos.
+
+
+## Actualización D1 2026-10-02
+
+Compras conectadas al ejecutor y separadas de giros normales. Perfil comprobado por cliente y frames de Ten Lucky Spins: selector 1, quince bonus spins, cierre `st=12` condicionado a contadores completos. La auditoría de regreso realiza dos apuestas normales identificadas por separado. Consultar [ONE_SPIN4WIN_PURCHASES.md](ONE_SPIN4WIN_PURCHASES.md); no hay un nuevo barrido de catálogo ni validación remota de todos los juegos.

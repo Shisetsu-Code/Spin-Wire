@@ -6,6 +6,14 @@ def discover_purchase_modes(sources: list[str], game_name: str) -> list[dict]:
     if not re.fullmatch(r'[A-Za-z0-9_]+', game_name):
         return []
     constructor = re.compile(r'\b' + re.escape(game_name) + r'View\s*=\s*function\([^)]*\)\s*\{(.*?)\};', re.S)
+    compact = re.sub(r"\s+", "", "".join(sources))
+    default_buy_profile = all(token in compact for token in (
+        '0==this.buyFeatureToPlayActionIndex?this.sideBet=2',
+        '(Game.game.sideBet-1).toString()',
+        'this.sideBetPercent=this.sideBet=0',
+        'this.buyFeaturePlayIndex=this.sideBetPlayIndex=this.buyFeatureToPlayActionIndex=this.sideBetToPlayActionIndex=this.extraAnimationState=0',
+        'SlotNetworkController.prototype.play=function(a,b,c)',
+    ))
     for source in sources:
         match = constructor.search(source)
         if not match:
@@ -14,12 +22,14 @@ def discover_purchase_modes(sources: list[str], game_name: str) -> list[dict]:
         enabled = re.search(r'\bthis\.useBuyFeature\s*=\s*(!0|true)\s*[;,]', body)
         multiplier = re.search(r'\bthis\.buyFeatureMult\s*=\s*(\d+(?:\.\d+)?)\s*[;,]', body)
         if enabled:
+            supported = default_buy_profile and 'BasicSlotView.call(this)' in body and not any(name in body for name in ('sideBet','buyFeatureToPlayActionIndex','buyFeaturePlayIndex'))
             return [{
                 'id': 'D1_BUY_FEATURE', 'kind': 'PURCHASE', 'observed': True,
-                'coverage_required': True, 'executable': False, 'validated': False,
+                'coverage_required': True, 'executable': supported, 'validated': False,
+                'feature_selector': 1 if supported else None,
                 'cost_multiplier': float(multiplier.group(1)) if multiplier else None,
                 'contract_source': 'matching_game_client_constructor',
-                'reason': 'PURCHASE_WS_REQUEST_AND_TERMINAL_RESPONSE_REQUIRED',
+                'reason': 'CLIENT_DEFAULT_BUY_SELECTOR' if supported else 'PURCHASE_WS_REQUEST_AND_TERMINAL_RESPONSE_REQUIRED',
                 'required_options': ['D1_BUY_FEATURE'], 'covered_options': [],
             }]
     return []
@@ -31,7 +41,7 @@ def apply_purchase_coverage(result, modes: list[dict]) -> None:
         if mode.get('id') not in known:
             result.discovered_modes.append(mode)
             known.add(mode.get('id'))
-    if modes and result.status == 'OK':
+    if any(not mode.get('validated') for mode in modes) and result.status == 'OK':
         result.status = 'PARCIAL'
         result.error = 'D1: tirada base completa; compra detectada pendiente de validar con mensajes WebSocket y cierre.'
 

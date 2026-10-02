@@ -1,19 +1,31 @@
-# 1spin4win: detección de compras (2026-10-01)
+# 1spin4win: compras y tiradas normales (2026-10-02)
 
-El HAR manual de Ten Lucky Spins contiene el cliente `tenluckyspins_000264.js`. El constructor `TenLuckySpinsView` activa `useBuyFeature` y declara `buyFeatureMult=67`. El adaptador anterior sólo publicaba SPIN: su OK acreditaba la tirada base sin comprobar compras.
+El cliente de Ten Lucky Spins declara compra x67. La primera captura Firefox incluía el cliente y handshake sin mensajes WS. La nueva captura HAR Browser sí incluye 42 frames, en `_webSocketFrames`: una compra, quince continuaciones de bonus y cinco apuestas normales posteriores. Se analizan los frames y no los contadores del resumen del exportador, que registraba cero operaciones.
 
-Ahora el discovery inspecciona el constructor del juego correspondiente en los assets ya descargados. Una declaración de compra genera el modo PURCHASE `D1_BUY_FEATURE`, con coste anunciado y cobertura pendiente. No basta la presencia del botón o de código compartido de compras; no se propaga una compra de un juego a otros. Si la inicialización devuelve `bf="f"`, se respeta la desactivación de compra de esa sesión, como hace el cliente oficial.
+## Contrato observado
 
-Una tirada base terminal con compra declarada y sin validar queda PARCIAL. Los OK históricos no se reescriben: hay que volver a probar los juegos para aplicar la detección nueva. Las continuaciones gratuitas siguen siendo distintas de una compra.
+Se usa un único WebSocket `wss://gs.1spin4win.com/games` y el sobre `A/u2`, con `key` de la sesión actual y `type="1"`:
 
-El HAR incluye la conexión `wss://gs.1spin4win.com/games`, pero no sus mensajes. El cliente muestra que la compra usa el comando `A/u2` de tipo 1 con un cuarto selector en `data`, y que hay variantes combinadas con apuestas especiales. Sin mensajes enviados y respuestas no se confirma qué recorrido se realizó, aceptación, débito ni cierre. Por eso el modo detectado todavía no se ejecuta automáticamente ni se exporta como compra validada.
+- Tirada normal: `data="<lines>,<betIndex>,<playmode>"`.
+- Compra del perfil observado: `data="<lines>,<betIndex>,<playmode>,1"`.
+- Continuaciones gratuitas: tres campos, sin volver a enviar el selector de compra.
 
-Para terminar el contrato hace falta capturar los mensajes de la conexión WS: inicialización, compra, continuaciones, cierre y dos tiradas normales posteriores. Exportar el HAR de Firefox no garantizó incluirlos en esta captura; se pueden guardar los mensajes WS por separado. No publicar claves de sesión.
+El HAR muestra `10,0,0,1` seguido de `st=5`, `b8=0`, `b9=15`. Quince continuaciones avanzan el contador hasta `st=12`, `b8=b9=15`; el premio se acredita en el saldo. El siguiente envío ya descuenta una apuesta normal: no debe consumirse como continuación gratuita. La captura se adjuntó tarde y no demuestra el saldo anterior a la compra; x67 es el coste declarado por el cliente, no una medición independiente del débito de esta captura.
 
-Verificación: 42 pruebas de detección y contratos existentes D1/Belatra aprobadas. La detección también se comprobó offline contra el cliente real incluido en el HAR. No se enviaron apuestas nuevas para este cambio.
+## Ejecución en Tester Spin
 
-## Clasificación por forma de mensajes
+La cola ejecuta las repeticiones de SPIN y luego las repeticiones de PURCHASE, registradas por separado. Cada intento conserva sus requests, respuestas y resultado. Si la auditoría de regreso está activa, agrega dos apuestas normales en la misma sesión y las etiqueta como comprobaciones de regreso, separadas de las continuaciones gratuitas. La compra lleva el cuarto selector sólo en su primer envío, exige respuesta con bonus reconocido y continúa hasta el cierre. El estado 12 sólo se considera cerrado si sus contadores son positivos y completos. No se lanza otra compra si la sesión ya contiene un bonus activo, ni cuando el servidor deshabilita la compra con `bf="f"`.
 
-El clasificador D1 separa `SPIN/normal` (tres campos) de `SPIN/feature_variant` (cuatro). Una tabla de selectores comprobada para el juego permite distinguir `side_bet` y `bonus_buy`; cuatro campos por sí solos no demuestran compra. La misma conexión y `type=1` pueden transportar todas esas operaciones. Los artefactos de ejecución y captura pasiva incluyen `spin_shape`, sin alterar el comando de continuación ni añadir apuestas.
+La detección usa el constructor específico del juego y el serializer común demostrado: el perfil de compra por defecto pone `sideBet=2` y transmite `sideBet-1`, es decir selector 1. Se reutiliza en clientes que demuestren esa misma cadena y no reconfiguren los selectores o la apuesta especial en el constructor. Una declaración de compra de otra familia queda pendiente; no se copia selector 1 a ciegas a todo el catálogo.
 
-El comprobador de aceptación correlaciona un selector identificado como compra con una respuesta `type=3`, estado 5/6/11/12, contadores `b8`/`b9` coherentes y débito verificado compatible con el coste anunciado. Un cambio de saldo bruto no equivale a débito cuando hay premios. La aceptación tampoco equivale a cierre: el bonus y el regreso a base deben completarse. Este comprobador no se utiliza para declarar validada una compra sin captura ni para inventar selectores de otros juegos.
+Una compra se valida después de completar sus repeticiones con bonus aceptado y cierre. Una tirada normal exitosa no oculta una compra rechazada o pendiente. Los OK históricos no se reescriben; hace falta repetir la prueba con la aplicación reiniciada.
+
+## Clasificación y evidencia
+
+Tres campos se clasifican como `SPIN/normal`; cuatro como variante. Sólo un selector identificado por el cliente permite marcar `bonus_buy` o `side_bet`. Los artefactos incluyen `spin_shape`; operación, aceptación y cierre son datos separados. La comprobación opcional de coste necesita un débito verificado: una diferencia de saldo puede incluir premios.
+
+Se incluyó una fixture sanitizada con los frames relevantes, sin claves de sesión. La reproducción del recorrido manual comprueba que hay un único envío de compra y que las cinco apuestas normales posteriores no se consumen como bonus. La verificación de código se realiza offline; todavía no se afirma que todo el catálogo haya sido probado con compras ni se reemplazan los resultados locales por esa reproducción.
+
+Verificación: 48 pruebas específicas aprobadas, incluida reproducción con auditoría activada, aislamiento entre modos y revisión independiente sin hallazgos pendientes.
+
+La suite completa anterior al último guard de cierre registró 806 pruebas y 73 subtests aprobados; permanecen cuatro fallos preexistentes de BGaming. El guard posterior se comprobó en la suite específica.

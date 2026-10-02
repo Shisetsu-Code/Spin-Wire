@@ -1931,3 +1931,8 @@ BGaming Bling Blitz Diamond Drop quedó validado mediante HAR real para giro bas
 ## KA Gaming: actualización 2026-10-01
 
 Consultar [estado actual](KA_CURRENT_STATUS.md) para firma 2071, sesión por prueba, compra `pos=[1]`, cierre posterior a `fsr=0` y eventos gratuitos naturales. El endpoint RMP comparte un máximo de 30 requests/s por proceso y separación configurable. HTTP 404 detiene el lote; los demás errores permiten continuar. Los ejemplos antiguos son evidencia histórica, no garantía de compatibilidad de todo el catálogo.
+
+
+## 1spin4win: compra D1 y cierre observado (2026-10-02)
+
+La captura con frames confirma compra `A/u2 type=1 data=lines,betIndex,playmode,1`, seguida de quince continuaciones de tres campos y cierre en `st=12, b8=b9=15`. Las apuestas normales siguientes son operaciones pagadas separadas. Se ejecutan las compras cuando el cliente demuestra el perfil de selector por defecto; los demás perfiles quedan pendientes. Ver [contrato y ejecución](ONE_SPIN4WIN_PURCHASES.md).

@@ -174,7 +174,7 @@ def pragmatic_check(provider, bootstrap, last, base_fields, directory, timeout_s
     return verify_return_to_base(directory, play)
 
 
-def d1_check(provider, ws, frames, lines, bet_index, initial_state, directory, timeout_s):
+def d1_check(provider, ws, frames, lines, bet_index, initial_state, directory, timeout_s, *, initial_terminal=False):
     import time
     from tester_spin.return_to_base import audit_stop_event
 
@@ -217,4 +217,4 @@ def d1_check(provider, ws, frames, lines, bet_index, initial_state, directory, t
                         known=terminal or same_state,
                         captures=captures, terminal_contract_proven=terminal)
         return dict(ok=True, base=False, known=False, captures=captures, reason='continuation limit')
-    return verify_return_to_base(directory, play, observed_only=initial_state not in getattr(provider, 'D1_TERMINAL_STATES', {0}))
+    return verify_return_to_base(directory, play, observed_only=not initial_terminal and initial_state not in getattr(provider, 'D1_TERMINAL_STATES', {0}))
