@@ -14,7 +14,7 @@ from urllib.parse import parse_qs, urljoin, urlparse
 import requests
 from bs4 import BeautifulSoup, Tag
 
-from tester_spin.providers.one_spin4win_purchases import discover_purchase_modes, apply_purchase_coverage, purchase_modes_for_init
+from tester_spin.providers.one_spin4win_purchases import discover_purchase_modes, apply_purchase_coverage, purchase_modes_for_init, classify_spin_message
 from tester_spin.models import Game, GameTestResult, SpinAttempt, utc_now_iso
 from tester_spin.providers.base import GameCallback, Progress, ProviderAdapter
 
@@ -827,6 +827,7 @@ class OneSpin4WinProvider(ProviderAdapter):
                     {
                         "direction": "sent",
                         "classification": "spin" if steps == 1 else "continuation",
+                        "spin_shape": classify_spin_message({"type":"1", "data":play_data}),
                         "payload": self._frame_preview(play_wire),
                     }
                 )
@@ -928,9 +929,11 @@ class OneSpin4WinProvider(ProviderAdapter):
                                 return
                             decoded = self._decode_ws_json(payload)
                             telemetry = noise_url or self._is_webvisor_payload(decoded)
+                            shape = classify_spin_message(self._decode_ws_json(payload)) if direction == "sent" else None
                             frames.append(
                                 {
                                     "direction": direction,
+                                    "spin_shape": shape,
                                     "websocket_url": url,
                                     "classification": (
                                         "telemetry_ignored"

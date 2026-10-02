@@ -39,3 +39,58 @@ def apply_purchase_coverage(result, modes: list[dict]) -> None:
 def purchase_modes_for_init(modes: list[dict], payload: dict) -> list[dict]:
     # Official client disables its buy UI when the init response has bf="f".
     return [] if payload.get("bf") == "f" else modes
+
+def classify_spin_message(payload: dict, *, purchase_selectors=(), side_bet_selectors=()):
+    """Shape identifies a variant; game-specific selector evidence supplies its meaning."""
+    if not isinstance(payload, dict) or isinstance(payload.get('type'), bool) or str(payload.get('type')) != '1':
+        return None
+    data = payload.get('data')
+    if not isinstance(data, str) or len(data) > 128:
+        return None
+    fields = data.split(',')
+    if len(fields) not in {3, 4} or any(not re.fullmatch(r'\d{1,10}', field) for field in fields):
+        return None
+    values = list(map(int, fields))
+    if values[0] <= 0:
+        return None
+    result = {'operation': 'SPIN', 'variant': 'normal', 'lines':values[0],
+              'bet_index':values[1], 'playmode':values[2]}
+    if len(values) == 4:
+        selector = values[3]
+        result['feature_selector'] = selector
+        result['variant'] = ('bonus_buy' if selector in purchase_selectors and selector not in side_bet_selectors
+                             else 'side_bet' if selector in side_bet_selectors and selector not in purchase_selectors
+                             else 'feature_variant')
+    return result
+
+
+def purchase_response_evidence(request, response, *, base_bet=None, cost_multiplier=None, observed_debit=None):
+    """Acceptance evidence is separate from a completed bonus/return-to-base contract.
+
+    observed_debit must be an independently verified debit, not a raw balance
+    difference that might include wins or other operations.
+    """
+    import math
+    def number(value):
+        if isinstance(value, bool):
+            return None
+        try:
+            value = float(value)
+        except (ValueError, TypeError, OverflowError):
+            return None
+        return value if math.isfinite(value) and value >= 0 else None
+    result = {'purchase_accepted':False, 'terminal':False, 'bonus_spins':None, 'cost_matches':False}
+    if not isinstance(request, dict) or not isinstance(response, dict):
+        return result
+    bet, multiplier, debit = map(number, (base_bet, cost_multiplier, observed_debit))
+    if bet and multiplier and debit is not None:
+        expected = bet * multiplier
+        result['cost_matches'] = math.isfinite(expected) and math.isclose(debit, expected, rel_tol=1e-6, abs_tol=1e-6)
+    current, total = number(response.get('b8')), number(response.get('b9'))
+    in_bonus = (response.get('type') == 3 and type(response.get('st')) is int and response.get('st') in {5,6,11,12}
+                and current is not None and total is not None and total > 0
+                and current.is_integer() and total.is_integer() and current <= total)
+    if in_bonus:
+        result['bonus_spins'] = int(total)
+    result['purchase_accepted'] = bool(request.get('variant') == 'bonus_buy' and in_bonus and result['cost_matches'])
+    return result
