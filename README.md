@@ -216,3 +216,10 @@ Prueba remota completada sobre los 184 juegos: **181 OK, 2 parciales y 1 error**
 ## Estándar de validación de proveedores
 
 Aplicar cada formato aprendido a los juegos aplicables del catálogo, probarlo y revisar los que fallen, conservando evidencia por juego. [Proceso y estado del barrido KA](docs/PROVIDER_VALIDATION_STANDARD.md).
+
+
+### Ejecutable completo de escritorio
+
+`desktop.py` empaqueta la interfaz y los proveedores en un ejecutable independiente del launcher actualizable. `scripts/build-desktop.ps1` lo construye con PyInstaller instalado en el intérprete indicado por `-Python`. Incluye el icono y los catálogos de referencia. La configuración local de Tester-Spin identifica la carpeta de datos existente; si no existe, se utiliza `%LOCALAPPDATA%/Tester-Spin/data`.
+
+La interfaz reorganiza los controles al cambiar el ancho, compacta las acciones del juego en un menú y ajusta miniaturas y columnas al espacio disponible. Lista, detalle y registro tienen separadores ajustables; el detalle tiene desplazamiento vertical. Tamaño mínimo: 800×640. El ejecutable contiene una copia del código: para incorporar cambios posteriores debe reconstruirse.

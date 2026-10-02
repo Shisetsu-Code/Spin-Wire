@@ -1534,3 +1534,11 @@ Compras conectadas al ejecutor y separadas de giros normales. Perfil comprobado 
 ### Verificación D1 desde catálogo
 
 Se corrigió el redirect JS de `games.html?game=...` que impedía descargar el cliente específico para detectar compras. Prueba remota controlada Ten Lucky Spins: SPIN y PURCHASE OK, quince continuaciones y regreso confirmado. Resultado separado del historial SQLite; requiere reiniciar la GUI abierta. Ver ONE_SPIN4WIN_PURCHASES.md para muestra estática y límites de cobertura.
+
+## Interfaz y ejecutable de escritorio — 2026-10-02
+
+Icono azul de tres carretes incluido en la ventana y en el ejecutable. FlowFrame reorganiza los controles sin modificar las operaciones de los proveedores; las acciones del detalle se agrupan en un menú cuando el panel es estrecho. Miniaturas, columnas y separadores se adaptan al espacio, con desplazamiento vertical en el detalle y tamaño mínimo 800×640.
+
+Verificación de la GUI real: diez proveedores a 800×640, 1000×720 y 1366×768, con selección y miniaturas; sin errores de callbacks ni controles principales fuera del panel. Pruebas de distribución y delay KA: cuatro aprobadas. No se ejecutaron apuestas en estas comprobaciones.
+
+Entrada standalone: desktop.py. Receta reproducible: scripts/build-desktop.ps1, parámetro -Python para seleccionar un intérprete con PyInstaller. Incluye recursos del icono y catálogos, conserva la ruta local de datos del launcher y requiere reconstrucción para incorporar cambios de código posteriores.

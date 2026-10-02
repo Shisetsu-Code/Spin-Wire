@@ -11,6 +11,7 @@ from pathlib import Path
 from tkinter import messagebox, simpledialog, ttk
 
 from PIL import Image, ImageTk
+from tester_spin.responsive_ui import FlowFrame
 
 from tester_spin.models import Game, GameTestResult
 from tester_spin.providers import (
@@ -29,8 +30,16 @@ class TesterSpinApp(tk.Tk):
     def __init__(self) -> None:
         super().__init__()
         self.title("Tester-Spin")
-        self.geometry("1500x940")
-        self.minsize(1180, 760)
+        screen_width, screen_height = self.winfo_screenwidth(), self.winfo_screenheight()
+        self.geometry(f"{min(1500, max(800,screen_width-100))}x{min(940,max(640,screen_height-120))}")
+        self.minsize(800, 640)
+        icon = Path(__file__).with_name('assets') / 'tester-spin.ico'
+        png_icon = icon.with_suffix('.png')
+        if png_icon.exists():
+            self._app_icon = tk.PhotoImage(file=str(png_icon))
+            self.iconphoto(True, self._app_icon)
+        if os.name == 'nt' and icon.exists():
+            self.iconbitmap(str(icon))
 
         self.root_dir = Path.cwd()
         self.data_root = self.root_dir / "data"
@@ -51,6 +60,8 @@ class TesterSpinApp(tk.Tk):
         self._games: dict[str, Game] = {}
         self._thumb_images: dict[str, ImageTk.PhotoImage] = {}
         self._preview_image: ImageTk.PhotoImage | None = None
+        self._preview_original = None
+        self._preview_size = None
         self._test_total = 0
         self._test_done = 0
 
@@ -78,12 +89,14 @@ class TesterSpinApp(tk.Tk):
 
         top = ttk.LabelFrame(outer, text="Proveedor y catálogo", padding=10)
         top.pack(fill="x")
-        row = ttk.Frame(top)
+        row = FlowFrame(top)
         row.pack(fill="x")
 
-        ttk.Label(row, text="Proveedor:").pack(side="left")
+        provider_group = ttk.Frame(row)
+        provider_group.pack(side="left")
+        ttk.Label(provider_group, text="Proveedor:").pack(side="left")
         self.provider_combo = ttk.Combobox(
-            row,
+            provider_group,
             textvariable=self.provider_var,
             values=list(self._display_to_key),
             state="readonly",
@@ -92,16 +105,21 @@ class TesterSpinApp(tk.Tk):
         self.provider_combo.pack(side="left", padx=(6, 14))
         self.provider_combo.bind("<<ComboboxSelected>>", lambda _event: self._on_provider_changed())
 
-        ttk.Label(row, text="URL catálogo:").pack(side="left")
-        ttk.Entry(row, textvariable=self.catalog_url_var).pack(side="left", fill="x", expand=True, padx=(6, 10))
-        ttk.Label(row, text="Máx. páginas:").pack(side="left")
-        ttk.Entry(row, textvariable=self.max_pages_var, width=7).pack(side="left", padx=(6, 10))
+        url_group = ttk.Frame(row)
+        url_group._flow_expand = True
+        url_group.pack(side="left")
+        ttk.Label(url_group, text="URL catálogo:").pack(side="left")
+        ttk.Entry(url_group, textvariable=self.catalog_url_var, width=24).pack(side="left", fill="x", expand=True, padx=(6,0))
+        page_group = ttk.Frame(row)
+        page_group.pack(side="left")
+        ttk.Label(page_group, text="Máx. páginas:").pack(side="left")
+        ttk.Entry(page_group, textvariable=self.max_pages_var, width=7).pack(side="left", padx=(6, 10))
         self.crawl_btn = ttk.Button(row, text="CARGAR / ACTUALIZAR CATÁLOGO", command=self._start_crawl)
         self.crawl_btn.pack(side="left")
 
         opts = ttk.LabelFrame(outer, text="Prueba de juegos", padding=10)
         opts.pack(fill="x", pady=(10, 0))
-        row2 = ttk.Frame(opts)
+        row2 = FlowFrame(opts)
         row2.pack(fill="x")
 
         for label, var, width in (
@@ -110,14 +128,20 @@ class TesterSpinApp(tk.Tk):
             ("Delay entre juegos (s)", self.delay_var, 7),
             ("Timeout (s)", self.timeout_var, 7),
         ):
-            ttk.Label(row2, text=label + ":").pack(side="left", padx=(0 if label == "Juegos simultáneos" else 16, 5))
-            ttk.Entry(row2, textvariable=var, width=width).pack(side="left")
+            field = ttk.Frame(row2)
+            field.pack(side="left")
+            ttk.Label(field, text=label + ":").pack(side="left", padx=(0,5))
+            ttk.Entry(field, textvariable=var, width=width).pack(side="left")
 
-        operation_row = ttk.Frame(opts)
+        operation_row = FlowFrame(opts)
         operation_row.pack(fill="x", pady=(8, 0))
-        ttk.Label(operation_row, text="Delay entre operaciones KA (s):").pack(side="left", padx=(0, 5))
-        ttk.Entry(operation_row, textvariable=self.operation_delay_var, width=7).pack(side="left")
-        ttk.Label(operation_row, text="Pausa compartida entre peticiones; 0 desactiva la pausa. Se mantiene el máximo de 30 requests/s.").pack(side="left", padx=(12, 0))
+        operation_group = ttk.Frame(operation_row)
+        operation_group.pack(side="left")
+        ttk.Label(operation_group, text="Delay entre operaciones KA (s):").pack(side="left", padx=(0, 5))
+        ttk.Entry(operation_group, textvariable=self.operation_delay_var, width=7).pack(side="left")
+        operation_note = ttk.Label(operation_row, text="Pausa entre operaciones KA. 0 desactiva la pausa; máximo 30 requests/s.")
+        operation_note._flow_wrap = True
+        operation_note.pack(side="left")
 
         self.test_selected_btn = ttk.Button(row2, text="PROBAR SELECCIONADOS", command=self._test_selected)
         self.test_selected_btn.pack(side="left", padx=(20, 8))
@@ -126,26 +150,26 @@ class TesterSpinApp(tk.Tk):
         self.stop_btn = ttk.Button(row2, text="DETENER", command=self._stop, state="disabled")
         self.stop_btn.pack(side="right")
 
-        ttk.Label(
-            opts,
-            text=(
-                "Cada adaptador ejecuta sólo protocolos observados. Pragmatic prueba SPIN/ante-bet/compras; "
-                "1spin4win (D1) ejecuta SPIN directamente por WebSocket; Belatra ejecuta SPIN base por HTTP cifrado "
-                "(enter/start/finish); BGaming usa WordPress REST para catálogo y HTTP JSON API v2 para init/spin. "
-                "Features no observadas se conservan como PARCIAL."
-            ),
-            wraplength=1400,
-        ).pack(anchor="w", pady=(8, 0))
+        help_label = ttk.Label(opts, text="Se prueban los modos conocidos de cada juego. Las compras o recorridos pendientes quedan como PARCIAL.")
+        help_label.pack(fill="x", pady=(6,0))
+        help_label.bind('<Configure>', lambda event: help_label.configure(wraplength=max(100,event.width)))
 
-        status_row = ttk.Frame(outer)
+        status_row = FlowFrame(outer)
         status_row.pack(fill="x", pady=(8, 0))
-        ttk.Label(status_row, textvariable=self.status_var).pack(side="left")
+        status_label = ttk.Label(status_row, textvariable=self.status_var)
+        status_label._flow_wrap = True
+        status_label.pack(side="left")
         ttk.Label(status_row, textvariable=self.count_var).pack(side="left", padx=(18, 0))
         self.progress = ttk.Progressbar(status_row, mode="determinate", maximum=100, value=0)
-        self.progress.pack(side="right", fill="x", expand=True, padx=(20, 0))
+        self.progress._flow_expand = True
+        self.progress.pack(side="right", fill="x", expand=True, padx=(20,0))
+        self.status_var.trace_add("write", lambda *args: status_row._schedule())
+        self.count_var.trace_add("write", lambda *args: status_row._schedule())
 
-        middle = ttk.Panedwindow(outer, orient="horizontal")
-        middle.pack(fill="both", expand=True, pady=(8, 0))
+        workspace = ttk.Panedwindow(outer, orient="vertical")
+        workspace.pack(fill="both", expand=True, pady=(8,0))
+        middle = ttk.Panedwindow(workspace, orient="horizontal")
+        workspace.add(middle, weight=5)
 
         list_frame = ttk.LabelFrame(middle, text="Juegos", padding=6)
         detail_frame = ttk.LabelFrame(middle, text="Detalle", padding=10)
@@ -160,12 +184,12 @@ class TesterSpinApp(tk.Tk):
         self.tree.heading("status", text="Estado")
         self.tree.heading("tested", text="Última prueba")
         self.tree.heading("url", text="Link")
-        self.tree.column("#0", width=110, minwidth=100, stretch=False)
-        self.tree.column("name", width=260, minwidth=180)
-        self.tree.column("symbol", width=130, minwidth=90)
-        self.tree.column("status", width=90, minwidth=80, anchor="center")
-        self.tree.column("tested", width=155, minwidth=120)
-        self.tree.column("url", width=440, minwidth=250)
+        self.tree.column("#0", width=84, minwidth=60, stretch=False)
+        self.tree.column("name", width=180, minwidth=130)
+        self.tree.column("symbol", width=90, minwidth=60, stretch=False)
+        self.tree.column("status", width=80, minwidth=70, anchor="center", stretch=False)
+        self.tree.column("tested", width=130, minwidth=100, stretch=False)
+        self.tree.column("url", width=250, minwidth=140)
         yscroll = ttk.Scrollbar(list_frame, orient="vertical", command=self.tree.yview)
         xscroll = ttk.Scrollbar(list_frame, orient="horizontal", command=self.tree.xview)
         self.tree.configure(yscrollcommand=yscroll.set, xscrollcommand=xscroll.set)
@@ -176,28 +200,50 @@ class TesterSpinApp(tk.Tk):
         list_frame.columnconfigure(0, weight=1)
         self.tree.bind("<<TreeviewSelect>>", lambda _event: self._show_selected_game())
         self.tree.bind("<Double-1>", lambda _event: self._open_selected_url())
+        self.tree.bind("<Configure>", lambda event: self.tree.configure(displaycolumns=("name","symbol","status","tested","url") if event.width>=900 else ("name","symbol","status","tested") if event.width>=650 else ("name","symbol","status")))
 
         self.preview_label = ttk.Label(detail_frame, text="Sin miniatura", anchor="center")
-        self.preview_label.pack(fill="x", pady=(0, 10))
-        ttk.Label(detail_frame, textvariable=self.selection_var, font=("TkDefaultFont", 12, "bold"), wraplength=420).pack(anchor="w")
-        self.detail_text = tk.Text(detail_frame, height=18, wrap="word", state="disabled")
-        self.detail_text.pack(fill="both", expand=True, pady=(8, 8))
-        manual_actions = ttk.Frame(detail_frame)
-        manual_actions.pack(fill="x", pady=(0, 6))
+        self.preview_label.pack(fill="x", pady=(0, 6))
+        detail_frame.bind("<Configure>", lambda event: self.after_idle(self._resize_preview), add="+")
+        selection_label = ttk.Label(detail_frame, textvariable=self.selection_var, font=("TkDefaultFont",12,"bold"))
+        selection_label.pack(fill="x")
+        selection_label.bind("<Configure>", lambda event: selection_label.configure(wraplength=max(60,event.width)))
+        detail_body = ttk.Frame(detail_frame)
+        detail_body.pack(fill="both", expand=True, pady=(6,6))
+        self.detail_text = tk.Text(detail_body, height=6, width=36, wrap="word", state="disabled")
+        detail_scroll = ttk.Scrollbar(detail_body, orient="vertical", command=self.detail_text.yview)
+        self.detail_text.configure(yscrollcommand=detail_scroll.set)
+        detail_scroll.pack(side="right",fill="y")
+        self.detail_text.pack(side="left",fill="both",expand=True)
+        manual_actions = FlowFrame(detail_frame, collapse_at=450, menu_label="Acciones del juego")
+        manual_actions.pack(side="bottom", fill="x", pady=(0,6), before=detail_body)
         ttk.Button(manual_actions, text="Marcar OK manual",
                    command=lambda: self._set_selected_manual_ok(True)).pack(side="left")
         ttk.Button(manual_actions, text="Quitar OK manual",
                    command=lambda: self._set_selected_manual_ok(False)).pack(side="left", padx=(8, 0))
-        detail_actions = ttk.Frame(detail_frame)
-        detail_actions.pack(fill="x")
+        detail_actions = manual_actions
+        detail_actions.pack(side="bottom", fill="x", before=manual_actions)
         ttk.Button(detail_actions, text="Abrir juego", command=self._open_selected_url).pack(side="left")
         ttk.Button(detail_actions, text="Abrir carpeta", command=self._open_selected_folder).pack(side="left", padx=(8, 0))
         ttk.Button(detail_actions, text="Probar este juego", command=self._test_selected).pack(side="left", padx=(8, 0))
 
-        log_frame = ttk.LabelFrame(outer, text="Log", padding=6)
-        log_frame.pack(fill="both", expand=False, pady=(8, 0))
-        self.log = tk.Text(log_frame, height=10, wrap="word", state="disabled")
+        log_frame = ttk.LabelFrame(workspace, text="Registro", padding=6)
+        workspace.add(log_frame, weight=1)
+        self.log = tk.Text(log_frame, height=4, wrap="word", state="disabled")
         self.log.pack(fill="both", expand=True)
+
+    def _resize_preview(self):
+        if self._preview_original is None:
+            return
+        parent = self.preview_label.master
+        size = (max(60,parent.winfo_width()-24), max(24,min(100,int(parent.winfo_height()*.12))))
+        if size == self._preview_size:
+            return
+        self._preview_size = size
+        image = self._preview_original.copy()
+        image.thumbnail(size, Image.Resampling.LANCZOS)
+        self._preview_image = ImageTk.PhotoImage(image)
+        self.preview_label.configure(image=self._preview_image,text="")
 
     def _provider(self):
         key = self._display_to_key[self.provider_var.get()]
@@ -433,11 +479,14 @@ class TesterSpinApp(tk.Tk):
         self.detail_text.configure(state="disabled")
 
         self._preview_image = None
+        self._preview_original = None
+        self._preview_size = None
         if game.thumbnail_path and Path(game.thumbnail_path).exists():
             try:
                 with Image.open(game.thumbnail_path) as original:
                     image = original.copy()
-                image.thumbnail((420, 270), Image.Resampling.LANCZOS)
+                self._preview_original = image.copy()
+                image.thumbnail((max(80,self.preview_label.master.winfo_width()-24), max(24,min(100,int(self.preview_label.master.winfo_height()*.12)))), Image.Resampling.LANCZOS)
                 self._preview_image = ImageTk.PhotoImage(image)
                 self.preview_label.configure(image=self._preview_image, text="")
                 return
