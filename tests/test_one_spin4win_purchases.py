@@ -50,3 +50,24 @@ def test_server_can_disable_purchase_in_current_session():
     modes = discover_purchase_modes([SOURCE], 'TenLuckySpins')
     assert purchase_modes_for_init(modes, {'type':1,'bf':'f'}) == []
     assert purchase_modes_for_init(modes, {'type':1}) == modes
+
+
+def test_generic_catalog_launcher_loads_specific_game_client_before_buy_discovery(tmp_path):
+    provider = OneSpin4WinProvider(tmp_path)
+    url='https://gs.1spin4win.com:10443/gmh5/games.html?game=TenLuckySpins&currency=EUR&config=1&freeplay=true'
+    game=Game(provider='1spin4win',slug='tenluckyspins',name='Ten Lucky Spins',url=url)
+    calls=[]
+    class Response:
+        def __init__(self,url,text):self.url=url;self.text=text;self.content=text.encode()
+        def raise_for_status(self):pass
+    class Session:
+        def get(self,url,**kwargs):
+            calls.append(url)
+            if '/games.html?' in url:return Response(url,'<script src="./games/src/games_000101.js"></script>')
+            if '/tenluckyspins.html?' in url:return Response(url,'<script src="/gmh5/tenluckyspins/src/client.js"></script>')
+            if '/client.js' in url:return Response(url,SOURCE+'this.gameController.connect("TenLuckySpins","testuser","debug","","01","","");var gameURL="wss://gs.1spin4win.com/games";')
+            return Response(url,'')
+    with patch.object(provider,'_worker_session',return_value=Session()),patch.object(provider,'_observe_runtime_bootstrap',return_value={'ws_url':'wss://gs.1spin4win.com/games','game_name':'TenLuckySpins','version':'01'}):
+        spec=provider._discover_runtime_spec(game,timeout_s=1,attempt_dir=tmp_path)
+    assert any('/tenluckyspins.html?' in url for url in calls)
+    assert len(spec['purchase_modes']) == 1

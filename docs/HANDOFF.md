@@ -1529,3 +1529,8 @@ BGaming Bling Blitz Diamond Drop quedó validado mediante HAR real para giro bas
 ## Actualización D1 2026-10-02
 
 Compras conectadas al ejecutor y separadas de giros normales. Perfil comprobado por cliente y frames de Ten Lucky Spins: selector 1, quince bonus spins, cierre `st=12` condicionado a contadores completos. La auditoría de regreso realiza dos apuestas normales identificadas por separado. Consultar [ONE_SPIN4WIN_PURCHASES.md](ONE_SPIN4WIN_PURCHASES.md); no hay un nuevo barrido de catálogo ni validación remota de todos los juegos.
+
+
+### Verificación D1 desde catálogo
+
+Se corrigió el redirect JS de `games.html?game=...` que impedía descargar el cliente específico para detectar compras. Prueba remota controlada Ten Lucky Spins: SPIN y PURCHASE OK, quince continuaciones y regreso confirmado. Resultado separado del historial SQLite; requiere reiniciar la GUI abierta. Ver ONE_SPIN4WIN_PURCHASES.md para muestra estática y límites de cobertura.

@@ -29,3 +29,14 @@ Se incluyó una fixture sanitizada con los frames relevantes, sin claves de sesi
 Verificación: 48 pruebas específicas aprobadas, incluida reproducción con auditoría activada, aislamiento entre modos y revisión independiente sin hallazgos pendientes.
 
 La suite completa anterior al último guard de cierre registró 806 pruebas y 73 subtests aprobados; permanecen cuatro fallos preexistentes de BGaming. El guard posterior se comprobó en la suite específica.
+
+
+## Verificación real y corrección del lanzador (2026-10-02)
+
+Al revisar los 30 resultados más recientes de la aplicación no había intentos PURCHASE. Sus specs contenían `purchase_modes=[]`; varios sólo habían inspeccionado `games_000101.js`. El enlace corporativo usa `games.html?game=...`, cuyo JavaScript redirige a `<game>.html`. Resolver el WebSocket mediante navegador no incorporaba el cliente del juego a la detección estática. El ejecutor ahora reproduce ese redirect conocido del host oficial, conserva los parámetros y descarga los assets del juego específico antes de decidir sus modos.
+
+Una prueba real de Ten Lucky Spins, iniciada desde el enlace genérico del catálogo con mensajes espaciados 0,7 segundos, completó SPIN y PURCHASE por separado: un envío de compra con selector 1 y quince continuaciones; ambos intentos terminaron OK y sus auditorías de regreso quedaron confirmadas. El modo PURCHASE quedó validado en ese resultado. La prueba se guardó en evidencia local separada, sin reemplazar el historial de la aplicación ni publicar claves de sesión.
+
+También se comprobó estáticamente el discovery corregido en seis entradas recientes (Cash'n Fruits X, Cash'n Fruits Hold And Win, Cash&Spins 243, Cash Amplifier 243, Burning Spins 243 y Buffalo's Wealth Win Spins). Cada una recorrió cuatro scripts y no produjo compras declaradas bajo el contrato conocido. Esta muestra no es una validación de compras de todo el catálogo ni prueba que no existan otras familias de compras.
+
+La aplicación ya abierta debe reiniciarse para cargar la corrección. Los OK antiguos no acreditan compras y no se reescriben. Verificación específica tras el fix: 49 pruebas aprobadas.

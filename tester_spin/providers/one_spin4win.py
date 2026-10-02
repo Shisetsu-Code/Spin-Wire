@@ -9,7 +9,7 @@ import threading
 import time
 from pathlib import Path
 from typing import Any
-from urllib.parse import parse_qs, urljoin, urlparse
+from urllib.parse import urlencode, parse_qs, urljoin, urlparse
 
 import requests
 from bs4 import BeautifulSoup, Tag
@@ -543,6 +543,17 @@ class OneSpin4WinProvider(ProviderAdapter):
         session = self._worker_session()
         response = session.get(game.url, timeout=timeout_s, allow_redirects=True)
         response.raise_for_status()
+        launcher = urlparse(response.url)
+        launcher_query = parse_qs(launcher.query, keep_blank_values=True)
+        if launcher.hostname == 'gs.1spin4win.com' and launcher.path == '/gmh5/games.html':
+            values = launcher_query.pop('game', [])
+            if len(values) != 1 or not re.fullmatch(r'[A-Za-z0-9_-]{1,128}', values[0]):
+                raise RuntimeError('D1: el lanzador no contiene un identificador de juego válido.')
+            # games_000101.js performs this same redirect on window.onload.
+            target = urljoin(response.url, values[0].lower() + '.html')
+            target += '?' + urlencode(launcher_query, doseq=True)
+            response = session.get(target, timeout=timeout_s, allow_redirects=True)
+            response.raise_for_status()
         attempt_dir.mkdir(parents=True, exist_ok=True)
         (attempt_dir / "demo-page.html").write_text(
             response.text,
