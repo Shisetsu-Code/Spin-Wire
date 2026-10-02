@@ -14,6 +14,7 @@ from urllib.parse import parse_qs, urljoin, urlparse
 import requests
 from bs4 import BeautifulSoup, Tag
 
+from tester_spin.providers.one_spin4win_purchases import discover_purchase_modes, apply_purchase_coverage, purchase_modes_for_init
 from tester_spin.models import Game, GameTestResult, SpinAttempt, utc_now_iso
 from tester_spin.providers.base import GameCallback, Progress, ProviderAdapter
 
@@ -566,6 +567,7 @@ class OneSpin4WinProvider(ProviderAdapter):
             if src and src not in queue:
                 queue.append(src)
 
+        purchase_sources = [response.text]
         scanned: list[str] = []
         while queue and len(scanned) < 32:
             src = queue.pop(0)
@@ -578,6 +580,7 @@ class OneSpin4WinProvider(ProviderAdapter):
                 if len(js.content) > 8 * 1024 * 1024:
                     continue
                 text = js.text
+                purchase_sources.append(text)
             except Exception:
                 continue
 
@@ -643,6 +646,7 @@ class OneSpin4WinProvider(ProviderAdapter):
             "freeplay": True,
             "demo_url": response.url,
             "scripts_scanned": scanned,
+            "purchase_modes": discover_purchase_modes(purchase_sources, game_name),
             "discovery": {
                 "ws_from_static_assets": static_ws_found,
                 "connect_from_static_assets": static_connect_found,
@@ -797,6 +801,11 @@ class OneSpin4WinProvider(ProviderAdapter):
 
             if init_payload is None:
                 raise TimeoutError("D1: no llegó respuesta type=1 de inicialización.")
+
+            spec["purchase_modes"] = purchase_modes_for_init(spec.get("purchase_modes") or [], init_payload)
+            (attempt_dir / "runtime-spec.json").write_text(
+                json.dumps(spec, ensure_ascii=False, indent=2), encoding="utf-8"
+            )
 
             lines = self._int_field(init_payload.get("l"), 0)
             bet_index = self._int_field(init_payload.get("b3"), -1)
@@ -987,6 +996,7 @@ class OneSpin4WinProvider(ProviderAdapter):
         responded = 0
         errors: list[str] = []
         resolved_symbol = game.symbol
+        purchase_modes: list[dict[str, Any]] = []
 
         progress(
             f"[{game.name}] D1: ejecutando {repetitions} tirada(s) directamente "
@@ -1014,6 +1024,7 @@ class OneSpin4WinProvider(ProviderAdapter):
                         (attempt_dir / "runtime-spec.json").read_text(encoding="utf-8")
                     )
                     resolved_symbol = str(spec.get("game_name") or resolved_symbol)
+                    purchase_modes.extend(spec.get("purchase_modes") or [])
                 except Exception:
                     pass
 
@@ -1106,6 +1117,7 @@ class OneSpin4WinProvider(ProviderAdapter):
             run_dir=str(run_dir),
             attempts=attempts,
         )
+        apply_purchase_coverage(result, purchase_modes)
         run_dir.mkdir(parents=True, exist_ok=True)
         (run_dir / "result.json").write_text(
             json.dumps(result.to_dict(), ensure_ascii=False, indent=2),

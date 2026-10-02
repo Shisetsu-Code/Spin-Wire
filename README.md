@@ -54,6 +54,8 @@ Proveedores integrados: **Pragmatic Play**, **1spin4win (D1)**, **Belatra Games*
 
 ### 1spin4win (D1)
 
+- [Compras D1](docs/ONE_SPIN4WIN_PURCHASES.md): detección en el cliente por juego; una compra pendiente impide aprobar el juego sólo por su tirada base.
+
 - El HAR de catálogo aportado muestra que el portfolio público de `1spin4win.com/games` es Webflow CMS renderizado en HTML; cada página se parsea desde `div.item_portfolio` y el “cargar más” se sigue directamente mediante `a.w-pagination-next[href]`.
 - La URL demo publicada en `gs.1spin4win.com:10443` se usa para resolver los assets reales del juego. El resolver intenta primero extraer `gameURL`, nombre interno y versión desde HTML/JS.
 - Algunos títulos no exponen `gameURL` como literal estático. En ese caso Tester-Spin abre sólo el bootstrap de la demo con Playwright, observa el WebSocket real mediante `page.on("websocket")` y recupera `gameName/version/config/currency` del primer frame oficial `A/u2 type=0`. La tirada posterior sigue ejecutándose con el cliente WS directo.
