@@ -107,6 +107,23 @@ with sync_playwright() as p:
                                          "failure":str(request.failure or "unknown")[:200]})
         page.on("request",observe_request)
         page.on("requestfailed",observe_failure)
+        # Chromium DevTools identifies CORS blocks separately from network timeouts.
+        cdp_urls={}
+        cdp_failures=[]
+        cdp=context.new_cdp_session(page)
+        cdp.send("Network.enable")
+        def cdp_request(event):
+            request=event.get("request",{})
+            cdp_urls[event.get("requestId")]=(request.get("method"),safe_url(request.get("url","")))
+        def cdp_failed(event):
+            method,url=cdp_urls.get(event.get("requestId"),(None,None))
+            if url and "betman-demo.head.3oaks.com" in url:
+                cdp_failures.append({"method":method,"url":url,
+                    "error":event.get("errorText"),
+                    "blocked":event.get("blockedReason"),
+                    "cors":event.get("corsErrorStatus")})
+        cdp.on("Network.requestWillBeSent",cdp_request)
+        cdp.on("Network.loadingFailed",cdp_failed)
         failure=None
         loaded=[]
         for target in [f"https://3oaks.com/api/v1/games/{slug}/play?lang=en",f"https://3oaks.com/game/{slug}"]:
@@ -133,11 +150,13 @@ with sync_playwright() as p:
         summary={"slug":slug,"loaded":loaded,"failure":failure,"dom":dom,"frames":frame_details,
                  "har":{k:v for k,v in info.items() if k!="actions"},"actions":info["actions"],
                  "browser_posts":browser_posts[:100],
-                 "request_failures":request_failures[:100]}
+                 "request_failures":request_failures[:100],
+                 "chromium_network_failures":cdp_failures[:100]}
         (out/"summary.json").write_text(json.dumps(summary,ensure_ascii=False,indent=2))
         all_results.append({"slug":slug,"loaded":loaded,"har":summary["har"],
                             "frame_count":len(frame_details),"canvases":len(dom.get("canvases",[])),
-                            "browser_posts":len(browser_posts),"network_failures":request_failures[:10],"error":failure})
+                            "browser_posts":len(browser_posts),"network_failures":request_failures[:10],
+                            "chromium_network_failures":cdp_failures[:10],"error":failure})
         print(json.dumps(all_results[-1],ensure_ascii=False),flush=True)
     browser.close()
 (OUT/"summary.json").write_text(json.dumps(all_results,ensure_ascii=False,indent=2),encoding="utf-8")
