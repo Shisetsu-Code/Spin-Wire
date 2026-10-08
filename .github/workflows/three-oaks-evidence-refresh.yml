@@ -1,0 +1,83 @@
+name: 3 Oaks evidence refresh
+on:
+  push:
+    branches: [fix/three-oaks-validation]
+    paths: [.github/workflows/three-oaks-evidence-refresh.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: three-oaks-validation
+  cancel-in-progress: false
+jobs:
+  evidence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      PYTHONUNBUFFERED: '1'
+      TESTER_SPIN_PUBLISH_RESULTS: '0'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Install dependencies and preserve offline test dependency
+        run: |
+          mkdir -p action-three-oaks/dependency
+          python -m pip install --disable-pip-version-check -r requirements-dev.txt PyYAML pytest-subtests
+          python -m pip download --no-deps --only-binary=:all: 'curl_cffi>=0.16,<1' -d action-three-oaks/dependency
+      - name: Record complete repository baseline
+        continue-on-error: true
+        timeout-minutes: 5
+        run: python -m pytest tests -q --junitxml=action-three-oaks/full-suite.xml
+      - name: Connect configured demo test tunnel
+        timeout-minutes: 3
+        env:
+          PROTON_WG_CONF_B64: ${{ secrets.PROTON_WG_CONF_B64 }}
+        run: |
+          set -euo pipefail
+          if [ -z "${PROTON_WG_CONF_B64:-}" ]; then exit 0; fi
+          if ! command -v wg-quick >/dev/null || ! command -v resolvconf >/dev/null; then
+            sudo timeout 90 apt-get -o Acquire::Retries=1 -o Acquire::http::Timeout=15 -y -qq install wireguard-tools resolvconf
+          fi
+          umask 077
+          printf '%s' "$PROTON_WG_CONF_B64" | base64 --decode > "$RUNNER_TEMP/proton-three-oaks.conf"
+          sudo install -m 600 "$RUNNER_TEMP/proton-three-oaks.conf" /etc/wireguard/proton.conf
+          rm -f "$RUNNER_TEMP/proton-three-oaks.conf"
+          sudo wg-quick up proton >/dev/null
+          curl --fail --silent --show-error --max-time 20 -4 https://api.ipify.org >/dev/null
+          test "$(sudo wg show proton latest-handshakes | awk '{print $2}' | sort -nr | head -1)" -gt 0
+      - name: Capture current clients for unresolved advertised purchases
+        timeout-minutes: 4
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json, yaml
+          # Reuse the verified sanitized diagnostic without altering product code.
+          config = {'slugs':['4_fairy_flowers','space_coins','super_china_pots'], 'limit':0, 'phase':'advertised-unresolved'}
+          Path('.github/three-oaks-config.json').write_text(json.dumps(config))
+          workflow=yaml.safe_load(Path('.github/workflows/three-oaks-validation.yml').read_text())
+          shell=next(s['run'] for s in workflow['jobs']['validate']['steps'] if s.get('name')=='Inventory catalogue and validate selected fresh demos')
+          prefix="python - <<'PY'\n"
+          assert shell.startswith(prefix) and shell.endswith('PY\n')
+          script=shell[len(prefix):-3]
+          old="if result.status != 'OK' and (gd/'client.js').is_file():"
+          assert script.count(old)==1
+          script=script.replace(old,"if (gd/'client.js').is_file():")
+          exec(compile(script,'three-oaks-evidence-refresh','exec'),{'__name__':'__main__'})
+          PY
+      - name: Remove tunnel and credentials
+        if: always()
+        run: |
+          sudo wg-quick down proton >/dev/null 2>&1 || true
+          sudo rm -f /etc/wireguard/proton.conf
+          rm -f "$RUNNER_TEMP/proton-three-oaks.conf"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: three-oaks-refresh-${{ github.run_id }}
+          path: action-three-oaks/
+          retention-days: 7
