@@ -1,0 +1,97 @@
+name: 3 Oaks full catalogue live demo sweep
+
+on:
+  push:
+    branches: [ci/three-oaks-complete-sweep]
+    paths:
+      - tools/three_oaks_full_sweep.py
+      - .github/workflows/three-oaks-full-sweep.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: three-oaks-full-catalogue-demo
+  cancel-in-progress: false
+
+jobs:
+  catalogue:
+    runs-on: ubuntu-latest
+    timeout-minutes: 42
+    env:
+      PYTHONUNBUFFERED: "1"
+      TESTER_SPIN_PUBLISH_RESULTS: "0"
+    steps:
+      - name: Checkout corrected Tester-Spin
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install existing dependencies
+        run: |
+          set -euo pipefail
+          mkdir -p action-three-oaks-sweep
+          git rev-parse HEAD > action-three-oaks-sweep/source-commit.txt
+          python -m pip install --disable-pip-version-check -r requirements-dev.txt pytest-subtests
+      - name: Download all 111 public catalogue entries from previous full sweep
+        uses: actions/download-artifact@v4
+        with:
+          name: three-oaks-validated-37735796749
+          run-id: 37735796749
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: archived-3oaks
+      - name: Offline code regression gate, including HAR corrections
+        timeout-minutes: 5
+        run: |
+          set -euo pipefail
+          test -s archived-3oaks/catalog.json
+          python -m compileall -q tester_spin/providers/three_oaks tools/three_oaks_full_sweep.py
+          xvfb-run -a python -m pytest tests -q --junitxml=action-three-oaks-sweep/offline-regressions.xml
+      - name: Prepare configured GitHub runner demo tunnel
+        timeout-minutes: 3
+        env:
+          PROTON_WG_CONF_B64: ${{ secrets.PROTON_WG_CONF_B64 }}
+        run: |
+          set -euo pipefail
+          if [ -z "${PROTON_WG_CONF_B64:-}" ]; then
+            echo "No Proton WireGuard secret. Using direct runner route."
+            exit 0
+          fi
+          if ! command -v wg-quick >/dev/null || ! command -v resolvconf >/dev/null; then
+            sudo timeout -k 5 90 apt-get -o Acquire::Retries=1 -o Acquire::http::Timeout=15 -y -qq install wireguard-tools resolvconf
+          fi
+          umask 077
+          printf '%s' "$PROTON_WG_CONF_B64" | base64 --decode > "$RUNNER_TEMP/proton-3oaks-all.conf"
+          sudo install -m 600 "$RUNNER_TEMP/proton-3oaks-all.conf" /etc/wireguard/proton.conf
+          rm -f "$RUNNER_TEMP/proton-3oaks-all.conf"
+          sudo timeout -k 5 30 wg-quick up proton >/dev/null
+          curl --fail --silent --show-error --max-time 20 -4 https://api.ipify.org >/dev/null
+          handshake="$(sudo wg show proton latest-handshakes | awk '{print $2}' | sort -nr | head -1)"
+          test "${handshake:-0}" -gt 0
+          echo "GitHub runner tunnel verified."
+      - name: Entire 3 Oaks catalogue, sequential demo games and advertised modes
+        timeout-minutes: 34
+        run: |
+          set -euo pipefail
+          timeout -k 10 1860 python tools/three_oaks_full_sweep.py \
+            --budget-seconds 1700 --base-spins 2 --natural-spins 24
+      - name: Disconnect and erase runner WireGuard configuration
+        if: always()
+        run: |
+          sudo wg-quick down proton >/dev/null 2>&1 || true
+          sudo rm -f /etc/wireguard/proton.conf
+          rm -f "$RUNNER_TEMP/proton-3oaks-all.conf"
+      - name: Upload sanitizer-only evidence even on provider blocking
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: 3oaks-full-catalogue-${{ github.run_id }}
+          path: action-three-oaks-sweep/
+          if-no-files-found: warn
+          retention-days: 10
