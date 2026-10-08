@@ -79,7 +79,7 @@ jobs:
         timeout-minutes: 34
         run: |
           set -euo pipefail
-          timeout -k 10 1860 python tools/three_oaks_full_sweep.py \
+          timeout -k 10 1860 env PYTHONPATH="$GITHUB_WORKSPACE" python tools/three_oaks_full_sweep.py \
             --budget-seconds 1700 --base-spins 2 --natural-spins 24
       - name: Disconnect and erase runner WireGuard configuration
         if: always()
