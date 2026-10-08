@@ -1,0 +1,206 @@
+name: Hacksaw partial analysis
+
+on:
+  push:
+    branches: [diagnostics/partials-32f51c9]
+    paths: [.github/workflows/hacksaw-partial-analysis.yml]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: hacksaw-partial-analysis
+  cancel-in-progress: false
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      PYTHONUNBUFFERED: '1'
+      TESTER_SPIN_PUBLISH_RESULTS: '0'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Verify unchanged runtime and install dependencies
+        run: |
+          git diff --exit-code 32f51c951dfbf4705e7482abafa2561bb21eee15 HEAD -- tester_spin tests
+          python -m pip install --disable-pip-version-check -r requirements.txt pytest pytest-subtests
+      - name: Run existing Hacksaw regression tests
+        run: |
+          mkdir -p action-partials
+          mapfile -t tests < <(find tests -type f -name 'test*hacksaw*.py' | sort)
+          test "${#tests[@]}" -gt 0
+          python -m pytest -q "${tests[@]}" --junitxml=action-partials/regressions.xml
+      - name: Use configured demo test tunnel when available
+        env:
+          PROTON_WG_CONF_B64: ${{ secrets.PROTON_WG_CONF_B64 }}
+        run: |
+          set -euo pipefail
+          if [ -z "${PROTON_WG_CONF_B64:-}" ]; then
+            echo 'Direct runner egress; no configured test tunnel.'
+            exit 0
+          fi
+          sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq wireguard-tools resolvconf
+          umask 077
+          printf '%s' "$PROTON_WG_CONF_B64" | base64 --decode > "$RUNNER_TEMP/proton-partials.conf"
+          sudo install -m 600 "$RUNNER_TEMP/proton-partials.conf" /etc/wireguard/proton.conf
+          rm -f "$RUNNER_TEMP/proton-partials.conf"
+          sudo wg-quick up proton >/dev/null
+          curl --fail --silent --show-error --max-time 20 -4 https://api.ipify.org >/dev/null
+          handshake="$(sudo wg show proton latest-handshakes | awk '{print $2}' | sort -nr | head -1)"
+          test "${handshake:-0}" -gt 0
+          echo 'Configured demo test tunnel connected.'
+      - name: Reproduce only published partial purchases with fresh demo sessions
+        timeout-minutes: 6
+        run: |
+          python - <<'PY'
+          import csv
+          import dataclasses
+          import hashlib
+          import json
+          import os
+          import re
+          import threading
+          import time
+          from pathlib import Path
+          from unittest.mock import patch
+          from urllib.parse import urlsplit
+          from tester_spin.providers.hacksaw import adapter
+          from tester_spin.providers.hacksaw.catalog import games_from_rows
+          from tester_spin.providers.hacksaw.runtime import API
+
+          assert urlsplit(API).hostname == 'rgs-demo.hacksawgaming.com', 'Demo endpoint required'
+          out = Path('action-partials')
+          out.mkdir(exist_ok=True)
+          data_root = Path(os.environ['RUNNER_TEMP']) / 'hacksaw-partials-raw'
+          snapshot = json.loads(Path(adapter.__file__).with_name('catalog.json').read_text())
+          games = {g.symbol: g for g in games_from_rows(snapshot['games'])}
+          with Path('docs/hacksaw-catalogo-resultados.csv').open(encoding='utf-8-sig', newline='') as stream:
+              partials = [row for row in csv.DictReader(stream) if row['estado'] == 'PARCIAL']
+          manifest = {
+              'runtime_commit': '32f51c951dfbf4705e7482abafa2561bb21eee15',
+              'diagnostic_commit': os.environ['GITHUB_SHA'],
+              'source': 'docs/hacksaw-catalogo-resultados.csv',
+              'source_is_historical': True,
+              'scope': 'One baseline spin and one pending purchase per fresh demo session; not whole-game certification',
+              'targets': partials,
+              'cases': [],
+          }
+          def save(path, data):
+              path.write_text(json.dumps(data, ensure_ascii=False, indent=2, default=str), encoding='utf-8')
+          def clean(value, key=''):
+              lowered = key.lower()
+              if any(x in lowered for x in ('session', 'token', 'secret', 'password', 'cookie', 'authorization', 'playerid', 'userid')):
+                  return '[REDACTED]'
+              if lowered in ('roundid', 'requestid') and value is not None:
+                  return 'sha256:' + hashlib.sha256(str(value).encode()).hexdigest()[:16]
+              if isinstance(value, dict):
+                  return {str(k): clean(v, str(k)) for k, v in value.items()}
+              if isinstance(value, (list, tuple)):
+                  return [clean(v) for v in value]
+              return value
+          assert clean({'sessionUuid': 'private', 'roundId': '123', 'round': {'possibleActions': ['x']}})['sessionUuid'] == '[REDACTED]'
+          save(out / 'manifest.json', manifest)
+          original_discover = adapter.discover_modes
+          consecutive_transport_failures = 0
+          class RecordingSession:
+              def __init__(self, session, directory):
+                  self.session, self.directory, self.records = session, directory, []
+              def __getattr__(self, name):
+                  return getattr(self.session, name)
+              def request(self, method, url, **kwargs):
+                  parsed = urlsplit(url)
+                  assert parsed.hostname in {'static-live.hacksawgaming.com', 'rgs-demo.hacksawgaming.com'}, 'Unexpected endpoint'
+                  response = getattr(self.session, method)(url, **kwargs)
+                  record = {'method': method.upper(), 'endpoint': parsed.hostname + parsed.path, 'http_status': response.status_code}
+                  record['request'] = clean(kwargs.get('json'))
+                  try:
+                      payload = response.json()
+                      if parsed.path.endswith('/authenticate') and isinstance(payload, dict):
+                          payload = {k: v for k, v in payload.items() if k in {'statusCode', 'statusMessage', 'message', 'error', 'roundStatus', 'betLevels', 'minimumRoundDuration', 'buyBonus', 'bonusGames'}}
+                      record['response'] = clean(payload)
+                  except (ValueError, TypeError):
+                      record['non_json'] = {'bytes': len(response.content), 'sha256': hashlib.sha256(response.content).hexdigest()}
+                  self.records.append(record)
+                  save(self.directory / 'exchanges.json', self.records)
+                  return response
+              def get(self, url, **kwargs):
+                  return self.request('get', url, **kwargs)
+              def post(self, url, **kwargs):
+                  return self.request('post', url, **kwargs)
+
+          for row in partials:
+              game = games[row['id']]
+              selectors = sorted(set(re.findall(r'BUY_([A-Za-z0-9_]+)', row['error'])))
+              if not selectors:
+                  raise RuntimeError('No evidence-derived pending purchase selector for ' + game.name)
+              for selector in selectors:
+                  if consecutive_transport_failures >= 3:
+                      manifest['cases'].append({'game': game.name, 'selector': selector, 'status': 'NOT_RUN_CIRCUIT_BREAKER'})
+                      save(out / 'manifest.json', manifest)
+                      continue
+                  directory = out / (game.symbol + '-' + selector)
+                  directory.mkdir(exist_ok=True)
+                  provider = adapter.HacksawProvider(data_root / (game.symbol + '-' + selector))
+                  recorder = RecordingSession(provider.http, directory)
+                  provider.http = recorder
+                  def selected_modes(data, wanted=selector):
+                      return [m for m in original_discover(data) if m['id'] == 'SPIN' or (m.get('kind') == 'PURCHASE' and m.get('buyBonus') == wanted)]
+                  started = time.monotonic()
+                  try:
+                      with patch.object(adapter, 'discover_modes', selected_modes):
+                          result = provider.test_game(game, spins=1, timeout_s=15, stop_event=threading.Event(), progress=lambda message: None)
+                      record = clean(dataclasses.asdict(result))
+                      save(directory / 'result.json', record)
+                      purchase = [a for a in result.attempts if a.mode_kind == 'PURCHASE']
+                      rounds = []
+                      for exchange in recorder.records:
+                          payload = exchange.get('response', {})
+                          r = payload.get('round') if isinstance(payload, dict) else None
+                          if isinstance(r, dict):
+                              rounds.append({'status': r.get('status'), 'possibleActions': r.get('possibleActions'), 'roundId': r.get('roundId')})
+                      case = {'game': game.name, 'id': game.symbol, 'selector': selector, 'status': result.status,
+                              'error': result.error, 'baseline_ok': result.successful_spins,
+                              'purchase_attempted': bool(purchase), 'purchase_terminal': bool(purchase) and all(a.ok and a.terminal for a in purchase),
+                              'http_statuses': [r['http_status'] for r in recorder.records], 'rounds': rounds,
+                              'elapsed_s': round(time.monotonic() - started, 3)}
+                      if not purchase and result.status == 'OK':
+                          case['status'] = 'NOT_ADVERTISED_OR_NOT_ATTEMPTED'
+                      blocked = any(s in {403, 429, 500, 502, 503, 504} for s in case['http_statuses'])
+                      consecutive_transport_failures = consecutive_transport_failures + 1 if blocked else 0
+                  except Exception as exc:
+                      case = {'game': game.name, 'id': game.symbol, 'selector': selector, 'status': 'DIAGNOSTIC_ERROR', 'error': type(exc).__name__ + ': ' + str(exc)}
+                  finally:
+                      recorder.session.close()
+                  manifest['cases'].append(case)
+                  save(out / 'manifest.json', manifest)
+                  print(json.dumps(case, ensure_ascii=False))
+                  time.sleep(1)
+          with open(os.environ['GITHUB_STEP_SUMMARY'], 'a', encoding='utf-8') as summary:
+              summary.write('## Published Hacksaw partials: fresh demo evidence\n\nRuntime: `32f51c9`. Scoped evidence only, not whole-game coverage.\n\n')
+              summary.write('| Game | Selector | Result | Purchase terminal |\n|---|---|---|---|\n')
+              for case in manifest['cases']:
+                  summary.write('| {} | {} | {} | {} |\n'.format(case['game'], case['selector'], case['status'], case.get('purchase_terminal', False)))
+          PY
+      - name: Remove test tunnel and credentials
+        if: always()
+        run: |
+          sudo wg-quick down proton >/dev/null 2>&1 || true
+          sudo rm -f /etc/wireguard/proton.conf
+          rm -f "$RUNNER_TEMP/proton-partials.conf"
+      - name: Upload sanitized diagnostics only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hacksaw-partials-${{ github.run_id }}
+          path: action-partials/
+          retention-days: 7
+          if-no-files-found: warn
