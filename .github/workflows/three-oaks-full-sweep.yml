@@ -1,11 +1,6 @@
 name: 3 Oaks full catalogue live demo sweep
 
 on:
-  push:
-    branches: [ci/three-oaks-complete-sweep]
-    paths:
-      - tools/three_oaks_full_sweep.py
-      - .github/workflows/three-oaks-full-sweep.yml
   workflow_dispatch:
 
 permissions:
@@ -80,7 +75,7 @@ jobs:
         run: |
           set -euo pipefail
           timeout -k 10 1860 env PYTHONPATH="$GITHUB_WORKSPACE" python tools/three_oaks_full_sweep.py \
-            --budget-seconds 1700 --base-spins 2 --natural-spins 24
+            --catalog-source snapshot --budget-seconds 1700 --base-spins 2 --natural-spins 24
       - name: Disconnect and erase runner WireGuard configuration
         if: always()
         run: |
