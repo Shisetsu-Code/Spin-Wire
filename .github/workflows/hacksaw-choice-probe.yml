@@ -1,0 +1,117 @@
+name: Hacksaw observed choice probe
+
+on:
+  push:
+    branches: [diagnostics/partials-32f51c9]
+    paths: [.github/workflows/hacksaw-choice-probe.yml]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: hacksaw-partial-analysis
+  cancel-in-progress: false
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      PYTHONUNBUFFERED: '1'
+      TESTER_SPIN_PUBLISH_RESULTS: '0'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Verify unchanged product code and install dependencies
+        run: |
+          git diff --exit-code 32f51c951dfbf4705e7482abafa2561bb21eee15 HEAD -- tester_spin tests
+          python -m pip install --disable-pip-version-check -r requirements.txt PyYAML pytest pytest-subtests
+      - name: Connect existing demo test tunnel
+        env:
+          PROTON_WG_CONF_B64: ${{ secrets.PROTON_WG_CONF_B64 }}
+        run: |
+          python - <<'PY' > "$RUNNER_TEMP/connect-demo-test.sh"
+          import yaml
+          from pathlib import Path
+          workflow = yaml.safe_load(Path('.github/workflows/hacksaw-partial-analysis.yml').read_text())
+          steps = workflow['jobs']['diagnose']['steps']
+          print(next(s['run'] for s in steps if s.get('name') == 'Use configured demo test tunnel when available'))
+          PY
+          bash "$RUNNER_TEMP/connect-demo-test.sh"
+      - name: Probe eight observed choice paths with an in-memory family extension
+        timeout-minutes: 6
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          import yaml
+          from tester_spin.providers.hacksaw import adapter
+
+          # This is a hypothesis test, NOT a modification of production source.
+          old = 'families = (("play", "gamble"), ("wild", "warehouse"), ("fs", "lives"))'
+          new = 'families = (("play", "gamble"), ("wild", "warehouse"), ("fs", "lives"), ("ts", "fs"), ("fs", "labyrinth"))'
+          source = Path(adapter.__file__).read_text()
+          assert source.count(old) == 1, 'Unexpected adapter source: do not patch blindly'
+          exec(compile(source.replace(old, new), adapter.__file__, 'exec'), adapter.__dict__)
+          assert Path(adapter.__file__).read_text() == source, 'Source file must remain untouched'
+
+          workflow = yaml.safe_load(Path('.github/workflows/hacksaw-partial-analysis.yml').read_text())
+          steps = workflow['jobs']['diagnose']['steps']
+          shell = next(s['run'] for s in steps if s.get('name') == 'Reproduce only published partial purchases with fresh demo sessions')
+          prefix = "python - <<'PY'\n"
+          assert shell.startswith(prefix) and shell.endswith('PY\n')
+          probe = shell[len(prefix):-3]
+          # Keep the original scope, sequential execution, circuit breaker,
+          # fresh demo authentication, sanitization, and same-round checks.
+          exec(compile(probe, 'isolated-hacksaw-choice-probe', 'exec'), {'__name__': '__main__'})
+          output = Path('action-partials')
+          manifest = json.loads((output / 'manifest.json').read_text())
+          manifest['runtime_status'] = 'EXPERIMENTAL_IN_MEMORY_PATCH'
+          manifest['product_source_unchanged'] = True
+          manifest['hypothesis'] = 'Only the two observed missing choice families prevent these pending purchases from closing'
+          manifest['patch'] = {'before': old, 'after': new}
+          manifest['observation_run_id'] = 37730897604
+          manifest['scope_limit'] = 'Validates observed root choices and same-round terminal; no claim of exhaustive random outcomes or post-bonus return-to-base probes'
+          paths = []
+          for case in manifest['cases']:
+              result_file = output / (case['id'] + '-' + case['selector']) / 'result.json'
+              if not result_file.exists():
+                  continue
+              result = json.loads(result_file.read_text())
+              for mode in result.get('discovered_modes', []):
+                  if mode.get('kind') == 'CHOICE_CONTINUATION':
+                      for choice in mode.get('covered_options', []):
+                          paths.append({'game': case['game'], 'id': case['id'], 'purchase': case['selector'], 'choice': choice,
+                                        'samples': mode.get('sample_counts', {}).get(choice), 'validated': mode.get('validated')})
+          manifest['observed_choice_paths'] = paths
+          (output / 'manifest.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding='utf-8')
+          (output / 'choice-paths.json').write_text(json.dumps(paths, ensure_ascii=False, indent=2), encoding='utf-8')
+          print('EXPERIMENTAL_CHOICE_PATHS ' + json.dumps(paths, ensure_ascii=False))
+          with open(__import__('os').environ['GITHUB_STEP_SUMMARY'], 'a', encoding='utf-8') as summary:
+              summary.write('\n## Experimental result, not production state\n\n')
+              summary.write('Source remains unchanged. Only the in-memory family allowlist was extended from observed demo evidence.\n\n')
+              summary.write('Observed root choice paths: {} / 8. Post-bonus baseline probing is outside this experiment.\n'.format(len(paths)))
+          assert len(manifest['cases']) == 4 and all(c.get('purchase_terminal') for c in manifest['cases']), 'At least one purchase still lacks terminal proof'
+          assert len(paths) == 8 and all(p['validated'] for p in paths), 'At least one observed root choice remains unvalidated'
+          PY
+      - name: Remove tunnel and credentials
+        if: always()
+        run: |
+          sudo wg-quick down proton >/dev/null 2>&1 || true
+          sudo rm -f /etc/wireguard/proton.conf
+          rm -f "$RUNNER_TEMP/proton-partials.conf" "$RUNNER_TEMP/connect-demo-test.sh"
+      - name: Upload sanitized experimental evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hacksaw-choice-probe-${{ github.run_id }}
+          path: action-partials/
+          retention-days: 7
+          if-no-files-found: warn
