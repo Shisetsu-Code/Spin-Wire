@@ -1,0 +1,49 @@
+name: 3 Oaks HAR-backed regressions
+on:
+  push:
+    branches: [fix/three-oaks-har-777]
+    paths:
+      - 'tester_spin/providers/three_oaks/**'
+      - 'tests/test_three_oaks_har_777.py'
+      - '.github/workflows/three-oaks-har-regression.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  offline-regressions:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      PYTHONUNBUFFERED: '1'
+      TESTER_SPIN_PUBLISH_RESULTS: '0'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Install test dependencies
+        run: |
+          python -m pip install --disable-pip-version-check -r requirements-dev.txt pytest-subtests
+          mkdir -p action-three-oaks-har
+      - name: Confirm code compiles and HAR regression passes
+        run: |
+          python -m compileall -q tester_spin/providers/three_oaks
+          python -m pytest -q tests/test_three_oaks_har_777.py --junitxml=action-three-oaks-har/har-regressions.xml
+      - name: All 3 Oaks regression tests
+        run: |
+          mapfile -t tests < <(find tests -name 'test*three_oaks*.py' | sort)
+          test "${#tests[@]}" -gt 0
+          python -m pytest -q "${tests[@]}" --junitxml=action-three-oaks-har/three-oaks.xml
+      - name: Full suite (all providers, no external demos)
+        run: |
+          xvfb-run -a python -m pytest -q tests --junitxml=action-three-oaks-har/full-suite.xml
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: 3oaks-har-regression-${{ github.run_id }}
+          path: action-three-oaks-har/
+          retention-days: 7
+          if-no-files-found: warn
