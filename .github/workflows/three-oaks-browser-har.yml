@@ -1,0 +1,78 @@
+name: 3 Oaks browser HAR diagnostic
+on:
+  push:
+    branches: [diagnostics/three-oaks-browser-har]
+    paths:
+      - tools/three_oaks_browser_har.py
+      - .github/workflows/three-oaks-browser-har.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: three-oaks-browser-har
+  cancel-in-progress: false
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    env:
+      PYTHONUNBUFFERED: '1'
+      TESTER_SPIN_PUBLISH_RESULTS: '0'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Install real Chromium and Playwright
+        run: |
+          python -m pip install --disable-pip-version-check playwright
+          python -m playwright install --with-deps chromium
+      - name: Connect configured demo test tunnel (when present)
+        env:
+          PROTON_WG_CONF_B64: ${{ secrets.PROTON_WG_CONF_B64 }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -z "${PROTON_WG_CONF_B64:-}" ]; then
+            echo "No configured test tunnel. Testing direct runner egress."
+            exit 0
+          fi
+          sudo timeout -k 5 90 apt-get -y -qq install wireguard-tools resolvconf
+          umask 077
+          printf '%s' "$PROTON_WG_CONF_B64" | base64 --decode > "$RUNNER_TEMP/proton-browser.conf"
+          sudo install -m 600 "$RUNNER_TEMP/proton-browser.conf" /etc/wireguard/proton.conf
+          rm -f "$RUNNER_TEMP/proton-browser.conf"
+          sudo timeout -k 5 30 wg-quick up proton >/dev/null
+          curl --fail --silent --show-error --max-time 20 -4 https://api.ipify.org >/dev/null
+          test "$(sudo wg show proton latest-handshakes | awk '{print $2}' | sort -nr | head -1)" -gt 0
+      - name: Open two partial demos in Chromium and capture sanitized HAR
+        timeout-minutes: 5
+        run: |
+          python tools/three_oaks_browser_har.py
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          rows=json.loads(Path('action-3oaks-browser-har/summary.json').read_text())
+          with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as s:
+            s.write("## 3 Oaks Chromium capture, not a game-coverage result\n\n")
+            s.write("| Game | Launcher HTTP | HAR requests | POSTs | Browser canvases |\n|---|---|---:|---:|---:|\n")
+            for row in rows:
+              status=", ".join(str(x.get('status') or x.get('error')) for x in row.get('loaded',[]))
+              s.write(f"| {row['slug']} | {status} | {row['har']['entries']} | {row['har']['post_requests']} | {row['canvases']} |\n")
+          PY
+      - name: Remove test tunnel and configuration
+        if: always()
+        run: |
+          sudo wg-quick down proton >/dev/null 2>&1 || true
+          sudo rm -f /etc/wireguard/proton.conf
+          rm -f "$RUNNER_TEMP/proton-browser.conf"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: 3oaks-browser-har-${{ github.run_id }}
+          path: action-3oaks-browser-har/
+          retention-days: 7
+          if-no-files-found: warn
