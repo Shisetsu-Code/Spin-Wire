@@ -1,0 +1,188 @@
+name: 3 Oaks validation
+on:
+  push:
+    branches: [fix/three-oaks-validation]
+    paths: [.github/workflows/three-oaks-validation.yml, .github/three-oaks-config.json]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: three-oaks-validation
+  cancel-in-progress: false
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      PYTHONUNBUFFERED: '1'
+      TESTER_SPIN_PUBLISH_RESULTS: '0'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Export exact public source for offline regression work
+        run: |
+          mkdir -p source-artifact
+          git archive --format=zip HEAD > source-artifact/source.zip
+          git rev-parse HEAD > source-artifact/source-commit.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: three-oaks-source-${{ github.run_id }}
+          path: source-artifact/
+          retention-days: 7
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Install dependencies and run 3 Oaks regression gate
+        run: |
+          mkdir -p action-three-oaks
+          python -m pip install --disable-pip-version-check -r requirements.txt pytest pytest-subtests
+          mapfile -t tests < <(find tests -name 'test*three_oaks*.py' | sort)
+          test "${#tests[@]}" -gt 0
+          python -m pytest -q "${tests[@]}" --junitxml=action-three-oaks/regressions.xml
+      - name: Connect configured demo test tunnel
+        env:
+          PROTON_WG_CONF_B64: ${{ secrets.PROTON_WG_CONF_B64 }}
+        run: |
+          set -euo pipefail
+          if [ -z "${PROTON_WG_CONF_B64:-}" ]; then
+            echo 'Using direct runner egress.'
+            exit 0
+          fi
+          sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq wireguard-tools resolvconf
+          umask 077
+          printf '%s' "$PROTON_WG_CONF_B64" | base64 --decode > "$RUNNER_TEMP/proton-three-oaks.conf"
+          sudo install -m 600 "$RUNNER_TEMP/proton-three-oaks.conf" /etc/wireguard/proton.conf
+          rm -f "$RUNNER_TEMP/proton-three-oaks.conf"
+          sudo wg-quick up proton >/dev/null
+          curl --fail --silent --show-error --max-time 20 -4 https://api.ipify.org >/dev/null
+          handshake="$(sudo wg show proton latest-handshakes | awk '{print $2}' | sort -nr | head -1)"
+          test "${handshake:-0}" -gt 0
+      - name: Inventory catalogue and validate selected fresh demos
+        timeout-minutes: 15
+        run: |
+          python - <<'PY'
+          import dataclasses, hashlib, json, os, re, threading, time
+          from pathlib import Path
+          from tester_spin.providers.three_oaks.adapter import ThreeOaksProvider
+          from tester_spin.providers.three_oaks import adapter
+          out = Path('action-three-oaks')
+          root = Path(os.environ['RUNNER_TEMP']) / 'three-oaks-data'
+          out.mkdir(exist_ok=True)
+          def save(path, value):
+              path.parent.mkdir(parents=True, exist_ok=True)
+              path.write_text(json.dumps(value, ensure_ascii=False, indent=2, default=str), encoding='utf-8')
+          def clean(value, key=''):
+              k = re.sub('[^a-z0-9]', '', key.lower())
+              if any(s in k for s in ('session', 'token', 'password', 'authorization', 'cookie', 'secret', 'huid')) or k in {'user', 'userid', 'player', 'playerid', 'sid'}:
+                  return '[REDACTED]'
+              if isinstance(value, dict):
+                  return {str(k): clean(v, str(k)) for k,v in value.items()}
+              if isinstance(value, (list, tuple)):
+                  return [clean(v) for v in value]
+              if isinstance(value, str):
+                  return re.sub(r'(?i)(token|session_id|huid)=([^&\s]+)', r'\1=[REDACTED]', value)
+              return value
+          config_path = Path('.github/three-oaks-config.json')
+          config = json.loads(config_path.read_text()) if config_path.exists() else {'scope': 'historical', 'limit': 16}
+          provider = ThreeOaksProvider(root)
+          # Thumbnail downloads do not affect protocol validation.
+          provider._thumbnail = lambda game, progress: None
+          stop = threading.Event()
+          manifest = {'source_commit': os.environ['GITHUB_SHA'], 'config': config, 'cases': [], 'status': 'STARTED'}
+          save(out/'summary.json', manifest)
+          try:
+              games = provider.crawl_catalog(stop_event=stop, progress=print)
+              save(out/'catalog.json', [dataclasses.asdict(g) for g in games])
+              historical = json.loads(Path(adapter.__file__).with_name('observed_game_rules.json').read_text())['games']
+              by_slug = {g.slug:g for g in games}
+              selected = [g for g in games if g.slug in historical]
+              if config.get('scope') == 'all':
+                  selected = games
+              elif config.get('slugs'):
+                  selected = [by_slug[s] for s in config['slugs'] if s in by_slug]
+                  manifest['missing_requested_slugs'] = [s for s in config['slugs'] if s not in by_slug]
+              else:
+                  selected += [g for g in games if g not in selected]
+              limit = int(config.get('limit', 16))
+              if limit > 0:
+                  selected = selected[:limit]
+              manifest.update(catalog_size=len(games), selected_size=len(selected), selected_slugs=[g.slug for g in selected])
+              save(out/'summary.json', manifest)
+              started = time.monotonic()
+              for game in selected:
+                  if stop.is_set() or time.monotonic()-started > 780:
+                      manifest['status'] = 'STOPPED_BUDGET_OR_RATE_LIMIT'
+                      break
+                  result = provider.test_game(game, spins=1, timeout_s=12, stop_event=stop, progress=lambda msg: None)
+                  raw = dataclasses.asdict(result)
+                  gd = provider.game_dir(game)
+                  case_dir = out/'games'/game.slug
+                  save(case_dir/'result.json', clean(raw))
+                  run = Path(result.run_dir) if result.run_dir else None
+                  if run and run.is_dir():
+                      for path in run.rglob('*.json'):
+                          if path.stat().st_size > 3000000:
+                              continue
+                          try:
+                              save(case_dir/'evidence'/path.relative_to(run), clean(json.loads(path.read_text(encoding='utf-8'))))
+                          except (ValueError, OSError):
+                              pass
+                  if (gd/'game.json').is_file():
+                      save(case_dir/'game.json', clean(json.loads((gd/'game.json').read_text())))
+                  # Public client source only; never export launchers or raw credentials.
+                  if result.status != 'OK' and (gd/'client.js').is_file():
+                      (case_dir/'client.js').write_bytes((gd/'client.js').read_bytes())
+                      if run:
+                          for name in ('client-init.js','shared-runner.js'):
+                              if (run/name).is_file():
+                                  (case_dir/name).write_bytes((run/name).read_bytes())
+                  modes = result.discovered_modes
+                  returns = []
+                  if run and run.is_dir():
+                      returns = [json.loads(p.read_text()) for p in run.rglob('return-to-base.json')]
+                  case = {'slug':game.slug,'name':game.name,'status':result.status,'error':clean(result.error),
+                      'family':provider._metadata(game).get('family'), 'baseline_ok':result.successful_spins,
+                      'purchase_count':sum(m.get('kind')=='PURCHASE' for m in modes),
+                      'purchase_validated':sum(m.get('kind')=='PURCHASE' and bool(m.get('validated')) for m in modes),
+                      'discovered_only':sum(m.get('kind')=='DISCOVERED_ONLY' for m in modes),
+                      'pending_modes':[m.get('id') for m in modes if m.get('coverage_required',True) and not m.get('validated')],
+                      'return_checks':returns,'elapsed_s':round(result.elapsed_ms/1000,3)}
+                  manifest['cases'].append(case)
+                  save(out/'summary.json', manifest)
+                  print(json.dumps(case,ensure_ascii=False))
+                  if re.search(r'\b(429|403)\b',result.error or ''):
+                      stop.set()
+                  time.sleep(0.5)
+              if manifest['status']=='STARTED':
+                  manifest['status']='COMPLETED'
+          except Exception as exc:
+              manifest.update(status='DIAGNOSTIC_ERROR',error=clean(type(exc).__name__+': '+str(exc)))
+              raise
+          finally:
+              provider.http.close()
+              manifest['completed_size']=len(manifest['cases'])
+              manifest['status_counts']={s:sum(c['status']==s for c in manifest['cases']) for s in sorted({c['status'] for c in manifest['cases']})}
+              save(out/'summary.json',manifest)
+              with open(os.environ['GITHUB_STEP_SUMMARY'],'a',encoding='utf-8') as f:
+                  f.write('## 3 Oaks fresh demo validation\n\n```json\n'+json.dumps({k:v for k,v in manifest.items() if k not in {'cases','selected_slugs'}},ensure_ascii=False,indent=2)+'\n```\n')
+                  f.write('| Game | Result | Purchases validated | Pending |\n|---|---|---|---|\n')
+                  for c in manifest['cases']:
+                      f.write(f"| {c['name']} | {c['status']} | {c['purchase_validated']}/{c['purchase_count']} | {', '.join(c['pending_modes'])} |\n")
+          PY
+      - name: Remove tunnel and credentials
+        if: always()
+        run: |
+          sudo wg-quick down proton >/dev/null 2>&1 || true
+          sudo rm -f /etc/wireguard/proton.conf
+          rm -f "$RUNNER_TEMP/proton-three-oaks.conf"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: three-oaks-evidence-${{ github.run_id }}
+          path: action-three-oaks/
+          retention-days: 7
+          if-no-files-found: warn
