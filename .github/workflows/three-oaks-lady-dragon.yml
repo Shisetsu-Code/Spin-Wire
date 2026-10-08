@@ -1,0 +1,81 @@
+name: Three Oaks archived client contract diagnostic
+on:
+  push:
+    branches: [fix/three-oaks-har-lady-dragon]
+    paths:
+      - ".github/workflows/three-oaks-lady-dragon.yml"
+      - "tester_spin/providers/three_oaks/**"
+      - "tests/test_three_oaks_har_lady_dragon.py"
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: python -m pip install --disable-pip-version-check -r requirements-dev.txt pytest-subtests
+      - name: Download archived public JS and redacted start state (no HAR sessions)
+        uses: actions/download-artifact@v4
+        with:
+          name: three-oaks-validated-37735796749
+          run-id: 37735796749
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: archived-3oaks
+      - name: Inspect exact two client input contracts
+        run: |
+          mkdir -p action-lady-dragon
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from tester_spin.providers.three_oaks.client_contracts import client_contract
+          from tester_spin.providers.three_oaks.runtime import play_fields, continuation_fields, base_terminal
+          root=Path('archived-3oaks/games')
+          report={}
+          for slug in ('lady_fortune','15_dragon_pearls'):
+              base=root/slug
+              result=json.loads((base/'result.json').read_text())
+              start=json.loads((base/'evidence/001-start.response.raw.json').read_text())
+              input_contract=json.loads((base/'evidence/client-input-contract.json').read_text())
+              row={'name':slug,'historical_status':result.get('status'),
+                   'historical_pending':[m['id'] for m in result['discovered_modes'] if m.get('coverage_required',True) and not m.get('validated')],
+                   'advertised_buys':start['context'].get('available_buy_bonus',[]),
+                   'historical_client_sha':input_contract.get('client_sha256')}
+              if slug=='lady_fortune':
+                  source=(base/'client.js').read_text()
+                  runner=(base/'shared-runner.js').read_text()
+                  init=(base/'client-init.js').read_text()
+                  profile=client_contract(source,data=start,runner_source=runner,init_source=init)
+                  keys=('contract_source','purchase_modes','purchase_ui_modes','purchase_params','purchase_mode_values',
+                        'purchase_value_sources','purchase_ui_defaults','purchase_route_evidence','spin_params',
+                        'continuations')
+                  row['current_profile']={k:profile.get(k) for k in keys if k in profile}
+                  shapes=[]
+                  for m in start['context'].get('available_buy_bonus',[]):
+                      try:
+                          shape=play_fields(start,'buy_spin',m,client_profile=profile)
+                          shapes.append({'mode':m,'request_action':shape['action']})
+                      except Exception as exc:
+                          shapes.append({'mode':m,'error':type(exc).__name__+':'+str(exc)})
+                  row['purchase_requests']=shapes
+              report[slug]=row
+              print(json.dumps(row,ensure_ascii=False))
+          Path('action-lady-dragon/client-contracts.json').write_text(json.dumps(report,ensure_ascii=False,indent=2))
+          PY
+      - name: Run current 3 Oaks tests and full suite
+        run: |
+          mapfile -t tests < <(find tests -name 'test*three_oaks*.py' | sort)
+          python -m pytest -q "${tests[@]}" --junitxml=action-lady-dragon/three-oaks.xml
+          xvfb-run -a python -m pytest tests -q --junitxml=action-lady-dragon/full-suite.xml
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: 3oaks-lady-dragon-contracts-${{ github.run_id }}
+          path: action-lady-dragon/
+          retention-days: 7
