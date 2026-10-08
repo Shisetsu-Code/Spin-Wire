@@ -40,9 +40,11 @@ def run_captured_adapter(purchases=False):
             self.text = text if text is not None else json.dumps(data)
         def raise_for_status(self): pass
         def json(self): return self.data
+    # This reduced capture contains context lines, not settings.lines. The fake
+    # client must read that same UI value rather than a missing settings array.
     class HTTP:
         def get(self, url, **kwargs):
-            return Response(text='})(window, ' + json.dumps(config) + ', "url");') if url.endswith('/play') else Response(text=(Path(__file__).parent/'fixtures'/'three_oaks_modern_purchase.js').read_text().replace('name:"buy_spin"','name:"unsupported"'))
+            return Response(text='})(window, ' + json.dumps(config) + ', "url");') if url.endswith('/play') else Response(text=(Path(__file__).parent/'fixtures'/'three_oaks_modern_purchase.js').read_text().replace('name:"buy_spin"','name:"unsupported"').replace('Y.serverData.get("settingsLines")[0]', 'Y.bus.getUI("lines")'))
         def post(self, url, **kwargs):
             request = json.loads(kwargs['data'])
             response = deepcopy(captured_state()['response'])
