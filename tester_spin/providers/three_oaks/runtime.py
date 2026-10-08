@@ -1,5 +1,6 @@
 """Goreel command transport. Discovery never substitutes for remote proof."""
 import json
+import math
 import re
 import time
 import uuid
@@ -81,11 +82,15 @@ def play_fields(data: dict, action: str, selected_mode=None, *, game_slug='', fa
                 raise ValueError('3 Oaks: contrato de compra inválido')
             if 'selected_mode' not in purchase_params and context.get('available_buy_bonus') != [selected_mode]:
                 raise ValueError('3 Oaks: compra sin selector ambigua')
-        if not all(isinstance(state.get(k), (int, float)) and not isinstance(state.get(k), bool) and state[k] > 0 for k in ("bet_per_line", "lines")):
+        zero_lines_announced = state.get('lines') == 0 and any(type(value) in (int, float) and value == 0 for value in settings.get('lines', []))
+        if not all(isinstance(state.get(k), (int, float)) and not isinstance(state.get(k), bool) and math.isfinite(state[k])
+                   and (state[k] > 0 or k == 'lines' and zero_lines_announced) for k in ("bet_per_line", "lines")):
             raise ValueError("3 Oaks: perfil de apuesta pendiente")
         params = {"bet_per_line": state["bet_per_line"], "lines": state["lines"]}
         if action in {'spin','buy_spin'}:
             source = profile.get('purchase_value_sources' if action == 'buy_spin' else 'spin_value_sources', {}).get('lines')
+            if source == 'settings_lines_dynamic':
+                raise ValueError('3 Oaks: índice de líneas del cliente sin resolver')
             values = settings.get('bet_factor' if source == 'bet_factor_first' else 'lines')
             if source in {'bet_factor_first', 'settings_lines_first'}:
                 if not isinstance(values, list) or not values or not isinstance(values[0], (int, float)) or isinstance(values[0], bool) or values[0] <= 0:
@@ -99,7 +104,25 @@ def play_fields(data: dict, action: str, selected_mode=None, *, game_slug='', fa
             if selected_mode not in context.get("available_buy_bonus", []):
                 raise ValueError("3 Oaks: compra no anunciada")
             if purchase_params is None or 'selected_mode' in purchase_params:
-                params["selected_mode"] = str(selected_mode) if profile.get('purchase_selector_type') == 'string' else selected_mode
+                selector_type = profile.get('purchase_selector_type')
+                value = selected_mode
+                if selector_type == 'string':
+                    value = str(value)
+                elif selector_type == 'number':
+                    # Mirror a certified Number(...) input, but never emit NaN,
+                    # Infinity or a value obtained from an unknown expression.
+                    if isinstance(value, bool) or not isinstance(value, (str, int, float)):
+                        raise ValueError('3 Oaks: selector numérico inválido')
+                    if isinstance(value, str) and not re.fullmatch(r'[+-]?(?:[0-9]+(?:\.[0-9]*)?|\.[0-9]+)(?:[eE][+-]?[0-9]+)?', value.strip()):
+                        raise ValueError('3 Oaks: selector numérico inválido')
+                    try:
+                        numeric = float(value)
+                    except (TypeError, ValueError, OverflowError) as exc:
+                        raise ValueError('3 Oaks: selector numérico inválido') from exc
+                    if not math.isfinite(numeric):
+                        raise ValueError('3 Oaks: selector numérico no finito')
+                    value = int(numeric) if numeric.is_integer() else numeric
+                params["selected_mode"] = value
     return {"action": {"name": action, "params": params}, "set_denominator": 1,
             "quick_spin": False, "sound": True, "autogame": False,
             "mobile": "0", "portrait": False, "fullscreen": False, "viewportSize": "1280x720"}
@@ -138,7 +161,8 @@ def continuation_fields(data: dict, *, game_slug: str, family: str, source_rules
         return None
     action = actions[0]
     rule = (profile or {}).get('continuations', {}).get(action) or (source_rules or {}).get(action)
-    if not isinstance(rule, dict) or context.get('current') != rule.get('current'):
+    if not isinstance(rule, dict) or (context.get('current') != rule.get('current')
+            and not (rule.get('state_independent') is True and context.get('current') in {'spins','freespins','bonus'})):
         return None
     if rule.get('back_to') and context.get('bonus', {}).get('back_to', rule.get('back_to_default')) != rule['back_to']:
         return None

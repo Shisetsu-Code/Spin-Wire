@@ -53,8 +53,57 @@ def canonical_source(source):
                 continue
         normalized.append(pieces[index])
         index += 1
-    return ''.join(normalized)
+    return _normalize_action_aliases(normalized)
 
+
+
+def _normalize_action_aliases(tokens):
+    """Resolve only module-scope literal action declarations, not arbitrary names.
+
+    The replacement is token-based and only touches a dispatch argument. Strings,
+    comments, function-local bindings, mutations and conditional assignments are
+    not reinterpreted as a proven action constant.
+    """
+    compact = [t for t in tokens if t != ' ']
+    source = ''.join(tokens)
+    allowed = {'spin', 'buy_spin', 'respin', 'bonus_init', 'freespin_init',
+               'freespin', 'freespin_stop', 'collect_win'}
+    aliases = {}
+    stack, declaration = [], False
+    pairs = {')':'(', ']':'[', '}':'{'}
+    for index, token in enumerate(compact):
+        if not stack and token in ('var','let','const'):
+            declaration = True
+        if not stack and declaration and re.fullmatch(ID,token) and index > 0 and compact[index-1] in ('var','let','const',','):
+            if index+2 < len(compact) and compact[index+1] == '=':
+                try:
+                    value = json.loads(compact[index+2])
+                except ValueError:
+                    value = None
+                if isinstance(value,str) and value in allowed:
+                    aliases[token] = value
+        if token in ('(', '[', '{'):
+            stack.append(token)
+        elif token in pairs:
+            if not stack or stack.pop() != pairs[token]:
+                return source
+        elif not stack and token == ';':
+            declaration = False
+    # A second assignment anywhere makes this limited static proof ambiguous.
+    for alias in list(aliases):
+        assigns = sum(t == alias and i+1 < len(compact) and compact[i+1] == '='
+                      and (i == 0 or compact[i-1] != '.')
+                      and (i+2 == len(compact) or compact[i+2] not in ('=', '>'))
+                      for i,t in enumerate(compact))
+        if assigns != 1:
+            del aliases[alias]
+    if not aliases:
+        return source
+    calls = {'setActionHandler', 'act', 'actIfPossible', '_act', 'canAction'}
+    for index in range(3, len(tokens)):
+        if tokens[index] in aliases and tokens[index-3] == '.' and tokens[index-2] in calls and tokens[index-1] == '(':
+            tokens[index] = json.dumps(aliases[tokens[index]])
+    return ''.join(tokens)
 
 
 def block(source, opening):
@@ -79,13 +128,182 @@ def block(source, opening):
     return None
 
 
+def _js_tokens(source):
+    """Token spans used only for bounded, read-only syntax decomposition."""
+    previous, index = '', 0
+    while index < len(source):
+        if source[index].isspace():
+            index += 1
+            continue
+        match = None
+        if source[index] == '/' and not source.startswith(('//', '/*'), index) and previous in ('=', '(', '[', ',', ':', '!', '?', 'return', 'case', ';', '|', '&'):
+            match = _REGEX.match(source, index)
+        match = match or _TOKEN.match(source, index)
+        if match is None:
+            return
+        start, index, token = index, match.end(), match[0]
+        if not token.startswith(('//', '/*')):
+            yield start, index, token
+            previous = token
+
+
+def _split_top_level(source, separators=';,'):
+    stack, start, parts = [], 0, []
+    pairs = {')': '(', ']': '[', '}': '{'}
+    for left, right, token in _js_tokens(source):
+        if token in ('(', '[', '{'):
+            stack.append(token)
+        elif token in pairs:
+            if not stack or stack.pop() != pairs[token]:
+                return []
+        elif not stack and token in separators:
+            parts.append(source[start:left])
+            start = right
+    return [] if stack else parts + [source[start:]]
+
+
+def _group(source, opening, limit=12000):
+    """Return a balanced group and its end, or refuse truncated/unknown syntax."""
+    stack, pairs = [], {')': '(', ']': '[', '}': '{'}
+    for left, right, token in _js_tokens(source[opening:opening + limit]):
+        if token in ('(', '[', '{'):
+            stack.append(token)
+        elif token in pairs:
+            if not stack or stack.pop() != pairs[token]:
+                return None
+            if not stack:
+                return source[opening + 1:opening + left], opening + right
+    return None
+
+
+def _flow_body(body, argument):
+    # Expression-arrow parentheses and comma operators are parsed, not globally
+    # replaced: commas inside calls, arrays and objects retain their meaning.
+    while body.startswith('('):
+        group = _group(body, 0)
+        if group is None or group[1] != len(body):
+            break
+        body = group[0]
+    init = '(' + argument + '=' + argument + '||{}).'
+    if body.startswith(init):
+        body = argument + '=' + argument + '||{};' + argument + '.' + body[len(init):]
+    return ';'.join(_split_top_level(body)) + ';'
+
+
+def _flow_transport(source):
+    if 'params:args||{}' in source and 'EventsGame.play(action)' in source:
+        return True
+    # Compact class method; the parameters and event payload must be the same
+    # bound identifiers. A similarly named method alone is not proof.
+    pattern = (r'_act\((' + ID + r'),(' + ID + r'),(' + ID + r')=null\)\{'
+               r'(?:let|const|var) (' + ID + r')=\{action:\{name:\1,params:\2\|\|\{\}\},bet:\3\};'
+               r'return ' + ID + r'(?:\.' + ID + r')*\.EventsGame\.play\(\4\),this\.deferred\.promise\}')
+    return bool(re.search(pattern, source))
+
+
+def _module_flow_override(source):
+    candidates = list(re.finditer(r'Object\.assign\((' + ID + r')\.prototype,\{initDefaultMiddleware\(\)\{', source))
+    if not candidates:
+        return None
+    proven = []
+    candidate_positions = {match.start(): match for match in candidates}
+    stack, last_boundary = [], 0
+    pairs = {')': '(', ']': '[', '}': '{'}
+    for left, right, token in _js_tokens(source):
+        if left in candidate_positions:
+            match = candidate_positions[left]
+            if not stack and not source[last_boundary:left].strip():
+                declaration = re.search(r'class ' + re.escape(match[1]) + r' extends ' + ID + r'\{static get abbreviatedName\(\)\{return"flow"\}', source[:left])
+                if declaration:
+                    opening = source.index('{', declaration.start())
+                    body = _group(source, opening)
+                    patch_opening = source.index('{', match.start())
+                    patch = _group(source, patch_opening)
+                    if body and patch and body[1] < left and 'initDefaultMiddleware()' in body[0] and '_act(' in body[0]:
+                        proven.append(patch[0])
+        if token in ('(', '[', '{'):
+            stack.append(token)
+        elif token in pairs:
+            if not stack or stack.pop() != pairs[token]:
+                return None
+        elif not stack and token in (';', ','):
+            last_boundary = right
+    return proven[0] if len(candidates) == len(proven) == 1 else None
+
+
+def _active_flow_source(source):
+    """Resolve a prototype replacement only when an entry imports its module.
+
+    Merely finding a later handler is insufficient: Browserify includes unused
+    modules too. Conditional or indirect imports stay unresolved here.
+    """
+    esm = _module_flow_override(source)
+    if esm is not None:
+        return esm
+    patches = list(re.finditer(r'Object\.assign\((' + ID + r')\.(FlowController|default)\.prototype,\{(?=initDefaultMiddleware:)', source))
+    entries = re.search(r'\},\{\},\[([0-9]+(?:,[0-9]+)*)\]\);?$', source)
+    if len(patches) != 1 or not entries:
+        return source
+    patch = patches[0]
+    headers = list(re.finditer(r'(?:^|[,{])([0-9]+):\[function\(require,module,exports\)\{', source[:patch.start()]))
+    if not headers:
+        return source
+    header = headers[-1]
+    module = _group(source, header.end() - 1)
+    if module is None or not (header.end() <= patch.start() < module[1]):
+        return source
+    alias = re.escape(patch[1])
+    namespace_import = patch[2] == 'FlowController' and re.search(r'(?:var|let|const) ' + alias + r'=require\("[^"\\]*core/controllers"\)', module[0])
+    default_import = patch[2] == 'default' and re.search(r'(?:var|let|const) ' + alias + r'=(' + ID + r')\(require\("[^"\\]*core/controllers/FlowController"\)\)', module[0])
+    if default_import:
+        helper = default_import[1]
+        default_import = re.search(r'function ' + re.escape(helper) + r'\((' + ID + r')\)\{return \1&&\1\.__esModule\?\1:\{default:\1\}\}', module[0])
+    if not (namespace_import or default_import):
+        return source
+    patch_body = _group(source, patch.end() - 1)
+    if patch_body is None or not re.search(r'initDefaultMiddleware:(?:function(?: '+ID+r')?\(\))\{', patch_body[0]):
+        return source
+    for entry in entries[1].split(','):
+        start = re.search(r'(?:^|[,{])' + re.escape(entry) + r':\[function\(require,module,exports\)\{', source)
+        if not start:
+            continue
+        body = _group(source, start.end() - 1)
+        if body is None or source[body[1]:body[1]+2] != ',{':
+            continue
+        dependencies = _group(source, body[1]+1)
+        if dependencies is None:
+            continue
+        try:
+            mapping = json.loads('{' + dependencies[0] + '}')
+        except ValueError:
+            continue
+        imports = [re.fullmatch(r'require\("([^"\\]+)"\)', part)
+                   for part in _split_top_level(body[0], ';')]
+        if any(match and str(mapping.get(match[1])) == header[1] for match in imports):
+            return patch_body[0]
+    return source
+
+
 def action_handlers(source, symbol):
-    pattern = r'\.setActionHandler\((' + ID + r'(?:\.' + ID + r')*\.' + symbol + r'|"' + symbol.lower() + r'"),(?:function\((' + ID + r')\)|\(?(' + ID + r')\)?=>)\{'
+    pattern = r'\.setActionHandler\((' + ID + r'(?:\.' + ID + r')*\.' + symbol + r'|"' + symbol.lower() + r'"),'
     result = []
     for match in re.finditer(pattern, source):
-        body = block(source, match.end()-1)
-        if body is not None:
-            result.append((match[1], match[2] or match[3], body))
+        opening = source.index('(', match.start())
+        call = _group(source, opening)
+        if call is None:
+            continue
+        callback = source[match.end():call[1]-1]
+        signature = re.match(r'(?:function\((' + ID + r')\)|\(?(' + ID + r')\)?=>)', callback)
+        if not signature:
+            continue
+        argument = signature[1] or signature[2]
+        body = callback[signature.end():]
+        if body.startswith('{'):
+            contents = _group(body, 0)
+            if contents is None or contents[1] != len(body):
+                continue
+            body = contents[0]
+        result.append((match[1], argument, _flow_body(body, argument)))
     return result
 
 
@@ -94,8 +312,9 @@ def handler_count(source, symbol):
 
 
 def flow_parameters(source, symbol):
-    handlers = action_handlers(source, symbol)
-    if not handlers or len(handlers) != handler_count(source, symbol) or 'params:args||{}' not in source or 'EventsGame.play(action)' not in source:
+    active = _active_flow_source(source)
+    handlers = action_handlers(active, symbol)
+    if not handlers or len(handlers) != handler_count(active, symbol) or not _flow_transport(source):
         return None
     signatures = []
     getters = {'bet_per_line':'betPerLine', 'lines':'gameLines', 'bet_factor':'betFactor'}
@@ -116,24 +335,26 @@ def flow_parameters(source, symbol):
 
 
 def empty_flow_actions(source):
-    if 'params:args||{}' not in source or 'EventsGame.play(action)' not in source:
+    if not _flow_transport(source):
         return {}
+    active = _active_flow_source(source)
     default_dispatch = bool(re.search(r'handlers\[action\]\|\|(?:function\(args\)\{return '+ID+r'\._act\(action,args\)\}|\(?args\)?=>this\._act\(action,args\))', source))
+    default_dispatch = default_dispatch or bool(re.search(r'handlers\[(' + ID + r')\]\|\|\((' + ID + r')=>this\._act\(\1,\2\)\)', source))
     rules = {}
     states = {'BONUS_INIT':('bonus_init','spins'), 'RESPIN':('respin','bonus'),
               'FREESPIN_INIT':('freespin_init','spins'), 'FREESPIN':('freespin','freespins'),
-              'FREESPIN_STOP':('freespin_stop','freespins')}
+              'FREESPIN_STOP':('freespin_stop','freespins'), 'COLLECT_WIN':('collect_win','spins')}
     for symbol, (name, current) in states.items():
-        if not re.search(r'\.(?:act|actIfPossible)\('+ID+r'(?:\.'+ID+r')*\.'+symbol+r'\)',source):
+        if not re.search(r'\.(?:act|actIfPossible)\((?:'+ID+r'(?:\.'+ID+r')*\.'+symbol+r'|"'+name+r'")\)',source):
             continue
-        handlers = action_handlers(source, symbol)
-        if len(handlers) == handler_count(source, symbol) and (handlers or default_dispatch) and all(not re.search(re.escape(arg)+r'\s*=|'+re.escape(arg)+r'\.|'+re.escape(arg)+r'\[', body)
+        handlers = action_handlers(active, symbol)
+        if len(handlers) == handler_count(active, symbol) and (handlers or default_dispatch) and all(not re.search(r'(?<![\w$.])'+re.escape(arg)+r'(?:\s*=|\.|\[)', body)
                and re.search(r'\._act\('+re.escape(action)+','+re.escape(arg)+r'\)',body)
                for action,arg,body in handlers):
-            rules[name]={'current':current}
+            rules[name]={'current':current, 'state_independent':True}
     # The client derives the stop action from the advertised bonus origin.
     if ('.bonusOriginState()' in source and '.BONUS_STOP)' in source
-            and default_dispatch and not handler_count(source,'BONUS_STOP')):
+            and default_dispatch and not handler_count(active,'BONUS_STOP')):
         for origin in ('spins','freespins'):
             rules['bonus_'+origin+'_stop']={'current':'bonus','back_to':origin}
             if 'this._get("game.bonus.back_to","spins")' in source:
@@ -157,14 +378,18 @@ def flow_purchase_inputs(source, data):
         body = block(source, match.end()-1)
         if not body:
             continue
-        sent = re.search(r'\.controllers\.flow\.act\('+ID+r'(?:\.'+ID+r')*\.BUY_SPIN,('+ID+r')\)',body)
+        sent = re.search(r'\.controllers\.flow\.act\((?:'+ID+r'(?:\.'+ID+r')*\.BUY_SPIN|"buy_spin"),('+ID+r')\)',body)
         if not sent:
             continue
         variable = sent[1]
         prefix = body[:sent.start()]
-        assignments = re.findall(re.escape(variable)+r'\.('+ID+r')=([^;]+);',prefix)
+        assignments = []
+        for part in _split_top_level(prefix):
+            assignment = re.fullmatch(re.escape(variable)+r'\.('+ID+r')=(.+)', part)
+            if assignment:
+                assignments.append(assignment.groups())
         fields = dict(assignments)
-        if len(fields) != len(assignments) or not {'bet_per_line','lines'}.issubset(fields) or set(fields)-{'bet_per_line','lines','selected_mode'}:
+        if len(fields) != len(assignments) or not {'bet_per_line','lines'}.issubset(fields) or set(fields)-{'bet_per_line','lines','bet_factor','selected_mode'}:
             continue
         if not re.fullmatch(ID+r'(?:\.'+ID+r')*\.get\("bet_per_line"\)',fields['bet_per_line']):
             continue
@@ -176,6 +401,8 @@ def flow_purchase_inputs(source, data):
         elif re.fullmatch(ID+r'(?:\.'+ID+r')*\.betFactor\(\)\[0\]',lines):
             line_source = 'bet_factor_first'
         else:
+            continue
+        if 'bet_factor' in fields and not re.fullmatch(ID+r'(?:\.'+ID+r')*\.betFactor\(\)\[0\]', fields['bet_factor']):
             continue
         selector = fields.get('selected_mode')
         selector_type = None

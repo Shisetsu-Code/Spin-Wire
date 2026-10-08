@@ -78,6 +78,7 @@ def source_purchase_contract(source, data=None):
         profile['continuations'] = empty_flow_actions(source)
     calls = re.finditer(r'\.sendPlayAsync\(\{name:"(spin|buy_spin)",params:\{([^{}]{1,500})\}\},', source)
     signatures = {}
+    line_sources = {}
     prefixes = {}
     selectors = []
     for call in calls:
@@ -85,6 +86,13 @@ def source_purchase_contract(source, data=None):
         prefixes.setdefault(action, []).append(re.sub(_ID + r'\.bus$', '', source[max(0, call.start()-450):call.start()]))
         match = re.fullmatch(r'bet_per_line:' + _ID + r'\.bus\.getUI\("bet_per_line"\),lines:' + _ID + r'\.(?:bus\.getUI\("lines"\)|serverData\.get\("settingsLines"\)\[(?:0|' + _ID + r'\.bus\.setUI\("lines",' + _ID + r'\.value\))\])(?:,selected_mode:(.+))?', body)
         if match:
+            if '.serverData.get("settingsLines")[0]' in body:
+                line_source = 'settings_lines_first'
+            elif '.serverData.get("settingsLines")[' in body:
+                line_source = 'settings_lines_dynamic'
+            else:
+                line_source = 'ui_lines'
+            line_sources.setdefault(action, set()).add(line_source)
             signatures.setdefault(action, set()).add(match.group(1) or '')
             if action == 'buy_spin':
                 selectors.append((match.group(1) or '', prefixes[action][-1]))
@@ -115,6 +123,18 @@ def source_purchase_contract(source, data=None):
                 if domain is not None:
                     profile['purchase_ui_modes'] = list(profile['purchase_modes'])
                 params.append('selected_mode')
+    # Keep the value origin separately for each action. Identical field names
+    # do not make UI state and a settings array interchangeable.
+    for action, origins in line_sources.items():
+        key = 'spin_value_sources' if action == 'spin' else 'purchase_value_sources'
+        if len(origins) == 1:
+            profile[key] = {'lines': next(iter(origins))}
+        elif action == 'spin':
+            profile.pop('spin_params', None)
+            profile.pop(key, None)
+        else:
+            profile['purchase_modes'] = []
+            profile.pop(key, None)
     profile['purchase_params'] = {str(mode): list(params) for mode in profile['purchase_modes']}
     if re.search(r'\.sendPlayAsync\(\{name:' + _ID + r'\.serverData\.get\("actions"\)\.last\(\),params:\{\}\},null\)', source):
         profile['continuations'] = {'bonus_init': {'current': 'spins'},
