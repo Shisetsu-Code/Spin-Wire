@@ -94,6 +94,19 @@ with sync_playwright() as p:
         context=browser.new_context(viewport={"width":1280,"height":720}, device_scale_factor=1,
                                       record_har_path=str(raw),record_har_content="omit")
         page=context.new_page()
+        browser_posts=[]
+        request_failures=[]
+        def observe_request(request):
+            if request.method != "POST" or "betman-demo.head.3oaks.com" not in request.url:
+                return
+            body=maybe_json(request.post_data)
+            browser_posts.append({"url":safe_url(request.url),"post":body})
+        def observe_failure(request):
+            if "betman-demo.head.3oaks.com" in request.url:
+                request_failures.append({"url":safe_url(request.url),"method":request.method,
+                                         "failure":str(request.failure or "unknown")[:200]})
+        page.on("request",observe_request)
+        page.on("requestfailed",observe_failure)
         failure=None
         loaded=[]
         for target in [f"https://3oaks.com/api/v1/games/{slug}/play?lang=en",f"https://3oaks.com/game/{slug}"]:
@@ -118,10 +131,13 @@ with sync_playwright() as p:
         info=redact_har(raw,out/"capture.sanitized.har")
         if raw.exists():raw.unlink()
         summary={"slug":slug,"loaded":loaded,"failure":failure,"dom":dom,"frames":frame_details,
-                 "har":{k:v for k,v in info.items() if k!="actions"},"actions":info["actions"]}
+                 "har":{k:v for k,v in info.items() if k!="actions"},"actions":info["actions"],
+                 "browser_posts":browser_posts[:100],
+                 "request_failures":request_failures[:100]}
         (out/"summary.json").write_text(json.dumps(summary,ensure_ascii=False,indent=2))
         all_results.append({"slug":slug,"loaded":loaded,"har":summary["har"],
-                            "frame_count":len(frame_details),"canvases":len(dom.get("canvases",[])),"error":failure})
+                            "frame_count":len(frame_details),"canvases":len(dom.get("canvases",[])),
+                            "browser_posts":len(browser_posts),"network_failures":request_failures[:10],"error":failure})
         print(json.dumps(all_results[-1],ensure_ascii=False),flush=True)
     browser.close()
 (OUT/"summary.json").write_text(json.dumps(all_results,ensure_ascii=False,indent=2),encoding="utf-8")
