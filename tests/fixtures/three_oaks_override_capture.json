@@ -1,0 +1,1698 @@
+[
+  {
+    "action": {
+      "name": "spin",
+      "params": {
+        "bet_per_line": 10,
+        "lines": 5
+      }
+    },
+    "context": {
+      "actions": [
+        "spin",
+        "buy_spin"
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "current": "spins",
+      "round_finished": true,
+      "spins": {
+        "bet_per_line": 10,
+        "lines": 5
+      }
+    },
+    "settings": {
+      "lines": [
+        5
+      ],
+      "bet_factor": [
+        5
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "spin",
+      "params": {
+        "bet_per_line": 10,
+        "lines": 5
+      }
+    },
+    "context": {
+      "actions": [
+        "spin",
+        "buy_spin"
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "current": "spins",
+      "round_finished": true,
+      "spins": {
+        "bet_per_line": 10,
+        "lines": 5
+      }
+    },
+    "settings": {
+      "lines": [
+        5
+      ],
+      "bet_factor": [
+        5
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "buy_spin",
+      "params": {
+        "bet_per_line": 10,
+        "lines": 5,
+        "selected_mode": 3
+      }
+    },
+    "context": {
+      "actions": [
+        "bonus_init"
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "current": "spins",
+      "round_finished": false,
+      "spins": {
+        "bet_per_line": 10,
+        "lines": 5
+      }
+    },
+    "settings": {
+      "lines": [
+        5
+      ],
+      "bet_factor": [
+        5
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "bonus_init",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "bonus": {},
+      "current": "bonus",
+      "round_finished": false
+    },
+    "settings": {
+      "lines": [
+        5
+      ],
+      "bet_factor": [
+        5
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "bonus": {},
+      "current": "bonus",
+      "round_finished": false
+    },
+    "settings": {
+      "lines": [
+        5
+      ],
+      "bet_factor": [
+        5
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "bonus": {},
+      "current": "bonus",
+      "round_finished": false
+    },
+    "settings": {
+      "lines": [
+        5
+      ],
+      "bet_factor": [
+        5
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "bonus": {},
+      "current": "bonus",
+      "round_finished": false
+    },
+    "settings": {
+      "lines": [
+        5
+      ],
+      "bet_factor": [
+        5
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "bonus": {},
+      "current": "bonus",
+      "round_finished": false
+    },
+    "settings": {
+      "lines": [
+        5
+      ],
+      "bet_factor": [
+        5
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "bonus": {},
+      "current": "bonus",
+      "round_finished": false
+    },
+    "settings": {
+      "lines": [
+        5
+      ],
+      "bet_factor": [
+        5
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "bonus": {},
+      "current": "bonus",
+      "round_finished": false
+    },
+    "settings": {
+      "lines": [
+        5
+      ],
+      "bet_factor": [
+        5
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "bonus": {},
+      "current": "bonus",
+      "round_finished": false
+    },
+    "settings": {
+      "lines": [
+        5
+      ],
+      "bet_factor": [
+        5
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "bonus": {},
+      "current": "bonus",
+      "round_finished": false
+    },
+    "settings": {
+      "lines": [
+        5
+      ],
+      "bet_factor": [
+        5
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "bonus": {},
+      "current": "bonus",
+      "round_finished": false
+    },
+    "settings": {
+      "lines": [
+        5
+      ],
+      "bet_factor": [
+        5
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "bonus": {},
+      "current": "bonus",
+      "round_finished": false
+    },
+    "settings": {
+      "lines": [
+        5
+      ],
+      "bet_factor": [
+        5
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "bonus_stop"
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "bonus": {},
+      "current": "bonus",
+      "round_finished": false
+    },
+    "settings": {
+      "lines": [
+        5
+      ],
+      "bet_factor": [
+        5
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "bonus_stop",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "spin",
+        "buy_spin"
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "current": "spins",
+      "round_finished": true,
+      "spins": {
+        "bet_per_line": 10,
+        "lines": 5
+      }
+    },
+    "settings": {
+      "lines": [
+        5
+      ],
+      "bet_factor": [
+        5
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "buy_spin",
+      "params": {
+        "bet_per_line": 10,
+        "lines": 5,
+        "selected_mode": 1
+      }
+    },
+    "context": {
+      "actions": [
+        "bonus_init"
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "current": "spins",
+      "round_finished": false,
+      "spins": {
+        "bet_per_line": 10,
+        "lines": 5
+      }
+    },
+    "settings": {
+      "lines": [
+        5
+      ],
+      "bet_factor": [
+        5
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "bonus_init",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "bonus": {},
+      "current": "bonus",
+      "round_finished": false
+    },
+    "settings": {
+      "lines": [
+        5
+      ],
+      "bet_factor": [
+        5
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "bonus": {},
+      "current": "bonus",
+      "round_finished": false
+    },
+    "settings": {
+      "lines": [
+        5
+      ],
+      "bet_factor": [
+        5
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "bonus": {},
+      "current": "bonus",
+      "round_finished": false
+    },
+    "settings": {
+      "lines": [
+        5
+      ],
+      "bet_factor": [
+        5
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "bonus": {},
+      "current": "bonus",
+      "round_finished": false
+    },
+    "settings": {
+      "lines": [
+        5
+      ],
+      "bet_factor": [
+        5
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "bonus": {},
+      "current": "bonus",
+      "round_finished": false
+    },
+    "settings": {
+      "lines": [
+        5
+      ],
+      "bet_factor": [
+        5
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "bonus": {},
+      "current": "bonus",
+      "round_finished": false
+    },
+    "settings": {
+      "lines": [
+        5
+      ],
+      "bet_factor": [
+        5
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "bonus": {},
+      "current": "bonus",
+      "round_finished": false
+    },
+    "settings": {
+      "lines": [
+        5
+      ],
+      "bet_factor": [
+        5
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "bonus": {},
+      "current": "bonus",
+      "round_finished": false
+    },
+    "settings": {
+      "lines": [
+        5
+      ],
+      "bet_factor": [
+        5
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "bonus_stop"
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "bonus": {},
+      "current": "bonus",
+      "round_finished": false
+    },
+    "settings": {
+      "lines": [
+        5
+      ],
+      "bet_factor": [
+        5
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "bonus_stop",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "spin",
+        "buy_spin"
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "current": "spins",
+      "round_finished": true,
+      "spins": {
+        "bet_per_line": 10,
+        "lines": 5
+      }
+    },
+    "settings": {
+      "lines": [
+        5
+      ],
+      "bet_factor": [
+        5
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "buy_spin",
+      "params": {
+        "bet_per_line": 10,
+        "lines": 5,
+        "selected_mode": 2
+      }
+    },
+    "context": {
+      "actions": [
+        "bonus_init"
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "current": "spins",
+      "round_finished": false,
+      "spins": {
+        "bet_per_line": 10,
+        "lines": 5
+      }
+    },
+    "settings": {
+      "lines": [
+        5
+      ],
+      "bet_factor": [
+        5
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "bonus_init",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "bonus": {},
+      "current": "bonus",
+      "round_finished": false
+    },
+    "settings": {
+      "lines": [
+        5
+      ],
+      "bet_factor": [
+        5
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "bonus": {},
+      "current": "bonus",
+      "round_finished": false
+    },
+    "settings": {
+      "lines": [
+        5
+      ],
+      "bet_factor": [
+        5
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "bonus": {},
+      "current": "bonus",
+      "round_finished": false
+    },
+    "settings": {
+      "lines": [
+        5
+      ],
+      "bet_factor": [
+        5
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "bonus": {},
+      "current": "bonus",
+      "round_finished": false
+    },
+    "settings": {
+      "lines": [
+        5
+      ],
+      "bet_factor": [
+        5
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "bonus": {},
+      "current": "bonus",
+      "round_finished": false
+    },
+    "settings": {
+      "lines": [
+        5
+      ],
+      "bet_factor": [
+        5
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "bonus": {},
+      "current": "bonus",
+      "round_finished": false
+    },
+    "settings": {
+      "lines": [
+        5
+      ],
+      "bet_factor": [
+        5
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "bonus": {},
+      "current": "bonus",
+      "round_finished": false
+    },
+    "settings": {
+      "lines": [
+        5
+      ],
+      "bet_factor": [
+        5
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "bonus_stop"
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "bonus": {},
+      "current": "bonus",
+      "round_finished": false
+    },
+    "settings": {
+      "lines": [
+        5
+      ],
+      "bet_factor": [
+        5
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "bonus_stop",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "spin",
+        "buy_spin"
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "current": "spins",
+      "round_finished": true,
+      "spins": {
+        "bet_per_line": 10,
+        "lines": 5
+      }
+    },
+    "settings": {
+      "lines": [
+        5
+      ],
+      "bet_factor": [
+        5
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "buy_spin",
+      "params": {
+        "bet_per_line": 10,
+        "lines": 5,
+        "selected_mode": 0
+      }
+    },
+    "context": {
+      "actions": [
+        "bonus_init"
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "current": "spins",
+      "round_finished": false,
+      "spins": {
+        "bet_per_line": 10,
+        "lines": 5
+      }
+    },
+    "settings": {
+      "lines": [
+        5
+      ],
+      "bet_factor": [
+        5
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "bonus_init",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "bonus": {},
+      "current": "bonus",
+      "round_finished": false
+    },
+    "settings": {
+      "lines": [
+        5
+      ],
+      "bet_factor": [
+        5
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "bonus": {},
+      "current": "bonus",
+      "round_finished": false
+    },
+    "settings": {
+      "lines": [
+        5
+      ],
+      "bet_factor": [
+        5
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "bonus": {},
+      "current": "bonus",
+      "round_finished": false
+    },
+    "settings": {
+      "lines": [
+        5
+      ],
+      "bet_factor": [
+        5
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "bonus": {},
+      "current": "bonus",
+      "round_finished": false
+    },
+    "settings": {
+      "lines": [
+        5
+      ],
+      "bet_factor": [
+        5
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "bonus": {},
+      "current": "bonus",
+      "round_finished": false
+    },
+    "settings": {
+      "lines": [
+        5
+      ],
+      "bet_factor": [
+        5
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "bonus": {},
+      "current": "bonus",
+      "round_finished": false
+    },
+    "settings": {
+      "lines": [
+        5
+      ],
+      "bet_factor": [
+        5
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "bonus": {},
+      "current": "bonus",
+      "round_finished": false
+    },
+    "settings": {
+      "lines": [
+        5
+      ],
+      "bet_factor": [
+        5
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "bonus": {},
+      "current": "bonus",
+      "round_finished": false
+    },
+    "settings": {
+      "lines": [
+        5
+      ],
+      "bet_factor": [
+        5
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "bonus": {},
+      "current": "bonus",
+      "round_finished": false
+    },
+    "settings": {
+      "lines": [
+        5
+      ],
+      "bet_factor": [
+        5
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "bonus": {},
+      "current": "bonus",
+      "round_finished": false
+    },
+    "settings": {
+      "lines": [
+        5
+      ],
+      "bet_factor": [
+        5
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "bonus": {},
+      "current": "bonus",
+      "round_finished": false
+    },
+    "settings": {
+      "lines": [
+        5
+      ],
+      "bet_factor": [
+        5
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "bonus": {},
+      "current": "bonus",
+      "round_finished": false
+    },
+    "settings": {
+      "lines": [
+        5
+      ],
+      "bet_factor": [
+        5
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "bonus": {},
+      "current": "bonus",
+      "round_finished": false
+    },
+    "settings": {
+      "lines": [
+        5
+      ],
+      "bet_factor": [
+        5
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "bonus": {},
+      "current": "bonus",
+      "round_finished": false
+    },
+    "settings": {
+      "lines": [
+        5
+      ],
+      "bet_factor": [
+        5
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "bonus": {},
+      "current": "bonus",
+      "round_finished": false
+    },
+    "settings": {
+      "lines": [
+        5
+      ],
+      "bet_factor": [
+        5
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "bonus": {},
+      "current": "bonus",
+      "round_finished": false
+    },
+    "settings": {
+      "lines": [
+        5
+      ],
+      "bet_factor": [
+        5
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "bonus_stop"
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "bonus": {},
+      "current": "bonus",
+      "round_finished": false
+    },
+    "settings": {
+      "lines": [
+        5
+      ],
+      "bet_factor": [
+        5
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "bonus_stop",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "spin",
+        "buy_spin"
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "current": "spins",
+      "round_finished": true,
+      "spins": {
+        "bet_per_line": 10,
+        "lines": 5
+      }
+    },
+    "settings": {
+      "lines": [
+        5
+      ],
+      "bet_factor": [
+        5
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "spin",
+      "params": {
+        "bet_per_line": 10,
+        "lines": 5
+      }
+    },
+    "context": {
+      "actions": [
+        "spin",
+        "buy_spin"
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "current": "spins",
+      "round_finished": true,
+      "spins": {
+        "bet_per_line": 10,
+        "lines": 5
+      }
+    },
+    "settings": {
+      "lines": [
+        5
+      ],
+      "bet_factor": [
+        5
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "spin",
+      "params": {
+        "bet_per_line": 10,
+        "lines": 5
+      }
+    },
+    "context": {
+      "actions": [
+        "spin",
+        "buy_spin"
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "current": "spins",
+      "round_finished": true,
+      "spins": {
+        "bet_per_line": 10,
+        "lines": 5
+      }
+    },
+    "settings": {
+      "lines": [
+        5
+      ],
+      "bet_factor": [
+        5
+      ]
+    }
+  }
+]

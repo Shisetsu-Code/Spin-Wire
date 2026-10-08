@@ -209,7 +209,7 @@ class ThreeOaksProvider(ProviderAdapter):
             # Require each client's public serializer, not just a vendor label.
             profile = client_profile or {}
             observed = bool(profile.get('spin_params'))
-            modes = discover_modes(data, family, observed)
+            modes = discover_modes(data, family, observed, client_profile=profile)
             for mode in modes:
                 if mode["kind"] == "PURCHASE" and mode.get('selected_mode') not in profile.get('purchase_modes', []):
                     mode["executable"] = False
@@ -222,6 +222,9 @@ class ThreeOaksProvider(ProviderAdapter):
                                     evidence_level='SERVER_ADVERTISED', client_observed=False)
                 elif mode['kind'] == 'PURCHASE':
                     mode['client_observed'] = True
+                    wire_values = profile.get('purchase_wire_values', {}).get(str(mode['selected_mode']))
+                    if wire_values is not None:
+                        mode['request_options'] = dict(wire_values)
                 elif mode['kind'] == 'UNKNOWN_FEATURE':
                     mode['coverage_required'] = False
             result.discovered_modes = modes
@@ -231,7 +234,8 @@ class ThreeOaksProvider(ProviderAdapter):
                 result.error = "3 Oaks: formato del spin normal sin una ruta activa certificada"
                 return result
             # Purchases are tried once each; never enumerate selector guesses.
-            jobs = [(modes[0], None)] * requested + [(m, m["request_options"]["selected_mode"]) for m in modes[1:] if m["kind"] == "PURCHASE" and m["executable"]]
+            jobs = [(modes[0], None)] * requested + [(m, m['selected_mode'] if m['kind']=='PURCHASE' else m['ante_bet'])
+                    for m in modes[1:] if m['kind'] in {'PURCHASE','ANTE_BET'} and m['executable']]
             def finish_round(current, directory, deadline):
                 steps = 0
                 while not base_terminal(current):
@@ -256,12 +260,14 @@ class ThreeOaksProvider(ProviderAdapter):
                     result.error = "Ejecución detenida"
                     break
                 action = mode["wire_action"]
-                fields = play_fields(data, action, selector, game_slug=game.slug, family=family, client_profile=client_profile)
+                fields = play_fields(data, action, selector if mode['kind']=='PURCHASE' else None,
+                                     game_slug=game.slug, family=family, client_profile=client_profile,
+                                     antebet=selector if mode['kind']=='ANTE_BET' else None)
                 previous_settings = data.get("settings", {})
                 attempt_dir = run_dir / f"attempt-{len(result.attempts) + 1:03d}"
                 data = session.post("play", fields, artifact_dir=attempt_dir)
                 data.setdefault("settings", previous_settings)
-                feature_round = mode['kind'] == 'PURCHASE' or not base_terminal(data)
+                feature_round = mode['kind'] in {'PURCHASE','ANTE_BET'} or not base_terminal(data)
                 deadline = time.monotonic() + min(90, max(20, timeout_s * 4))
                 data, extra_steps, terminal = finish_round(data, attempt_dir, deadline)
                 wire_steps = 1 + extra_steps

@@ -1,0 +1,609 @@
+[
+  {
+    "action": null,
+    "context": {
+      "actions": [
+        "spin"
+      ],
+      "current": "spins",
+      "round_finished": true,
+      "spins": {
+        "bet_per_line": 4,
+        "lines": 25
+      }
+    },
+    "settings": {
+      "bet_factor": [
+        25
+      ],
+      "lines": [
+        25
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "spin",
+      "params": {
+        "bet_per_line": 4,
+        "lines": 25
+      }
+    },
+    "context": {
+      "actions": [
+        "spin"
+      ],
+      "current": "spins",
+      "round_finished": true,
+      "spins": {
+        "bet_per_line": 4,
+        "lines": 25
+      }
+    },
+    "settings": {
+      "bet_factor": [
+        25
+      ],
+      "lines": [
+        25
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "spin",
+      "params": {
+        "bet_per_line": 4,
+        "lines": 25
+      }
+    },
+    "context": {
+      "actions": [
+        "spin"
+      ],
+      "current": "spins",
+      "round_finished": true,
+      "spins": {
+        "bet_per_line": 4,
+        "lines": 25
+      }
+    },
+    "settings": {
+      "bet_factor": [
+        25
+      ],
+      "lines": [
+        25
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "spin",
+      "params": {
+        "bet_per_line": 4,
+        "lines": 25
+      }
+    },
+    "context": {
+      "actions": [
+        "spin"
+      ],
+      "current": "spins",
+      "round_finished": true,
+      "spins": {
+        "bet_per_line": 4,
+        "lines": 25
+      }
+    },
+    "settings": {
+      "bet_factor": [
+        25
+      ],
+      "lines": [
+        25
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "spin",
+      "params": {
+        "bet_per_line": 4,
+        "lines": 25
+      }
+    },
+    "context": {
+      "actions": [
+        "spin"
+      ],
+      "current": "spins",
+      "round_finished": true,
+      "spins": {
+        "bet_per_line": 4,
+        "lines": 25
+      }
+    },
+    "settings": {
+      "bet_factor": [
+        25
+      ],
+      "lines": [
+        25
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "spin",
+      "params": {
+        "bet_per_line": 4,
+        "lines": 25
+      }
+    },
+    "context": {
+      "actions": [
+        "spin"
+      ],
+      "current": "spins",
+      "round_finished": true,
+      "spins": {
+        "bet_per_line": 4,
+        "lines": 25
+      }
+    },
+    "settings": {
+      "bet_factor": [
+        25
+      ],
+      "lines": [
+        25
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "spin",
+      "params": {
+        "bet_per_line": 4,
+        "lines": 25
+      }
+    },
+    "context": {
+      "actions": [
+        "spin"
+      ],
+      "current": "spins",
+      "round_finished": true,
+      "spins": {
+        "bet_per_line": 4,
+        "lines": 25
+      }
+    },
+    "settings": {
+      "bet_factor": [
+        25
+      ],
+      "lines": [
+        25
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "spin",
+      "params": {
+        "bet_per_line": 4,
+        "lines": 25
+      }
+    },
+    "context": {
+      "actions": [
+        "spin"
+      ],
+      "current": "spins",
+      "round_finished": true,
+      "spins": {
+        "bet_per_line": 4,
+        "lines": 25
+      }
+    },
+    "settings": {
+      "bet_factor": [
+        25
+      ],
+      "lines": [
+        25
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "spin",
+      "params": {
+        "bet_per_line": 4,
+        "lines": 25
+      }
+    },
+    "context": {
+      "actions": [
+        "spin"
+      ],
+      "current": "spins",
+      "round_finished": true,
+      "spins": {
+        "bet_per_line": 4,
+        "lines": 25
+      }
+    },
+    "settings": {
+      "bet_factor": [
+        25
+      ],
+      "lines": [
+        25
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "spin",
+      "params": {
+        "bet_per_line": 4,
+        "lines": 25
+      }
+    },
+    "context": {
+      "actions": [
+        "spin"
+      ],
+      "current": "spins",
+      "round_finished": true,
+      "spins": {
+        "bet_per_line": 4,
+        "lines": 25
+      }
+    },
+    "settings": {
+      "bet_factor": [
+        25
+      ],
+      "lines": [
+        25
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "spin",
+      "params": {
+        "bet_per_line": 4,
+        "lines": 25
+      }
+    },
+    "context": {
+      "actions": [
+        "spin"
+      ],
+      "current": "spins",
+      "round_finished": true,
+      "spins": {
+        "bet_per_line": 4,
+        "lines": 25
+      }
+    },
+    "settings": {
+      "bet_factor": [
+        25
+      ],
+      "lines": [
+        25
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "spin",
+      "params": {
+        "bet_per_line": 4,
+        "lines": 25
+      }
+    },
+    "context": {
+      "actions": [
+        "spin"
+      ],
+      "current": "spins",
+      "round_finished": true,
+      "spins": {
+        "bet_per_line": 4,
+        "lines": 25
+      }
+    },
+    "settings": {
+      "bet_factor": [
+        25
+      ],
+      "lines": [
+        25
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "spin",
+      "params": {
+        "bet_per_line": 4,
+        "lines": 25
+      }
+    },
+    "context": {
+      "actions": [
+        "bonus_init"
+      ],
+      "current": "spins",
+      "round_finished": false,
+      "spins": {
+        "bet_per_line": 4,
+        "lines": 25
+      }
+    },
+    "settings": {
+      "bet_factor": [
+        25
+      ],
+      "lines": [
+        25
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "bonus_init",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "bonus": {
+        "back_to": "spins"
+      },
+      "current": "bonus",
+      "round_finished": false,
+      "spins": {
+        "bet_per_line": 4,
+        "lines": 25
+      }
+    },
+    "settings": {
+      "bet_factor": [
+        25
+      ],
+      "lines": [
+        25
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "bonus": {
+        "back_to": "spins"
+      },
+      "current": "bonus",
+      "round_finished": false,
+      "spins": {
+        "bet_per_line": 4,
+        "lines": 25
+      }
+    },
+    "settings": {
+      "bet_factor": [
+        25
+      ],
+      "lines": [
+        25
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "bonus": {
+        "back_to": "spins"
+      },
+      "current": "bonus",
+      "round_finished": false,
+      "spins": {
+        "bet_per_line": 4,
+        "lines": 25
+      }
+    },
+    "settings": {
+      "bet_factor": [
+        25
+      ],
+      "lines": [
+        25
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "bonus": {
+        "back_to": "spins"
+      },
+      "current": "bonus",
+      "round_finished": false,
+      "spins": {
+        "bet_per_line": 4,
+        "lines": 25
+      }
+    },
+    "settings": {
+      "bet_factor": [
+        25
+      ],
+      "lines": [
+        25
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "bonus": {
+        "back_to": "spins"
+      },
+      "current": "bonus",
+      "round_finished": false,
+      "spins": {
+        "bet_per_line": 4,
+        "lines": 25
+      }
+    },
+    "settings": {
+      "bet_factor": [
+        25
+      ],
+      "lines": [
+        25
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "bonus": {
+        "back_to": "spins"
+      },
+      "current": "bonus",
+      "round_finished": false,
+      "spins": {
+        "bet_per_line": 4,
+        "lines": 25
+      }
+    },
+    "settings": {
+      "bet_factor": [
+        25
+      ],
+      "lines": [
+        25
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "bonus": {
+        "back_to": "spins"
+      },
+      "current": "bonus",
+      "round_finished": false,
+      "spins": {
+        "bet_per_line": 4,
+        "lines": 25
+      }
+    },
+    "settings": {
+      "bet_factor": [
+        25
+      ],
+      "lines": [
+        25
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "bonus_spins_stop"
+      ],
+      "bonus": {
+        "back_to": "spins"
+      },
+      "current": "bonus",
+      "round_finished": false,
+      "spins": {
+        "bet_per_line": 4,
+        "lines": 25
+      }
+    },
+    "settings": {
+      "bet_factor": [
+        25
+      ],
+      "lines": [
+        25
+      ]
+    }
+  },
+  {
+    "action": {
+      "name": "bonus_spins_stop",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "spin"
+      ],
+      "current": "spins",
+      "round_finished": true,
+      "spins": {
+        "bet_per_line": 4,
+        "lines": 25
+      }
+    },
+    "settings": {
+      "bet_factor": [
+        25
+      ],
+      "lines": [
+        25
+      ]
+    }
+  }
+]

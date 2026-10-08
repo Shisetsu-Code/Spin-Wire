@@ -24,3 +24,9 @@ Son comprobaciones de esas versiones y muestras; otros juegos pueden seguir pend
 | Rutas mixtas | Mantener opciones finitas conocidas sin extenderlas a valores fuera del dominio. |
 
 Las fixtures publicadas excluyen sesiones reutilizables. HAR completos, informes de ejecución y capturas originales permanecen en el almacenamiento local. Los JSON/CSV antiguos de catálogo son históricos y no se usan como prueba de cobertura actual.
+
+## Regresión de las tres capturas adicionales
+
+Las pruebas `test_oaks_capture_primitives.py` y `test_oaks_capture_replay.py` contrastan 58 acciones de un cliente con middleware sobrescrito y selectores desplazados, 122 acciones de un cliente con compras por cantidad de scatters y antebet, y 21 acciones de bonus natural con llamadas literales de flow. También rechazan transportes no demostrados, transformaciones desconocidas y antebets sin reenvío confirmado.
+
+Las verificaciones remotas adicionales se hicieron en sesiones nuevas y directorios aislados. El proveedor devolvió HTTP 429; se conserva el bloqueo como resultado pendiente/error, sin declarar compras validadas en vivo por haber aprobado la reproducción de las capturas.

@@ -94,6 +94,20 @@ def handler_count(source, symbol):
 
 
 def flow_parameters(source, symbol):
+    if 'params:args||{}' not in source or 'EventsGame.play(action)' not in source:
+        return None
+    # A proven prototype replacement supplies the effective middleware, rather
+    # than the superseded handler shipped in the same bundle.
+    overrides = list(re.finditer(r'Object\.assign\((' + ID + r')\.default\.prototype,\{initDefaultMiddleware:function[^{}]*\{', source))
+    if overrides:
+        if len(overrides) != 1:
+            return None
+        override = overrides[0]
+        binding = re.search(r'var ' + re.escape(override[1]) + r'=(?:' + ID + r'\()?require\("[^"\n]*controllers/FlowController"\)', source[:override.start()])
+        body = block(source, override.end()-1)
+        if not binding or body is None or handler_count(source[override.end()+len(body)+1:], symbol):
+            return None
+        source = body + ';params:args||{};EventsGame.play(action);'
     handlers = action_handlers(source, symbol)
     if not handlers or len(handlers) != handler_count(source, symbol) or 'params:args||{}' not in source or 'EventsGame.play(action)' not in source:
         return None
@@ -124,21 +138,29 @@ def empty_flow_actions(source):
               'FREESPIN_INIT':('freespin_init','spins'), 'FREESPIN':('freespin','freespins'),
               'FREESPIN_STOP':('freespin_stop','freespins')}
     for symbol, (name, current) in states.items():
-        if not re.search(r'\.(?:act|actIfPossible)\('+ID+r'(?:\.'+ID+r')*\.'+symbol+r'\)',source):
+        if not (re.search(r'\.(?:act|actIfPossible)\('+ID+r'(?:\.'+ID+r')*\.'+symbol+r'\)',source) or re.search(r'\.flow\.(?:act|actIfPossible)\("'+name+r'"\)',source)):
             continue
         handlers = action_handlers(source, symbol)
         if len(handlers) == handler_count(source, symbol) and (handlers or default_dispatch) and all(not re.search(re.escape(arg)+r'\s*=|'+re.escape(arg)+r'\.|'+re.escape(arg)+r'\[', body)
                and re.search(r'\._act\('+re.escape(action)+','+re.escape(arg)+r'\)',body)
                for action,arg,body in handlers):
             rules[name]={'current':current}
+            if name == 'respin':
+                rules[name]['currents'] = ['spins','freespins','bonus']
     # The client derives the stop action from the advertised bonus origin.
-    if ('.bonusOriginState()' in source and '.BONUS_STOP)' in source
+    if ('.bonusOriginState()' in source and ('.BONUS_STOP)' in source or re.search(r'\.flow\.act\("bonus_"\.concat\('+ID+r'(?:\.'+ID+r')*\.bonusOriginState\(\),"_stop"\)\)',source))
             and default_dispatch and not handler_count(source,'BONUS_STOP')):
         for origin in ('spins','freespins'):
             rules['bonus_'+origin+'_stop']={'current':'bonus','back_to':origin}
             if 'this._get("game.bonus.back_to","spins")' in source:
                 rules['bonus_'+origin+'_stop']['back_to_default']='spins'
+    literal_stop = re.search(r'Object\.defineProperty\(' + ID + r'(?:\.' + ID + r')*\.FLOW_ACTIONS,"BONUS_STOP",\{get:function(?: ' + ID + r')?\(\)\{return"bonus_stop"\}\}\)', source)
+    if literal_stop and '.BONUS_STOP)' in source and default_dispatch and not handler_count(source,'BONUS_STOP'):
+        rules.pop('bonus_spins_stop', None)
+        rules.pop('bonus_freespins_stop', None)
+        rules['bonus_stop'] = {'current':'bonus'}
     return rules
+
 
 
 def event_spin_parameters(source):
@@ -201,6 +223,10 @@ def flow_purchase_inputs(source, data):
                              'purchase_selector_type':selector_type,
                              'purchase_params':{str(mode):params for mode in modes} if middleware else {},
                              'purchase_value_sources':{'lines':line_source}})
+    from .special_inputs import transformed_purchase_inputs
+    transformed = transformed_purchase_inputs(source, data, middleware)
+    if transformed:
+        return transformed
     return declarations[0] if declarations and all(row==declarations[0] for row in declarations) else None
 
 

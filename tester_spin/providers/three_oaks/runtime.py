@@ -35,7 +35,7 @@ def base_terminal(data: dict) -> bool:
             and context.get("current") == "spins" and "spin" in context.get("actions", []))
 
 
-def discover_modes(data: dict, family: str, serializer_observed: bool) -> list[dict]:
+def discover_modes(data: dict, family: str, serializer_observed: bool, *, client_profile=None) -> list[dict]:
     context, settings = data.get("context", {}), data.get("settings", {})
     usable = serializer_observed and family in {"enjoy", "goreel", "ratpack", "hraymo", "kendoo"}
     modes = [{"id": "SPIN", "kind": "SPIN", "executable": usable, "validated": False,
@@ -54,6 +54,15 @@ def discover_modes(data: dict, family: str, serializer_observed: bool) -> list[d
                 "required_options": [str(value)], "covered_options": [], "sample_counts": {},
                 "selected_mode": value,
                 "request_options": {"selected_mode": value}, "feature_multiplier": prices.get(str(value)) if isinstance(prices, dict) else None})
+    profile = client_profile or {}
+    if profile.get('antebet_ui_observed'):
+        for coefficient in profile.get('antebet_values', []):
+            modes.append({'id':f'ANTE_BET_{coefficient}', 'kind':'ANTE_BET',
+                          'executable':bool(profile.get('antebet_executable')), 'validated':False,
+                          'observed':False,'client_observed':True,'coverage_required':True,
+                          'source':'current-client-input-calls','wire_action':'spin','wire_command':'play',
+                          'ante_bet':coefficient,'request_options':{'ante_bet':coefficient},
+                          'required_options':[str(coefficient)],'covered_options':[],'sample_counts':{}})
     # Other purchase/booster formats remain visible and unimplemented.
     for key in ("available_boosters", "available_buy_freespins"):
         values = context.get(key)
@@ -64,7 +73,7 @@ def discover_modes(data: dict, family: str, serializer_observed: bool) -> list[d
     return modes
 
 
-def play_fields(data: dict, action: str, selected_mode=None, *, game_slug='', family='', client_profile=None) -> dict:
+def play_fields(data: dict, action: str, selected_mode=None, *, game_slug='', family='', client_profile=None, antebet=None) -> dict:
     context, settings = data["context"], data.get("settings", {})
     if action not in context.get("actions", []):
         raise ValueError("3 Oaks: acción no anunciada")
@@ -77,9 +86,9 @@ def play_fields(data: dict, action: str, selected_mode=None, *, game_slug='', fa
         purchase_params = profile.get('purchase_params', {}).get(str(selected_mode)) if action == 'buy_spin' else None
         if purchase_params is not None:
             if (not isinstance(purchase_params, list) or not {'bet_per_line', 'lines'}.issubset(purchase_params)
-                    or set(purchase_params) - {'bet_per_line', 'lines', 'bet_factor', 'selected_mode'}):
+                    or set(purchase_params) - {'bet_per_line', 'lines', 'bet_factor', 'selected_mode', 'ante_bet', 'buy_spin_scatters_count'}):
                 raise ValueError('3 Oaks: contrato de compra inválido')
-            if 'selected_mode' not in purchase_params and context.get('available_buy_bonus') != [selected_mode]:
+            if not {'selected_mode','buy_spin_scatters_count'}.intersection(purchase_params) and context.get('available_buy_bonus') != [selected_mode]:
                 raise ValueError('3 Oaks: compra sin selector ambigua')
         if not all(isinstance(state.get(k), (int, float)) and not isinstance(state.get(k), bool) and state[k] > 0 for k in ("bet_per_line", "lines")):
             raise ValueError("3 Oaks: perfil de apuesta pendiente")
@@ -98,8 +107,19 @@ def play_fields(data: dict, action: str, selected_mode=None, *, game_slug='', fa
         if action == "buy_spin":
             if selected_mode not in context.get("available_buy_bonus", []):
                 raise ValueError("3 Oaks: compra no anunciada")
+            mapping = profile.get('purchase_wire_values', {}).get(str(selected_mode), {})
             if purchase_params is None or 'selected_mode' in purchase_params:
-                params["selected_mode"] = str(selected_mode) if profile.get('purchase_selector_type') == 'string' else selected_mode
+                value = mapping.get('selected_mode', selected_mode)
+                params['selected_mode'] = str(value) if profile.get('purchase_selector_type') == 'string' else value
+            for field in ('buy_spin_scatters_count','ante_bet'):
+                if purchase_params and field in purchase_params:
+                    if field not in mapping:
+                        raise ValueError('3 Oaks: transformación de compra pendiente')
+                    params[field] = mapping[field]
+        if action == 'spin' and antebet is not None:
+            if not profile.get('antebet_executable') or antebet not in profile.get('antebet_values', []):
+                raise ValueError('3 Oaks: contrato de antebet pendiente')
+            params['ante_bet'] = antebet
     return {"action": {"name": action, "params": params}, "set_denominator": 1,
             "quick_spin": False, "sound": True, "autogame": False,
             "mobile": "0", "portrait": False, "fullscreen": False, "viewportSize": "1280x720"}
@@ -138,7 +158,7 @@ def continuation_fields(data: dict, *, game_slug: str, family: str, source_rules
         return None
     action = actions[0]
     rule = (profile or {}).get('continuations', {}).get(action) or (source_rules or {}).get(action)
-    if not isinstance(rule, dict) or context.get('current') != rule.get('current'):
+    if not isinstance(rule, dict) or context.get('current') not in rule.get('currents', [rule.get('current')]):
         return None
     if rule.get('back_to') and context.get('bonus', {}).get('back_to', rule.get('back_to_default')) != rule['back_to']:
         return None

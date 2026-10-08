@@ -29,3 +29,15 @@ Una ronda termina cuando `round_finished=True`, el estado actual es `spins` y `s
 La selección activa de solicitudes no depende del nombre del juego. `observed_game_rules.json` conserva perfiles históricos para aprendizaje y pruebas fuera de línea; no sustituye el análisis actual del cliente. Hay sintaxis todavía no reconocida y fallos de disponibilidad del proveedor que pueden producir PARCIAL.
 
 [Validación y caso de regresión](VALIDATION.md). [Criterios de detección](FEATURE_DETECTION.md).
+
+## Nuevas familias de entrada y continuación
+
+Una sustitución explícita de `FlowController.prototype.initDefaultMiddleware` puede reemplazar el handler base incluido en el mismo bundle. La primitiva exige el import correspondiente, una única sustitución reconocida y el puente de transporte original; no combina handlers anteriores con el efectivo.
+
+El ID lógico anunciado por el servidor no siempre es el selector enviado. Cuando el getter de precios traduce un tipo de UI a una clave de precio desplazada, se conserva el ID lógico para cobertura y se registra el valor de solicitud en `purchase_wire_values`. También se reconoce la compra que transforma un tipo en `buy_spin_scatters_count`, con líneas tomadas del factor anunciado y antebet desactivado. No se deduce ese formato por proveedor o título.
+
+El antebet requiere el evento del control del cliente, su getter de coeficiente y el reenvío del parámetro por el GameRunner activo. Se descubre como `ANTE_BET`, se prueba aparte y no incrementa el conteo de compras. El coeficiente del servidor por sí solo no habilita esta ruta.
+
+Las llamadas vacías a `respin` pueden continuar `spins`, `freespins` o `bonus` cuando el cliente demuestra el serializador y el servidor anuncia esa única acción en una ronda pendiente. Se reconocen llamadas literales de flow y el cierre `bonus_stop` cuando el cliente sustituye explícitamente su getter. Estados desconocidos o alternativas simultáneas siguen pendientes.
+
+Las tres capturas nuevas de 777 Fruity Coins, Lady Fortune y 15 Dragon Pearls aportan 201 acciones reproducidas en fixtures sin sesiones. La primera contiene cuatro compras; la segunda, tres compras y ocho giros con antebet; la tercera contiene un bonus natural sin compras. La comprobación remota adicional encontró HTTP 429: no constituye validación en vivo de las compras.

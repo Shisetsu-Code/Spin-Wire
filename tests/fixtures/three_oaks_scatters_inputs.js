@@ -1,0 +1,14 @@
+params:args||{};EventsGame.play(action);handlers[action]||function(args){return flow._act(action,args)};
+flow.setActionHandler(_constants.FLOW_ACTIONS.SPIN,function(args){args=args||{};args.bet_per_line="bet_per_line"in args?args.bet_per_line:_this3.app.model.betPerLine();args.lines="lines"in args?args.lines:_this3.app.model.gameLines();args.bet_factor="bet_factor"in args?args.bet_factor:_this3.app.model.betFactor()[0];_this3.app.model.setBetPerLine(args.bet_per_line);_this3.app.model.setLines(args.lines);_this3.app.model.setBetFactor(args.bet_factor);return _this3._act(_constants.FLOW_ACTIONS.SPIN,args,_this3.app.model.getRoundBet(args.bet_per_line,args.bet_factor))});
+flow.setActionHandler(_constants.FLOW_ACTIONS.BUY_SPIN,function(args){args=args||{};args.bet_per_line="bet_per_line"in args?args.bet_per_line:_this3.app.model.betPerLine();args.lines="lines"in args?args.lines:_this3.app.model.gameLines();args.bet_factor="bet_factor"in args?args.bet_factor:_this3.app.model.betFactor()[0];_this3.app.model.setBetPerLine(args.bet_per_line);_this3.app.model.setLines(args.lines);_this3.app.model.setBetFactor(args.bet_factor);return _this3._act(_constants.FLOW_ACTIONS.BUY_SPIN,args,_this3.app.model.freespinsBuyingPrice()*_this3.app.model.getRoundBet(args.bet_per_line,args.bet_factor))});
+flow.setActionHandler(_constants.FLOW_ACTIONS.RESPIN,function(args){if(!_this3.app.model.canAction(_constants.FLOW_ACTIONS.RESPIN)){return Promise.reject(new Error("action not allowed"))}_this3.app.emit(_app.GameEvent.BonusRoundStart);return _this3._act(_constants.FLOW_ACTIONS.RESPIN,args)});
+function actBuyFeature(scattersCount){_app.default.model.setFreespinsBuyingPrice(_app.default.model.getBuyFeatureCostByType(scattersCount));var params={};params.bet_per_line=GR.UI.model.get("bet_per_line");params.lines=_app.default.model.betFactor()[0];params.ante_bet=_app.default.board.anteBetButton.isActive?_app.default.model.getAnteBetCoef():0;params.buy_spin_scatters_count=scattersCount+3;_app.default.controllers.flow.act(_constants.FLOW_ACTIONS.BUY_SPIN,params)};
+getBuyFeatureCostByType=function(buySpineType){var price=this._get("settings.freespins_buying_price_by_scatters_count.".concat(buySpineType+3),0);if(!price)price=this._get("settings.buy_bonus_prices.".concat(buySpineType),0);return price};
+getAnteBetCoef=function(){var anteBetPrice=this._get("settings.ante_bet",[0])[0];if(!anteBetPrice)anteBetPrice=this._get("settings.booster_prices.1",0);return anteBetPrice};
+app.controllers.flow.act(C.FLOW_ACTIONS.BONUS_INIT);
+app.controllers.flow.act(C.FLOW_ACTIONS.RESPIN);
+app.controllers.flow.act(C.FLOW_ACTIONS.FREESPIN_INIT);
+app.controllers.flow.act(C.FLOW_ACTIONS.FREESPIN);
+app.controllers.flow.act(C.FLOW_ACTIONS.FREESPIN_STOP);
+app.controllers.flow.act(C.FLOW_ACTIONS.BONUS_STOP);
+app.board.anteBetButton.isActive;GR.Events.game.ante_bet(param);

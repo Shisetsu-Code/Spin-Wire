@@ -84,6 +84,14 @@ def _client_contract(source, data=None):
 
 def client_contract(source, data=None, *, runner_source=None, init_source=None):
     profile = _client_contract(source, data=data)
+    from .special_inputs import antebet_input_contract
+    from .code_primitives import canonical_source, empty_flow_actions
+    continuations = empty_flow_actions(canonical_source(source))
+    if profile and continuations:
+        profile['continuations'] = {**profile.get('continuations', {}), **continuations}
+    ante = antebet_input_contract(source, data)
+    if ante:
+        profile = {**(profile or {}), **ante}
     if runner_source is not None and init_source is not None:
         from .code_primitives import runner_spin_contract
         runner = runner_spin_contract(runner_source, init_source)
@@ -92,4 +100,7 @@ def client_contract(source, data=None, *, runner_source=None, init_source=None):
             profile['contract_source'] = 'current-client-and-shared-runner'
             profile['runner_sha256'] = hashlib.sha256(runner_source.encode()).hexdigest()
             profile['init_sha256'] = hashlib.sha256(init_source.encode()).hexdigest()
+            from .code_primitives import canonical_source
+            if (profile.get('antebet_ui_observed') and re.search(r'Object\.assign\(' + r'[A-Za-z_$][\w$]*' + r'\.action\.params,\{ante_bet:this\.model\.get\("ante_bet"\)\}\)', canonical_source(runner_source))):
+                profile['antebet_executable'] = True
     return profile

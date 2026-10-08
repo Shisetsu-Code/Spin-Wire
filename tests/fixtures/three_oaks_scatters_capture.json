@@ -1,0 +1,5204 @@
+[
+  {
+    "action": null,
+    "context": {
+      "actions": [
+        "spin",
+        "buy_spin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "spins",
+      "round_finished": true,
+      "spins": {
+        "bet_per_line": 5,
+        "lines": 20
+      }
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "spin",
+      "params": {
+        "bet_per_line": 5,
+        "lines": 20
+      }
+    },
+    "context": {
+      "actions": [
+        "spin",
+        "buy_spin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "spins",
+      "round_finished": true,
+      "spins": {
+        "bet_per_line": 5,
+        "lines": 20
+      }
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "spin",
+      "params": {
+        "bet_per_line": 5,
+        "lines": 20
+      }
+    },
+    "context": {
+      "actions": [
+        "spin",
+        "buy_spin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "spins",
+      "round_finished": true,
+      "spins": {
+        "bet_per_line": 5,
+        "lines": 20
+      }
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "spin",
+      "params": {
+        "bet_per_line": 5,
+        "lines": 20
+      }
+    },
+    "context": {
+      "actions": [
+        "spin",
+        "buy_spin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "spins",
+      "round_finished": true,
+      "spins": {
+        "bet_per_line": 5,
+        "lines": 20
+      }
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "buy_spin",
+      "params": {
+        "bet_per_line": 5,
+        "lines": 20,
+        "ante_bet": 0,
+        "buy_spin_scatters_count": 6,
+        "bet_factor": 20
+      }
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "spins",
+      "round_finished": false,
+      "spins": {
+        "bet_per_line": 5,
+        "lines": 20
+      }
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin_init"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "spins",
+      "round_finished": false,
+      "spins": {
+        "bet_per_line": 5,
+        "lines": 20
+      }
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin_init",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin_stop"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin_stop",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "spin",
+        "buy_spin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "spins",
+      "round_finished": true,
+      "spins": {
+        "bet_per_line": 5,
+        "lines": 20
+      }
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "buy_spin",
+      "params": {
+        "bet_per_line": 5,
+        "lines": 20,
+        "ante_bet": 0,
+        "buy_spin_scatters_count": 5,
+        "bet_factor": 20
+      }
+    },
+    "context": {
+      "actions": [
+        "freespin_init"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "spins",
+      "round_finished": false,
+      "spins": {
+        "bet_per_line": 5,
+        "lines": 20
+      }
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin_init",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin_stop"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin_stop",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "spin",
+        "buy_spin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "spins",
+      "round_finished": true,
+      "spins": {
+        "bet_per_line": 5,
+        "lines": 20
+      }
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "buy_spin",
+      "params": {
+        "bet_per_line": 5,
+        "lines": 20,
+        "ante_bet": 0,
+        "buy_spin_scatters_count": 4,
+        "bet_factor": 20
+      }
+    },
+    "context": {
+      "actions": [
+        "freespin_init"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "spins",
+      "round_finished": false,
+      "spins": {
+        "bet_per_line": 5,
+        "lines": 20
+      }
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin_init",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "freespin_stop"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "freespins",
+      "round_finished": false
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "freespin_stop",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "spin",
+        "buy_spin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "spins",
+      "round_finished": true,
+      "spins": {
+        "bet_per_line": 5,
+        "lines": 20
+      }
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "spin",
+      "params": {
+        "bet_per_line": 5,
+        "lines": 20,
+        "ante_bet": 1.25
+      }
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "spins",
+      "round_finished": false,
+      "spins": {
+        "bet_per_line": 5,
+        "lines": 20
+      }
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "spin",
+        "buy_spin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "spins",
+      "round_finished": true,
+      "spins": {
+        "bet_per_line": 5,
+        "lines": 20
+      }
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "spin",
+      "params": {
+        "bet_per_line": 5,
+        "lines": 20,
+        "ante_bet": 1.25
+      }
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "spins",
+      "round_finished": false,
+      "spins": {
+        "bet_per_line": 5,
+        "lines": 20
+      }
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "spin",
+        "buy_spin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "spins",
+      "round_finished": true,
+      "spins": {
+        "bet_per_line": 5,
+        "lines": 20
+      }
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "spin",
+      "params": {
+        "bet_per_line": 5,
+        "lines": 20,
+        "ante_bet": 1.25
+      }
+    },
+    "context": {
+      "actions": [
+        "spin",
+        "buy_spin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "spins",
+      "round_finished": true,
+      "spins": {
+        "bet_per_line": 5,
+        "lines": 20
+      }
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "spin",
+      "params": {
+        "bet_per_line": 5,
+        "lines": 20,
+        "ante_bet": 1.25
+      }
+    },
+    "context": {
+      "actions": [
+        "spin",
+        "buy_spin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "spins",
+      "round_finished": true,
+      "spins": {
+        "bet_per_line": 5,
+        "lines": 20
+      }
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "spin",
+      "params": {
+        "bet_per_line": 5,
+        "lines": 20,
+        "ante_bet": 1.25
+      }
+    },
+    "context": {
+      "actions": [
+        "spin",
+        "buy_spin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "spins",
+      "round_finished": true,
+      "spins": {
+        "bet_per_line": 5,
+        "lines": 20
+      }
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "spin",
+      "params": {
+        "bet_per_line": 5,
+        "lines": 20,
+        "ante_bet": 1.25
+      }
+    },
+    "context": {
+      "actions": [
+        "spin",
+        "buy_spin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "spins",
+      "round_finished": true,
+      "spins": {
+        "bet_per_line": 5,
+        "lines": 20
+      }
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "spin",
+      "params": {
+        "bet_per_line": 5,
+        "lines": 20,
+        "ante_bet": 1.25
+      }
+    },
+    "context": {
+      "actions": [
+        "spin",
+        "buy_spin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "spins",
+      "round_finished": true,
+      "spins": {
+        "bet_per_line": 5,
+        "lines": 20
+      }
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "spin",
+      "params": {
+        "bet_per_line": 5,
+        "lines": 20,
+        "ante_bet": 1.25
+      }
+    },
+    "context": {
+      "actions": [
+        "respin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "spins",
+      "round_finished": false,
+      "spins": {
+        "bet_per_line": 5,
+        "lines": 20
+      }
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  },
+  {
+    "action": {
+      "name": "respin",
+      "params": {}
+    },
+    "context": {
+      "actions": [
+        "spin",
+        "buy_spin"
+      ],
+      "available_booster": [
+        1
+      ],
+      "available_buy_bonus": [
+        1,
+        2,
+        3
+      ],
+      "current": "spins",
+      "round_finished": true,
+      "spins": {
+        "bet_per_line": 5,
+        "lines": 20
+      }
+    },
+    "settings": {
+      "ante_bet": [
+        1.25
+      ],
+      "bet_factor": [
+        20
+      ],
+      "booster_prices": {
+        "1": 1.25
+      },
+      "buy_bonus_prices": {
+        "1": 100,
+        "2": 200,
+        "3": 300
+      },
+      "lines": [
+        20
+      ],
+      "version": "1.1"
+    }
+  }
+]
