@@ -11,7 +11,7 @@ from pathlib import Path
 from urllib.parse import urlsplit,urlunsplit
 from playwright.sync_api import sync_playwright
 
-GAMES = ["777_fruity_coins", "lady_fortune"]
+GAMES = ["777_fruity_coins"]
 OUT = Path("action-3oaks-browser-har")
 TEMP = Path(os.environ.get("RUNNER_TEMP", "/tmp")) / "three-oaks-browser-raw"
 OUT.mkdir(exist_ok=True, parents=True)
@@ -86,7 +86,8 @@ def snapshot_dom(page):
 
 all_results=[]
 with sync_playwright() as p:
-    browser=p.chromium.launch(headless=True,args=["--use-gl=swiftshader"])
+    # Isolated QA Chromium only. Diagnostic bypasses CORS; not normal browser security.
+    browser=p.chromium.launch(headless=True,args=["--use-gl=swiftshader","--disable-web-security"])
     for slug in GAMES:
         raw=TEMP/(slug+".har")
         out=OUT/slug
@@ -148,6 +149,7 @@ with sync_playwright() as p:
         info=redact_har(raw,out/"capture.sanitized.har")
         if raw.exists():raw.unlink()
         summary={"slug":slug,"loaded":loaded,"failure":failure,"dom":dom,"frames":frame_details,
+                 "isolated_cors_diagnostic":True,
                  "har":{k:v for k,v in info.items() if k!="actions"},"actions":info["actions"],
                  "browser_posts":browser_posts[:100],
                  "request_failures":request_failures[:100],
