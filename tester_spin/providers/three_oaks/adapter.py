@@ -157,6 +157,7 @@ class ThreeOaksProvider(ProviderAdapter):
             result.error = "Ejecución detenida"
             return result
         start_time = time.monotonic()
+        browser_transport = None
         root = self.game_dir(game)
         run_dir = root / "tests" / (time.strftime("%Y%m%d-%H%M%S") + "-" + uuid.uuid4().hex[:6])
         run_dir.mkdir(parents=True)
@@ -175,7 +176,9 @@ class ThreeOaksProvider(ProviderAdapter):
             parsed = urlparse(endpoint)
             if parsed.scheme != "https" or parsed.hostname != "betman-demo.head.3oaks.com" or not parsed.path.endswith("/demo/") or options.get("wl") != "demo" or options.get("protocol") != "goreel":
                 raise ValueError("3 Oaks: launcher fuera del contrato demo observado")
-            session = DemoSession(self.http, endpoint, run_dir, timeout_s)
+            from .browser_transport import BrowserDemoTransport
+            browser_transport = BrowserDemoTransport(game.url)
+            session = DemoSession(self.http, endpoint, run_dir, timeout_s, browser_fallback=browser_transport)
             login = session.post("login", {"token": options["token"], "language": options.get("lang", "en")})
             if not session.session_id:
                 raise ValueError("3 Oaks: login no devolvió session_id")
@@ -319,6 +322,8 @@ class ThreeOaksProvider(ProviderAdapter):
                 result.error = '3 Oaks: acceso HTTP 429 bloqueado por el sitio; no se pudo validar esta ejecución'
             progress(f"[{game.name}] 3 Oaks pendiente: {result.error}")
         finally:
+            if browser_transport is not None:
+                browser_transport.close()
             result.failed_spins = max(0, requested - result.successful_spins)
             result.finished_at = utc_now_iso()
             result.elapsed_ms = (time.monotonic() - start_time) * 1000

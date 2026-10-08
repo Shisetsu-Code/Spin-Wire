@@ -166,9 +166,11 @@ def continuation_fields(data: dict, *, game_slug: str, family: str, source_rules
 
 
 class DemoSession:
-    def __init__(self, http, endpoint: str, run_dir, timeout: float):
+    def __init__(self, http, endpoint: str, run_dir, timeout: float, *, browser_fallback=None):
         self.http, self.endpoint, self.run_dir, self.timeout = http, endpoint, run_dir, timeout
         self.session_id = None
+        self.browser_fallback = browser_fallback
+        self.browser_active = False
         self.index = 0
 
     def post(self, command: str, fields: dict, *, artifact_dir=None) -> dict:
@@ -182,9 +184,20 @@ class DemoSession:
         directory.mkdir(parents=True, exist_ok=True)
         # Exact local evidence, never put these session values into reusable exports.
         (directory / (label + ".request.json")).write_text(json.dumps(body, indent=2), encoding="utf-8")
-        response = self.http.post(self.endpoint, params={"gsc": command},
+        transport = self.browser_fallback if self.browser_active else self.http
+        response = transport.post(self.endpoint, params={"gsc": command},
             data=json.dumps(body, separators=(",", ":")), timeout=self.timeout,
             headers={"Content-Type": "text/plain", "Origin": "https://3oaks.com", "Referer": "https://3oaks.com/"})
+        if (command == 'login' and not self.browser_active and self.browser_fallback is not None
+                and getattr(response,'status_code',None) in {403,429}
+                and 'Just a moment' in response.text and 'challenge-platform' in response.text):
+            (directory / (label + '.response.http-blocked.raw.html')).write_text(response.text,encoding='utf-8')
+            self.browser_active = True
+            response = self.browser_fallback.post(self.endpoint,params={'gsc':command},
+                data=json.dumps(body,separators=(',',':')),timeout=self.timeout,
+                headers={'Content-Type':'text/plain'})
+        (directory / (label + '.transport.json')).write_text(json.dumps({
+            'transport':'browser-fetch' if self.browser_active else 'http'}),encoding='utf-8')
         (directory / (label + ".response.raw.json")).write_text(response.text, encoding="utf-8")
         data = checked_response(response)
         self.session_id = data.get("session_id", self.session_id)

@@ -40,3 +40,7 @@ La red caída o un cliente no descargado no prueban ausencia de compras. Un resu
 ## Publicación
 
 Publicar código, documentación y fixtures reducidos. Mantener fuera de Git `data/`, HAR completos, credenciales, ejecutables y copias locales. Los resultados de ejecución tienen un canal separado: [publicación de resultados](RUN_RESULTS_PUBLISHING.md).
+
+## 3 Oaks: acceso de demo
+
+El catálogo y el lanzador pueden responder correctamente mientras el login HTTP recibe un desafío de Cloudflare. El adaptador reconoce ese caso por su respuesta HTML y usa fetch desde Edge instalado o Chromium de Playwright, con una sesión nueva. No es un reintento de compras. Si no hay navegador disponible, instalar Chromium con el procedimiento de desarrollo anterior o disponer de Edge. Revisar `*.transport.json` y el HTML bloqueado del login en la evidencia local.

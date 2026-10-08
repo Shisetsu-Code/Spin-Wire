@@ -41,3 +41,11 @@ El antebet requiere el evento del control del cliente, su getter de coeficiente 
 Las llamadas vacías a `respin` pueden continuar `spins`, `freespins` o `bonus` cuando el cliente demuestra el serializador y el servidor anuncia esa única acción en una ronda pendiente. Se reconocen llamadas literales de flow y el cierre `bonus_stop` cuando el cliente sustituye explícitamente su getter. Estados desconocidos o alternativas simultáneas siguen pendientes.
 
 Las tres capturas nuevas de 777 Fruity Coins, Lady Fortune y 15 Dragon Pearls aportan 201 acciones reproducidas en fixtures sin sesiones. La primera contiene cuatro compras; la segunda, tres compras y ocho giros con antebet; la tercera contiene un bonus natural sin compras. La comprobación remota adicional encontró HTTP 429: no constituye validación en vivo de las compras.
+
+## Transporte real de navegador ante un login desafiado
+
+Se aisló un fallo de acceso que afectaba al cliente HTTP mientras el navegador de la misma PC funcionaba: el lanzador respondía HTTP 200 y el POST de login respondía HTTP 429 con HTML de Cloudflare (`Just a moment`, `challenge-platform`). El mismo login ejecutado mediante fetch desde un navegador real respondió HTTP 200 con estado OK y una sesión nueva. No era evidencia de un límite de apuestas ni de un juego sin funciones.
+
+`browser_transport.py` abre un navegador sin ventana visible, preferentemente Edge instalado y, si no está disponible, Chromium de Playwright. Inicializa una página en el origen HTTPS de la demo y deja que el navegador gestione la solicitud. La navegación de inicialización es GET, sin apuestas; los comandos posteriores usan fetch en el mismo origen para evitar que CORS oculte respuestas de acceso como errores genéricos. No importa cookies ni reutiliza sesiones de las capturas. El adaptador cambia a este transporte exclusivamente ante ese desafío del login; mantiene el mismo navegador para start y play, y lo cierra al finalizar la prueba.
+
+Un 429 JSON o un límite ordinario no activa el cambio. No se reintenta una compra ante una respuesta bloqueada o un timeout. La evidencia local conserva el HTML del login bloqueado y el transporte utilizado en cada comando. La primera comprobación completa de 15 Dragon Pearls con este transporte terminó OK.
