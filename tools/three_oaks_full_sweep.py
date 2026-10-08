@@ -19,8 +19,8 @@ from pathlib import Path
 from tester_spin.models import Game
 from tester_spin.providers.three_oaks.adapter import ThreeOaksProvider
 
-OUT = Path("action-three-oaks-sweep")
-SNAPSHOT = Path("archived-3oaks/catalog.json")
+OUT = Path(os.environ.get("TESTER_SPIN_3OAKS_OUT", "action-three-oaks-sweep"))
+SNAPSHOT = Path(os.environ.get("TESTER_SPIN_3OAKS_CATALOG", "archived-3oaks/catalog.json"))
 PREFERRED = ("777_fruity_coins", "lady_fortune", "15_dragon_pearls")
 SAFE_PARAMS = {
     "bet_per_line", "lines", "bet_factor", "selected_mode",
@@ -47,8 +47,28 @@ def safe_error(raw: object) -> str:
     return value[:300]
 
 
-def public_catalogue() -> list[Game]:
-    data = json.loads(SNAPSHOT.read_text(encoding="utf-8"))
+def public_catalogue(provider: ThreeOaksProvider, source: str) -> list[Game]:
+    if source == "live":
+        # Fetch the current public catalogue on the same local internet route
+        # as the demo. Never silently replace a failed live crawl with stale data.
+        provider._thumbnail = lambda game, progress: None
+        result = provider.crawl_catalog(
+            stop_event=threading.Event(), progress=lambda message: print(message, flush=True),
+            max_pages=100,
+        )
+        if not result:
+            raise ValueError("3 Oaks: catálogo público vacío")
+        games = result
+    elif source == "snapshot":
+        data = json.loads(SNAPSHOT.read_text(encoding="utf-8"))
+        games = parse_snapshot(data)
+    else:
+        raise ValueError("Unknown catalogue source")
+    order = {slug: n for n, slug in enumerate(PREFERRED)}
+    return sorted(games, key=lambda g: (order.get(g.slug, 10000), g.name.casefold()))
+
+
+def parse_snapshot(data: object) -> list[Game]:
     if not isinstance(data, list) or not data:
         raise ValueError("The archived public catalogue is missing or empty")
     games = []
@@ -62,8 +82,7 @@ def public_catalogue() -> list[Game]:
             raise ValueError("Invalid/duplicate 3 Oaks catalogue entry")
         seen.add(game.slug)
         games.append(game)
-    order = {slug: n for n, slug in enumerate(PREFERRED)}
-    return sorted(games, key=lambda g: (order.get(g.slug, 10000), g.name.casefold()))
+    return games
 
 
 def safe_mode(mode: dict) -> dict:
@@ -149,6 +168,12 @@ def safe_trace(directory: Path) -> tuple[list[dict], list[dict]]:
     return records, returns
 
 
+def access_restricted(error: object) -> bool:
+    value = str(error or "").lower()
+    return (bool(re.search(r"(?<![0-9])(?:403|429)(?![0-9])", value))
+            and any(word in value for word in ("http", "forbidden", "rate", "too many", "denied")))
+
+
 def run_game(provider: ThreeOaksProvider, game: Game, *, spins: int, phase: str) -> dict:
     result = provider.test_game(
         game, spins=spins, timeout_s=12,
@@ -201,20 +226,37 @@ def main() -> int:
     parser.add_argument("--budget-seconds", type=int, default=1600)
     parser.add_argument("--base-spins", type=int, default=2)
     parser.add_argument("--natural-spins", type=int, default=24)
+    parser.add_argument("--catalog-source", choices=["live", "snapshot"], default="live")
+    parser.add_argument("--slugs", nargs="+", metavar="SLUG", default=None,
+                        help="Run only these explicit game slugs (for a connectivity smoke test)")
     args = parser.parse_args()
     if args.base_spins < 1 or args.natural_spins < 1 or args.budget_seconds < 30:
         parser.error("Invalid positive sample/budget")
 
     OUT.mkdir(exist_ok=True)
-    provider = ThreeOaksProvider(Path(os.environ.get("RUNNER_TEMP", "/tmp")) / "three-oaks-full-sweep")
-    games = public_catalogue()
+    data_root = Path(os.environ.get("TESTER_SPIN_3OAKS_DATA_ROOT") or
+                     os.environ.get("RUNNER_TEMP") or "data") / "three-oaks-full-sweep"
+    provider = ThreeOaksProvider(data_root)
+    try:
+        games = public_catalogue(provider, args.catalog_source)
+        catalogue_size = len(games)
+        if args.slugs:
+            unknown = sorted(set(args.slugs) - {game.slug for game in games})
+            if unknown:
+                raise ValueError("3 Oaks: juegos no encontrados en el catálogo: " + ", ".join(unknown))
+            games = [game for game in games if game.slug in set(args.slugs)]
+    except Exception:
+        provider.http.close()
+        raise
     write_json(OUT / "catalogue.json", [{"slug": g.slug, "name": g.name} for g in games])
     manifest = {
         "source_sha": os.environ.get("GITHUB_SHA"),
-        "catalogue_source_run": 37735796749,
-        "catalogue_source": "archived-public-snapshot",
-        "catalogue_size": len(games),
-        "test_scope": "sequential real demo: 2 SPIN per game and each executable purchase; 24 further SPIN for games with no purchases",
+        "catalogue_source_run": 37735796749 if args.catalog_source == "snapshot" else None,
+        "catalogue_source": args.catalog_source,
+        "catalogue_size": catalogue_size,
+        "selected_size": len(games),
+        "test_scope": (f"sequential real demo: {args.base_spins} SPIN per game and each executable purchase; "
+                       f"{args.natural_spins} further SPIN for games without purchases"),
         "full_random_outcome_coverage": False,
         "status": "RUNNING",
         "cases": [],
@@ -235,8 +277,7 @@ def main() -> int:
                       f"pending={case['pending_modes']} unknown={case['unknown_options']} "
                       f"natural={case['natural_bonus_observations']} sec={case['elapsed_s']}", flush=True)
                 # 403/429 is a provider/network access limit, not game coverage.
-                if re.search(r"\b(?:HTTP\s*(?:Error\s*)?(?:403|429)|(?:403|429)\s*Forbidden|rate.limit)\b",
-                             case["error"], re.IGNORECASE):
+                if access_restricted(case["error"]):
                     manifest["status"] = "STOPPED_REMOTE_ACCESS_403_OR_429"
                     manifest["stop_game"] = game.slug
                     break
@@ -252,8 +293,7 @@ def main() -> int:
                           f"spins={natural['successful_spins']}/{args.natural_spins} "
                           f"bonus={natural['natural_bonus_observations']} "
                           f"sec={natural['elapsed_s']}", flush=True)
-                    if re.search(r"\b(?:HTTP\s*(?:Error\s*)?(?:403|429)|rate.limit)\b",
-                                 natural["error"], re.IGNORECASE):
+                    if access_restricted(natural["error"]):
                         manifest["status"] = "STOPPED_REMOTE_ACCESS_403_OR_429"
                         manifest["stop_game"] = game.slug
                         break
