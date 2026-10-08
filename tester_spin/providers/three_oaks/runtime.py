@@ -157,7 +157,14 @@ def source_continuation_rules(source: str) -> dict:
             and all(re.search(r'return \w+\._act\(_constants\.FLOW_ACTIONS.RESPIN,args\)', body)
                     and not re.search(r'args\s*=|args\.', body) for body in handlers)):
         rules['respin'] = {'current': 'bonus'}
-    if ('.act(_constants.FLOW_ACTIONS.BONUS_STOP)' in source
+    # A published client may override the shared dynamic stop getter with
+    # a literal bonus_stop. Require the override and a real flow call site.
+    literal_stop = (re.search(r'Object\.defineProperty\(_constants\.FLOW_ACTIONS,"BONUS_STOP",\{get:function get\(\)\{return"bonus_stop"\}\}\)', source)
+                    and '.controllers.flow.act(_constants.FLOW_ACTIONS.BONUS_STOP)' in source
+                    and 'setActionHandler(_constants.FLOW_ACTIONS.BONUS_STOP' not in source)
+    if literal_stop:
+        rules['bonus_stop'] = {'current':'bonus'}
+    elif ('.act(_constants.FLOW_ACTIONS.BONUS_STOP)' in source
             and 'setActionHandler(_constants.FLOW_ACTIONS.BONUS_STOP' not in source
             and 'get BONUS_STOP(){return"bonus_".concat(' in source
             and '.model.bonusOriginState(),"_stop")' in source

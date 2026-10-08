@@ -3,6 +3,7 @@ import ast
 import warnings
 import json
 import re
+import math
 
 ID = r'[A-Za-z_$][\w$]*'
 _TOKEN = re.compile(r'/\*.*?\*/|//[^\r\n]*|"(?:\\.|[^"\\])*"|\'(?:\\.|[^\'\\])*\'|`(?:\\.|[^`\\])*`|[A-Za-z_$][\w$]*|[0-9]+(?:\.[0-9]+)?|[^\s]', re.S)
@@ -352,8 +353,14 @@ def empty_flow_actions(source):
                and re.search(r'\._act\('+re.escape(action)+','+re.escape(arg)+r'\)',body)
                for action,arg,body in handlers):
             rules[name]={'current':current, 'state_independent':True}
-    # The client derives the stop action from the advertised bonus origin.
-    if ('.bonusOriginState()' in source and '.BONUS_STOP)' in source
+    # Games can override the dynamic getter with the literal bonus_stop.
+    # Require the actual override, call site, and default empty-argument bridge.
+    literal_stop = (re.search(r'Object\.defineProperty\(_constants\.FLOW_ACTIONS,"BONUS_STOP",\{get:function get\(\)\{return"bonus_stop"\}\}\)', source)
+                    and '.controllers.flow.act(_constants.FLOW_ACTIONS.BONUS_STOP)' in source)
+    if literal_stop and default_dispatch and not handler_count(active,'BONUS_STOP'):
+        rules['bonus_stop'] = {'current':'bonus'}
+    # Preserve the dynamic branch only when a literal override is absent.
+    elif ('.bonusOriginState()' in source and '.BONUS_STOP)' in source
             and default_dispatch and not handler_count(active,'BONUS_STOP')):
         for origin in ('spins','freespins'):
             rules['bonus_'+origin+'_stop']={'current':'bonus','back_to':origin}
@@ -365,6 +372,46 @@ def empty_flow_actions(source):
 def event_spin_parameters(source):
     pattern = r'\.Events\.flow\.play\(\{action:\{name:"spin",params:\{bet_per_line:'+ID+r'(?:\.'+ID+r')*\.betPerLine,lines:'+ID+r'(?:\.'+ID+r')*\.serverData\.settings\.lines\[0\]\}\},bet:'+ID+r'(?:\.'+ID+r')*\.bet\}\)'
     return ['bet_per_line','lines'] if re.search(pattern,source) else None
+
+
+def _price_keyed_purchase_mode_values(source, data, modes, selector):
+    """Prove UI enum -> wire selector mapping from the active client's JS.
+
+    The clicked button sends the numeric enum, whereas its displayed cost
+    is read from settings.buy_bonus_prices.[enum + 1]. This is NOT a
+    provider-wide convention and must be demonstrated by the client.
+    """
+    if not re.fullmatch(ID, selector or '') or not isinstance(modes, list):
+        return None
+    enum = re.search(r'\bBuyFeatureType=exports\.BuyFeatureType=\{([^{}]{1,500})\}', source)
+    if not enum:
+        return None
+    parts = enum[1].split(',')
+    if not parts or any(not re.fullmatch(r'[A-Za-z_$][\w$]*:[0-9]+', part) for part in parts):
+        return None
+    indices = [int(part.rsplit(':', 1)[1]) for part in parts]
+    if len(set(indices)) != len(indices):
+        return None
+    price_getter = re.search(
+        r'\.getBuyFeatureCostByType=function\(('+ID+r')\)\{.{0,500}?'
+        r'return this\._get\("settings\.buy_bonus_prices\."\.concat\(\1\+1\),null\)',
+        source,
+    )
+    if not price_getter:
+        return None
+    settings = (data or {}).get('settings', {})
+    if not isinstance(settings, dict) or settings.get('buy_bonus_price'):
+        return None
+    prices = settings.get('buy_bonus_prices')
+    if not isinstance(prices, dict) or not prices or not modes:
+        return None
+    allowed = {index + 1: index for index in indices}
+    if any(type(mode) is not int or mode not in allowed
+           or not isinstance(prices.get(str(mode)), (int, float))
+           or isinstance(prices[str(mode)], bool) or not math.isfinite(prices[str(mode)])
+           or prices[str(mode)] <= 0 for mode in modes):
+        return None
+    return {str(mode): {'selected_mode': allowed[mode]} for mode in modes}
 
 
 def flow_purchase_inputs(source, data):
@@ -428,10 +475,23 @@ def flow_purchase_inputs(source, data):
         params = list(middleware or [])
         if selector is not None:
             params.append('selected_mode')
-        declarations.append({'purchase_ui_observed':True, 'purchase_modes':modes if middleware else [],
-                             'purchase_selector_type':selector_type,
-                             'purchase_params':{str(mode):params for mode in modes} if middleware else {},
-                             'purchase_value_sources':{'lines':line_source}})
+        row = {'purchase_ui_observed':True, 'purchase_modes':modes if middleware else [],
+               'purchase_selector_type':selector_type,
+               'purchase_params':{str(mode):params for mode in modes} if middleware else {},
+               'purchase_value_sources':{'lines':line_source}}
+        if middleware and selector_type == 'preserve':
+            # Price keys and wire selectors differ on explicitly indexed
+            # clients. Unknown enum/price domains must fail closed.
+            indexed_getter = ('settings.buy_bonus_prices.' in source
+                              and '.concat(' in source and '.getBuyFeatureCostByType=function(' in source)
+            if indexed_getter:
+                mapped = _price_keyed_purchase_mode_values(source, data, modes, selector)
+                if mapped is None:
+                    row['purchase_modes'] = []
+                    row['purchase_params'] = {}
+                else:
+                    row['purchase_mode_values'] = mapped
+        declarations.append(row)
     return declarations[0] if declarations and all(row==declarations[0] for row in declarations) else None
 
 
