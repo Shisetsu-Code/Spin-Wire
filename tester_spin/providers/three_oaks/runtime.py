@@ -76,11 +76,21 @@ def play_fields(data: dict, action: str, selected_mode=None, *, game_slug='', fa
         profile = client_profile or {}
         captured_spin = action == 'spin' and profile.get('spin_params') == ['bet_per_line', 'lines']
         purchase_params = profile.get('purchase_params', {}).get(str(selected_mode)) if action == 'buy_spin' else None
+        if action == 'buy_spin' and profile.get('purchase_ui_defaults', {}).get('ante_bet') == 0:
+            last = context.get('last_args', {})
+            if not isinstance(last, dict) or last.get('ante_bet', 0) not in (0, -1):
+                raise ValueError('3 Oaks: compra requiere antebet desactivado')
+        mode_values = profile.get('purchase_mode_values', {}).get(str(selected_mode)) if action == 'buy_spin' else None
+        if mode_values is not None:
+            if (not isinstance(mode_values, dict) or not mode_values
+                    or set(mode_values) - {'selected_mode','buy_spin_type','buy_spin_scatters_count','paid_feature','ante_bet'}
+                    or any(type(v) not in (str,int) for v in mode_values.values())):
+                raise ValueError('3 Oaks: valores de compra sin contrato válido')
         if purchase_params is not None:
             if (not isinstance(purchase_params, list) or not {'bet_per_line', 'lines'}.issubset(purchase_params)
-                    or set(purchase_params) - {'bet_per_line', 'lines', 'bet_factor', 'selected_mode'}):
+                    or set(purchase_params) - {'bet_per_line', 'lines', 'bet_factor', 'selected_mode', *(mode_values or {})}):
                 raise ValueError('3 Oaks: contrato de compra inválido')
-            if 'selected_mode' not in purchase_params and context.get('available_buy_bonus') != [selected_mode]:
+            if not mode_values and 'selected_mode' not in purchase_params and context.get('available_buy_bonus') != [selected_mode]:
                 raise ValueError('3 Oaks: compra sin selector ambigua')
         zero_lines_announced = state.get('lines') == 0 and any(type(value) in (int, float) and value == 0 for value in settings.get('lines', []))
         if not all(isinstance(state.get(k), (int, float)) and not isinstance(state.get(k), bool) and math.isfinite(state[k])
@@ -103,7 +113,11 @@ def play_fields(data: dict, action: str, selected_mode=None, *, game_slug='', fa
         if action == "buy_spin":
             if selected_mode not in context.get("available_buy_bonus", []):
                 raise ValueError("3 Oaks: compra no anunciada")
-            if purchase_params is None or 'selected_mode' in purchase_params:
+            if mode_values is not None:
+                if not set(mode_values).issubset(purchase_params or []):
+                    raise ValueError('3 Oaks: campos de compra fuera del contrato')
+                params.update(mode_values)
+            elif purchase_params is None or 'selected_mode' in purchase_params:
                 selector_type = profile.get('purchase_selector_type')
                 value = selected_mode
                 if selector_type == 'string':
@@ -140,7 +154,7 @@ def source_continuation_rules(source: str) -> dict:
         rules['bonus_init'] = {'current': 'spins'}
     handlers = re.findall(r'setActionHandler\(_constants\.FLOW_ACTIONS\.RESPIN,function\(args\)\{(.{0,1000}?)\}\);', source)
     if ('RESPIN:"respin"' in source and '.act(_constants.FLOW_ACTIONS.RESPIN)' in source and handlers
-            and all(re.search(r'return \w+\._act\(_constants\.FLOW_ACTIONS\.RESPIN,args\)', body)
+            and all(re.search(r'return \w+\._act\(_constants\.FLOW_ACTIONS.RESPIN,args\)', body)
                     and not re.search(r'args\s*=|args\.', body) for body in handlers)):
         rules['respin'] = {'current': 'bonus'}
     if ('.act(_constants.FLOW_ACTIONS.BONUS_STOP)' in source

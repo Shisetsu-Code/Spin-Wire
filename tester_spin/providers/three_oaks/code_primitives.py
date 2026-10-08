@@ -388,6 +388,10 @@ def flow_purchase_inputs(source, data):
             assignment = re.fullmatch(re.escape(variable)+r'\.('+ID+r')=(.+)', part)
             if assignment:
                 assignments.append(assignment.groups())
+        # Do not ignore assignments hidden in branches or nested mutations.
+        writes = re.findall(r'(?<![\w$.])' + re.escape(variable) + r'\.(' + ID + r')=(?!=)', prefix)
+        if len(writes) != len(assignments):
+            continue
         fields = dict(assignments)
         if len(fields) != len(assignments) or not {'bet_per_line','lines'}.issubset(fields) or set(fields)-{'bet_per_line','lines','bet_factor','selected_mode'}:
             continue

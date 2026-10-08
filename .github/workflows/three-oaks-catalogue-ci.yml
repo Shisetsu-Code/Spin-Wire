@@ -12,7 +12,7 @@ permissions:
   contents: read
 concurrency:
   group: three-oaks-validation
-  cancel-in-progress: false
+  cancel-in-progress: true
 jobs:
   validate:
     runs-on: ubuntu-latest
@@ -36,33 +36,40 @@ jobs:
       - name: Complete repository regression suite
         continue-on-error: true
         timeout-minutes: 5
-        run: python -m pytest tests -q --junitxml=action-three-oaks/full-suite.xml
+        run: xvfb-run -a python -m pytest tests -q --junitxml=action-three-oaks/full-suite.xml
       - name: Mandatory 3 Oaks regression gate
         run: |
           mapfile -t tests < <(find tests -name 'test*three_oaks*.py' | sort)
           test "${#tests[@]}" -gt 0
           python -m pytest -q "${tests[@]}" --junitxml=action-three-oaks/three-oaks-tests.xml
-      - name: Connect configured demo test tunnel
+      - name: Prepare demo network tools
         timeout-minutes: 3
+        run: |
+          if ! command -v wg-quick >/dev/null || ! command -v resolvconf >/dev/null; then
+            sudo timeout -k 5 90 apt-get -o Acquire::Retries=1 -o Acquire::http::Timeout=15 -y -qq install wireguard-tools resolvconf
+          fi
+      - name: Validate catalogue inside bounded demo tunnel
+        timeout-minutes: 20
         env:
           PROTON_WG_CONF_B64: ${{ secrets.PROTON_WG_CONF_B64 }}
         run: |
           set -euo pipefail
-          if [ -z "${PROTON_WG_CONF_B64:-}" ]; then exit 0; fi
-          if ! command -v wg-quick >/dev/null || ! command -v resolvconf >/dev/null; then
-            sudo timeout 90 apt-get -o Acquire::Retries=1 -o Acquire::http::Timeout=15 -y -qq install wireguard-tools resolvconf
+          cleanup() {
+            sudo timeout -k 5 15 wg-quick down proton >/dev/null 2>&1 || true
+            sudo rm -f /etc/wireguard/proton.conf
+            rm -f "$RUNNER_TEMP/proton-three-oaks.conf"
+          }
+          trap cleanup EXIT INT TERM
+          if [ -n "${PROTON_WG_CONF_B64:-}" ]; then
+            umask 077
+            printf '%s' "$PROTON_WG_CONF_B64" | base64 --decode > "$RUNNER_TEMP/proton-three-oaks.conf"
+            sudo install -m 600 "$RUNNER_TEMP/proton-three-oaks.conf" /etc/wireguard/proton.conf
+            rm -f "$RUNNER_TEMP/proton-three-oaks.conf"
+            sudo timeout -k 5 30 wg-quick up proton >/dev/null
+            curl --fail --silent --show-error --max-time 20 -4 https://api.ipify.org >/dev/null
+            test "$(sudo wg show proton latest-handshakes | awk '{print $2}' | sort -nr | head -1)" -gt 0
           fi
-          umask 077
-          printf '%s' "$PROTON_WG_CONF_B64" | base64 --decode > "$RUNNER_TEMP/proton-three-oaks.conf"
-          sudo install -m 600 "$RUNNER_TEMP/proton-three-oaks.conf" /etc/wireguard/proton.conf
-          rm -f "$RUNNER_TEMP/proton-three-oaks.conf"
-          sudo wg-quick up proton >/dev/null
-          curl --fail --silent --show-error --max-time 20 -4 https://api.ipify.org >/dev/null
-          test "$(sudo wg show proton latest-handshakes | awk '{print $2}' | sort -nr | head -1)" -gt 0
-      - name: Validate catalogue with unmodified product runner
-        timeout-minutes: 15
-        run: |
-          python - <<'PY'
+          timeout -k 5 1050 python - <<'PY'
           import json
           from pathlib import Path
           import yaml
@@ -74,7 +81,7 @@ jobs:
           before="if result.status != 'OK' and (gd/'client.js').is_file():"
           after="if (result.status != 'OK' or any(m.get('kind')=='DISCOVERED_ONLY' for m in result.discovered_modes)) and (gd/'client.js').is_file():"
           assert script.count(before)==1
-          script=script.replace(before,after)
+          script=script.replace(before,after).replace('> 780', '> 990')
           exec(compile(script,'three-oaks-current-catalogue','exec'),{'__name__':'__main__'})
           target=Path('action-three-oaks/summary.json')
           summary=json.loads(target.read_text())

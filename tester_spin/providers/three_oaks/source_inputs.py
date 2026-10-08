@@ -145,4 +145,8 @@ def source_purchase_contract(source, data=None):
                                     'freespin_stop': {'current': 'freespins'}}
     if flow_purchase:
         profile.update(flow_purchase)
+    from .purchase_routes import additional_purchase_inputs
+    routes = additional_purchase_inputs(source, data)
+    if routes:
+        profile.update(routes)
     return profile if profile.get('spin_params') or profile['purchase_ui_observed'] else None

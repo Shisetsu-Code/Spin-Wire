@@ -89,6 +89,7 @@ def client_contract(source, data=None, *, runner_source=None, init_source=None):
         runner = runner_spin_contract(runner_source, init_source)
         if runner:
             profile = {**(profile or {'purchase_modes':[], 'purchase_params':{}, 'continuations':{}}), **runner}
+            profile['spin_value_sources'] = {'lines':'ui_lines'}
             profile['contract_source'] = 'current-client-and-shared-runner'
             profile['runner_sha256'] = hashlib.sha256(runner_source.encode()).hexdigest()
             profile['init_sha256'] = hashlib.sha256(init_source.encode()).hexdigest()

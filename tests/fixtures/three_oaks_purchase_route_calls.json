@@ -1,0 +1,42 @@
+{
+  "lucky_penny": {
+    "client_sha256": "0b25a7b86c2d81a98f91cbc8c3e844160733f8eba3bd81bda0f2282c5dd7df9c",
+    "caller": "actBuyFeature(buySpineType){_app.default.model.setFreespinsBuyingPrice(_app.default.model.getBuyFeatureCostByType(buySpineType));var params={};params.bet_per_line=GR.UI.model.get(\"bet_per_line\");params.lines=_app.default.model.betFactor()[0];if(_app.default.model.isNewModule()){params.selected_mode=buySpineType}else{params.buy_spin_type=buySpineType}_app.default.controllers.flow.act(_constants.FLOW_ACTIONS.BUY_SPIN,params)}",
+    "settings_getter": "Model.prototype.isNewModule=function(){return!this._get(\"settings.freespins_buying_price_by_buy_spin_type.1\",0)}"
+  },
+  "super_china_pots": {
+    "client_sha256": "e9f18ab8bc35213026723e6a4bd29c93ee62c68232de294c9dab903a187ca8bb",
+    "caller": "actBuyFeature(optionType){var params={};params.bet_per_line=_GameRunnerController.GR.UI.model.get(\"bet_per_line\");params.lines=_app.default.model.gameLines();params.selected_mode=optionType.toString();if(_app.default.model.isNewModule()){params.selected_mode=optionType}else{params.selected_mode=optionType.toString()}_app.default.model.setBuyingPrice(optionType);_app.default.model.setBuyBonus(true);_app.default.controllers.flow.act(_constants.FLOW_ACTIONS.BUY_SPIN,params)}",
+    "settings_getter": "Model.prototype.isNewModule=function(){return!this._get(\"settings.buy_bonus_price_1\",0)}"
+  },
+  "space_coins": {
+    "client_sha256": "781a12e7a7013f16c603e8f30f3952410f91e8a2f2e3c0de377b374bf3ca52f1",
+    "caller": "function(){var params={};params.bet_per_line=_GameRunnerController.GR.UI.model.get(\"bet_per_line\");params.lines=_app.default.model.gameLines();params.selected_mode=optionType.toString();_app.default.model.setBuyingPrice(optionType);_app.default.controllers.flow.act(_constants.FLOW_ACTIONS.BUY_SPIN,params);_app.default.board.reelVfxAnticipation.show();_app.default.board.blurBackground();_GameRunnerController.GR.showControls();_GameRunnerController.GR.buyFeaturePopupVisible(false);_this7._clear()}",
+    "settings_getter": "Model.prototype.isNewModule=function(){var isNewModule=!this._get(\"settings.buy_bonus_price\",0)[1];return isNewModule}"
+  },
+  "lucky_penny_powerscatter": {
+    "client_sha256": "4c7cb34c2286cf21d3058bd88ad7edf5cc427f6bf0c094832e3a304b8514c5d5",
+    "caller": "actBuyFeature(e){var t;Uo.model.setFreespinsBuyingPrice(Uo.model.getBuyFeatureCostByType(e)),Uo.emit(he.FeatureActivation);let i={};i.bet_per_line=j.UI.model.get(\"bet_per_line\"),i.lines=Uo.model.gameLines(),i.selected_mode=e,null==(t=Uo.controllers)||t.flow.act(wn.BUY_SPIN,i)}",
+    "settings_getter": ""
+  },
+  "grand": {
+    "client_sha256": "0eef5fd03e6f4de89081671c36c97d8d46dc8bc50b8b56bd086bfb6f64746ae3",
+    "caller": "_buy(e,t){var i;this.hide(),e===fe&&(i=t,Da.model.setFreespinsBuyingPrice(Da.model.getBuyFeatureCostByType(i)),Da.emit(ue.FeatureActivation),Da.controllers.flow.act(wn.BUY_SPIN,{bet_per_line:X.UI.model.get(\"bet_per_line\"),lines:Da.model.gameLines(),selected_mode:i}))}",
+    "settings_getter": ""
+  },
+  "super_sticky_piggy": {
+    "client_sha256": "10da52c91e2317726874a2c5eaefebe5268424463d258d11f2b97271b9211dd6",
+    "caller": "function(t){var e=Y.bus.getUI(\"bet\")*Y.serverData.get(\"buyFeaturePrice\")[t];Y.bus.sendPlayAsync({name:\"buy_spin\",params:{bet_per_line:Y.bus.getUI(\"bet_per_line\"),lines:Y.bus.getUI(\"lines\"),paid_feature:{1:\"fs\",2:\"sfs\"}[t]}},e)}",
+    "settings_getter": ""
+  },
+  "lava_coins_2": {
+    "client_sha256": "58b7b8901231d81ce2a572077ae1ca0c59e68ce4dc77efbecf40d76ef86786b6",
+    "caller": "actBuyFeature(buyFeatureType){_app.default.model.setFreespinsBuyingPrice(_app.default.model.getBuyFeatureMultiplier(buyFeatureType));BuyBonus.buyFeatureType=buyFeatureType;var params={};if(_app.default.lavaSpins.active){params.ante_bet=_app.default.model.lavaSpinsMultiplier()}params.bet_per_line=_GameRunnerController.GR.UI.model.get(\"bet_per_line\");params.lines=_app.default.model.settingsLines()[0];params.selected_mode=buyFeatureType;_app.default.model.setBuyingPrice(buyFeatureType);_app.default.controllers.flow.act(_constants.FLOW_ACTIONS.BUY_SPIN,params);_app.default.board.isBuySpin=true}",
+    "settings_getter": "function LavaSpins(){_classCallCheck(this,LavaSpins);this.active=false};_app.default.lavaSpins=new _LavaSpins.LavaSpins;;if(this.active){_app.default.board.buyFeatureButton.disable();}"
+  },
+  "lady_fortune": {
+    "client_sha256": "a8edae220256301a00b7466e8787d0db7912c282d4407a63b41f92dbc315ab9b",
+    "caller": "actBuyFeature(scattersCount){_app.default.model.setFreespinsBuyingPrice(_app.default.model.getBuyFeatureCostByType(scattersCount));var params={};params.bet_per_line=GR.UI.model.get(\"bet_per_line\");params.lines=_app.default.model.betFactor()[0];params.ante_bet=_app.default.board.anteBetButton.isActive?_app.default.model.getAnteBetCoef():0;params.buy_spin_scatters_count=scattersCount+3;_app.default.controllers.flow.act(_constants.FLOW_ACTIONS.BUY_SPIN,params)}",
+    "settings_getter": "if(_app.default.board.buyFeature.isNotEnoughBalance(button.fsParam)||!!_GameRunnerController.GR.UI.model.get(\"ante_bet\")||_app.default.model.isFreeBets()){button.disable()};function switchTexture(){var isActive=arguments.length>0&&arguments[0]!==undefined?arguments[0]:!!_GameRunnerController.GR.UI.model.get(\"ante_bet\");this.isActive=isActive;var texture=isActive?BUTTON_TEXTURE_NAMES.enable[_GameRunnerController.GR.orientation()]:BUTTON_TEXTURE_NAMES.disabled[_GameRunnerController.GR.orientation()];this.switcher.texture=PIXI.Texture.from(texture)}"
+  }
+}
