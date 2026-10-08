@@ -13,7 +13,7 @@
         "respin": {"current": "bonus"},
         "bonus_spins_stop": {"current": "bonus", "back_to": "spins"}
       },
-      "evidence": "Official client HAR 2026-10-07: accepted wire requests and response states; version-bound contract"
+      "evidence": "Official client HAR 2026-10-07 and newer observed natural bonus: spin, bonus_init, respin, bonus_spins_stop; version-bound contract"
     },
     "14f5c3d1d3108556b61e339819a238c9e160120fdb2a391d075e38daf8f53f4a": {
       "spin_params": [
