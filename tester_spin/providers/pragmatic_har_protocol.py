@@ -15,9 +15,19 @@ HAR_AUTOMATED_STATE_KINDS = {
 }
 
 
-def analyze_response(fields: dict[str, str]) -> dict[str, Any]:
+def analyze_response(fields: dict[str, str], *, symbol: str = '') -> dict[str, Any]:
     """Augment the generic analyzer with transitions proven by real HAR captures."""
     analysis = _base_analyze_response(fields)
+    from tester_spin.providers.pragmatic_observed_transitions import game_profile, observed_continuation, observed_next_action
+    profile = game_profile(symbol)
+    if profile and not analysis.get('server_error'):
+        continuation = observed_continuation(fields, symbol)
+        if continuation:
+            analysis.update(state_kind='observed_profile_continuation', automatic_handler=continuation,
+                            terminal_hint=False, handler_evidence=profile['evidence'])
+        elif observed_next_action(fields, symbol) == 's' and fields.get('na') != 's':
+            analysis.update(state_kind='observed_profile_terminal', automatic_handler='',
+                            terminal_hint=True, handler_evidence=profile['evidence'])
     state = str(analysis.get("state_kind") or "")
     if state == "free_spin_option_required" and fields.get("fs_opt"):
         analysis["automatic_handler"] = "doFSOption"

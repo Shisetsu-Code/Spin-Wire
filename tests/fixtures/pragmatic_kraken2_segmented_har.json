@@ -1,0 +1,83 @@
+{
+  "source": "www.pragmaticplay.com-2026-10-03T02-42-33-219Z.har",
+  "steps": [
+    {
+      "request": {
+        "action": "doInit",
+        "symbol": "vs20kraken2"
+      },
+      "response": {
+        "na": "s"
+      }
+    },
+    {
+      "request": {
+        "action": "doSpin",
+        "symbol": "vs20kraken2",
+        "c": "0.1",
+        "l": "20",
+        "bl": "0",
+        "pur": "0"
+      },
+      "response": {
+        "na": "b",
+        "g": "{bg_0:{ask:\"0\",bgid:\"0\",bgt:\"69\",ch_k:\"fs,deal_or_not;deal,not_deal;0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15;swap,not_swap\",ch_v:\"0,1;0,1;0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0;0,1\",end:\"0\",level:\"0\",lifes:\"1\",rw:\"0.00\",trail:\"prizes~f4_m2,f5_m1,f5_m2,f6_m1,f6_m2,f8_m1,f8_m2,f8_m4,f8_m6,f10_m2,f10_m4,f10_m6,f12_m2,f12_m4,f12_m6,f15_m4\"}}"
+      }
+    },
+    {
+      "request": {
+        "action": "doBonus",
+        "symbol": "vs20kraken2",
+        "ind": "1"
+      },
+      "response": {
+        "na": "b",
+        "g": "{bg_0:{ask:\"2\",bgid:\"0\",bgt:\"69\",ch_h:\"0~1\",ch_k:\"fs,deal_or_not;deal,not_deal;0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15;swap,not_swap\",ch_v:\"0,1;0,1;0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0;0,1\",end:\"0\",level:\"1\",lifes:\"1\",rw:\"0.00\",status:\"0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0\",trail:\"prizes~f4_m2,f5_m1,f5_m2,f6_m1,f6_m2,f8_m1,f8_m2,f8_m4,f8_m6,f10_m2,f10_m4,f10_m6,f12_m2,f12_m4,f12_m6,f15_m4\",wins:\"0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0\",wins_mask:\"h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h\"}}"
+      }
+    },
+    {
+      "request": {
+        "action": "doBonus",
+        "symbol": "vs20kraken2",
+        "ind": "0"
+      },
+      "response": {
+        "na": "b",
+        "g": "{bg_0:{ask:\"2\",bgid:\"0\",bgt:\"69\",ch_h:\"0~1,2~0\",ch_k:\"fs,deal_or_not;deal,not_deal;0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15;swap,not_swap\",ch_v:\"0,1;0,1;0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0;0,1\",end:\"0\",level:\"2\",lifes:\"1\",rw:\"0.00\",status:\"1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0\",trail:\"prizes~f4_m2,f5_m1,f5_m2,f6_m1,f6_m2,f8_m1,f8_m2,f8_m4,f8_m6,f10_m2,f10_m4,f10_m6,f12_m2,f12_m4,f12_m6,f15_m4\",wi:\"0\",wins:\"1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0\",wins_mask:\"f6_m1,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h\"}}"
+      }
+    },
+    {
+      "request": {
+        "action": "doBonus",
+        "symbol": "vs20kraken2",
+        "ind": "2"
+      },
+      "response": {
+        "na": "b",
+        "g": "{bg_0:{ask:\"2\",bgid:\"0\",bgt:\"69\",ch_h:\"0~1,2~0,2~2\",ch_k:\"fs,deal_or_not;deal,not_deal;0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15;swap,not_swap\",ch_v:\"0,1;0,1;0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0;0,1\",end:\"0\",level:\"3\",lifes:\"1\",rw:\"0.00\",status:\"1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0\",trail:\"prizes~f4_m2,f5_m1,f5_m2,f6_m1,f6_m2,f8_m1,f8_m2,f8_m4,f8_m6,f10_m2,f10_m4,f10_m6,f12_m2,f12_m4,f12_m6,f15_m4\",wi:\"2\",wins:\"1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0\",wins_mask:\"f6_m1,h,f12_m6,h,h,h,h,h,h,h,h,h,h,h,h,h\"}}"
+      }
+    },
+    {
+      "request": {
+        "action": "doBonus",
+        "symbol": "vs20kraken2",
+        "ind": "1"
+      },
+      "response": {
+        "na": "b",
+        "g": "{bg_0:{ask:\"2\",bgid:\"0\",bgt:\"69\",ch_h:\"0~1,2~0,2~2,2~1\",ch_k:\"fs,deal_or_not;deal,not_deal;0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15;swap,not_swap\",ch_v:\"0,1;0,1;0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0;0,1\",end:\"0\",level:\"4\",lifes:\"1\",rw:\"0.00\",status:\"1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0\",trail:\"prizes~f4_m2,f5_m1,f5_m2,f6_m1,f6_m2,f8_m1,f8_m2,f8_m4,f8_m6,f10_m2,f10_m4,f10_m6,f12_m2,f12_m4,f12_m6,f15_m4\",wi:\"1\",wins:\"1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0\",wins_mask:\"f6_m1,f10_m4,f12_m6,h,h,h,h,h,h,h,h,h,h,h,h,h\"}}"
+      }
+    },
+    {
+      "request": {
+        "action": "doBonus",
+        "symbol": "vs20kraken2",
+        "ind": "3"
+      },
+      "response": {
+        "na": "b",
+        "g": "{bg_0:{ask:\"1\",bgid:\"0\",bgt:\"69\",ch_h:\"0~1,2~0,2~2,2~1,2~3\",ch_k:\"fs,deal_or_not;deal,not_deal;0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15;swap,not_swap\",ch_v:\"0,1;0,1;0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0;0,1\",end:\"0\",level:\"5\",lifes:\"1\",rw:\"0.00\",status:\"1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0\",trail:\"offer_prize~f8_m2;prizes~f4_m2,f5_m1,f5_m2,f6_m1,f6_m2,f8_m1,f8_m2,f8_m4,f8_m6,f10_m2,f10_m4,f10_m6,f12_m2,f12_m4,f12_m6,f15_m4\",wi:\"3\",wins:\"1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0\",wins_mask:\"f6_m1,f10_m4,f12_m6,f10_m6,h,h,h,h,h,h,h,h,h,h,h,h\"}}"
+      }
+    }
+  ]
+}

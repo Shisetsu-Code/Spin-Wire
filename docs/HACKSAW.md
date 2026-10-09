@@ -2,7 +2,7 @@
 
 Integración del 30/09/2026: proveedor registrado en el selector y la cola de reintentos, con **184 juegos y 184 miniaturas**. Se usan los identificadores numéricos oficiales para conservar juegos sin página individual y URLs con caracteres codificados.
 
-Estado actualizado: **los 184 juegos fueron probados**, con 181 OK y contrato listo, 2 parciales por elecciones no modeladas y 1 error del proveedor. Los 16 antes bloqueados por el límite de demo pasaron al reanudar; no quedan juegos sin probar. Ver [resultados completos y casos pendientes](HACKSAW_CATALOG_VALIDATION.md).
+Estado actualizado: **los 184 juegos fueron probados**, con 181 OK y contrato listo, 2 parciales por elecciones no modeladas y 1 error del proveedor. Los 16 antes bloqueados por el límite de demo pasaron al reanudar; no quedan juegos sin probar. Ver [resultados completos y casos pendientes](VALIDATION.md).
 
 El primer representante validado fue **Fist of Destruction Megamultiplier**, ID **2536**, cliente **1.12.3**, con las siguientes compras:
 
@@ -16,7 +16,7 @@ El primer representante validado fue **Fist of Destruction Megamultiplier**, ID 
 
 Formato observado: autenticación POST JSON a `https://rgs-demo.hacksawgaming.com/api/play/authenticate`, y apuesta POST JSON a `/api/play/bet`. El giro base lleva `bets[].betAmount`; las opciones agregan `bets[].buyBonus` con el selector anunciado para ese juego. El adaptador consulta la versión del cliente y genera una sesión nueva en cada prueba. No reutiliza sesiones guardadas.
 
-Algunas respuestas llegan en estado `wfwpc`. El cliente publicado y las capturas confirmaron el cierre mediante otra petición al mismo `/play/bet`, con `continueInstructions.action=win_presentation_complete` y referencia a la ronda actual. Sólo se aprueba cuando la confirmación corresponde a la misma ronda, `round.status=completed` y `possibleActions=[]`. Las elecciones `play` y `gamble` también están implementadas y probadas, con muestras separadas y límites de rondas adicionales; ver [compras con elección](HACKSAW_CHOICES.md). Otras acciones quedan pendientes; HTTP200 por sí solo no basta.
+Algunas respuestas llegan en estado `wfwpc`. El cliente publicado y las capturas confirmaron el cierre mediante otra petición al mismo `/play/bet`, con `continueInstructions.action=win_presentation_complete` y referencia a la ronda actual. Sólo se aprueba cuando la confirmación corresponde a la misma ronda, `round.status=completed` y `possibleActions=[]`. Las elecciones `play` y `gamble` también están implementadas y probadas, con muestras separadas y límites de rondas adicionales; ver [compras con elección](VALIDATION.md). Otras acciones quedan pendientes; HTTP200 por sí solo no basta.
 
 La prueba en el navegador remoto reportó incompatibilidad de dispositivo y su acceso directo a la API devolvió403. La conexión desde Tester Spin sí funcionó, por lo que pudo validarse el formato sin solucionar ese navegador. Los payloads completos quedan como evidencia local por intento; los contratos reutilizables excluyen los identificadores de sesión y ronda.
 

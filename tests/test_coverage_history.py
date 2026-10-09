@@ -8,6 +8,40 @@ def result(modes):
     return GameTestResult(provider='test',slug='game',game_name='Game',game_url='https://example.invalid',requested_spins=1,successful_spins=1,failed_spins=0,status='OK',discovered_modes=modes)
 
 class CoverageHistoryTests(unittest.TestCase):
+    def test_verified_structural_policy_archives_matching_ordinal_obligation(self):
+        signature='PRAGMATIC:bonus-grid:bg_0:bgt=69:size=14:level=0'
+        common={'coverage_origin':'pragmatic_bonus_selection_artifacts','origin_mode_id':'PURCHASE_1',
+                'contract_branch_signature':signature,'contract_sha256':'a'*64,
+                'coverage_required':True,'required_samples':1}
+        old={**common,'id':'OLD','coverage_policy':'ordinal-options/v1','required_options':['0','1','13'],'covered_options':['0']}
+        new={**common,'id':'NEW','coverage_policy':'hidden-position-structural/v1','observed':True,
+             'required_options':['0'],'covered_options':['0'],'sample_counts':{'0':1}}
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);retain_pending_branches(root,result([old]))
+            fresh=result([new]);retain_pending_branches(root,fresh)
+            self.assertFalse(any(m.get('historical_pending') for m in fresh.discovered_modes))
+            saved=json.loads((root/'coverage-history.json').read_text())
+            self.assertEqual(saved['pending'],{})
+            self.assertEqual(saved['policy_migrations'][0]['previous']['required_options'],['1','13'])
+            self.assertEqual(saved['policy_migrations'][0]['replacement_id'],'NEW')
+
+    def test_structural_migration_preserves_different_contracts_and_unproved_states(self):
+        signature='PRAGMATIC:bonus-grid:bg_0:bgt=69:size=14:level=0'
+        common={'coverage_origin':'pragmatic_bonus_selection_artifacts','origin_mode_id':'PURCHASE_1',
+                'contract_branch_signature':signature,'contract_sha256':'a'*64,
+                'coverage_required':True,'required_samples':1}
+        old={**common,'id':'OLD','coverage_policy':'ordinal-options/v1','required_options':['1'],'covered_options':[]}
+        new={**common,'id':'NEW','coverage_policy':'hidden-position-structural/v1','observed':True,
+             'required_options':['0'],'covered_options':['0'],'sample_counts':{'0':1}}
+        for change in [{'contract_sha256':'b'*64},{'origin_mode_id':'SPIN'},
+                       {'contract_branch_signature':signature.replace('level=0','level=1')},
+                       {'covered_options':[],'sample_counts':{'0':0}},
+                       {'contract_branch_signature':'PRAGMATIC:bonus-choice:bgt=69:choices=0,1'},
+                       {'observed':False}]:
+            with self.subTest(change=change), tempfile.TemporaryDirectory() as tmp:
+                root=Path(tmp);retain_pending_branches(root,result([old]))
+                fresh=result([{**new,**change}]);retain_pending_branches(root,fresh)
+                self.assertTrue(any(m.get('id')=='OLD' and m.get('historical_pending') for m in fresh.discovered_modes))
     def test_current_mode_cannot_hide_historical_required_branch(self):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp)

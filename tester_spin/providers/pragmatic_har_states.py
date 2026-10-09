@@ -162,6 +162,9 @@ class PragmaticProvider(_EndpointPragmaticProvider):
             else:
                 fields.pop("pur", None)
 
+            from tester_spin.providers.pragmatic_observed_transitions import observed_spin_fields
+            fields.update(observed_spin_fields(symbol))
+
             last_s_info = str(fields.get("sInfo") or "n")
             status_code, _, last, _ = self._post_and_store(
                 bootstrap,
@@ -183,10 +186,24 @@ class PragmaticProvider(_EndpointPragmaticProvider):
             in_bonus = False
 
             while wire_steps < MAX_WIRE_STEPS:
-                na = str(last.get("na") or "").strip().lower()
+                from tester_spin.providers.pragmatic_observed_transitions import observed_next_action
+                na = observed_next_action(last,symbol).strip().lower()
+                from tester_spin.providers.pragmatic_observed_transitions import observed_continuation
+                declared=observed_continuation(last,symbol)
+                if declared:
+                    index=(_int(last.get('index')) or index)+1
+                    counter=(_int(last.get('counter')) or counter)+1
+                    action_fields={'action':declared,'symbol':symbol,'index':str(index),'counter':str(counter),'repeat':'0','mgckey':bootstrap.mgckey}
+                    status_code,_,last,_=self._post_and_store(bootstrap,action_fields,attempt_root,step=wire_steps,label='declared-continuation',timeout_s=timeout_s)
+                    wire_steps+=1
+                    if status_code>=400 or self._server_error(last):raise RuntimeError('Declared continuation failed')
+                    continue
 
                 if na == "b":
-                    in_bonus = True
+                    from tester_spin.providers.pragmatic_observed_transitions import bonus_transition
+                    # HAR-confirmed bg_0/bgt=69 selects free spins, whose final
+                    # na=c uses ordinary doCollect rather than doCollectBonus.
+                    in_bonus = bonus_transition(last) is None
                     index = (_int(last.get("index")) or index) + 1
                     counter = (_int(last.get("counter")) or counter) + 1
                     bonus_fields = {
@@ -213,7 +230,7 @@ class PragmaticProvider(_EndpointPragmaticProvider):
                         raise RuntimeError(f"doBonus server error={error}")
                     continue
 
-                if na in {"cb", "bc"} or (na == "c" and in_bonus):
+                if na in {"cb", "bc"}:
                     index = (_int(last.get("index")) or index) + 1
                     counter = (_int(last.get("counter")) or counter) + 1
                     collect_bonus_fields = {
@@ -520,7 +537,7 @@ class PragmaticProvider(_EndpointPragmaticProvider):
                 timeout_s=max(60.0, timeout_s),
                 progress=progress,
             )
-            catalog = discover_modes(discovery.init_response, requested_base_bet=self.base_bet)
+            catalog = discover_modes(discovery.init_response, requested_base_bet=self.base_bet,symbol=discovery.symbol)
             modes = {mode.id: mode for mode in catalog.enabled()}
             attempt_number = max((attempt.number for attempt in result.attempts), default=0)
 

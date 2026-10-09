@@ -62,3 +62,131 @@ class BonusCoverageTests(unittest.TestCase):
     def test_cancelled_state_is_preserved(self):
         self.add();self.result.status='CANCELADO';annotate_bonus_coverage(self.result)
         self.assertEqual(self.result.status,'CANCELADO')
+
+    def test_unknown_branch_is_not_explored_or_marked_complete(self):
+        import threading
+        from types import SimpleNamespace
+        from unittest.mock import Mock,patch
+        from tester_spin.providers.pragmatic_bonus_coverage import expand_observed_bonus_choices
+        self.add(signature='unknown:wheel')
+        provider=SimpleNamespace(base_bet=2,_test_mode_once=Mock(),_write_json=Mock())
+        with patch('tester_spin.providers.pragmatic_modes.discover_modes',return_value=SimpleNamespace(enabled=lambda:[])):
+            expand_observed_bonus_choices(provider,None,self.result,spins=1,timeout_s=1,stop_event=threading.Event(),progress=lambda s:None)
+        provider._test_mode_once.assert_not_called()
+        self.assertEqual(self.result.status,'PARCIAL')
+    def test_hidden_grid_structural_policy_preserves_real_domain(self):
+        signature='PRAGMATIC:bonus-grid:bg_0:bgt=69:size=4:level=0'
+        self.add(signature=signature,selected='2')
+        path=next(Path(self.result.attempts[0].artifact_dir).glob('*.bonus-selection.json'))
+        record=json.loads(path.read_text());record['coverage_policy']='hidden-position-structural/v1'
+        path.write_text(json.dumps(record))
+        annotate_bonus_coverage(self.result)
+        self.assertEqual(self.rows()[0]['observed_position_domain'],['0','1','2','3'])
+        self.assertEqual(self.rows()[0]['covered_options'],['0'])
+        self.assertEqual(self.result.status,'OK')
+        self.assertEqual(json.loads(path.read_text())['selected'],'2')
+
+    def test_structural_policy_does_not_apply_to_menu_options(self):
+        self.add(signature='PRAGMATIC:bonus-choice:bgt=69:choices=0,1,2,3')
+        path=next(Path(self.result.attempts[0].artifact_dir).glob('*.bonus-selection.json'))
+        record=json.loads(path.read_text());record['coverage_policy']='hidden-position-structural/v1'
+        path.write_text(json.dumps(record))
+        annotate_bonus_coverage(self.result)
+        self.assertEqual(self.rows()[0]['covered_options'],['0'])
+        self.assertEqual(self.result.status,'PARCIAL')
+
+    def test_same_structural_handler_is_shared_across_origin_modes(self):
+        from unittest.mock import patch
+        signature='PRAGMATIC:bonus-grid:bg_0:bgt=69:size=4:level=0'
+        self.add(signature=signature,selected='2')
+        path=next(Path(self.result.attempts[0].artifact_dir).glob('*.bonus-selection.json'))
+        record=json.loads(path.read_text());record['coverage_policy']='hidden-position-structural/v1'
+        path.write_text(json.dumps(record))
+        with patch('tester_spin.providers.pragmatic_bonus_coverage.selection_artifacts',return_value=[(path,'SPIN','bootstrap'),(path,'PURCHASE_1','attempt')]):
+            annotate_bonus_coverage(self.result)
+        self.assertEqual(len(self.rows()),2)
+        self.assertTrue(all(row['covered_options']==['0'] for row in self.rows()))
+        self.assertTrue(all(row['handler_sample_modes']==['PURCHASE_1'] for row in self.rows()))
+        self.assertEqual(self.result.status,'OK')
+
+    def test_structural_class_does_not_cover_invalid_index(self):
+        signature='PRAGMATIC:bonus-grid:bg_0:bgt=69:size=4:level=0'
+        self.add(signature=signature,selected='9')
+        path=next(Path(self.result.attempts[0].artifact_dir).glob('*.bonus-selection.json'))
+        record=json.loads(path.read_text());record['coverage_policy']='hidden-position-structural/v1'
+        path.write_text(json.dumps(record))
+        annotate_bonus_coverage(self.result)
+        self.assertEqual(self.rows()[0]['covered_options'],[])
+        self.assertEqual(self.result.status,'PARCIAL')
+
+    def test_grid_histories_share_only_same_level_size_and_contract(self):
+        self.add(number=1,signature='raw:history-a',selected='0',domain=['0','1'])
+        self.add(number=2,signature='raw:history-b',selected='1',domain=['1','2'])
+        signature='PRAGMATIC:bonus-grid:bg_0:bgt=69:size=14:level=1'
+        for attempt in self.result.attempts:
+            path=next(Path(attempt.artifact_dir).glob('*.bonus-selection.json'))
+            row=json.loads(path.read_text());row['coverage_branch_signature']=signature
+            path.write_text(json.dumps(row))
+        annotate_bonus_coverage(self.result)
+        self.assertEqual(len(self.rows()),1)
+        self.assertEqual(self.rows()[0]['required_options'],['0','1','2'])
+        self.assertEqual(self.rows()[0]['covered_options'],['0','1'])
+        self.assertEqual(self.result.status,'PARCIAL')
+
+    def test_observed_free_spin_choices_are_explored_automatically(self):
+        import threading
+        from types import SimpleNamespace
+        from unittest.mock import Mock,patch
+        from tester_spin.providers.pragmatic_bonus_coverage import expand_observed_bonus_choices
+        signature='PRAGMATIC:bonus-choice:bgt=69:choices=0,1,2'
+        self.add(signature=signature,domain=['0','1','2'])
+        choices=iter(['1','2'])
+        def execute(*args,**kwargs):
+            self.add(number=kwargs['attempt_number'],selected=next(choices),signature=signature,domain=['0','1','2'])
+            return self.result.attempts.pop()
+        provider=SimpleNamespace(base_bet=2,_test_mode_once=Mock(side_effect=execute),_write_json=Mock())
+        catalog=SimpleNamespace(enabled=lambda:[SimpleNamespace(id='SPIN')])
+        with patch('tester_spin.providers.pragmatic_modes.discover_modes',return_value=catalog):
+            expand_observed_bonus_choices(provider,None,self.result,spins=1,timeout_s=1,stop_event=threading.Event(),progress=lambda s:None)
+        self.assertEqual(provider._test_mode_once.call_count,2)
+        self.assertEqual(self.rows()[0]['covered_options'],['0','1','2'])
+        self.assertEqual(self.result.status,'OK')
+
+    def test_nine_option_labeled_menu_receives_full_automatic_coverage(self):
+        import threading
+        from types import SimpleNamespace
+        from unittest.mock import patch
+        from tester_spin.providers.pragmatic_bonus_coverage import expand_observed_bonus_choices
+        domain=list(map(str,range(9)))
+        signature='PRAGMATIC:bonus-choice:bgt=69:choices=0,1,2,3,4,5,6,7,8:family=buy'
+        self.add(signature=signature,domain=domain)
+        choices=iter(domain[1:])
+        def execute(*args,**kwargs):
+            self.add(number=kwargs['attempt_number'],selected=next(choices),signature=signature,domain=domain)
+            return self.result.attempts.pop()
+        provider=SimpleNamespace(base_bet=2,_test_mode_once=execute,_write_json=lambda *args:None)
+        catalog=SimpleNamespace(enabled=lambda:[SimpleNamespace(id='SPIN')])
+        with patch('tester_spin.providers.pragmatic_modes.discover_modes',return_value=catalog):
+            expand_observed_bonus_choices(provider,None,self.result,spins=1,timeout_s=1,stop_event=threading.Event(),progress=lambda s:None)
+        self.assertEqual(self.rows()[0]['covered_options'],domain)
+        self.assertEqual(self.result.status,'OK')
+
+    def test_catalog_metadata_reflects_final_expansion_result(self):
+        import threading
+        from unittest.mock import patch
+        from tester_spin.models import Game
+        from tester_spin.providers.pragmatic_hybrid import PragmaticProvider, _EndpointPragmaticProvider
+        provider=PragmaticProvider(self.root)
+        game=Game('pragmatic','test','Test','https://example.invalid')
+        self.result.run_dir=None
+        def expand(*args,**kwargs):
+            self.result.requested_spins=3
+            self.result.status='CANCELADO'
+            return self.result
+        with patch.object(_EndpointPragmaticProvider,'test_game',return_value=self.result), \
+             patch('tester_spin.providers.pragmatic_reel_coverage.expand_reel_choices',side_effect=lambda p,g,r,**kw:r), \
+             patch('tester_spin.providers.pragmatic_bonus_coverage.expand_observed_bonus_choices',side_effect=expand):
+            provider.test_game(game,spins=1,timeout_s=1,stop_event=threading.Event(),progress=lambda s:None)
+        metadata=json.loads((provider.game_dir(game)/'game.json').read_text())['last_test']
+        self.assertEqual(metadata['status'],'CANCELADO')
+        self.assertEqual(metadata['requested_mode_attempts'],3)

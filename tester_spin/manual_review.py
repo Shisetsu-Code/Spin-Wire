@@ -6,6 +6,7 @@ import re
 from datetime import datetime
 from pathlib import Path
 from uuid import uuid4
+from tester_spin.feature_summary import provider_summary_lines
 
 
 def _read(root, name):
@@ -130,7 +131,7 @@ def render_review(results, *, expected_count=None):
     availability = [item for item in items if item['category'] == 'availability']
     items = [item for item in items if item['category'] != 'availability']
     items.sort(key=lambda item: (item['provider'], item['name'].casefold()))
-    lines = ['JUEGOS PARA REVISAR MANUALMENTE', '', f'{len(items)} juegos para revisar de {len(rows)} con resultado.']
+    lines = provider_summary_lines(rows) + ['', 'JUEGOS PARA REVISAR MANUALMENTE', '', f'{len(items)} juegos para revisar de {len(rows)} con resultado.']
     approved = [r for r in rows if (r.get('manual_validation') or {}).get('status') == 'OK MANUAL']
     if approved:
         lines += ['', 'OK MANUAL']

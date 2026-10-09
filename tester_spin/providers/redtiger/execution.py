@@ -263,13 +263,17 @@ class RedTigerExecutionMixin:
             mode_specs = [("SPIN", "SPIN", None)]
 
             for feature in runtime.feature_buys:
+                confirmed = feature.name in getattr(runtime, 'client_observed_feature_buys', ())
                 mode_id = f"PURCHASE_{_mode_id(feature.name)}"
                 discovered_modes.append(
                     {
                         "id": mode_id,
-                        "kind": "PURCHASE",
+                        "kind": "PURCHASE" if confirmed else "DISCOVERED_ONLY",
+                        "evidence_level": "CLIENT_OBSERVED" if confirmed else "SERVER_ADVERTISED",
+                        "client_observed": confirmed,
                         "observed": True,
                         "executable": True,
+                        "executable": confirmed,
                         "wire_command": "platform/game/spin",
                         "feature_buy": feature.name,
                         "feature_multiplier": str(feature.multiplier),
@@ -277,11 +281,17 @@ class RedTigerExecutionMixin:
                         "cost": str(runtime.default_stake * feature.multiplier),
                     }
                 )
-                mode_specs.append((mode_id, "PURCHASE", feature))
+                if confirmed:
+                    mode_specs.append((mode_id, "PURCHASE", feature))
 
             has_feature_buy = bool(settings_game.get("hasFeatureBuy")) if isinstance(settings_game, dict) else False
             if has_feature_buy and not runtime.feature_buys:
-                coverage_gaps.add("FEATURE_BUY_CONTRACT")
+                discovered_modes.append({
+                    'id':'AVAILABLE_BUY_CONTRACT', 'kind':'UNKNOWN_FEATURE',
+                    'evidence_level':'SERVER_ADVERTISED', 'client_observed':False,
+                    'observed':True, 'executable':False,
+                    'reason':'El servidor anuncia compras; disponibilidad en el cliente sin confirmar',
+                })
 
             game_modes = settings_game.get("gameModes") if isinstance(settings_game, dict) else None
             if isinstance(game_modes, list) and game_modes:
@@ -299,7 +309,7 @@ class RedTigerExecutionMixin:
             progress(
                 f"[{game.name}] Red Tiger SETTINGS OK: gameId={runtime.game_id}, "
                 f"stakes={len(runtime.stakes)}, default={runtime.default_stake}, "
-                f"compras={len(runtime.feature_buys)}, endpoint={runtime.spin_url}."
+                f"compras confirmadas={len(mode_specs)-1}, opciones del servidor={len(runtime.feature_buys)}, endpoint={runtime.spin_url}."
             )
         except InterruptedError as exc:
             cancelled = True

@@ -1,0 +1,7276 @@
+{
+  "slug": "3_hot_chillies",
+  "steps": [
+    {
+      "command": "login",
+      "action": null,
+      "context": {},
+      "settings": null,
+      "status": {
+        "code": "OK"
+      }
+    },
+    {
+      "command": "start",
+      "action": null,
+      "context": {
+        "actions": [
+          "spin",
+          "buy_spin"
+        ],
+        "available_buy_bonus": [
+          1
+        ],
+        "current": "spins",
+        "last_action": "init",
+        "last_args": {},
+        "round_finished": true,
+        "spins": {
+          "bac": {
+            "15": [
+              0,
+              0
+            ],
+            "16": [
+              0,
+              0
+            ],
+            "17": [
+              0,
+              0
+            ]
+          },
+          "bet_per_line": 2,
+          "board": [
+            [
+              8,
+              15,
+              7
+            ],
+            [
+              2,
+              12,
+              12
+            ],
+            [
+              11,
+              17,
+              4
+            ],
+            [
+              2,
+              12,
+              12
+            ],
+            [
+              10,
+              16,
+              6
+            ]
+          ],
+          "bs": [
+            {
+              "position": 1,
+              "reel": 0,
+              "value": 500
+            },
+            {
+              "position": 1,
+              "reel": 2,
+              "value": 3000
+            },
+            {
+              "position": 1,
+              "reel": 4,
+              "value": 1000
+            }
+          ],
+          "bs_count": 3,
+          "bs_v": [
+            [
+              0,
+              500,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              "minor",
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1000,
+              0
+            ]
+          ],
+          "bs_values": [
+            [
+              0,
+              5,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              30,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              10,
+              0
+            ]
+          ],
+          "last_bet": 2,
+          "lines": 25,
+          "round_bet": 100,
+          "round_win": 0,
+          "total_win": 0
+        },
+        "version": 1
+      },
+      "settings": {
+        "a_r": false,
+        "bet_factor": [
+          50
+        ],
+        "bets": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          12,
+          15,
+          16,
+          20,
+          22,
+          25,
+          30,
+          32,
+          40,
+          44,
+          50,
+          60,
+          70,
+          80,
+          90,
+          100,
+          120,
+          150,
+          160,
+          180
+        ],
+        "big_win": [
+          15,
+          20,
+          30,
+          50,
+          70
+        ],
+        "bs_values_reels": {
+          "1": 360,
+          "2": 320,
+          "3": 200,
+          "4": 40,
+          "5": 40,
+          "8": 40,
+          "10": 40,
+          "15": 188,
+          "30": 120,
+          "100": 7
+        },
+        "buy_bonus_prices": {
+          "1": 70
+        },
+        "cols": 5,
+        "currency_format": {
+          "currency_style": "symbol",
+          "denominator": 100,
+          "style": "money"
+        },
+        "is_wrapper": false,
+        "jackpots": {
+          "15": "mini",
+          "30": "minor",
+          "100": "major",
+          "1000": "grand"
+        },
+        "lines": [
+          25
+        ],
+        "paylines": [
+          [
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          [
+            0,
+            1,
+            2,
+            1,
+            0
+          ],
+          [
+            2,
+            1,
+            0,
+            1,
+            2
+          ],
+          [
+            1,
+            0,
+            0,
+            0,
+            1
+          ],
+          [
+            1,
+            2,
+            2,
+            2,
+            1
+          ],
+          [
+            0,
+            0,
+            1,
+            2,
+            2
+          ],
+          [
+            2,
+            2,
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            2,
+            1,
+            0,
+            1
+          ],
+          [
+            1,
+            0,
+            1,
+            2,
+            1
+          ],
+          [
+            0,
+            1,
+            1,
+            1,
+            0
+          ],
+          [
+            2,
+            1,
+            1,
+            1,
+            2
+          ],
+          [
+            0,
+            1,
+            0,
+            1,
+            0
+          ],
+          [
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          [
+            1,
+            1,
+            0,
+            1,
+            1
+          ],
+          [
+            1,
+            1,
+            2,
+            1,
+            1
+          ],
+          [
+            0,
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            2,
+            2,
+            0,
+            2,
+            2
+          ],
+          [
+            0,
+            2,
+            2,
+            2,
+            0
+          ],
+          [
+            2,
+            0,
+            0,
+            0,
+            2
+          ],
+          [
+            1,
+            2,
+            0,
+            2,
+            1
+          ],
+          [
+            1,
+            0,
+            2,
+            0,
+            1
+          ],
+          [
+            0,
+            2,
+            0,
+            2,
+            0
+          ],
+          [
+            2,
+            0,
+            2,
+            0,
+            2
+          ]
+        ],
+        "paytable": {
+          "1": [
+            {
+              "multiplier": 5,
+              "occurrences": 3,
+              "type": "lb"
+            },
+            {
+              "multiplier": 10,
+              "occurrences": 4,
+              "type": "lb"
+            },
+            {
+              "multiplier": 50,
+              "occurrences": 5,
+              "type": "lb"
+            }
+          ],
+          "2": [
+            {
+              "multiplier": 5,
+              "occurrences": 3,
+              "type": "lb"
+            },
+            {
+              "multiplier": 10,
+              "occurrences": 4,
+              "type": "lb"
+            },
+            {
+              "multiplier": 50,
+              "occurrences": 5,
+              "type": "lb"
+            }
+          ],
+          "3": [
+            {
+              "multiplier": 5,
+              "occurrences": 3,
+              "type": "lb"
+            },
+            {
+              "multiplier": 10,
+              "occurrences": 4,
+              "type": "lb"
+            },
+            {
+              "multiplier": 50,
+              "occurrences": 5,
+              "type": "lb"
+            }
+          ],
+          "4": [
+            {
+              "multiplier": 5,
+              "occurrences": 3,
+              "type": "lb"
+            },
+            {
+              "multiplier": 10,
+              "occurrences": 4,
+              "type": "lb"
+            },
+            {
+              "multiplier": 50,
+              "occurrences": 5,
+              "type": "lb"
+            }
+          ],
+          "5": [
+            {
+              "multiplier": 5,
+              "occurrences": 3,
+              "type": "lb"
+            },
+            {
+              "multiplier": 10,
+              "occurrences": 4,
+              "type": "lb"
+            },
+            {
+              "multiplier": 50,
+              "occurrences": 5,
+              "type": "lb"
+            }
+          ],
+          "6": [
+            {
+              "multiplier": 10,
+              "occurrences": 3,
+              "type": "lb"
+            },
+            {
+              "multiplier": 20,
+              "occurrences": 4,
+              "type": "lb"
+            },
+            {
+              "multiplier": 75,
+              "occurrences": 5,
+              "type": "lb"
+            }
+          ],
+          "7": [
+            {
+              "multiplier": 10,
+              "occurrences": 3,
+              "type": "lb"
+            },
+            {
+              "multiplier": 20,
+              "occurrences": 4,
+              "type": "lb"
+            },
+            {
+              "multiplier": 75,
+              "occurrences": 5,
+              "type": "lb"
+            }
+          ],
+          "8": [
+            {
+              "multiplier": 15,
+              "occurrences": 3,
+              "type": "lb"
+            },
+            {
+              "multiplier": 40,
+              "occurrences": 4,
+              "type": "lb"
+            },
+            {
+              "multiplier": 100,
+              "occurrences": 5,
+              "type": "lb"
+            }
+          ],
+          "9": [
+            {
+              "multiplier": 15,
+              "occurrences": 3,
+              "type": "lb"
+            },
+            {
+              "multiplier": 40,
+              "occurrences": 4,
+              "type": "lb"
+            },
+            {
+              "multiplier": 100,
+              "occurrences": 5,
+              "type": "lb"
+            }
+          ],
+          "10": [
+            {
+              "multiplier": 15,
+              "occurrences": 3,
+              "type": "lb"
+            },
+            {
+              "multiplier": 40,
+              "occurrences": 4,
+              "type": "lb"
+            },
+            {
+              "multiplier": 100,
+              "occurrences": 5,
+              "type": "lb"
+            }
+          ],
+          "11": [
+            {
+              "multiplier": 5,
+              "occurrences": 2,
+              "type": "lb"
+            },
+            {
+              "multiplier": 25,
+              "occurrences": 3,
+              "type": "lb"
+            },
+            {
+              "multiplier": 100,
+              "occurrences": 4,
+              "type": "lb"
+            },
+            {
+              "multiplier": 300,
+              "occurrences": 5,
+              "type": "lb"
+            }
+          ],
+          "12": [
+            {
+              "multiplier": 5,
+              "occurrences": 2,
+              "type": "lb"
+            },
+            {
+              "multiplier": 25,
+              "occurrences": 3,
+              "type": "lb"
+            },
+            {
+              "multiplier": 100,
+              "occurrences": 4,
+              "type": "lb"
+            },
+            {
+              "multiplier": 300,
+              "occurrences": 5,
+              "type": "lb"
+            }
+          ]
+        },
+        "reelsamples": {
+          "bf": [
+            [
+              1,
+              2,
+              3,
+              4,
+              13
+            ],
+            [
+              2,
+              3,
+              4,
+              5,
+              13
+            ],
+            [
+              1,
+              2,
+              3,
+              4,
+              13
+            ],
+            [
+              2,
+              3,
+              4,
+              5,
+              6,
+              8
+            ],
+            [
+              1,
+              2,
+              3,
+              4,
+              7,
+              9
+            ]
+          ],
+          "spins": [
+            [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              13
+            ],
+            [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13
+            ],
+            [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13
+            ],
+            [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13
+            ],
+            [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13
+            ]
+          ]
+        },
+        "respins_granted": 3,
+        "rows": 3,
+        "symbols": [
+          {
+            "id": 1,
+            "name": "10",
+            "type": "line"
+          },
+          {
+            "id": 2,
+            "name": "J",
+            "type": "line"
+          },
+          {
+            "id": 3,
+            "name": "Q",
+            "type": "line"
+          },
+          {
+            "id": 4,
+            "name": "K",
+            "type": "line"
+          },
+          {
+            "id": 5,
+            "name": "A",
+            "type": "line"
+          },
+          {
+            "id": 6,
+            "name": "L1",
+            "type": "line"
+          },
+          {
+            "id": 7,
+            "name": "L2",
+            "type": "line"
+          },
+          {
+            "id": 8,
+            "name": "M1",
+            "type": "line"
+          },
+          {
+            "id": 9,
+            "name": "M2",
+            "type": "line"
+          },
+          {
+            "id": 10,
+            "name": "M3",
+            "type": "line"
+          },
+          {
+            "id": 11,
+            "name": "H1",
+            "type": "line"
+          },
+          {
+            "id": 12,
+            "name": "wild",
+            "type": "wild"
+          },
+          {
+            "id": 13,
+            "name": "bonus",
+            "type": "scat"
+          },
+          {
+            "id": 14,
+            "name": "hidden",
+            "type": "hide"
+          },
+          {
+            "id": 15,
+            "name": "el_bonus_progress_1",
+            "type": "scat"
+          },
+          {
+            "id": 16,
+            "name": "el_bonus_progress_2",
+            "type": "scat"
+          },
+          {
+            "id": 17,
+            "name": "el_bonus_progress_3",
+            "type": "scat"
+          }
+        ],
+        "symbols_line": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "symbols_scat": [
+          13,
+          15,
+          16,
+          17
+        ],
+        "symbols_wild": [
+          12
+        ]
+      },
+      "status": {
+        "code": "OK"
+      }
+    },
+    {
+      "command": "play",
+      "action": {
+        "name": "buy_spin",
+        "params": {
+          "bet_per_line": 2,
+          "lines": 25
+        }
+      },
+      "context": {
+        "actions": [
+          "bonus_init"
+        ],
+        "available_buy_bonus": [
+          1
+        ],
+        "current": "spins",
+        "last_action": "buy_spin",
+        "last_args": {
+          "bet_per_line": 2,
+          "lines": 25
+        },
+        "last_win": 0,
+        "round_finished": false,
+        "spins": {
+          "bac": {
+            "15": [
+              0,
+              0
+            ],
+            "16": [
+              0,
+              0
+            ],
+            "17": [
+              0,
+              0
+            ]
+          },
+          "bac_win": true,
+          "bet_per_line": 2,
+          "bg_type": "ExtraUltra",
+          "board": [
+            [
+              1,
+              17,
+              3
+            ],
+            [
+              5,
+              15,
+              2
+            ],
+            [
+              2,
+              3,
+              16
+            ],
+            [
+              3,
+              5,
+              6
+            ],
+            [
+              7,
+              2,
+              3
+            ]
+          ],
+          "bs": [
+            {
+              "position": 1,
+              "reel": 0,
+              "value": 1500
+            },
+            {
+              "position": 1,
+              "reel": 1,
+              "value": 300
+            },
+            {
+              "position": 2,
+              "reel": 2,
+              "value": 200
+            }
+          ],
+          "bs_count": 3,
+          "bs_v": [
+            [
+              0,
+              "mini",
+              0
+            ],
+            [
+              0,
+              300,
+              0
+            ],
+            [
+              0,
+              0,
+              200
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "bs_values": [
+            [
+              0,
+              15,
+              0
+            ],
+            [
+              0,
+              3,
+              0
+            ],
+            [
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "last_bet": 2,
+          "last_board": [
+            [
+              8,
+              15,
+              7
+            ],
+            [
+              2,
+              12,
+              12
+            ],
+            [
+              11,
+              17,
+              4
+            ],
+            [
+              2,
+              12,
+              12
+            ],
+            [
+              10,
+              16,
+              6
+            ]
+          ],
+          "last_bs": [
+            {
+              "position": 1,
+              "reel": 0,
+              "value": 500
+            },
+            {
+              "position": 1,
+              "reel": 2,
+              "value": 3000
+            },
+            {
+              "position": 1,
+              "reel": 4,
+              "value": 1000
+            }
+          ],
+          "last_bs_v": [
+            [
+              0,
+              500,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              "minor",
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1000,
+              0
+            ]
+          ],
+          "last_bs_values": [
+            [
+              0,
+              5,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              30,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              10,
+              0
+            ]
+          ],
+          "lines": 25,
+          "round_bet": 100,
+          "round_win": 0,
+          "total_win": 0
+        },
+        "version": 1
+      },
+      "settings": null,
+      "status": {
+        "code": "OK"
+      }
+    },
+    {
+      "command": "play",
+      "action": {
+        "name": "bonus_init",
+        "params": {}
+      },
+      "context": {
+        "actions": [
+          "respin"
+        ],
+        "available_buy_bonus": [
+          1
+        ],
+        "bonus": {
+          "bac": {
+            "15": [
+              0,
+              0
+            ],
+            "16": [
+              0,
+              0
+            ],
+            "17": [
+              0,
+              0
+            ]
+          },
+          "bet_per_line": 2,
+          "bg_type": "ExtraUltra",
+          "board": [
+            [
+              0,
+              13,
+              0
+            ],
+            [
+              0,
+              13,
+              0
+            ],
+            [
+              0,
+              0,
+              13
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "bs": [
+            {
+              "position": 1,
+              "reel": 0,
+              "value": 1500
+            },
+            {
+              "position": 1,
+              "reel": 1,
+              "value": 300
+            },
+            {
+              "position": 2,
+              "reel": 2,
+              "value": 200
+            }
+          ],
+          "bs_count": 3,
+          "bs_granted": 9,
+          "bs_v": [
+            [
+              0,
+              "mini",
+              0
+            ],
+            [
+              0,
+              300,
+              0
+            ],
+            [
+              0,
+              0,
+              200
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "bs_values": [
+            [
+              0,
+              15,
+              0
+            ],
+            [
+              0,
+              3,
+              0
+            ],
+            [
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "last_bet": 2,
+          "last_board": [
+            [
+              8,
+              15,
+              7
+            ],
+            [
+              2,
+              12,
+              12
+            ],
+            [
+              11,
+              17,
+              4
+            ],
+            [
+              2,
+              12,
+              12
+            ],
+            [
+              10,
+              16,
+              6
+            ]
+          ],
+          "last_bs": [
+            {
+              "position": 1,
+              "reel": 0,
+              "value": 500
+            },
+            {
+              "position": 1,
+              "reel": 2,
+              "value": 3000
+            },
+            {
+              "position": 1,
+              "reel": 4,
+              "value": 1000
+            }
+          ],
+          "last_bs_v": [
+            [
+              0,
+              500,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              "minor",
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1000,
+              0
+            ]
+          ],
+          "last_bs_values": [
+            [
+              0,
+              5,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              30,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              10,
+              0
+            ]
+          ],
+          "lines": 25,
+          "mps": [
+            [
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              1
+            ]
+          ],
+          "respin_state": "active",
+          "round_bet": 100,
+          "round_win": 0,
+          "rounds_granted": 0,
+          "rounds_left": 4,
+          "total_win": 0,
+          "total_win_state": 0,
+          "trigger_board": [
+            [
+              0,
+              13,
+              0
+            ],
+            [
+              0,
+              13,
+              0
+            ],
+            [
+              0,
+              0,
+              13
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "current": "bonus",
+        "last_action": "bonus_init",
+        "last_args": {},
+        "last_win": 0,
+        "round_finished": false,
+        "spins": {
+          "bac": {
+            "15": [
+              0,
+              0
+            ],
+            "16": [
+              0,
+              0
+            ],
+            "17": [
+              0,
+              0
+            ]
+          },
+          "bac_win": true,
+          "bet_per_line": 2,
+          "bg_type": "ExtraUltra",
+          "board": [
+            [
+              1,
+              17,
+              3
+            ],
+            [
+              5,
+              15,
+              2
+            ],
+            [
+              2,
+              3,
+              16
+            ],
+            [
+              3,
+              5,
+              6
+            ],
+            [
+              7,
+              2,
+              3
+            ]
+          ],
+          "bs": [
+            {
+              "position": 1,
+              "reel": 0,
+              "value": 1500
+            },
+            {
+              "position": 1,
+              "reel": 1,
+              "value": 300
+            },
+            {
+              "position": 2,
+              "reel": 2,
+              "value": 200
+            }
+          ],
+          "bs_count": 3,
+          "bs_v": [
+            [
+              0,
+              "mini",
+              0
+            ],
+            [
+              0,
+              300,
+              0
+            ],
+            [
+              0,
+              0,
+              200
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "bs_values": [
+            [
+              0,
+              15,
+              0
+            ],
+            [
+              0,
+              3,
+              0
+            ],
+            [
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "last_bet": 2,
+          "lines": 25,
+          "round_bet": 100,
+          "round_win": 0
+        },
+        "version": 1
+      },
+      "settings": null,
+      "status": {
+        "code": "OK"
+      }
+    },
+    {
+      "command": "play",
+      "action": {
+        "name": "respin",
+        "params": {}
+      },
+      "context": {
+        "actions": [
+          "respin"
+        ],
+        "available_buy_bonus": [
+          1
+        ],
+        "bonus": {
+          "bac": {
+            "15": [
+              0,
+              0
+            ],
+            "16": [
+              0,
+              0
+            ],
+            "17": [
+              0,
+              0
+            ]
+          },
+          "bet_per_line": 2,
+          "bg_type": "ExtraUltra",
+          "board": [
+            [
+              0,
+              13,
+              0
+            ],
+            [
+              13,
+              13,
+              0
+            ],
+            [
+              0,
+              0,
+              13
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "bs": [
+            {
+              "position": 1,
+              "reel": 0,
+              "value": 1500
+            },
+            {
+              "position": 1,
+              "reel": 1,
+              "value": 300
+            },
+            {
+              "position": 2,
+              "reel": 2,
+              "value": 200
+            },
+            {
+              "position": 0,
+              "reel": 1,
+              "value": 100
+            }
+          ],
+          "bs_count": 4,
+          "bs_granted": 9,
+          "bs_v": [
+            [
+              0,
+              "mini",
+              0
+            ],
+            [
+              100,
+              300,
+              0
+            ],
+            [
+              0,
+              0,
+              200
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "bs_values": [
+            [
+              0,
+              15,
+              0
+            ],
+            [
+              1,
+              3,
+              0
+            ],
+            [
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "last_bet": 2,
+          "last_board": [
+            [
+              8,
+              15,
+              7
+            ],
+            [
+              2,
+              12,
+              12
+            ],
+            [
+              11,
+              17,
+              4
+            ],
+            [
+              2,
+              12,
+              12
+            ],
+            [
+              10,
+              16,
+              6
+            ]
+          ],
+          "last_bs": [
+            {
+              "position": 1,
+              "reel": 0,
+              "value": 500
+            },
+            {
+              "position": 1,
+              "reel": 2,
+              "value": 3000
+            },
+            {
+              "position": 1,
+              "reel": 4,
+              "value": 1000
+            }
+          ],
+          "last_bs_v": [
+            [
+              0,
+              500,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              "minor",
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1000,
+              0
+            ]
+          ],
+          "last_bs_values": [
+            [
+              0,
+              5,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              30,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              10,
+              0
+            ]
+          ],
+          "lines": 25,
+          "mps": [
+            [
+              1,
+              1,
+              1
+            ],
+            [
+              2,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              2
+            ],
+            [
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              1
+            ]
+          ],
+          "new_bs": [
+            {
+              "position": 0,
+              "reel": 1,
+              "value": 100
+            }
+          ],
+          "respin_state": "active",
+          "round_bet": 100,
+          "round_win": 0,
+          "rounds_granted": 0,
+          "rounds_left": 4,
+          "total_win": 0,
+          "total_win_state": 0,
+          "trigger_board": [
+            [
+              0,
+              13,
+              0
+            ],
+            [
+              0,
+              13,
+              0
+            ],
+            [
+              0,
+              0,
+              13
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "ultra_blows": [
+            [
+              2,
+              2,
+              2
+            ],
+            [
+              1,
+              0,
+              2
+            ]
+          ]
+        },
+        "current": "bonus",
+        "last_action": "respin",
+        "last_args": {},
+        "last_win": 0,
+        "round_finished": false,
+        "spins": {
+          "bac": {
+            "15": [
+              0,
+              0
+            ],
+            "16": [
+              0,
+              0
+            ],
+            "17": [
+              0,
+              0
+            ]
+          },
+          "bac_win": true,
+          "bet_per_line": 2,
+          "bg_type": "ExtraUltra",
+          "board": [
+            [
+              1,
+              17,
+              3
+            ],
+            [
+              5,
+              15,
+              2
+            ],
+            [
+              2,
+              3,
+              16
+            ],
+            [
+              3,
+              5,
+              6
+            ],
+            [
+              7,
+              2,
+              3
+            ]
+          ],
+          "bs": [
+            {
+              "position": 1,
+              "reel": 0,
+              "value": 1500
+            },
+            {
+              "position": 1,
+              "reel": 1,
+              "value": 300
+            },
+            {
+              "position": 2,
+              "reel": 2,
+              "value": 200
+            }
+          ],
+          "bs_count": 3,
+          "bs_v": [
+            [
+              0,
+              "mini",
+              0
+            ],
+            [
+              0,
+              300,
+              0
+            ],
+            [
+              0,
+              0,
+              200
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "bs_values": [
+            [
+              0,
+              15,
+              0
+            ],
+            [
+              0,
+              3,
+              0
+            ],
+            [
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "last_bet": 2,
+          "lines": 25,
+          "round_bet": 100,
+          "round_win": 0
+        },
+        "version": 1
+      },
+      "settings": null,
+      "status": {
+        "code": "OK"
+      }
+    },
+    {
+      "command": "play",
+      "action": {
+        "name": "respin",
+        "params": {}
+      },
+      "context": {
+        "actions": [
+          "respin"
+        ],
+        "available_buy_bonus": [
+          1
+        ],
+        "bonus": {
+          "bac": {
+            "15": [
+              0,
+              0
+            ],
+            "16": [
+              0,
+              0
+            ],
+            "17": [
+              0,
+              0
+            ]
+          },
+          "bet_per_line": 2,
+          "bg_type": "ExtraUltra",
+          "board": [
+            [
+              0,
+              13,
+              0
+            ],
+            [
+              13,
+              13,
+              0
+            ],
+            [
+              0,
+              0,
+              13
+            ],
+            [
+              13,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "bs": [
+            {
+              "position": 1,
+              "reel": 0,
+              "value": 1500
+            },
+            {
+              "position": 1,
+              "reel": 1,
+              "value": 300
+            },
+            {
+              "position": 2,
+              "reel": 2,
+              "value": 200
+            },
+            {
+              "position": 0,
+              "reel": 1,
+              "value": 100
+            },
+            {
+              "position": 0,
+              "reel": 3,
+              "value": 400
+            }
+          ],
+          "bs_count": 5,
+          "bs_granted": 9,
+          "bs_v": [
+            [
+              0,
+              "mini",
+              0
+            ],
+            [
+              100,
+              300,
+              0
+            ],
+            [
+              0,
+              0,
+              200
+            ],
+            [
+              400,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "bs_values": [
+            [
+              0,
+              15,
+              0
+            ],
+            [
+              1,
+              3,
+              0
+            ],
+            [
+              0,
+              0,
+              2
+            ],
+            [
+              4,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "last_bet": 2,
+          "last_board": [
+            [
+              8,
+              15,
+              7
+            ],
+            [
+              2,
+              12,
+              12
+            ],
+            [
+              11,
+              17,
+              4
+            ],
+            [
+              2,
+              12,
+              12
+            ],
+            [
+              10,
+              16,
+              6
+            ]
+          ],
+          "last_bs": [
+            {
+              "position": 1,
+              "reel": 0,
+              "value": 500
+            },
+            {
+              "position": 1,
+              "reel": 2,
+              "value": 3000
+            },
+            {
+              "position": 1,
+              "reel": 4,
+              "value": 1000
+            }
+          ],
+          "last_bs_v": [
+            [
+              0,
+              500,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              "minor",
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1000,
+              0
+            ]
+          ],
+          "last_bs_values": [
+            [
+              0,
+              5,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              30,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              10,
+              0
+            ]
+          ],
+          "lines": 25,
+          "mps": [
+            [
+              1,
+              2,
+              1
+            ],
+            [
+              4,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              2
+            ],
+            [
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              1
+            ]
+          ],
+          "new_bs": [
+            {
+              "position": 0,
+              "reel": 3,
+              "value": 400
+            }
+          ],
+          "respin_state": "active",
+          "round_bet": 100,
+          "round_win": 0,
+          "rounds_granted": 0,
+          "rounds_left": 4,
+          "total_win": 0,
+          "total_win_state": 0,
+          "trigger_board": [
+            [
+              0,
+              13,
+              0
+            ],
+            [
+              0,
+              13,
+              0
+            ],
+            [
+              0,
+              0,
+              13
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "ultra_blows": [
+            [
+              1,
+              0,
+              2
+            ],
+            [
+              0,
+              1,
+              2
+            ]
+          ]
+        },
+        "current": "bonus",
+        "last_action": "respin",
+        "last_args": {},
+        "last_win": 0,
+        "round_finished": false,
+        "spins": {
+          "bac": {
+            "15": [
+              0,
+              0
+            ],
+            "16": [
+              0,
+              0
+            ],
+            "17": [
+              0,
+              0
+            ]
+          },
+          "bac_win": true,
+          "bet_per_line": 2,
+          "bg_type": "ExtraUltra",
+          "board": [
+            [
+              1,
+              17,
+              3
+            ],
+            [
+              5,
+              15,
+              2
+            ],
+            [
+              2,
+              3,
+              16
+            ],
+            [
+              3,
+              5,
+              6
+            ],
+            [
+              7,
+              2,
+              3
+            ]
+          ],
+          "bs": [
+            {
+              "position": 1,
+              "reel": 0,
+              "value": 1500
+            },
+            {
+              "position": 1,
+              "reel": 1,
+              "value": 300
+            },
+            {
+              "position": 2,
+              "reel": 2,
+              "value": 200
+            }
+          ],
+          "bs_count": 3,
+          "bs_v": [
+            [
+              0,
+              "mini",
+              0
+            ],
+            [
+              0,
+              300,
+              0
+            ],
+            [
+              0,
+              0,
+              200
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "bs_values": [
+            [
+              0,
+              15,
+              0
+            ],
+            [
+              0,
+              3,
+              0
+            ],
+            [
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "last_bet": 2,
+          "lines": 25,
+          "round_bet": 100,
+          "round_win": 0
+        },
+        "version": 1
+      },
+      "settings": null,
+      "status": {
+        "code": "OK"
+      }
+    },
+    {
+      "command": "play",
+      "action": {
+        "name": "respin",
+        "params": {}
+      },
+      "context": {
+        "actions": [
+          "respin"
+        ],
+        "available_buy_bonus": [
+          1
+        ],
+        "bonus": {
+          "bac": {
+            "15": [
+              0,
+              0
+            ],
+            "16": [
+              0,
+              0
+            ],
+            "17": [
+              0,
+              0
+            ]
+          },
+          "bet_per_line": 2,
+          "bg_type": "ExtraUltra",
+          "board": [
+            [
+              0,
+              13,
+              0
+            ],
+            [
+              13,
+              13,
+              0
+            ],
+            [
+              0,
+              0,
+              13
+            ],
+            [
+              13,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "bs": [
+            {
+              "position": 1,
+              "reel": 0,
+              "value": 1500
+            },
+            {
+              "position": 1,
+              "reel": 1,
+              "value": 300
+            },
+            {
+              "position": 2,
+              "reel": 2,
+              "value": 200
+            },
+            {
+              "position": 0,
+              "reel": 1,
+              "value": 100
+            },
+            {
+              "position": 0,
+              "reel": 3,
+              "value": 400
+            }
+          ],
+          "bs_count": 5,
+          "bs_granted": 9,
+          "bs_v": [
+            [
+              0,
+              "mini",
+              0
+            ],
+            [
+              100,
+              300,
+              0
+            ],
+            [
+              0,
+              0,
+              200
+            ],
+            [
+              400,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "bs_values": [
+            [
+              0,
+              15,
+              0
+            ],
+            [
+              1,
+              3,
+              0
+            ],
+            [
+              0,
+              0,
+              2
+            ],
+            [
+              4,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "last_bet": 2,
+          "last_board": [
+            [
+              8,
+              15,
+              7
+            ],
+            [
+              2,
+              12,
+              12
+            ],
+            [
+              11,
+              17,
+              4
+            ],
+            [
+              2,
+              12,
+              12
+            ],
+            [
+              10,
+              16,
+              6
+            ]
+          ],
+          "last_bs": [
+            {
+              "position": 1,
+              "reel": 0,
+              "value": 500
+            },
+            {
+              "position": 1,
+              "reel": 2,
+              "value": 3000
+            },
+            {
+              "position": 1,
+              "reel": 4,
+              "value": 1000
+            }
+          ],
+          "last_bs_v": [
+            [
+              0,
+              500,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              "minor",
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1000,
+              0
+            ]
+          ],
+          "last_bs_values": [
+            [
+              0,
+              5,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              30,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              10,
+              0
+            ]
+          ],
+          "lines": 25,
+          "mps": [
+            [
+              1,
+              2,
+              1
+            ],
+            [
+              4,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              2
+            ],
+            [
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              1
+            ]
+          ],
+          "respin_state": "active",
+          "round_bet": 100,
+          "round_win": 0,
+          "rounds_granted": 0,
+          "rounds_left": 3,
+          "total_win": 0,
+          "total_win_state": 0,
+          "trigger_board": [
+            [
+              0,
+              13,
+              0
+            ],
+            [
+              0,
+              13,
+              0
+            ],
+            [
+              0,
+              0,
+              13
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "current": "bonus",
+        "last_action": "respin",
+        "last_args": {},
+        "last_win": 0,
+        "round_finished": false,
+        "spins": {
+          "bac": {
+            "15": [
+              0,
+              0
+            ],
+            "16": [
+              0,
+              0
+            ],
+            "17": [
+              0,
+              0
+            ]
+          },
+          "bac_win": true,
+          "bet_per_line": 2,
+          "bg_type": "ExtraUltra",
+          "board": [
+            [
+              1,
+              17,
+              3
+            ],
+            [
+              5,
+              15,
+              2
+            ],
+            [
+              2,
+              3,
+              16
+            ],
+            [
+              3,
+              5,
+              6
+            ],
+            [
+              7,
+              2,
+              3
+            ]
+          ],
+          "bs": [
+            {
+              "position": 1,
+              "reel": 0,
+              "value": 1500
+            },
+            {
+              "position": 1,
+              "reel": 1,
+              "value": 300
+            },
+            {
+              "position": 2,
+              "reel": 2,
+              "value": 200
+            }
+          ],
+          "bs_count": 3,
+          "bs_v": [
+            [
+              0,
+              "mini",
+              0
+            ],
+            [
+              0,
+              300,
+              0
+            ],
+            [
+              0,
+              0,
+              200
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "bs_values": [
+            [
+              0,
+              15,
+              0
+            ],
+            [
+              0,
+              3,
+              0
+            ],
+            [
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "last_bet": 2,
+          "lines": 25,
+          "round_bet": 100,
+          "round_win": 0
+        },
+        "version": 1
+      },
+      "settings": null,
+      "status": {
+        "code": "OK"
+      }
+    },
+    {
+      "command": "play",
+      "action": {
+        "name": "respin",
+        "params": {}
+      },
+      "context": {
+        "actions": [
+          "respin"
+        ],
+        "available_buy_bonus": [
+          1
+        ],
+        "bonus": {
+          "bac": {
+            "15": [
+              0,
+              0
+            ],
+            "16": [
+              0,
+              0
+            ],
+            "17": [
+              0,
+              0
+            ]
+          },
+          "bet_per_line": 2,
+          "bg_type": "ExtraUltra",
+          "board": [
+            [
+              0,
+              13,
+              0
+            ],
+            [
+              13,
+              13,
+              0
+            ],
+            [
+              0,
+              0,
+              13
+            ],
+            [
+              13,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "bs": [
+            {
+              "position": 1,
+              "reel": 0,
+              "value": 1500
+            },
+            {
+              "position": 1,
+              "reel": 1,
+              "value": 300
+            },
+            {
+              "position": 2,
+              "reel": 2,
+              "value": 200
+            },
+            {
+              "position": 0,
+              "reel": 1,
+              "value": 100
+            },
+            {
+              "position": 0,
+              "reel": 3,
+              "value": 400
+            }
+          ],
+          "bs_count": 5,
+          "bs_granted": 9,
+          "bs_v": [
+            [
+              0,
+              "mini",
+              0
+            ],
+            [
+              100,
+              300,
+              0
+            ],
+            [
+              0,
+              0,
+              200
+            ],
+            [
+              400,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "bs_values": [
+            [
+              0,
+              15,
+              0
+            ],
+            [
+              1,
+              3,
+              0
+            ],
+            [
+              0,
+              0,
+              2
+            ],
+            [
+              4,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "last_bet": 2,
+          "last_board": [
+            [
+              8,
+              15,
+              7
+            ],
+            [
+              2,
+              12,
+              12
+            ],
+            [
+              11,
+              17,
+              4
+            ],
+            [
+              2,
+              12,
+              12
+            ],
+            [
+              10,
+              16,
+              6
+            ]
+          ],
+          "last_bs": [
+            {
+              "position": 1,
+              "reel": 0,
+              "value": 500
+            },
+            {
+              "position": 1,
+              "reel": 2,
+              "value": 3000
+            },
+            {
+              "position": 1,
+              "reel": 4,
+              "value": 1000
+            }
+          ],
+          "last_bs_v": [
+            [
+              0,
+              500,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              "minor",
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1000,
+              0
+            ]
+          ],
+          "last_bs_values": [
+            [
+              0,
+              5,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              30,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              10,
+              0
+            ]
+          ],
+          "lines": 25,
+          "mps": [
+            [
+              1,
+              2,
+              1
+            ],
+            [
+              4,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              2
+            ],
+            [
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              1
+            ]
+          ],
+          "respin_state": "active",
+          "round_bet": 100,
+          "round_win": 0,
+          "rounds_granted": 0,
+          "rounds_left": 2,
+          "total_win": 0,
+          "total_win_state": 0,
+          "trigger_board": [
+            [
+              0,
+              13,
+              0
+            ],
+            [
+              0,
+              13,
+              0
+            ],
+            [
+              0,
+              0,
+              13
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "current": "bonus",
+        "last_action": "respin",
+        "last_args": {},
+        "last_win": 0,
+        "round_finished": false,
+        "spins": {
+          "bac": {
+            "15": [
+              0,
+              0
+            ],
+            "16": [
+              0,
+              0
+            ],
+            "17": [
+              0,
+              0
+            ]
+          },
+          "bac_win": true,
+          "bet_per_line": 2,
+          "bg_type": "ExtraUltra",
+          "board": [
+            [
+              1,
+              17,
+              3
+            ],
+            [
+              5,
+              15,
+              2
+            ],
+            [
+              2,
+              3,
+              16
+            ],
+            [
+              3,
+              5,
+              6
+            ],
+            [
+              7,
+              2,
+              3
+            ]
+          ],
+          "bs": [
+            {
+              "position": 1,
+              "reel": 0,
+              "value": 1500
+            },
+            {
+              "position": 1,
+              "reel": 1,
+              "value": 300
+            },
+            {
+              "position": 2,
+              "reel": 2,
+              "value": 200
+            }
+          ],
+          "bs_count": 3,
+          "bs_v": [
+            [
+              0,
+              "mini",
+              0
+            ],
+            [
+              0,
+              300,
+              0
+            ],
+            [
+              0,
+              0,
+              200
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "bs_values": [
+            [
+              0,
+              15,
+              0
+            ],
+            [
+              0,
+              3,
+              0
+            ],
+            [
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "last_bet": 2,
+          "lines": 25,
+          "round_bet": 100,
+          "round_win": 0
+        },
+        "version": 1
+      },
+      "settings": null,
+      "status": {
+        "code": "OK"
+      }
+    },
+    {
+      "command": "play",
+      "action": {
+        "name": "respin",
+        "params": {}
+      },
+      "context": {
+        "actions": [
+          "respin"
+        ],
+        "available_buy_bonus": [
+          1
+        ],
+        "bonus": {
+          "bac": {
+            "15": [
+              0,
+              0
+            ],
+            "16": [
+              0,
+              0
+            ],
+            "17": [
+              0,
+              0
+            ]
+          },
+          "bet_per_line": 2,
+          "bg_type": "ExtraUltra",
+          "board": [
+            [
+              13,
+              13,
+              13
+            ],
+            [
+              13,
+              13,
+              0
+            ],
+            [
+              0,
+              0,
+              13
+            ],
+            [
+              13,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "bs": [
+            {
+              "position": 1,
+              "reel": 0,
+              "value": 1500
+            },
+            {
+              "position": 1,
+              "reel": 1,
+              "value": 300
+            },
+            {
+              "position": 2,
+              "reel": 2,
+              "value": 200
+            },
+            {
+              "position": 0,
+              "reel": 1,
+              "value": 100
+            },
+            {
+              "position": 0,
+              "reel": 3,
+              "value": 400
+            },
+            {
+              "position": 2,
+              "reel": 0,
+              "value": 100
+            },
+            {
+              "position": 0,
+              "reel": 0,
+              "value": 300
+            }
+          ],
+          "bs_count": 7,
+          "bs_granted": 9,
+          "bs_v": [
+            [
+              300,
+              "mini",
+              100
+            ],
+            [
+              100,
+              300,
+              0
+            ],
+            [
+              0,
+              0,
+              200
+            ],
+            [
+              400,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "bs_values": [
+            [
+              3,
+              15,
+              1
+            ],
+            [
+              1,
+              3,
+              0
+            ],
+            [
+              0,
+              0,
+              2
+            ],
+            [
+              4,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "last_bet": 2,
+          "last_board": [
+            [
+              8,
+              15,
+              7
+            ],
+            [
+              2,
+              12,
+              12
+            ],
+            [
+              11,
+              17,
+              4
+            ],
+            [
+              2,
+              12,
+              12
+            ],
+            [
+              10,
+              16,
+              6
+            ]
+          ],
+          "last_bs": [
+            {
+              "position": 1,
+              "reel": 0,
+              "value": 500
+            },
+            {
+              "position": 1,
+              "reel": 2,
+              "value": 3000
+            },
+            {
+              "position": 1,
+              "reel": 4,
+              "value": 1000
+            }
+          ],
+          "last_bs_v": [
+            [
+              0,
+              500,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              "minor",
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1000,
+              0
+            ]
+          ],
+          "last_bs_values": [
+            [
+              0,
+              5,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              30,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              10,
+              0
+            ]
+          ],
+          "lines": 25,
+          "mps": [
+            [
+              1,
+              2,
+              1
+            ],
+            [
+              4,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              2
+            ],
+            [
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              1
+            ]
+          ],
+          "new_bs": [
+            {
+              "position": 2,
+              "reel": 0,
+              "value": 100
+            },
+            {
+              "position": 0,
+              "reel": 0,
+              "value": 300
+            }
+          ],
+          "respin_state": "active",
+          "round_bet": 100,
+          "round_win": 0,
+          "rounds_granted": 0,
+          "rounds_left": 4,
+          "total_win": 0,
+          "total_win_state": 0,
+          "trigger_board": [
+            [
+              0,
+              13,
+              0
+            ],
+            [
+              0,
+              13,
+              0
+            ],
+            [
+              0,
+              0,
+              13
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "current": "bonus",
+        "last_action": "respin",
+        "last_args": {},
+        "last_win": 0,
+        "round_finished": false,
+        "spins": {
+          "bac": {
+            "15": [
+              0,
+              0
+            ],
+            "16": [
+              0,
+              0
+            ],
+            "17": [
+              0,
+              0
+            ]
+          },
+          "bac_win": true,
+          "bet_per_line": 2,
+          "bg_type": "ExtraUltra",
+          "board": [
+            [
+              1,
+              17,
+              3
+            ],
+            [
+              5,
+              15,
+              2
+            ],
+            [
+              2,
+              3,
+              16
+            ],
+            [
+              3,
+              5,
+              6
+            ],
+            [
+              7,
+              2,
+              3
+            ]
+          ],
+          "bs": [
+            {
+              "position": 1,
+              "reel": 0,
+              "value": 1500
+            },
+            {
+              "position": 1,
+              "reel": 1,
+              "value": 300
+            },
+            {
+              "position": 2,
+              "reel": 2,
+              "value": 200
+            }
+          ],
+          "bs_count": 3,
+          "bs_v": [
+            [
+              0,
+              "mini",
+              0
+            ],
+            [
+              0,
+              300,
+              0
+            ],
+            [
+              0,
+              0,
+              200
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "bs_values": [
+            [
+              0,
+              15,
+              0
+            ],
+            [
+              0,
+              3,
+              0
+            ],
+            [
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "last_bet": 2,
+          "lines": 25,
+          "round_bet": 100,
+          "round_win": 0
+        },
+        "version": 1
+      },
+      "settings": null,
+      "status": {
+        "code": "OK"
+      }
+    },
+    {
+      "command": "play",
+      "action": {
+        "name": "respin",
+        "params": {}
+      },
+      "context": {
+        "actions": [
+          "respin"
+        ],
+        "available_buy_bonus": [
+          1
+        ],
+        "bonus": {
+          "bac": {
+            "15": [
+              0,
+              0
+            ],
+            "16": [
+              0,
+              0
+            ],
+            "17": [
+              0,
+              0
+            ]
+          },
+          "bet_per_line": 2,
+          "bg_type": "ExtraUltra",
+          "board": [
+            [
+              13,
+              13,
+              13
+            ],
+            [
+              13,
+              13,
+              0
+            ],
+            [
+              0,
+              0,
+              13
+            ],
+            [
+              13,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "bs": [
+            {
+              "position": 1,
+              "reel": 0,
+              "value": 1500
+            },
+            {
+              "position": 1,
+              "reel": 1,
+              "value": 300
+            },
+            {
+              "position": 2,
+              "reel": 2,
+              "value": 200
+            },
+            {
+              "position": 0,
+              "reel": 1,
+              "value": 100
+            },
+            {
+              "position": 0,
+              "reel": 3,
+              "value": 400
+            },
+            {
+              "position": 2,
+              "reel": 0,
+              "value": 100
+            },
+            {
+              "position": 0,
+              "reel": 0,
+              "value": 300
+            }
+          ],
+          "bs_count": 7,
+          "bs_granted": 9,
+          "bs_v": [
+            [
+              300,
+              "mini",
+              100
+            ],
+            [
+              100,
+              300,
+              0
+            ],
+            [
+              0,
+              0,
+              200
+            ],
+            [
+              400,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "bs_values": [
+            [
+              3,
+              15,
+              1
+            ],
+            [
+              1,
+              3,
+              0
+            ],
+            [
+              0,
+              0,
+              2
+            ],
+            [
+              4,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "last_bet": 2,
+          "last_board": [
+            [
+              8,
+              15,
+              7
+            ],
+            [
+              2,
+              12,
+              12
+            ],
+            [
+              11,
+              17,
+              4
+            ],
+            [
+              2,
+              12,
+              12
+            ],
+            [
+              10,
+              16,
+              6
+            ]
+          ],
+          "last_bs": [
+            {
+              "position": 1,
+              "reel": 0,
+              "value": 500
+            },
+            {
+              "position": 1,
+              "reel": 2,
+              "value": 3000
+            },
+            {
+              "position": 1,
+              "reel": 4,
+              "value": 1000
+            }
+          ],
+          "last_bs_v": [
+            [
+              0,
+              500,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              "minor",
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1000,
+              0
+            ]
+          ],
+          "last_bs_values": [
+            [
+              0,
+              5,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              30,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              10,
+              0
+            ]
+          ],
+          "lines": 25,
+          "mps": [
+            [
+              1,
+              2,
+              1
+            ],
+            [
+              4,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              2
+            ],
+            [
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              1
+            ]
+          ],
+          "respin_state": "active",
+          "round_bet": 100,
+          "round_win": 0,
+          "rounds_granted": 0,
+          "rounds_left": 3,
+          "total_win": 0,
+          "total_win_state": 0,
+          "trigger_board": [
+            [
+              0,
+              13,
+              0
+            ],
+            [
+              0,
+              13,
+              0
+            ],
+            [
+              0,
+              0,
+              13
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "current": "bonus",
+        "last_action": "respin",
+        "last_args": {},
+        "last_win": 0,
+        "round_finished": false,
+        "spins": {
+          "bac": {
+            "15": [
+              0,
+              0
+            ],
+            "16": [
+              0,
+              0
+            ],
+            "17": [
+              0,
+              0
+            ]
+          },
+          "bac_win": true,
+          "bet_per_line": 2,
+          "bg_type": "ExtraUltra",
+          "board": [
+            [
+              1,
+              17,
+              3
+            ],
+            [
+              5,
+              15,
+              2
+            ],
+            [
+              2,
+              3,
+              16
+            ],
+            [
+              3,
+              5,
+              6
+            ],
+            [
+              7,
+              2,
+              3
+            ]
+          ],
+          "bs": [
+            {
+              "position": 1,
+              "reel": 0,
+              "value": 1500
+            },
+            {
+              "position": 1,
+              "reel": 1,
+              "value": 300
+            },
+            {
+              "position": 2,
+              "reel": 2,
+              "value": 200
+            }
+          ],
+          "bs_count": 3,
+          "bs_v": [
+            [
+              0,
+              "mini",
+              0
+            ],
+            [
+              0,
+              300,
+              0
+            ],
+            [
+              0,
+              0,
+              200
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "bs_values": [
+            [
+              0,
+              15,
+              0
+            ],
+            [
+              0,
+              3,
+              0
+            ],
+            [
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "last_bet": 2,
+          "lines": 25,
+          "round_bet": 100,
+          "round_win": 0
+        },
+        "version": 1
+      },
+      "settings": null,
+      "status": {
+        "code": "OK"
+      }
+    },
+    {
+      "command": "play",
+      "action": {
+        "name": "respin",
+        "params": {}
+      },
+      "context": {
+        "actions": [
+          "respin"
+        ],
+        "available_buy_bonus": [
+          1
+        ],
+        "bonus": {
+          "bac": {
+            "15": [
+              0,
+              0
+            ],
+            "16": [
+              0,
+              0
+            ],
+            "17": [
+              0,
+              0
+            ]
+          },
+          "bet_per_line": 2,
+          "bg_type": "ExtraUltra",
+          "board": [
+            [
+              13,
+              13,
+              13
+            ],
+            [
+              13,
+              13,
+              0
+            ],
+            [
+              0,
+              0,
+              13
+            ],
+            [
+              13,
+              13,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "bs": [
+            {
+              "position": 1,
+              "reel": 0,
+              "value": 1500
+            },
+            {
+              "position": 1,
+              "reel": 1,
+              "value": 300
+            },
+            {
+              "position": 2,
+              "reel": 2,
+              "value": 200
+            },
+            {
+              "position": 0,
+              "reel": 1,
+              "value": 100
+            },
+            {
+              "position": 0,
+              "reel": 3,
+              "value": 400
+            },
+            {
+              "position": 2,
+              "reel": 0,
+              "value": 100
+            },
+            {
+              "position": 0,
+              "reel": 0,
+              "value": 300
+            },
+            {
+              "position": 1,
+              "reel": 3,
+              "value": 300
+            }
+          ],
+          "bs_count": 8,
+          "bs_granted": 9,
+          "bs_v": [
+            [
+              300,
+              "mini",
+              100
+            ],
+            [
+              100,
+              300,
+              0
+            ],
+            [
+              0,
+              0,
+              200
+            ],
+            [
+              400,
+              300,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "bs_values": [
+            [
+              3,
+              15,
+              1
+            ],
+            [
+              1,
+              3,
+              0
+            ],
+            [
+              0,
+              0,
+              2
+            ],
+            [
+              4,
+              3,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "last_bet": 2,
+          "last_board": [
+            [
+              8,
+              15,
+              7
+            ],
+            [
+              2,
+              12,
+              12
+            ],
+            [
+              11,
+              17,
+              4
+            ],
+            [
+              2,
+              12,
+              12
+            ],
+            [
+              10,
+              16,
+              6
+            ]
+          ],
+          "last_bs": [
+            {
+              "position": 1,
+              "reel": 0,
+              "value": 500
+            },
+            {
+              "position": 1,
+              "reel": 2,
+              "value": 3000
+            },
+            {
+              "position": 1,
+              "reel": 4,
+              "value": 1000
+            }
+          ],
+          "last_bs_v": [
+            [
+              0,
+              500,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              "minor",
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1000,
+              0
+            ]
+          ],
+          "last_bs_values": [
+            [
+              0,
+              5,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              30,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              10,
+              0
+            ]
+          ],
+          "lines": 25,
+          "mps": [
+            [
+              1,
+              2,
+              1
+            ],
+            [
+              4,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              2
+            ],
+            [
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              1
+            ]
+          ],
+          "new_bs": [
+            {
+              "position": 1,
+              "reel": 3,
+              "value": 300
+            }
+          ],
+          "respin_state": "active",
+          "round_bet": 100,
+          "round_win": 0,
+          "rounds_granted": 0,
+          "rounds_left": 4,
+          "total_win": 0,
+          "total_win_state": 0,
+          "trigger_board": [
+            [
+              0,
+              13,
+              0
+            ],
+            [
+              0,
+              13,
+              0
+            ],
+            [
+              0,
+              0,
+              13
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "current": "bonus",
+        "last_action": "respin",
+        "last_args": {},
+        "last_win": 0,
+        "round_finished": false,
+        "spins": {
+          "bac": {
+            "15": [
+              0,
+              0
+            ],
+            "16": [
+              0,
+              0
+            ],
+            "17": [
+              0,
+              0
+            ]
+          },
+          "bac_win": true,
+          "bet_per_line": 2,
+          "bg_type": "ExtraUltra",
+          "board": [
+            [
+              1,
+              17,
+              3
+            ],
+            [
+              5,
+              15,
+              2
+            ],
+            [
+              2,
+              3,
+              16
+            ],
+            [
+              3,
+              5,
+              6
+            ],
+            [
+              7,
+              2,
+              3
+            ]
+          ],
+          "bs": [
+            {
+              "position": 1,
+              "reel": 0,
+              "value": 1500
+            },
+            {
+              "position": 1,
+              "reel": 1,
+              "value": 300
+            },
+            {
+              "position": 2,
+              "reel": 2,
+              "value": 200
+            }
+          ],
+          "bs_count": 3,
+          "bs_v": [
+            [
+              0,
+              "mini",
+              0
+            ],
+            [
+              0,
+              300,
+              0
+            ],
+            [
+              0,
+              0,
+              200
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "bs_values": [
+            [
+              0,
+              15,
+              0
+            ],
+            [
+              0,
+              3,
+              0
+            ],
+            [
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "last_bet": 2,
+          "lines": 25,
+          "round_bet": 100,
+          "round_win": 0
+        },
+        "version": 1
+      },
+      "settings": null,
+      "status": {
+        "code": "OK"
+      }
+    },
+    {
+      "command": "play",
+      "action": {
+        "name": "respin",
+        "params": {}
+      },
+      "context": {
+        "actions": [
+          "respin"
+        ],
+        "available_buy_bonus": [
+          1
+        ],
+        "bonus": {
+          "bac": {
+            "15": [
+              0,
+              0
+            ],
+            "16": [
+              0,
+              0
+            ],
+            "17": [
+              0,
+              0
+            ]
+          },
+          "bet_per_line": 2,
+          "bg_type": "ExtraUltra",
+          "board": [
+            [
+              13,
+              13,
+              13
+            ],
+            [
+              13,
+              13,
+              0
+            ],
+            [
+              13,
+              0,
+              13
+            ],
+            [
+              13,
+              13,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "bs": [
+            {
+              "position": 1,
+              "reel": 0,
+              "value": 1500
+            },
+            {
+              "position": 1,
+              "reel": 1,
+              "value": 300
+            },
+            {
+              "position": 2,
+              "reel": 2,
+              "value": 200
+            },
+            {
+              "position": 0,
+              "reel": 1,
+              "value": 100
+            },
+            {
+              "position": 0,
+              "reel": 3,
+              "value": 400
+            },
+            {
+              "position": 2,
+              "reel": 0,
+              "value": 100
+            },
+            {
+              "position": 0,
+              "reel": 0,
+              "value": 300
+            },
+            {
+              "position": 1,
+              "reel": 3,
+              "value": 300
+            },
+            {
+              "position": 0,
+              "reel": 2,
+              "value": 200
+            }
+          ],
+          "bs_count": 9,
+          "bs_granted": 9,
+          "bs_v": [
+            [
+              300,
+              "mini",
+              100
+            ],
+            [
+              100,
+              300,
+              0
+            ],
+            [
+              200,
+              0,
+              200
+            ],
+            [
+              400,
+              300,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "bs_values": [
+            [
+              3,
+              15,
+              1
+            ],
+            [
+              1,
+              3,
+              0
+            ],
+            [
+              2,
+              0,
+              2
+            ],
+            [
+              4,
+              3,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "last_bet": 2,
+          "last_board": [
+            [
+              8,
+              15,
+              7
+            ],
+            [
+              2,
+              12,
+              12
+            ],
+            [
+              11,
+              17,
+              4
+            ],
+            [
+              2,
+              12,
+              12
+            ],
+            [
+              10,
+              16,
+              6
+            ]
+          ],
+          "last_bs": [
+            {
+              "position": 1,
+              "reel": 0,
+              "value": 500
+            },
+            {
+              "position": 1,
+              "reel": 2,
+              "value": 3000
+            },
+            {
+              "position": 1,
+              "reel": 4,
+              "value": 1000
+            }
+          ],
+          "last_bs_v": [
+            [
+              0,
+              500,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              "minor",
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1000,
+              0
+            ]
+          ],
+          "last_bs_values": [
+            [
+              0,
+              5,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              30,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              10,
+              0
+            ]
+          ],
+          "lines": 25,
+          "mps": [
+            [
+              1,
+              2,
+              1
+            ],
+            [
+              8,
+              3,
+              1
+            ],
+            [
+              1,
+              1,
+              2
+            ],
+            [
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              1
+            ]
+          ],
+          "new_bs": [
+            {
+              "position": 0,
+              "reel": 2,
+              "value": 200
+            }
+          ],
+          "respin_state": "active",
+          "round_bet": 100,
+          "round_win": 0,
+          "rounds_granted": 0,
+          "rounds_left": 4,
+          "total_win": 0,
+          "total_win_state": 0,
+          "trigger_board": [
+            [
+              0,
+              13,
+              0
+            ],
+            [
+              0,
+              13,
+              0
+            ],
+            [
+              0,
+              0,
+              13
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "ultra_blows": [
+            [
+              1,
+              0,
+              2
+            ],
+            [
+              1,
+              1,
+              3
+            ]
+          ]
+        },
+        "current": "bonus",
+        "last_action": "respin",
+        "last_args": {},
+        "last_win": 0,
+        "round_finished": false,
+        "spins": {
+          "bac": {
+            "15": [
+              0,
+              0
+            ],
+            "16": [
+              0,
+              0
+            ],
+            "17": [
+              0,
+              0
+            ]
+          },
+          "bac_win": true,
+          "bet_per_line": 2,
+          "bg_type": "ExtraUltra",
+          "board": [
+            [
+              1,
+              17,
+              3
+            ],
+            [
+              5,
+              15,
+              2
+            ],
+            [
+              2,
+              3,
+              16
+            ],
+            [
+              3,
+              5,
+              6
+            ],
+            [
+              7,
+              2,
+              3
+            ]
+          ],
+          "bs": [
+            {
+              "position": 1,
+              "reel": 0,
+              "value": 1500
+            },
+            {
+              "position": 1,
+              "reel": 1,
+              "value": 300
+            },
+            {
+              "position": 2,
+              "reel": 2,
+              "value": 200
+            }
+          ],
+          "bs_count": 3,
+          "bs_v": [
+            [
+              0,
+              "mini",
+              0
+            ],
+            [
+              0,
+              300,
+              0
+            ],
+            [
+              0,
+              0,
+              200
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "bs_values": [
+            [
+              0,
+              15,
+              0
+            ],
+            [
+              0,
+              3,
+              0
+            ],
+            [
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "last_bet": 2,
+          "lines": 25,
+          "round_bet": 100,
+          "round_win": 0
+        },
+        "version": 1
+      },
+      "settings": null,
+      "status": {
+        "code": "OK"
+      }
+    },
+    {
+      "command": "play",
+      "action": {
+        "name": "respin",
+        "params": {}
+      },
+      "context": {
+        "actions": [
+          "respin"
+        ],
+        "available_buy_bonus": [
+          1
+        ],
+        "bonus": {
+          "bac": {
+            "15": [
+              0,
+              0
+            ],
+            "16": [
+              0,
+              0
+            ],
+            "17": [
+              0,
+              0
+            ]
+          },
+          "bet_per_line": 2,
+          "bg_type": "ExtraUltra",
+          "board": [
+            [
+              13,
+              13,
+              13
+            ],
+            [
+              13,
+              13,
+              0
+            ],
+            [
+              13,
+              0,
+              13
+            ],
+            [
+              13,
+              13,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "bs": [
+            {
+              "position": 1,
+              "reel": 0,
+              "value": 1500
+            },
+            {
+              "position": 1,
+              "reel": 1,
+              "value": 300
+            },
+            {
+              "position": 2,
+              "reel": 2,
+              "value": 200
+            },
+            {
+              "position": 0,
+              "reel": 1,
+              "value": 100
+            },
+            {
+              "position": 0,
+              "reel": 3,
+              "value": 400
+            },
+            {
+              "position": 2,
+              "reel": 0,
+              "value": 100
+            },
+            {
+              "position": 0,
+              "reel": 0,
+              "value": 300
+            },
+            {
+              "position": 1,
+              "reel": 3,
+              "value": 300
+            },
+            {
+              "position": 0,
+              "reel": 2,
+              "value": 200
+            }
+          ],
+          "bs_count": 9,
+          "bs_granted": 9,
+          "bs_v": [
+            [
+              300,
+              "mini",
+              100
+            ],
+            [
+              100,
+              300,
+              0
+            ],
+            [
+              200,
+              0,
+              200
+            ],
+            [
+              400,
+              300,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "bs_values": [
+            [
+              3,
+              15,
+              1
+            ],
+            [
+              1,
+              3,
+              0
+            ],
+            [
+              2,
+              0,
+              2
+            ],
+            [
+              4,
+              3,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "last_bet": 2,
+          "last_board": [
+            [
+              8,
+              15,
+              7
+            ],
+            [
+              2,
+              12,
+              12
+            ],
+            [
+              11,
+              17,
+              4
+            ],
+            [
+              2,
+              12,
+              12
+            ],
+            [
+              10,
+              16,
+              6
+            ]
+          ],
+          "last_bs": [
+            {
+              "position": 1,
+              "reel": 0,
+              "value": 500
+            },
+            {
+              "position": 1,
+              "reel": 2,
+              "value": 3000
+            },
+            {
+              "position": 1,
+              "reel": 4,
+              "value": 1000
+            }
+          ],
+          "last_bs_v": [
+            [
+              0,
+              500,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              "minor",
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1000,
+              0
+            ]
+          ],
+          "last_bs_values": [
+            [
+              0,
+              5,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              30,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              10,
+              0
+            ]
+          ],
+          "lines": 25,
+          "mps": [
+            [
+              1,
+              2,
+              1
+            ],
+            [
+              8,
+              3,
+              1
+            ],
+            [
+              1,
+              1,
+              2
+            ],
+            [
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              1
+            ]
+          ],
+          "respin_state": "active",
+          "round_bet": 100,
+          "round_win": 0,
+          "rounds_granted": 0,
+          "rounds_left": 3,
+          "total_win": 0,
+          "total_win_state": 0,
+          "trigger_board": [
+            [
+              0,
+              13,
+              0
+            ],
+            [
+              0,
+              13,
+              0
+            ],
+            [
+              0,
+              0,
+              13
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "current": "bonus",
+        "last_action": "respin",
+        "last_args": {},
+        "last_win": 0,
+        "round_finished": false,
+        "spins": {
+          "bac": {
+            "15": [
+              0,
+              0
+            ],
+            "16": [
+              0,
+              0
+            ],
+            "17": [
+              0,
+              0
+            ]
+          },
+          "bac_win": true,
+          "bet_per_line": 2,
+          "bg_type": "ExtraUltra",
+          "board": [
+            [
+              1,
+              17,
+              3
+            ],
+            [
+              5,
+              15,
+              2
+            ],
+            [
+              2,
+              3,
+              16
+            ],
+            [
+              3,
+              5,
+              6
+            ],
+            [
+              7,
+              2,
+              3
+            ]
+          ],
+          "bs": [
+            {
+              "position": 1,
+              "reel": 0,
+              "value": 1500
+            },
+            {
+              "position": 1,
+              "reel": 1,
+              "value": 300
+            },
+            {
+              "position": 2,
+              "reel": 2,
+              "value": 200
+            }
+          ],
+          "bs_count": 3,
+          "bs_v": [
+            [
+              0,
+              "mini",
+              0
+            ],
+            [
+              0,
+              300,
+              0
+            ],
+            [
+              0,
+              0,
+              200
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "bs_values": [
+            [
+              0,
+              15,
+              0
+            ],
+            [
+              0,
+              3,
+              0
+            ],
+            [
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "last_bet": 2,
+          "lines": 25,
+          "round_bet": 100,
+          "round_win": 0
+        },
+        "version": 1
+      },
+      "settings": null,
+      "status": {
+        "code": "OK"
+      }
+    },
+    {
+      "command": "play",
+      "action": {
+        "name": "respin",
+        "params": {}
+      },
+      "context": {
+        "actions": [
+          "respin"
+        ],
+        "available_buy_bonus": [
+          1
+        ],
+        "bonus": {
+          "bac": {
+            "15": [
+              0,
+              0
+            ],
+            "16": [
+              0,
+              0
+            ],
+            "17": [
+              0,
+              0
+            ]
+          },
+          "bet_per_line": 2,
+          "bg_type": "ExtraUltra",
+          "board": [
+            [
+              13,
+              13,
+              13
+            ],
+            [
+              13,
+              13,
+              0
+            ],
+            [
+              13,
+              0,
+              13
+            ],
+            [
+              13,
+              13,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "bs": [
+            {
+              "position": 1,
+              "reel": 0,
+              "value": 1500
+            },
+            {
+              "position": 1,
+              "reel": 1,
+              "value": 300
+            },
+            {
+              "position": 2,
+              "reel": 2,
+              "value": 200
+            },
+            {
+              "position": 0,
+              "reel": 1,
+              "value": 100
+            },
+            {
+              "position": 0,
+              "reel": 3,
+              "value": 400
+            },
+            {
+              "position": 2,
+              "reel": 0,
+              "value": 100
+            },
+            {
+              "position": 0,
+              "reel": 0,
+              "value": 300
+            },
+            {
+              "position": 1,
+              "reel": 3,
+              "value": 300
+            },
+            {
+              "position": 0,
+              "reel": 2,
+              "value": 200
+            }
+          ],
+          "bs_count": 9,
+          "bs_granted": 9,
+          "bs_v": [
+            [
+              300,
+              "mini",
+              100
+            ],
+            [
+              100,
+              300,
+              0
+            ],
+            [
+              200,
+              0,
+              200
+            ],
+            [
+              400,
+              300,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "bs_values": [
+            [
+              3,
+              15,
+              1
+            ],
+            [
+              1,
+              3,
+              0
+            ],
+            [
+              2,
+              0,
+              2
+            ],
+            [
+              4,
+              3,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "last_bet": 2,
+          "last_board": [
+            [
+              8,
+              15,
+              7
+            ],
+            [
+              2,
+              12,
+              12
+            ],
+            [
+              11,
+              17,
+              4
+            ],
+            [
+              2,
+              12,
+              12
+            ],
+            [
+              10,
+              16,
+              6
+            ]
+          ],
+          "last_bs": [
+            {
+              "position": 1,
+              "reel": 0,
+              "value": 500
+            },
+            {
+              "position": 1,
+              "reel": 2,
+              "value": 3000
+            },
+            {
+              "position": 1,
+              "reel": 4,
+              "value": 1000
+            }
+          ],
+          "last_bs_v": [
+            [
+              0,
+              500,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              "minor",
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1000,
+              0
+            ]
+          ],
+          "last_bs_values": [
+            [
+              0,
+              5,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              30,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              10,
+              0
+            ]
+          ],
+          "lines": 25,
+          "mps": [
+            [
+              1,
+              2,
+              1
+            ],
+            [
+              8,
+              3,
+              1
+            ],
+            [
+              1,
+              1,
+              2
+            ],
+            [
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              1
+            ]
+          ],
+          "respin_state": "active",
+          "round_bet": 100,
+          "round_win": 0,
+          "rounds_granted": 0,
+          "rounds_left": 2,
+          "total_win": 0,
+          "total_win_state": 0,
+          "trigger_board": [
+            [
+              0,
+              13,
+              0
+            ],
+            [
+              0,
+              13,
+              0
+            ],
+            [
+              0,
+              0,
+              13
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "current": "bonus",
+        "last_action": "respin",
+        "last_args": {},
+        "last_win": 0,
+        "round_finished": false,
+        "spins": {
+          "bac": {
+            "15": [
+              0,
+              0
+            ],
+            "16": [
+              0,
+              0
+            ],
+            "17": [
+              0,
+              0
+            ]
+          },
+          "bac_win": true,
+          "bet_per_line": 2,
+          "bg_type": "ExtraUltra",
+          "board": [
+            [
+              1,
+              17,
+              3
+            ],
+            [
+              5,
+              15,
+              2
+            ],
+            [
+              2,
+              3,
+              16
+            ],
+            [
+              3,
+              5,
+              6
+            ],
+            [
+              7,
+              2,
+              3
+            ]
+          ],
+          "bs": [
+            {
+              "position": 1,
+              "reel": 0,
+              "value": 1500
+            },
+            {
+              "position": 1,
+              "reel": 1,
+              "value": 300
+            },
+            {
+              "position": 2,
+              "reel": 2,
+              "value": 200
+            }
+          ],
+          "bs_count": 3,
+          "bs_v": [
+            [
+              0,
+              "mini",
+              0
+            ],
+            [
+              0,
+              300,
+              0
+            ],
+            [
+              0,
+              0,
+              200
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "bs_values": [
+            [
+              0,
+              15,
+              0
+            ],
+            [
+              0,
+              3,
+              0
+            ],
+            [
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "last_bet": 2,
+          "lines": 25,
+          "round_bet": 100,
+          "round_win": 0
+        },
+        "version": 1
+      },
+      "settings": null,
+      "status": {
+        "code": "OK"
+      }
+    },
+    {
+      "command": "play",
+      "action": {
+        "name": "respin",
+        "params": {}
+      },
+      "context": {
+        "actions": [
+          "respin"
+        ],
+        "available_buy_bonus": [
+          1
+        ],
+        "bonus": {
+          "bac": {
+            "15": [
+              0,
+              0
+            ],
+            "16": [
+              0,
+              0
+            ],
+            "17": [
+              0,
+              0
+            ]
+          },
+          "bet_per_line": 2,
+          "bg_type": "ExtraUltra",
+          "board": [
+            [
+              13,
+              13,
+              13
+            ],
+            [
+              13,
+              13,
+              0
+            ],
+            [
+              13,
+              0,
+              13
+            ],
+            [
+              13,
+              13,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "bs": [
+            {
+              "position": 1,
+              "reel": 0,
+              "value": 1500
+            },
+            {
+              "position": 1,
+              "reel": 1,
+              "value": 300
+            },
+            {
+              "position": 2,
+              "reel": 2,
+              "value": 200
+            },
+            {
+              "position": 0,
+              "reel": 1,
+              "value": 100
+            },
+            {
+              "position": 0,
+              "reel": 3,
+              "value": 400
+            },
+            {
+              "position": 2,
+              "reel": 0,
+              "value": 100
+            },
+            {
+              "position": 0,
+              "reel": 0,
+              "value": 300
+            },
+            {
+              "position": 1,
+              "reel": 3,
+              "value": 300
+            },
+            {
+              "position": 0,
+              "reel": 2,
+              "value": 200
+            }
+          ],
+          "bs_count": 9,
+          "bs_granted": 9,
+          "bs_v": [
+            [
+              300,
+              "mini",
+              100
+            ],
+            [
+              100,
+              300,
+              0
+            ],
+            [
+              200,
+              0,
+              200
+            ],
+            [
+              400,
+              300,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "bs_values": [
+            [
+              3,
+              15,
+              1
+            ],
+            [
+              1,
+              3,
+              0
+            ],
+            [
+              2,
+              0,
+              2
+            ],
+            [
+              4,
+              3,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "last_bet": 2,
+          "last_board": [
+            [
+              8,
+              15,
+              7
+            ],
+            [
+              2,
+              12,
+              12
+            ],
+            [
+              11,
+              17,
+              4
+            ],
+            [
+              2,
+              12,
+              12
+            ],
+            [
+              10,
+              16,
+              6
+            ]
+          ],
+          "last_bs": [
+            {
+              "position": 1,
+              "reel": 0,
+              "value": 500
+            },
+            {
+              "position": 1,
+              "reel": 2,
+              "value": 3000
+            },
+            {
+              "position": 1,
+              "reel": 4,
+              "value": 1000
+            }
+          ],
+          "last_bs_v": [
+            [
+              0,
+              500,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              "minor",
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1000,
+              0
+            ]
+          ],
+          "last_bs_values": [
+            [
+              0,
+              5,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              30,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              10,
+              0
+            ]
+          ],
+          "lines": 25,
+          "mps": [
+            [
+              1,
+              2,
+              1
+            ],
+            [
+              8,
+              3,
+              1
+            ],
+            [
+              1,
+              1,
+              2
+            ],
+            [
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              1
+            ]
+          ],
+          "respin_state": "active",
+          "round_bet": 100,
+          "round_win": 0,
+          "rounds_granted": 0,
+          "rounds_left": 1,
+          "total_win": 0,
+          "total_win_state": 0,
+          "trigger_board": [
+            [
+              0,
+              13,
+              0
+            ],
+            [
+              0,
+              13,
+              0
+            ],
+            [
+              0,
+              0,
+              13
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "current": "bonus",
+        "last_action": "respin",
+        "last_args": {},
+        "last_win": 0,
+        "round_finished": false,
+        "spins": {
+          "bac": {
+            "15": [
+              0,
+              0
+            ],
+            "16": [
+              0,
+              0
+            ],
+            "17": [
+              0,
+              0
+            ]
+          },
+          "bac_win": true,
+          "bet_per_line": 2,
+          "bg_type": "ExtraUltra",
+          "board": [
+            [
+              1,
+              17,
+              3
+            ],
+            [
+              5,
+              15,
+              2
+            ],
+            [
+              2,
+              3,
+              16
+            ],
+            [
+              3,
+              5,
+              6
+            ],
+            [
+              7,
+              2,
+              3
+            ]
+          ],
+          "bs": [
+            {
+              "position": 1,
+              "reel": 0,
+              "value": 1500
+            },
+            {
+              "position": 1,
+              "reel": 1,
+              "value": 300
+            },
+            {
+              "position": 2,
+              "reel": 2,
+              "value": 200
+            }
+          ],
+          "bs_count": 3,
+          "bs_v": [
+            [
+              0,
+              "mini",
+              0
+            ],
+            [
+              0,
+              300,
+              0
+            ],
+            [
+              0,
+              0,
+              200
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "bs_values": [
+            [
+              0,
+              15,
+              0
+            ],
+            [
+              0,
+              3,
+              0
+            ],
+            [
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "last_bet": 2,
+          "lines": 25,
+          "round_bet": 100,
+          "round_win": 0
+        },
+        "version": 1
+      },
+      "settings": null,
+      "status": {
+        "code": "OK"
+      }
+    },
+    {
+      "command": "play",
+      "action": {
+        "name": "respin",
+        "params": {}
+      },
+      "context": {
+        "actions": [
+          "bonus_spins_stop"
+        ],
+        "available_buy_bonus": [
+          1
+        ],
+        "bonus": {
+          "bac": {
+            "15": [
+              0,
+              0
+            ],
+            "16": [
+              0,
+              0
+            ],
+            "17": [
+              0,
+              0
+            ]
+          },
+          "bet_per_line": 2,
+          "bg_type": "ExtraUltra",
+          "board": [
+            [
+              13,
+              13,
+              13
+            ],
+            [
+              13,
+              13,
+              0
+            ],
+            [
+              13,
+              0,
+              13
+            ],
+            [
+              13,
+              13,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "bs": [
+            {
+              "position": 1,
+              "reel": 0,
+              "value": 3000
+            },
+            {
+              "position": 1,
+              "reel": 1,
+              "value": 900
+            },
+            {
+              "position": 2,
+              "reel": 2,
+              "value": 400
+            },
+            {
+              "position": 0,
+              "reel": 1,
+              "value": 800
+            },
+            {
+              "position": 0,
+              "reel": 3,
+              "value": 400
+            },
+            {
+              "position": 2,
+              "reel": 0,
+              "value": 200
+            },
+            {
+              "position": 0,
+              "reel": 0,
+              "value": 300
+            },
+            {
+              "position": 1,
+              "reel": 3,
+              "value": 300
+            },
+            {
+              "position": 0,
+              "reel": 2,
+              "value": 200
+            }
+          ],
+          "bs_count": 9,
+          "bs_granted": 9,
+          "bs_v": [
+            [
+              300,
+              "mini",
+              200
+            ],
+            [
+              800,
+              900,
+              0
+            ],
+            [
+              200,
+              0,
+              400
+            ],
+            [
+              400,
+              300,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "bs_values": [
+            [
+              3,
+              30,
+              2
+            ],
+            [
+              8,
+              9,
+              0
+            ],
+            [
+              2,
+              0,
+              4
+            ],
+            [
+              4,
+              3,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "last_bet": 2,
+          "last_board": [
+            [
+              8,
+              15,
+              7
+            ],
+            [
+              2,
+              12,
+              12
+            ],
+            [
+              11,
+              17,
+              4
+            ],
+            [
+              2,
+              12,
+              12
+            ],
+            [
+              10,
+              16,
+              6
+            ]
+          ],
+          "last_bs": [
+            {
+              "position": 1,
+              "reel": 0,
+              "value": 500
+            },
+            {
+              "position": 1,
+              "reel": 2,
+              "value": 3000
+            },
+            {
+              "position": 1,
+              "reel": 4,
+              "value": 1000
+            }
+          ],
+          "last_bs_v": [
+            [
+              0,
+              500,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              "minor",
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1000,
+              0
+            ]
+          ],
+          "last_bs_values": [
+            [
+              0,
+              5,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              30,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              10,
+              0
+            ]
+          ],
+          "lines": 25,
+          "mps": [
+            [
+              1,
+              2,
+              2
+            ],
+            [
+              8,
+              3,
+              1
+            ],
+            [
+              1,
+              1,
+              2
+            ],
+            [
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              1
+            ]
+          ],
+          "respin_state": "last",
+          "round_bet": 100,
+          "round_win": 6500,
+          "rounds_granted": 0,
+          "rounds_left": 0,
+          "total_win": 6500,
+          "total_win_state": 6500,
+          "trigger_board": [
+            [
+              0,
+              13,
+              0
+            ],
+            [
+              0,
+              13,
+              0
+            ],
+            [
+              0,
+              0,
+              13
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "ultra_blows": [
+            [
+              0,
+              2,
+              2
+            ]
+          ]
+        },
+        "current": "bonus",
+        "last_action": "respin",
+        "last_args": {},
+        "last_win": 6500,
+        "round_finished": false,
+        "spins": {
+          "bac": {
+            "15": [
+              0,
+              0
+            ],
+            "16": [
+              0,
+              0
+            ],
+            "17": [
+              0,
+              0
+            ]
+          },
+          "bac_win": true,
+          "bet_per_line": 2,
+          "bg_type": "ExtraUltra",
+          "board": [
+            [
+              1,
+              17,
+              3
+            ],
+            [
+              5,
+              15,
+              2
+            ],
+            [
+              2,
+              3,
+              16
+            ],
+            [
+              3,
+              5,
+              6
+            ],
+            [
+              7,
+              2,
+              3
+            ]
+          ],
+          "bs": [
+            {
+              "position": 1,
+              "reel": 0,
+              "value": 1500
+            },
+            {
+              "position": 1,
+              "reel": 1,
+              "value": 300
+            },
+            {
+              "position": 2,
+              "reel": 2,
+              "value": 200
+            }
+          ],
+          "bs_count": 3,
+          "bs_v": [
+            [
+              0,
+              "mini",
+              0
+            ],
+            [
+              0,
+              300,
+              0
+            ],
+            [
+              0,
+              0,
+              200
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "bs_values": [
+            [
+              0,
+              15,
+              0
+            ],
+            [
+              0,
+              3,
+              0
+            ],
+            [
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "last_bet": 2,
+          "lines": 25,
+          "round_bet": 100,
+          "round_win": 0
+        },
+        "version": 1
+      },
+      "settings": null,
+      "status": {
+        "code": "OK"
+      }
+    },
+    {
+      "command": "play",
+      "action": {
+        "name": "bonus_spins_stop",
+        "params": {}
+      },
+      "context": {
+        "actions": [
+          "spin",
+          "buy_spin"
+        ],
+        "available_buy_bonus": [
+          1
+        ],
+        "current": "spins",
+        "last_action": "bonus_spins_stop",
+        "last_args": {},
+        "last_win": 6500,
+        "round_finished": true,
+        "spins": {
+          "bac": {
+            "15": [
+              0,
+              0
+            ],
+            "16": [
+              0,
+              0
+            ],
+            "17": [
+              0,
+              0
+            ]
+          },
+          "bet_per_line": 2,
+          "board": [
+            [
+              8,
+              15,
+              7
+            ],
+            [
+              2,
+              12,
+              12
+            ],
+            [
+              11,
+              17,
+              4
+            ],
+            [
+              2,
+              12,
+              12
+            ],
+            [
+              10,
+              16,
+              6
+            ]
+          ],
+          "bs": [
+            {
+              "position": 1,
+              "reel": 0,
+              "value": 500
+            },
+            {
+              "position": 1,
+              "reel": 2,
+              "value": 3000
+            },
+            {
+              "position": 1,
+              "reel": 4,
+              "value": 1000
+            }
+          ],
+          "bs_count": 0,
+          "bs_v": [
+            [
+              0,
+              500,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              "minor",
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1000,
+              0
+            ]
+          ],
+          "bs_values": [
+            [
+              0,
+              5,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              30,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              10,
+              0
+            ]
+          ],
+          "last_bet": 2,
+          "lines": 25,
+          "round_bet": 100,
+          "total_win": 6500
+        },
+        "version": 1
+      },
+      "settings": null,
+      "status": {
+        "code": "OK"
+      }
+    },
+    {
+      "command": "play",
+      "action": {
+        "name": "spin",
+        "params": {
+          "bet_per_line": 2,
+          "lines": 25
+        }
+      },
+      "context": {
+        "actions": [
+          "spin",
+          "buy_spin"
+        ],
+        "available_buy_bonus": [
+          1
+        ],
+        "current": "spins",
+        "last_action": "spin",
+        "last_args": {
+          "bet_per_line": 2,
+          "lines": 25
+        },
+        "last_win": 6500,
+        "round_finished": true,
+        "spins": {
+          "bac": {
+            "15": [
+              4,
+              2
+            ],
+            "16": [
+              0,
+              0
+            ],
+            "17": [
+              4,
+              1
+            ]
+          },
+          "bac_win": false,
+          "bet_per_line": 2,
+          "board": [
+            [
+              17,
+              1,
+              4
+            ],
+            [
+              11,
+              15,
+              5
+            ],
+            [
+              15,
+              7,
+              9
+            ],
+            [
+              12,
+              12,
+              12
+            ],
+            [
+              1,
+              8,
+              6
+            ]
+          ],
+          "bs": [
+            {
+              "position": 0,
+              "reel": 0,
+              "value": 3000
+            },
+            {
+              "position": 1,
+              "reel": 1,
+              "value": 100
+            },
+            {
+              "position": 0,
+              "reel": 2,
+              "value": 100
+            }
+          ],
+          "bs_count": 3,
+          "bs_v": [
+            [
+              "minor",
+              0,
+              0
+            ],
+            [
+              0,
+              100,
+              0
+            ],
+            [
+              100,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "bs_values": [
+            [
+              30,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "last_bet": 2,
+          "lines": 25,
+          "round_bet": 100,
+          "round_win": 0,
+          "total_win": 0
+        },
+        "version": 1
+      },
+      "settings": null,
+      "status": {
+        "code": "OK"
+      }
+    }
+  ]
+}

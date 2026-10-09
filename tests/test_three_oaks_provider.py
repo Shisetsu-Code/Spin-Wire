@@ -110,7 +110,7 @@ def test_real_server_error_envelope_remains_failed_and_exports_no_session(tmp_pa
     class HTTP:
         def get(self,url,**kwargs):
             if url.endswith('/play'):return Response(text='})(window, '+json.dumps(config)+', "url");')
-            return Response(text='setActionHandler(bn.SPIN bet_per_line bet_factor t.selected_mode=e bn.BUY_SPIN')
+            return Response(text=(Path(__file__).parent/'fixtures'/'three_oaks_modern_purchase.js').read_text().replace('lines:Y.bus.getUI("lines")}},t)','lines:Y.bus.getUI("lines"),selected_mode:t+1}},t)'))
         def post(self,*args,**kwargs):return Response(next(responses))
     provider=Provider(tmp_path);provider.http=HTTP();game=Game('3oaks','demo','Demo','https://3oaks.com/game/demo',symbol='demo')
     result=provider.test_game(game,spins=1,timeout_s=1,stop_event=threading.Event(),progress=lambda _:None)
@@ -135,7 +135,7 @@ def test_multiple_rounds_keep_independent_samples_and_purchase_selectors(tmp_pat
     class HTTP:
         def get(self,url,**kwargs):
             if url.endswith('/play'):return Response(text='})(window, '+json.dumps(config)+', "url");')
-            return Response(text='setActionHandler(bn.SPIN bet_per_line bet_factor t.selected_mode=e bn.BUY_SPIN')
+            return Response(text=(Path(__file__).parent/'fixtures'/'three_oaks_modern_purchase.js').read_text().replace('lines:Y.bus.getUI("lines")}},t)','lines:Y.bus.getUI("lines"),selected_mode:t+1}},t)'))
         def post(self,url,**kwargs):
             body=json.loads(kwargs['data'])
             if body['command']=='login':return Response({'session_id':'fake-session','user':{'huid':'fake-user'},'status':{'code':'OK'}})

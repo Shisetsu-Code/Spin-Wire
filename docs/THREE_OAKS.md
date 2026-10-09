@@ -1,21 +1,31 @@
-# 3 Oaks Gaming en Tester Spin
+# 3 Oaks: contratos de entrada y continuaciones
 
-Integración del 30 de septiembre de 2026: proveedor disponible en el selector y la cola de reintentos, con catálogo completo de 110 juegos y 110 miniaturas guardadas.
+El catálogo público y el lanzador permiten localizar el cliente activo. El transporte de demo observado usa POST con JSON como `text/plain`, con comandos de login, start y play. Las sesiones y respuestas completas se guardan localmente.
 
-Se consultó MultiPlay como referencia. Sus capturas históricas no demuestran el protocolo actual: `/api/v1/games/<slug>/play` entrega el lanzador HTML. El transporte actual observado utiliza POST con JSON como `text/plain` al servidor de demo y parámetro `gsc=login`, `start` o `play`. El adaptador guarda solicitudes y respuestas locales por intento, conserva los selectores de compra al exportar y sólo valida rondas con cierre explícito.
+## Primitivas del cliente
 
-| Familia de cliente | Juegos |
-| --- | ---: |
-| goreel | 65 |
-| kendoo | 20 |
-| ratpack | 13 |
-| hraymo | 10 |
-| enjoy | 2 |
+`source_inputs.py` y `code_primitives.py` analizan estáticamente el código publicado; no ejecutan JavaScript descargado. Separan la ruta del botón de giro de las rutas de compra. Soportan formas reconocidas de funciones, funciones flecha, eventos, middleware y puentes como `sendPlayAsync`; una forma desconocida no se completa por intuición.
 
-Esta clasificación viene de los clientes publicados; no implica cinco formatos de compra validados. Se tomó un representante por familia, sin abrir todas las demos.
+Los parámetros salen de fuentes observadas: apuesta, líneas y factores anunciados. Un handler antiguo de tres campos no demuestra que el botón actual use ese formato. Se contrastan `init.js`, el protocolo activo y el controlador compartido `GR/gr.js`; una ruta directa de giro puede usar dos campos aunque exista middleware inactivo.
 
-En **3 SuperPower Diamonds** el arranque real anuncia `spin`, `buy_spin` y dos compras: `selected_mode=1` a x100 y `selected_mode=2` a x300. El cliente publicado serializa la compra dentro de `action.params.selected_mode`. Se registraron como candidatos, sin marcarlas como compras verificadas ni extenderlas automáticamente a otros juegos.
+Las compras conservan el tipo del selector (texto o número) y el dominio demostrado. Una compra sin selector sólo es ejecutable cuando hay una única opción anunciada. Un mapa numérico finito puede probar opciones conocidas; no autoriza valores adicionales ofrecidos por el servidor.
 
-Login y arranque HTTP funcionaron. El giro HTTP devolvió `SERVER_ERROR`; los intentos posteriores recibieron HTTP403. Un giro normal sí completó visualmente en el navegador. Se deja la ejecución remota pendiente, conforme al alcance de aproximación gruesa acordado. El adaptador no adivina continuaciones de bonus.
+## Rutas de compra mixtas
 
-Las credenciales de demo y sesiones quedan únicamente en evidencia local, fuera del inventario reutilizable. Fuentes: [catálogo oficial](https://3oaks.com/games) y su API pública. El inventario adjunto contiene los juegos, sus familias y los candidatos observados.
+Un cliente puede contener un emisor con `selected_mode=t+1` protegido por un dominio finito y otro emisor con `selected_mode=t` sin dominio resuelto. Antes, esa segunda ruta anulaba también la primera y dejaba todas las compras pendientes. Ahora se conserva la ruta finita demostrada y se registran sus límites en `purchase_input_routes`.
+
+Sólo se omiten alternativas desconocidas cuando las rutas conocidas son finitas. Tipos incompatibles, dominios abiertos y formatos sin prueba siguen pendientes. Las opciones fuera del dominio no se fabrican.
+
+## Continuación y cierre
+
+Se ejecutan únicamente transiciones demostradas y acciones anunciadas: inicialización de bonus, respins, giros gratis y sus cierres. La recuperación de una ronda pendiente usa las mismas primitivas. `back_to` y la vuelta a spins requieren prueba del getter o del dispatcher; no basta que exista una función con nombre parecido.
+
+Una ronda termina cuando `round_finished=True`, el estado actual es `spins` y `spin` vuelve a estar disponible. Cada compra se ejecuta una vez por prueba, con un máximo defensivo de 80 pasos de continuación y plazos de ejecución. Después se comprueban dos giros base consecutivos. Alcanzar un límite deja el resultado pendiente.
+
+## Registros y límites
+
+`client_contracts.py` permite reutilizar contratos aceptados por huella del cliente o por huella exacta del handler y su llamador cuando la fuente no cambió ni se contradice. La caché de activos públicos distingue URL y revisión. No se reutiliza ciegamente una versión anterior.
+
+La selección activa de solicitudes no depende del nombre del juego. `observed_game_rules.json` conserva perfiles históricos para aprendizaje y pruebas fuera de línea; no sustituye el análisis actual del cliente. Hay sintaxis todavía no reconocida y fallos de disponibilidad del proveedor que pueden producir PARCIAL.
+
+[Validación y caso de regresión](VALIDATION.md). [Criterios de detección](FEATURE_DETECTION.md).

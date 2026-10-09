@@ -61,11 +61,13 @@ def test_contract_registry_derives_legacy_views_without_choice_hardcoding():
     assert contract.choice is not None
     assert contract.choice.option_field == "name"
     assert "select_bonus" not in SAFE_CONTINUATION_COMMANDS
-    assert "select_bonus" not in CONTINUATION_BY_STATE
+    # The state may also advertise the observed parameterless play_bonus_game
+    # contract. Dispatch still requires that exact command from the server.
+    assert CONTINUATION_BY_STATE["select_bonus"] == "play_bonus_game"
     assert CONTINUATION_BY_STATE["freespins"] == "freespin"
 
 
-def test_state_name_is_never_promoted_to_a_different_server_action():
+def test_continuation_uses_advertised_action_not_descriptive_state():
     flow_choices.install_flow_choice_adapter()
     payload = _choice_payload(
         ["reward_a", "reward_b"],
@@ -74,9 +76,15 @@ def test_state_name_is_never_promoted_to_a_different_server_action():
 
     # Adventures exposed exactly this shape: state=select_bonus but the server
     # action was play_bonus_game.  The state is descriptive, never a command.
-    assert execution.flow_continuation_command(payload) == ""
-    assert execution.pending_flow_actions(payload) == ["play_bonus_game"]
+    assert execution.flow_continuation_command(payload) == "play_bonus_game"
+    assert execution.pending_flow_actions(payload) == []
     assert flow_choices.flow_choice_options(payload, "select_bonus") == []
+
+    payload['flow']['available_actions'] = ['init']
+    assert execution.flow_continuation_command(payload) == ""
+    payload['flow']['available_actions'] = ['init', 'unknown_bonus_action']
+    assert execution.flow_continuation_command(payload) == ""
+    assert execution.pending_flow_actions(payload) == ['unknown_bonus_action']
 
 
 def test_choice_action_requires_finite_runtime_domain():

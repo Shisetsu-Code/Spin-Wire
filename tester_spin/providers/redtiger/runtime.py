@@ -40,6 +40,8 @@ class RedTigerRuntime:
     default_stake: Decimal
     currency_decimals: int
     feature_buys: tuple[FeatureBuy, ...]
+    # Session-specific client evidence, separate from advertised settings contracts.
+    client_observed_feature_buys: tuple[str, ...] = ()
 
 
 def _decimal(value: Any) -> Decimal | None:

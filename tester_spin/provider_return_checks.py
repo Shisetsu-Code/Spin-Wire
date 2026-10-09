@@ -36,15 +36,10 @@ def redtiger_check(runtime, directory, timeout_s, stop_event):
         status, request, data, warnings = _post_spin(runtime, stake=runtime.default_stake, feature_buy=None, timeout_s=timeout_s, stop_event=stop_event)
         capture = save_exchange(target, request, data)
         summary = response_summary(data)
-        modes = {str(m).lower() for m in summary['spin_modes']}
-        known = bool(summary['success']) and summary['pending_choice'] is None
-        # The normal client mode is 0. Other returned modes are preserved for
-        # review; success alone cannot prove a base spin.
-        nodes = summary['nodes']
-        inactive = bool(nodes) and all(node['has_state'] is False and node['feature_count'] == 0 for node in nodes)
-        normal_mode = modes <= {'normal'} if modes else all(node['game_mode'] == 0 for node in nodes)
-        base = known and inactive and normal_mode
-        return dict(ok=status < 400 and not warnings, base=base, known=known and base,
+        from tester_spin.providers.redtiger.base_state import classify_base_state
+        classification = classify_base_state(data)
+        return dict(ok=status < 400 and not warnings, base=classification['base'],
+                    known=classification['known'], classification=classification,
                     captures=[capture], summary=summary)
     return verify_return_to_base(directory, play, stop_event=stop_event)
 
@@ -123,6 +118,7 @@ def pragmatic_check(provider, bootstrap, last, base_fields, directory, timeout_s
         captures = []
         had_event = False
         had_manual = False
+        ordinary_cascade_seen = False
         in_bonus = False
         action = 'doSpin'
         for step in range(128):
@@ -146,21 +142,36 @@ def pragmatic_check(provider, bootstrap, last, base_fields, directory, timeout_s
             err = server_error(data)
             if status >= 400 or err not in (None, '', '0'):
                 return dict(ok=False, base=False, known=False, captures=captures)
-            na = str(data.get('na') or '')
+            from tester_spin.providers.pragmatic_observed_transitions import observed_next_action
+            na = observed_next_action(data,getattr(bootstrap,'symbol',''))
+            from tester_spin.providers.pragmatic_observed_transitions import observed_continuation
+            declared=observed_continuation(data,getattr(bootstrap,'symbol',''))
+            if declared:
+                # Free cards belong to a feature, not a normal paid base cycle.
+                had_event = had_event or data.get('fs_left') not in (None, '', '0')
+                action=declared
+                continue
             active = provider._feature_active(data)
             from tester_spin.providers.pragmatic_reel_contract import reel_selection
-            manual = reel_selection(data, getattr(bootstrap, 'reel_contract', None))
+            from tester_spin.providers.pragmatic_observed_transitions import automatic_fs_respin
+            automatic_cascade = automatic_fs_respin(data)
+            manual = None if automatic_cascade else reel_selection(data, getattr(bootstrap, 'reel_contract', None))
             had_manual = had_manual or manual is not None
             # A certified manual reel choice is part of the ordinary paid round.
             # Other features still reset consecutive normal-round confirmation.
             other_features = provider._feature_active({key:value for key,value in data.items()
-                if key not in {'rs','rs_p','rs_c','rs_m'}})
-            had_event = had_event or (active and (manual is None or other_features))
+                if key not in {'rs','rs_p','rs_c','rs_m','rs_t','rs_more'}})
+            ordinary_cascade = automatic_cascade and 'fs' not in data and 'fsmax' not in data
+            ordinary_cascade_seen = ordinary_cascade_seen or ordinary_cascade
+            ordinary_finish = ordinary_cascade_seen and not other_features and (
+                'rs_t' in data or (not data.get('rs') and all(key in data for key in ('rs_p','rs_c','rs_m'))))
+            had_event = had_event or (active and ((manual is None and not ordinary_cascade and not ordinary_finish) or other_features))
             if na == 'b':
                 had_event = True
-                in_bonus = True
+                from tester_spin.providers.pragmatic_observed_transitions import bonus_transition
+                in_bonus = bonus_transition(data) is None
                 action = 'doBonus'
-            elif na in {'cb', 'bc'} or (na == 'c' and in_bonus):
+            elif na in {'cb', 'bc'}:
                 action = 'doCollectBonus'
             elif na == 'c':
                 action = 'doCollect'

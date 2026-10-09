@@ -383,14 +383,15 @@ class PragmaticProvider(_PragmaticProvider):
                 error = server_error(last)
                 if error not in (None, "", "0"):
                     raise RuntimeError(f"Calibración rechazada: {error}; evidencia={trace}")
-                state = str(last.get("na") or "")
+                from tester_spin.providers.pragmatic_observed_transitions import observed_next_action
+                state = observed_next_action(last,getattr(bootstrap,'symbol',symbol))
                 if (state == "s" or (not state and previous_action in {"doCollect", "doCollectBonus"})) and not self._feature_active(last):
                     return bootstrap
                 action = {"s": "doSpin", "b": "doBonus", "c": "doCollect", "cb": "doCollectBonus", "bc": "doCollectBonus"}.get(state)
+                from tester_spin.providers.pragmatic_observed_transitions import observed_continuation
+                action = action or observed_continuation(last,getattr(bootstrap,'symbol',symbol))
                 if state == "b":
                     in_bonus = True
-                elif state == "c" and in_bonus:
-                    action = "doCollectBonus"
                 if action is None:
                     raise RuntimeError(f"Calibración pendiente: na={state!r}; evidencia={trace}")
                 fields = dict(bootstrap.spin_template)

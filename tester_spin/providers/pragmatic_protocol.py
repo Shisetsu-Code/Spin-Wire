@@ -209,6 +209,18 @@ def analyze_response(fields: dict[str, str]) -> dict[str, Any]:
         automatic_handler = "doCollect"
     elif na == "fso":
         state_kind = "free_spin_option_required"
+    elif na == 'play' and 't_left' in normalized:
+        state_kind='scratchcard_play_required'
+        automatic_handler='doPlay'
+    elif na == 'buy' and 'prices' in normalized:
+        state_kind='scratchcard_buy_required'
+        automatic_handler='doBuy'
+    elif na == 'end' and normalized.get('t_left')=='0' and normalized.get('fs_left')=='0':
+        state_kind='scratchcard_end_required'
+        automatic_handler='doEnd'
+    elif na == 'collect':
+        state_kind='scratchcard_collect_required'
+        automatic_handler='doCollect'
     elif na == "m":
         state_kind = "mystery_feature_step_required"
     elif na == "s" and feature_active:

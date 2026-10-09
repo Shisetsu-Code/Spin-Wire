@@ -2,7 +2,7 @@
 
 ## Objetivo
 
-`Tester-Spin.exe` es un launcher estable. El usuario abre siempre el mismo archivo y el launcher prepara/actualiza la aplicación antes de iniciarla.
+Este documento describe el ejecutable construido con `build-launcher.ps1`. El ejecutable completo de `build-desktop.ps1` contiene una versión fija y requiere reconstrucción para actualizarse. El launcher es estable. El usuario abre siempre el mismo archivo y el launcher prepara/actualiza la aplicación antes de iniciarla.
 
 El código ejecutable de Tester-Spin y los datos persistentes están separados:
 
@@ -17,12 +17,12 @@ Si el launcher se construye dentro del checkout actual y detecta `data\tester-sp
 
 ## Canal Git privado (actual)
 
-Configuración generada por defecto:
+El valor predeterminado legado del código sigue apuntando a `Tester-Spin.git`; para este repositorio configurar `repo_url` con `https://github.com/Shisetsu-Code/Spin-Wire.git` y elegir la rama que se desea instalar. Ejemplo de configuración:
 
 ```json
 {
   "mode": "git",
-  "repo_url": "https://github.com/Shisetsu-Code/Tester-Spin.git",
+  "repo_url": "https://github.com/Shisetsu-Code/Spin-Wire.git",
   "branch": "main",
   "manifest_url": "",
   "data_dir": "C:\\Proyectos\\Tester-Spin\\data"

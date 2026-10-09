@@ -71,7 +71,8 @@ class BGamingHyperHiveTests(unittest.TestCase):
         )
         bundle = (
             'req:{bet:x,bet_type:"betting",action:"spin"} action:"bonus" '
-            'purchased_feature:"buy_bonus" purchased_feature:"buy_chance" '
+            'req:{bet:x,bet_type:"betting",purchased_feature:"buy_bonus"} '
+            'req:{bet:x,bet_type:"betting",purchased_feature:"buy_chance"} '
             'state_lock'
         )
         with patch(
@@ -220,7 +221,7 @@ class BGamingHyperHiveTests(unittest.TestCase):
             round_series_id=1,
         )
         bundle = (
-            'var a={req:{bet:s.A.data.bet}};'
+            'var a={req:{bet:s.A.data.bet,purchased_feature:"buy_bonus"}};'
             'this.isFreebets&&(a.req.bet_type="freebet");'
             'buyBonus(){this.spin(!0,{purchased_feature:"buy_bonus"})}'
             'this.buyBonusMultiplier=0;'

@@ -16,3 +16,9 @@ build/
 dist/
 release/
 *.spec
+
+/.serena/
+
+/Spin-Action/
+
+/test-evidence/

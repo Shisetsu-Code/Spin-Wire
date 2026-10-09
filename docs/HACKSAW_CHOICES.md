@@ -27,4 +27,4 @@ El contrato exportado excluye valores de sesión y ronda. Evidencia de red compl
 
 ## Otras familias de elección
 
-Se agregaron wild/warehouse (Donut Division) y fs/lives (Le Pharaoh), con el mismo campo continueInstructions.action. Ambas rutas se verificaron en cada una de sus dos compras. [Detalle](HACKSAW_ADDITIONAL_CHOICES.md). Stormborn y Strength of Hercules conservan sus elecciones pendientes; no se habilitan acciones desconocidas por similitud de nombre.
+Se agregaron wild/warehouse (Donut Division) y fs/lives (Le Pharaoh), con el mismo campo continueInstructions.action. Ambas rutas se verificaron en cada una de sus dos compras. Ambas familias usan acciones observadas en el contrato activo. Stormborn y Strength of Hercules conservan sus elecciones pendientes; no se habilitan acciones desconocidas por similitud de nombre.

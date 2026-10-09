@@ -44,6 +44,10 @@ _COMMON_MODE_KEYS = (
     "required_samples",
     "sample_counts",
     "branch_signature",
+    "coverage_policy",
+    "coverage_class_labels",
+    "observed_position_domain",
+    "handler_sample_modes",
 )
 
 _CONTINUATION_KINDS = {

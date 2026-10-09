@@ -25,7 +25,9 @@ def certify_reel_contract(js_text: str, source_url: str = '') -> dict[str, Any] 
     Unrecognized/minifier-changed code returns None, requiring another contract.
     """
     compact = re.sub(r'\s+', '', js_text)
-    for owner in re.findall(r'([A-Za-z_$][\w$]*)\.prototype\.UpdateSpinRequest=function', compact):
+    # Start only at identifier boundaries. Retrying at every character of a
+    # long minified token caused quadratic scans while holding Python's GIL.
+    for owner in re.findall(r'(?<![\w$])([A-Za-z_$][\w$]*)\.prototype\.UpdateSpinRequest=function', compact):
         send = _method(compact, owner, 'UpdateSpinRequest')
         parse = _method(compact, owner, 'HandleResponse')
         toggle = _method(compact, owner, 'ChangeReelStatus')
@@ -118,8 +120,8 @@ def reel_selection(response: dict[str, Any], contract: dict[str, Any] | None,
     }
 
 
-def discover_reel_contract(session: Any, launch_html: str, launch_url: str,
-                           timeout_s: float = 20.0) -> dict[str, Any] | None:
+def discover_client_source(session: Any, launch_html: str, launch_url: str,
+                           timeout_s: float = 20.0):
     """Follow the observed desktop loader and its revision-pinned build reference.
 
     Makes at most two reads. No fallback routes or guessed game identifiers.
@@ -155,9 +157,16 @@ def discover_reel_contract(session: Any, launch_html: str, launch_url: str,
     if len(builds) != 1:
         return None
     source, source_url = read(urljoin(base, builds[0]))
+    return source, source_url, {'datapath':datapath.group(1),'bootstrap_url':bootstrap_url}
+
+
+def discover_reel_contract(session: Any, launch_html: str, launch_url: str,
+                           timeout_s: float = 20.0) -> dict[str, Any] | None:
+    observed=discover_client_source(session,launch_html,launch_url,timeout_s)
+    if observed is None:return None
+    source,source_url,metadata=observed
     contract = certify_reel_contract(source, source_url)
     if contract is not None:
-        contract['datapath'] = datapath.group(1)
-        contract['bootstrap_url'] = bootstrap_url
+        contract.update(metadata)
     return contract
 

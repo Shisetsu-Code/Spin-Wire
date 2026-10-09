@@ -451,6 +451,7 @@ class TesterSpinApp(tk.Tk):
         self.status_var.set(f"{game.name}: {'OK manual' if enabled else 'marca manual retirada'}")
 
     def _show_selected_game(self) -> None:
+        from tester_spin.feature_summary import feature_summary
         selection = self.tree.selection()
         if not selection:
             self.selection_var.set("Sin selección")
@@ -460,11 +461,15 @@ class TesterSpinApp(tk.Tk):
             return
         self.selection_var.set(game.name)
 
+        result = next((row for row in self.storage.latest_results()
+                       if row.get('provider') == game.provider and row.get('slug') == game.slug), {})
+
         text = (
             f"Proveedor: {game.provider}\n"
             f"ID interno: {game.symbol or 'sin resolver'}\n"
             f"Slug: {game.slug}\n"
             f"Estado: {game.display_status}\n"
+            f"{feature_summary(result)}\n"
             f"Resultado automático: {game.last_status}\n"
             f"Revisión manual: {game.manual_ok_at or '—'} {game.manual_ok_note}\n"
             f"Última prueba: {game.last_test_at or '—'}\n"

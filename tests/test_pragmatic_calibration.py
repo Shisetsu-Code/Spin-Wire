@@ -24,14 +24,14 @@ class CalibrationTests(unittest.TestCase):
             self.assertEqual(p._post_and_store.call_args.args[1]['index'],'3')
             self.assertEqual(result.calibration_response['rs_t'],'1')
 
-    def test_bonus_calibration_uses_bonus_collect(self):
+    def test_bonus_calibration_honors_advertised_collect_action(self):
         with tempfile.TemporaryDirectory() as tmp:
             p=PragmaticProvider(Path(tmp));p._write_http_bootstrap=Mock()
             boot=SimpleNamespace(session=Mock(),spin_template={'action':'doSpin'},calibration_response={'na':'b'})
             p._post_and_store=Mock(side_effect=[(200,b'',{'na':'c'},{}),(200,b'',{'na':'s'}, {})])
             with patch('tester_spin.providers.pragmatic.PragmaticProvider._http_bootstrap',return_value=boot):
                 Live._http_bootstrap(p,'https://example.invalid','test',None,1,5)
-            self.assertEqual([c.args[1]['action'] for c in p._post_and_store.call_args_list],['doBonus','doCollectBonus'])
+            self.assertEqual([c.args[1]['action'] for c in p._post_and_store.call_args_list],['doBonus','doCollect'])
 
     def test_missing_next_action_is_not_assumed_terminal(self):
         with tempfile.TemporaryDirectory() as tmp:

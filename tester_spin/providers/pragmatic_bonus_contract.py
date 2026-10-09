@@ -106,7 +106,7 @@ def bonus_selection(response: dict[str, Any], contract: dict[str, Any] | None,
         return None
     if contract.get('schema') != _SCHEMA:
         raise ValueError('Uncertified simple bonus contract')
-    if contract['initialized_key'] not in response:
+    if contract['initialized_key'] not in response and contract['status_key'] not in response:
         return None
     raw_status = response.get(contract['status_key'])
     if raw_status is None:
@@ -131,6 +131,7 @@ def bonus_selection(response: dict[str, Any], contract: dict[str, Any] | None,
         'selected': selected, 'default': None, 'domain': domain,
         'selection_policy': 'first_available_test_choice' if override is None else 'explicit_override',
         'branch_signature': f"PRAGMATIC:bonus-pick:bgt={bonus_type}:level={level}:status={','.join(map(str,statuses))}",
+        'coverage_branch_signature':f'PRAGMATIC:bonus-pick:bgt={bonus_type}:size={len(statuses)}:level={level}',
         'domain_basis': contract['domain_basis'],
         'contract_source': contract['source_url'], 'contract_sha256': contract['source_sha256'],
     }

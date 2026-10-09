@@ -665,7 +665,7 @@ class PragmaticProvider(ProviderAdapter):
 
             symbol = discovery.symbol
             game.symbol = symbol
-            catalog = discover_modes(discovery.init_response, requested_base_bet=self.base_bet)
+            catalog = discover_modes(discovery.init_response, requested_base_bet=self.base_bet,symbol=discovery.symbol)
             self._write_discovery(run_root, discovery, catalog)
             self._update_game_protocol_metadata(game, discovery, catalog)
 
@@ -943,7 +943,7 @@ class PragmaticProvider(ProviderAdapter):
         init_response = session.post(endpoint, data=init_raw, headers=headers, timeout=timeout_s)
         init_response.raise_for_status()
         init = _parse_wire(init_response.content)
-        catalog = discover_modes(init, requested_base_bet=base_bet)
+        catalog = discover_modes(init, requested_base_bet=base_bet,symbol=symbol)
         next_index = (_int(init.get("index")) or 1) + 1
         next_counter = (_int(init.get("counter")) or 1) + 1
         spin_fields = {
@@ -951,13 +951,15 @@ class PragmaticProvider(ProviderAdapter):
             "symbol": symbol,
             "c": _fmt(catalog.base_coin),
             "l": _fmt(catalog.base_scale),
-            "sInfo": "t",
+            "sInfo": "n",
             "bl": "0",
             "index": str(next_index),
             "counter": str(next_counter),
             "repeat": "0",
             "mgckey": mgckey,
         }
+        from tester_spin.providers.pragmatic_observed_transitions import apply_spin_rule
+        apply_spin_rule(spin_fields,symbol)
         calibration_raw = urlencode(spin_fields)
         calibration_response = session.post(endpoint, data=calibration_raw, headers=headers, timeout=timeout_s)
         calibration_response.raise_for_status()
@@ -1171,14 +1173,19 @@ class PragmaticProvider(ProviderAdapter):
         return bootstrap.reel_contract
 
     def _resolve_bonus_contract(self, bootstrap: HttpBootstrap) -> dict[str, Any] | None:
-        from tester_spin.providers.pragmatic_bonus_contract import discover_bonus_contract
+        from tester_spin.providers.pragmatic_bonus_contract import certify_bonus_contract, discover_bonus_contract
+        from tester_spin.providers.pragmatic_reel_contract import discover_client_source
         cache = self.__dict__.setdefault("_bonus_contract_cache", {})
         key = (bootstrap.symbol, bootstrap.cver)
         if key not in cache:
-            reel = getattr(bootstrap, "reel_contract", None) or self._resolve_reel_contract(bootstrap)
-            if not reel or not reel.get("source_url"):
-                return None
-            contract = discover_bonus_contract(bootstrap.session, reel["source_url"])
+            reel = getattr(bootstrap, "reel_contract", None)
+            if reel and reel.get('source_url'):
+                contract=discover_bonus_contract(bootstrap.session,reel['source_url'])
+            else:
+                page=bootstrap.session.get(bootstrap.launch_url,timeout=25)
+                page.raise_for_status()
+                observed=discover_client_source(bootstrap.session,page.text,page.url,timeout_s=25)
+                contract=certify_bonus_contract(observed[0],observed[1]) if observed else None
             if contract is not None:
                 cache[key] = contract
         bootstrap.bonus_contract = cache.get(key)
@@ -1195,10 +1202,14 @@ class PragmaticProvider(ProviderAdapter):
         timeout_s: float,
     ) -> tuple[int, bytes, dict[str, str], dict[str, str]]:
         from tester_spin.providers.pragmatic_reel_contract import reel_selection
+        from tester_spin.providers.pragmatic_observed_transitions import automatic_fs_respin, bonus_transition
         caller_fields = fields
         fields = dict(fields)
+        from tester_spin.providers.pragmatic_observed_transitions import apply_spin_rule, game_profile
+        if fields.get('action') == 'doSpin' or game_profile(getattr(bootstrap,'symbol','')).get('kind') == 'scratchcard':
+            apply_spin_rule(fields,getattr(bootstrap,'symbol',''))
         previous = getattr(bootstrap, "current_response", None) or bootstrap.calibration_response
-        if fields.get("action") == "doSpin" and previous.get("rs") == "mc" and previous.get("rs_t") in (None, ""):
+        if fields.get("action") == "doSpin" and previous.get("rs") == "mc" and previous.get("rs_t") in (None, "") and not automatic_fs_respin(previous):
             contract = getattr(bootstrap, "reel_contract", None) or self._resolve_reel_contract(bootstrap)
             selection = reel_selection(previous, contract, override=getattr(bootstrap, "reel_override", None))
             if selection is None:
@@ -1209,21 +1220,33 @@ class PragmaticProvider(ProviderAdapter):
             self._write_json(root / f"step-{step:03d}-{label}.reel-selection.json", selection)
         if fields.get("action") == "doBonus":
             from tester_spin.providers.pragmatic_bonus_contract import bonus_selection
-            contract = getattr(bootstrap, "bonus_contract", None) or self._resolve_bonus_contract(bootstrap)
-            selection = bonus_selection(previous, contract)
+            from tester_spin.providers.pragmatic_observed_transitions import observed_bonus_rule
+            rule_selection = observed_bonus_rule(previous, getattr(bootstrap, 'symbol', ''))
+            selection = rule_selection or bonus_transition(previous)
+            observed_choice = selection is not None
+            if not observed_choice:
+                contract = getattr(bootstrap, "bonus_contract", None) or self._resolve_bonus_contract(bootstrap)
+                selection = bonus_selection(previous, contract)
             if selection is None:
                 raise RuntimeError("Bonus pendiente: el cliente no demuestra su continuación")
             # Reserve the least tried available choice across concurrent demo sessions.
             # This schedules exploration; coverage still requires terminal evidence.
             import threading
             lock = self.__dict__.setdefault("_bonus_choice_lock", threading.Lock())
-            key = (bootstrap.symbol if hasattr(bootstrap, "symbol") else "", selection["branch_signature"], selection["contract_sha256"])
-            with lock:
-                counts = self.__dict__.setdefault("_bonus_choice_counts", {}).setdefault(key, {})
-                selected = min(selection["domain"], key=lambda value: (counts.get(value, 0), int(value)))
-                counts[selected] = counts.get(selected, 0) + 1
-            selection = bonus_selection(previous, contract, override=selected)
-            selection["selection_policy"] = "least_attempted_available_test_choice"
+            key = (bootstrap.symbol if hasattr(bootstrap, "symbol") else "", selection.get('coverage_branch_signature',selection["branch_signature"]), selection["contract_sha256"])
+            if selection['domain']:
+                with lock:
+                    counts = self.__dict__.setdefault("_bonus_choice_counts", {}).setdefault(key, {})
+                    selected = min(selection["domain"], key=lambda value: (counts.get(value, 0), int(value)))
+                    counts[selected] = counts.get(selected, 0) + 1
+                if rule_selection:
+                    selection = observed_bonus_rule(previous, getattr(bootstrap, 'symbol', ''), override=selected)
+                else:
+                    selection = bonus_transition(previous, override=selected) if observed_choice else bonus_selection(previous, contract, override=selected)
+                selection["selection_policy"] = "least_attempted_available_test_choice"
+            else:
+                fields.pop('ind',None)
+                caller_fields.pop('ind',None)
             fields.update(selection["fields"])
             caller_fields.update(selection["fields"])
             self._write_json(root / f"step-{step:03d}-{label}.bonus-selection.json", selection)

@@ -1,7 +1,21 @@
 """Goreel command transport. Discovery never substitutes for remote proof."""
 import json
+import re
 import time
 import uuid
+from pathlib import Path
+
+
+def observed_spin_profile(game_slug: str, family: str) -> dict | None:
+    rules = json.loads(Path(__file__).with_name('observed_game_rules.json').read_text(encoding='utf-8'))
+    if rules.get('schema') != 'three-oaks/observed-spin-inputs/v1':
+        raise ValueError('3 Oaks: esquema de reglas desconocido')
+    profile = rules.get('games', {}).get(game_slug)
+    if (isinstance(profile, dict) and profile.get('family') == family
+            and profile.get('spin_params') == ['bet_per_line', 'lines']
+            and profile.get('evidence')):
+        return profile
+    return None
 
 
 def checked_response(response) -> dict:
@@ -50,7 +64,7 @@ def discover_modes(data: dict, family: str, serializer_observed: bool) -> list[d
     return modes
 
 
-def play_fields(data: dict, action: str, selected_mode=None) -> dict:
+def play_fields(data: dict, action: str, selected_mode=None, *, game_slug='', family='', client_profile=None) -> dict:
     context, settings = data["context"], data.get("settings", {})
     if action not in context.get("actions", []):
         raise ValueError("3 Oaks: acción no anunciada")
@@ -58,16 +72,77 @@ def play_fields(data: dict, action: str, selected_mode=None) -> dict:
     if action in {"spin", "buy_spin"}:
         state = context.get(context.get("current"), {})
         factor = settings.get("bet_factor")
-        if not isinstance(factor, list) or not factor or not all(isinstance(state.get(k), (int, float)) and not isinstance(state.get(k), bool) for k in ("bet_per_line", "lines")):
+        profile = client_profile or {}
+        captured_spin = action == 'spin' and profile.get('spin_params') == ['bet_per_line', 'lines']
+        purchase_params = profile.get('purchase_params', {}).get(str(selected_mode)) if action == 'buy_spin' else None
+        if purchase_params is not None:
+            if (not isinstance(purchase_params, list) or not {'bet_per_line', 'lines'}.issubset(purchase_params)
+                    or set(purchase_params) - {'bet_per_line', 'lines', 'bet_factor', 'selected_mode'}):
+                raise ValueError('3 Oaks: contrato de compra inválido')
+            if 'selected_mode' not in purchase_params and context.get('available_buy_bonus') != [selected_mode]:
+                raise ValueError('3 Oaks: compra sin selector ambigua')
+        if not all(isinstance(state.get(k), (int, float)) and not isinstance(state.get(k), bool) and state[k] > 0 for k in ("bet_per_line", "lines")):
             raise ValueError("3 Oaks: perfil de apuesta pendiente")
-        params = {"bet_per_line": state["bet_per_line"], "lines": state["lines"], "bet_factor": factor[0]}
+        params = {"bet_per_line": state["bet_per_line"], "lines": state["lines"]}
+        if action in {'spin','buy_spin'}:
+            source = profile.get('purchase_value_sources' if action == 'buy_spin' else 'spin_value_sources', {}).get('lines')
+            values = settings.get('bet_factor' if source == 'bet_factor_first' else 'lines')
+            if source in {'bet_factor_first', 'settings_lines_first'}:
+                if not isinstance(values, list) or not values or not isinstance(values[0], (int, float)) or isinstance(values[0], bool) or values[0] <= 0:
+                    raise ValueError('3 Oaks: origen de líneas de compra pendiente')
+                params['lines'] = values[0]
+        if not captured_spin and (purchase_params is None or 'bet_factor' in purchase_params):
+            if not isinstance(factor, list) or not factor or not isinstance(factor[0], (int,float)) or isinstance(factor[0], bool) or factor[0] <= 0:
+                raise ValueError("3 Oaks: perfil de apuesta pendiente")
+            params['bet_factor'] = factor[0]
         if action == "buy_spin":
             if selected_mode not in context.get("available_buy_bonus", []):
                 raise ValueError("3 Oaks: compra no anunciada")
-            params["selected_mode"] = selected_mode
+            if purchase_params is None or 'selected_mode' in purchase_params:
+                params["selected_mode"] = str(selected_mode) if profile.get('purchase_selector_type') == 'string' else selected_mode
     return {"action": {"name": action, "params": params}, "set_denominator": 1,
             "quick_spin": False, "sound": True, "autogame": False,
             "mobile": "0", "portrait": False, "fullscreen": False, "viewportSize": "1280x720"}
+
+
+def source_continuation_rules(source: str) -> dict:
+    """Certify legacy empty-argument calls from the current fetched client."""
+    if ('params:args||{}' not in source
+            or not re.search(r'this\.handlers\[action\]\|\|function\(args\)\{return \w+\._act\(action,args\)\}', source)):
+        return {}
+    rules = {}
+    if ('BONUS_INIT:"bonus_init"' in source
+            and '.act(_constants.FLOW_ACTIONS.BONUS_INIT)' in source
+            and 'setActionHandler(_constants.FLOW_ACTIONS.BONUS_INIT' not in source):
+        rules['bonus_init'] = {'current': 'spins'}
+    handlers = re.findall(r'setActionHandler\(_constants\.FLOW_ACTIONS\.RESPIN,function\(args\)\{(.{0,1000}?)\}\);', source)
+    if ('RESPIN:"respin"' in source and '.act(_constants.FLOW_ACTIONS.RESPIN)' in source and handlers
+            and all(re.search(r'return \w+\._act\(_constants\.FLOW_ACTIONS\.RESPIN,args\)', body)
+                    and not re.search(r'args\s*=|args\.', body) for body in handlers)):
+        rules['respin'] = {'current': 'bonus'}
+    if ('.act(_constants.FLOW_ACTIONS.BONUS_STOP)' in source
+            and 'setActionHandler(_constants.FLOW_ACTIONS.BONUS_STOP' not in source
+            and 'get BONUS_STOP(){return"bonus_".concat(' in source
+            and '.model.bonusOriginState(),"_stop")' in source
+            and 'this._get("game.bonus.back_to","spins")' in source):
+        rules['bonus_spins_stop'] = {'current': 'bonus', 'back_to': 'spins'}
+    return rules
+
+
+def continuation_fields(data: dict, *, game_slug: str, family: str, source_rules=None, client_profile=None) -> dict | None:
+    """Only transitions demonstrated by HAR or an active empty-argument serializer."""
+    profile = client_profile or {}
+    context = data.get('context', {})
+    actions = context.get('actions')
+    if context.get('round_finished') is not False or not isinstance(actions, list) or len(actions) != 1:
+        return None
+    action = actions[0]
+    rule = (profile or {}).get('continuations', {}).get(action) or (source_rules or {}).get(action)
+    if not isinstance(rule, dict) or context.get('current') != rule.get('current'):
+        return None
+    if rule.get('back_to') and context.get('bonus', {}).get('back_to', rule.get('back_to_default')) != rule['back_to']:
+        return None
+    return play_fields(data, action, game_slug=game_slug, family=family, client_profile=client_profile)
 
 
 class DemoSession:

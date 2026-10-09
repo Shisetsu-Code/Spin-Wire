@@ -124,7 +124,11 @@ class PragmaticModeCatalog:
         }
 
 
-def discover_modes(init: dict[str, str], requested_base_bet: float = 2.0) -> PragmaticModeCatalog:
+def discover_modes(init: dict[str, str], requested_base_bet: float = 2.0, *, symbol=None) -> PragmaticModeCatalog:
+    if symbol:
+        from tester_spin.providers.pragmatic_observed_transitions import game_profile
+        scale=game_profile(symbol).get('stake_scale')
+        if scale is not None:init={**init,'lines':str(scale)}
     raw_bls = str(init.get("bls") or "")
     raw_pur_init = str(init.get("purInit") or "")
     raw_pur_init_e = str(init.get("purInit_e") or "")

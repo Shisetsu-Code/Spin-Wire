@@ -1,0 +1,6 @@
+{
+  "evidence": "Official demo HAR 2026-10-03T00-43-39-528Z, vs10bbsplxmas; credentials removed",
+  "before": {"na":"b","g":"{bg_0:{bgid:\"0\",bgt:\"69\",end:\"0\",rw:\"0.00\"}}"},
+  "request": {"action":"doBonus","ind":"0"},
+  "after": {"na":"s","fs":"1","fsmax":"12","g":"{bg_0:{bgid:\"0\",bgt:\"69\",end:\"1\",rw:\"0.00\"}}"}
+}

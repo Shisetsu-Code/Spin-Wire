@@ -1,0 +1,6 @@
+{
+  "evidence": "Official demo, Chat normal Saludo inicial tab34: verified COLLECT click(746,535). Entry HAR 2026-10-03T03-43-10-627Z and collect HAR 2026-10-03T03-46-33-123Z. Collect path only; no claim that Gamble was covered.",
+  "before": {"na":"b","g":"{bg_0:{bgid:\"0\",bgt:\"69\",end:\"0\",rw:\"0.00\",rw_c:\"0\"}}"},
+  "request": {"action":"doBonus","symbol":"vs20wraanu","ind":"0"},
+  "after": {"na":"s","fs":"1","fsmax":"10","g":"{bg_0:{bgid:\"0\",bgt:\"69\",end:\"1\",rw:\"0.00\",rw_c:\"1\"}}"}
+}

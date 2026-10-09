@@ -10,6 +10,7 @@ from tester_spin.app_live import LiveTesterSpinApp
 from tester_spin.catalog_maintenance import purge_provider_catalog_artifacts
 from tester_spin.execution_backend import ExecutionConfig, LocalThreadExecutionBackend
 from tester_spin.models import Game, GameTestResult
+from tester_spin.feature_summary import feature_summary
 from tester_spin.ui_game_index import game_sort_key, retryable_games
 
 
@@ -397,7 +398,8 @@ class CurrentTesterSpinApp(LiveTesterSpinApp):
                         f"[{result.game_name}] {result.status}: "
                         f"respondieron={responded}/{result.requested_spins}, "
                         f"completados={completed}/{result.requested_spins}, "
-                        f"pendientes={pending}, errores={errors}"
+                        f"pendientes={pending}, errores={errors} | "
+                        f"{feature_summary(result.to_dict())}"
                     )
 
                     # record_result() already committed in the orchestrator thread.

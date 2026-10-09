@@ -1,0 +1,43 @@
+{
+  "source": "HardFire tab27 captured HTTP events 2026-10-03; official vs20fparty2 demo",
+  "steps": [
+    {
+      "request": {
+        "action": "doSpin",
+        "symbol": "vs20fparty2",
+        "l": "20"
+      },
+      "response": {
+        "na": "s",
+        "rs": "mc",
+        "rs_p": "6",
+        "rs_c": "7",
+        "rs_m": "7",
+        "rs_more": "1",
+        "tmb_win": "39.10",
+        "trail": "nmp~45;nmv~3",
+        "fs": "7",
+        "fsmax": "10"
+      }
+    },
+    {
+      "request": {
+        "action": "doSpin",
+        "symbol": "vs20fparty2",
+        "l": "20"
+      },
+      "response": {
+        "na": "s",
+        "rs": "mc",
+        "rs_p": "7",
+        "rs_c": "8",
+        "rs_m": "8",
+        "rs_more": "1",
+        "tmb_win": "39.70",
+        "trail": "nmp~45,1;nmv~3,3",
+        "fs": "7",
+        "fsmax": "10"
+      }
+    }
+  ]
+}

@@ -45,26 +45,26 @@ class PragmaticProvider(_EndpointPragmaticProvider):
             timeout_s=timeout_s,
         )
         parsed = result[2]
-        analysis = analyze_response(parsed)
+        analysis = analyze_response(parsed, symbol=getattr(bootstrap, 'symbol', ''))
         self._write_json(root / f"step-{step:03d}-{label}.analysis.json", analysis)
         return result
 
     def _write_discovery(self, run_root, discovery, catalog) -> None:
         super()._write_discovery(run_root, discovery, catalog)
         root = Path(run_root) / "discovery"
-        self._write_json(root / "doInit.response.analysis.json", analyze_response(discovery.init_response))
+        self._write_json(root / "doInit.response.analysis.json", analyze_response(discovery.init_response, symbol=discovery.symbol))
         self._write_json(
             root / "calibration.response.analysis.json",
-            analyze_response(discovery.calibration_response),
+            analyze_response(discovery.calibration_response, symbol=discovery.symbol),
         )
 
     def _write_http_bootstrap(self, root, bootstrap) -> None:
         super()._write_http_bootstrap(root, bootstrap)
         boot = Path(root) / "bootstrap"
-        self._write_json(boot / "doInit.response.analysis.json", analyze_response(bootstrap.init_response))
+        self._write_json(boot / "doInit.response.analysis.json", analyze_response(bootstrap.init_response, symbol=bootstrap.symbol))
         self._write_json(
             boot / "calibration.response.analysis.json",
-            analyze_response(bootstrap.calibration_response),
+            analyze_response(bootstrap.calibration_response, symbol=bootstrap.symbol),
         )
 
     def test_game(
@@ -87,7 +87,9 @@ class PragmaticProvider(_EndpointPragmaticProvider):
         from tester_spin.providers.pragmatic_reel_coverage import expand_reel_choices
         result = expand_reel_choices(self, game, result, spins=spins, timeout_s=timeout_s,
             stop_event=stop_event, progress=progress)
-        from tester_spin.providers.pragmatic_bonus_coverage import annotate_bonus_coverage
+        from tester_spin.providers.pragmatic_bonus_coverage import annotate_bonus_coverage, expand_observed_bonus_choices
+        result = expand_observed_bonus_choices(self, game, result, spins=spins, timeout_s=timeout_s,
+            stop_event=stop_event, progress=progress)
         annotate_bonus_coverage(result)
         if result.run_dir:
             run_root = Path(result.run_dir)
@@ -126,4 +128,7 @@ class PragmaticProvider(_EndpointPragmaticProvider):
                 )
                 self._write_json(run_root / "result.json", result.to_dict())
 
+        self._record_last_test_in_game_json(game, result)
+        if result.run_dir:
+            self._write_json(Path(result.run_dir) / 'result.json', result.to_dict())
         return result

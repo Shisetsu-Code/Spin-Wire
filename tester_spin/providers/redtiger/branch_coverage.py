@@ -84,7 +84,9 @@ def _base_mode_specs(result: GameTestResult) -> dict[str, tuple[str, FeatureBuy 
         mode_id = str(item.get("id") or "").strip()
         if not mode_id or str(item.get("kind") or "").upper() != "PURCHASE":
             continue
-        name = str(item.get("feature_buy") or "").strip()
+        if item.get('client_observed') is not True or item.get('executable') is False:
+            continue
+        name = str(item.get("feature_buy") or "" ).strip()
         multiplier = _safe_decimal(item.get("feature_multiplier"))
         if name and multiplier is not None:
             specs[mode_id] = ("PURCHASE", FeatureBuy(name=name, multiplier=multiplier))
@@ -108,7 +110,12 @@ def _choice_parent_modes(result: GameTestResult) -> set[str]:
             payload = _read_json(path)
             if isinstance(payload, dict) and pending_choice_from_response(payload) is not None:
                 parents.add(path.relative_to(root).parts[0])
-    return parents
+    unconfirmed = {str(item.get('id') or '') for item in result.discovered_modes
+                   if isinstance(item, dict)
+                   and (str(item.get('kind') or '').upper() == 'PURCHASE'
+                        or str(item.get('id') or '').startswith('PURCHASE_'))
+                   and item.get('client_observed') is not True}
+    return parents - unconfirmed
 
 
 def _path_label(prefix: tuple[str, ...]) -> str:

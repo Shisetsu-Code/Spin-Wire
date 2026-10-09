@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import hashlib
 import threading
 import time
 import uuid
@@ -15,7 +16,7 @@ from tester_spin.models import Game, GameTestResult, SpinAttempt, utc_now_iso
 from tester_spin.providers.base import ProviderAdapter
 from tester_spin.providers.result_farm_contract import ProviderFarmSpec, build_result_farm_contract, validate_result_farm_contract
 from .catalog import CATALOG_API, ORIGIN, SLUG, client_family, family_map, games_from_page, launcher_config
-from .runtime import DemoSession, base_terminal, discover_modes, play_fields
+from .runtime import DemoSession, base_terminal, discover_modes, play_fields, continuation_fields, source_continuation_rules
 
 _SPEC = ProviderFarmSpec(provider="3oaks", protocol_family="three-oaks-goreel-commands",
     bootstrap_strategy="three-oaks-public-demo-login-start", transport="http-json-text-plain",
@@ -132,6 +133,23 @@ class ThreeOaksProvider(ProviderAdapter):
         progress(f"3 Oaks catálogo: {len(games)} juegos; autoridad={'sí' if complete else 'no'}.")
         return sorted(games.values(), key=lambda g: g.name.casefold())
 
+    def _public_input_source(self, url: str, revision: str, timeout_s: float) -> str:
+        # Reuse only the exact public URL/revision named by the current launcher.
+        key = hashlib.sha256((url + '\n' + str(revision)).encode()).hexdigest()
+        cache = self.provider_root / 'input-sources'
+        cache.mkdir(exist_ok=True)
+        path = cache / (key + '.js')
+        if path.is_file() and revision:
+            return path.read_text(encoding='utf-8')
+        response = self.http.get(url, params={'_ts':revision}, timeout=timeout_s)
+        response.raise_for_status()
+        source = response.text
+        if not source or len(source) > 10_000_000 or '<html' in source[:500].lower():
+            raise ValueError('3 Oaks: fuente de inputs no es JavaScript público')
+        if revision:
+            path.write_text(source, encoding='utf-8')
+        return source
+
     def test_game(self, game: Game, *, spins: int, timeout_s: float, stop_event: threading.Event, progress) -> GameTestResult:
         requested = max(1, int(spins))
         result = GameTestResult(self.key, game.slug, game.name, game.url, requested, 0, 0, "PARCIAL", symbol=game.symbol)
@@ -165,33 +183,111 @@ class ThreeOaksProvider(ProviderAdapter):
             asset = self.http.get(desktop["client_url"] + "src/game.js", timeout=timeout_s)
             asset.raise_for_status()
             (root / "client.js").write_text(asset.text, encoding="utf-8")
+            from .client_contracts import client_contract
+            client_profile = client_contract(asset.text, data=data)
+            if (client_profile or {}).get('spin_params') == ['bet_per_line', 'lines', 'bet_factor']:
+                gr = config.get('gr', {})
+                runner_url = str(gr.get('static_path', '')) + 'gr.js'
+                runner_location = urlparse(runner_url)
+                if runner_location.scheme != 'https' or runner_location.hostname != 'static.3oaks.com' or not runner_location.path.startswith('/gs/gamerunner/'):
+                    raise ValueError('3 Oaks: ruta activa del spin pendiente de verificación')
+                init_source = self._public_input_source(desktop['client_url'] + 'init.js', desktop.get('revision',''), timeout_s)
+                runner_source = self._public_input_source(runner_url, gr.get('revision',''), timeout_s)
+                (run_dir / 'client-init.js').write_text(init_source, encoding='utf-8')
+                (run_dir / 'shared-runner.js').write_text(runner_source, encoding='utf-8')
+                client_profile = client_contract(asset.text, data=data, runner_source=runner_source, init_source=init_source)
+                if (client_profile or {}).get('spin_route') != 'shared-runner-button':
+                    # A bundled default handler is not evidence of the active normal button.
+                    client_profile.pop('spin_params', None)
+
+            source_rules = source_continuation_rules(asset.text)
+            if client_profile:
+                source_rules.update(client_profile.get('continuations', {}))
+                (run_dir / 'client-input-contract.json').write_text(json.dumps(client_profile, indent=2), encoding='utf-8')
+            (run_dir / 'client-continuation-contract.json').write_text(json.dumps({
+                'client_sha256': hashlib.sha256(asset.text.encode()).hexdigest(), 'rules': source_rules}, indent=2), encoding='utf-8')
             # Require each client's public serializer, not just a vendor label.
-            observed = 'setActionHandler(bn.SPIN' in asset.text and 'bet_per_line' in asset.text and 'bet_factor' in asset.text
-            purchase_observed = observed and 't.selected_mode=e' in asset.text and 'bn.BUY_SPIN' in asset.text
+            profile = client_profile or {}
+            observed = bool(profile.get('spin_params'))
             modes = discover_modes(data, family, observed)
             for mode in modes:
-                if mode["kind"] == "PURCHASE" and not purchase_observed:
+                if mode["kind"] == "PURCHASE" and mode.get('selected_mode') not in profile.get('purchase_modes', []):
                     mode["executable"] = False
                     mode["reason"] = "PURCHASE_SERIALIZER_CAPTURE_REQUIRED"
+                    if profile.get('purchase_ui_observed') and mode.get('selected_mode') in profile.get('purchase_ui_modes', data.get('context', {}).get('available_buy_bonus', [])):
+                        mode.update(client_observed=True, evidence_level='CLIENT_INPUT_CALL',
+                                    coverage_required=True)
+                    else:
+                        mode.update(kind='DISCOVERED_ONLY', coverage_required=False,
+                                    evidence_level='SERVER_ADVERTISED', client_observed=False)
+                elif mode['kind'] == 'PURCHASE':
+                    mode['client_observed'] = True
+                elif mode['kind'] == 'UNKNOWN_FEATURE':
+                    mode['coverage_required'] = False
             result.discovered_modes = modes
             self._save_metadata(game, family=family, vendor=options.get("vendor"),
                                 runtime_transport="goreel-http-commands", discovered_modes=modes)
-            if not observed or not base_terminal(data):
-                result.error = "3 Oaks: serializer o continuación inicial pendiente de captura"
+            if not observed:
+                result.error = "3 Oaks: formato del spin normal sin una ruta activa certificada"
                 return result
             # Purchases are tried once each; never enumerate selector guesses.
             jobs = [(modes[0], None)] * requested + [(m, m["request_options"]["selected_mode"]) for m in modes[1:] if m["kind"] == "PURCHASE" and m["executable"]]
+            def finish_round(current, directory, deadline):
+                steps = 0
+                while not base_terminal(current):
+                    if stop_event.is_set() or steps >= 80 or time.monotonic() >= deadline:
+                        return current, steps, False
+                    next_fields = continuation_fields(current, game_slug=game.slug, family=family, client_profile=client_profile, source_rules=source_rules)
+                    if next_fields is None:
+                        return current, steps, False
+                    saved_settings = current.get('settings', {})
+                    current = session.post('play', next_fields, artifact_dir=directory)
+                    current.setdefault('settings', saved_settings)
+                    steps += 1
+                return current, steps, True
+            if not base_terminal(data):
+                data, _, restored = finish_round(data, run_dir / 'initial-continuation',
+                                                 time.monotonic() + min(90, max(20, timeout_s * 4)))
+                if not restored:
+                    result.error = '3 Oaks: continuación inicial no soportada por el contrato del cliente'
+                    return result
             for mode, selector in jobs:
                 if stop_event.is_set():
                     result.error = "Ejecución detenida"
                     break
                 action = mode["wire_action"]
-                fields = play_fields(data, action, selector)
+                fields = play_fields(data, action, selector, game_slug=game.slug, family=family, client_profile=client_profile)
                 previous_settings = data.get("settings", {})
                 attempt_dir = run_dir / f"attempt-{len(result.attempts) + 1:03d}"
                 data = session.post("play", fields, artifact_dir=attempt_dir)
                 data.setdefault("settings", previous_settings)
-                terminal = base_terminal(data)
+                feature_round = mode['kind'] == 'PURCHASE' or not base_terminal(data)
+                deadline = time.monotonic() + min(90, max(20, timeout_s * 4))
+                data, extra_steps, terminal = finish_round(data, attempt_dir, deadline)
+                wire_steps = 1 + extra_steps
+                if terminal and feature_round:
+                    audit_dir = attempt_dir / 'return-to-base'
+                    consecutive = 0
+                    for probe in range(1, 11):
+                        if stop_event.is_set() or time.monotonic() >= deadline:
+                            terminal = False
+                            break
+                        saved_settings = data.get('settings', {})
+                        data = session.post('play', play_fields(data, 'spin', game_slug=game.slug, family=family, client_profile=client_profile),
+                                            artifact_dir=audit_dir / f'probe-{probe:03d}')
+                        data.setdefault('settings', saved_settings)
+                        direct_base = base_terminal(data)
+                        data, count, completed = finish_round(data, audit_dir / f'probe-{probe:03d}', deadline)
+                        wire_steps += 1 + count
+                        consecutive = consecutive + 1 if direct_base and completed else 0
+                        if not completed:
+                            break
+                        if consecutive == 2:
+                            break
+                    terminal = terminal and consecutive == 2
+                    (attempt_dir / 'return-to-base.json').write_text(json.dumps({
+                        'status': 'CONFIRMED' if terminal else 'PENDING', 'required': 2,
+                        'consecutive_base': consecutive}), encoding='utf-8')
                 if terminal:
                     option = "spin" if mode["id"] == "SPIN" else str(selector)
                     mode["covered_options"] = [option]
@@ -201,7 +297,7 @@ class ThreeOaksProvider(ProviderAdapter):
                             execution_state="PROVEN_TERMINAL" if terminal else "CONTINUATION_PENDING")
                 attempt = SpinAttempt(number=len(result.attempts) + 1, ok=terminal, mode_id=mode["id"], mode_kind=mode["kind"],
                     status_code=200, symbol=game.symbol, endpoint=endpoint, terminal=terminal,
-                    wire_steps=1, artifact_dir=str(attempt_dir), warning="" if terminal else "Continuación pendiente de captura")
+                    wire_steps=wire_steps, artifact_dir=str(attempt_dir), warning="" if terminal else "Continuación o retorno a base pendiente")
                 result.attempts.append(attempt)
                 if mode["id"] == "SPIN":
                     result.successful_spins += int(terminal)
@@ -209,10 +305,12 @@ class ThreeOaksProvider(ProviderAdapter):
                 if not terminal:
                     result.error = "3 Oaks: continuación pendiente; no se inventan parámetros"
                     break
-            result.status = "OK" if result.successful_spins == requested and all(m.get("validated") for m in modes) else "PARCIAL"
+            result.status = "OK" if result.successful_spins == requested and all(m.get("validated") for m in modes if m.get("coverage_required", True)) else "PARCIAL"
         except Exception as exc:
             result.status = "PARCIAL" if result.successful_spins else "ERROR"
             result.error = f"{type(exc).__name__}: {exc}"
+            if '429' in str(exc):
+                result.error = '3 Oaks: acceso HTTP 429 bloqueado por el sitio; no se pudo validar esta ejecución'
             progress(f"[{game.name}] 3 Oaks pendiente: {result.error}")
         finally:
             result.failed_spins = max(0, requested - result.successful_spins)

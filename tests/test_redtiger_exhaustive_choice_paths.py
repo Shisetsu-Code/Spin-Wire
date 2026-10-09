@@ -93,6 +93,7 @@ class RedTigerExhaustiveChoicePathTests(unittest.TestCase):
                 {
                     "id": "PURCHASE_SUPER",
                     "kind": "PURCHASE",
+                    "client_observed": True,
                     "feature_buy": "SuperFreeSpins",
                     "feature_multiplier": "300",
                 },

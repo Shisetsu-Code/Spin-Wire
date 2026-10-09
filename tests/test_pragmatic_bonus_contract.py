@@ -5,6 +5,18 @@ from tester_spin.providers.pragmatic_bonus_contract import certify_bonus_contrac
 FIXTURE=json.loads(Path(__file__).with_name('fixtures').joinpath('pragmatic_bonus_pick_client.json').read_text())
 
 class BonusContractTests(unittest.TestCase):
+    def test_bonus_discovery_does_not_require_manual_reels(self):
+        import tempfile
+        from types import SimpleNamespace
+        from unittest.mock import Mock,patch
+        from tester_spin.providers.pragmatic import PragmaticProvider
+        with tempfile.TemporaryDirectory() as tmp:
+            provider=PragmaticProvider(Path(tmp))
+            provider._resolve_reel_contract=Mock(side_effect=AssertionError('No manual reel contract required'))
+            boot=SimpleNamespace(symbol='demo',cver='1',session=Mock(),launch_url='https://example.invalid',reel_contract=None)
+            boot.session.get.return_value=SimpleNamespace(text='official loader',url=boot.launch_url,raise_for_status=lambda:None)
+            with patch('tester_spin.providers.pragmatic_reel_contract.discover_client_source',return_value=(FIXTURE['source_excerpt'],FIXTURE['source_url'],{})):
+                self.assertIsNotNone(provider._resolve_bonus_contract(boot))
     def setUp(self):
         self.contract=certify_bonus_contract(FIXTURE['source_excerpt'],FIXTURE['source_url'])
         self.response={'na':'b','bgt':'21','bw':'1','end':'0','rw':'0.00','level':'0','status':'0,0,0,0','wins':'0,0,0,0','wins_mask':'h,h,h,h'}
@@ -32,6 +44,8 @@ class BonusContractTests(unittest.TestCase):
     def test_requires_initialized_bonus_and_honors_terminal(self):
         for extra in [{'na':'s'},{'end':'1'}]:self.assertIsNone(bonus_selection(dict(self.response,**extra),self.contract))
         raw=dict(self.response);raw.pop('rw')
+        self.assertEqual(bonus_selection(raw,self.contract)['fields'],{'ind':'0'})
+        raw.pop('status')
         self.assertIsNone(bonus_selection(raw,self.contract))
         self.assertIsNone(bonus_selection(self.response,None))
     def test_malformed_tables_and_empty_domain_fail_closed(self):

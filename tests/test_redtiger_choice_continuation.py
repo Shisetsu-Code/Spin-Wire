@@ -186,6 +186,7 @@ class RedTigerChoiceContinuationTests(unittest.TestCase):
                 FeatureBuy("FreeSpins", Decimal("100")),
                 FeatureBuy("SuperFreeSpins", Decimal("300")),
             ),
+            client_observed_feature_buys=('FreeSpins','SuperFreeSpins'),
         )
 
         with tempfile.TemporaryDirectory() as temp:

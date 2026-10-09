@@ -18,6 +18,16 @@ class ReelContractTests(unittest.TestCase):
         changed=FIXTURE['source_excerpt'].replace('RespinFeatureManager_ChCh','AnotherClientFeature')
         self.assertIsNotNone(certify_reel_contract(changed))
 
+    def test_long_minified_token_does_not_block_other_games(self):
+        import subprocess,sys
+        module=Path(__file__).parents[1]/'tester_spin/providers/pragmatic_reel_contract.py'
+        code=("import importlib.util; "
+              f"s=importlib.util.spec_from_file_location('contract',{str(module)!r}); "
+              "m=importlib.util.module_from_spec(s); s.loader.exec_module(m); "
+              "assert m.certify_reel_contract('A'*60000) is None")
+        completed=subprocess.run([getattr(sys,'_base_executable',sys.executable),'-c',code],timeout=3,capture_output=True)
+        self.assertEqual(completed.returncode,0,completed.stderr.decode(errors='replace'))
+
     def test_selects_response_default_and_records_full_client_domain(self):
         result=reel_selection(self.response,self.contract)
         self.assertEqual(result['fields'],{'ind':'2'})

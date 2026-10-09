@@ -1,0 +1,717 @@
+[
+  {
+    "game_id": "5Families",
+    "response": {
+      "success": true,
+      "result": {
+        "transactions": {
+          "roundId": 195557630
+        },
+        "user": {
+          "balance": {
+            "cash": {
+              "atStart": "10000.00",
+              "afterBet": "9998.00",
+              "atEnd": "9998.80"
+            },
+            "freeBets": {
+              "atStart": "0.00",
+              "afterBet": "0.00",
+              "atEnd": "0.00"
+            },
+            "bonus": {
+              "atStart": "0.00",
+              "afterBet": "0.00",
+              "atEnd": "0.00"
+            },
+            "sessionCash": {
+              "atStart": "0.00",
+              "afterBet": "0.00",
+              "atEnd": "0.00"
+            },
+            "sessionFreeBets": {
+              "atStart": "0.00",
+              "afterBet": "0.00",
+              "atEnd": "0.00"
+            }
+          },
+          "canGamble": false,
+          "userId": 675353,
+          "sessionId": "fixture-redacted",
+          "sessionNetPosition": "-1.20",
+          "token": "fixture-redacted",
+          "bonuses": [],
+          "tournaments": [],
+          "vouchers": [],
+          "messages": [],
+          "limits": {
+            "betThresholdTime": 930
+          },
+          "serverTime": "2026-10-07 20:08:55"
+        },
+        "game": {
+          "win": {
+            "lines": "0.80",
+            "total": "0.80"
+          },
+          "winsMultipliers": {
+            "lines": "0.40",
+            "total": "0.40"
+          },
+          "stake": "2.00",
+          "multiplier": 1,
+          "winLines": [
+            {
+              "index": 1,
+              "start": 0,
+              "length": 3,
+              "tiles": [
+                1,
+                1,
+                1,
+                0,
+                0
+              ],
+              "tile": 1,
+              "multiplier": 1,
+              "amount": "0.40",
+              "multipliedAmount": "0.40"
+            },
+            {
+              "index": 5,
+              "start": 0,
+              "length": 3,
+              "tiles": [
+                1,
+                1,
+                1,
+                0,
+                0
+              ],
+              "tile": 1,
+              "multiplier": 1,
+              "amount": "0.40",
+              "multipliedAmount": "0.40"
+            }
+          ],
+          "debugNormal": true,
+          "barrel": {
+            "bulletCount": 1,
+            "bulletCountMax": 5,
+            "mode": "Normal"
+          },
+          "reelsBuffer": [
+            [
+              [
+                2,
+                1,
+                1,
+                1,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ],
+              [
+                2,
+                1,
+                8,
+                2,
+                2
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                2,
+                2,
+                2
+              ],
+              [
+                1,
+                6,
+                2
+              ],
+              [
+                6,
+                1,
+                1,
+                1,
+                8
+              ]
+            ],
+            [
+              [
+                1,
+                1,
+                2,
+                8,
+                2
+              ],
+              [
+                1,
+                2,
+                2
+              ],
+              [
+                1,
+                6,
+                2,
+                8,
+                1
+              ]
+            ],
+            [
+              [
+                2,
+                8,
+                8,
+                1,
+                1
+              ],
+              [
+                6,
+                2,
+                2
+              ],
+              [
+                8,
+                1,
+                8,
+                1,
+                6
+              ]
+            ],
+            [
+              [
+                2,
+                2,
+                8,
+                8,
+                6
+              ],
+              [
+                2,
+                2,
+                6
+              ],
+              [
+                1,
+                6,
+                1,
+                6,
+                1
+              ]
+            ]
+          ],
+          "features": [],
+          "gameMode": 0,
+          "hasState": true
+        },
+        "jackpots": null,
+        "bonusChance": null
+      }
+    }
+  },
+  {
+    "game_id": "5Families",
+    "response": {
+      "success": true,
+      "result": {
+        "transactions": {
+          "roundId": 195557650
+        },
+        "user": {
+          "balance": {
+            "cash": {
+              "atStart": "9998.80",
+              "afterBet": "9996.80",
+              "atEnd": "9996.80"
+            },
+            "freeBets": {
+              "atStart": "0.00",
+              "afterBet": "0.00",
+              "atEnd": "0.00"
+            },
+            "bonus": {
+              "atStart": "0.00",
+              "afterBet": "0.00",
+              "atEnd": "0.00"
+            },
+            "sessionCash": {
+              "atStart": "0.00",
+              "afterBet": "0.00",
+              "atEnd": "0.00"
+            },
+            "sessionFreeBets": {
+              "atStart": "0.00",
+              "afterBet": "0.00",
+              "atEnd": "0.00"
+            }
+          },
+          "canGamble": false,
+          "userId": 675353,
+          "sessionId": "fixture-redacted",
+          "sessionNetPosition": "-3.20",
+          "token": "fixture-redacted",
+          "bonuses": [],
+          "tournaments": [],
+          "vouchers": [],
+          "messages": [],
+          "limits": {
+            "betThresholdTime": 928
+          },
+          "serverTime": "2026-10-07 20:09:01"
+        },
+        "game": {
+          "win": {
+            "lines": "0.00",
+            "total": "0.00"
+          },
+          "winsMultipliers": {
+            "lines": "0.00",
+            "total": "0.00"
+          },
+          "stake": "2.00",
+          "multiplier": 1,
+          "winLines": [],
+          "debugNormal": true,
+          "barrel": {
+            "bulletCount": 0,
+            "bulletCountMax": 5,
+            "mode": "Normal"
+          },
+          "reelsBuffer": [
+            [
+              [
+                2,
+                5,
+                2,
+                3,
+                2
+              ],
+              [
+                5,
+                2,
+                3
+              ],
+              [
+                2,
+                5,
+                2,
+                3,
+                3
+              ]
+            ],
+            [
+              [
+                2,
+                2,
+                3,
+                2,
+                2
+              ],
+              [
+                3,
+                8,
+                5
+              ],
+              [
+                5,
+                8,
+                3,
+                8,
+                8
+              ]
+            ],
+            [
+              [
+                2,
+                2,
+                2,
+                3,
+                5
+              ],
+              [
+                5,
+                3,
+                2
+              ],
+              [
+                8,
+                8,
+                2,
+                2,
+                3
+              ]
+            ],
+            [
+              [
+                3,
+                8,
+                8,
+                2,
+                2
+              ],
+              [
+                2,
+                8,
+                8
+              ],
+              [
+                3,
+                5,
+                3,
+                3,
+                3
+              ]
+            ],
+            [
+              [
+                5,
+                2,
+                5,
+                2,
+                3
+              ],
+              [
+                2,
+                5,
+                3
+              ],
+              [
+                3,
+                3,
+                2,
+                5,
+                2
+              ]
+            ]
+          ],
+          "features": [],
+          "gameMode": 0,
+          "hasState": true
+        },
+        "jackpots": null,
+        "bonusChance": null
+      }
+    }
+  },
+  {
+    "game_id": "80sSpins",
+    "response": {
+      "success": true,
+      "result": {
+        "transactions": {
+          "roundId": 195557823
+        },
+        "user": {
+          "balance": {
+            "cash": {
+              "atStart": "10000.00",
+              "afterBet": "9998.00",
+              "atEnd": "9998.00"
+            },
+            "freeBets": {
+              "atStart": "0.00",
+              "afterBet": "0.00",
+              "atEnd": "0.00"
+            },
+            "bonus": {
+              "atStart": "0.00",
+              "afterBet": "0.00",
+              "atEnd": "0.00"
+            },
+            "sessionCash": {
+              "atStart": "0.00",
+              "afterBet": "0.00",
+              "atEnd": "0.00"
+            },
+            "sessionFreeBets": {
+              "atStart": "0.00",
+              "afterBet": "0.00",
+              "atEnd": "0.00"
+            }
+          },
+          "canGamble": false,
+          "userId": 675368,
+          "sessionId": "fixture-redacted",
+          "sessionNetPosition": "-2.00",
+          "token": "fixture-redacted",
+          "bonuses": [],
+          "tournaments": [],
+          "vouchers": [],
+          "messages": [],
+          "limits": {
+            "betThresholdTime": 940
+          },
+          "serverTime": "2026-10-07 20:09:58"
+        },
+        "game": {
+          "win": {
+            "total": "0.00",
+            "winMul": "0.00",
+            "stake": "2.00"
+          },
+          "state": [],
+          "nsp": {
+            "stake": 2,
+            "reels": [
+              "TATTJ",
+              "PYKTP",
+              "NQNQJ",
+              "YPAZJ",
+              "QQYXK",
+              "QAZSJ",
+              "PZXAN",
+              "TTJYN",
+              "KAKYP",
+              "XJNQJ",
+              "KQNTQ",
+              "TQNTJ",
+              "APQTA",
+              "XAKXN",
+              "TAJXP"
+            ],
+            "multiWays": [],
+            "multiplier": 1,
+            "winMul": "0.00",
+            "winning": "0.00",
+            "spinning": {
+              "nearMiss": false
+            }
+          },
+          "hasState": false
+        },
+        "jackpots": null,
+        "bonusChance": null
+      }
+    }
+  },
+  {
+    "game_id": "80sSpins",
+    "response": {
+      "success": true,
+      "result": {
+        "transactions": {
+          "roundId": 195557868
+        },
+        "user": {
+          "balance": {
+            "cash": {
+              "atStart": "9998.00",
+              "afterBet": "9996.00",
+              "atEnd": "9997.60"
+            },
+            "freeBets": {
+              "atStart": "0.00",
+              "afterBet": "0.00",
+              "atEnd": "0.00"
+            },
+            "bonus": {
+              "atStart": "0.00",
+              "afterBet": "0.00",
+              "atEnd": "0.00"
+            },
+            "sessionCash": {
+              "atStart": "0.00",
+              "afterBet": "0.00",
+              "atEnd": "0.00"
+            },
+            "sessionFreeBets": {
+              "atStart": "0.00",
+              "afterBet": "0.00",
+              "atEnd": "0.00"
+            }
+          },
+          "canGamble": false,
+          "userId": 675368,
+          "sessionId": "fixture-redacted",
+          "sessionNetPosition": "-2.40",
+          "token": "fixture-redacted",
+          "bonuses": [],
+          "tournaments": [],
+          "vouchers": [],
+          "messages": [],
+          "limits": {
+            "betThresholdTime": 941
+          },
+          "serverTime": "2026-10-07 20:10:09"
+        },
+        "game": {
+          "win": {
+            "total": "1.60",
+            "winMul": "0.80",
+            "stake": "2.00"
+          },
+          "state": [],
+          "nsp": {
+            "stake": 2,
+            "reels": [
+              "PZAJA",
+              "ZKTJT",
+              "AJTJQ",
+              "PJTKQ",
+              "NXTNA",
+              "AJYJM",
+              "AANJJ",
+              "PJAJX",
+              "NYTKQ",
+              "NKNKK",
+              "AXTKZ",
+              "NATVJ",
+              "AJYZG",
+              "YNPJY",
+              "QTPPZ"
+            ],
+            "multiWays": [
+              {
+                "winSingleMul": "0.40",
+                "winMul": "0.80",
+                "winning": "1.60",
+                "multiplier": 2,
+                "cells": [
+                  {
+                    "1": 5,
+                    "2": 6
+                  },
+                  {
+                    "2": 6
+                  },
+                  {
+                    "3": 7
+                  }
+                ],
+                "ways": 2,
+                "symbol": "A"
+              }
+            ],
+            "multiplier": 2,
+            "winMul": "0.80",
+            "winning": "1.60",
+            "spinning": {
+              "nearMiss": false
+            }
+          },
+          "hasState": false
+        },
+        "jackpots": null,
+        "bonusChance": null
+      }
+    }
+  },
+  {
+    "game_id": "80sSpins",
+    "response": {
+      "success": true,
+      "result": {
+        "transactions": {
+          "roundId": 195557875
+        },
+        "user": {
+          "balance": {
+            "cash": {
+              "atStart": "9997.60",
+              "afterBet": "9995.60",
+              "atEnd": "9995.80"
+            },
+            "freeBets": {
+              "atStart": "0.00",
+              "afterBet": "0.00",
+              "atEnd": "0.00"
+            },
+            "bonus": {
+              "atStart": "0.00",
+              "afterBet": "0.00",
+              "atEnd": "0.00"
+            },
+            "sessionCash": {
+              "atStart": "0.00",
+              "afterBet": "0.00",
+              "atEnd": "0.00"
+            },
+            "sessionFreeBets": {
+              "atStart": "0.00",
+              "afterBet": "0.00",
+              "atEnd": "0.00"
+            }
+          },
+          "canGamble": false,
+          "userId": 675368,
+          "sessionId": "fixture-redacted",
+          "sessionNetPosition": "-4.20",
+          "token": "fixture-redacted",
+          "bonuses": [],
+          "tournaments": [],
+          "vouchers": [],
+          "messages": [],
+          "limits": {
+            "betThresholdTime": 948
+          },
+          "serverTime": "2026-10-07 20:10:10"
+        },
+        "game": {
+          "win": {
+            "total": "0.20",
+            "winMul": "0.10",
+            "stake": "2.00"
+          },
+          "state": [],
+          "nsp": {
+            "stake": 2,
+            "reels": [
+              "KXAAN",
+              "KQXYK",
+              "QQJXN",
+              "TAATZ",
+              "TAZAQ",
+              "PXYYJ",
+              "YZTQK",
+              "NXXXY",
+              "TQNZS",
+              "QNJAJ",
+              "ATZXP",
+              "PANKP",
+              "QKJKN",
+              "XQNQJ",
+              "KANAJ"
+            ],
+            "multiWays": [
+              {
+                "winSingleMul": "0.10",
+                "winMul": "0.10",
+                "winning": "0.20",
+                "multiplier": 1,
+                "cells": [
+                  {
+                    "3": 7
+                  },
+                  {
+                    "5": 9
+                  },
+                  {
+                    "4": 8
+                  }
+                ],
+                "ways": 1,
+                "symbol": "N"
+              }
+            ],
+            "multiplier": 1,
+            "winMul": "0.10",
+            "winning": "0.20",
+            "spinning": {
+              "nearMiss": false
+            }
+          },
+          "hasState": false
+        },
+        "jackpots": null,
+        "bonusChance": null
+      }
+    }
+  }
+]
