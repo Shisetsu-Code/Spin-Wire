@@ -45,7 +45,12 @@ def test_live_and_offline_catalog_never_delete_existing_rows(tmp_path):
     assert provider.crawl_catalog(stop_event=threading.Event(),progress=lambda _:None)
     assert not provider.catalog_crawl_authoritative
 
-def test_unlearned_protocol_never_claims_ok_or_zero_purchases(tmp_path):
+def test_unlearned_protocol_never_claims_ok_or_zero_purchases(tmp_path,monkeypatch):
+    from tester_spin.providers.nolimit_city.runtime import Unlearned
+    class UnsupportedSession:
+        def open(self,*args):raise Unlearned('Nolimit City: bootstrap desconocido')
+        def close(self):pass
+    monkeypatch.setattr('tester_spin.providers.nolimit_city.adapter.NolimitSession',UnsupportedSession)
     provider=NolimitCityProvider(tmp_path);game=games_from_rows([row()])[0]
     result=provider.test_game(game,spins=1,timeout_s=1,stop_event=threading.Event(),progress=lambda _:None)
     assert result.status=='PARCIAL' and result.successful_spins==0

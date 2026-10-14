@@ -1,4 +1,4 @@
-# Nolimit City: catálogo oficial
+# Nolimit City: catálogo y ejecutor Demo
 
 Proveedor integrado: `nolimit_city` / **Nolimit City**.
 
@@ -21,16 +21,34 @@ las suministra. Los enlaces de demo permiten abrir el juego desde la grilla.
 
 ## Estado de ejecución
 
-Los 140 juegos están cargados como PENDIENTE. Esta incorporación certifica el
-catálogo y la identidad de sus demos, no sus rondas ni sus opciones. Al intentar
-una prueba, el adaptador informa PARCIAL y genera un diagnóstico; no envía giros
-por un protocolo supuesto y no produce contratos de farm ejecutables.
+El ejecutor abre una sesión Demo nueva mediante FANPAGE_DEMO, obtiene la versión
+actual del cliente y la clave temporal, y usa el transporte RC4/LZW observado.
+No reutiliza la sesión del HAR. Airport Security completó en una sesión nueva
+las cuatro compras, las tres apuestas mejoradas y el retorno al giro normal.
+Esto valida las primitivas compartidas, no certifica los otros 139 juegos.
 
-Compras, Action Spins, antebets y cantidades permanecen sin confirmar. Los flags
-publicitarios no sustituyen el dominio de opciones de la sesión. El paso siguiente
-es aprender primitivas a partir de HAR representativos y contrastarlas con el
-servidor: autenticación, menú de opciones, precios, cargos, elecciones, cierre y
-retorno. Las variantes de Playin no se presuponen iguales a las de otros accesos.
+Para cada sesión se contrastan la tabla de precios, los selectores permitidos,
+las apuestas por selector y la habilitación del servidor. El programa usa la
+apuesta mínima declarada; un saldo Demo insuficiente queda explicado como PARCIAL.
+Las opciones FREESPIN son PURCHASE y las BOOSTED_BET son FEATURE_SPIN. Estas últimas
+se muestran como apuestas mejoradas; el nombre o el precio no permiten convertirlas
+en antebets ni compras. La cantidad de antebets sigue sin confirmar si no existe
+una declaración de ese papel. Los tipos o additionalTypes desconocidos conservan
+su identidad y bloquean OK.
+
+Cada ronda comprueba apuesta base, coste cotizado, acumulación de premios y saldo
+al pagar y liquidar. La continuación conocida es zeroBet dentro de FREESPIN,
+FREESPIN_BETTER o FREESPIN_SUPER, con contador positivo y sin menú de decisiones.
+El cierre exige nextMode=NORMAL, freespinsLeft=0 y features.available=[].
+Tras recorrer todas las opciones, se requieren dos rondas normales consecutivas
+cerradas; una activación natural reinicia ese contador. No hay excepciones por ID.
+
+Una elección, extra spin o modo de continuación todavía desconocido queda PARCIAL,
+con sus respuestas y capture.har guardados en la carpeta de prueba. La espera de
+WebSocket tiene plazo y atiende Detener; una apuesta incierta nunca se reenvía.
+El HAR local contiene la clave temporal necesaria para decodificar su conexión y
+no se publica. Los JSON de diagnóstico y el contrato exportado eliminan credenciales.
+El contrato farm exige la evidencia monetaria y de retorno de la ejecución actual.
 
 El proveedor aparece en el selector del escritorio y en el registro del ejecutor
 por lotes. El catálogo se incluye en la compilación del ejecutable completo.
@@ -74,7 +92,7 @@ Las 14 rondas pagadas y 36 continuaciones están cerradas y contabilizadas:
 10000.00 de saldo inicial - 10273.80 de coste + 2756.05 de premios = 2482.25.
 Todos los siete selectores anunciados aparecen en la muestra. Solo existe un giro
 normal al final: esta captura no prueba dos rondas posteriores ni certifica OK
-en una sesión nueva. El ejecutor en vivo sigue pendiente.
+en una sesión nueva. La validación en vivo es independiente de esta captura.
 
 ## Analizador offline
 

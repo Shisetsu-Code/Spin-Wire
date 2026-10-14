@@ -98,10 +98,11 @@ def _feature_summary(result: dict, *, counts_only=False):
     else:
         count = 'Sin datos'
     summary = f"Compras: {label(purchases, 'purchase')} | Cantidad: {count} | Antebets: {label(antebets, 'ante')}"
-    if result.get('provider') == 'hacksaw':
+    if result.get('provider') in {'hacksaw','nolimit_city'}:
         domain = domains.get('feature_spin') if isinstance(domains, dict) else None
         if isinstance(domain, dict) and domain.get('complete') is True and isinstance(domain.get('options'), list):
-            summary += f" | FeatureSpins: {len(set(map(str, domain['options'])))}"
+            label="Apuestas mejoradas" if result.get("provider")=="nolimit_city" else "FeatureSpins"
+            summary += f" | {label}: {len(set(map(str, domain['options'])))}"
     return summary
 
 

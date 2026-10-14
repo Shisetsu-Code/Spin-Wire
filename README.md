@@ -22,7 +22,7 @@ Yggdrasil queda pausado en **137 OK, 8 parciales y 14 errores de 159 juegos**; n
 
 La grilla permite ordenar por cantidades de compras y antebets, identificar mecánicas particulares y ajustar las secciones con el mouse. [Distribución de la interfaz](docs/DESKTOP_LAYOUT.md) y [mecánicas](docs/GAME_MECHANICS.md).
 
-Nolimit City está incorporado con **140 demos oficiales cargadas como PENDIENTE**. Su ejecutor y los dominios de opciones todavía requieren evidencia de HAR. [Catálogo y alcance](docs/NOLIMIT_CITY.md).
+Nolimit City tiene **140 demos oficiales y ejecutor Demo RC4/LZW**. Airport Security completó sus siete opciones declaradas y el retorno normal; el resto del catálogo requiere su propia ejecución. Las variantes desconocidas quedan PARCIAL con HAR local. [Primitivas y alcance](docs/NOLIMIT_CITY.md).
 
 ## Interpretar resultados
 
