@@ -16,6 +16,7 @@ from tester_spin.providers.redtiger.runtime import (
     FeatureBuy,
     RedTigerRuntime,
     pending_choice_from_response,
+    choice_transition,
     response_summary,
     sanitize_payload,
 )
@@ -23,6 +24,7 @@ from tester_spin.providers.redtiger.runtime import (
 
 MAX_CHOICE_DEPTH = 8
 MAX_BRANCH_PREFIXES_PER_MODE = 128
+MAX_SELECTOR_ENTRY_SPINS = 12
 
 
 @dataclass(slots=True)
@@ -84,7 +86,7 @@ def _base_mode_specs(result: GameTestResult) -> dict[str, tuple[str, FeatureBuy 
         mode_id = str(item.get("id") or "").strip()
         if not mode_id or str(item.get("kind") or "").upper() != "PURCHASE":
             continue
-        if item.get('client_observed') is not True or item.get('executable') is False:
+        if (item.get('client_observed') is not True and item.get('server_declared') is not True) or item.get('executable') is False:
             continue
         name = str(item.get("feature_buy") or "" ).strip()
         multiplier = _safe_decimal(item.get("feature_multiplier"))
@@ -114,7 +116,7 @@ def _choice_parent_modes(result: GameTestResult) -> set[str]:
                    if isinstance(item, dict)
                    and (str(item.get('kind') or '').upper() == 'PURCHASE'
                         or str(item.get('id') or '').startswith('PURCHASE_'))
-                   and item.get('client_observed') is not True}
+                   and item.get('client_observed') is not True and item.get('server_declared') is not True}
     return parents - unconfirmed
 
 
@@ -170,17 +172,22 @@ def _seed_from_base_attempt(
     base_mode: str,
     repetition: int,
     branch_points: dict[tuple[str, tuple[str, ...]], BranchPoint],
+    records_override=None,
+    validated_override=None,
 ) -> list[tuple[str, ...]]:
     """Reuse the already validated first path and schedule only missing siblings."""
     attempt_root = run_root / base_mode / f"attempt-{repetition:05d}"
     summary = _read_json(attempt_root / "summary.json")
-    records = summary.get("choice_continuations") if isinstance(summary, dict) else None
+    records = records_override if records_override is not None else summary.get("choice_continuations") if isinstance(summary, dict) else None
     if not isinstance(records, list) or not records:
         return [()]
 
-    base_ok = _base_attempt_ok(result, attempt_root)
+    base_ok = bool(validated_override) if validated_override is not None else _base_attempt_ok(result, attempt_root)
     queue: list[tuple[str, ...]] = []
     prefix: tuple[str, ...] = ()
+    actual_prefix: tuple[str, ...] = ()
+    covered_here = set()
+    loop = None
 
     for record in records:
         if not isinstance(record, dict):
@@ -194,6 +201,38 @@ def _seed_from_base_attempt(
         if not available:
             break
 
+        data = record.get('game_data') or {}
+        progress = data.get('progress') if isinstance(data, dict) else None
+        level = progress.get('level') if isinstance(progress, dict) else None
+        structured = (isinstance(level, dict) and type(level.get('current')) is int
+                      and type(level.get('next')) is int and 0 <= level['current'] <= level['next']
+                      and data.get('spinMode') == 'Normal' and data.get('selected') == selected)
+        state = record.get('response_choice') or {}
+        same_loop = (loop is not None and structured and tuple(available) == loop['domain']
+                     and record.get('round_id') == loop['round_id']
+                     and level['current'] >= loop['next_level'])
+        if not same_loop:
+            loop = None
+        if loop is None and record.get('recurring_selector') is True and structured:
+            loop = {'anchor':actual_prefix, 'domain':tuple(available),
+                    'round_id':record.get('round_id'), 'next_level':level['next']}
+            marker = base_mode + '__RECURRING_SELECTOR_' + _path_label(actual_prefix)
+            if not any(mode.get('id') == marker for mode in result.discovered_modes):
+                result.discovered_modes.append({'id':marker, 'kind':'DIAGNOSTIC', 'parent':base_mode,
+                    'observed':True, 'executable':False, 'coverage_required':False, 'options':available,
+                    'repeat_actions':[selected],
+                    'entry_prefix':list(actual_prefix), 'coverage_scope':'available_actions_not_all_repeat_counts',
+                    'source':'choice_transition.gameData.progress.level'})
+        prefix = loop['anchor'] if loop is not None else actual_prefix
+        if loop is not None:
+            loop['next_level'] = level['next']
+            if record.get('recurring_selector') is True:
+                for metadata in result.discovered_modes:
+                    if (metadata.get('source') == 'choice_transition.gameData.progress.level'
+                            and metadata.get('parent') == base_mode
+                            and metadata.get('entry_prefix') == list(loop['anchor'])
+                            and selected not in metadata.get('repeat_actions', [])):
+                        metadata.setdefault('repeat_actions', []).append(selected)
         point = _merge_branch_point(
             branch_points,
             mode_id=base_mode,
@@ -202,7 +241,9 @@ def _seed_from_base_attempt(
         )
         if base_ok and selected in available:
             point.covered.add(selected)
-            point.sample_counts[selected] = point.sample_counts.get(selected, 0) + 1
+            if (prefix, selected) not in covered_here:
+                point.sample_counts[selected] = point.sample_counts.get(selected, 0) + 1
+            covered_here.add((prefix, selected))
 
         for option in available:
             if base_ok and option == selected:
@@ -213,8 +254,12 @@ def _seed_from_base_attempt(
 
         if not selected:
             break
-        prefix = prefix + (selected,)
+        actual_prefix = actual_prefix + (selected,)
+        if state.get("status") != "PENDING" or state.get("available") != available:
+            loop = None
 
+    queue = [candidate for candidate in queue
+             if (candidate[:-1], candidate[-1]) not in covered_here]
     return queue or ([] if base_ok else [()])
 
 
@@ -267,13 +312,43 @@ def _replay_prefix(
         _write_json(branch_root / "entry-response.json", sanitize_payload(final_payload))
         wire_steps = 1
         consumed: list[str] = []
+        transitions = []
+
+        # A normal losing round need not expose the recurring choice menu.
+        # Acquire an actual opportunity, never credit absence as a selection.
+        if feature is None and base_mode == "SPIN":
+            from .base_state import classify_base_state
+            previous = getattr(runtime, "settings_response", None)
+            for opportunity in range(1, MAX_SELECTOR_ENTRY_SPINS):
+                if pending_choice_from_response(final_payload) is not None:
+                    break
+                if warnings or not classify_base_state(
+                    final_payload, request=entry_request, previous=previous
+                )["base"]:
+                    break
+                previous = final_payload
+                status_code, entry_request, final_payload, extra_warnings = _post_spin(
+                    runtime, stake=runtime.default_stake, feature_buy=None,
+                    timeout_s=timeout_s, stop_event=stop_event,
+                )
+                warnings.extend(extra_warnings)
+                wire_steps += 1
+                summaries.append(response_summary(final_payload))
+                opportunity_root = branch_root / "entry-opportunities" / f"spin-{opportunity + 1:03d}"
+                _write_json(opportunity_root / "request.json", sanitize_payload(entry_request))
+                _write_json(opportunity_root / "response.json", sanitize_payload(final_payload))
 
         for depth, selected in enumerate(prefix, start=1):
             prompt = pending_choice_from_response(final_payload)
             if prompt is None:
+                from .runtime import choice_state
+                state = choice_state(final_payload)
+                if (consumed and not warnings and state.get('status') == 'RESOLVED'
+                        and state.get('has_state') is False):
+                    break
                 raise RuntimeError(
                     f"{base_mode}: la ruta {list(prefix)!r} esperaba selector en profundidad {depth}, "
-                    "pero la ronda terminó antes."
+                    "pero no apareció una oportunidad de elección dentro del recorrido acotado."
                 )
             if selected not in prompt.available:
                 raise RuntimeError(
@@ -296,16 +371,46 @@ def _replay_prefix(
             _write_json(choice_root / "request.json", sanitize_payload(request))
             _write_json(choice_root / "response.json", sanitize_payload(response))
             _write_json(choice_root / "summary.json", summary)
+            transition = {
+                **choice_transition(prompt, selected, response),
+                "available": list(prompt.available), "selected": selected,
+                "endpoint": endpoint, "status_code": choice_status,
+            }
+            transitions.append(transition)
             _write_json(
                 choice_root / "transition.json",
-                {
-                    "round_id": prompt.round_id,
-                    "available": list(prompt.available),
-                    "selected": selected,
-                    "endpoint": endpoint,
-                    "status_code": choice_status,
-                },
+                transition,
             )
+            final_payload = response
+            if choice_warnings:
+                break
+
+        # A server-confirmed recurring selector represents the same controls,
+        # not an unbounded collection of independent paths at every level.
+        while transitions and not warnings and len(consumed) < MAX_CHOICE_DEPTH:
+            prompt = pending_choice_from_response(final_payload)
+            last = transitions[-1]
+            if prompt is None or last.get('recurring_selector') is not True:
+                break
+            alternatives = [v for v in prompt.available if v != last['selected']]
+            if not alternatives:
+                break
+            selected = alternatives[0]
+            code, endpoint, request, response, extra = _post_choice(
+                runtime, prompt=prompt, choice=selected, timeout_s=timeout_s, stop_event=stop_event)
+            status_code = code
+            warnings.extend(extra)
+            wire_steps += 1
+            consumed.append(selected)
+            summaries.append(response_summary(response))
+            transition = {**choice_transition(prompt, selected, response),
+                'available':list(prompt.available),'selected':selected,
+                'endpoint':endpoint,'status_code':code}
+            transitions.append(transition)
+            target = branch_root / f'choice-{len(consumed):02d}-{_mode_id(selected)}'
+            _write_json(target/'request.json',sanitize_payload(request))
+            _write_json(target/'response.json',sanitize_payload(response))
+            _write_json(target/'transition.json',transition)
             final_payload = response
 
         prompt = pending_choice_from_response(final_payload)
@@ -313,6 +418,7 @@ def _replay_prefix(
         combined["spin_modes"] = _merge_modes(*summaries)
         combined["wire_steps"] = wire_steps
         combined["branch_prefix"] = list(prefix)
+        combined['choice_continuations'] = transitions
         combined["pending_choice"] = (
             {
                 "round_id": prompt.round_id,
@@ -322,6 +428,12 @@ def _replay_prefix(
             else None
         )
         _write_json(branch_root / "summary.json", combined)
+        if consumed and prompt is None and not warnings:
+            from tester_spin.provider_return_checks import redtiger_check
+            proof = redtiger_check(runtime, branch_root, timeout_s, stop_event,
+                                   initial_response=final_payload)
+            if proof.get('status') != 'CONFIRMED':
+                warnings.append('No se confirmó el regreso a dos giros base tras la elección')
         return ReplayOutcome(
             prompt=prompt,
             final_payload=final_payload,
@@ -527,7 +639,13 @@ def expand_all_choice_branches(
                 ok = terminal and not warnings
                 if ok:
                     # A parent is covered only by a validated terminal descendant.
-                    for depth, option in enumerate(prefix):
+                    records = (_read_json(outcome.artifact_dir / 'summary.json') or {}).get('choice_continuations')
+                    if records:
+                        additional = _seed_from_base_attempt(result, run_root=run_root,
+                            base_mode=base_mode,repetition=repetition,branch_points=branch_points,
+                            records_override=records,validated_override=True)
+                        queue.extend(p for p in additional if p not in seen and p not in queue)
+                    for depth, option in enumerate(outcome.selected if not records else ()):
                         parent = branch_points.get((base_mode, prefix[:depth]))
                         if parent is not None:
                             parent.covered.add(option)

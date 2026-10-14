@@ -1,0 +1,71 @@
+{
+  "step": 1,
+  "status": "RESULTED",
+  "betamount": "10.00",
+  "betdata": {
+    "coin": "1.00",
+    "cashBet": "10.00",
+    "cmd": "BONUS1",
+    "accWa": "0.00",
+    "accC": 0,
+    "cmds": [
+      "FREESPINS",
+      "GAMBLE"
+    ]
+  },
+  "eventdata": {
+    "accC": 0,
+    "accWa": "0.00",
+    "boostData": {
+      "isFreeGame": true,
+      "isAchieveRandomMulti10": false,
+      "isHitWinCombWithWild": false
+    },
+    "initialPlayerState": {},
+    "nextCmds": "FREESPINS,GAMBLE",
+    "playerState": {},
+    "response": {
+      "coinWin": 0,
+      "cashWin": "0.00",
+      "clientData": {
+        "board": [
+          [
+            "H4",
+            "H2",
+            "H3"
+          ],
+          [
+            "H4",
+            "H3",
+            "SCATTER"
+          ],
+          [
+            "L3",
+            "SCATTER",
+            "L2"
+          ],
+          [
+            "SCATTER",
+            "L2",
+            "L1"
+          ],
+          [
+            "H3",
+            "WILD",
+            "L3"
+          ]
+        ],
+        "winLines": [],
+        "multiplier": 1,
+        "lastRandomMultiplier": 1,
+        "randomMultiplier": 1,
+        "fsMultiplier": 3,
+        "winLinesWins": [],
+        "winTypes": [],
+        "maxWinReached": false
+      }
+    }
+  },
+  "betcurrency": "EUR",
+  "wonamount": "0.00"
+}

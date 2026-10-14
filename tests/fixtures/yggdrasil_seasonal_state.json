@@ -1,0 +1,143 @@
+[
+  {
+    "accC": 0,
+    "accWa": "0.00",
+    "currentSeason": "WINTER",
+    "numberOfSpins": 2,
+    "reelSet": "ReelsWonky",
+    "reels": [
+      [
+        "SYM8",
+        "SYM0",
+        "SYM10"
+      ],
+      [
+        "SYM5",
+        "SYM4",
+        "SYM11"
+      ],
+      [
+        "SYM10",
+        "SYM7",
+        "SYM6"
+      ],
+      [
+        "SYM4",
+        "SYM8",
+        "SYM9"
+      ],
+      [
+        "SYM10",
+        "SYM8",
+        "SYM9"
+      ]
+    ],
+    "rpos": [
+      99,
+      96,
+      47,
+      91,
+      34
+    ],
+    "wonCoins": 0,
+    "wts": [
+      "000000000000000000000",
+      "000000000000000"
+    ],
+    "wtw": []
+  },
+  {
+    "accC": 0,
+    "accWa": "0.00",
+    "currentSeason": "WINTER",
+    "numberOfSpins": 3,
+    "reelSet": "ReelsWonky",
+    "reels": [
+      [
+        "SYM6",
+        "SYM10",
+        "SYM3"
+      ],
+      [
+        "SYM5",
+        "SYM9",
+        "SYM11"
+      ],
+      [
+        "SYM8",
+        "SYM0",
+        "SYM7"
+      ],
+      [
+        "SYM5",
+        "SYM4",
+        "SYM11"
+      ],
+      [
+        "SYM10",
+        "SYM8",
+        "SYM6"
+      ]
+    ],
+    "rpos": [
+      59,
+      65,
+      26,
+      53,
+      37
+    ],
+    "wonCoins": 0,
+    "wts": [
+      "000000000000000000000",
+      "000000000000000"
+    ],
+    "wtw": []
+  },
+  {
+    "accC": 0,
+    "accWa": "0.00",
+    "currentSeason": "WINTER",
+    "numberOfSpins": 4,
+    "reelSet": "ReelsWonky",
+    "reels": [
+      [
+        "SYM8",
+        "SYM6",
+        "SYM9"
+      ],
+      [
+        "SYM9",
+        "SYM5",
+        "SYM11"
+      ],
+      [
+        "SYM10",
+        "SYM7",
+        "SYM6"
+      ],
+      [
+        "SYM7",
+        "SYM9",
+        "SYM5"
+      ],
+      [
+        "SYM9",
+        "SYM7",
+        "SYM8"
+      ]
+    ],
+    "rpos": [
+      69,
+      26,
+      47,
+      75,
+      25
+    ],
+    "wonCoins": 0,
+    "wts": [
+      "000000000000000000000",
+      "000000000000000"
+    ],
+    "wtw": []
+  }
+]

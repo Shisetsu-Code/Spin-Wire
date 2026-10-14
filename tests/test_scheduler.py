@@ -267,3 +267,11 @@ class SchedulerConcurrencyTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+def test_provider_pause_does_not_overwrite_untested_game_results():
+    provider=_LimitedProvider();provider.test_start_block_reason=lambda **kw:'Retry-After vigente'
+    stop=threading.Event();messages=[];results=[]
+    games=[Game('limited',f'game-{i}',f'Game {i}','https://example.test') for i in range(2)]
+    run_game_tests(provider,games,concurrency=1,spins_per_game=1,delay_between_starts_s=0,timeout_s=25,stop_event=stop,progress=messages.append,on_result=results.append)
+    assert stop.is_set() and not provider.prepared and not results
+    assert any('Retry-After vigente' in message for message in messages)

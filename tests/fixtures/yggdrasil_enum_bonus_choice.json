@@ -1,0 +1,230 @@
+{
+  "wagerid": "fixture-enum-choice",
+  "status": "Pending",
+  "bets": [
+    {
+      "step": 1,
+      "betamount": "0.20",
+      "betcurrency": "EUR",
+      "wonamount": "0.00",
+      "status": "RESULTED",
+      "betdata": {
+        "coin": "0.01",
+        "cashBet": "0.20",
+        "cmd": "BASE_SPIN",
+        "accWa": "0.00",
+        "accC": 0,
+        "cmds": [
+          ":1",
+          ":2",
+          ":3"
+        ]
+      },
+      "eventdata": {
+        "accC": 0,
+        "accWa": "0.00",
+        "boostData": {
+          "events": [
+            {
+              "Id": "GetScatters",
+              "Type": 3,
+              "Collected": 3
+            },
+            {
+              "Id": "ExpandingWilds",
+              "Type": 3,
+              "Reset": true
+            }
+          ]
+        },
+        "initialPlayerState": {
+          "shared": {}
+        },
+        "nextCmds": ":1,:2,:3",
+        "playerState": {
+          "shared": {}
+        },
+        "response": {
+          "coinWin": 0,
+          "cashWin": "0.00",
+          "clientData": {
+            "Code": 2001,
+            "Bet": {
+              "Lines": 20,
+              "FeeMultiplier": 1.0,
+              "Amount": 1.0,
+              "GameMode": 0,
+              "Scale": 1.0,
+              "TotalBet": 20.0
+            },
+            "Round": {
+              "Info": {
+                "RID": 1,
+                "SRC": 1,
+                "IDX": 0,
+                "GameMode": 0,
+                "RoundType": 0,
+                "Count": 0,
+                "Passed": 1,
+                "Bet": 20
+              },
+              "BGLeft": 1,
+              "VISData": {
+                "Grids": [
+                  [
+                    [
+                      7,
+                      5,
+                      8
+                    ],
+                    [
+                      8,
+                      8,
+                      10
+                    ],
+                    [
+                      10,
+                      3,
+                      7
+                    ],
+                    [
+                      8,
+                      10,
+                      4
+                    ]
+                  ],
+                  [
+                    [
+                      7,
+                      5,
+                      8
+                    ],
+                    [
+                      8,
+                      8,
+                      10
+                    ],
+                    [
+                      10,
+                      3,
+                      7
+                    ],
+                    [
+                      8,
+                      10,
+                      4
+                    ]
+                  ]
+                ],
+                "Prizes": [
+                  {
+                    "PrizeType": 40,
+                    "Value": 1,
+                    "Rule": 10,
+                    "Combination": 1,
+                    "Length": 3,
+                    "Source": 1,
+                    "Cells": [
+                      [
+                        1,
+                        2
+                      ],
+                      [
+                        2,
+                        0
+                      ],
+                      [
+                        3,
+                        1
+                      ]
+                    ]
+                  }
+                ],
+                "Events": [
+                  {
+                    "Type": 10,
+                    "SymbolKit": 0,
+                    "ReelStops": [
+                      130,
+                      97,
+                      2,
+                      99
+                    ],
+                    "Grids": [
+                      0
+                    ]
+                  },
+                  {
+                    "Type": 60,
+                    "Expansion": 3,
+                    "Positions": [],
+                    "Grid": 1
+                  },
+                  {
+                    "Type": 20,
+                    "Grid": 1,
+                    "Rules": [
+                      1,
+                      2,
+                      3,
+                      4,
+                      5,
+                      6,
+                      7,
+                      8,
+                      9,
+                      10
+                    ],
+                    "Prizes": [
+                      0,
+                      1
+                    ]
+                  },
+                  {
+                    "Type": 90,
+                    "BGData": {
+                      "Id": 1,
+                      "Type": 2,
+                      "Levels": [
+                        {
+                          "Sequence": 0,
+                          "Level": 0,
+                          "Picks": 1
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "FEV": {
+                  "60": [
+                    1
+                  ],
+                  "90": [
+                    3
+                  ]
+                }
+              }
+            },
+            "NextRound": {
+              "RID": 2,
+              "SRC": 1,
+              "IDX": 1,
+              "GameMode": 0,
+              "RoundType": 1,
+              "Count": 1,
+              "Passed": 0,
+              "Bet": 20,
+              "BGData": {
+                "Id": 1,
+                "Type": 2,
+                "IsInitialized": true
+              }
+            }
+          }
+        }
+      },
+      "prizes": null,
+      "prepaid": false
+    }
+  ]
+}

@@ -9,6 +9,7 @@ from tester_spin.models import GameTestResult
 
 _ACTIONABLE_KINDS = {
     "SPIN",
+    "FEATURE_SPIN",
     "PURCHASE",
     "PURCHASE_BRANCH",
     "FEATURE",
@@ -257,7 +258,10 @@ def _artifact_branch_points(result: GameTestResult) -> list[dict[str, Any]]:
         if "response" not in lowered and "summary" not in lowered and "attempt" not in lowered:
             continue
 
+        from .yggdrasil.choice_coverage import resolved_menu
         for json_path, required in _walk_pending_choices(payload):
+            if json_path == "$.choices" and resolved_menu(result, mode_id, path, payload, validated):
+                continue
             # Red Tiger supplies a typed, prefix-sensitive graph from its executor.
             # Do not replace that graph with a mode-wide bag of request values.
             if result.provider == "redtiger" and any(
@@ -290,8 +294,61 @@ def _artifact_branch_points(result: GameTestResult) -> list[dict[str, Any]]:
     return points
 
 
+def _declared_feature_points(result: GameTestResult) -> list[dict[str, Any]]:
+    points = []
+    verified_ids = set()
+    if result.provider == 'pragmatic':
+        from tester_spin.providers.pragmatic_declared_coverage import verified_mode_ids
+        verified_ids = verified_mode_ids(result)
+    for category, domain in result.feature_domains.items():
+        if not isinstance(domain, dict) or not domain.get('source'):
+            continue
+        if domain.get('complete') is False:
+            required, covered = ['DOMAIN_UNRESOLVED'], []
+        elif domain.get('complete') is True and isinstance(domain.get('options'), list):
+            required = _option_list(domain['options'])
+            covered_set = set()
+            for mode in result.discovered_modes:
+                kind = str(mode.get('kind') or '').upper()
+                request = mode.get('request') or {}
+                purchase = mode.get('purchase') or {}
+                name = str(mode.get('purchase_name') or request.get('purchased_feature') or purchase.get('name') or '')
+                vip = mode.get('id') == 'BELATRA_START_SELECTOR_MATRIX'
+                ante = kind.startswith('ANTE_BET') or vip or 'CHANCE' in name.upper().split('_')
+                if category == 'feature_spin' and kind != 'FEATURE_SPIN':
+                    continue
+                if category == 'ante' and not ante or category == 'purchase' and (ante or kind not in {'PURCHASE', 'PURCHASE_BRANCH'}):
+                    continue
+                if result.provider == 'pragmatic':
+                    if mode.get('id') in verified_ids:
+                        covered_set.add(str(mode['id']))
+                    continue
+                covered_set.update(_option_list(mode.get('covered_options')))
+                if mode.get('validated') is True:
+                    covered_set.add(str(mode.get('id') or ''))
+                    for field in ('selected_mode', 'buyBonus', 'feature_buy'):
+                        if mode.get(field) is not None:
+                            covered_set.add(str(mode[field]))
+                    level = mode.get('purchase_level', mode.get('feature_level', request.get('purchased_feature_level', purchase.get('level'))))
+                    if name:
+                        covered_set.add(name + (':'+str(level) if level is not None else ''))
+                    options = _option_list(mode.get('required_options'))
+                    if len(options) == 1:
+                        covered_set.update(options)
+                if vip and any('vipOn=1' in option.split('|') for option in _option_list(mode.get('covered_options'))):
+                    covered_set.add('vipOn=1')
+            covered = [option for option in required if option in covered_set]
+        else:
+            continue
+        if required:
+            points.append({'source': domain['source'], 'mode_id': category.upper()+'_DECLARATION',
+                           'signature': category+':DECLARED_DOMAIN', 'required': required, 'covered': covered})
+    return points
+
+
 def build_path_coverage_report(result: GameTestResult) -> dict[str, Any]:
     points = _explicit_branch_points(result)
+    points.extend(_declared_feature_points(result))
     explicit_signatures = {str(item["signature"]): item for item in points}
     for item in _artifact_branch_points(result):
         existing = explicit_signatures.get(str(item["signature"]))

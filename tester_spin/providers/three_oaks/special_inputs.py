@@ -32,7 +32,12 @@ def transformed_purchase_inputs(source,data,middleware):
         mapping={};params=list(middleware);line_source=None
         # The price getter explicitly translates a zero-based UI type to a
         # one-based server price key. Preserve the advertised logical mode IDs.
-        price_shift=re.search(r'getBuyFeatureCostByType=function\(('+ID+r')\)\{.{0,500}?return this\._get\("settings.buy_bonus_prices\."\.concat\(\1\+([0-9]+)\),null\)',source)
+        price_shift=re.search(r'getBuyFeature(?:CostByType|Multiplier)=function\(('+ID+r')\)\{.{0,500}?return this\._get\("settings.buy_bonus_prices\."\.concat\(\1\+([0-9]+)\),null\)',source)
+        if price_shift and 'getBuyFeatureMultiplier=function' in price_shift[0]:
+            invoked=re.search(r'\.getBuyFeatureMultiplier\('+re.escape(argument)+r'\)',body[:sent.start()])
+            definitions=re.findall(r'getBuyFeatureMultiplier=(?!=)',source)
+            if not invoked or len(definitions)!=1:
+                price_shift=None
         if set(fields)=={'bet_per_line','lines','selected_mode'} and fields['selected_mode']==argument and price_shift:
             offset=0 if (data or {}).get('settings',{}).get('buy_bonus_price') else int(price_shift[2])
             if not re.fullmatch(ID+r'(?:\.'+ID+r')*\.settingsLines\(\)\[0\]',fields['lines']):continue

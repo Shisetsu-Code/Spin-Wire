@@ -1,0 +1,265 @@
+[
+  {
+    "clientDatas": [
+      {
+        "win": {
+          "prizes": [],
+          "wonCoins": 0,
+          "wonCash": "0.00",
+          "accumulatedWonCoins": 0,
+          "accumulatedWonCash": "0.00",
+          "accumulatedRoundWonCoins": 0,
+          "accumulatedRoundWonCash": "0.00"
+        },
+        "reels": {
+          "reelSetName": "base_reels_a",
+          "reelStopPositions": [
+            154,
+            69,
+            46,
+            277,
+            476
+          ]
+        },
+        "initialBoard": [
+          [
+            "LOW_1",
+            "HIGH_2",
+            "HIGH_2",
+            "HIGH_4"
+          ],
+          [
+            "LOW_1",
+            "HIGH_2",
+            "HIGH_2",
+            "LOW_4"
+          ],
+          [
+            "HIGH_1",
+            "HIGH_1",
+            "LOW_2",
+            "LOW_2"
+          ],
+          [
+            "LOW_3",
+            "LOW_3",
+            "LOW_3",
+            "HIGH_3"
+          ],
+          [
+            "HIGH_4",
+            "HIGH_4",
+            "HIGH_3",
+            "HIGH_3"
+          ]
+        ],
+        "finalBoard": [
+          [
+            "LOW_1",
+            "HIGH_2",
+            "HIGH_2",
+            "HIGH_4"
+          ],
+          [
+            "LOW_1",
+            "HIGH_2",
+            "HIGH_2",
+            "LOW_4"
+          ],
+          [
+            "HIGH_1",
+            "HIGH_1",
+            "LOW_2",
+            "LOW_2"
+          ],
+          [
+            "LOW_3",
+            "LOW_3",
+            "LOW_3",
+            "HIGH_3"
+          ],
+          [
+            "HIGH_4",
+            "HIGH_4",
+            "HIGH_3",
+            "HIGH_3"
+          ]
+        ],
+        "freeSpinsAwarded": 0,
+        "spinType": "BASE",
+        "ragnarokWon": false,
+        "ragnarokFreeSpinsAwarded": 0,
+        "finishedCollections": [],
+        "collectedSymbols": {},
+        "freeSpinsWon": false
+      }
+    ]
+  },
+  {
+    "clientDatas": [
+      {
+        "win": {
+          "prizes": [
+            {
+              "symbol": "LOW_1",
+              "oak": 6,
+              "positions": [
+                {
+                  "x": 0,
+                  "y": 2
+                },
+                {
+                  "x": 0,
+                  "y": 3
+                },
+                {
+                  "x": 1,
+                  "y": 0
+                },
+                {
+                  "x": 2,
+                  "y": 1
+                },
+                {
+                  "x": 2,
+                  "y": 2
+                },
+                {
+                  "x": 2,
+                  "y": 3
+                },
+                {
+                  "x": 3,
+                  "y": 1
+                },
+                {
+                  "x": 3,
+                  "y": 2
+                },
+                {
+                  "x": 4,
+                  "y": 2
+                },
+                {
+                  "x": 4,
+                  "y": 3
+                },
+                {
+                  "x": 5,
+                  "y": 1
+                },
+                {
+                  "x": 5,
+                  "y": 2
+                }
+              ],
+              "coins": 480,
+              "cash": "4.80",
+              "ways": 48
+            }
+          ],
+          "wonCoins": 480,
+          "wonCash": "4.80",
+          "accumulatedWonCoins": 480,
+          "accumulatedWonCash": "4.80",
+          "accumulatedRoundWonCoins": 480,
+          "accumulatedRoundWonCash": "4.80"
+        },
+        "reels": {
+          "reelSetName": "reelsBG_A",
+          "reelStopPositions": [
+            36,
+            300,
+            14,
+            243,
+            165,
+            109
+          ]
+        },
+        "initialBoard": [
+          [
+            "LOW_4",
+            "SCATTER",
+            "LOW_1",
+            "LOW_1"
+          ],
+          [
+            "LOW_1",
+            "SCATTER",
+            "LOW_2",
+            "LOW_2"
+          ],
+          [
+            "LOW_3",
+            "LOW_1",
+            "LOW_1",
+            "LOW_1"
+          ],
+          [
+            "HIGH_4",
+            "LOW_1",
+            "LOW_1",
+            "HIGH_3"
+          ],
+          [
+            "HIGH_2",
+            "HIGH_2",
+            "LOW_1",
+            "LOW_1"
+          ],
+          [
+            "HIGH_4",
+            "LOW_1",
+            "LOW_1",
+            "SCATTER"
+          ]
+        ],
+        "finalBoard": [
+          [
+            "LOW_4",
+            "SCATTER",
+            "LOW_1",
+            "LOW_1"
+          ],
+          [
+            "LOW_1",
+            "SCATTER",
+            "LOW_2",
+            "LOW_2"
+          ],
+          [
+            "LOW_3",
+            "LOW_1",
+            "LOW_1",
+            "LOW_1"
+          ],
+          [
+            "HIGH_4",
+            "LOW_1",
+            "LOW_1",
+            "HIGH_3"
+          ],
+          [
+            "HIGH_2",
+            "HIGH_2",
+            "LOW_1",
+            "LOW_1"
+          ],
+          [
+            "HIGH_4",
+            "LOW_1",
+            "LOW_1",
+            "SCATTER"
+          ]
+        ],
+        "freeSpinsAwarded": 8,
+        "spinType": "BASE",
+        "ragnarokWon": false,
+        "ragnarokFreeSpinsAwarded": 0,
+        "finishedCollections": [],
+        "collectedSymbols": {},
+        "freeSpinsWon": true
+      }
+    ]
+  }
+]

@@ -12,6 +12,16 @@ En Windows, abrir `Abrir-Tester-Spin.cmd` desde el checkout. Prepara el entorno 
 
 El ejecutable generado por `scripts/build-desktop.ps1` contiene una versión completa de la aplicación. Para incorporar cambios debe reconstruirse. El launcher generado por `scripts/build-launcher.ps1` usa un runtime actualizable: véase [autoactualización](docs/AUTOUPDATE.md).
 
+## Versión actual
+
+Las descargas del ejecutable completo se publican en [GitHub Releases](https://github.com/Shisetsu-Code/Spin-Wire/releases). Las capturas originales y los datos de sesión permanecen locales.
+
+El catálogo oficial cargado de Hacksaw tiene **186 juegos**. La repetición completa dejó **183 OK verificados y 3 parciales**: Beam Boys, Mystery Motel y Tasty Treats, cuya clasificación de opciones sigue pendiente. Cada OK contrasta precios, débitos, premios acumulados, liquidación y dos rondas normales posteriores con IDs distintos. [Evidencia y límites](docs/HACKSAW.md).
+
+Yggdrasil queda pausado en **137 OK, 8 parciales y 14 errores de 159 juegos**; no se presenta como catálogo terminado. [Primitivas y pendientes](docs/YGGDRASIL.md).
+
+La grilla permite ordenar por cantidades de compras y antebets, identificar mecánicas particulares y ajustar las secciones con el mouse. [Distribución de la interfaz](docs/DESKTOP_LAYOUT.md) y [mecánicas](docs/GAME_MECHANICS.md).
+
 ## Interpretar resultados
 
 - **OK**: las operaciones requeridas y su cobertura comprobada terminaron correctamente.
@@ -29,6 +39,9 @@ Una bandera del servidor no basta para contar una compra ni convertirla automát
 - [3 Oaks: primitivas y límites](docs/THREE_OAKS.md)
 - [Red Tiger: evidencia y estado base](docs/REDTIGER.md)
 - [Pragmatic: reglas y evidencia](docs/PRAGMATIC_GAME_RULES.md)
+- [Auditoría de declaraciones por proveedor](docs/PROVIDER_CAPABILITY_AUDIT.md)
+- [Hacksaw: compras, contabilidad y retorno](docs/HACKSAW.md)
+- [Yggdrasil: primitivas y estado actual](docs/YGGDRASIL.md)
 - [Validación y regresiones](docs/VALIDATION.md)
 - [Diagnósticos por ejecución](docs/RUN_DIAGNOSTICS.md)
 - [Arquitectura](docs/structural-map.md) y [adaptadores](tester_spin/providers/README.md)

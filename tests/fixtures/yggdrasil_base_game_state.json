@@ -1,0 +1,754 @@
+[
+  {
+    "win": {
+      "prizes": [],
+      "wonCoins": 0,
+      "wonCash": "0.00",
+      "accumulatedWonCoins": 0,
+      "accumulatedWonCash": "0.00",
+      "accumulatedRoundWonCoins": 0,
+      "accumulatedRoundWonCash": "0.00"
+    },
+    "reels": {
+      "reelSetName": "baseReels1",
+      "reelStopPositions": [
+        1964,
+        500,
+        73,
+        1754,
+        1278
+      ]
+    },
+    "finalBoard": [
+      [
+        "HIGH_2",
+        "ARROW",
+        "LOW_1",
+        "LOW_1",
+        "LOW_1"
+      ],
+      [
+        "LOW_4",
+        "SCATTER",
+        "LOW_5",
+        "LOW_5",
+        "LOW_3"
+      ],
+      [
+        "HIGH_4",
+        "HIGH_4",
+        "ARROW",
+        "HIGH_4",
+        "LOW_3"
+      ],
+      [
+        "HIGH_3",
+        "HIGH_3",
+        "LOW_4",
+        "LOW_4",
+        "LOW_4"
+      ],
+      [
+        "LOW_1",
+        "LOW_5",
+        "LOW_5",
+        "LOW_5",
+        "HIGH_4"
+      ]
+    ],
+    "boardHeight": 5,
+    "gameMode": "BASE_GAME",
+    "reSpinAwarded": false,
+    "bonusGameSpinAwarded": false,
+    "excessiveScattersWinInCoins": 0
+  },
+  {
+    "win": {
+      "prizes": [],
+      "wonCoins": 0,
+      "wonCash": "0.00",
+      "accumulatedWonCoins": 0,
+      "accumulatedWonCash": "0.00",
+      "accumulatedRoundWonCoins": 0,
+      "accumulatedRoundWonCash": "0.00"
+    },
+    "reels": {
+      "reelSetName": "baseReels1",
+      "reelStopPositions": [
+        1802,
+        1867,
+        274,
+        280,
+        2189
+      ]
+    },
+    "finalBoard": [
+      [
+        "LOW_4",
+        "LOW_4",
+        "HIGH_2"
+      ],
+      [
+        "LOW_1",
+        "LOW_1",
+        "HIGH_4"
+      ],
+      [
+        "LOW_1",
+        "LOW_1",
+        "LOW_1"
+      ],
+      [
+        "LOW_2",
+        "LOW_2",
+        "HIGH_5"
+      ],
+      [
+        "LOW_5",
+        "LOW_5",
+        "LOW_1"
+      ]
+    ],
+    "boardHeight": 3,
+    "gameMode": "BASE_GAME",
+    "reSpinAwarded": false,
+    "bonusGameSpinAwarded": false,
+    "excessiveScattersWinInCoins": 0
+  },
+  {
+    "win": {
+      "prizes": [],
+      "wonCoins": 0,
+      "wonCash": "0.00",
+      "accumulatedWonCoins": 0,
+      "accumulatedWonCash": "0.00",
+      "accumulatedRoundWonCoins": 0,
+      "accumulatedRoundWonCash": "0.00"
+    },
+    "reels": {
+      "reelSetName": "baseReels1",
+      "reelStopPositions": [
+        377,
+        1231,
+        274,
+        2161,
+        1633
+      ]
+    },
+    "finalBoard": [
+      [
+        "LOW_1",
+        "LOW_1",
+        "LOW_5",
+        "LOW_5"
+      ],
+      [
+        "HIGH_4",
+        "HIGH_4",
+        "HIGH_4",
+        "LOW_5"
+      ],
+      [
+        "LOW_1",
+        "LOW_1",
+        "LOW_1",
+        "LOW_3"
+      ],
+      [
+        "LOW_4",
+        "HIGH_5",
+        "HIGH_5",
+        "HIGH_5"
+      ],
+      [
+        "HIGH_4",
+        "LOW_3",
+        "ARROW",
+        "LOW_3"
+      ]
+    ],
+    "boardHeight": 4,
+    "gameMode": "BASE_GAME",
+    "reSpinAwarded": false,
+    "bonusGameSpinAwarded": false,
+    "excessiveScattersWinInCoins": 0
+  },
+  {
+    "win": {
+      "prizes": [
+        {
+          "symbol": "LOW_4",
+          "oak": 3,
+          "positions": [
+            {
+              "x": 0,
+              "y": 0
+            },
+            {
+              "x": 0,
+              "y": 1
+            },
+            {
+              "x": 1,
+              "y": 2
+            },
+            {
+              "x": 1,
+              "y": 3
+            },
+            {
+              "x": 2,
+              "y": 1
+            },
+            {
+              "x": 2,
+              "y": 2
+            },
+            {
+              "x": 2,
+              "y": 3
+            }
+          ],
+          "coins": 48,
+          "cash": "0.24",
+          "ways": 12
+        }
+      ],
+      "wonCoins": 48,
+      "wonCash": "0.24",
+      "accumulatedWonCoins": 48,
+      "accumulatedWonCash": "0.24",
+      "accumulatedRoundWonCoins": 48,
+      "accumulatedRoundWonCash": "0.24"
+    },
+    "reels": {
+      "reelSetName": "baseReels2",
+      "reelStopPositions": [
+        281,
+        121,
+        879,
+        727,
+        1599
+      ]
+    },
+    "finalBoard": [
+      [
+        "LOW_4",
+        "LOW_4",
+        "SCATTER",
+        "ARROW"
+      ],
+      [
+        "HIGH_5",
+        "HIGH_5",
+        "LOW_4",
+        "LOW_4"
+      ],
+      [
+        "HIGH_5",
+        "LOW_4",
+        "LOW_4",
+        "LOW_4"
+      ],
+      [
+        "LOW_5",
+        "LOW_1",
+        "LOW_1",
+        "LOW_3"
+      ],
+      [
+        "LOW_2",
+        "HIGH_2",
+        "HIGH_2",
+        "HIGH_2"
+      ]
+    ],
+    "boardHeight": 4,
+    "gameMode": "BASE_GAME",
+    "reSpinAwarded": false,
+    "bonusGameSpinAwarded": false,
+    "excessiveScattersWinInCoins": 0
+  },
+  {
+    "win": {
+      "prizes": [
+        {
+          "symbol": "LOW_3",
+          "oak": 3,
+          "positions": [
+            {
+              "x": 0,
+              "y": 1
+            },
+            {
+              "x": 0,
+              "y": 2
+            },
+            {
+              "x": 1,
+              "y": 0
+            },
+            {
+              "x": 1,
+              "y": 1
+            },
+            {
+              "x": 2,
+              "y": 0
+            },
+            {
+              "x": 2,
+              "y": 1
+            },
+            {
+              "x": 2,
+              "y": 2
+            }
+          ],
+          "coins": 48,
+          "cash": "0.24",
+          "ways": 12
+        }
+      ],
+      "wonCoins": 48,
+      "wonCash": "0.24",
+      "accumulatedWonCoins": 48,
+      "accumulatedWonCash": "0.24",
+      "accumulatedRoundWonCoins": 48,
+      "accumulatedRoundWonCash": "0.24"
+    },
+    "reels": {
+      "reelSetName": "baseReels1",
+      "reelStopPositions": [
+        450,
+        651,
+        470,
+        1796,
+        762
+      ]
+    },
+    "finalBoard": [
+      [
+        "LOW_5",
+        "LOW_3",
+        "LOW_3"
+      ],
+      [
+        "LOW_3",
+        "LOW_3",
+        "LOW_4"
+      ],
+      [
+        "LOW_3",
+        "LOW_3",
+        "LOW_3"
+      ],
+      [
+        "LOW_4",
+        "LOW_4",
+        "LOW_4"
+      ],
+      [
+        "LOW_3",
+        "LOW_3",
+        "LOW_1"
+      ]
+    ],
+    "boardHeight": 3,
+    "gameMode": "BASE_GAME",
+    "reSpinAwarded": false,
+    "bonusGameSpinAwarded": false,
+    "excessiveScattersWinInCoins": 0
+  },
+  {
+    "win": {
+      "prizes": [
+        {
+          "symbol": "LOW_2",
+          "oak": 3,
+          "positions": [
+            {
+              "x": 0,
+              "y": 0
+            },
+            {
+              "x": 0,
+              "y": 1
+            },
+            {
+              "x": 0,
+              "y": 2
+            },
+            {
+              "x": 1,
+              "y": 0
+            },
+            {
+              "x": 2,
+              "y": 2
+            }
+          ],
+          "coins": 12,
+          "cash": "0.06",
+          "ways": 3
+        }
+      ],
+      "wonCoins": 12,
+      "wonCash": "0.06",
+      "accumulatedWonCoins": 12,
+      "accumulatedWonCash": "0.06",
+      "accumulatedRoundWonCoins": 12,
+      "accumulatedRoundWonCash": "0.06"
+    },
+    "reels": {
+      "reelSetName": "baseReels2",
+      "reelStopPositions": [
+        520,
+        502,
+        1419,
+        1786,
+        1185
+      ]
+    },
+    "finalBoard": [
+      [
+        "LOW_2",
+        "LOW_2",
+        "LOW_2"
+      ],
+      [
+        "LOW_2",
+        "LOW_3",
+        "LOW_3"
+      ],
+      [
+        "HIGH_3",
+        "HIGH_3",
+        "LOW_2"
+      ],
+      [
+        "HIGH_2",
+        "LOW_5",
+        "LOW_5"
+      ],
+      [
+        "LOW_4",
+        "LOW_4",
+        "HIGH_5"
+      ]
+    ],
+    "boardHeight": 3,
+    "gameMode": "BASE_GAME",
+    "reSpinAwarded": false,
+    "bonusGameSpinAwarded": false,
+    "excessiveScattersWinInCoins": 0
+  },
+  {
+    "win": {
+      "prizes": [],
+      "wonCoins": 0,
+      "wonCash": "0.00",
+      "accumulatedWonCoins": 0,
+      "accumulatedWonCash": "0.00",
+      "accumulatedRoundWonCoins": 0,
+      "accumulatedRoundWonCash": "0.00"
+    },
+    "reels": {
+      "reelSetName": "baseReels2",
+      "reelStopPositions": [
+        1299,
+        306,
+        107,
+        1746,
+        859
+      ]
+    },
+    "finalBoard": [
+      [
+        "LOW_4",
+        "HIGH_5",
+        "HIGH_5"
+      ],
+      [
+        "LOW_1",
+        "LOW_1",
+        "LOW_1"
+      ],
+      [
+        "LOW_5",
+        "LOW_1",
+        "LOW_1"
+      ],
+      [
+        "HIGH_4",
+        "LOW_3",
+        "LOW_3"
+      ],
+      [
+        "HIGH_5",
+        "HIGH_5",
+        "LOW_4"
+      ]
+    ],
+    "boardHeight": 3,
+    "gameMode": "BASE_GAME",
+    "reSpinAwarded": false,
+    "bonusGameSpinAwarded": false,
+    "excessiveScattersWinInCoins": 0
+  },
+  {
+    "win": {
+      "prizes": [],
+      "wonCoins": 0,
+      "wonCash": "0.00",
+      "accumulatedWonCoins": 0,
+      "accumulatedWonCash": "0.00",
+      "accumulatedRoundWonCoins": 0,
+      "accumulatedRoundWonCash": "0.00"
+    },
+    "reels": {
+      "reelSetName": "baseReels2",
+      "reelStopPositions": [
+        875,
+        882,
+        1517,
+        1824,
+        763
+      ]
+    },
+    "finalBoard": [
+      [
+        "LOW_4",
+        "LOW_4",
+        "HIGH_5"
+      ],
+      [
+        "LOW_2",
+        "LOW_2",
+        "LOW_2"
+      ],
+      [
+        "LOW_3",
+        "LOW_3",
+        "HIGH_5"
+      ],
+      [
+        "LOW_1",
+        "HIGH_4",
+        "HIGH_4"
+      ],
+      [
+        "LOW_4",
+        "HIGH_3",
+        "HIGH_3"
+      ]
+    ],
+    "boardHeight": 3,
+    "gameMode": "BASE_GAME",
+    "reSpinAwarded": false,
+    "bonusGameSpinAwarded": false,
+    "excessiveScattersWinInCoins": 0
+  },
+  {
+    "win": {
+      "prizes": [
+        {
+          "symbol": "LOW_2",
+          "oak": 3,
+          "positions": [
+            {
+              "x": 0,
+              "y": 0
+            },
+            {
+              "x": 0,
+              "y": 1
+            },
+            {
+              "x": 0,
+              "y": 2
+            },
+            {
+              "x": 1,
+              "y": 0
+            },
+            {
+              "x": 1,
+              "y": 1
+            },
+            {
+              "x": 1,
+              "y": 2
+            },
+            {
+              "x": 2,
+              "y": 0
+            }
+          ],
+          "coins": 36,
+          "cash": "0.18",
+          "ways": 9
+        }
+      ],
+      "wonCoins": 36,
+      "wonCash": "0.18",
+      "accumulatedWonCoins": 36,
+      "accumulatedWonCash": "0.18",
+      "accumulatedRoundWonCoins": 36,
+      "accumulatedRoundWonCash": "0.18"
+    },
+    "reels": {
+      "reelSetName": "baseReels2",
+      "reelStopPositions": [
+        749,
+        13,
+        25,
+        555,
+        1124
+      ]
+    },
+    "finalBoard": [
+      [
+        "LOW_2",
+        "LOW_2",
+        "LOW_2",
+        "HIGH_3"
+      ],
+      [
+        "LOW_2",
+        "LOW_2",
+        "LOW_2",
+        "SCATTER"
+      ],
+      [
+        "LOW_2",
+        "ARROW",
+        "LOW_3",
+        "LOW_3"
+      ],
+      [
+        "SCATTER",
+        "LOW_1",
+        "LOW_1",
+        "LOW_3"
+      ],
+      [
+        "HIGH_1",
+        "HIGH_1",
+        "HIGH_1",
+        "HIGH_1"
+      ]
+    ],
+    "boardHeight": 4,
+    "gameMode": "BASE_GAME",
+    "reSpinAwarded": false,
+    "bonusGameSpinAwarded": false,
+    "excessiveScattersWinInCoins": 0
+  },
+  {
+    "win": {
+      "prizes": [],
+      "wonCoins": 0,
+      "wonCash": "0.00",
+      "accumulatedWonCoins": 0,
+      "accumulatedWonCash": "0.00",
+      "accumulatedRoundWonCoins": 0,
+      "accumulatedRoundWonCash": "0.00"
+    },
+    "reels": {
+      "reelSetName": "baseReels1",
+      "reelStopPositions": [
+        1192,
+        2101,
+        1171,
+        1196,
+        2532
+      ]
+    },
+    "finalBoard": [
+      [
+        "LOW_3",
+        "LOW_3",
+        "LOW_2"
+      ],
+      [
+        "HIGH_2",
+        "HIGH_2",
+        "HIGH_4"
+      ],
+      [
+        "LOW_4",
+        "LOW_4",
+        "LOW_3"
+      ],
+      [
+        "LOW_2",
+        "LOW_2",
+        "LOW_2"
+      ],
+      [
+        "LOW_5",
+        "LOW_5",
+        "HIGH_2"
+      ]
+    ],
+    "boardHeight": 3,
+    "gameMode": "BASE_GAME",
+    "reSpinAwarded": false,
+    "bonusGameSpinAwarded": false,
+    "excessiveScattersWinInCoins": 0
+  },
+  {
+    "win": {
+      "prizes": [],
+      "wonCoins": 0,
+      "wonCash": "0.00",
+      "accumulatedWonCoins": 0,
+      "accumulatedWonCash": "0.00",
+      "accumulatedRoundWonCoins": 0,
+      "accumulatedRoundWonCash": "0.00"
+    },
+    "reels": {
+      "reelSetName": "baseReels2",
+      "reelStopPositions": [
+        987,
+        1075,
+        1718,
+        2210,
+        1703
+      ]
+    },
+    "finalBoard": [
+      [
+        "HIGH_5",
+        "HIGH_5",
+        "LOW_2"
+      ],
+      [
+        "HIGH_5",
+        "HIGH_5",
+        "LOW_4"
+      ],
+      [
+        "LOW_2",
+        "HIGH_1",
+        "HIGH_1"
+      ],
+      [
+        "LOW_5",
+        "LOW_5",
+        "LOW_1"
+      ],
+      [
+        "HIGH_1",
+        "HIGH_1",
+        "LOW_3"
+      ]
+    ],
+    "boardHeight": 3,
+    "gameMode": "BASE_GAME",
+    "reSpinAwarded": false,
+    "bonusGameSpinAwarded": false,
+    "excessiveScattersWinInCoins": 0
+  }
+]

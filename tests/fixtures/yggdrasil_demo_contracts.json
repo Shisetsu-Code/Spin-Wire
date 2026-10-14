@@ -1,0 +1,1784 @@
+[
+  {
+    "game": {
+      "gameid": 10511,
+      "gameId": 10511,
+      "orgSettings": {
+        "type": "BASIC",
+        "Denoms": "EUR:0.005,0.01,0.02,0.03,0.04,0.05,0.07,0.1,0.15,0.2,0.25,0.3,0.5,0.7,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0",
+        "DefaultBetType": "Cash",
+        "DefaultDenom": "EUR:0.1"
+      },
+      "extraOrgSettings": [
+        {
+          "type": "BB_DEATHMATCH_1",
+          "Denoms": "EUR:0.005,0.01,0.02,0.03,0.04,0.05,0.07,0.1,0.15,0.2,0.25,0.3,0.5,0.7,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0",
+          "DefaultBetType": "Cash",
+          "DefaultDenom": "EUR:0.1"
+        },
+        {
+          "type": "BB_DEATHMATCH_2",
+          "Denoms": "EUR:0.005,0.01,0.02,0.03,0.04,0.05,0.07,0.1,0.15,0.2,0.25,0.3,0.5,0.7,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0",
+          "DefaultBetType": "Cash",
+          "DefaultDenom": "EUR:0.1"
+        },
+        {
+          "type": "BB_DEATHMATCH_3",
+          "Denoms": "EUR:0.005,0.01,0.02,0.03,0.04,0.05,0.07,0.1,0.15,0.2,0.25,0.3,0.5,0.7,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0",
+          "DefaultBetType": "Cash",
+          "DefaultDenom": "EUR:0.1"
+        },
+        {
+          "type": "BB_TRAINING",
+          "Denoms": "EUR:0.005,0.01,0.02,0.03,0.04,0.05,0.07,0.1,0.15,0.2,0.25,0.3,0.5,0.7,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0",
+          "DefaultBetType": "Cash",
+          "DefaultDenom": "EUR:0.1"
+        }
+      ],
+      "cfg": {
+        "props": [
+          {
+            "prop": "ApiVersion",
+            "value": "2.6.0"
+          },
+          {
+            "prop": "Modes",
+            "value": {
+              "BB_DEATHMATCH_2": {
+                "coinsPerBet": 1000
+              },
+              "BB_DEATHMATCH_1": {
+                "coinsPerBet": 1000
+              },
+              "BB_TRAINING": {
+                "coinsPerBet": 1000
+              },
+              "BASIC": {
+                "coinsPerBet": 20
+              },
+              "BB_DEATHMATCH_3": {
+                "coinsPerBet": 1000
+              }
+            }
+          },
+          {
+            "prop": "Denoms",
+            "value": "AMD:2.5,5.0,10.0,15.0,20.0,25.0,35.0,50.0,75.0,100.0,125.0,150.0,250.0,350.0,500.0,750.0,1000.0,1250.0,1500.0,1750.0,2000.0,2250.0,2500.0;ARS:0.05,0.1,0.2,0.3,0.4,0.5,0.7,1.0,1.5,2.0,2.5,3.0,5.0,7.0,10.0,15.0,20.0,25.0,30.0,35.0,40.0,45.0,50.0;AUD:0.005,0.01,0.02,0.03,0.04,0.05,0.07,0.1,0.15,0.2,0.25,0.3,0.5,0.7,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0;BRL:0.025,0.05,0.1,0.15,0.2,0.25,0.35,0.5,0.75,1.0,1.25,1.5,2.5,3.5,5.0,7.5,10.0,12.5,15.0,17.5,20.0,22.5,25.0;CAD:0.005,0.01,0.02,0.03,0.04,0.05,0.07,0.1,0.15,0.2,0.25,0.3,0.5,0.7,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0;CHF:0.005,0.01,0.02,0.03,0.04,0.05,0.07,0.1,0.15,0.2,0.25,0.3,0.5,0.7,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0;CLP:5.0,10.0,20.0,30.0,40.0,50.0,70.0,100.0,150.0,200.0,250.0,300.0,500.0,700.0,1000.0,1500.0,2000.0,2500.0,3000.0,3500.0,4000.0,4500.0,5000.0;CNY:0.05,0.1,0.2,0.3,0.4,0.5,0.7,1.0,1.5,2.0,2.5,3.0,5.0,7.0,10.0,15.0,20.0,25.0,30.0,35.0,40.0,45.0,50.0;CZK:0.125,0.25,0.5,0.75,1.0,1.25,1.75,2.5,3.75,5.0,6.25,7.5,12.5,17.5,25.0,37.5,50.0,62.5,75.0,87.5,100.0,112.5,125.0;DKK:0.05,0.1,0.2,0.3,0.4,0.5,0.7,1.0,1.5,2.0,2.5,3.0,5.0,7.0,10.0,15.0,20.0,25.0,30.0,35.0,40.0,45.0,50.0;EUR:0.005,0.01,0.02,0.03,0.04,0.05,0.07,0.1,0.15,0.2,0.25,0.3,0.5,0.7,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0;GBP:0.005,0.01,0.02,0.03,0.04,0.05,0.07,0.1,0.15,0.2,0.25,0.3,0.5,0.7,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0;GEL:0.005,0.01,0.02,0.03,0.04,0.05,0.07,0.1,0.15,0.2,0.25,0.3,0.5,0.7,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0;HKD:0.005,0.01,0.02,0.03,0.04,0.05,0.07,0.1,0.15,0.2,0.25,0.3,0.5,0.7,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0;HRK:0.05,0.1,0.2,0.3,0.4,0.5,0.7,1.0,1.5,2.0,2.5,3.0,5.0,7.0,10.0,15.0,20.0,25.0,30.0,35.0,40.0,45.0,50.0;HUF:1.25,2.5,5.0,7.5,10.0,12.5,17.5,25.0,37.5,50.0,62.5,75.0,125.0,175.0,250.0,375.0,500.0,625.0,750.0,875.0,1000.0,1125.0,1250.0;IDR:75.0,150.0,300.0,450.0,600.0,750.0,1050.0,1500.0,2250.0,3000.0,3750.0,4500.0,7500.0,10500.0,15000.0,22500.0,30000.0,37500.0,45000.0,52500.0,60000.0,67500.0,75000.0;IDX:0.075,0.15,0.3,0.45,0.6,0.75,1.05,1.5,2.25,3.0,3.75,4.5,7.5,10.5,15.0,22.5,30.0,37.5,45.0,52.5,60.0,67.5,75.0;ILS:0.025,0.05,0.1,0.15,0.2,0.25,0.35,0.5,0.75,1.0,1.25,1.5,2.5,3.5,5.0,7.5,10.0,12.5,15.0,17.5,20.0,22.5,25.0;INR:0.25,0.5,1.0,1.5,2.0,2.5,3.5,5.0,7.5,10.0,12.5,15.0,25.0,35.0,50.0,75.0,100.0,125.0,150.0,175.0,200.0,225.0,250.0;ISK:0.25,0.5,1.0,1.5,2.0,2.5,3.5,5.0,7.5,10.0,12.5,15.0,25.0,35.0,50.0,75.0,100.0,125.0,150.0,175.0,200.0,225.0,250.0;JPY:0.5,1.0,2.0,3.0,4.0,5.0,7.0,10.0,15.0,20.0,25.0,30.0,50.0,70.0,100.0,150.0,200.0,250.0,300.0,350.0,400.0,450.0,500.0;KRW:6.5,13.0,26.0,39.0,52.0,65.0,91.0,130.0,195.0,260.0,325.0,390.0,650.0,910.0,1300.0,1950.0,2600.0,3250.0,3900.0,4550.0,5200.0,5850.0,6500.0;KZT:2.0,4.0,8.0,12.0,16.0,20.0,28.0,40.0,60.0,80.0,100.0,120.0,200.0,280.0,400.0,600.0,800.0,1000.0,1200.0,1400.0,1600.0,1800.0,2000.0;MMK:8.5,17.0,34.0,51.0,68.0,85.0,119.0,170.0,255.0,340.0,425.0,510.0,850.0,1190.0,1700.0,2550.0,3400.0,4250.0,5100.0,5950.0,6800.0,7650.0,8500.0;MXN:0.125,0.25,0.5,0.75,1.0,1.25,1.75,2.5,3.75,5.0,6.25,7.5,12.5,17.5,25.0,37.5,50.0,62.5,75.0,87.5,100.0,112.5,125.0;MYR:0.025,0.05,0.1,0.15,0.2,0.25,0.35,0.5,0.75,1.0,1.25,1.5,2.5,3.5,5.0,7.5,10.0,12.5,15.0,17.5,20.0,22.5,25.0;NGN:2.05,4.1,8.2,12.3,16.4,20.5,28.7,41.0,61.5,82.0,102.5,123.0,205.0,287.0,410.0,615.0,820.0,1025.0,1230.0,1435.0,1640.0,1845.0,2050.0;NOK:0.05,0.1,0.2,0.3,0.4,0.5,0.7,1.0,1.5,2.0,2.5,3.0,5.0,7.0,10.0,15.0,20.0,25.0,30.0,35.0,40.0,45.0,50.0;NZD:0.005,0.01,0.02,0.03,0.04,0.05,0.07,0.1,0.15,0.2,0.25,0.3,0.5,0.7,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0;PEN:0.025,0.05,0.1,0.15,0.2,0.25,0.35,0.5,0.75,1.0,1.25,1.5,2.5,3.5,5.0,7.5,10.0,12.5,15.0,17.5,20.0,22.5,25.0;PLN:0.025,0.05,0.1,0.15,0.2,0.25,0.35,0.5,0.75,1.0,1.25,1.5,2.5,3.5,5.0,7.5,10.0,12.5,15.0,17.5,20.0,22.5,25.0;RON:0.025,0.05,0.1,0.15,0.2,0.25,0.35,0.5,0.75,1.0,1.25,1.5,2.5,3.5,5.0,7.5,10.0,12.5,15.0,17.5,20.0,22.5,25.0;RUB:0.25,0.5,1.0,1.5,2.0,2.5,3.5,5.0,7.5,10.0,12.5,15.0,25.0,35.0,50.0,75.0,100.0,125.0,150.0,175.0,200.0,225.0,250.0;SEK:0.05,0.1,0.2,0.3,0.4,0.5,0.7,1.0,1.5,2.0,2.5,3.0,5.0,7.0,10.0,15.0,20.0,25.0,30.0,35.0,40.0,45.0,50.0;SGD:0.005,0.01,0.02,0.03,0.04,0.05,0.07,0.1,0.15,0.2,0.25,0.3,0.5,0.7,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0;THB:0.25,0.5,1.0,1.5,2.0,2.5,3.5,5.0,7.5,10.0,12.5,15.0,25.0,35.0,50.0,75.0,100.0,125.0,150.0,175.0,200.0,225.0,250.0;TRY:0.08,0.16,0.32,0.48,0.64,0.8,1.12,1.6,2.4,3.2,4.0,4.8,8.0,11.2,16.0,24.0,32.0,40.0,48.0,56.0,64.0,72.0,80.0;TWD:0.125,0.25,0.5,0.75,1.0,1.25,1.75,2.5,3.75,5.0,6.25,7.5,12.5,17.5,25.0,37.5,50.0,62.5,75.0,87.5,100.0,112.5,125.0;UAH:0.125,0.25,0.5,0.75,1.0,1.25,1.75,2.5,3.75,5.0,6.25,7.5,12.5,17.5,25.0,37.5,50.0,62.5,75.0,87.5,100.0,112.5,125.0;USD:0.005,0.01,0.02,0.03,0.04,0.05,0.07,0.1,0.15,0.2,0.25,0.3,0.5,0.7,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0;VND:125.0,250.0,500.0,750.0,1000.0,1250.0,1750.0,2500.0,3750.0,5000.0,6250.0,7500.0,12500.0,17500.0,25000.0,37500.0,50000.0,62500.0,75000.0,87500.0,100000.0,112500.0,125000.0;VNX:0.125,0.25,0.5,0.75,1.0,1.25,1.75,2.5,3.75,5.0,6.25,7.5,12.5,17.5,25.0,37.5,50.0,62.5,75.0,87.5,100.0,112.5,125.0;ZAR:0.05,0.1,0.2,0.3,0.4,0.5,0.7,1.0,1.5,2.0,2.5,3.0,5.0,7.0,10.0,15.0,20.0,25.0,30.0,35.0,40.0,45.0,50.0"
+          },
+          {
+            "prop": "Config",
+            "value": {
+              "Paylines": [
+                [
+                  1,
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  2,
+                  2,
+                  2,
+                  2,
+                  2
+                ],
+                [
+                  0,
+                  1,
+                  2,
+                  1,
+                  0
+                ],
+                [
+                  2,
+                  1,
+                  0,
+                  1,
+                  2
+                ],
+                [
+                  0,
+                  1,
+                  1,
+                  1,
+                  0
+                ],
+                [
+                  2,
+                  1,
+                  1,
+                  1,
+                  2
+                ],
+                [
+                  1,
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  2,
+                  2,
+                  2,
+                  1
+                ],
+                [
+                  1,
+                  1,
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  1,
+                  2,
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  0,
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  2,
+                  2,
+                  1,
+                  2,
+                  2
+                ],
+                [
+                  0,
+                  1,
+                  0,
+                  1,
+                  0
+                ],
+                [
+                  2,
+                  1,
+                  2,
+                  1,
+                  2
+                ],
+                [
+                  1,
+                  0,
+                  1,
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  2,
+                  1,
+                  2,
+                  1
+                ],
+                [
+                  0,
+                  2,
+                  2,
+                  2,
+                  0
+                ],
+                [
+                  2,
+                  0,
+                  0,
+                  0,
+                  2
+                ],
+                [
+                  2,
+                  2,
+                  0,
+                  2,
+                  2
+                ]
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "rounds": [
+      {
+        "request": {
+          "coins": "20",
+          "amount": "2",
+          "lines": "11111111111111111111",
+          "coin": "0.1"
+        },
+        "response": {
+          "code": 0,
+          "data": {
+            "wager": {
+              "wagerid": "round-1",
+              "status": "Pending",
+              "bets": [
+                {
+                  "step": 1,
+                  "status": "RESULTED",
+                  "wonamount": "0.00",
+                  "betdata": {
+                    "cmd": "BASE_SPIN",
+                    "cmds": [
+                      "C"
+                    ],
+                    "coin": "0.10",
+                    "cashBet": "2.00"
+                  },
+                  "eventdata": {
+                    "nextCmds": "C",
+                    "response": {
+                      "clientData": {
+                        "featuresUsed": [
+                          "noFeature"
+                        ]
+                      }
+                    }
+                  },
+                  "betamount": "2.00",
+                  "betcurrency": "EUR"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "step": "2",
+          "amount": "0",
+          "betid": "1",
+          "cmd": "C"
+        },
+        "response": {
+          "code": 0,
+          "data": {
+            "wager": {
+              "wagerid": "round-1",
+              "status": "Finished",
+              "bets": [
+                {
+                  "step": 2,
+                  "status": "RESULTED",
+                  "wonamount": "4.00",
+                  "betdata": {
+                    "cmd": "C",
+                    "coin": "0.10",
+                    "cashBet": "2.00"
+                  },
+                  "eventdata": {
+                    "nextCmds": null,
+                    "response": {
+                      "clientData": {}
+                    }
+                  },
+                  "betamount": "0.00",
+                  "betcurrency": "EUR"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "coins": "20",
+          "amount": "2",
+          "lines": "11111111111111111111",
+          "coin": "0.1"
+        },
+        "response": {
+          "code": 0,
+          "data": {
+            "wager": {
+              "wagerid": "round-2",
+              "status": "Finished",
+              "bets": [
+                {
+                  "step": 1,
+                  "status": "RESULTED",
+                  "wonamount": "0.00",
+                  "betdata": {
+                    "cmd": "BASE_SPIN",
+                    "coin": "0.10",
+                    "cashBet": "2.00"
+                  },
+                  "eventdata": {
+                    "nextCmds": null,
+                    "response": {
+                      "clientData": {
+                        "featuresUsed": [
+                          "noFeature"
+                        ]
+                      }
+                    }
+                  },
+                  "betamount": "2.00",
+                  "betcurrency": "EUR"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "coins": "1000",
+          "amount": "70",
+          "lines": "11111111111111111111",
+          "coin": "0.07",
+          "cmd": "BB_TRAINING"
+        },
+        "response": {
+          "code": 0,
+          "data": {
+            "wager": {
+              "wagerid": "round-3",
+              "status": "Pending",
+              "bets": [
+                {
+                  "step": 1,
+                  "status": "RESULTED",
+                  "wonamount": "0.00",
+                  "betdata": {
+                    "cmd": "BB_TRAINING",
+                    "coin": "0.07",
+                    "cashBet": "70.00"
+                  },
+                  "eventdata": {
+                    "nextCmds": null,
+                    "response": {
+                      "clientData": {
+                        "featuresUsed": [
+                          "maceFeature",
+                          "beastFeature"
+                        ],
+                        "freeSpinTypePlayed": "BB_TRAINING",
+                        "freeSpins": 7
+                      }
+                    }
+                  },
+                  "betamount": "70.00",
+                  "betcurrency": "EUR"
+                },
+                {
+                  "step": 2,
+                  "status": "RESULTED",
+                  "wonamount": "0.00",
+                  "betdata": null,
+                  "eventdata": {
+                    "nextCmds": null,
+                    "response": {
+                      "clientData": {
+                        "featuresUsed": [
+                          "maceFeature",
+                          "beastFeature"
+                        ],
+                        "freeSpinTypePlayed": "BB_TRAINING",
+                        "freeSpins": 6
+                      }
+                    }
+                  },
+                  "betamount": "0.00",
+                  "betcurrency": "EUR"
+                },
+                {
+                  "step": 3,
+                  "status": "RESULTED",
+                  "wonamount": "0.00",
+                  "betdata": null,
+                  "eventdata": {
+                    "nextCmds": null,
+                    "response": {
+                      "clientData": {
+                        "featuresUsed": [
+                          "maceFeature",
+                          "beastFeature"
+                        ],
+                        "freeSpinTypePlayed": "BB_TRAINING",
+                        "freeSpins": 5
+                      }
+                    }
+                  },
+                  "betamount": "0.00",
+                  "betcurrency": "EUR"
+                },
+                {
+                  "step": 4,
+                  "status": "RESULTED",
+                  "wonamount": "0.00",
+                  "betdata": null,
+                  "eventdata": {
+                    "nextCmds": null,
+                    "response": {
+                      "clientData": {
+                        "featuresUsed": [
+                          "maceFeature",
+                          "beastFeature"
+                        ],
+                        "freeSpinTypePlayed": "BB_TRAINING",
+                        "freeSpins": 4
+                      }
+                    }
+                  },
+                  "betamount": "0.00",
+                  "betcurrency": "EUR"
+                },
+                {
+                  "step": 5,
+                  "status": "RESULTED",
+                  "wonamount": "0.00",
+                  "betdata": null,
+                  "eventdata": {
+                    "nextCmds": null,
+                    "response": {
+                      "clientData": {
+                        "featuresUsed": [
+                          "maceFeature",
+                          "beastFeature"
+                        ],
+                        "freeSpinTypePlayed": "BB_TRAINING",
+                        "freeSpins": 3
+                      }
+                    }
+                  },
+                  "betamount": "0.00",
+                  "betcurrency": "EUR"
+                },
+                {
+                  "step": 6,
+                  "status": "RESULTED",
+                  "wonamount": "0.00",
+                  "betdata": null,
+                  "eventdata": {
+                    "nextCmds": null,
+                    "response": {
+                      "clientData": {
+                        "featuresUsed": [
+                          "maceFeature",
+                          "beastFeature"
+                        ],
+                        "freeSpinTypePlayed": "BB_TRAINING",
+                        "freeSpins": 2
+                      }
+                    }
+                  },
+                  "betamount": "0.00",
+                  "betcurrency": "EUR"
+                },
+                {
+                  "step": 7,
+                  "status": "RESULTED",
+                  "wonamount": "0.00",
+                  "betdata": null,
+                  "eventdata": {
+                    "nextCmds": null,
+                    "response": {
+                      "clientData": {
+                        "featuresUsed": [
+                          "maceFeature",
+                          "beastFeature"
+                        ],
+                        "freeSpinTypePlayed": "BB_TRAINING",
+                        "freeSpins": 2
+                      }
+                    }
+                  },
+                  "betamount": "0.00",
+                  "betcurrency": "EUR"
+                },
+                {
+                  "step": 8,
+                  "status": "RESULTED",
+                  "wonamount": "0.00",
+                  "betdata": null,
+                  "eventdata": {
+                    "nextCmds": null,
+                    "response": {
+                      "clientData": {
+                        "featuresUsed": [
+                          "maceFeature",
+                          "beastFeature"
+                        ],
+                        "freeSpinTypePlayed": "BB_TRAINING",
+                        "freeSpins": 1
+                      }
+                    }
+                  },
+                  "betamount": "0.00",
+                  "betcurrency": "EUR"
+                },
+                {
+                  "step": 9,
+                  "status": "RESULTED",
+                  "wonamount": "0.00",
+                  "betdata": {
+                    "cmd": "BB_TRAINING",
+                    "cmds": [
+                      "C"
+                    ],
+                    "coin": "0.07",
+                    "cashBet": "70.00"
+                  },
+                  "eventdata": {
+                    "nextCmds": "C",
+                    "response": {
+                      "clientData": {
+                        "featuresUsed": [
+                          "maceFeature",
+                          "beastFeature"
+                        ],
+                        "freeSpinTypePlayed": "BB_TRAINING"
+                      }
+                    }
+                  },
+                  "betamount": "0.00",
+                  "betcurrency": "EUR"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "step": "10",
+          "amount": "0",
+          "betid": "1",
+          "cmd": "C"
+        },
+        "response": {
+          "code": 0,
+          "data": {
+            "wager": {
+              "wagerid": "round-3",
+              "status": "Finished",
+              "bets": [
+                {
+                  "step": 10,
+                  "status": "RESULTED",
+                  "wonamount": "19.18",
+                  "betdata": {
+                    "cmd": "C",
+                    "coin": "0.07",
+                    "cashBet": "70.00"
+                  },
+                  "eventdata": {
+                    "nextCmds": null,
+                    "response": {
+                      "clientData": {}
+                    }
+                  },
+                  "betamount": "0.00",
+                  "betcurrency": "EUR"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "coins": "1000",
+          "amount": "100",
+          "lines": "11111111111111111111",
+          "coin": "0.1",
+          "cmd": "BB_DEATHMATCH_1"
+        },
+        "response": {
+          "code": 0,
+          "data": {
+            "wager": {
+              "wagerid": "round-4",
+              "status": "Pending",
+              "bets": [
+                {
+                  "step": 1,
+                  "status": "RESULTED",
+                  "wonamount": "0.00",
+                  "betdata": {
+                    "cmd": "BB_DEATHMATCH_1",
+                    "coin": "0.10",
+                    "cashBet": "100.00"
+                  },
+                  "eventdata": {
+                    "nextCmds": null,
+                    "response": {
+                      "clientData": {
+                        "featuresUsed": [
+                          "maceFeature",
+                          "beastFeature"
+                        ],
+                        "freeSpinTypePlayed": "BB_DEATHMATCH_1",
+                        "freeSpins": 6
+                      }
+                    }
+                  },
+                  "betamount": "100.00",
+                  "betcurrency": "EUR"
+                },
+                {
+                  "step": 2,
+                  "status": "RESULTED",
+                  "wonamount": "0.00",
+                  "betdata": null,
+                  "eventdata": {
+                    "nextCmds": null,
+                    "response": {
+                      "clientData": {
+                        "featuresUsed": [
+                          "maceFeature",
+                          "beastFeature"
+                        ],
+                        "freeSpinTypePlayed": "BB_DEATHMATCH_1",
+                        "freeSpins": 6
+                      }
+                    }
+                  },
+                  "betamount": "0.00",
+                  "betcurrency": "EUR"
+                },
+                {
+                  "step": 3,
+                  "status": "RESULTED",
+                  "wonamount": "0.00",
+                  "betdata": null,
+                  "eventdata": {
+                    "nextCmds": null,
+                    "response": {
+                      "clientData": {
+                        "featuresUsed": [
+                          "maceFeature",
+                          "beastFeature"
+                        ],
+                        "freeSpinTypePlayed": "BB_DEATHMATCH_1",
+                        "freeSpins": 5
+                      }
+                    }
+                  },
+                  "betamount": "0.00",
+                  "betcurrency": "EUR"
+                },
+                {
+                  "step": 4,
+                  "status": "RESULTED",
+                  "wonamount": "0.00",
+                  "betdata": null,
+                  "eventdata": {
+                    "nextCmds": null,
+                    "response": {
+                      "clientData": {
+                        "featuresUsed": [
+                          "maceFeature",
+                          "beastFeature"
+                        ],
+                        "freeSpinTypePlayed": "BB_DEATHMATCH_1",
+                        "freeSpins": 4
+                      }
+                    }
+                  },
+                  "betamount": "0.00",
+                  "betcurrency": "EUR"
+                },
+                {
+                  "step": 5,
+                  "status": "RESULTED",
+                  "wonamount": "0.00",
+                  "betdata": null,
+                  "eventdata": {
+                    "nextCmds": null,
+                    "response": {
+                      "clientData": {
+                        "featuresUsed": [
+                          "maceFeature",
+                          "beastFeature"
+                        ],
+                        "freeSpinTypePlayed": "BB_DEATHMATCH_1",
+                        "freeSpins": 3
+                      }
+                    }
+                  },
+                  "betamount": "0.00",
+                  "betcurrency": "EUR"
+                },
+                {
+                  "step": 6,
+                  "status": "RESULTED",
+                  "wonamount": "0.00",
+                  "betdata": null,
+                  "eventdata": {
+                    "nextCmds": null,
+                    "response": {
+                      "clientData": {
+                        "featuresUsed": [
+                          "maceFeature",
+                          "beastFeature"
+                        ],
+                        "freeSpinTypePlayed": "BB_DEATHMATCH_1",
+                        "freeSpins": 2
+                      }
+                    }
+                  },
+                  "betamount": "0.00",
+                  "betcurrency": "EUR"
+                },
+                {
+                  "step": 7,
+                  "status": "RESULTED",
+                  "wonamount": "0.00",
+                  "betdata": null,
+                  "eventdata": {
+                    "nextCmds": null,
+                    "response": {
+                      "clientData": {
+                        "featuresUsed": [
+                          "maceFeature",
+                          "beastFeature"
+                        ],
+                        "freeSpinTypePlayed": "BB_DEATHMATCH_1",
+                        "freeSpins": 1
+                      }
+                    }
+                  },
+                  "betamount": "0.00",
+                  "betcurrency": "EUR"
+                },
+                {
+                  "step": 8,
+                  "status": "RESULTED",
+                  "wonamount": "0.00",
+                  "betdata": {
+                    "cmd": "BB_DEATHMATCH_1",
+                    "cmds": [
+                      "C"
+                    ],
+                    "coin": "0.10",
+                    "cashBet": "100.00"
+                  },
+                  "eventdata": {
+                    "nextCmds": "C",
+                    "response": {
+                      "clientData": {
+                        "featuresUsed": [
+                          "maceFeature",
+                          "beastFeature",
+                          "consolationPrize"
+                        ],
+                        "freeSpinTypePlayed": "BB_DEATHMATCH_1"
+                      }
+                    }
+                  },
+                  "betamount": "0.00",
+                  "betcurrency": "EUR"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "step": "9",
+          "amount": "0",
+          "betid": "1",
+          "cmd": "C"
+        },
+        "response": {
+          "code": 0,
+          "data": {
+            "wager": {
+              "wagerid": "round-4",
+              "status": "Finished",
+              "bets": [
+                {
+                  "step": 9,
+                  "status": "RESULTED",
+                  "wonamount": "6.00",
+                  "betdata": {
+                    "cmd": "C",
+                    "coin": "0.10",
+                    "cashBet": "100.00"
+                  },
+                  "eventdata": {
+                    "nextCmds": null,
+                    "response": {
+                      "clientData": {}
+                    }
+                  },
+                  "betamount": "0.00",
+                  "betcurrency": "EUR"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "coins": "1000",
+          "amount": "100",
+          "lines": "11111111111111111111",
+          "coin": "0.1",
+          "cmd": "BB_DEATHMATCH_2"
+        },
+        "response": {
+          "code": 0,
+          "data": {
+            "wager": {
+              "wagerid": "round-5",
+              "status": "Pending",
+              "bets": [
+                {
+                  "step": 1,
+                  "status": "RESULTED",
+                  "wonamount": "0.00",
+                  "betdata": {
+                    "cmd": "BB_DEATHMATCH_2",
+                    "coin": "0.10",
+                    "cashBet": "100.00"
+                  },
+                  "eventdata": {
+                    "nextCmds": null,
+                    "response": {
+                      "clientData": {
+                        "featuresUsed": [
+                          "maceFeature",
+                          "beastFeature"
+                        ],
+                        "freeSpinTypePlayed": "BB_DEATHMATCH_2",
+                        "freeSpins": 5
+                      }
+                    }
+                  },
+                  "betamount": "100.00",
+                  "betcurrency": "EUR"
+                },
+                {
+                  "step": 2,
+                  "status": "RESULTED",
+                  "wonamount": "0.00",
+                  "betdata": null,
+                  "eventdata": {
+                    "nextCmds": null,
+                    "response": {
+                      "clientData": {
+                        "featuresUsed": [
+                          "maceFeature",
+                          "beastFeature"
+                        ],
+                        "freeSpinTypePlayed": "BB_DEATHMATCH_2",
+                        "freeSpins": 4
+                      }
+                    }
+                  },
+                  "betamount": "0.00",
+                  "betcurrency": "EUR"
+                },
+                {
+                  "step": 3,
+                  "status": "RESULTED",
+                  "wonamount": "0.00",
+                  "betdata": null,
+                  "eventdata": {
+                    "nextCmds": null,
+                    "response": {
+                      "clientData": {
+                        "featuresUsed": [
+                          "maceFeature",
+                          "beastFeature"
+                        ],
+                        "freeSpinTypePlayed": "BB_DEATHMATCH_2",
+                        "freeSpins": 4
+                      }
+                    }
+                  },
+                  "betamount": "0.00",
+                  "betcurrency": "EUR"
+                },
+                {
+                  "step": 4,
+                  "status": "RESULTED",
+                  "wonamount": "0.00",
+                  "betdata": null,
+                  "eventdata": {
+                    "nextCmds": null,
+                    "response": {
+                      "clientData": {
+                        "featuresUsed": [
+                          "maceFeature",
+                          "beastFeature"
+                        ],
+                        "freeSpinTypePlayed": "BB_DEATHMATCH_2",
+                        "freeSpins": 3
+                      }
+                    }
+                  },
+                  "betamount": "0.00",
+                  "betcurrency": "EUR"
+                },
+                {
+                  "step": 5,
+                  "status": "RESULTED",
+                  "wonamount": "0.00",
+                  "betdata": null,
+                  "eventdata": {
+                    "nextCmds": null,
+                    "response": {
+                      "clientData": {
+                        "featuresUsed": [
+                          "maceFeature",
+                          "beastFeature"
+                        ],
+                        "freeSpinTypePlayed": "BB_DEATHMATCH_2",
+                        "freeSpins": 2
+                      }
+                    }
+                  },
+                  "betamount": "0.00",
+                  "betcurrency": "EUR"
+                },
+                {
+                  "step": 6,
+                  "status": "RESULTED",
+                  "wonamount": "0.00",
+                  "betdata": null,
+                  "eventdata": {
+                    "nextCmds": null,
+                    "response": {
+                      "clientData": {
+                        "featuresUsed": [
+                          "maceFeature",
+                          "beastFeature"
+                        ],
+                        "freeSpinTypePlayed": "BB_DEATHMATCH_2",
+                        "freeSpins": 2
+                      }
+                    }
+                  },
+                  "betamount": "0.00",
+                  "betcurrency": "EUR"
+                },
+                {
+                  "step": 7,
+                  "status": "RESULTED",
+                  "wonamount": "0.00",
+                  "betdata": null,
+                  "eventdata": {
+                    "nextCmds": null,
+                    "response": {
+                      "clientData": {
+                        "featuresUsed": [
+                          "maceFeature",
+                          "beastFeature"
+                        ],
+                        "freeSpinTypePlayed": "BB_DEATHMATCH_2",
+                        "freeSpins": 1
+                      }
+                    }
+                  },
+                  "betamount": "0.00",
+                  "betcurrency": "EUR"
+                },
+                {
+                  "step": 8,
+                  "status": "RESULTED",
+                  "wonamount": "0.00",
+                  "betdata": null,
+                  "eventdata": {
+                    "nextCmds": null,
+                    "response": {
+                      "clientData": {
+                        "featuresUsed": [
+                          "maceFeature",
+                          "beastFeature"
+                        ],
+                        "freeSpinTypePlayed": "BB_DEATHMATCH_2",
+                        "freeSpins": 1
+                      }
+                    }
+                  },
+                  "betamount": "0.00",
+                  "betcurrency": "EUR"
+                },
+                {
+                  "step": 9,
+                  "status": "RESULTED",
+                  "wonamount": "0.00",
+                  "betdata": {
+                    "cmd": "BB_DEATHMATCH_2",
+                    "cmds": [
+                      "C"
+                    ],
+                    "coin": "0.10",
+                    "cashBet": "100.00"
+                  },
+                  "eventdata": {
+                    "nextCmds": "C",
+                    "response": {
+                      "clientData": {
+                        "featuresUsed": [
+                          "maceFeature",
+                          "beastFeature",
+                          "freeSpinMultiplier"
+                        ],
+                        "freeSpinTypePlayed": "BB_DEATHMATCH_2"
+                      }
+                    }
+                  },
+                  "betamount": "0.00",
+                  "betcurrency": "EUR"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "step": "10",
+          "amount": "0",
+          "betid": "1",
+          "cmd": "C"
+        },
+        "response": {
+          "code": 0,
+          "data": {
+            "wager": {
+              "wagerid": "round-5",
+              "status": "Finished",
+              "bets": [
+                {
+                  "step": 10,
+                  "status": "RESULTED",
+                  "wonamount": "238.80",
+                  "betdata": {
+                    "cmd": "C",
+                    "coin": "0.10",
+                    "cashBet": "100.00"
+                  },
+                  "eventdata": {
+                    "nextCmds": null,
+                    "response": {
+                      "clientData": {}
+                    }
+                  },
+                  "betamount": "0.00",
+                  "betcurrency": "EUR"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "coins": "1000",
+          "amount": "100",
+          "lines": "11111111111111111111",
+          "coin": "0.1",
+          "cmd": "BB_DEATHMATCH_3"
+        },
+        "response": {
+          "code": 0,
+          "data": {
+            "wager": {
+              "wagerid": "round-6",
+              "status": "Pending",
+              "bets": [
+                {
+                  "step": 1,
+                  "status": "RESULTED",
+                  "wonamount": "0.00",
+                  "betdata": {
+                    "cmd": "BB_DEATHMATCH_3",
+                    "coin": "0.10",
+                    "cashBet": "100.00"
+                  },
+                  "eventdata": {
+                    "nextCmds": null,
+                    "response": {
+                      "clientData": {
+                        "featuresUsed": [
+                          "maceFeature",
+                          "beastFeature"
+                        ],
+                        "freeSpinTypePlayed": "BB_DEATHMATCH_3",
+                        "freeSpins": 4
+                      }
+                    }
+                  },
+                  "betamount": "100.00",
+                  "betcurrency": "EUR"
+                },
+                {
+                  "step": 2,
+                  "status": "RESULTED",
+                  "wonamount": "0.00",
+                  "betdata": null,
+                  "eventdata": {
+                    "nextCmds": null,
+                    "response": {
+                      "clientData": {
+                        "featuresUsed": [
+                          "maceFeature",
+                          "beastFeature"
+                        ],
+                        "freeSpinTypePlayed": "BB_DEATHMATCH_3",
+                        "freeSpins": 3
+                      }
+                    }
+                  },
+                  "betamount": "0.00",
+                  "betcurrency": "EUR"
+                },
+                {
+                  "step": 3,
+                  "status": "RESULTED",
+                  "wonamount": "0.00",
+                  "betdata": null,
+                  "eventdata": {
+                    "nextCmds": null,
+                    "response": {
+                      "clientData": {
+                        "featuresUsed": [
+                          "maceFeature",
+                          "beastFeature"
+                        ],
+                        "freeSpinTypePlayed": "BB_DEATHMATCH_3",
+                        "freeSpins": 2
+                      }
+                    }
+                  },
+                  "betamount": "0.00",
+                  "betcurrency": "EUR"
+                },
+                {
+                  "step": 4,
+                  "status": "RESULTED",
+                  "wonamount": "0.00",
+                  "betdata": null,
+                  "eventdata": {
+                    "nextCmds": null,
+                    "response": {
+                      "clientData": {
+                        "featuresUsed": [
+                          "maceFeature",
+                          "beastFeature"
+                        ],
+                        "freeSpinTypePlayed": "BB_DEATHMATCH_3",
+                        "freeSpins": 1
+                      }
+                    }
+                  },
+                  "betamount": "0.00",
+                  "betcurrency": "EUR"
+                },
+                {
+                  "step": 5,
+                  "status": "RESULTED",
+                  "wonamount": "0.00",
+                  "betdata": {
+                    "cmd": "BB_DEATHMATCH_3",
+                    "cmds": [
+                      "C"
+                    ],
+                    "coin": "0.10",
+                    "cashBet": "100.00"
+                  },
+                  "eventdata": {
+                    "nextCmds": "C",
+                    "response": {
+                      "clientData": {
+                        "featuresUsed": [
+                          "maceFeature",
+                          "beastFeature",
+                          "consolationPrize"
+                        ],
+                        "freeSpinTypePlayed": "BB_DEATHMATCH_3"
+                      }
+                    }
+                  },
+                  "betamount": "0.00",
+                  "betcurrency": "EUR"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "step": "6",
+          "amount": "0",
+          "betid": "1",
+          "cmd": "C"
+        },
+        "response": {
+          "code": 0,
+          "data": {
+            "wager": {
+              "wagerid": "round-6",
+              "status": "Finished",
+              "bets": [
+                {
+                  "step": 6,
+                  "status": "RESULTED",
+                  "wonamount": "6.00",
+                  "betdata": {
+                    "cmd": "C",
+                    "coin": "0.10",
+                    "cashBet": "100.00"
+                  },
+                  "eventdata": {
+                    "nextCmds": null,
+                    "response": {
+                      "clientData": {}
+                    }
+                  },
+                  "betamount": "0.00",
+                  "betcurrency": "EUR"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "coins": "20",
+          "amount": "2",
+          "lines": "11111111111111111111",
+          "coin": "0.1"
+        },
+        "response": {
+          "code": 0,
+          "data": {
+            "wager": {
+              "wagerid": "round-7",
+              "status": "Pending",
+              "bets": [
+                {
+                  "step": 1,
+                  "status": "RESULTED",
+                  "wonamount": "0.00",
+                  "betdata": {
+                    "cmd": "BASE_SPIN",
+                    "cmds": [
+                      "C"
+                    ],
+                    "coin": "0.10",
+                    "cashBet": "2.00"
+                  },
+                  "eventdata": {
+                    "nextCmds": "C",
+                    "response": {
+                      "clientData": {
+                        "featuresUsed": [
+                          "noFeature"
+                        ]
+                      }
+                    }
+                  },
+                  "betamount": "2.00",
+                  "betcurrency": "EUR"
+                }
+              ]
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "game": {
+      "gameid": 10945,
+      "gameId": 10945,
+      "orgSettings": {
+        "type": "BASIC",
+        "Denoms": "EUR:0.1,0.2,0.3,0.4,0.5,0.6,1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,15.0,20.0",
+        "DefaultBetType": "Cash",
+        "DefaultDenom": "EUR:1.0"
+      },
+      "extraOrgSettings": [
+        {
+          "type": "BB_ALL",
+          "Denoms": "EUR:25.0,50.0,75.0,100.0,125.0,150.0,250.0,500.0,750.0,1000.0,1250.0,1500.0,1750.0,2000.0,2250.0,2500.0,3750.0,5000.0",
+          "DefaultBetType": "Cash",
+          "DefaultDenom": "EUR:250.0"
+        },
+        {
+          "type": "BB_BLUE",
+          "Denoms": "EUR:18.0,36.0,54.0,72.0,90.0,108.0,180.0,360.0,540.0,720.0,900.0,1080.0,1260.0,1440.0,1620.0,1800.0,2700.0,3600.0",
+          "DefaultBetType": "Cash",
+          "DefaultDenom": "EUR:180.0"
+        },
+        {
+          "type": "BB_GREEN",
+          "Denoms": "EUR:12.0,24.0,36.0,48.0,60.0,72.0,120.0,240.0,360.0,480.0,600.0,720.0,840.0,960.0,1080.0,1200.0,1800.0,2400.0",
+          "DefaultBetType": "Cash",
+          "DefaultDenom": "EUR:120.0"
+        },
+        {
+          "type": "BB_RANDOM",
+          "Denoms": "EUR:15.0,30.0,45.0,60.0,75.0,90.0,150.0,300.0,450.0,600.0,750.0,900.0,1050.0,1200.0,1350.0,1500.0,2250.0,3000.0",
+          "DefaultBetType": "Cash",
+          "DefaultDenom": "EUR:150.0"
+        },
+        {
+          "type": "BB_RED",
+          "Denoms": "EUR:15.0,30.0,45.0,60.0,75.0,90.0,150.0,300.0,450.0,600.0,750.0,900.0,1050.0,1200.0,1350.0,1500.0,2250.0,3000.0",
+          "DefaultBetType": "Cash",
+          "DefaultDenom": "EUR:150.0"
+        }
+      ],
+      "cfg": {
+        "props": [
+          {
+            "prop": "ApiVersion",
+            "value": "2.6.0"
+          },
+          {
+            "prop": "Modes",
+            "value": {
+              "BB_GREEN": {
+                "coinsPerBet": 1
+              },
+              "BB_RANDOM": {
+                "coinsPerBet": 1
+              },
+              "BB_ALL": {
+                "coinsPerBet": 1
+              },
+              "BB_BLUE": {
+                "coinsPerBet": 1
+              },
+              "BB_RED": {
+                "coinsPerBet": 1
+              },
+              "BASIC": {
+                "coinsPerBet": 1
+              }
+            }
+          },
+          {
+            "prop": "Denoms",
+            "value": "AMD:50.0,100.0,150.0,200.0,250.0,300.0,500.0,1000.0,1500.0,2000.0,2500.0,3000.0,3500.0,4000.0,4500.0,5000.0,7500.0,10000.0;ARS:1.0,2.0,3.0,4.0,5.0,6.0,10.0,20.0,30.0,40.0,50.0,60.0,70.0,80.0,90.0,100.0,150.0,200.0;AUD:0.1,0.2,0.3,0.4,0.5,0.6,1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,15.0,20.0;BRL:0.5,1.0,1.5,2.0,2.5,3.0,5.0,10.0,15.0,20.0,25.0,30.0,35.0,40.0,45.0,50.0,75.0,100.0;CAD:0.1,0.2,0.3,0.4,0.5,0.6,1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,15.0,20.0;CHF:0.1,0.2,0.3,0.4,0.5,0.6,1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,15.0,20.0;CLP:100.0,200.0,300.0,400.0,500.0,600.0,1000.0,2000.0,3000.0,4000.0,5000.0,6000.0,7000.0,8000.0,9000.0,10000.0,15000.0,20000.0;CNY:1.0,2.0,3.0,4.0,5.0,6.0,10.0,20.0,30.0,40.0,50.0,60.0,70.0,80.0,90.0,100.0,150.0,200.0;CZK:2.5,5.0,7.5,10.0,12.5,15.0,25.0,50.0,75.0,100.0,125.0,150.0,175.0,200.0,225.0,250.0,375.0,500.0;DKK:1.0,2.0,3.0,4.0,5.0,6.0,10.0,20.0,30.0,40.0,50.0,60.0,70.0,80.0,90.0,100.0,150.0,200.0;EUR:0.1,0.2,0.3,0.4,0.5,0.6,1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,15.0,20.0;GBP:0.1,0.2,0.3,0.4,0.5,0.6,1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,15.0,20.0;GEL:0.1,0.2,0.3,0.4,0.5,0.6,1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,15.0,20.0;HKD:0.1,0.2,0.3,0.4,0.5,0.6,1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,15.0,20.0;HRK:1.0,2.0,3.0,4.0,5.0,6.0,10.0,20.0,30.0,40.0,50.0,60.0,70.0,80.0,90.0,100.0,150.0,200.0;HUF:25.0,50.0,75.0,100.0,125.0,150.0,250.0,500.0,750.0,1000.0,1250.0,1500.0,1750.0,2000.0,2250.0,2500.0,3750.0,5000.0;IDR:1500.0,3000.0,4500.0,6000.0,7500.0,9000.0,15000.0,30000.0,45000.0,60000.0,75000.0,90000.0,105000.0,120000.0,135000.0,150000.0,225000.0,300000.0;IDX:1.5,3.0,4.5,6.0,7.5,9.0,15.0,30.0,45.0,60.0,75.0,90.0,105.0,120.0,135.0,150.0,225.0,300.0;ILS:0.5,1.0,1.5,2.0,2.5,3.0,5.0,10.0,15.0,20.0,25.0,30.0,35.0,40.0,45.0,50.0,75.0,100.0;INR:5.0,10.0,15.0,20.0,25.0,30.0,50.0,100.0,150.0,200.0,250.0,300.0,350.0,400.0,450.0,500.0,750.0,1000.0;ISK:5.0,10.0,15.0,20.0,25.0,30.0,50.0,100.0,150.0,200.0,250.0,300.0,350.0,400.0,450.0,500.0,750.0,1000.0;JPY:10.0,20.0,30.0,40.0,50.0,60.0,100.0,200.0,300.0,400.0,500.0,600.0,700.0,800.0,900.0,1000.0,1500.0,2000.0;KRW:130.0,260.0,390.0,520.0,650.0,780.0,1300.0,2600.0,3900.0,5200.0,6500.0,7800.0,9100.0,10400.0,11700.0,13000.0,19500.0,26000.0;KZT:40.0,80.0,120.0,160.0,200.0,240.0,400.0,800.0,1200.0,1600.0,2000.0,2400.0,2800.0,3200.0,3600.0,4000.0,6000.0,8000.0;MMK:170.0,340.0,510.0,680.0,850.0,1020.0,1700.0,3400.0,5100.0,6800.0,8500.0,10200.0,11900.0,13600.0,15300.0,17000.0,25500.0,34000.0;MXN:2.5,5.0,7.5,10.0,12.5,15.0,25.0,50.0,75.0,100.0,125.0,150.0,175.0,200.0,225.0,250.0,375.0,500.0;MYR:0.5,1.0,1.5,2.0,2.5,3.0,5.0,10.0,15.0,20.0,25.0,30.0,35.0,40.0,45.0,50.0,75.0,100.0;NGN:41.0,82.0,123.0,164.0,205.0,246.0,410.0,820.0,1230.0,1640.0,2050.0,2460.0,2870.0,3280.0,3690.0,4100.0,6150.0,8200.0;NOK:1.0,2.0,3.0,4.0,5.0,6.0,10.0,20.0,30.0,40.0,50.0,60.0,70.0,80.0,90.0,100.0,150.0,200.0;NZD:0.1,0.2,0.3,0.4,0.5,0.6,1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,15.0,20.0;PEN:0.5,1.0,1.5,2.0,2.5,3.0,5.0,10.0,15.0,20.0,25.0,30.0,35.0,40.0,45.0,50.0,75.0,100.0;PLN:0.5,1.0,1.5,2.0,2.5,3.0,5.0,10.0,15.0,20.0,25.0,30.0,35.0,40.0,45.0,50.0,75.0,100.0;RON:0.5,1.0,1.5,2.0,2.5,3.0,5.0,10.0,15.0,20.0,25.0,30.0,35.0,40.0,45.0,50.0,75.0,100.0;RUB:5.0,10.0,15.0,20.0,25.0,30.0,50.0,100.0,150.0,200.0,250.0,300.0,350.0,400.0,450.0,500.0,750.0,1000.0;SEK:1.0,2.0,3.0,4.0,5.0,6.0,10.0,20.0,30.0,40.0,50.0,60.0,70.0,80.0,90.0,100.0,150.0,200.0;SGD:0.1,0.2,0.3,0.4,0.5,0.6,1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,15.0,20.0;THB:5.0,10.0,15.0,20.0,25.0,30.0,50.0,100.0,150.0,200.0,250.0,300.0,350.0,400.0,450.0,500.0,750.0,1000.0;TRY:1.6,3.2,4.8,6.4,8.0,9.6,16.0,32.0,48.0,64.0,80.0,96.0,112.0,128.0,144.0,160.0,240.0,320.0;TWD:2.5,5.0,7.5,10.0,12.5,15.0,25.0,50.0,75.0,100.0,125.0,150.0,175.0,200.0,225.0,250.0,375.0,500.0;UAH:2.5,5.0,7.5,10.0,12.5,15.0,25.0,50.0,75.0,100.0,125.0,150.0,175.0,200.0,225.0,250.0,375.0,500.0;USD:0.1,0.2,0.3,0.4,0.5,0.6,1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,15.0,20.0;VND:2500.0,5000.0,7500.0,10000.0,12500.0,15000.0,25000.0,50000.0,75000.0,100000.0,125000.0,150000.0,175000.0,200000.0,225000.0,250000.0,375000.0,500000.0;VNX:2.5,5.0,7.5,10.0,12.5,15.0,25.0,50.0,75.0,100.0,125.0,150.0,175.0,200.0,225.0,250.0,375.0,500.0;ZAR:1.0,2.0,3.0,4.0,5.0,6.0,10.0,20.0,30.0,40.0,50.0,60.0,70.0,80.0,90.0,100.0,150.0,200.0"
+          },
+          {
+            "prop": "Config",
+            "value": {}
+          }
+        ]
+      }
+    },
+    "rounds": [
+      {
+        "request": {
+          "amount": "120",
+          "coin": "120",
+          "cmd": "BB_GREEN"
+        },
+        "response": {
+          "code": 0,
+          "data": {
+            "wager": {
+              "wagerid": "round-1",
+              "status": "Pending",
+              "bets": [
+                {
+                  "step": 1,
+                  "status": "RESULTED",
+                  "wonamount": "0.00",
+                  "betdata": {
+                    "cmd": "BB_GREEN",
+                    "cmds": [
+                      "C"
+                    ],
+                    "coin": "120.00",
+                    "cashBet": "120.00"
+                  },
+                  "eventdata": {
+                    "nextCmds": "C",
+                    "response": {
+                      "clientData": {
+                        "isFinished": true
+                      }
+                    }
+                  },
+                  "betamount": "120.00",
+                  "betcurrency": "EUR"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "step": "2",
+          "amount": "0",
+          "betid": "1",
+          "cmd": "C"
+        },
+        "response": {
+          "code": 0,
+          "data": {
+            "wager": {
+              "wagerid": "round-1",
+              "status": "Finished",
+              "bets": [
+                {
+                  "step": 2,
+                  "status": "RESULTED",
+                  "wonamount": "484.00",
+                  "betdata": {
+                    "cmd": "C",
+                    "coin": "120.00",
+                    "cashBet": "120.00"
+                  },
+                  "eventdata": {
+                    "nextCmds": null,
+                    "response": {
+                      "clientData": {}
+                    }
+                  },
+                  "betamount": "0.00",
+                  "betcurrency": "EUR"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "amount": "180",
+          "coin": "180",
+          "cmd": "BB_BLUE"
+        },
+        "response": {
+          "code": 0,
+          "data": {
+            "wager": {
+              "wagerid": "round-2",
+              "status": "Pending",
+              "bets": [
+                {
+                  "step": 1,
+                  "status": "RESULTED",
+                  "wonamount": "0.00",
+                  "betdata": {
+                    "cmd": "BB_BLUE",
+                    "cmds": [
+                      "C"
+                    ],
+                    "coin": "180.00",
+                    "cashBet": "180.00"
+                  },
+                  "eventdata": {
+                    "nextCmds": "C",
+                    "response": {
+                      "clientData": {
+                        "isFinished": true
+                      }
+                    }
+                  },
+                  "betamount": "180.00",
+                  "betcurrency": "EUR"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "step": "2",
+          "amount": "0",
+          "betid": "1",
+          "cmd": "C"
+        },
+        "response": {
+          "code": 0,
+          "data": {
+            "wager": {
+              "wagerid": "round-2",
+              "status": "Finished",
+              "bets": [
+                {
+                  "step": 2,
+                  "status": "RESULTED",
+                  "wonamount": "166.00",
+                  "betdata": {
+                    "cmd": "C",
+                    "coin": "180.00",
+                    "cashBet": "180.00"
+                  },
+                  "eventdata": {
+                    "nextCmds": null,
+                    "response": {
+                      "clientData": {}
+                    }
+                  },
+                  "betamount": "0.00",
+                  "betcurrency": "EUR"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "amount": "150",
+          "coin": "150",
+          "cmd": "BB_RED"
+        },
+        "response": {
+          "code": 0,
+          "data": {
+            "wager": {
+              "wagerid": "round-3",
+              "status": "Pending",
+              "bets": [
+                {
+                  "step": 1,
+                  "status": "RESULTED",
+                  "wonamount": "0.00",
+                  "betdata": {
+                    "cmd": "BB_RED",
+                    "cmds": [
+                      "C"
+                    ],
+                    "coin": "150.00",
+                    "cashBet": "150.00"
+                  },
+                  "eventdata": {
+                    "nextCmds": "C",
+                    "response": {
+                      "clientData": {
+                        "isFinished": true
+                      }
+                    }
+                  },
+                  "betamount": "150.00",
+                  "betcurrency": "EUR"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "step": "2",
+          "amount": "0",
+          "betid": "1",
+          "cmd": "C"
+        },
+        "response": {
+          "code": 0,
+          "data": {
+            "wager": {
+              "wagerid": "round-3",
+              "status": "Finished",
+              "bets": [
+                {
+                  "step": 2,
+                  "status": "RESULTED",
+                  "wonamount": "170.00",
+                  "betdata": {
+                    "cmd": "C",
+                    "coin": "150.00",
+                    "cashBet": "150.00"
+                  },
+                  "eventdata": {
+                    "nextCmds": null,
+                    "response": {
+                      "clientData": {}
+                    }
+                  },
+                  "betamount": "0.00",
+                  "betcurrency": "EUR"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "amount": "250",
+          "coin": "250",
+          "cmd": "BB_ALL"
+        },
+        "response": {
+          "code": 0,
+          "data": {
+            "wager": {
+              "wagerid": "round-4",
+              "status": "Pending",
+              "bets": [
+                {
+                  "step": 1,
+                  "status": "RESULTED",
+                  "wonamount": "0.00",
+                  "betdata": {
+                    "cmd": "BB_ALL",
+                    "cmds": [
+                      "C"
+                    ],
+                    "coin": "250.00",
+                    "cashBet": "250.00"
+                  },
+                  "eventdata": {
+                    "nextCmds": "C",
+                    "response": {
+                      "clientData": {
+                        "isFinished": true
+                      }
+                    }
+                  },
+                  "betamount": "250.00",
+                  "betcurrency": "EUR"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "step": "2",
+          "amount": "0",
+          "betid": "1",
+          "cmd": "C"
+        },
+        "response": {
+          "code": 0,
+          "data": {
+            "wager": {
+              "wagerid": "round-4",
+              "status": "Finished",
+              "bets": [
+                {
+                  "step": 2,
+                  "status": "RESULTED",
+                  "wonamount": "198.00",
+                  "betdata": {
+                    "cmd": "C",
+                    "coin": "250.00",
+                    "cashBet": "250.00"
+                  },
+                  "eventdata": {
+                    "nextCmds": null,
+                    "response": {
+                      "clientData": {}
+                    }
+                  },
+                  "betamount": "0.00",
+                  "betcurrency": "EUR"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "amount": "150",
+          "coin": "150",
+          "cmd": "BB_RANDOM"
+        },
+        "response": {
+          "code": 0,
+          "data": {
+            "wager": {
+              "wagerid": "round-5",
+              "status": "Pending",
+              "bets": [
+                {
+                  "step": 1,
+                  "status": "RESULTED",
+                  "wonamount": "0.00",
+                  "betdata": {
+                    "cmd": "BB_RANDOM",
+                    "cmds": [
+                      "C"
+                    ],
+                    "coin": "150.00",
+                    "cashBet": "150.00"
+                  },
+                  "eventdata": {
+                    "nextCmds": "C",
+                    "response": {
+                      "clientData": {
+                        "isFinished": true
+                      }
+                    }
+                  },
+                  "betamount": "150.00",
+                  "betcurrency": "EUR"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "step": "2",
+          "amount": "0",
+          "betid": "1",
+          "cmd": "C"
+        },
+        "response": {
+          "code": 0,
+          "data": {
+            "wager": {
+              "wagerid": "round-5",
+              "status": "Finished",
+              "bets": [
+                {
+                  "step": 2,
+                  "status": "RESULTED",
+                  "wonamount": "144.00",
+                  "betdata": {
+                    "cmd": "C",
+                    "coin": "150.00",
+                    "cashBet": "150.00"
+                  },
+                  "eventdata": {
+                    "nextCmds": null,
+                    "response": {
+                      "clientData": {}
+                    }
+                  },
+                  "betamount": "0.00",
+                  "betcurrency": "EUR"
+                }
+              ]
+            }
+          }
+        }
+      }
+    ]
+  }
+]

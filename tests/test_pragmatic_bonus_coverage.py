@@ -19,6 +19,15 @@ class BonusCoverageTests(unittest.TestCase):
         stem=f'step-{count:03d}-bonus'
         (target/(stem+'.bonus-selection.json')).write_text(json.dumps({'domain':domain or ['0','1','2','3'],'selected':selected,'branch_signature':signature,'contract_sha256':source_hash,'contract_source':'https://example.invalid/build.js'}))
         (target/(stem+'.response.json')).write_text(json.dumps({'na':'cb'} if response is None else response))
+    def test_fallen_requires_server_to_acknowledge_selected_symbol(self):
+        signature='PRAGMATIC:mystery-choice:vs10bookfallen:choices=0,1,2,3,4,5,6,7,8'
+        self.add(selected='2',domain=list(map(str,range(9))),signature=signature,response={'na':'s','ms':'3','ch':'ind~0'})
+        annotate_bonus_coverage(self.result)
+        self.assertEqual(self.rows()[0]['covered_options'],[])
+        self.add(number=2,selected='2',domain=list(map(str,range(9))),signature=signature,response={'na':'s','ms':'5','ch':'ind~2'})
+        annotate_bonus_coverage(self.result)
+        self.assertEqual(self.rows()[0]['covered_options'],['2'])
+
     def rows(self):return [m for m in self.result.discovered_modes if m.get('kind')=='CHOICE_BRANCH']
     def test_only_selected_option_is_covered_and_other_choices_stay_pending(self):
         self.add();annotate_bonus_coverage(self.result)
@@ -30,6 +39,15 @@ class BonusCoverageTests(unittest.TestCase):
         annotate_bonus_coverage(self.result)
         self.assertEqual(self.rows()[0]['sample_counts'],{'0':1})
         self.assertEqual(self.result.status,'OK')
+    def test_base_probe_choice_belongs_to_normal_spin_not_parent_purchase(self):
+        self.add(subdir='return-to-base/probe-002',domain=['0'])
+        self.result.attempts[0].mode_id='PURCHASE_1'
+        annotate_bonus_coverage(self.result)
+        row=self.rows()[0]
+        self.assertEqual(row['origin_mode_id'],'SPIN')
+        self.assertEqual(row['source_phases'],['base_probe'])
+        self.assertEqual(row['sample_counts'],{'0':1})
+
     def test_nonterminal_or_missing_two_confirmations_never_cover(self):
         self.add(terminal=False,consecutive=1)
         annotate_bonus_coverage(self.result)

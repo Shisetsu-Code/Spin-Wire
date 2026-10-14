@@ -1,0 +1,920 @@
+{
+  "leftMultiplier": 42,
+  "rightMultiplier": 36,
+  "isGoldenBetActive": false,
+  "isBuyBonusActive": true,
+  "isSuperBuyBonusActive": false,
+  "gambleAwarded": false,
+  "freeSpinsAwarded": 0,
+  "isWinCapped": false,
+  "nextLeftIncrement": 6,
+  "nextRightIncrement": 5,
+  "version": "1.0.3",
+  "name": "Florageddon",
+  "stake": 0.2,
+  "totalStake": 20,
+  "currentWinnings": 11.74,
+  "totalWinnings": 11.74,
+  "baseGameWinnings": 0,
+  "currentAction": "FreeSpin",
+  "nextActions": [
+    "FreeSpin"
+  ],
+  "finished": false,
+  "reelId": "FreeGame",
+  "initialGrid": [
+    [
+      10,
+      2,
+      7
+    ],
+    [
+      5,
+      12,
+      1
+    ],
+    [
+      5,
+      7,
+      7
+    ],
+    [
+      11,
+      0,
+      10
+    ],
+    [
+      0,
+      9,
+      1
+    ]
+  ],
+  "finalGrid": [
+    [
+      8,
+      5,
+      5
+    ],
+    [
+      12,
+      0,
+      1
+    ],
+    [
+      4,
+      3,
+      3
+    ],
+    [
+      3,
+      9,
+      11
+    ],
+    [
+      12,
+      9,
+      1
+    ]
+  ],
+  "wins": [],
+  "cascadeDetails": [
+    {
+      "leftMultiplier": 1,
+      "rightMultiplier": 1,
+      "wildOffSets": [
+        7
+      ],
+      "rewardCollected": "",
+      "rewardAwarded": "",
+      "cascadeProgressCount": 1,
+      "cascadeGrid": [
+        [
+          10,
+          2,
+          7
+        ],
+        [
+          5,
+          12,
+          1
+        ],
+        [
+          5,
+          7,
+          7
+        ],
+        [
+          11,
+          0,
+          10
+        ],
+        [
+          0,
+          9,
+          1
+        ]
+      ],
+      "doubleWildOffset": -1,
+      "wildStackOffsets": [],
+      "cascadeIndex": 0,
+      "offsetsToRemove": [
+        1,
+        2,
+        4,
+        8,
+        7,
+        12
+      ],
+      "currentWinnings": 0.18,
+      "accumulativeWinnings": 0.18,
+      "wins": [
+        {
+          "id": "5:4",
+          "type": "ways",
+          "method": "RtoL",
+          "winnings": 0.1,
+          "payoutFactor": 0.5,
+          "multiplier": 1,
+          "wildMultiplier": 1,
+          "symbolPos": [
+            1,
+            2,
+            4,
+            8
+          ],
+          "lineIndex": -1,
+          "stake": 0.2,
+          "winSymbols": [
+            5,
+            5,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "7:3",
+          "type": "ways",
+          "method": "RtoL",
+          "winnings": 0.04,
+          "payoutFactor": 0.2,
+          "multiplier": 1,
+          "wildMultiplier": 1,
+          "symbolPos": [
+            4,
+            7,
+            8
+          ],
+          "lineIndex": -1,
+          "stake": 0.2,
+          "winSymbols": [
+            0,
+            7,
+            0
+          ]
+        },
+        {
+          "id": "7:3",
+          "type": "ways",
+          "method": "RtoL",
+          "winnings": 0.04,
+          "payoutFactor": 0.2,
+          "multiplier": 1,
+          "wildMultiplier": 1,
+          "symbolPos": [
+            4,
+            8,
+            12
+          ],
+          "lineIndex": -1,
+          "stake": 0.2,
+          "winSymbols": [
+            0,
+            0,
+            7
+          ]
+        }
+      ]
+    },
+    {
+      "leftMultiplier": 1,
+      "rightMultiplier": 2,
+      "wildOffSets": [
+        12
+      ],
+      "rewardCollected": "",
+      "rewardAwarded": "",
+      "cascadeProgressCount": 2,
+      "cascadeGrid": [
+        [
+          10,
+          2,
+          7
+        ],
+        [
+          10,
+          12,
+          1
+        ],
+        [
+          12,
+          3,
+          0
+        ],
+        [
+          4,
+          11,
+          10
+        ],
+        [
+          6,
+          9,
+          1
+        ]
+      ],
+      "doubleWildOffset": -1,
+      "wildStackOffsets": [],
+      "cascadeIndex": 1,
+      "offsetsToRemove": [
+        0,
+        1,
+        12,
+        13
+      ],
+      "currentWinnings": 0.06,
+      "accumulativeWinnings": 0.24,
+      "wins": [
+        {
+          "id": "10:4",
+          "type": "ways",
+          "method": "LtoR",
+          "winnings": 0.06,
+          "payoutFactor": 0.3,
+          "multiplier": 1,
+          "wildMultiplier": 1,
+          "symbolPos": [
+            0,
+            1,
+            12,
+            13
+          ],
+          "lineIndex": -1,
+          "stake": 0.2,
+          "winSymbols": [
+            10,
+            10,
+            0,
+            10
+          ]
+        }
+      ]
+    },
+    {
+      "leftMultiplier": 2,
+      "rightMultiplier": 2,
+      "wildOffSets": [
+        3
+      ],
+      "rewardCollected": "MultiplierIncrease",
+      "rewardAwarded": "",
+      "cascadeProgressCount": 3,
+      "cascadeGrid": [
+        [
+          5,
+          2,
+          7
+        ],
+        [
+          8,
+          12,
+          1
+        ],
+        [
+          12,
+          3,
+          0
+        ],
+        [
+          6,
+          4,
+          11
+        ],
+        [
+          6,
+          9,
+          1
+        ]
+      ],
+      "doubleWildOffset": -1,
+      "wildStackOffsets": [],
+      "cascadeIndex": 2,
+      "offsetsToRemove": [
+        3,
+        4,
+        12
+      ],
+      "currentWinnings": 0.1,
+      "accumulativeWinnings": 0.34,
+      "wins": [
+        {
+          "id": "6:3",
+          "type": "ways",
+          "method": "RtoL",
+          "winnings": 0.1,
+          "payoutFactor": 0.25,
+          "multiplier": 2,
+          "wildMultiplier": 1,
+          "symbolPos": [
+            3,
+            4,
+            12
+          ],
+          "lineIndex": -1,
+          "stake": 0.2,
+          "winSymbols": [
+            6,
+            6,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "leftMultiplier": 12,
+      "rightMultiplier": 14,
+      "wildOffSets": [
+        1
+      ],
+      "rewardCollected": "",
+      "rewardAwarded": "MultiplierIncrease",
+      "cascadeProgressCount": 1,
+      "cascadeGrid": [
+        [
+          5,
+          2,
+          7
+        ],
+        [
+          8,
+          12,
+          1
+        ],
+        [
+          8,
+          12,
+          3
+        ],
+        [
+          0,
+          4,
+          11
+        ],
+        [
+          8,
+          9,
+          1
+        ]
+      ],
+      "doubleWildOffset": -1,
+      "wildStackOffsets": [],
+      "cascadeIndex": 3,
+      "offsetsToRemove": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "currentWinnings": 1.12,
+      "accumulativeWinnings": 1.46,
+      "wins": [
+        {
+          "id": "8:4",
+          "type": "ways",
+          "method": "RtoL",
+          "winnings": 1.12,
+          "payoutFactor": 0.4,
+          "multiplier": 14,
+          "wildMultiplier": 1,
+          "symbolPos": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "lineIndex": -1,
+          "stake": 0.2,
+          "winSymbols": [
+            8,
+            8,
+            0,
+            8
+          ]
+        }
+      ]
+    },
+    {
+      "leftMultiplier": 12,
+      "rightMultiplier": 17,
+      "wildOffSets": [
+        5
+      ],
+      "rewardCollected": "",
+      "rewardAwarded": "",
+      "cascadeProgressCount": 2,
+      "cascadeGrid": [
+        [
+          5,
+          2,
+          7
+        ],
+        [
+          0,
+          12,
+          1
+        ],
+        [
+          2,
+          12,
+          3
+        ],
+        [
+          9,
+          4,
+          11
+        ],
+        [
+          4,
+          9,
+          1
+        ]
+      ],
+      "doubleWildOffset": -1,
+      "wildStackOffsets": [],
+      "cascadeIndex": 4,
+      "offsetsToRemove": [
+        5,
+        1,
+        2
+      ],
+      "currentWinnings": 1.2,
+      "accumulativeWinnings": 2.66,
+      "wins": [
+        {
+          "id": "2:3",
+          "type": "ways",
+          "method": "LtoR",
+          "winnings": 1.2,
+          "payoutFactor": 0.5,
+          "multiplier": 12,
+          "wildMultiplier": 1,
+          "symbolPos": [
+            5,
+            1,
+            2
+          ],
+          "lineIndex": -1,
+          "stake": 0.2,
+          "winSymbols": [
+            2,
+            0,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "leftMultiplier": 14,
+      "rightMultiplier": 17,
+      "wildOffSets": [
+        6
+      ],
+      "rewardCollected": "DoubleWild",
+      "rewardAwarded": "",
+      "cascadeProgressCount": 3,
+      "cascadeGrid": [
+        [
+          5,
+          0,
+          7
+        ],
+        [
+          8,
+          12,
+          1
+        ],
+        [
+          4,
+          12,
+          3
+        ],
+        [
+          9,
+          4,
+          11
+        ],
+        [
+          4,
+          9,
+          1
+        ]
+      ],
+      "doubleWildOffset": -1,
+      "wildStackOffsets": [],
+      "cascadeIndex": 5,
+      "offsetsToRemove": [
+        5,
+        6,
+        7,
+        2,
+        4,
+        8
+      ],
+      "currentWinnings": 1.3,
+      "accumulativeWinnings": 3.96,
+      "wins": [
+        {
+          "id": "12:3",
+          "type": "ways",
+          "method": "LtoR",
+          "winnings": 0.28,
+          "payoutFactor": 0.1,
+          "multiplier": 14,
+          "wildMultiplier": 1,
+          "symbolPos": [
+            5,
+            6,
+            7
+          ],
+          "lineIndex": -1,
+          "stake": 0.2,
+          "winSymbols": [
+            0,
+            12,
+            12
+          ]
+        },
+        {
+          "id": "4:3",
+          "type": "ways",
+          "method": "RtoL",
+          "winnings": 1.02,
+          "payoutFactor": 0.3,
+          "multiplier": 17,
+          "wildMultiplier": 1,
+          "symbolPos": [
+            2,
+            4,
+            8
+          ],
+          "lineIndex": -1,
+          "stake": 0.2,
+          "winSymbols": [
+            4,
+            4,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "leftMultiplier": 17,
+      "rightMultiplier": 21,
+      "wildOffSets": [
+        6
+      ],
+      "rewardCollected": "",
+      "rewardAwarded": "DoubleWild",
+      "cascadeProgressCount": 1,
+      "cascadeGrid": [
+        [
+          5,
+          0,
+          7
+        ],
+        [
+          8,
+          0,
+          1
+        ],
+        [
+          12,
+          12,
+          3
+        ],
+        [
+          7,
+          9,
+          11
+        ],
+        [
+          7,
+          9,
+          1
+        ]
+      ],
+      "doubleWildOffset": 5,
+      "wildStackOffsets": [],
+      "cascadeIndex": 6,
+      "offsetsToRemove": [
+        5,
+        6,
+        2,
+        7,
+        12
+      ],
+      "currentWinnings": 1.7,
+      "accumulativeWinnings": 5.66,
+      "wins": [
+        {
+          "id": "12:3",
+          "type": "ways",
+          "method": "LtoR",
+          "winnings": 0.34,
+          "payoutFactor": 0.1,
+          "multiplier": 17,
+          "wildMultiplier": 1,
+          "symbolPos": [
+            5,
+            6,
+            2
+          ],
+          "lineIndex": -1,
+          "stake": 0.2,
+          "winSymbols": [
+            0,
+            0,
+            12
+          ]
+        },
+        {
+          "id": "12:3",
+          "type": "ways",
+          "method": "LtoR",
+          "winnings": 0.34,
+          "payoutFactor": 0.1,
+          "multiplier": 17,
+          "wildMultiplier": 1,
+          "symbolPos": [
+            5,
+            6,
+            7
+          ],
+          "lineIndex": -1,
+          "stake": 0.2,
+          "winSymbols": [
+            0,
+            0,
+            12
+          ]
+        },
+        {
+          "id": "3:3",
+          "type": "ways",
+          "method": "LtoR",
+          "winnings": 1.02,
+          "payoutFactor": 0.3,
+          "multiplier": 17,
+          "wildMultiplier": 1,
+          "symbolPos": [
+            5,
+            6,
+            12
+          ],
+          "lineIndex": -1,
+          "stake": 0.2,
+          "winSymbols": [
+            0,
+            0,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "leftMultiplier": 21,
+      "rightMultiplier": 21,
+      "wildOffSets": [
+        10
+      ],
+      "rewardCollected": "",
+      "rewardAwarded": "",
+      "cascadeProgressCount": 2,
+      "cascadeGrid": [
+        [
+          5,
+          5,
+          7
+        ],
+        [
+          8,
+          0,
+          1
+        ],
+        [
+          3,
+          3,
+          7
+        ],
+        [
+          7,
+          9,
+          11
+        ],
+        [
+          7,
+          9,
+          1
+        ]
+      ],
+      "doubleWildOffset": -1,
+      "wildStackOffsets": [],
+      "cascadeIndex": 7,
+      "offsetsToRemove": [
+        10,
+        6,
+        12,
+        3,
+        4
+      ],
+      "currentWinnings": 5.04,
+      "accumulativeWinnings": 10.7,
+      "wins": [
+        {
+          "id": "7:5",
+          "type": "ways",
+          "method": "LtoR",
+          "winnings": 5.04,
+          "payoutFactor": 0.6,
+          "multiplier": 42,
+          "wildMultiplier": 1,
+          "symbolPos": [
+            10,
+            6,
+            12,
+            3,
+            4
+          ],
+          "lineIndex": -1,
+          "stake": 0.2,
+          "winSymbols": [
+            7,
+            0,
+            7,
+            7,
+            7
+          ]
+        }
+      ]
+    },
+    {
+      "leftMultiplier": 26,
+      "rightMultiplier": 26,
+      "wildOffSets": [
+        6
+      ],
+      "rewardCollected": "MultiplierIncrease",
+      "rewardAwarded": "",
+      "cascadeProgressCount": 3,
+      "cascadeGrid": [
+        [
+          5,
+          5,
+          0
+        ],
+        [
+          12,
+          8,
+          1
+        ],
+        [
+          8,
+          3,
+          3
+        ],
+        [
+          3,
+          9,
+          11
+        ],
+        [
+          12,
+          9,
+          1
+        ]
+      ],
+      "doubleWildOffset": -1,
+      "wildStackOffsets": [],
+      "cascadeIndex": 8,
+      "offsetsToRemove": [
+        10,
+        6,
+        2
+      ],
+      "currentWinnings": 1.04,
+      "accumulativeWinnings": 11.74,
+      "wins": [
+        {
+          "id": "8:3",
+          "type": "ways",
+          "method": "LtoR",
+          "winnings": 1.04,
+          "payoutFactor": 0.2,
+          "multiplier": 26,
+          "wildMultiplier": 1,
+          "symbolPos": [
+            10,
+            6,
+            2
+          ],
+          "lineIndex": -1,
+          "stake": 0.2,
+          "winSymbols": [
+            0,
+            8,
+            8
+          ]
+        }
+      ]
+    },
+    {
+      "leftMultiplier": 42,
+      "rightMultiplier": 36,
+      "wildOffSets": [
+        6
+      ],
+      "rewardCollected": "",
+      "rewardAwarded": "MultiplierIncrease",
+      "cascadeProgressCount": 0,
+      "cascadeGrid": [
+        [
+          8,
+          5,
+          5
+        ],
+        [
+          12,
+          0,
+          1
+        ],
+        [
+          4,
+          3,
+          3
+        ],
+        [
+          3,
+          9,
+          11
+        ],
+        [
+          12,
+          9,
+          1
+        ]
+      ],
+      "doubleWildOffset": -1,
+      "wildStackOffsets": [],
+      "cascadeIndex": 9,
+      "offsetsToRemove": [],
+      "currentWinnings": 0,
+      "accumulativeWinnings": 11.74,
+      "wins": []
+    }
+  ],
+  "freeSpinState": {
+    "id": "FreeSpin",
+    "spinsRemaining": 4,
+    "currentPlay": 3,
+    "spinsAwarded": 7,
+    "accumulatedWinnings": 0,
+    "triggeringDetails": {
+      "view": [
+        [
+          10,
+          7,
+          3
+        ],
+        [
+          13,
+          8,
+          1
+        ],
+        [
+          7,
+          13,
+          12
+        ],
+        [
+          9,
+          9,
+          3
+        ],
+        [
+          13,
+          12,
+          1
+        ]
+      ],
+      "symbol": 0
+    }
+  }
+}

@@ -71,3 +71,119 @@ def test_generic_catalog_launcher_loads_specific_game_client_before_buy_discover
         spec=provider._discover_runtime_spec(game,timeout_s=1,attempt_dir=tmp_path)
     assert any('/tenluckyspins.html?' in url for url in calls)
     assert len(spec['purchase_modes']) == 1
+
+
+MODERN_BUY_CLIENT = """
+class BasicSlotView {constructor(){this.sideBetPercent=this.sideBet=0;this.buyFeaturePlayIndex=this.sideBetPlayIndex=this.buyFeatureToPlayActionIndex=this.sideBetToPlayActionIndex=this.extraAnimationState=0;}
+confirmBuyFeature(){0==this.buyFeatureToPlayActionIndex?this.sideBet=2:this.buyFeaturePlayIndex=this.buyFeatureToPlayActionIndex;}}
+class SlotNetworkController {play(a,b,c){if(Game.game.useBuyFeature&&0<Game.game.sideBetPercent){var e=0;0<Game.game.buyFeaturePlayIndex?(e=Game.game.buyFeaturePlayIndex,Game.game.buyFeaturePlayIndex=0):0<Game.game.sideBet&&0<Game.game.sideBetPlayIndex&&(e=Game.game.sideBetPlayIndex);0<e&&(d={type:"1",data:""+a+","+b+","+c+","+e.toString()})}else d=(Game.game.sideBet-1).toString();this.sendData("A/u2"+JSON.stringify(d));}}
+class FixtureBuyView extends BasicSlotView {constructor(){super();this.sideBetToPlayActionIndex=1;this.buyFeatureToPlayActionIndex=3;this.buyFeatureMult=56;this.useBuyFeature=!0;this.sideBet=1;this.sideBetPercent=3;}}
+"""
+
+def test_modern_class_purchase_uses_configured_buy_selector_not_side_bet():
+    modes=discover_purchase_modes([MODERN_BUY_CLIENT],'FixtureBuy')
+    assert len(modes)==1
+    assert modes[0]['cost_multiplier']==56
+    assert modes[0]['feature_selector']==3
+    assert modes[0]['executable'] is True
+
+def test_buy_support_in_shared_class_does_not_enable_normal_game():
+    source=MODERN_BUY_CLIENT+'class FixtureNormalView extends BasicSlotView {constructor(){super();this.sideBet=1;}showHelp(){this.useBuyFeature=true;}}'
+    assert discover_purchase_modes([source],'FixtureNormal')==[]
+
+def test_effective_disabled_constructor_does_not_count_earlier_enable():
+    source='var FixtureNormalView=function(){this.useBuyFeature=true;this.useBuyFeature=false;};'
+    assert discover_purchase_modes([source],'FixtureNormal')==[]
+
+def test_nested_callback_enable_is_not_constructor_purchase_configuration():
+    source='var FixtureNormalView=function(){this.help=function(){this.useBuyFeature=true;};};'
+    assert discover_purchase_modes([source],'FixtureNormal')==[]
+
+
+def test_nested_class_constructor_does_not_enable_outer_game():
+    source='class FixtureNormalView extends BasicSlotView {help(){class Inner extends BasicSlotView {constructor(){super();this.useBuyFeature=true;}}}}'
+    assert discover_purchase_modes([source],'FixtureNormal')==[]
+
+def test_concise_arrow_callback_does_not_enable_purchase():
+    source='var FixtureNormalView=function(){BasicSlotView.call(this);this.help=()=>this.useBuyFeature=true;};'
+    assert discover_purchase_modes([source],'FixtureNormal')==[]
+
+def test_selector_certificate_cannot_come_from_comment_or_other_method():
+    source=MODERN_BUY_CLIENT.replace('play(a,b,c){','fake(a,b,c){')
+    source+='class SlotNetworkController {play(a,b,c){this.sendData("ordinary");}}'
+    modes=discover_purchase_modes([source],'FixtureBuy')
+    assert len(modes)==1
+    assert modes[0]['executable'] is False
+    assert modes[0]['feature_selector'] is None
+
+
+def test_parenthesized_arrow_expression_does_not_enable_purchase():
+    source='var FixtureNormalView=function(){BasicSlotView.call(this);this.help=()=> callback(0,this.useBuyFeature=true,1);};'
+    assert discover_purchase_modes([source],'FixtureNormal')==[]
+
+
+def test_chained_constructor_values_enable_configured_purchase():
+    source=MODERN_BUY_CLIENT.replace('this.sideBet=1;this.sideBetPercent=3;','this.sideBetPercent=this.sideBet=this.sideBetToPlayActionIndex=1;')
+    modes=discover_purchase_modes([source],'FixtureBuy')
+    assert modes[0]['executable'] is True
+    assert modes[0]['feature_selector']==3
+
+def test_chained_sidebet_is_separate_from_purchase():
+    from tester_spin.providers.one_spin4win_purchases import discover_antebet_modes
+    source=MODERN_BUY_CLIENT.replace('this.sideBet=1;this.sideBetPercent=3;','this.sideBetPercent=this.sideBet=this.sideBetToPlayActionIndex=1;')
+    source=source.replace('confirmBuyFeature(){','toggleSideBet(){this.sideBet=2;this.sideBetPlayIndex=this.sideBetToPlayActionIndex;}getSidebetValue(){return a+Math.round(a*this.sideBetPercent);}confirmBuyFeature(){')
+    modes=discover_antebet_modes([source],'FixtureBuy')
+    assert len(modes)==1
+    assert modes[0]['kind']=='ANTE_BET'
+    assert modes[0]['feature_selector']==1
+    assert modes[0]['cost_multiplier']==2
+    assert modes[0]['feature_selector']!=discover_purchase_modes([source],'FixtureBuy')[0]['feature_selector']
+
+
+def test_antebet_executes_regular_result_without_requiring_buy_bonus(tmp_path):
+    from unittest.mock import patch
+    import json
+    from tester_spin.models import Game
+    from tester_spin.providers.one_spin4win import OneSpin4WinProvider
+    class WS:
+        def __init__(self):self.sent=[];self.responses=iter([json.dumps({'type':1,'l':27,'b3':0}),json.dumps({'type':3,'st':0,'l':27,'b3':0})])
+        def send(self,s):self.sent.append(s)
+        def recv(self):return next(self.responses)
+        def settimeout(self,t):pass
+        def close(self):pass
+    ws=WS();p=OneSpin4WinProvider(tmp_path)
+    spec={'ws_url':'wss://example.invalid/games','game_name':'FixtureBuy','version':'01','wallet':'','currency':'EUR','purchase_modes':[],'antebet_modes':[{'id':'D1_ANTE_BET','executable':True,'feature_selector':1}]}
+    with patch.object(p,'_discover_runtime_spec',return_value=spec),patch.object(p,'_open_websocket',return_value=ws),patch('tester_spin.providers.one_spin4win.audit_enabled',return_value=False):
+        result=p._execute_direct_ws_spin(Game('1spin4win','fixture','Fixture','https://example.invalid'),timeout_s=1,attempt_dir=tmp_path,feature_selector=1,feature_kind='ANTE_BET')
+    assert result[0] and result[1],result
+    sends=[x for x in result[4] if x.get('direction')=='sent' and x.get('classification')!='init']
+    assert sends[0]['classification']=='antebet'
+    assert sends[0]['spin_shape']['variant']=='side_bet'
+    assert any('27,0,0,1' in x for x in ws.sent)
+
+
+def test_equal_buy_and_sidebet_selectors_are_not_certified_as_antebet():
+    from tester_spin.providers.one_spin4win_purchases import discover_antebet_modes
+    source=MODERN_BUY_CLIENT.replace('this.sideBetToPlayActionIndex=1;','this.sideBetToPlayActionIndex=3;')
+    source=source.replace('confirmBuyFeature(){','toggleSideBet(){this.sideBetPlayIndex=this.sideBetToPlayActionIndex;}getSidebetValue(){return a+Math.round(a*this.sideBetPercent);}confirmBuyFeature(){')
+    assert discover_antebet_modes([source],'FixtureBuy')==[]
+
+def test_provider_schedules_and_reports_one_purchase_and_one_antebet(tmp_path):
+    import json,threading
+    from unittest.mock import patch
+    from tester_spin.models import Game
+    from tester_spin.providers.one_spin4win import OneSpin4WinProvider
+    from tester_spin.feature_summary import feature_summary
+    p=OneSpin4WinProvider(tmp_path);calls=[]
+    modes=[{'id':'D1_BUY_FEATURE','kind':'PURCHASE','executable':True,'feature_selector':3,'observed':True,'coverage_required':True}, {'id':'D1_ANTE_BET','kind':'ANTE_BET','executable':True,'feature_selector':1,'observed':True,'coverage_required':True}]
+    def execute(game,*,attempt_dir,**kwargs):
+        calls.append(kwargs)
+        (attempt_dir/'runtime-spec.json').write_text(json.dumps({'game_name':'FixtureBuy','purchase_modes':modes[:1],'antebet_modes':modes[1:]}))
+        return True,True,1,'wss://example.invalid',[],''
+    with patch.object(p,'_execute_direct_ws_spin',side_effect=execute):
+        result=p.test_game(Game('1spin4win','fixture','Fixture','https://example.invalid'),spins=1,timeout_s=1,stop_event=threading.Event(),progress=lambda s:None)
+    assert result.status=='OK'
+    assert [a.mode_kind for a in result.attempts]==['SPIN','PURCHASE','ANTE_BET']
+    assert calls[-1]['feature_selector']==1 and calls[-1]['feature_kind']=='ANTE_BET'
+    summary=feature_summary(result.to_dict())
+    assert 'Cantidad: 1' in summary and 'Antebets: S' in summary

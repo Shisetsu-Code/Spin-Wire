@@ -22,3 +22,6 @@ release/
 /Spin-Action/
 
 /test-evidence/
+
+# Built desktop binaries and local rollback copies are Release assets.
+/Tester-Spin*.exe

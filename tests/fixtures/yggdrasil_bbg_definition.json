@@ -1,0 +1,321 @@
+{
+  "bonusBetMultiplier": 1.5,
+  "buyBonusMultiplier": [
+    100,
+    400
+  ],
+  "perLineMultiplier": 1,
+  "viewDefs": {
+    "type": "grid",
+    "view": [
+      [
+        0,
+        5,
+        10
+      ],
+      [
+        1,
+        6,
+        11
+      ],
+      [
+        2,
+        7,
+        12
+      ],
+      [
+        3,
+        8,
+        13
+      ],
+      [
+        4,
+        9,
+        14
+      ]
+    ]
+  },
+  "symbolDefs": {
+    "0": {
+      "isWild": true,
+      "displayName": "Wild"
+    },
+    "1": {
+      "isWild": false,
+      "displayName": "High1"
+    },
+    "2": {
+      "isWild": false,
+      "displayName": "High2"
+    },
+    "3": {
+      "isWild": false,
+      "displayName": "High3"
+    },
+    "4": {
+      "isWild": false,
+      "displayName": "High4"
+    },
+    "5": {
+      "isWild": false,
+      "displayName": "High5"
+    },
+    "6": {
+      "isWild": false,
+      "displayName": "High6"
+    },
+    "7": {
+      "isWild": false,
+      "displayName": "Low1"
+    },
+    "8": {
+      "isWild": false,
+      "displayName": "Low2"
+    },
+    "9": {
+      "isWild": false,
+      "displayName": "Low3"
+    },
+    "10": {
+      "isWild": false,
+      "displayName": "Low4"
+    },
+    "11": {
+      "isWild": false,
+      "displayName": "Low5"
+    },
+    "12": {
+      "isWild": false,
+      "displayName": "Low6"
+    },
+    "13": {
+      "isWild": false,
+      "displayName": "Scatter"
+    }
+  },
+  "winlineDefs": {},
+  "winDefs": {
+    "0:5": {
+      "symbol": "0",
+      "freq": 5,
+      "payoutFactor": 5,
+      "type": "ways"
+    },
+    "1:3": {
+      "symbol": "1",
+      "freq": 3,
+      "payoutFactor": 0.8,
+      "type": "ways"
+    },
+    "1:4": {
+      "symbol": "1",
+      "freq": 4,
+      "payoutFactor": 2,
+      "type": "ways"
+    },
+    "1:5": {
+      "symbol": "1",
+      "freq": 5,
+      "payoutFactor": 5,
+      "type": "ways"
+    },
+    "2:3": {
+      "symbol": "2",
+      "freq": 3,
+      "payoutFactor": 0.5,
+      "type": "ways"
+    },
+    "2:4": {
+      "symbol": "2",
+      "freq": 4,
+      "payoutFactor": 1.25,
+      "type": "ways"
+    },
+    "2:5": {
+      "symbol": "2",
+      "freq": 5,
+      "payoutFactor": 2,
+      "type": "ways"
+    },
+    "3:3": {
+      "symbol": "3",
+      "freq": 3,
+      "payoutFactor": 0.3,
+      "type": "ways"
+    },
+    "3:4": {
+      "symbol": "3",
+      "freq": 4,
+      "payoutFactor": 0.8,
+      "type": "ways"
+    },
+    "3:5": {
+      "symbol": "3",
+      "freq": 5,
+      "payoutFactor": 1.25,
+      "type": "ways"
+    },
+    "4:3": {
+      "symbol": "4",
+      "freq": 3,
+      "payoutFactor": 0.3,
+      "type": "ways"
+    },
+    "4:4": {
+      "symbol": "4",
+      "freq": 4,
+      "payoutFactor": 0.6,
+      "type": "ways"
+    },
+    "4:5": {
+      "symbol": "4",
+      "freq": 5,
+      "payoutFactor": 1,
+      "type": "ways"
+    },
+    "5:3": {
+      "symbol": "5",
+      "freq": 3,
+      "payoutFactor": 0.25,
+      "type": "ways"
+    },
+    "5:4": {
+      "symbol": "5",
+      "freq": 4,
+      "payoutFactor": 0.5,
+      "type": "ways"
+    },
+    "5:5": {
+      "symbol": "5",
+      "freq": 5,
+      "payoutFactor": 0.8,
+      "type": "ways"
+    },
+    "6:3": {
+      "symbol": "6",
+      "freq": 3,
+      "payoutFactor": 0.25,
+      "type": "ways"
+    },
+    "6:4": {
+      "symbol": "6",
+      "freq": 4,
+      "payoutFactor": 0.5,
+      "type": "ways"
+    },
+    "6:5": {
+      "symbol": "6",
+      "freq": 5,
+      "payoutFactor": 0.8,
+      "type": "ways"
+    },
+    "7:3": {
+      "symbol": "7",
+      "freq": 3,
+      "payoutFactor": 0.2,
+      "type": "ways"
+    },
+    "7:4": {
+      "symbol": "7",
+      "freq": 4,
+      "payoutFactor": 0.4,
+      "type": "ways"
+    },
+    "7:5": {
+      "symbol": "7",
+      "freq": 5,
+      "payoutFactor": 0.6,
+      "type": "ways"
+    },
+    "8:3": {
+      "symbol": "8",
+      "freq": 3,
+      "payoutFactor": 0.2,
+      "type": "ways"
+    },
+    "8:4": {
+      "symbol": "8",
+      "freq": 4,
+      "payoutFactor": 0.4,
+      "type": "ways"
+    },
+    "8:5": {
+      "symbol": "8",
+      "freq": 5,
+      "payoutFactor": 0.6,
+      "type": "ways"
+    },
+    "9:3": {
+      "symbol": "9",
+      "freq": 3,
+      "payoutFactor": 0.1,
+      "type": "ways"
+    },
+    "9:4": {
+      "symbol": "9",
+      "freq": 4,
+      "payoutFactor": 0.3,
+      "type": "ways"
+    },
+    "9:5": {
+      "symbol": "9",
+      "freq": 5,
+      "payoutFactor": 0.5,
+      "type": "ways"
+    },
+    "10:3": {
+      "symbol": "10",
+      "freq": 3,
+      "payoutFactor": 0.1,
+      "type": "ways"
+    },
+    "10:4": {
+      "symbol": "10",
+      "freq": 4,
+      "payoutFactor": 0.3,
+      "type": "ways"
+    },
+    "10:5": {
+      "symbol": "10",
+      "freq": 5,
+      "payoutFactor": 0.5,
+      "type": "ways"
+    },
+    "11:3": {
+      "symbol": "11",
+      "freq": 3,
+      "payoutFactor": 0.1,
+      "type": "ways"
+    },
+    "11:4": {
+      "symbol": "11",
+      "freq": 4,
+      "payoutFactor": 0.3,
+      "type": "ways"
+    },
+    "11:5": {
+      "symbol": "11",
+      "freq": 5,
+      "payoutFactor": 0.5,
+      "type": "ways"
+    },
+    "12:3": {
+      "symbol": "12",
+      "freq": 3,
+      "payoutFactor": 0.1,
+      "type": "ways"
+    },
+    "12:4": {
+      "symbol": "12",
+      "freq": 4,
+      "payoutFactor": 0.3,
+      "type": "ways"
+    },
+    "12:5": {
+      "symbol": "12",
+      "freq": 5,
+      "payoutFactor": 0.5,
+      "type": "ways"
+    }
+  }
+}

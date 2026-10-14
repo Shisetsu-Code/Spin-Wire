@@ -113,6 +113,7 @@ class RubyPlayExecutionMixin:
         global_warnings: list[str] = []
         coverage_gaps: set[str] = set()
         discovered_modes: list[dict[str, Any]] = []
+        feature_domains = {}
         responded_attempts = 0
         successes = 0
 
@@ -154,6 +155,8 @@ class RubyPlayExecutionMixin:
                 isinstance(init_body, dict)
                 and init_body.get("buy_feature_available") is True
             )
+            if isinstance(init_body, dict) and init_body.get("buy_feature_available") is False:
+                feature_domains["purchase"] = {"complete": True, "source": "init.buy_feature_available/effective-client", "options": []}
             if buy_available:
                 executable = bool(
                     profile.buy_feature_type
@@ -464,6 +467,7 @@ class RubyPlayExecutionMixin:
             status=status,
             symbol=game.symbol,
             discovered_modes=discovered_modes,
+            feature_domains=feature_domains,
             started_at=started_iso,
             finished_at=utc_now_iso(),
             elapsed_ms=elapsed_total,

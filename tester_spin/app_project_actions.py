@@ -9,7 +9,10 @@ from tester_spin.project_actions import clear_history, export_reports, publish
 class ProjectActionsMixin:
     def _build_project_actions(self, parent, before):
         row = ttk.LabelFrame(parent, text='Programa e informes', padding=6)
-        row.pack(fill='x', pady=(6, 0), before=before)
+        if isinstance(parent, ttk.Panedwindow):
+            parent.insert(0, row, weight=0)
+        else:
+            row.pack(fill='x', pady=(6, 0), before=before)
         self.project_action_buttons = []
         for text, kind in [('Subir programa a GitHub', 'program'),
                            ('Borrar historial del proveedor', 'clear'),

@@ -48,6 +48,74 @@ def pending_payload(options: tuple[str, ...], mode: str = "SuperFreeSpins") -> d
 
 
 class RedTigerExhaustiveChoicePathTests(unittest.TestCase):
+    def test_missing_opportunity_is_bounded_and_unknown_state_never_retries(self):
+        from tester_spin.providers.redtiger.branch_coverage import _replay_prefix, MAX_SELECTOR_ENTRY_SPINS
+        from unittest.mock import Mock
+        for closed, limit in ((terminal_payload("Normal"), MAX_SELECTOR_ENTRY_SPINS),
+                              (terminal_payload("UnrecognizedBonus"), 1)):
+            runtime = SimpleNamespace(default_stake=2, session=Mock(), settings_response={})
+            with tempfile.TemporaryDirectory() as temp, patch(
+                "tester_spin.providers.redtiger.branch_coverage.fresh_bootstrap", return_value=runtime
+            ), patch("tester_spin.providers.redtiger.branch_coverage._post_spin",
+                     return_value=(200, {}, closed, [])) as spin, patch(
+                "tester_spin.providers.redtiger.branch_coverage._post_choice"
+            ) as choice:
+                with self.assertRaisesRegex(RuntimeError, "oportunidad"):
+                    _replay_prefix(SimpleNamespace(bootstrap_endpoints=[]), self._game(),
+                        launch_id="123", base_mode="SPIN", feature=None, repetition=1,
+                        prefix=("collect",), timeout_s=1, stop_event=threading.Event(), run_root=Path(temp))
+                self.assertEqual(spin.call_count, limit)
+                choice.assert_not_called()
+
+    def test_normal_round_without_choice_retries_before_replaying_root_action(self):
+        from tester_spin.providers.redtiger.branch_coverage import _replay_prefix
+        from unittest.mock import Mock
+        runtime = SimpleNamespace(default_stake=2, session=Mock(), settings_response={})
+        closed = terminal_payload("Normal")
+        pending = pending_payload(("continue", "collect"), "Normal")
+        with tempfile.TemporaryDirectory() as temp, patch(
+            "tester_spin.providers.redtiger.branch_coverage.fresh_bootstrap", return_value=runtime
+        ), patch("tester_spin.providers.redtiger.branch_coverage._post_spin",
+                 side_effect=[(200, {}, closed, []), (200, {}, pending, [])]) as spin, patch(
+            "tester_spin.providers.redtiger.branch_coverage._post_choice",
+            return_value=(200, "choice", {}, closed, [])
+        ) as choice:
+            with patch('tester_spin.provider_return_checks.redtiger_check',return_value={'status':'CONFIRMED'}):
+                outcome = _replay_prefix(SimpleNamespace(bootstrap_endpoints=[]), self._game(),
+                    launch_id="123", base_mode="SPIN", feature=None, repetition=1,
+                    prefix=("collect",), timeout_s=1, stop_event=threading.Event(), run_root=Path(temp))
+            self.assertEqual(spin.call_count, 2)
+            self.assertEqual(choice.call_count, 1)
+            self.assertEqual(outcome.selected, ("collect",))
+            self.assertEqual(outcome.wire_steps, 3)
+
+    def test_replay_drains_confirmed_recurring_selector_and_requires_base_proof(self):
+        from tester_spin.providers.redtiger.branch_coverage import _replay_prefix
+        from unittest.mock import Mock
+        for status in ['CONFIRMED','REVIEW_REQUIRED']:
+            runtime=SimpleNamespace(default_stake=2,session=Mock(),settings_response={})
+            pending=pending_payload(('continue','collect'),'Normal')
+            closed=terminal_payload('Normal')
+            def transition(prompt,selected,response):
+                return {'recurring_selector':selected=='continue','round_id':42,
+                    'game_data':{'spinMode':'Normal','selected':selected,'progress':{'level':{'current':1,'next':2}}},
+                    'response_choice':{'status':'PENDING' if selected=='continue' else 'RESOLVED','available':['continue','collect']}}
+            with tempfile.TemporaryDirectory() as temp, patch(
+                'tester_spin.providers.redtiger.branch_coverage.fresh_bootstrap',return_value=runtime
+            ),patch('tester_spin.providers.redtiger.branch_coverage._post_spin',return_value=(200,{},pending,[])),patch(
+                'tester_spin.providers.redtiger.branch_coverage._post_choice',
+                side_effect=[(200,'choice',{},pending,[]),(200,'choice',{},closed,[])]
+            ),patch('tester_spin.providers.redtiger.branch_coverage.choice_transition',side_effect=transition),patch(
+                'tester_spin.provider_return_checks.redtiger_check',return_value={'status':status}
+            ):
+                outcome=_replay_prefix(SimpleNamespace(bootstrap_endpoints=[]),self._game(),
+                    launch_id='123',base_mode='SPIN',feature=None,repetition=1,prefix=('continue',),
+                    timeout_s=1,stop_event=threading.Event(),run_root=Path(temp))
+                self.assertEqual(outcome.selected,('continue','collect'))
+                self.assertEqual(bool(outcome.warnings),status!='CONFIRMED')
+                summary=json.loads((outcome.artifact_dir/'summary.json').read_text())
+                self.assertEqual(len(summary['choice_continuations']),2)
+
     def test_failed_leaf_is_not_credited_as_covered(self) -> None:
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)

@@ -1,0 +1,63 @@
+{
+  "step": 1,
+  "betamount": "0.10",
+  "betcurrency": "EUR",
+  "wonamount": "0.00",
+  "status": "RESULTED",
+  "betdata": {
+    "lines": "1111111111",
+    "coin": "0.01",
+    "nCoins": 1,
+    "cheat": null,
+    "clientData": null
+  },
+  "eventdata": {
+    "accC": 0,
+    "accWa": "0.00",
+    "reels": [
+      [
+        "LEMON",
+        "LEMON",
+        "LEMON"
+      ],
+      [
+        "STAR",
+        "STAR",
+        "CHERRY"
+      ],
+      [
+        "CHERRY",
+        "CHERRY",
+        "LEMON"
+      ],
+      [
+        "BELL",
+        "BELL",
+        "LEMON"
+      ],
+      [
+        "GRAPES",
+        "GRAPES",
+        "CHERRY"
+      ]
+    ],
+    "rpos": [
+      0,
+      46,
+      20,
+      19,
+      70
+    ],
+    "stickyA": "000000000000000",
+    "stickyB": "000000000000000",
+    "stickyN": "000000000000000",
+    "wonCoins": 0,
+    "wts": [
+      "00000000000",
+      "000000000000000"
+    ],
+    "wtw": []
+  },
+  "prizes": null,
+  "prepaid": false
+}

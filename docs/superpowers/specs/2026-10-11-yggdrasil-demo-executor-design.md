@@ -4,7 +4,7 @@
 
 Hacer que Tester-Spin pruebe Yggdrasil de verdad, con primitivas por protocolo y sin excepciones por nombre o ID de juego. Reconocer compras, giros normales y continuaciones como categorías diferentes. Declarar OK solamente con evidencia de ejecución actual, cierre de ronda y retorno al giro normal. Los HAR enseñan formatos; su historial no acredita una prueba nueva.
 
-El usuario aprobó este enfoque en el chat el 11 de octubre de 2026. Este documento describe el diseño para su revisión; el ejecutor todavía no está implementado.
+El usuario aprobó este enfoque en el chat el 11 de octubre de 2026. El ejecutor fue implementado el 12/10/2026; ver docs/YGGDRASIL.md para alcance y evidencia de aceptación.
 
 ## Evidencia y problema actual
 

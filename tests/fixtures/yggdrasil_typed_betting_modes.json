@@ -1,0 +1,82 @@
+{
+  "gameid": "12345",
+  "cfg": {
+    "props": [
+      {
+        "prop": "ApiVersion",
+        "value": "2.6.0"
+      },
+      {
+        "prop": "CoinsPerBet",
+        "value": [
+          10,
+          15,
+          6660,
+          1000
+        ]
+      },
+      {
+        "prop": "Modes",
+        "value": {
+          "GB": {
+            "coinsPerBet": 15
+          },
+          "BB_1": {
+            "coinsPerBet": 6660
+          },
+          "BASIC": {
+            "coinsPerBet": 10
+          },
+          "BB_0": {
+            "coinsPerBet": 1000
+          }
+        }
+      },
+      {
+        "prop": "Config",
+        "value": {
+          "bettingModes": [
+            {
+              "command": "",
+              "type": "BASIC",
+              "coinsPerBet": 10
+            },
+            {
+              "command": "GB",
+              "type": "GOLDEN_BET",
+              "coinsPerBet": 15
+            },
+            {
+              "command": "BB_1",
+              "type": "BUY_BONUS",
+              "coinsPerBet": 6660
+            },
+            {
+              "command": "BB_0",
+              "type": "BUY_BONUS",
+              "coinsPerBet": 1000
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "orgSettings": {
+    "type": "BASIC",
+    "Denoms": "EUR:0.01,0.02,0.03,0.04,0.05,0.07,0.1,0.15,0.2,0.3,0.5,0.75,1.0,1.5,2.0,5.0,10.0"
+  },
+  "extraOrgSettings": [
+    {
+      "type": "BB_0",
+      "Denoms": "EUR:0.01,0.02,0.03,0.04,0.05,0.07,0.1,0.15,0.2,0.3,0.5,0.75,1.0,1.5,2.0,5.0,10.0"
+    },
+    {
+      "type": "BB_1",
+      "Denoms": "EUR:0.01,0.02,0.03,0.04,0.05,0.07,0.1,0.15,0.2,0.3,0.5,0.75,1.0,1.5,2.0,5.0,10.0"
+    },
+    {
+      "type": "GB",
+      "Denoms": "EUR:0.01,0.02,0.03,0.04,0.05,0.07,0.1,0.15,0.2,0.3,0.5,0.75,1.0,1.5,2.0,5.0,10.0"
+    }
+  ]
+}

@@ -10,7 +10,7 @@ from tester_spin.providers.redtiger.runtime import FeatureBuy
 from tests import test_redtiger_choice_continuation as fixtures
 FakeSession=fixtures.FakeSession
 class UnconfirmedPurchaseTests(unittest.TestCase):
- def test_server_buy_never_becomes_required_action(self):
+ def test_announced_buy_without_client_contract_is_pending_not_guessed(self):
   for features in [(),(FeatureBuy('FreeSpins',Decimal('100')), )]:
    session=FakeSession([fixtures.RedTigerChoiceContinuationTests._terminal('Normal')])
    runtime=SimpleNamespace(session=session,settings_url='https://g/settings',spin_url='https://g/spin',launcher_url='https://g/launch',game_id='Unknown',session_id='s',token='t',user_data={},custom={},settings_request={},settings_response={'result':{'game':{'hasFeatureBuy':True}}},stakes=(Decimal('2'),),default_stake=Decimal('2'),currency_decimals=2,feature_buys=features)
@@ -19,7 +19,8 @@ class UnconfirmedPurchaseTests(unittest.TestCase):
     with patch.object(execution,'bootstrap_game',return_value=runtime):
      result=provider.test_game(game,spins=1,timeout_s=1,stop_event=threading.Event(),progress=lambda _:None)
     with self.subTest(features=features):
-     self.assertEqual(result.status,'OK',result.error)
+     self.assertEqual(result.status,'PARCIAL',result.error)
+     self.assertIn('PURCHASE_',result.error)
      self.assertEqual(len(result.attempts),1)
      self.assertEqual(len(session.calls),1)
      self.assertEqual(result.requested_spins,1)

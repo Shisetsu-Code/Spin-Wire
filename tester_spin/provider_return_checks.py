@@ -28,19 +28,48 @@ def rubyplay_check(runtime, directory, timeout_s, stop_event):
     return verify_return_to_base(directory, play, stop_event=stop_event)
 
 
-def redtiger_check(runtime, directory, timeout_s, stop_event):
-    from tester_spin.providers.redtiger.execution import _post_spin
-    from tester_spin.providers.redtiger.runtime import response_summary
+def redtiger_check(runtime, directory, timeout_s, stop_event, *, initial_response=None):
+    from tester_spin.providers.redtiger.execution import _post_spin, _post_choice
+    from tester_spin.providers.redtiger.runtime import response_summary, pending_choice_from_response, choice_transition
+
+    previous_response = initial_response
 
     def play(target):
+        nonlocal previous_response
         status, request, data, warnings = _post_spin(runtime, stake=runtime.default_stake, feature_buy=None, timeout_s=timeout_s, stop_event=stop_event)
-        capture = save_exchange(target, request, data)
+        captures = [save_exchange(target, request, data)]
+        entry = data
+        from tester_spin.providers.redtiger.base_state import _choice_round_components_normal
+        entry_game = entry.get('result', {}).get('game', {})
+        normal_probe = (entry_game.get('spinMode') == 'Normal' and type(entry_game.get('gameMode')) is int
+                        and entry_game['gameMode'] == 0 and entry_game.get('features') == []
+                        and _choice_round_components_normal(entry_game))
+        steps, transitions = [], []
+        for step in range(1, 65):
+            prompt = pending_choice_from_response(data)
+            if prompt is None or warnings or not normal_probe:
+                break
+            selected = 'collect' if 'collect' in prompt.available else prompt.available[0]
+            code, endpoint, command, reply, extra_warnings = _post_choice(runtime, prompt=prompt, choice=selected, timeout_s=timeout_s, stop_event=stop_event)
+            captures.append(save_exchange(target, command, reply, step+1))
+            steps.append((command, reply))
+            transitions.append(choice_transition(prompt, selected, reply))
+            warnings.extend(extra_warnings)
+            status, data = code, reply
+        if normal_probe and pending_choice_from_response(data) is not None:
+            warnings.append('selector pendiente durante comprobación de regreso al base')
         summary = response_summary(data)
-        from tester_spin.providers.redtiger.base_state import classify_base_state
-        classification = classify_base_state(data)
+        summary['choice_continuations'] = transitions
+        from tester_spin.providers.redtiger.base_state import classify_base_state, settled_paid_choice_round
+        if steps:
+            base = settled_paid_choice_round(request, entry, steps, previous_response)
+            classification = {'base':base, 'known':base, 'reason':'settled_paid_normal_round_with_choices' if base else 'unverified_choice_round'}
+        else:
+            classification = classify_base_state(data, request=request, previous=previous_response)
+        previous_response = data
         return dict(ok=status < 400 and not warnings, base=classification['base'],
                     known=classification['known'], classification=classification,
-                    captures=[capture], summary=summary)
+                    captures=captures, summary=summary)
     return verify_return_to_base(directory, play, stop_event=stop_event)
 
 
@@ -98,15 +127,22 @@ def belatra_check(provider, state, directory, timeout_s, stop_event=None):
         ok, terminal, steps, current, following = provider._execute_direct_spin(state, timeout_s=timeout_s, attempt_dir=target)
         import json
         captures = []
-        for step, label in enumerate(('start', 'finish'), 1):
+        labels = ['start'] + sorted(path.name.removesuffix('.request.json') for path in target.glob('continue-*.request.json')) + ['finish']
+        had_feature = False
+        for step, label in enumerate(labels, 1):
             req = target/f'{label}-request.json'
             resp = target/f'{label}-response.json'
             # Canonical Belatra filenames use a dot.
             if not req.exists():
                 req, resp = target/f'{label}.request.json', target/f'{label}.response.json'
             if req.exists() and resp.exists():
-                captures.append({'step': step, 'request': json.loads(req.read_text(encoding='utf-8')), 'response': json.loads(resp.read_text(encoding='utf-8'))})
-        return dict(ok=ok, base=terminal, known=terminal, captures=captures, state=[current, following])
+                request = json.loads(req.read_text(encoding='utf-8'))
+                response = json.loads(resp.read_text(encoding='utf-8'))
+                captures.append({'step': step, 'request': request, 'response': response})
+                gs = response.get('gs') or {}
+                current_phase, next_phase = str(gs.get('phaseCur') or ''), str(gs.get('phaseNext') or '')
+                had_feature = had_feature or current_phase.startswith(('free', 'Bonus')) or next_phase.startswith(('toNextFG', 'toBonus'))
+        return dict(ok=ok, base=terminal and not had_feature, known=terminal, captures=captures, state=[current, following])
     return verify_return_to_base(directory, play, stop_event=stop_event)
 
 
@@ -127,9 +163,11 @@ def pragmatic_check(provider, bootstrap, last, base_fields, directory, timeout_s
             if stop is not None and stop.is_set():
                 raise InterruptedError('Detención solicitada')
             fields = dict(base_fields)
-            if action in {'doCollect', 'doBonus', 'doCollectBonus'}:
+            if action in {'doCollect', 'doBonus', 'doCollectBonus', 'doFSOption'}:
                 fields = {key: fields[key] for key in ('symbol', 'repeat', 'mgckey') if key in fields}
             fields['action'] = action
+            if action == 'doFSOption':
+                fields['ind'] = str(selected_fs_option)
             if action == 'doSpin':
                 fields['bl'] = '0'
             fields.pop('pur', None)
@@ -148,25 +186,42 @@ def pragmatic_check(provider, bootstrap, last, base_fields, directory, timeout_s
             declared=observed_continuation(data,getattr(bootstrap,'symbol',''))
             if declared:
                 # Free cards belong to a feature, not a normal paid base cycle.
-                had_event = had_event or data.get('fs_left') not in (None, '', '0')
+                had_event = had_event or data.get('na') == 'm' or data.get('fs_left') not in (None, '', '0')
                 action=declared
                 continue
-            active = provider._feature_active(data)
+            from tester_spin.providers.pragmatic_observed_transitions import observed_paid_base
+            active_data = {k:v for k,v in data.items() if k != 'rs_c'} if observed_paid_base(data, getattr(bootstrap,'symbol','')) else data
+            active = provider._feature_active(active_data)
             from tester_spin.providers.pragmatic_reel_contract import reel_selection
             from tester_spin.providers.pragmatic_observed_transitions import automatic_fs_respin
-            automatic_cascade = automatic_fs_respin(data)
+            automatic_cascade = automatic_fs_respin(data, symbol=getattr(bootstrap, "symbol", ""))
             manual = None if automatic_cascade else reel_selection(data, getattr(bootstrap, 'reel_contract', None))
             had_manual = had_manual or manual is not None
             # A certified manual reel choice is part of the ordinary paid round.
             # Other features still reset consecutive normal-round confirmation.
-            other_features = provider._feature_active({key:value for key,value in data.items()
+            other_features = provider._feature_active({key:value for key,value in active_data.items()
                 if key not in {'rs','rs_p','rs_c','rs_m','rs_t','rs_more'}})
             ordinary_cascade = automatic_cascade and 'fs' not in data and 'fsmax' not in data
             ordinary_cascade_seen = ordinary_cascade_seen or ordinary_cascade
             ordinary_finish = ordinary_cascade_seen and not other_features and (
                 'rs_t' in data or (not data.get('rs') and all(key in data for key in ('rs_p','rs_c','rs_m'))))
             had_event = had_event or (active and ((manual is None and not ordinary_cascade and not ordinary_finish) or other_features))
-            if na == 'b':
+            if na == 'fso':
+                from tester_spin.providers.pragmatic_har_states import parse_fs_options, choose_fs_option_index
+                options = parse_fs_options(data)
+                if not options:
+                    return dict(ok=True, base=False, known=False, captures=captures, next_action=na)
+                selected_fs_option = choose_fs_option_index(options, repetition=1)
+                provider._write_json(target / f'base-fs-option-{step:03d}.json', {
+                    'schema': 'tester-spin/pragmatic-fso-selection/v1',
+                    'source': 'HAR-grounded doFSOption', 'phase': 'base_probe',
+                    'option_count': len(options), 'option_indices': [item['index'] for item in options],
+                    'selected_index': selected_fs_option, 'options': options,
+                    'fs_opt_mask': data.get('fs_opt_mask', ''), 'fs_opt': data.get('fs_opt', ''),
+                })
+                had_event = True
+                action = 'doFSOption'
+            elif na == 'b':
                 had_event = True
                 from tester_spin.providers.pragmatic_observed_transitions import bonus_transition
                 in_bonus = bonus_transition(data) is None

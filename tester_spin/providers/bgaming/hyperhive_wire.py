@@ -206,6 +206,8 @@ def _purchase_feature_names(text: str) -> set[str]:
 
 def _req_literal_values(text: str, key: str) -> set[str]:
     """Return literal values proven to be serialized specifically into req."""
+    from tester_spin.providers.bgaming.forwarded_request import forwarded_request_contracts
+    text = (text or "") + "\n" + forwarded_request_contracts(text)
     escaped = re.escape(str(key or ""))
     values: set[str] = set()
     for pattern in (
@@ -338,7 +340,8 @@ def _has_req_bet_evidence(text: str) -> bool:
     contains a top-level bet field. The alias must be the same identifier; a
     loose bet object elsewhere in the bundle is never sufficient.
     """
-    source = text or ""
+    from tester_spin.providers.bgaming.forwarded_request import forwarded_request_contracts
+    source = (text or "") + "\n" + forwarded_request_contracts(text)
     if re.search(
         r'(?:\breq\s*:\s*\{[^{}]{0,1600}\bbet\s*:|\.req\.bet\s*=|\.req\[["\']bet["\']\]\s*=)',
         source,
@@ -486,6 +489,11 @@ def install_observed_wire_adapter() -> None:
             resolved_bundle = hyperhive._download_bundle(runtime, timeout_s)
             if not resolved_bundle and bundle_text is not None:
                 resolved_bundle = bundle_text
+
+            from tester_spin.providers.bgaming.forwarded_request import forwarded_request_contracts
+            resolved_bundle += "\n" + forwarded_request_contracts(
+                resolved_bundle + "\n" + (engine_contract or "")
+            )
 
             modes = original_discover_modes(
                 runtime,

@@ -1,0 +1,100 @@
+{
+  "wagerid": "fixture-gati-choice",
+  "status": "Pending",
+  "bets": [
+    {
+      "step": 1,
+      "betamount": "15.00",
+      "betcurrency": "EUR",
+      "wonamount": "0.00",
+      "status": "RESULTED",
+      "betdata": {
+        "coin": "0.001",
+        "cashBet": "15.00",
+        "cmd": "BONUSBUY1",
+        "accWa": "0.00",
+        "accC": 0,
+        "cmds": [
+          "GAMBLE_BONUSBUY1_COLLECT_20_1xxxx96_10_10_1",
+          "GAMBLE_BONUSBUY1_RISK_20_1xxxx96_10_12_0.7463619",
+          "GAMBLE_BONUSBUY1_RISK_20_1xxxx96_10_19_0.24704094"
+        ]
+      },
+      "eventdata": {
+        "accC": 0,
+        "accWa": "0.00",
+        "boostData": {
+          "collectionFSCount": 0,
+          "scatterCount": 0,
+          "wildCount": 0
+        },
+        "initialPlayerState": {
+          "state": "{\"States\":{\"\":{\"InProgress\":false,\"WinAmount\":0,\"CollectionCash\":[0,0,0,0],\"CollectionCount\":[0,0,0,0],\"CollectionMeters\":[336,96,48,240],\"CollectionMetersActive\":[false,false,false,false]}}}"
+        },
+        "nextCmds": "GAMBLE_BONUSBUY1_COLLECT_20_1xxxx96_10_10_1,GAMBLE_BONUSBUY1_RISK_20_1xxxx96_10_12_0.7463619,GAMBLE_BONUSBUY1_RISK_20_1xxxx96_10_19_0.24704094",
+        "playerState": {
+          "state": "{\"States\":{\"\":{\"InProgress\":true,\"WinAmount\":0,\"CollectionCash\":[0,0,0,0],\"CollectionCount\":[0,0,0,0],\"CollectionMeters\":[336,96,48,240],\"CollectionMetersActive\":[false,false,false,false]}}}"
+        },
+        "response": {
+          "coinWin": 0,
+          "cashWin": "0.00",
+          "clientData": {
+            "Gamble": {
+              "Entered": {
+                "spins": 10
+              },
+              "Options": {
+                "collect": {
+                  "command": "GAMBLE_BONUSBUY1_COLLECT_20_1xxxx96_10_10_1",
+                  "spins": 10
+                },
+                "riskList": [
+                  {
+                    "command": "GAMBLE_BONUSBUY1_RISK_20_1xxxx96_10_12_0.7463619",
+                    "spins": 12,
+                    "chance": 0.7463619
+                  },
+                  {
+                    "command": "GAMBLE_BONUSBUY1_RISK_20_1xxxx96_10_19_0.24704094",
+                    "spins": 19,
+                    "chance": 0.24704094
+                  }
+                ]
+              }
+            },
+            "FinalGameState": {
+              "inProgress": true,
+              "winAmount": 0,
+              "collectionCash": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "collectionCount": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "collectionMeters": [
+                336,
+                96,
+                48,
+                240
+              ],
+              "collectionMetersActive": [
+                false,
+                false,
+                false,
+                false
+              ]
+            }
+          }
+        }
+      },
+      "prizes": null,
+      "prepaid": false
+    }
+  ]
+}

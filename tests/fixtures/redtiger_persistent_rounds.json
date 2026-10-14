@@ -1,0 +1,6688 @@
+[
+  {
+    "capture": "games.evolution.com-cash-ultimate_20261011_141503.har",
+    "rounds": [
+      {
+        "request": {
+          "stake": 2,
+          "extras": null,
+          "gameMode": 0,
+          "bonusId": null
+        },
+        "response": {
+          "success": true,
+          "result": {
+            "game": {
+              "win": {
+                "lines": "0.00",
+                "total": "0.00"
+              },
+              "winsMultipliers": {
+                "lines": "0.00",
+                "total": "0.00"
+              },
+              "stake": "2.00",
+              "multiplier": 1,
+              "winLines": [],
+              "spinMode": "Normal",
+              "fatTiles": [
+                {
+                  "tileId": 10,
+                  "reel": 0,
+                  "index": 6,
+                  "width": 2,
+                  "height": 2
+                }
+              ],
+              "reelsBuffer": [
+                [
+                  [
+                    5,
+                    5,
+                    8,
+                    8,
+                    3
+                  ],
+                  [
+                    3,
+                    8,
+                    9,
+                    8
+                  ],
+                  [
+                    2,
+                    2,
+                    10,
+                    10,
+                    6
+                  ]
+                ],
+                [
+                  [
+                    3,
+                    3,
+                    4,
+                    4,
+                    3
+                  ],
+                  [
+                    3,
+                    1,
+                    1,
+                    1
+                  ],
+                  [
+                    1,
+                    7,
+                    10,
+                    10,
+                    5
+                  ]
+                ],
+                [
+                  [
+                    9,
+                    6,
+                    6,
+                    6,
+                    6
+                  ],
+                  [
+                    2,
+                    2,
+                    1,
+                    1
+                  ],
+                  [
+                    4,
+                    4,
+                    2,
+                    2,
+                    2
+                  ]
+                ],
+                [
+                  [
+                    3,
+                    3,
+                    7,
+                    7,
+                    6
+                  ],
+                  [
+                    6,
+                    6,
+                    6,
+                    5
+                  ],
+                  [
+                    5,
+                    4,
+                    9,
+                    4,
+                    6
+                  ]
+                ],
+                [
+                  [
+                    6,
+                    8,
+                    8,
+                    7,
+                    7
+                  ],
+                  [
+                    8,
+                    8,
+                    7,
+                    7
+                  ],
+                  [
+                    3,
+                    10,
+                    2,
+                    2,
+                    10
+                  ]
+                ]
+              ],
+              "features": [],
+              "gameMode": 0,
+              "hasState": false
+            },
+            "transactions": {
+              "roundId": 196213549
+            },
+            "user": {
+              "balance": {
+                "cash": {
+                  "atStart": "10000.00",
+                  "afterBet": "9998.00",
+                  "atEnd": "9998.00"
+                },
+                "freeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "bonus": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionCash": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionFreeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "stake": 2,
+          "extras": null,
+          "gameMode": 0,
+          "bonusId": null
+        },
+        "response": {
+          "success": true,
+          "result": {
+            "game": {
+              "win": {
+                "lines": "0.00",
+                "total": "0.00"
+              },
+              "winsMultipliers": {
+                "lines": "0.00",
+                "total": "0.00"
+              },
+              "stake": "2.00",
+              "multiplier": 1,
+              "winLines": [],
+              "spinMode": "Normal",
+              "fatTiles": [
+                {
+                  "tileId": 10,
+                  "reel": 1,
+                  "index": -4,
+                  "width": 2,
+                  "height": 2
+                }
+              ],
+              "lockedTiles": [
+                {
+                  "reel": 1,
+                  "index": 3,
+                  "tileId": 10,
+                  "spins": 999
+                },
+                {
+                  "reel": 4,
+                  "index": 1,
+                  "tileId": 10,
+                  "spins": 999
+                },
+                {
+                  "reel": 4,
+                  "index": 2,
+                  "tileId": 10,
+                  "spins": 999
+                }
+              ],
+              "reelsBuffer": [
+                [
+                  [
+                    1,
+                    3,
+                    1,
+                    3,
+                    2
+                  ],
+                  [
+                    6,
+                    3,
+                    1,
+                    4
+                  ],
+                  [
+                    4,
+                    4,
+                    1,
+                    2,
+                    2
+                  ]
+                ],
+                [
+                  [
+                    4,
+                    10,
+                    10,
+                    6,
+                    4
+                  ],
+                  [
+                    2,
+                    6,
+                    2,
+                    10
+                  ],
+                  [
+                    4,
+                    2,
+                    4,
+                    4,
+                    4
+                  ]
+                ],
+                [
+                  [
+                    4,
+                    10,
+                    10,
+                    4,
+                    2
+                  ],
+                  [
+                    3,
+                    2,
+                    2,
+                    4
+                  ],
+                  [
+                    1,
+                    1,
+                    1,
+                    1,
+                    4
+                  ]
+                ],
+                [
+                  [
+                    1,
+                    2,
+                    3,
+                    3,
+                    3
+                  ],
+                  [
+                    1,
+                    2,
+                    2,
+                    3
+                  ],
+                  [
+                    6,
+                    4,
+                    3,
+                    6,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    6,
+                    6,
+                    2,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    10,
+                    10,
+                    4
+                  ],
+                  [
+                    6,
+                    3,
+                    3,
+                    3,
+                    6
+                  ]
+                ]
+              ],
+              "features": [],
+              "gameMode": 0,
+              "hasState": true
+            },
+            "transactions": {
+              "roundId": 196213550
+            },
+            "user": {
+              "balance": {
+                "cash": {
+                  "atStart": "9998.00",
+                  "afterBet": "9996.00",
+                  "atEnd": "9996.00"
+                },
+                "freeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "bonus": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionCash": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionFreeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "stake": 2,
+          "extras": null,
+          "gameMode": 0,
+          "bonusId": null
+        },
+        "response": {
+          "success": true,
+          "result": {
+            "game": {
+              "win": {
+                "lines": "0.00",
+                "total": "0.00"
+              },
+              "winsMultipliers": {
+                "lines": "0.00",
+                "total": "0.00"
+              },
+              "stake": "2.00",
+              "multiplier": 1,
+              "winLines": [],
+              "spinMode": "Normal",
+              "lockedTiles": [
+                {
+                  "reel": 1,
+                  "index": 3,
+                  "tileId": 10,
+                  "spins": 999
+                },
+                {
+                  "reel": 4,
+                  "index": 1,
+                  "tileId": 10,
+                  "spins": 999
+                },
+                {
+                  "reel": 4,
+                  "index": 2,
+                  "tileId": 10,
+                  "spins": 999
+                },
+                {
+                  "reel": 1,
+                  "index": 0,
+                  "tileId": 10,
+                  "spins": 999
+                },
+                {
+                  "reel": 1,
+                  "index": 1,
+                  "tileId": 10,
+                  "spins": 999
+                }
+              ],
+              "reelsBuffer": [
+                [
+                  [
+                    1,
+                    10,
+                    3,
+                    10,
+                    4
+                  ],
+                  [
+                    6,
+                    9,
+                    5,
+                    1
+                  ],
+                  [
+                    1,
+                    5,
+                    2,
+                    6,
+                    6
+                  ]
+                ],
+                [
+                  [
+                    7,
+                    2,
+                    5,
+                    1,
+                    3
+                  ],
+                  [
+                    10,
+                    10,
+                    1,
+                    1
+                  ],
+                  [
+                    2,
+                    1,
+                    9,
+                    2,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    8,
+                    5,
+                    2,
+                    8,
+                    3
+                  ],
+                  [
+                    5,
+                    4,
+                    5,
+                    3
+                  ],
+                  [
+                    7,
+                    1,
+                    2,
+                    5,
+                    4
+                  ]
+                ],
+                [
+                  [
+                    2,
+                    1,
+                    7,
+                    3,
+                    8
+                  ],
+                  [
+                    3,
+                    6,
+                    2,
+                    8
+                  ],
+                  [
+                    1,
+                    6,
+                    4,
+                    4,
+                    5
+                  ]
+                ],
+                [
+                  [
+                    1,
+                    5,
+                    2,
+                    6,
+                    8
+                  ],
+                  [
+                    2,
+                    6,
+                    2,
+                    3
+                  ],
+                  [
+                    1,
+                    1,
+                    3,
+                    1,
+                    4
+                  ]
+                ]
+              ],
+              "features": [],
+              "gameMode": 0,
+              "hasState": true
+            },
+            "transactions": {
+              "roundId": 196213553
+            },
+            "user": {
+              "balance": {
+                "cash": {
+                  "atStart": "9996.00",
+                  "afterBet": "9994.00",
+                  "atEnd": "9994.00"
+                },
+                "freeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "bonus": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionCash": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionFreeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "stake": 2,
+          "extras": null,
+          "gameMode": 0,
+          "bonusId": null
+        },
+        "response": {
+          "success": true,
+          "result": {
+            "game": {
+              "win": {
+                "lines": "0.00",
+                "total": "0.00"
+              },
+              "winsMultipliers": {
+                "lines": "0.00",
+                "total": "0.00"
+              },
+              "stake": "2.00",
+              "multiplier": 1,
+              "winLines": [],
+              "spinMode": "Normal",
+              "lockedTiles": [
+                {
+                  "reel": 1,
+                  "index": 3,
+                  "tileId": 10,
+                  "spins": 999
+                },
+                {
+                  "reel": 4,
+                  "index": 1,
+                  "tileId": 10,
+                  "spins": 999
+                },
+                {
+                  "reel": 4,
+                  "index": 2,
+                  "tileId": 10,
+                  "spins": 999
+                },
+                {
+                  "reel": 1,
+                  "index": 0,
+                  "tileId": 10,
+                  "spins": 999
+                },
+                {
+                  "reel": 1,
+                  "index": 1,
+                  "tileId": 10,
+                  "spins": 999
+                },
+                {
+                  "reel": 3,
+                  "index": 0,
+                  "tileId": 10,
+                  "spins": 999
+                }
+              ],
+              "reelsBuffer": [
+                [
+                  [
+                    3,
+                    4,
+                    1,
+                    3,
+                    2
+                  ],
+                  [
+                    8,
+                    3,
+                    7,
+                    4
+                  ],
+                  [
+                    1,
+                    5,
+                    5,
+                    2,
+                    2
+                  ]
+                ],
+                [
+                  [
+                    3,
+                    7,
+                    2,
+                    2,
+                    5
+                  ],
+                  [
+                    4,
+                    6,
+                    3,
+                    4
+                  ],
+                  [
+                    7,
+                    8,
+                    1,
+                    8,
+                    2
+                  ]
+                ],
+                [
+                  [
+                    6,
+                    1,
+                    3,
+                    1,
+                    7
+                  ],
+                  [
+                    2,
+                    1,
+                    4,
+                    1
+                  ],
+                  [
+                    5,
+                    4,
+                    7,
+                    1,
+                    2
+                  ]
+                ],
+                [
+                  [
+                    1,
+                    6,
+                    4,
+                    4,
+                    5
+                  ],
+                  [
+                    10,
+                    2,
+                    1,
+                    9
+                  ],
+                  [
+                    2,
+                    2,
+                    10,
+                    10,
+                    3
+                  ]
+                ],
+                [
+                  [
+                    1,
+                    5,
+                    2,
+                    6,
+                    8
+                  ],
+                  [
+                    2,
+                    6,
+                    2,
+                    3
+                  ],
+                  [
+                    1,
+                    1,
+                    3,
+                    1,
+                    4
+                  ]
+                ]
+              ],
+              "features": [],
+              "gameMode": 0,
+              "hasState": true
+            },
+            "transactions": {
+              "roundId": 196213554
+            },
+            "user": {
+              "balance": {
+                "cash": {
+                  "atStart": "9994.00",
+                  "afterBet": "9992.00",
+                  "atEnd": "9992.00"
+                },
+                "freeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "bonus": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionCash": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionFreeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "capture": "games.evolution.com-case-closed_20261011_141226.har",
+    "rounds": [
+      {
+        "request": {
+          "stake": 2,
+          "extras": null,
+          "gameMode": 0,
+          "bonusId": null
+        },
+        "response": {
+          "success": true,
+          "result": {
+            "game": {
+              "win": {
+                "lines": "0.40",
+                "total": "0.40"
+              },
+              "winsMultipliers": {
+                "lines": "0.20",
+                "total": "0.20"
+              },
+              "stake": "2.00",
+              "multiplier": 1,
+              "winLines": [
+                {
+                  "index": 34,
+                  "start": 0,
+                  "length": 3,
+                  "tiles": [
+                    1,
+                    1,
+                    1,
+                    0,
+                    0
+                  ],
+                  "tile": 1,
+                  "multiplier": 1,
+                  "amount": "0.40",
+                  "multipliedAmount": "0.40"
+                }
+              ],
+              "spinMode": "Normal",
+              "suspects": [
+                {
+                  "multiplier": 5,
+                  "amount": "10.00",
+                  "reviewed": false
+                },
+                {
+                  "multiplier": 75,
+                  "amount": "150.00",
+                  "reviewed": false
+                },
+                {
+                  "multiplier": 250,
+                  "amount": "500.00",
+                  "reviewed": false
+                }
+              ],
+              "progress": {
+                "clue": {
+                  "current": 0,
+                  "next": 0,
+                  "max": 7
+                },
+                "research": {
+                  "current": 0,
+                  "next": 0,
+                  "target": {
+                    "current": 10,
+                    "next": 10
+                  }
+                },
+                "level": {
+                  "current": 0,
+                  "next": 0
+                }
+              },
+              "clueScatters": [],
+              "researchScatters": [],
+              "reelsBuffer": [
+                [
+                  [
+                    9,
+                    5,
+                    2,
+                    9
+                  ],
+                  [
+                    3,
+                    7,
+                    1,
+                    8
+                  ],
+                  [
+                    3,
+                    5,
+                    6,
+                    9
+                  ]
+                ],
+                [
+                  [
+                    3,
+                    1,
+                    2,
+                    3
+                  ],
+                  [
+                    1,
+                    5,
+                    2,
+                    9
+                  ],
+                  [
+                    6,
+                    8,
+                    7,
+                    6
+                  ]
+                ],
+                [
+                  [
+                    2,
+                    3,
+                    1,
+                    8
+                  ],
+                  [
+                    3,
+                    4,
+                    1,
+                    5
+                  ],
+                  [
+                    3,
+                    4,
+                    5,
+                    6
+                  ]
+                ],
+                [
+                  [
+                    2,
+                    4,
+                    1,
+                    6
+                  ],
+                  [
+                    8,
+                    7,
+                    2,
+                    5
+                  ],
+                  [
+                    9,
+                    2,
+                    5,
+                    4
+                  ]
+                ],
+                [
+                  [
+                    5,
+                    2,
+                    6,
+                    3
+                  ],
+                  [
+                    5,
+                    6,
+                    1,
+                    4
+                  ],
+                  [
+                    5,
+                    3,
+                    1,
+                    7
+                  ]
+                ]
+              ],
+              "features": [],
+              "gameMode": 0,
+              "hasState": true
+            },
+            "transactions": {
+              "roundId": 196213517
+            },
+            "user": {
+              "balance": {
+                "cash": {
+                  "atStart": "10000.00",
+                  "afterBet": "9998.00",
+                  "atEnd": "9998.40"
+                },
+                "freeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "bonus": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionCash": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionFreeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "stake": 2,
+          "extras": null,
+          "gameMode": 0,
+          "bonusId": null
+        },
+        "response": {
+          "success": true,
+          "result": {
+            "game": {
+              "win": {
+                "lines": "0.00",
+                "total": "0.00"
+              },
+              "winsMultipliers": {
+                "lines": "0.00",
+                "total": "0.00"
+              },
+              "stake": "2.00",
+              "multiplier": 1,
+              "winLines": [],
+              "spinMode": "Normal",
+              "suspects": [
+                {
+                  "multiplier": 10,
+                  "amount": "20.00",
+                  "reviewed": false
+                },
+                {
+                  "multiplier": 30,
+                  "amount": "60.00",
+                  "reviewed": false
+                },
+                {
+                  "multiplier": 150,
+                  "amount": "300.00",
+                  "reviewed": false
+                }
+              ],
+              "progress": {
+                "clue": {
+                  "current": 0,
+                  "next": 1,
+                  "max": 7
+                },
+                "research": {
+                  "current": 0,
+                  "next": 0,
+                  "target": {
+                    "current": 10,
+                    "next": 10
+                  }
+                },
+                "level": {
+                  "current": 0,
+                  "next": 0
+                }
+              },
+              "clueScatters": [
+                {
+                  "reel": 2,
+                  "index": 2,
+                  "tileId": 10
+                }
+              ],
+              "researchScatters": [],
+              "reelsBuffer": [
+                [
+                  [
+                    8,
+                    4,
+                    3,
+                    9
+                  ],
+                  [
+                    1,
+                    5,
+                    2,
+                    8
+                  ],
+                  [
+                    1,
+                    4,
+                    9,
+                    2
+                  ]
+                ],
+                [
+                  [
+                    8,
+                    4,
+                    1,
+                    2
+                  ],
+                  [
+                    4,
+                    3,
+                    1,
+                    2
+                  ],
+                  [
+                    3,
+                    1,
+                    5,
+                    2
+                  ]
+                ],
+                [
+                  [
+                    9,
+                    3,
+                    1,
+                    8
+                  ],
+                  [
+                    3,
+                    4,
+                    10,
+                    1
+                  ],
+                  [
+                    5,
+                    3,
+                    4,
+                    5
+                  ]
+                ],
+                [
+                  [
+                    4,
+                    3,
+                    5,
+                    2
+                  ],
+                  [
+                    3,
+                    1,
+                    7,
+                    6
+                  ],
+                  [
+                    1,
+                    9,
+                    7,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    4,
+                    6,
+                    5,
+                    7
+                  ],
+                  [
+                    8,
+                    3,
+                    1,
+                    4
+                  ],
+                  [
+                    2,
+                    6,
+                    4,
+                    2
+                  ]
+                ]
+              ],
+              "features": [],
+              "gameMode": 0,
+              "hasState": true
+            },
+            "transactions": {
+              "roundId": 196213521
+            },
+            "user": {
+              "balance": {
+                "cash": {
+                  "atStart": "9998.40",
+                  "afterBet": "9996.40",
+                  "atEnd": "9996.40"
+                },
+                "freeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "bonus": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionCash": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionFreeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "stake": 2,
+          "extras": null,
+          "gameMode": 0,
+          "bonusId": null
+        },
+        "response": {
+          "success": true,
+          "result": {
+            "game": {
+              "win": {
+                "lines": "2.00",
+                "total": "2.00"
+              },
+              "winsMultipliers": {
+                "lines": "1.00",
+                "total": "1.00"
+              },
+              "stake": "2.00",
+              "multiplier": 1,
+              "winLines": [
+                {
+                  "index": 3,
+                  "start": 0,
+                  "length": 3,
+                  "tiles": [
+                    1,
+                    1,
+                    1,
+                    0,
+                    0
+                  ],
+                  "tile": 3,
+                  "multiplier": 1,
+                  "amount": "0.40",
+                  "multipliedAmount": "0.40"
+                },
+                {
+                  "index": 23,
+                  "start": 0,
+                  "length": 3,
+                  "tiles": [
+                    1,
+                    1,
+                    1,
+                    0,
+                    0
+                  ],
+                  "tile": 1,
+                  "multiplier": 1,
+                  "amount": "0.40",
+                  "multipliedAmount": "0.40"
+                },
+                {
+                  "index": 28,
+                  "start": 0,
+                  "length": 3,
+                  "tiles": [
+                    1,
+                    1,
+                    1,
+                    0,
+                    0
+                  ],
+                  "tile": 1,
+                  "multiplier": 1,
+                  "amount": "0.40",
+                  "multipliedAmount": "0.40"
+                },
+                {
+                  "index": 32,
+                  "start": 0,
+                  "length": 3,
+                  "tiles": [
+                    1,
+                    1,
+                    1,
+                    0,
+                    0
+                  ],
+                  "tile": 3,
+                  "multiplier": 1,
+                  "amount": "0.40",
+                  "multipliedAmount": "0.40"
+                },
+                {
+                  "index": 48,
+                  "start": 0,
+                  "length": 3,
+                  "tiles": [
+                    1,
+                    1,
+                    1,
+                    0,
+                    0
+                  ],
+                  "tile": 3,
+                  "multiplier": 1,
+                  "amount": "0.40",
+                  "multipliedAmount": "0.40"
+                }
+              ],
+              "spinMode": "Normal",
+              "suspects": [
+                {
+                  "multiplier": 15,
+                  "amount": "30.00",
+                  "reviewed": false
+                },
+                {
+                  "multiplier": 25,
+                  "amount": "50.00",
+                  "reviewed": false
+                },
+                {
+                  "multiplier": 350,
+                  "amount": "700.00",
+                  "reviewed": false
+                }
+              ],
+              "progress": {
+                "clue": {
+                  "current": 1,
+                  "next": 1,
+                  "max": 7
+                },
+                "research": {
+                  "current": 0,
+                  "next": 0,
+                  "target": {
+                    "current": 10,
+                    "next": 10
+                  }
+                },
+                "level": {
+                  "current": 0,
+                  "next": 0
+                }
+              },
+              "clueScatters": [],
+              "researchScatters": [],
+              "reelsBuffer": [
+                [
+                  [
+                    5,
+                    3,
+                    4,
+                    2
+                  ],
+                  [
+                    3,
+                    4,
+                    1,
+                    3
+                  ],
+                  [
+                    5,
+                    4,
+                    9,
+                    6
+                  ]
+                ],
+                [
+                  [
+                    4,
+                    9,
+                    5,
+                    7
+                  ],
+                  [
+                    3,
+                    5,
+                    1,
+                    3
+                  ],
+                  [
+                    5,
+                    10,
+                    6,
+                    4
+                  ]
+                ],
+                [
+                  [
+                    5,
+                    9,
+                    1,
+                    2
+                  ],
+                  [
+                    5,
+                    1,
+                    2,
+                    3
+                  ],
+                  [
+                    1,
+                    8,
+                    3,
+                    4
+                  ]
+                ],
+                [
+                  [
+                    4,
+                    1,
+                    6,
+                    8
+                  ],
+                  [
+                    7,
+                    2,
+                    5,
+                    2
+                  ],
+                  [
+                    5,
+                    4,
+                    3,
+                    5
+                  ]
+                ],
+                [
+                  [
+                    3,
+                    1,
+                    7,
+                    9
+                  ],
+                  [
+                    2,
+                    1,
+                    4,
+                    2
+                  ],
+                  [
+                    1,
+                    7,
+                    8,
+                    3
+                  ]
+                ]
+              ],
+              "features": [],
+              "gameMode": 0,
+              "hasState": true
+            },
+            "transactions": {
+              "roundId": 196213522
+            },
+            "user": {
+              "balance": {
+                "cash": {
+                  "atStart": "9996.40",
+                  "afterBet": "9994.40",
+                  "atEnd": "9996.40"
+                },
+                "freeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "bonus": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionCash": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionFreeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "stake": 2,
+          "extras": null,
+          "gameMode": 0,
+          "bonusId": null
+        },
+        "response": {
+          "success": true,
+          "result": {
+            "game": {
+              "win": {
+                "lines": "1.20",
+                "total": "1.20"
+              },
+              "winsMultipliers": {
+                "lines": "0.60",
+                "total": "0.60"
+              },
+              "stake": "2.00",
+              "multiplier": 1,
+              "winLines": [
+                {
+                  "index": 2,
+                  "start": 0,
+                  "length": 2,
+                  "tiles": [
+                    1,
+                    1,
+                    0,
+                    0,
+                    0
+                  ],
+                  "tile": 8,
+                  "multiplier": 1,
+                  "amount": "0.20",
+                  "multipliedAmount": "0.20"
+                },
+                {
+                  "index": 23,
+                  "start": 0,
+                  "length": 2,
+                  "tiles": [
+                    1,
+                    1,
+                    0,
+                    0,
+                    0
+                  ],
+                  "tile": 8,
+                  "multiplier": 1,
+                  "amount": "0.20",
+                  "multipliedAmount": "0.20"
+                },
+                {
+                  "index": 28,
+                  "start": 0,
+                  "length": 2,
+                  "tiles": [
+                    1,
+                    1,
+                    0,
+                    0,
+                    0
+                  ],
+                  "tile": 8,
+                  "multiplier": 1,
+                  "amount": "0.20",
+                  "multipliedAmount": "0.20"
+                },
+                {
+                  "index": 45,
+                  "start": 0,
+                  "length": 2,
+                  "tiles": [
+                    1,
+                    1,
+                    0,
+                    0,
+                    0
+                  ],
+                  "tile": 8,
+                  "multiplier": 1,
+                  "amount": "0.20",
+                  "multipliedAmount": "0.20"
+                },
+                {
+                  "index": 46,
+                  "start": 0,
+                  "length": 2,
+                  "tiles": [
+                    1,
+                    1,
+                    0,
+                    0,
+                    0
+                  ],
+                  "tile": 8,
+                  "multiplier": 1,
+                  "amount": "0.20",
+                  "multipliedAmount": "0.20"
+                },
+                {
+                  "index": 49,
+                  "start": 0,
+                  "length": 2,
+                  "tiles": [
+                    1,
+                    1,
+                    0,
+                    0,
+                    0
+                  ],
+                  "tile": 8,
+                  "multiplier": 1,
+                  "amount": "0.20",
+                  "multipliedAmount": "0.20"
+                }
+              ],
+              "spinMode": "Normal",
+              "suspects": [
+                {
+                  "multiplier": 5,
+                  "amount": "10.00",
+                  "reviewed": false
+                },
+                {
+                  "multiplier": 30,
+                  "amount": "60.00",
+                  "reviewed": false
+                },
+                {
+                  "multiplier": 350,
+                  "amount": "700.00",
+                  "reviewed": false
+                }
+              ],
+              "progress": {
+                "clue": {
+                  "current": 1,
+                  "next": 1,
+                  "max": 7
+                },
+                "research": {
+                  "current": 0,
+                  "next": 0,
+                  "target": {
+                    "current": 10,
+                    "next": 10
+                  }
+                },
+                "level": {
+                  "current": 0,
+                  "next": 0
+                }
+              },
+              "clueScatters": [],
+              "researchScatters": [],
+              "reelsBuffer": [
+                [
+                  [
+                    1,
+                    3,
+                    5,
+                    4
+                  ],
+                  [
+                    9,
+                    6,
+                    8,
+                    5
+                  ],
+                  [
+                    2,
+                    8,
+                    7,
+                    2
+                  ]
+                ],
+                [
+                  [
+                    4,
+                    1,
+                    9,
+                    2
+                  ],
+                  [
+                    7,
+                    4,
+                    8,
+                    6
+                  ],
+                  [
+                    3,
+                    8,
+                    1,
+                    2
+                  ]
+                ],
+                [
+                  [
+                    1,
+                    2,
+                    11,
+                    6
+                  ],
+                  [
+                    4,
+                    9,
+                    7,
+                    2
+                  ],
+                  [
+                    4,
+                    9,
+                    7,
+                    4
+                  ]
+                ],
+                [
+                  [
+                    4,
+                    3,
+                    2,
+                    4
+                  ],
+                  [
+                    1,
+                    6,
+                    8,
+                    7
+                  ],
+                  [
+                    2,
+                    5,
+                    9,
+                    2
+                  ]
+                ],
+                [
+                  [
+                    4,
+                    2,
+                    1,
+                    7
+                  ],
+                  [
+                    8,
+                    3,
+                    4,
+                    2
+                  ],
+                  [
+                    1,
+                    5,
+                    2,
+                    3
+                  ]
+                ]
+              ],
+              "features": [],
+              "gameMode": 0,
+              "hasState": true
+            },
+            "transactions": {
+              "roundId": 196213523
+            },
+            "user": {
+              "balance": {
+                "cash": {
+                  "atStart": "9996.40",
+                  "afterBet": "9994.40",
+                  "atEnd": "9995.60"
+                },
+                "freeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "bonus": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionCash": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionFreeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "capture": "games.evolution.com-10001-nights_20261012_084523.har",
+    "rounds": [
+      {
+        "request": {
+          "stake": 2,
+          "extras": null,
+          "gameMode": 0,
+          "bonusId": null
+        },
+        "response": {
+          "success": true,
+          "result": {
+            "game": {
+              "win": {
+                "lines": "1.60",
+                "total": "1.60"
+              },
+              "winsMultipliers": {
+                "lines": "0.80",
+                "total": "0.80"
+              },
+              "stake": "2.00",
+              "multiplier": 1,
+              "winLines": [
+                {
+                  "index": 0,
+                  "start": 0,
+                  "length": 3,
+                  "tiles": [
+                    1,
+                    1,
+                    1,
+                    0,
+                    0
+                  ],
+                  "tile": 2,
+                  "multiplier": 1,
+                  "amount": "0.80",
+                  "multipliedAmount": "0.80"
+                },
+                {
+                  "index": 16,
+                  "start": 0,
+                  "length": 3,
+                  "tiles": [
+                    1,
+                    1,
+                    1,
+                    0,
+                    0
+                  ],
+                  "tile": 2,
+                  "multiplier": 1,
+                  "amount": "0.80",
+                  "multipliedAmount": "0.80"
+                }
+              ],
+              "mandatoryFeature": false,
+              "scatters": [],
+              "specialTiles": [],
+              "unlock": null,
+              "progress": {
+                "current": 0,
+                "previous": 0,
+                "next": 6,
+                "active": []
+              },
+              "reelsBuffer": [
+                [
+                  [
+                    1,
+                    2,
+                    3,
+                    1,
+                    4,
+                    7,
+                    6,
+                    2,
+                    5,
+                    4
+                  ],
+                  [
+                    2,
+                    1,
+                    8,
+                    1
+                  ],
+                  [
+                    2,
+                    8,
+                    8,
+                    5,
+                    3,
+                    6,
+                    3,
+                    1,
+                    2,
+                    4
+                  ]
+                ],
+                [
+                  [
+                    7,
+                    2,
+                    3,
+                    1,
+                    4,
+                    9,
+                    6,
+                    1,
+                    8,
+                    3
+                  ],
+                  [
+                    2,
+                    4,
+                    3,
+                    5
+                  ],
+                  [
+                    9,
+                    4,
+                    5,
+                    6,
+                    5,
+                    9,
+                    7,
+                    6,
+                    7,
+                    2
+                  ]
+                ],
+                [
+                  [
+                    4,
+                    1,
+                    4,
+                    3,
+                    3,
+                    2,
+                    7,
+                    4,
+                    7,
+                    6
+                  ],
+                  [
+                    2,
+                    2,
+                    2,
+                    1
+                  ],
+                  [
+                    4,
+                    2,
+                    9,
+                    9,
+                    3,
+                    1,
+                    4,
+                    3,
+                    5,
+                    4
+                  ]
+                ],
+                [
+                  [
+                    1,
+                    4,
+                    1,
+                    2,
+                    7,
+                    3,
+                    8,
+                    1,
+                    3,
+                    8
+                  ],
+                  [
+                    4,
+                    2,
+                    7,
+                    8
+                  ],
+                  [
+                    5,
+                    2,
+                    6,
+                    6,
+                    8,
+                    2,
+                    4,
+                    1,
+                    3,
+                    4
+                  ]
+                ],
+                [
+                  [
+                    5,
+                    6,
+                    8,
+                    9,
+                    2,
+                    6,
+                    8,
+                    2,
+                    2,
+                    2
+                  ],
+                  [
+                    3,
+                    3,
+                    8,
+                    8
+                  ],
+                  [
+                    8,
+                    3,
+                    2,
+                    6,
+                    3,
+                    3,
+                    3,
+                    7,
+                    2,
+                    1
+                  ]
+                ]
+              ],
+              "features": [],
+              "gameMode": 0,
+              "hasState": true
+            },
+            "transactions": {
+              "roundId": 196389698
+            },
+            "user": {
+              "balance": {
+                "cash": {
+                  "atStart": "10000.00",
+                  "afterBet": "9998.00",
+                  "atEnd": "9999.60"
+                },
+                "freeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "bonus": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionCash": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionFreeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "stake": 2,
+          "extras": null,
+          "gameMode": 0,
+          "bonusId": null
+        },
+        "response": {
+          "success": true,
+          "result": {
+            "game": {
+              "win": {
+                "lines": "0.00",
+                "respin": "0.00",
+                "total": "0.00"
+              },
+              "winsMultipliers": {
+                "lines": "0.00",
+                "respin": "0.00",
+                "total": "0.00"
+              },
+              "stake": "2.00",
+              "multiplier": 1,
+              "winLines": [],
+              "mandatoryFeature": false,
+              "chainReactor": {
+                "destroy": [
+                  {
+                    "reel": 4,
+                    "index": 2,
+                    "tile": 10
+                  }
+                ],
+                "drop": [
+                  {
+                    "reel": 4,
+                    "index": 1,
+                    "tile": 8,
+                    "to": {
+                      "reel": 4,
+                      "index": 2
+                    }
+                  },
+                  {
+                    "reel": 4,
+                    "index": 0,
+                    "tile": 8,
+                    "to": {
+                      "reel": 4,
+                      "index": 1
+                    }
+                  }
+                ],
+                "lock": [
+                  {
+                    "reel": 0,
+                    "index": 0,
+                    "tile": 2
+                  },
+                  {
+                    "reel": 0,
+                    "index": 1,
+                    "tile": 8
+                  },
+                  {
+                    "reel": 0,
+                    "index": 2,
+                    "tile": 1
+                  },
+                  {
+                    "reel": 0,
+                    "index": 3,
+                    "tile": 3
+                  },
+                  {
+                    "reel": 1,
+                    "index": 0,
+                    "tile": 2
+                  },
+                  {
+                    "reel": 1,
+                    "index": 1,
+                    "tile": 3
+                  },
+                  {
+                    "reel": 1,
+                    "index": 2,
+                    "tile": 9
+                  },
+                  {
+                    "reel": 1,
+                    "index": 3,
+                    "tile": 6
+                  },
+                  {
+                    "reel": 2,
+                    "index": 0,
+                    "tile": 8
+                  },
+                  {
+                    "reel": 2,
+                    "index": 1,
+                    "tile": 3
+                  },
+                  {
+                    "reel": 2,
+                    "index": 2,
+                    "tile": 6
+                  },
+                  {
+                    "reel": 2,
+                    "index": 3,
+                    "tile": 2
+                  },
+                  {
+                    "reel": 3,
+                    "index": 0,
+                    "tile": 4
+                  },
+                  {
+                    "reel": 3,
+                    "index": 1,
+                    "tile": 2
+                  },
+                  {
+                    "reel": 3,
+                    "index": 2,
+                    "tile": 9
+                  },
+                  {
+                    "reel": 3,
+                    "index": 3,
+                    "tile": 5
+                  },
+                  {
+                    "reel": 4,
+                    "index": 1,
+                    "tile": 8
+                  },
+                  {
+                    "reel": 4,
+                    "index": 2,
+                    "tile": 8
+                  },
+                  {
+                    "reel": 4,
+                    "index": 3,
+                    "tile": 3
+                  }
+                ],
+                "screen": [
+                  [
+                    2,
+                    8,
+                    1,
+                    3
+                  ],
+                  [
+                    2,
+                    3,
+                    9,
+                    6
+                  ],
+                  [
+                    8,
+                    3,
+                    6,
+                    2
+                  ],
+                  [
+                    4,
+                    2,
+                    9,
+                    5
+                  ],
+                  [
+                    null,
+                    8,
+                    8,
+                    3
+                  ]
+                ]
+              },
+              "respin": [
+                {
+                  "win": {
+                    "lines": "0.00",
+                    "total": "0.00"
+                  },
+                  "winsMultipliers": {
+                    "lines": "0.00",
+                    "total": "0.00"
+                  },
+                  "stake": "2.00",
+                  "multiplier": 1,
+                  "winLines": [],
+                  "mandatoryFeature": false,
+                  "scatters": [],
+                  "specialTiles": [],
+                  "unlock": null,
+                  "progress": {
+                    "current": 1,
+                    "previous": 0,
+                    "next": 6,
+                    "active": []
+                  },
+                  "reelsBuffer": [
+                    [
+                      [
+                        3,
+                        5,
+                        7,
+                        5,
+                        1,
+                        4,
+                        6,
+                        1,
+                        6,
+                        6
+                      ],
+                      [
+                        2,
+                        8,
+                        1,
+                        3
+                      ],
+                      [
+                        6,
+                        6,
+                        5,
+                        6,
+                        4,
+                        3,
+                        6,
+                        4,
+                        9,
+                        6
+                      ]
+                    ],
+                    [
+                      [
+                        3,
+                        1,
+                        2,
+                        6,
+                        6,
+                        6,
+                        6,
+                        4,
+                        4,
+                        2
+                      ],
+                      [
+                        2,
+                        3,
+                        9,
+                        6
+                      ],
+                      [
+                        1,
+                        4,
+                        7,
+                        6,
+                        6,
+                        2,
+                        8,
+                        6,
+                        2,
+                        9
+                      ]
+                    ],
+                    [
+                      [
+                        4,
+                        6,
+                        3,
+                        1,
+                        1,
+                        5,
+                        6,
+                        6,
+                        1,
+                        3
+                      ],
+                      [
+                        8,
+                        3,
+                        6,
+                        2
+                      ],
+                      [
+                        3,
+                        3,
+                        7,
+                        1,
+                        5,
+                        8,
+                        4,
+                        6,
+                        7,
+                        5
+                      ]
+                    ],
+                    [
+                      [
+                        8,
+                        7,
+                        1,
+                        4,
+                        8,
+                        6,
+                        6,
+                        6,
+                        6,
+                        6
+                      ],
+                      [
+                        4,
+                        2,
+                        9,
+                        5
+                      ],
+                      [
+                        6,
+                        6,
+                        5,
+                        8,
+                        4,
+                        2,
+                        9,
+                        3,
+                        5,
+                        3
+                      ]
+                    ],
+                    [
+                      [
+                        7,
+                        4,
+                        3,
+                        6,
+                        7,
+                        6,
+                        5,
+                        6,
+                        3,
+                        2
+                      ],
+                      [
+                        9,
+                        8,
+                        8,
+                        3
+                      ],
+                      [
+                        3,
+                        9,
+                        1,
+                        6,
+                        9,
+                        6,
+                        6,
+                        1,
+                        6,
+                        2
+                      ]
+                    ]
+                  ]
+                }
+              ],
+              "scatters": [],
+              "specialTiles": [
+                {
+                  "reel": 4,
+                  "index": 2,
+                  "tileId": 10
+                }
+              ],
+              "unlock": null,
+              "progress": {
+                "current": 1,
+                "previous": 0,
+                "next": 6,
+                "active": []
+              },
+              "reelsBuffer": [
+                [
+                  [
+                    2,
+                    1,
+                    6,
+                    8,
+                    8,
+                    5,
+                    4,
+                    2,
+                    4,
+                    6
+                  ],
+                  [
+                    2,
+                    8,
+                    1,
+                    3
+                  ],
+                  [
+                    9,
+                    5,
+                    5,
+                    7,
+                    1,
+                    3,
+                    3,
+                    7,
+                    4,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    3,
+                    7,
+                    8,
+                    8,
+                    1,
+                    4,
+                    2,
+                    4,
+                    1,
+                    5
+                  ],
+                  [
+                    2,
+                    3,
+                    9,
+                    6
+                  ],
+                  [
+                    9,
+                    9,
+                    5,
+                    6,
+                    3,
+                    1,
+                    2,
+                    8,
+                    1,
+                    8
+                  ]
+                ],
+                [
+                  [
+                    7,
+                    8,
+                    5,
+                    8,
+                    9,
+                    9,
+                    8,
+                    6,
+                    1,
+                    8
+                  ],
+                  [
+                    8,
+                    3,
+                    6,
+                    2
+                  ],
+                  [
+                    1,
+                    4,
+                    8,
+                    3,
+                    9,
+                    8,
+                    7,
+                    2,
+                    6,
+                    8
+                  ]
+                ],
+                [
+                  [
+                    5,
+                    6,
+                    1,
+                    5,
+                    8,
+                    8,
+                    3,
+                    8,
+                    4,
+                    8
+                  ],
+                  [
+                    4,
+                    2,
+                    9,
+                    5
+                  ],
+                  [
+                    8,
+                    7,
+                    9,
+                    2,
+                    8,
+                    7,
+                    8,
+                    3,
+                    3,
+                    2
+                  ]
+                ],
+                [
+                  [
+                    3,
+                    8,
+                    2,
+                    4,
+                    2,
+                    1,
+                    8,
+                    8,
+                    8,
+                    4
+                  ],
+                  [
+                    8,
+                    8,
+                    10,
+                    3
+                  ],
+                  [
+                    4,
+                    4,
+                    3,
+                    5,
+                    8,
+                    2,
+                    4,
+                    4,
+                    7,
+                    8
+                  ]
+                ]
+              ],
+              "features": [],
+              "gameMode": 0,
+              "hasState": true
+            },
+            "transactions": {
+              "roundId": 196389706
+            },
+            "user": {
+              "balance": {
+                "cash": {
+                  "atStart": "9999.60",
+                  "afterBet": "9997.60",
+                  "atEnd": "9997.60"
+                },
+                "freeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "bonus": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionCash": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionFreeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "stake": 2,
+          "extras": null,
+          "gameMode": 0,
+          "bonusId": null
+        },
+        "response": {
+          "success": true,
+          "result": {
+            "game": {
+              "win": {
+                "lines": "4.60",
+                "total": "4.60"
+              },
+              "winsMultipliers": {
+                "lines": "2.30",
+                "total": "2.30"
+              },
+              "stake": "2.00",
+              "multiplier": 1,
+              "winLines": [
+                {
+                  "index": 7,
+                  "start": 0,
+                  "length": 5,
+                  "tiles": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                  ],
+                  "tile": 2,
+                  "multiplier": 1,
+                  "amount": "3.00",
+                  "multipliedAmount": "3.00"
+                },
+                {
+                  "index": 16,
+                  "start": 0,
+                  "length": 4,
+                  "tiles": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    0
+                  ],
+                  "tile": 2,
+                  "multiplier": 1,
+                  "amount": "1.60",
+                  "multipliedAmount": "1.60"
+                }
+              ],
+              "mandatoryFeature": false,
+              "scatters": [],
+              "specialTiles": [],
+              "unlock": null,
+              "progress": {
+                "current": 1,
+                "previous": 0,
+                "next": 6,
+                "active": []
+              },
+              "reelsBuffer": [
+                [
+                  [
+                    1,
+                    4,
+                    1,
+                    9,
+                    4,
+                    6,
+                    7,
+                    1,
+                    9,
+                    8
+                  ],
+                  [
+                    2,
+                    2,
+                    2,
+                    3
+                  ],
+                  [
+                    2,
+                    6,
+                    8,
+                    5,
+                    2,
+                    3,
+                    2,
+                    3,
+                    6,
+                    2
+                  ]
+                ],
+                [
+                  [
+                    4,
+                    3,
+                    6,
+                    6,
+                    1,
+                    2,
+                    8,
+                    2,
+                    1,
+                    2
+                  ],
+                  [
+                    2,
+                    6,
+                    1,
+                    2
+                  ],
+                  [
+                    2,
+                    9,
+                    2,
+                    9,
+                    5,
+                    4,
+                    1,
+                    2,
+                    9,
+                    3
+                  ]
+                ],
+                [
+                  [
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    4,
+                    8,
+                    1,
+                    9,
+                    7
+                  ],
+                  [
+                    7,
+                    2,
+                    7,
+                    1
+                  ],
+                  [
+                    7,
+                    6,
+                    4,
+                    8,
+                    1,
+                    2,
+                    2,
+                    2,
+                    8,
+                    5
+                  ]
+                ],
+                [
+                  [
+                    6,
+                    2,
+                    2,
+                    2,
+                    9,
+                    7,
+                    2,
+                    4,
+                    5,
+                    3
+                  ],
+                  [
+                    2,
+                    9,
+                    2,
+                    2
+                  ],
+                  [
+                    6,
+                    2,
+                    9,
+                    2,
+                    2,
+                    3,
+                    1,
+                    2,
+                    4,
+                    3
+                  ]
+                ],
+                [
+                  [
+                    1,
+                    3,
+                    13,
+                    2,
+                    4,
+                    2,
+                    4,
+                    2,
+                    2,
+                    5
+                  ],
+                  [
+                    3,
+                    2,
+                    5,
+                    2
+                  ],
+                  [
+                    3,
+                    7,
+                    7,
+                    9,
+                    2,
+                    6,
+                    2,
+                    6,
+                    2,
+                    2
+                  ]
+                ]
+              ],
+              "features": [],
+              "gameMode": 0,
+              "hasState": true
+            },
+            "transactions": {
+              "roundId": 196389714
+            },
+            "user": {
+              "balance": {
+                "cash": {
+                  "atStart": "9997.60",
+                  "afterBet": "9995.60",
+                  "atEnd": "10000.20"
+                },
+                "freeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "bonus": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionCash": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionFreeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "capture": "games.evolution.com-10001-nights_20261012_084328.har",
+    "rounds": [
+      {
+        "request": {
+          "stake": 2,
+          "extras": null,
+          "gameMode": 0,
+          "bonusId": null
+        },
+        "response": {
+          "success": true,
+          "result": {
+            "game": {
+              "win": {
+                "lines": "0.80",
+                "total": "0.80"
+              },
+              "winsMultipliers": {
+                "lines": "0.40",
+                "total": "0.40"
+              },
+              "stake": "2.00",
+              "multiplier": 1,
+              "winLines": [
+                {
+                  "index": 6,
+                  "start": 0,
+                  "length": 3,
+                  "tiles": [
+                    1,
+                    1,
+                    1,
+                    0,
+                    0
+                  ],
+                  "tile": 2,
+                  "multiplier": 1,
+                  "amount": "0.80",
+                  "multipliedAmount": "0.80"
+                }
+              ],
+              "mandatoryFeature": false,
+              "scatters": [],
+              "specialTiles": [],
+              "unlock": null,
+              "progress": {
+                "current": 0,
+                "previous": 0,
+                "next": 6,
+                "active": []
+              },
+              "reelsBuffer": [
+                [
+                  [
+                    5,
+                    3,
+                    1,
+                    2,
+                    3,
+                    1,
+                    4,
+                    7,
+                    6,
+                    2
+                  ],
+                  [
+                    5,
+                    4,
+                    2,
+                    1
+                  ],
+                  [
+                    8,
+                    1,
+                    2,
+                    8,
+                    8,
+                    5,
+                    3,
+                    6,
+                    3,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    1,
+                    8,
+                    1,
+                    4,
+                    1,
+                    1,
+                    4,
+                    5,
+                    4,
+                    1
+                  ],
+                  [
+                    3,
+                    5,
+                    3,
+                    2
+                  ],
+                  [
+                    7,
+                    2,
+                    3,
+                    8,
+                    5,
+                    4,
+                    8,
+                    7,
+                    3,
+                    4
+                  ]
+                ],
+                [
+                  [
+                    9,
+                    7,
+                    2,
+                    4,
+                    1,
+                    4,
+                    7,
+                    6,
+                    3,
+                    3
+                  ],
+                  [
+                    1,
+                    7,
+                    2,
+                    4
+                  ],
+                  [
+                    3,
+                    7,
+                    8,
+                    8,
+                    3,
+                    3,
+                    1,
+                    3,
+                    6,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    9,
+                    8,
+                    9,
+                    4,
+                    5,
+                    2,
+                    2,
+                    1,
+                    5,
+                    4
+                  ],
+                  [
+                    8,
+                    8,
+                    3,
+                    5
+                  ],
+                  [
+                    4,
+                    9,
+                    7,
+                    1,
+                    7,
+                    1,
+                    5,
+                    8,
+                    5,
+                    3
+                  ]
+                ],
+                [
+                  [
+                    3,
+                    5,
+                    6,
+                    8,
+                    2,
+                    5,
+                    1,
+                    7,
+                    2,
+                    4
+                  ],
+                  [
+                    9,
+                    6,
+                    4,
+                    4
+                  ],
+                  [
+                    6,
+                    5,
+                    9,
+                    3,
+                    3,
+                    2,
+                    2,
+                    3,
+                    2,
+                    5
+                  ]
+                ]
+              ],
+              "features": [],
+              "gameMode": 0,
+              "hasState": true
+            },
+            "transactions": {
+              "roundId": 196389628
+            },
+            "user": {
+              "balance": {
+                "cash": {
+                  "atStart": "10000.00",
+                  "afterBet": "9998.00",
+                  "atEnd": "9998.80"
+                },
+                "freeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "bonus": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionCash": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionFreeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "stake": 2,
+          "extras": null,
+          "gameMode": 0,
+          "bonusId": null
+        },
+        "response": {
+          "success": true,
+          "result": {
+            "game": {
+              "win": {
+                "lines": "0.00",
+                "total": "0.00"
+              },
+              "winsMultipliers": {
+                "lines": "0.00",
+                "total": "0.00"
+              },
+              "stake": "2.00",
+              "multiplier": 1,
+              "winLines": [],
+              "mandatoryFeature": false,
+              "scatters": [
+                {
+                  "reel": 0,
+                  "index": 0,
+                  "tileId": 13
+                }
+              ],
+              "specialTiles": [],
+              "unlock": null,
+              "progress": {
+                "current": 0,
+                "previous": 0,
+                "next": 6,
+                "active": []
+              },
+              "reelsBuffer": [
+                [
+                  [
+                    2,
+                    7,
+                    4,
+                    1,
+                    5,
+                    1,
+                    9,
+                    4,
+                    1,
+                    6
+                  ],
+                  [
+                    13,
+                    8,
+                    4,
+                    7
+                  ],
+                  [
+                    7,
+                    2,
+                    7,
+                    5,
+                    9,
+                    4,
+                    3,
+                    5,
+                    7,
+                    9
+                  ]
+                ],
+                [
+                  [
+                    2,
+                    1,
+                    3,
+                    2,
+                    1,
+                    2,
+                    2,
+                    3,
+                    8,
+                    5
+                  ],
+                  [
+                    6,
+                    2,
+                    9,
+                    1
+                  ],
+                  [
+                    6,
+                    3,
+                    4,
+                    8,
+                    4,
+                    7,
+                    3,
+                    6,
+                    8,
+                    3
+                  ]
+                ],
+                [
+                  [
+                    6,
+                    3,
+                    3,
+                    1,
+                    7,
+                    2,
+                    4,
+                    3,
+                    7,
+                    8
+                  ],
+                  [
+                    8,
+                    3,
+                    3,
+                    1
+                  ],
+                  [
+                    3,
+                    6,
+                    1,
+                    1,
+                    5,
+                    2,
+                    5,
+                    5,
+                    2,
+                    6
+                  ]
+                ],
+                [
+                  [
+                    1,
+                    5,
+                    3,
+                    9,
+                    1,
+                    3,
+                    8,
+                    7,
+                    4,
+                    7
+                  ],
+                  [
+                    9,
+                    6,
+                    2,
+                    4
+                  ],
+                  [
+                    1,
+                    9,
+                    6,
+                    5,
+                    7,
+                    3,
+                    8,
+                    1,
+                    6,
+                    6
+                  ]
+                ],
+                [
+                  [
+                    7,
+                    7,
+                    7,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    2,
+                    4
+                  ],
+                  [
+                    6,
+                    7,
+                    7,
+                    1
+                  ],
+                  [
+                    4,
+                    3,
+                    7,
+                    4,
+                    9,
+                    1,
+                    8,
+                    2,
+                    8,
+                    9
+                  ]
+                ]
+              ],
+              "features": [],
+              "gameMode": 0,
+              "hasState": true
+            },
+            "transactions": {
+              "roundId": 196389632
+            },
+            "user": {
+              "balance": {
+                "cash": {
+                  "atStart": "9998.80",
+                  "afterBet": "9996.80",
+                  "atEnd": "9996.80"
+                },
+                "freeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "bonus": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionCash": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionFreeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "stake": 2,
+          "extras": null,
+          "gameMode": 0,
+          "bonusId": null
+        },
+        "response": {
+          "success": true,
+          "result": {
+            "game": {
+              "win": {
+                "lines": "1.60",
+                "total": "1.60"
+              },
+              "winsMultipliers": {
+                "lines": "0.80",
+                "total": "0.80"
+              },
+              "stake": "2.00",
+              "multiplier": 1,
+              "winLines": [
+                {
+                  "index": 18,
+                  "start": 0,
+                  "length": 4,
+                  "tiles": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    0
+                  ],
+                  "tile": 2,
+                  "multiplier": 1,
+                  "amount": "1.60",
+                  "multipliedAmount": "1.60"
+                }
+              ],
+              "mandatoryFeature": false,
+              "scatters": [],
+              "specialTiles": [],
+              "unlock": null,
+              "progress": {
+                "current": 0,
+                "previous": 0,
+                "next": 6,
+                "active": []
+              },
+              "reelsBuffer": [
+                [
+                  [
+                    6,
+                    2,
+                    7,
+                    3,
+                    2,
+                    2,
+                    2,
+                    6,
+                    2,
+                    2
+                  ],
+                  [
+                    2,
+                    3,
+                    2,
+                    7
+                  ],
+                  [
+                    1,
+                    5,
+                    6,
+                    8,
+                    9,
+                    8,
+                    1,
+                    4,
+                    5,
+                    5
+                  ]
+                ],
+                [
+                  [
+                    2,
+                    2,
+                    8,
+                    1,
+                    7,
+                    2,
+                    5,
+                    2,
+                    1,
+                    4
+                  ],
+                  [
+                    6,
+                    7,
+                    2,
+                    2
+                  ],
+                  [
+                    2,
+                    2,
+                    5,
+                    3,
+                    2,
+                    2,
+                    6,
+                    2,
+                    5,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    7,
+                    6,
+                    4,
+                    8,
+                    1,
+                    2,
+                    2,
+                    2,
+                    8,
+                    5
+                  ],
+                  [
+                    5,
+                    2,
+                    3,
+                    4
+                  ],
+                  [
+                    2,
+                    2,
+                    1,
+                    1,
+                    7,
+                    3,
+                    3,
+                    8,
+                    3,
+                    3
+                  ]
+                ],
+                [
+                  [
+                    7,
+                    8,
+                    4,
+                    2,
+                    2,
+                    2,
+                    4,
+                    6,
+                    2,
+                    2
+                  ],
+                  [
+                    2,
+                    9,
+                    7,
+                    2
+                  ],
+                  [
+                    4,
+                    5,
+                    3,
+                    2,
+                    9,
+                    2,
+                    2,
+                    6,
+                    2,
+                    9
+                  ]
+                ],
+                [
+                  [
+                    6,
+                    2,
+                    2,
+                    3,
+                    8,
+                    5,
+                    4,
+                    7,
+                    2,
+                    1
+                  ],
+                  [
+                    6,
+                    2,
+                    1,
+                    2
+                  ],
+                  [
+                    4,
+                    6,
+                    8,
+                    5,
+                    2,
+                    9,
+                    2,
+                    2,
+                    1,
+                    2
+                  ]
+                ]
+              ],
+              "features": [],
+              "gameMode": 0,
+              "hasState": true
+            },
+            "transactions": {
+              "roundId": 196389637
+            },
+            "user": {
+              "balance": {
+                "cash": {
+                  "atStart": "9996.80",
+                  "afterBet": "9994.80",
+                  "atEnd": "9996.40"
+                },
+                "freeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "bonus": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionCash": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionFreeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "capture": "games.evolution.com-ali-babas-luck-megaways_20261012_101006.har",
+    "rounds": [
+      {
+        "request": {
+          "stake": 2,
+          "extras": null,
+          "gameMode": 0,
+          "bonusId": null
+        },
+        "response": {
+          "success": true,
+          "result": {
+            "game": {
+              "win": {
+                "total": "0.20",
+                "winMul": "0.10",
+                "stake": "2.00"
+              },
+              "nsp": {
+                "stake": 2,
+                "reels": [
+                  [
+                    "Q",
+                    "A",
+                    "T",
+                    "K",
+                    "J",
+                    "Q",
+                    "A",
+                    "T",
+                    "K",
+                    "Y",
+                    "J",
+                    "A",
+                    "X",
+                    "P",
+                    "K"
+                  ],
+                  [
+                    "X",
+                    "A",
+                    "J",
+                    "T",
+                    "Q",
+                    "P"
+                  ],
+                  [
+                    "Y",
+                    "J",
+                    "A",
+                    "T",
+                    "K",
+                    "Q",
+                    "J",
+                    "A",
+                    "T"
+                  ],
+                  [
+                    "Z",
+                    "Q",
+                    "T",
+                    "A",
+                    "J",
+                    "K",
+                    "Q",
+                    "Y",
+                    "T"
+                  ],
+                  [
+                    "Z",
+                    "X",
+                    "P",
+                    "Q",
+                    "A",
+                    "Y",
+                    "T",
+                    "X",
+                    "Q",
+                    "A",
+                    "P",
+                    "S"
+                  ],
+                  [
+                    "A",
+                    "X",
+                    "P",
+                    "Q",
+                    "T",
+                    "A",
+                    "Z",
+                    "X",
+                    "Y"
+                  ]
+                ],
+                "multiWays": [
+                  {
+                    "winMul": "0.10",
+                    "winning": "0.20",
+                    "cells": [
+                      {
+                        "3": 7
+                      },
+                      {
+                        "2": 3
+                      },
+                      {
+                        "1": 3
+                      }
+                    ],
+                    "ways": 1,
+                    "symbol": "T"
+                  }
+                ],
+                "multiplier": 1,
+                "winMul": "0.10",
+                "winning": "0.20",
+                "expandable_symbols": {
+                  "L": 1
+                },
+                "spinning": {
+                  "nearMiss": false
+                }
+              },
+              "hasState": true
+            },
+            "transactions": {
+              "roundId": 196394993
+            },
+            "user": {
+              "balance": {
+                "cash": {
+                  "atStart": "10000.00",
+                  "afterBet": "9998.00",
+                  "atEnd": "9998.20"
+                },
+                "freeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "bonus": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionCash": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionFreeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "stake": 2,
+          "extras": null,
+          "gameMode": 0,
+          "bonusId": null
+        },
+        "response": {
+          "success": true,
+          "result": {
+            "game": {
+              "win": {
+                "total": "12.00",
+                "winMul": "6.00",
+                "stake": "2.00"
+              },
+              "nsp": {
+                "stake": 2,
+                "reels": [
+                  [
+                    "L",
+                    "X",
+                    "J",
+                    "K",
+                    "Q",
+                    "L",
+                    "X",
+                    "J",
+                    "K",
+                    "Q",
+                    "L",
+                    "A",
+                    "J",
+                    "K",
+                    "Q"
+                  ],
+                  [
+                    "Q",
+                    "P",
+                    "K",
+                    "L",
+                    "Y",
+                    "Q",
+                    "S",
+                    "K",
+                    "L"
+                  ],
+                  [
+                    "S",
+                    "J",
+                    "Z",
+                    "A",
+                    "P",
+                    "Y",
+                    "J",
+                    "Z",
+                    "A"
+                  ],
+                  [
+                    "K",
+                    "J",
+                    "Z",
+                    "Q",
+                    "A",
+                    "K",
+                    "J",
+                    "Z",
+                    "Q"
+                  ],
+                  [
+                    "A",
+                    "X",
+                    "K",
+                    "P",
+                    "Y",
+                    "A"
+                  ],
+                  [
+                    "A",
+                    "X",
+                    "Q",
+                    "J",
+                    "L",
+                    "A",
+                    "X",
+                    "Q",
+                    "J",
+                    "L",
+                    "A",
+                    "X"
+                  ]
+                ],
+                "multiWays": [],
+                "multiplier": 1,
+                "winMul": "0.00",
+                "winning": "0.00",
+                "expand": [
+                  {
+                    "overlay": [
+                      [
+                        " ",
+                        " ",
+                        " ",
+                        " ",
+                        " ",
+                        "L",
+                        "L",
+                        "L",
+                        "L",
+                        "L",
+                        " ",
+                        " ",
+                        " ",
+                        " ",
+                        " "
+                      ],
+                      [
+                        " ",
+                        " ",
+                        " ",
+                        "L",
+                        "L",
+                        "L",
+                        " ",
+                        " ",
+                        " "
+                      ],
+                      [
+                        " ",
+                        " ",
+                        " ",
+                        " ",
+                        " ",
+                        " ",
+                        " ",
+                        " ",
+                        " "
+                      ],
+                      [
+                        " ",
+                        " ",
+                        " ",
+                        " ",
+                        " ",
+                        " ",
+                        " ",
+                        " ",
+                        " "
+                      ],
+                      [
+                        " ",
+                        " ",
+                        " ",
+                        " ",
+                        " ",
+                        " "
+                      ],
+                      [
+                        " ",
+                        " ",
+                        " ",
+                        " ",
+                        "L",
+                        "L",
+                        "L",
+                        "L",
+                        " ",
+                        " ",
+                        " ",
+                        " "
+                      ]
+                    ],
+                    "win": {
+                      "count": 3,
+                      "winMul": "6.00",
+                      "multiplier": 1,
+                      "ways": 60,
+                      "winning": "12.00",
+                      "symbol": "L"
+                    },
+                    "symbol": "L"
+                  }
+                ],
+                "expandable_symbols": [],
+                "spinning": {
+                  "nearMiss": false
+                }
+              },
+              "hasState": true
+            },
+            "transactions": {
+              "roundId": 196394994
+            },
+            "user": {
+              "balance": {
+                "cash": {
+                  "atStart": "9998.20",
+                  "afterBet": "9996.20",
+                  "atEnd": "10008.20"
+                },
+                "freeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "bonus": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionCash": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionFreeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "stake": 2,
+          "extras": null,
+          "gameMode": 0,
+          "bonusId": null
+        },
+        "response": {
+          "success": true,
+          "result": {
+            "game": {
+              "win": {
+                "total": "10.00",
+                "winMul": "5.00",
+                "stake": "2.00"
+              },
+              "nsp": {
+                "stake": 2,
+                "reels": [
+                  [
+                    "Q",
+                    "J",
+                    "Z",
+                    "T",
+                    "Y",
+                    "K"
+                  ],
+                  [
+                    "T",
+                    "Q",
+                    "P",
+                    "K",
+                    "J",
+                    "Z",
+                    "Q",
+                    "T",
+                    "A",
+                    "P",
+                    "J",
+                    "Q",
+                    "T",
+                    "K",
+                    "A"
+                  ],
+                  [
+                    "P",
+                    "T",
+                    "X",
+                    "Z",
+                    "A",
+                    "K"
+                  ],
+                  [
+                    "K",
+                    "Q",
+                    "Y",
+                    "T",
+                    "A",
+                    "Z",
+                    "K",
+                    "Q",
+                    "T"
+                  ],
+                  [
+                    "Z",
+                    "T",
+                    "X",
+                    "J",
+                    "P",
+                    "A",
+                    "Q",
+                    "T",
+                    "K"
+                  ],
+                  [
+                    "Q",
+                    "J",
+                    "K",
+                    "T",
+                    "P",
+                    "Y",
+                    "Q",
+                    "J",
+                    "K",
+                    "T",
+                    "A",
+                    "X"
+                  ]
+                ],
+                "multiWays": [
+                  {
+                    "winMul": "5.00",
+                    "winning": "10.00",
+                    "cells": [
+                      {
+                        "1": 2
+                      },
+                      {
+                        "1": 5
+                      },
+                      {
+                        "2": 3
+                      },
+                      {
+                        "3": 5
+                      }
+                    ],
+                    "ways": 1,
+                    "symbol": "Z"
+                  }
+                ],
+                "multiplier": 1,
+                "winMul": "5.00",
+                "winning": "10.00",
+                "expandable_symbols": {
+                  "R": 1
+                },
+                "spinning": {
+                  "nearMiss": false
+                }
+              },
+              "hasState": true
+            },
+            "transactions": {
+              "roundId": 196394996
+            },
+            "user": {
+              "balance": {
+                "cash": {
+                  "atStart": "10008.20",
+                  "afterBet": "10006.20",
+                  "atEnd": "10016.20"
+                },
+                "freeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "bonus": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionCash": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionFreeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "stake": 2,
+          "extras": null,
+          "gameMode": 0,
+          "bonusId": null
+        },
+        "response": {
+          "success": true,
+          "result": {
+            "game": {
+              "win": {
+                "total": "0.00",
+                "winMul": "0.00",
+                "stake": "2.00"
+              },
+              "nsp": {
+                "stake": 2,
+                "reels": [
+                  [
+                    "A",
+                    "T",
+                    "P",
+                    "J",
+                    "X",
+                    "A",
+                    "T",
+                    "Y",
+                    "J",
+                    "X",
+                    "A",
+                    "T"
+                  ],
+                  [
+                    "Q",
+                    "R",
+                    "P",
+                    "J",
+                    "K",
+                    "Q",
+                    "R",
+                    "P",
+                    "J"
+                  ],
+                  [
+                    "K",
+                    "A",
+                    "Y",
+                    "Q",
+                    "T",
+                    "K",
+                    "A",
+                    "Y",
+                    "Q",
+                    "T",
+                    "K",
+                    "A"
+                  ],
+                  [
+                    "Q",
+                    "J",
+                    "R",
+                    "A",
+                    "P",
+                    "Q"
+                  ],
+                  [
+                    "X",
+                    "Q",
+                    "T",
+                    "K",
+                    "J",
+                    "X"
+                  ],
+                  [
+                    "P",
+                    "K",
+                    "T",
+                    "Y",
+                    "A",
+                    "P"
+                  ]
+                ],
+                "multiWays": [],
+                "multiplier": 1,
+                "winMul": "0.00",
+                "winning": "0.00",
+                "expandable_symbols": [],
+                "spinning": {
+                  "nearMiss": false
+                }
+              },
+              "hasState": true
+            },
+            "transactions": {
+              "roundId": 196394998
+            },
+            "user": {
+              "balance": {
+                "cash": {
+                  "atStart": "10016.20",
+                  "afterBet": "10014.20",
+                  "atEnd": "10014.20"
+                },
+                "freeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "bonus": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionCash": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionFreeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "stake": 2,
+          "extras": null,
+          "gameMode": 0,
+          "bonusId": null
+        },
+        "response": {
+          "success": true,
+          "result": {
+            "game": {
+              "win": {
+                "total": "0.20",
+                "winMul": "0.10",
+                "stake": "2.00"
+              },
+              "nsp": {
+                "stake": 2,
+                "reels": [
+                  [
+                    "K",
+                    "A",
+                    "J",
+                    "Q",
+                    "T",
+                    "S",
+                    "A",
+                    "J",
+                    "K"
+                  ],
+                  [
+                    "Q",
+                    "J",
+                    "Y",
+                    "A",
+                    "K",
+                    "Q",
+                    "J",
+                    "X",
+                    "A"
+                  ],
+                  [
+                    "P",
+                    "Y",
+                    "Z",
+                    "J",
+                    "X",
+                    "Q",
+                    "P",
+                    "Z",
+                    "J"
+                  ],
+                  [
+                    "A",
+                    "Z",
+                    "Q",
+                    "K",
+                    "X",
+                    "P",
+                    "T",
+                    "Z",
+                    "J",
+                    "A",
+                    "Y",
+                    "P",
+                    "Z",
+                    "J",
+                    "K"
+                  ],
+                  [
+                    "J",
+                    "P",
+                    "K",
+                    "Y",
+                    "A",
+                    "T",
+                    "X",
+                    "Q",
+                    "K",
+                    "A",
+                    "J",
+                    "X"
+                  ],
+                  [
+                    "A",
+                    "X",
+                    "K",
+                    "T",
+                    "P",
+                    "Z",
+                    "Y",
+                    "K",
+                    "Q",
+                    "X",
+                    "P",
+                    "Y"
+                  ]
+                ],
+                "multiWays": [
+                  {
+                    "winMul": "0.10",
+                    "winning": "0.20",
+                    "cells": [
+                      {
+                        "1": 3
+                      },
+                      {
+                        "3": 5
+                      },
+                      {
+                        "3": 5
+                      }
+                    ],
+                    "ways": 1,
+                    "symbol": "Q"
+                  }
+                ],
+                "multiplier": 1,
+                "winMul": "0.10",
+                "winning": "0.20",
+                "expandable_symbols": {
+                  "O": 1
+                },
+                "spinning": {
+                  "nearMiss": false
+                }
+              },
+              "hasState": true
+            },
+            "transactions": {
+              "roundId": 196394999
+            },
+            "user": {
+              "balance": {
+                "cash": {
+                  "atStart": "10014.20",
+                  "afterBet": "10012.20",
+                  "atEnd": "10012.40"
+                },
+                "freeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "bonus": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionCash": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionFreeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "stake": 2,
+          "extras": null,
+          "gameMode": 0,
+          "bonusId": null
+        },
+        "response": {
+          "success": true,
+          "result": {
+            "game": {
+              "win": {
+                "total": "0.00",
+                "winMul": "0.00",
+                "stake": "2.00"
+              },
+              "nsp": {
+                "stake": 2,
+                "reels": [
+                  [
+                    "A",
+                    "P",
+                    "T",
+                    "O",
+                    "Y",
+                    "A"
+                  ],
+                  [
+                    "O",
+                    "X",
+                    "K",
+                    "T",
+                    "A",
+                    "O"
+                  ],
+                  [
+                    "Z",
+                    "J",
+                    "P",
+                    "Y",
+                    "K",
+                    "Z",
+                    "J",
+                    "P",
+                    "A",
+                    "K",
+                    "Z",
+                    "J"
+                  ],
+                  [
+                    "Z",
+                    "A",
+                    "J",
+                    "T",
+                    "K",
+                    "Z"
+                  ],
+                  [
+                    "J",
+                    "X",
+                    "T",
+                    "P",
+                    "Y",
+                    "J"
+                  ],
+                  [
+                    "X",
+                    "A",
+                    "K",
+                    "O",
+                    "J",
+                    "X",
+                    "A",
+                    "K",
+                    "O",
+                    "J",
+                    "X",
+                    "A",
+                    "K",
+                    "O",
+                    "J"
+                  ]
+                ],
+                "multiWays": [],
+                "multiplier": 1,
+                "winMul": "0.00",
+                "winning": "0.00",
+                "expandable_symbols": [],
+                "spinning": {
+                  "nearMiss": false
+                }
+              },
+              "hasState": true
+            },
+            "transactions": {
+              "roundId": 196395000
+            },
+            "user": {
+              "balance": {
+                "cash": {
+                  "atStart": "10012.40",
+                  "afterBet": "10010.40",
+                  "atEnd": "10010.40"
+                },
+                "freeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "bonus": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionCash": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionFreeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "stake": 2,
+          "extras": null,
+          "gameMode": 0,
+          "bonusId": null
+        },
+        "response": {
+          "success": true,
+          "result": {
+            "game": {
+              "win": {
+                "total": "2.00",
+                "winMul": "1.00",
+                "stake": "2.00"
+              },
+              "nsp": {
+                "stake": 2,
+                "reels": [
+                  [
+                    "Z",
+                    "A",
+                    "T",
+                    "Y",
+                    "J",
+                    "Z",
+                    "P",
+                    "A",
+                    "Y"
+                  ],
+                  [
+                    "Y",
+                    "Q",
+                    "A",
+                    "J",
+                    "T",
+                    "Y",
+                    "Q",
+                    "A",
+                    "J"
+                  ],
+                  [
+                    "Y",
+                    "P",
+                    "Q",
+                    "Z",
+                    "K",
+                    "Y",
+                    "P",
+                    "Q",
+                    "X"
+                  ],
+                  [
+                    "X",
+                    "Z",
+                    "Q",
+                    "A",
+                    "T",
+                    "X"
+                  ],
+                  [
+                    "X",
+                    "K",
+                    "T",
+                    "J",
+                    "Q",
+                    "P"
+                  ],
+                  [
+                    "K",
+                    "T",
+                    "P",
+                    "A",
+                    "Q",
+                    "J",
+                    "K",
+                    "T",
+                    "P",
+                    "Z",
+                    "Q",
+                    "J",
+                    "K",
+                    "T",
+                    "A"
+                  ]
+                ],
+                "multiWays": [
+                  {
+                    "winMul": "1.00",
+                    "winning": "2.00",
+                    "cells": [
+                      {
+                        "1": 3
+                      },
+                      {
+                        "3": 5
+                      },
+                      {
+                        "3": 5
+                      }
+                    ],
+                    "ways": 1,
+                    "symbol": "Y"
+                  }
+                ],
+                "multiplier": 1,
+                "winMul": "1.00",
+                "winning": "2.00",
+                "expandable_symbols": {
+                  "E": 1
+                },
+                "spinning": {
+                  "nearMiss": false
+                }
+              },
+              "hasState": true
+            },
+            "transactions": {
+              "roundId": 196395001
+            },
+            "user": {
+              "balance": {
+                "cash": {
+                  "atStart": "10010.40",
+                  "afterBet": "10008.40",
+                  "atEnd": "10010.40"
+                },
+                "freeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "bonus": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionCash": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionFreeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "capture": "games.evolution.com-ali-babas-luck-power-reels_20261012_101108.har",
+    "rounds": [
+      {
+        "request": {
+          "stake": 2,
+          "extras": null,
+          "gameMode": 0,
+          "bonusId": null
+        },
+        "response": {
+          "success": true,
+          "result": {
+            "game": {
+              "win": {
+                "total": "0.80",
+                "winMul": "0.40",
+                "stake": "2.00"
+              },
+              "nsp": {
+                "stake": 2,
+                "reels": [
+                  [
+                    "Q",
+                    "Q",
+                    "A",
+                    "A",
+                    "A",
+                    "A",
+                    "A",
+                    "K",
+                    "K",
+                    "Q",
+                    "Q",
+                    "T",
+                    "T",
+                    "T",
+                    "Z",
+                    "Z",
+                    "A",
+                    "A"
+                  ],
+                  [
+                    "P",
+                    "S",
+                    "T",
+                    "T",
+                    "A",
+                    "A",
+                    "A",
+                    "Z",
+                    "Z",
+                    "Z",
+                    "Z",
+                    "T",
+                    "T",
+                    "T",
+                    "T",
+                    "J",
+                    "J",
+                    "Q"
+                  ],
+                  [
+                    "X",
+                    "X",
+                    "X",
+                    "A",
+                    "A",
+                    "A",
+                    "A",
+                    "J",
+                    "J",
+                    "S",
+                    "T",
+                    "T",
+                    "K",
+                    "K",
+                    "K",
+                    "Q",
+                    "Q",
+                    "A"
+                  ],
+                  [
+                    "A",
+                    "A",
+                    "A",
+                    "A",
+                    "J",
+                    "J",
+                    "J",
+                    "X",
+                    "X",
+                    "X",
+                    "X",
+                    "A",
+                    "A",
+                    "A",
+                    "A",
+                    "J",
+                    "J",
+                    "S"
+                  ],
+                  [
+                    "P",
+                    "P",
+                    "A",
+                    "A",
+                    "A",
+                    "A",
+                    "X",
+                    "X",
+                    "Q",
+                    "Q",
+                    "P",
+                    "P",
+                    "P",
+                    "P",
+                    "A",
+                    "A",
+                    "A",
+                    "A"
+                  ],
+                  [
+                    "T",
+                    "T",
+                    "J",
+                    "J",
+                    "Q",
+                    "Q",
+                    "Q",
+                    "A",
+                    "A",
+                    "A",
+                    "A",
+                    "A",
+                    "K",
+                    "K",
+                    "Q",
+                    "Q",
+                    "T",
+                    "T"
+                  ],
+                  [
+                    "J",
+                    "J",
+                    "Y",
+                    "Y",
+                    "Y",
+                    "P",
+                    "P",
+                    "P",
+                    "A",
+                    "A",
+                    "A",
+                    "A",
+                    "X",
+                    "X",
+                    "Q",
+                    "Q",
+                    "P",
+                    "P"
+                  ],
+                  [
+                    "P",
+                    "P",
+                    "A",
+                    "A",
+                    "A",
+                    "A",
+                    "J",
+                    "J",
+                    "J",
+                    "X",
+                    "X",
+                    "X",
+                    "X",
+                    "A",
+                    "A",
+                    "A",
+                    "A",
+                    "J"
+                  ]
+                ],
+                "multiWays": [
+                  {
+                    "winMul": "3.00",
+                    "winSingleMul": "0.10",
+                    "winning": "0.20",
+                    "line": [
+                      6,
+                      6,
+                      6,
+                      6,
+                      6,
+                      6,
+                      6,
+                      6
+                    ],
+                    "hit": "AAAJXQPJ",
+                    "symbol": "A",
+                    "cells": [
+                      [
+                        6
+                      ],
+                      [
+                        6
+                      ],
+                      [
+                        6
+                      ]
+                    ],
+                    "winCount": 3,
+                    "winStart": 0
+                  },
+                  {
+                    "winMul": "3.00",
+                    "winSingleMul": "0.10",
+                    "winning": "0.20",
+                    "line": [
+                      11,
+                      11,
+                      11,
+                      11,
+                      11,
+                      11,
+                      11,
+                      11
+                    ],
+                    "hit": "TTTAPAAX",
+                    "symbol": "T",
+                    "cells": [
+                      {
+                        "5": 11
+                      },
+                      {
+                        "5": 11
+                      },
+                      {
+                        "5": 11
+                      }
+                    ],
+                    "winCount": 3,
+                    "winStart": 0
+                  },
+                  {
+                    "winMul": "3.00",
+                    "winSingleMul": "0.10",
+                    "winning": "0.20",
+                    "line": [
+                      6,
+                      6,
+                      6,
+                      7,
+                      8,
+                      9,
+                      10,
+                      11
+                    ],
+                    "hit": "AAAXQAAX",
+                    "symbol": "A",
+                    "cells": [
+                      [
+                        6
+                      ],
+                      [
+                        6
+                      ],
+                      [
+                        6
+                      ]
+                    ],
+                    "winCount": 3,
+                    "winStart": 0
+                  },
+                  {
+                    "winMul": "3.00",
+                    "winSingleMul": "0.10",
+                    "winning": "0.20",
+                    "line": [
+                      11,
+                      11,
+                      11,
+                      10,
+                      9,
+                      8,
+                      7,
+                      6
+                    ],
+                    "hit": "TTTXQAPJ",
+                    "symbol": "T",
+                    "cells": [
+                      {
+                        "5": 11
+                      },
+                      {
+                        "5": 11
+                      },
+                      {
+                        "5": 11
+                      }
+                    ],
+                    "winCount": 3,
+                    "winStart": 0
+                  }
+                ],
+                "multiplier": 1,
+                "winMul": "0.40",
+                "winning": "0.80",
+                "expandable_symbols": {
+                  "V": 1,
+                  "L": 1
+                },
+                "spinning": {
+                  "nearMiss": false
+                }
+              },
+              "hasState": true
+            },
+            "transactions": {
+              "roundId": 196395014
+            },
+            "user": {
+              "balance": {
+                "cash": {
+                  "atStart": "10000.00",
+                  "afterBet": "9998.00",
+                  "atEnd": "9998.80"
+                },
+                "freeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "bonus": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionCash": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionFreeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "stake": 2,
+          "extras": null,
+          "gameMode": 0,
+          "bonusId": null
+        },
+        "response": {
+          "success": true,
+          "result": {
+            "game": {
+              "win": {
+                "total": "0.00",
+                "winMul": "0.00",
+                "stake": "2.00"
+              },
+              "nsp": {
+                "stake": 2,
+                "reels": [
+                  [
+                    "J",
+                    "Z",
+                    "Z",
+                    "Z",
+                    "X",
+                    "X",
+                    "X",
+                    "V",
+                    "V",
+                    "V",
+                    "V",
+                    "J",
+                    "J",
+                    "J",
+                    "J",
+                    "X",
+                    "X",
+                    "X"
+                  ],
+                  [
+                    "K",
+                    "X",
+                    "X",
+                    "X",
+                    "P",
+                    "P",
+                    "P",
+                    "L",
+                    "L",
+                    "K",
+                    "K",
+                    "K",
+                    "P",
+                    "P",
+                    "P",
+                    "L",
+                    "L",
+                    "L"
+                  ],
+                  [
+                    "J",
+                    "J",
+                    "V",
+                    "V",
+                    "V",
+                    "Q",
+                    "Q",
+                    "Q",
+                    "Q",
+                    "J",
+                    "J",
+                    "P",
+                    "P",
+                    "P",
+                    "P",
+                    "P",
+                    "J",
+                    "J"
+                  ],
+                  [
+                    "Y",
+                    "Q",
+                    "Q",
+                    "Z",
+                    "Z",
+                    "Z",
+                    "Y",
+                    "Y",
+                    "Y",
+                    "Q",
+                    "Q",
+                    "Q",
+                    "Z",
+                    "Z",
+                    "Z",
+                    "Z",
+                    "Y",
+                    "Y"
+                  ],
+                  [
+                    "L",
+                    "P",
+                    "P",
+                    "P",
+                    "Q",
+                    "Q",
+                    "Q",
+                    "L",
+                    "L",
+                    "L",
+                    "P",
+                    "P",
+                    "Q",
+                    "Q",
+                    "Q",
+                    "Q",
+                    "X",
+                    "X"
+                  ],
+                  [
+                    "P",
+                    "P",
+                    "X",
+                    "X",
+                    "X",
+                    "Y",
+                    "Y",
+                    "V",
+                    "V",
+                    "V",
+                    "V",
+                    "X",
+                    "X",
+                    "X",
+                    "J",
+                    "J",
+                    "J",
+                    "K"
+                  ],
+                  [
+                    "Y",
+                    "J",
+                    "J",
+                    "V",
+                    "V",
+                    "V",
+                    "Y",
+                    "Y",
+                    "Y",
+                    "Y",
+                    "J",
+                    "J",
+                    "V",
+                    "V",
+                    "V",
+                    "Y",
+                    "Y",
+                    "Y"
+                  ],
+                  [
+                    "K",
+                    "K",
+                    "K",
+                    "Z",
+                    "Z",
+                    "Z",
+                    "X",
+                    "X",
+                    "X",
+                    "K",
+                    "K",
+                    "K",
+                    "K",
+                    "K",
+                    "X",
+                    "X",
+                    "X",
+                    "L"
+                  ]
+                ],
+                "multiWays": [],
+                "multiplier": 1,
+                "winMul": "0.00",
+                "winning": "0.00",
+                "test": {
+                  "V": {
+                    "reels": {
+                      "0": 0,
+                      "4": 5
+                    },
+                    "win": {
+                      "count": 0,
+                      "lines": [],
+                      "multiplier": 1,
+                      "winSingleMul": 0,
+                      "winMul": 0,
+                      "winning": 0,
+                      "symbol": ""
+                    }
+                  },
+                  "L": {
+                    "reels": {
+                      "0": 1,
+                      "2": 4
+                    },
+                    "win": {
+                      "count": 0,
+                      "lines": [],
+                      "multiplier": 1,
+                      "winSingleMul": 0,
+                      "winMul": 0,
+                      "winning": 0,
+                      "symbol": ""
+                    }
+                  }
+                },
+                "expandable_symbols": [],
+                "spinning": {
+                  "nearMiss": false
+                }
+              },
+              "hasState": true
+            },
+            "transactions": {
+              "roundId": 196395015
+            },
+            "user": {
+              "balance": {
+                "cash": {
+                  "atStart": "9998.80",
+                  "afterBet": "9996.80",
+                  "atEnd": "9996.80"
+                },
+                "freeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "bonus": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionCash": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionFreeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "stake": 2,
+          "extras": null,
+          "gameMode": 0,
+          "bonusId": null
+        },
+        "response": {
+          "success": true,
+          "result": {
+            "game": {
+              "win": {
+                "total": "0.00",
+                "winMul": "0.00",
+                "stake": "2.00"
+              },
+              "nsp": {
+                "stake": 2,
+                "reels": [
+                  [
+                    "J",
+                    "J",
+                    "J",
+                    "J",
+                    "A",
+                    "A",
+                    "K",
+                    "K",
+                    "T",
+                    "T",
+                    "T",
+                    "J",
+                    "J",
+                    "J",
+                    "X",
+                    "X",
+                    "X",
+                    "K"
+                  ],
+                  [
+                    "J",
+                    "J",
+                    "Y",
+                    "Y",
+                    "A",
+                    "A",
+                    "Q",
+                    "Q",
+                    "Q",
+                    "P",
+                    "P",
+                    "P",
+                    "A",
+                    "A",
+                    "J",
+                    "J",
+                    "J",
+                    "Q"
+                  ],
+                  [
+                    "T",
+                    "T",
+                    "A",
+                    "A",
+                    "A",
+                    "K",
+                    "K",
+                    "J",
+                    "J",
+                    "J",
+                    "X",
+                    "X",
+                    "X",
+                    "T",
+                    "T",
+                    "T",
+                    "T",
+                    "J"
+                  ],
+                  [
+                    "Q",
+                    "X",
+                    "X",
+                    "X",
+                    "X",
+                    "J",
+                    "J",
+                    "J",
+                    "J",
+                    "Q",
+                    "Q",
+                    "S",
+                    "T",
+                    "T",
+                    "A",
+                    "A",
+                    "A",
+                    "K"
+                  ],
+                  [
+                    "A",
+                    "K",
+                    "K",
+                    "T",
+                    "T",
+                    "T",
+                    "J",
+                    "J",
+                    "J",
+                    "X",
+                    "X",
+                    "X",
+                    "K",
+                    "K",
+                    "K",
+                    "K",
+                    "J",
+                    "J"
+                  ],
+                  [
+                    "K",
+                    "J",
+                    "J",
+                    "J",
+                    "J",
+                    "J",
+                    "A",
+                    "A",
+                    "K",
+                    "K",
+                    "T",
+                    "T",
+                    "T",
+                    "J",
+                    "J",
+                    "J",
+                    "X",
+                    "X"
+                  ],
+                  [
+                    "P",
+                    "T",
+                    "T",
+                    "J",
+                    "J",
+                    "J",
+                    "Z",
+                    "Z",
+                    "Z",
+                    "Z",
+                    "T",
+                    "T",
+                    "T",
+                    "T",
+                    "Q",
+                    "Q",
+                    "K",
+                    "K"
+                  ],
+                  [
+                    "T",
+                    "T",
+                    "A",
+                    "A",
+                    "A",
+                    "K",
+                    "K",
+                    "J",
+                    "J",
+                    "J",
+                    "X",
+                    "X",
+                    "X",
+                    "T",
+                    "T",
+                    "T",
+                    "T",
+                    "J"
+                  ]
+                ],
+                "multiWays": [],
+                "multiplier": 1,
+                "winMul": "0.00",
+                "winning": "0.00",
+                "expandable_symbols": [],
+                "spinning": {
+                  "nearMiss": false
+                }
+              },
+              "hasState": true
+            },
+            "transactions": {
+              "roundId": 196395018
+            },
+            "user": {
+              "balance": {
+                "cash": {
+                  "atStart": "9996.80",
+                  "afterBet": "9994.80",
+                  "atEnd": "9994.80"
+                },
+                "freeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "bonus": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionCash": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionFreeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "stake": 2,
+          "extras": null,
+          "gameMode": 0,
+          "bonusId": null
+        },
+        "response": {
+          "success": true,
+          "result": {
+            "game": {
+              "win": {
+                "total": "0.00",
+                "winMul": "0.00",
+                "stake": "2.00"
+              },
+              "nsp": {
+                "stake": 2,
+                "reels": [
+                  [
+                    "J",
+                    "J",
+                    "P",
+                    "P",
+                    "P",
+                    "A",
+                    "A",
+                    "Q",
+                    "Q",
+                    "Q",
+                    "J",
+                    "J",
+                    "Y",
+                    "Y",
+                    "Y",
+                    "P",
+                    "P",
+                    "P"
+                  ],
+                  [
+                    "T",
+                    "T",
+                    "T",
+                    "T",
+                    "J",
+                    "J",
+                    "K",
+                    "K",
+                    "K",
+                    "Q",
+                    "Q",
+                    "Q",
+                    "Q",
+                    "Q",
+                    "A",
+                    "A",
+                    "K",
+                    "K"
+                  ],
+                  [
+                    "A",
+                    "Q",
+                    "Q",
+                    "Q",
+                    "J",
+                    "J",
+                    "Y",
+                    "Y",
+                    "Y",
+                    "P",
+                    "P",
+                    "P",
+                    "Q",
+                    "Q",
+                    "Q",
+                    "Q",
+                    "Z",
+                    "Z"
+                  ],
+                  [
+                    "T",
+                    "T",
+                    "J",
+                    "J",
+                    "K",
+                    "K",
+                    "K",
+                    "Q",
+                    "Q",
+                    "Q",
+                    "Q",
+                    "Q",
+                    "A",
+                    "A",
+                    "K",
+                    "K",
+                    "T",
+                    "T"
+                  ],
+                  [
+                    "P",
+                    "P",
+                    "P",
+                    "Q",
+                    "Q",
+                    "Q",
+                    "Q",
+                    "Y",
+                    "Y",
+                    "Y",
+                    "J",
+                    "J",
+                    "J",
+                    "X",
+                    "X",
+                    "X",
+                    "X",
+                    "Q"
+                  ],
+                  [
+                    "Q",
+                    "Q",
+                    "Z",
+                    "Z",
+                    "K",
+                    "K",
+                    "P",
+                    "P",
+                    "P",
+                    "P",
+                    "Q",
+                    "Q",
+                    "Q",
+                    "Q",
+                    "Y",
+                    "Y",
+                    "Y",
+                    "J"
+                  ],
+                  [
+                    "Y",
+                    "Z",
+                    "Z",
+                    "Z",
+                    "P",
+                    "P",
+                    "T",
+                    "T",
+                    "Q",
+                    "Q",
+                    "Q",
+                    "Z",
+                    "Z",
+                    "Z",
+                    "Z",
+                    "T",
+                    "T",
+                    "T"
+                  ],
+                  [
+                    "X",
+                    "X",
+                    "X",
+                    "X",
+                    "Q",
+                    "Q",
+                    "Q",
+                    "Q",
+                    "J",
+                    "J",
+                    "S",
+                    "T",
+                    "T",
+                    "A",
+                    "A",
+                    "A",
+                    "K",
+                    "K"
+                  ]
+                ],
+                "multiWays": [],
+                "multiplier": 1,
+                "winMul": "0.00",
+                "winning": "0.00",
+                "expandable_symbols": [],
+                "spinning": {
+                  "nearMiss": false
+                }
+              },
+              "hasState": true
+            },
+            "transactions": {
+              "roundId": 196395019
+            },
+            "user": {
+              "balance": {
+                "cash": {
+                  "atStart": "9994.80",
+                  "afterBet": "9992.80",
+                  "atEnd": "9992.80"
+                },
+                "freeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "bonus": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionCash": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionFreeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "capture": "games.evolution.com-2026-10-12T11-26-57-403Z.har",
+    "rounds": [
+      {
+        "request": {
+          "stake": 2,
+          "extras": null,
+          "gameMode": 0,
+          "bonusId": null
+        },
+        "response": {
+          "success": true,
+          "result": {
+            "game": {
+              "win": {
+                "total": "0.00",
+                "winMul": "0.00",
+                "stake": "2.00"
+              },
+              "nsp": {
+                "stake": 2,
+                "reelsCash": [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0
+                  ]
+                ],
+                "reels": [
+                  "QKSTY",
+                  "KQJQJ",
+                  "JXPPA",
+                  "XJQZX",
+                  "TKXQK",
+                  "QZJXZ",
+                  "YAPKJ",
+                  "KJKJP",
+                  "PQYYK"
+                ],
+                "multiWays": [],
+                "multiplier": 1,
+                "winMul": "0.00",
+                "winning": "0.00",
+                "reelsCashBefore": [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0
+                  ]
+                ]
+              },
+              "hasState": true
+            },
+            "transactions": {
+              "roundId": 196397298
+            },
+            "user": {
+              "balance": {
+                "cash": {
+                  "atStart": "9998.00",
+                  "afterBet": "9996.00",
+                  "atEnd": "9996.00"
+                },
+                "freeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "bonus": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionCash": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionFreeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "stake": 2,
+          "extras": null,
+          "gameMode": 0,
+          "bonusId": null
+        },
+        "response": {
+          "success": true,
+          "result": {
+            "game": {
+              "win": {
+                "total": "0.00",
+                "winMul": "0.00",
+                "stake": "2.00"
+              },
+              "nsp": {
+                "stake": 2,
+                "reelsCash": [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0
+                  ]
+                ],
+                "reels": [
+                  "TQJAA",
+                  "XAYKK",
+                  "JTKQX",
+                  "YYTTP",
+                  "QJPJY",
+                  "TTQXA",
+                  "PPXZT",
+                  "JXJYP",
+                  "STPQQ"
+                ],
+                "multiWays": [],
+                "multiplier": 1,
+                "winMul": "0.00",
+                "winning": "0.00",
+                "reelsCashBefore": [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0
+                  ]
+                ]
+              },
+              "hasState": true
+            },
+            "transactions": {
+              "roundId": 196397299
+            },
+            "user": {
+              "balance": {
+                "cash": {
+                  "atStart": "9996.00",
+                  "afterBet": "9994.00",
+                  "atEnd": "9994.00"
+                },
+                "freeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "bonus": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionCash": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionFreeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "stake": 2,
+          "extras": null,
+          "gameMode": 0,
+          "bonusId": null
+        },
+        "response": {
+          "success": true,
+          "result": {
+            "game": {
+              "win": {
+                "total": "4.00",
+                "winMul": "2.00",
+                "stake": "2.00"
+              },
+              "nsp": {
+                "stake": 2,
+                "reelsCash": [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    2,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0
+                  ]
+                ],
+                "reels": [
+                  "TQTJK",
+                  "JAPXX",
+                  "QTJQP",
+                  "PZXTY",
+                  "TXTAA",
+                  "XKPKT",
+                  "JTQTP",
+                  "YQYJQ",
+                  "QATXA"
+                ],
+                "multiWays": [
+                  {
+                    "winMul": "20.00",
+                    "winSingleMul": "2.00",
+                    "winning": "4.00",
+                    "line": [
+                      5,
+                      4,
+                      3,
+                      4,
+                      5
+                    ],
+                    "hit": "XXXAT",
+                    "symbol": "X",
+                    "cells": [
+                      {
+                        "3": 5
+                      },
+                      {
+                        "2": 4
+                      },
+                      {
+                        "1": 3
+                      }
+                    ],
+                    "winCount": 3,
+                    "winStart": 0
+                  }
+                ],
+                "multiplier": 1,
+                "winMul": "2.00",
+                "winning": "4.00",
+                "reelsCashBefore": [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0
+                  ]
+                ]
+              },
+              "hasState": true
+            },
+            "transactions": {
+              "roundId": 196397300
+            },
+            "user": {
+              "balance": {
+                "cash": {
+                  "atStart": "9994.00",
+                  "afterBet": "9992.00",
+                  "atEnd": "9996.00"
+                },
+                "freeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "bonus": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionCash": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionFreeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "stake": 2,
+          "extras": null,
+          "gameMode": 0,
+          "bonusId": null
+        },
+        "response": {
+          "success": true,
+          "result": {
+            "game": {
+              "win": {
+                "total": "0.00",
+                "winMul": "0.00",
+                "stake": "2.00"
+              },
+              "nsp": {
+                "stake": 2,
+                "reelsCash": [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0
+                  ]
+                ],
+                "reels": [
+                  "JAKQK",
+                  "QYPJA",
+                  "SQATJ",
+                  "TZQQQ",
+                  "YKTKS",
+                  "PQPXK",
+                  "XPAAY",
+                  "JXXQQ",
+                  "YQQKT"
+                ],
+                "multiWays": [],
+                "multiplier": 1,
+                "winMul": "0.00",
+                "winning": "0.00",
+                "reelsCashBefore": [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    2,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0
+                  ]
+                ]
+              },
+              "hasState": true
+            },
+            "transactions": {
+              "roundId": 196397302
+            },
+            "user": {
+              "balance": {
+                "cash": {
+                  "atStart": "9996.00",
+                  "afterBet": "9994.00",
+                  "atEnd": "9994.00"
+                },
+                "freeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "bonus": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionCash": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionFreeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "stake": 2,
+          "extras": null,
+          "gameMode": 0,
+          "bonusId": null
+        },
+        "response": {
+          "success": true,
+          "result": {
+            "game": {
+              "win": {
+                "total": "1.00",
+                "winMul": "0.50",
+                "stake": "2.00"
+              },
+              "nsp": {
+                "stake": 2,
+                "reelsCash": [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0.5,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0
+                  ]
+                ],
+                "reels": [
+                  "TTPAJ",
+                  "JJJXA",
+                  "YXYJK",
+                  "TTZTZ",
+                  "PQTQQ",
+                  "SAPAJ",
+                  "JTQJK",
+                  "QJXQP",
+                  "TZYKQ"
+                ],
+                "multiWays": [
+                  {
+                    "winMul": "5.00",
+                    "winSingleMul": "0.50",
+                    "winning": "1.00",
+                    "line": [
+                      3,
+                      3,
+                      4,
+                      5,
+                      5
+                    ],
+                    "hit": "TTTAJ",
+                    "symbol": "T",
+                    "cells": [
+                      {
+                        "1": 3
+                      },
+                      {
+                        "1": 3
+                      },
+                      {
+                        "2": 4
+                      }
+                    ],
+                    "winCount": 3,
+                    "winStart": 0
+                  }
+                ],
+                "multiplier": 1,
+                "winMul": "0.50",
+                "winning": "1.00",
+                "reelsCashBefore": [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0
+                  ]
+                ]
+              },
+              "hasState": true
+            },
+            "transactions": {
+              "roundId": 196397303
+            },
+            "user": {
+              "balance": {
+                "cash": {
+                  "atStart": "9994.00",
+                  "afterBet": "9992.00",
+                  "atEnd": "9993.00"
+                },
+                "freeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "bonus": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionCash": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionFreeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "stake": 2,
+          "extras": null,
+          "gameMode": 0,
+          "bonusId": null
+        },
+        "response": {
+          "success": true,
+          "result": {
+            "game": {
+              "win": {
+                "total": "0.00",
+                "winMul": "0.00",
+                "stake": "2.00"
+              },
+              "nsp": {
+                "stake": 2,
+                "reelsCash": [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0
+                  ]
+                ],
+                "reels": [
+                  "ZXPJX",
+                  "XTQXP",
+                  "TQJQY",
+                  "JZSTA",
+                  "PTPJT",
+                  "QYTKP",
+                  "TJQQQ",
+                  "JXXAA",
+                  "YPTJS"
+                ],
+                "multiWays": [],
+                "multiplier": 1,
+                "winMul": "0.00",
+                "winning": "0.00",
+                "reelsCashBefore": [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0.5,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0
+                  ]
+                ]
+              },
+              "hasState": true
+            },
+            "transactions": {
+              "roundId": 196397304
+            },
+            "user": {
+              "balance": {
+                "cash": {
+                  "atStart": "9993.00",
+                  "afterBet": "9991.00",
+                  "atEnd": "9991.00"
+                },
+                "freeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "bonus": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionCash": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                },
+                "sessionFreeBets": {
+                  "atStart": "0.00",
+                  "afterBet": "0.00",
+                  "atEnd": "0.00"
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+]

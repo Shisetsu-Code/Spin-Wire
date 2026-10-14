@@ -16,7 +16,7 @@ from tester_spin.models import Game, GameTestResult, SpinAttempt, utc_now_iso
 from tester_spin.providers.base import ProviderAdapter
 from tester_spin.providers.result_farm_contract import ProviderFarmSpec, build_result_farm_contract, validate_result_farm_contract
 from .catalog import CATALOG_API, ORIGIN, SLUG, client_family, family_map, games_from_page, launcher_config
-from .runtime import DemoSession, base_terminal, discover_modes, play_fields, continuation_fields, source_continuation_rules
+from .runtime import DemoSession, base_terminal, discover_modes, play_fields, affordable_purchase_fields, continuation_fields, source_continuation_rules
 
 _SPEC = ProviderFarmSpec(provider="3oaks", protocol_family="three-oaks-goreel-commands",
     bootstrap_strategy="three-oaks-public-demo-login-start", transport="http-json-text-plain",
@@ -188,7 +188,8 @@ class ThreeOaksProvider(ProviderAdapter):
             (root / "client.js").write_text(asset.text, encoding="utf-8")
             from .client_contracts import client_contract
             client_profile = client_contract(asset.text, data=data)
-            if (client_profile or {}).get('spin_params') == ['bet_per_line', 'lines', 'bet_factor']:
+            if ((client_profile or {}).get('spin_params') == ['bet_per_line', 'lines', 'bet_factor']
+                    or (not (client_profile or {}).get('spin_params') and config.get('gr', {}).get('static_path'))):
                 gr = config.get('gr', {})
                 runner_url = str(gr.get('static_path', '')) + 'gr.js'
                 runner_location = urlparse(runner_url)
@@ -201,7 +202,8 @@ class ThreeOaksProvider(ProviderAdapter):
                 client_profile = client_contract(asset.text, data=data, runner_source=runner_source, init_source=init_source)
                 if (client_profile or {}).get('spin_route') != 'shared-runner-button':
                     # A bundled default handler is not evidence of the active normal button.
-                    client_profile.pop('spin_params', None)
+                    if client_profile:
+                        client_profile.pop('spin_params', None)
 
             source_rules = source_continuation_rules(asset.text)
             if client_profile:
@@ -221,7 +223,7 @@ class ThreeOaksProvider(ProviderAdapter):
                         mode.update(client_observed=True, evidence_level='CLIENT_INPUT_CALL',
                                     coverage_required=True)
                     else:
-                        mode.update(kind='DISCOVERED_ONLY', coverage_required=False,
+                        mode.update(declared=True, coverage_required=True,
                                     evidence_level='SERVER_ADVERTISED', client_observed=False)
                 elif mode['kind'] == 'PURCHASE':
                     mode['client_observed'] = True
@@ -229,8 +231,10 @@ class ThreeOaksProvider(ProviderAdapter):
                     if wire_values is not None:
                         mode['request_options'] = dict(wire_values)
                 elif mode['kind'] == 'UNKNOWN_FEATURE':
-                    mode['coverage_required'] = False
+                    mode['coverage_required'] = True
             result.discovered_modes = modes
+            from tester_spin.feature_domains import initialization_domains
+            result.feature_domains = initialization_domains("3oaks", data, modes)
             self._save_metadata(game, family=family, vendor=options.get("vendor"),
                                 runtime_transport="goreel-http-commands", discovered_modes=modes)
             if not observed:
@@ -266,6 +270,21 @@ class ThreeOaksProvider(ProviderAdapter):
                 fields = play_fields(data, action, selector if mode['kind']=='PURCHASE' else None,
                                      game_slug=game.slug, family=family, client_profile=client_profile,
                                      antebet=selector if mode['kind']=='ANTE_BET' else None)
+                if mode['kind'] == 'PURCHASE':
+                    try:
+                        fields = affordable_purchase_fields(data, fields, selector)
+                    except ValueError as budget_error:
+                        if 'DEMO_BALANCE_INSUFFICIENT' not in str(budget_error):
+                            raise
+                        # A new official demo avoids spending the balance of previous tests.
+                        session = DemoSession(self.http, endpoint, run_dir / f'purchase-session-{selector}', timeout_s, browser_fallback=browser_transport)
+                        login = session.post('login', {'token':options['token'], 'language':options.get('lang','en')})
+                        data = session.post('start', {'mode':'auto', 'huid':login.get('user',{}).get('huid')})
+                        if not base_terminal(data):
+                            data, _, restored = finish_round(data, run_dir / f'purchase-session-{selector}' / 'initial-continuation', time.monotonic()+min(90,max(20,timeout_s*4)))
+                            if not restored:
+                                raise ValueError('3 Oaks: new demo continuation pending')
+                        fields = affordable_purchase_fields(data, play_fields(data, action, selector, game_slug=game.slug, family=family, client_profile=client_profile), selector)
                 previous_settings = data.get("settings", {})
                 attempt_dir = run_dir / f"attempt-{len(result.attempts) + 1:03d}"
                 data = session.post("play", fields, artifact_dir=attempt_dir)

@@ -1,0 +1,523 @@
+{
+  "previous": {
+    "success": true,
+    "result": {
+      "game": {
+        "win": {
+          "lines": "0.00",
+          "total": "0.00"
+        },
+        "winsMultipliers": {
+          "lines": "0.00",
+          "total": "0.00"
+        },
+        "stake": "2.00",
+        "multiplier": 1,
+        "winLines": [],
+        "spinMode": "Normal",
+        "scatters": [],
+        "progress": 0,
+        "reelsBuffer": [
+          [
+            [
+              1,
+              3,
+              12
+            ],
+            [
+              5,
+              4,
+              10
+            ],
+            [
+              7,
+              1,
+              3
+            ]
+          ],
+          [
+            [
+              11,
+              5,
+              1
+            ],
+            [
+              3,
+              9,
+              1
+            ],
+            [
+              2,
+              8,
+              10
+            ]
+          ],
+          [
+            [
+              3,
+              1,
+              5
+            ],
+            [
+              7,
+              3,
+              5
+            ],
+            [
+              11,
+              1,
+              2
+            ]
+          ],
+          [
+            [
+              5,
+              7,
+              8
+            ],
+            [
+              2,
+              4,
+              8
+            ],
+            [
+              1,
+              4,
+              6
+            ]
+          ],
+          [
+            [
+              6,
+              1,
+              9
+            ],
+            [
+              9,
+              6,
+              1
+            ],
+            [
+              4,
+              6,
+              2
+            ]
+          ]
+        ],
+        "features": [],
+        "gameMode": 0,
+        "hasState": false
+      },
+      "user": {
+        "balance": {
+          "cash": {
+            "atStart": "9871.00",
+            "afterBet": "9869.00",
+            "atEnd": "9869.00"
+          }
+        }
+      },
+      "transactions": {
+        "roundId": 1
+      }
+    }
+  },
+  "current": {
+    "success": true,
+    "result": {
+      "game": {
+        "win": {
+          "lines": "0.80",
+          "respin": "0.00",
+          "total": "0.80"
+        },
+        "winsMultipliers": {
+          "lines": "0.40",
+          "respin": "0.00",
+          "total": "0.40"
+        },
+        "stake": "2.00",
+        "multiplier": 1,
+        "winLines": [
+          {
+            "index": 0,
+            "start": 0,
+            "length": 3,
+            "tiles": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                1,
+                0,
+                0
+              ],
+              [
+                1,
+                1,
+                0
+              ],
+              [
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            "tile": 1,
+            "multiplier": 1,
+            "amount": "0.80",
+            "multipliedAmount": "0.80",
+            "ways": 2
+          }
+        ],
+        "spinMode": "Normal",
+        "scatters": [],
+        "chainReactor": {
+          "destroy": [
+            {
+              "reel": 0,
+              "index": 2
+            },
+            {
+              "reel": 1,
+              "index": 0
+            },
+            {
+              "reel": 2,
+              "index": 0
+            },
+            {
+              "reel": 2,
+              "index": 1
+            }
+          ],
+          "move": [
+            {
+              "reel": 0,
+              "index": 1,
+              "tileId": 3,
+              "to": {
+                "reel": 0,
+                "index": 2
+              }
+            },
+            {
+              "reel": 0,
+              "index": 0,
+              "tileId": 6,
+              "to": {
+                "reel": 0,
+                "index": 1
+              }
+            }
+          ],
+          "lock": [
+            {
+              "reel": 0,
+              "index": 1,
+              "tileId": 6
+            },
+            {
+              "reel": 0,
+              "index": 2,
+              "tileId": 3
+            },
+            {
+              "reel": 1,
+              "index": 1,
+              "tileId": 5
+            },
+            {
+              "reel": 1,
+              "index": 2,
+              "tileId": 2
+            },
+            {
+              "reel": 2,
+              "index": 2,
+              "tileId": 2
+            },
+            {
+              "reel": 3,
+              "index": 0,
+              "tileId": 8
+            },
+            {
+              "reel": 3,
+              "index": 1,
+              "tileId": 4
+            },
+            {
+              "reel": 3,
+              "index": 2,
+              "tileId": 2
+            },
+            {
+              "reel": 4,
+              "index": 0,
+              "tileId": 9
+            },
+            {
+              "reel": 4,
+              "index": 1,
+              "tileId": 9
+            },
+            {
+              "reel": 4,
+              "index": 2,
+              "tileId": 6
+            }
+          ],
+          "screen": [
+            [
+              null,
+              6,
+              3
+            ],
+            [
+              null,
+              5,
+              2
+            ],
+            [
+              null,
+              null,
+              2
+            ],
+            [
+              8,
+              4,
+              2
+            ],
+            [
+              9,
+              9,
+              6
+            ]
+          ]
+        },
+        "respin": [
+          {
+            "win": {
+              "lines": "0.00",
+              "total": "0.00"
+            },
+            "winsMultipliers": {
+              "lines": "0.00",
+              "total": "0.00"
+            },
+            "stake": "2.00",
+            "multiplier": 1,
+            "winLines": [],
+            "spinMode": "Respin",
+            "scatters": [],
+            "progress": 1,
+            "reelsBuffer": [
+              [
+                [
+                  8,
+                  6,
+                  2
+                ],
+                [
+                  4,
+                  6,
+                  3
+                ],
+                [
+                  1,
+                  5,
+                  2
+                ]
+              ],
+              [
+                [
+                  2,
+                  8,
+                  10
+                ],
+                [
+                  2,
+                  5,
+                  2
+                ],
+                [
+                  2,
+                  6,
+                  10
+                ]
+              ],
+              [
+                [
+                  6,
+                  1,
+                  8
+                ],
+                [
+                  9,
+                  5,
+                  2
+                ],
+                [
+                  11,
+                  2,
+                  5
+                ]
+              ],
+              [
+                [
+                  6,
+                  4,
+                  3
+                ],
+                [
+                  8,
+                  4,
+                  2
+                ],
+                [
+                  10,
+                  7,
+                  5
+                ]
+              ],
+              [
+                [
+                  2,
+                  6,
+                  1
+                ],
+                [
+                  9,
+                  9,
+                  6
+                ],
+                [
+                  1,
+                  4,
+                  6
+                ]
+              ]
+            ]
+          }
+        ],
+        "progress": 0,
+        "reelsBuffer": [
+          [
+            [
+              6,
+              2,
+              4
+            ],
+            [
+              6,
+              3,
+              1
+            ],
+            [
+              5,
+              2,
+              1
+            ]
+          ],
+          [
+            [
+              8,
+              10,
+              2
+            ],
+            [
+              1,
+              5,
+              2
+            ],
+            [
+              6,
+              10,
+              7
+            ]
+          ],
+          [
+            [
+              8,
+              9,
+              5
+            ],
+            [
+              1,
+              11,
+              2
+            ],
+            [
+              5,
+              1,
+              10
+            ]
+          ],
+          [
+            [
+              6,
+              4,
+              3
+            ],
+            [
+              8,
+              4,
+              2
+            ],
+            [
+              10,
+              7,
+              5
+            ]
+          ],
+          [
+            [
+              2,
+              6,
+              1
+            ],
+            [
+              9,
+              9,
+              6
+            ],
+            [
+              1,
+              4,
+              6
+            ]
+          ]
+        ],
+        "features": [],
+        "gameMode": 0,
+        "hasState": false
+      },
+      "user": {
+        "balance": {
+          "cash": {
+            "atStart": "9869.00",
+            "afterBet": "9867.00",
+            "atEnd": "9867.80"
+          }
+        }
+      },
+      "transactions": {
+        "roundId": 2
+      }
+    }
+  },
+  "request": {
+    "stake": 2,
+    "gameMode": 0,
+    "extras": null,
+    "bonusId": null
+  }
+}

@@ -1,0 +1,233 @@
+[
+  {
+    "win": {
+      "prizes": [],
+      "wonCoins": 0,
+      "wonCash": "0.00",
+      "accumulatedWonCoins": 0,
+      "accumulatedWonCash": "0.00",
+      "accumulatedRoundWonCoins": 0,
+      "accumulatedRoundWonCash": "0.00"
+    },
+    "reels": {
+      "reelSetName": "baseReels0",
+      "reelStopPositions": [
+        225,
+        254,
+        315,
+        95,
+        434
+      ]
+    },
+    "initialBoard": [
+      [
+        "LOW_3",
+        "LOW_1",
+        "LOW_2"
+      ],
+      [
+        "HIGH_3",
+        "SCATTER",
+        "HIGH_2"
+      ],
+      [
+        "LOW_2",
+        "HIGH_2",
+        "LOW_4"
+      ],
+      [
+        "LOW_3",
+        "LOW_2",
+        "HIGH_4"
+      ],
+      [
+        "HIGH_4",
+        "HIGH_1",
+        "LOW_3"
+      ]
+    ],
+    "finalBoard": [
+      [
+        "LOW_3",
+        "LOW_1",
+        "LOW_2"
+      ],
+      [
+        "HIGH_3",
+        "SCATTER",
+        "HIGH_2"
+      ],
+      [
+        "LOW_2",
+        "HIGH_2",
+        "LOW_4"
+      ],
+      [
+        "LOW_3",
+        "LOW_2",
+        "HIGH_4"
+      ],
+      [
+        "HIGH_4",
+        "HIGH_1",
+        "LOW_3"
+      ]
+    ],
+    "multiplier": 1,
+    "winPositions": []
+  },
+  {
+    "win": {
+      "prizes": [],
+      "wonCoins": 0,
+      "wonCash": "0.00",
+      "accumulatedWonCoins": 0,
+      "accumulatedWonCash": "0.00",
+      "accumulatedRoundWonCoins": 0,
+      "accumulatedRoundWonCash": "0.00"
+    },
+    "reels": {
+      "reelSetName": "baseReels1",
+      "reelStopPositions": [
+        334,
+        278,
+        542,
+        298,
+        7
+      ]
+    },
+    "initialBoard": [
+      [
+        "HIGH_4",
+        "HIGH_2",
+        "HIGH_1"
+      ],
+      [
+        "LOW_1",
+        "LOW_4",
+        "LOW_2"
+      ],
+      [
+        "LOW_4",
+        "LOW_1",
+        "LOW_2"
+      ],
+      [
+        "LOW_4",
+        "LOW_2",
+        "LOW_1"
+      ],
+      [
+        "LOW_3",
+        "LOW_4",
+        "HIGH_1"
+      ]
+    ],
+    "finalBoard": [
+      [
+        "HIGH_4",
+        "HIGH_2",
+        "HIGH_1"
+      ],
+      [
+        "LOW_1",
+        "LOW_4",
+        "LOW_2"
+      ],
+      [
+        "LOW_4",
+        "LOW_1",
+        "LOW_2"
+      ],
+      [
+        "LOW_4",
+        "LOW_2",
+        "LOW_1"
+      ],
+      [
+        "LOW_3",
+        "LOW_4",
+        "HIGH_1"
+      ]
+    ],
+    "multiplier": 1,
+    "winPositions": []
+  },
+  {
+    "win": {
+      "prizes": [],
+      "wonCoins": 0,
+      "wonCash": "0.00",
+      "accumulatedWonCoins": 0,
+      "accumulatedWonCash": "0.00",
+      "accumulatedRoundWonCoins": 0,
+      "accumulatedRoundWonCash": "0.00"
+    },
+    "reels": {
+      "reelSetName": "baseReels1",
+      "reelStopPositions": [
+        370,
+        325,
+        103,
+        365,
+        170
+      ]
+    },
+    "initialBoard": [
+      [
+        "HIGH_1",
+        "HIGH_4",
+        "LOW_4"
+      ],
+      [
+        "LOW_3",
+        "LOW_1",
+        "LOW_4"
+      ],
+      [
+        "HIGH_1",
+        "HIGH_4",
+        "LOW_2"
+      ],
+      [
+        "LOW_2",
+        "LOW_4",
+        "HIGH_1"
+      ],
+      [
+        "LOW_2",
+        "LOW_4",
+        "HIGH_4"
+      ]
+    ],
+    "finalBoard": [
+      [
+        "HIGH_1",
+        "HIGH_4",
+        "LOW_4"
+      ],
+      [
+        "LOW_3",
+        "LOW_1",
+        "LOW_4"
+      ],
+      [
+        "HIGH_1",
+        "HIGH_4",
+        "LOW_2"
+      ],
+      [
+        "LOW_2",
+        "LOW_4",
+        "HIGH_1"
+      ],
+      [
+        "LOW_2",
+        "LOW_4",
+        "HIGH_4"
+      ]
+    ],
+    "multiplier": 1,
+    "winPositions": []
+  }
+]

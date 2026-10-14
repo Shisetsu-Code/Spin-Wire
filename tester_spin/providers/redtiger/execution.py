@@ -15,6 +15,7 @@ from tester_spin.models import Game, GameTestResult, SpinAttempt, utc_now_iso
 from tester_spin.providers.base import Progress
 from tester_spin.providers.redtiger.bootstrap_browser import bootstrap_game
 from tester_spin.providers.redtiger.runtime import (
+    choice_transition,
     ChoicePrompt,
     FeatureBuy,
     RedTigerRuntime,
@@ -129,6 +130,8 @@ def _post_choice(
     valid, warnings = validate_spin_response(data)
     if not valid:
         raise ValueError("Red Tiger choice inválido: " + "; ".join(warnings))
+    from tester_spin.providers.redtiger.runtime import choice_reply_warnings
+    warnings.extend(choice_reply_warnings(prompt, choice, data))
     apply_response_token(runtime, data)
     return status, endpoint, payload, data, warnings
 
@@ -204,6 +207,7 @@ class RedTigerExecutionMixin:
         warnings_all: list[str] = []
         coverage_gaps: set[str] = set()
         discovered_modes: list[dict[str, Any]] = []
+        feature_domains = {}
         successes = 0
         responded = 0
         runtime: RedTigerRuntime | None = None
@@ -262,18 +266,30 @@ class RedTigerExecutionMixin:
             )
             mode_specs = [("SPIN", "SPIN", None)]
 
+            from tester_spin.providers.redtiger.runtime import purchase_declaration
+            declaration = purchase_declaration(settings_game)
+            if declaration["complete"]:
+                feature_domains["purchase"] = declaration
+
+            if settings_game.get("hasFeatureBuy") is False:
+                feature_domains["purchase"] = {"complete": True, "source": "SETTINGS.game.hasFeatureBuy", "options": []}
+
             for feature in runtime.feature_buys:
-                confirmed = feature.name in getattr(runtime, 'client_observed_feature_buys', ())
+                server_declared = declaration['complete'] and feature.name in declaration['options']
+                confirmed = server_declared or feature.name in getattr(runtime, 'client_observed_feature_buys', ())
                 mode_id = f"PURCHASE_{_mode_id(feature.name)}"
                 discovered_modes.append(
                     {
                         "id": mode_id,
                         "kind": "PURCHASE" if confirmed else "DISCOVERED_ONLY",
-                        "evidence_level": "CLIENT_OBSERVED" if confirmed else "SERVER_ADVERTISED",
-                        "client_observed": confirmed,
+                        "evidence_level": "SERVER_DECLARED" if server_declared else "CLIENT_OBSERVED" if confirmed else "SERVER_ADVERTISED",
+                        "client_observed": feature.name in getattr(runtime, "client_observed_feature_buys", ()),
+                        "server_declared": server_declared,
                         "observed": True,
-                        "executable": True,
                         "executable": confirmed,
+                        "coverage_required": confirmed or settings_game.get("hasFeatureBuy") is True,
+                        "required_options": [feature.name] if confirmed else [],
+                        "covered_options": [],
                         "wire_command": "platform/game/spin",
                         "feature_buy": feature.name,
                         "feature_multiplier": str(feature.multiplier),
@@ -283,13 +299,16 @@ class RedTigerExecutionMixin:
                 )
                 if confirmed:
                     mode_specs.append((mode_id, "PURCHASE", feature))
+                elif settings_game.get("hasFeatureBuy") is True:
+                    coverage_gaps.add("PURCHASE_CLIENT_DECLARATION:"+feature.name)
 
-            has_feature_buy = bool(settings_game.get("hasFeatureBuy")) if isinstance(settings_game, dict) else False
+            has_feature_buy = settings_game.get("hasFeatureBuy") is True if isinstance(settings_game, dict) else False
             if has_feature_buy and not runtime.feature_buys:
+                coverage_gaps.add("PURCHASE_DOMAIN_UNRESOLVED")
                 discovered_modes.append({
                     'id':'AVAILABLE_BUY_CONTRACT', 'kind':'UNKNOWN_FEATURE',
                     'evidence_level':'SERVER_ADVERTISED', 'client_observed':False,
-                    'observed':True, 'executable':False,
+                    'observed':True, 'executable':False, 'coverage_required':True,
                     'reason':'El servidor anuncia compras; disponibilidad en el cliente sin confirmar',
                 })
 
@@ -361,7 +380,7 @@ class RedTigerExecutionMixin:
                             wire_steps = 1
                             final_payload = response_payload
 
-                            for continuation_index in range(1, 9):
+                            for continuation_index in range(1, 65):
                                 prompt = pending_choice_from_response(final_payload)
                                 if prompt is None:
                                     break
@@ -383,7 +402,7 @@ class RedTigerExecutionMixin:
                                 _write_json(choice_dir / "summary.json", choice_summary)
                                 continuation_records.append(
                                     {
-                                        "round_id": prompt.round_id,
+                                        **choice_transition(prompt, selected_choice, choice_response),
                                         "available": list(prompt.available),
                                         "selected": selected_choice,
                                         "endpoint": choice_endpoint,
@@ -409,8 +428,9 @@ class RedTigerExecutionMixin:
                                     f"opciones={list(prompt.available)}, seleccionado={selected_choice}."
                                 )
                                 final_payload = choice_response
-                            else:
-                                warnings.append("selector Red Tiger no terminó tras 8 continuaciones")
+                                if choice_warnings:
+                                    break
+
 
                             if pending_choice_from_response(final_payload) is not None:
                                 warnings.append("selector Red Tiger quedó pendiente")
@@ -427,10 +447,16 @@ class RedTigerExecutionMixin:
                             terminal = bool(final_summary.get("success")) and pending_choice_from_response(final_payload) is None
                             if audit_enabled():
                                 from tester_spin.provider_return_checks import redtiger_check
-                                proof = redtiger_check(runtime, attempt_dir, timeout_s, stop_event) if terminal and not warnings else pending_return(attempt_dir, 'Ronda anterior sin cierre validado')
+                                proof = redtiger_check(runtime, attempt_dir, timeout_s, stop_event, initial_response=final_payload) if terminal and not warnings else pending_return(attempt_dir, 'Ronda anterior sin cierre validado')
                                 if proof['status'] != 'CONFIRMED':
                                     warnings.append('Regreso al juego base pendiente: '+proof['status'])
                             validated = terminal and not warnings
+                            from tester_spin.providers.redtiger.runtime import purchase_executed
+                            if validated and mode_kind == "PURCHASE" and purchase_executed(response_payload, request_payload, feature):
+                                for discovered in discovered_modes:
+                                    if discovered.get("id") == mode_id:
+                                        discovered["validated"] = True
+                                        discovered["covered_options"] = [feature.name]
                             successes += int(validated)
                             warnings_all.extend(warnings)
                             elapsed_ms = (time.monotonic() - attempt_started) * 1000.0
@@ -526,6 +552,7 @@ class RedTigerExecutionMixin:
             status=status,
             symbol=(runtime.game_id if runtime is not None else game.symbol),
             discovered_modes=discovered_modes,
+            feature_domains=feature_domains,
             started_at=started_at,
             finished_at=utc_now_iso(),
             elapsed_ms=elapsed_total,

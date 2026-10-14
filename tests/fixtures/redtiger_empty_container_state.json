@@ -1,0 +1,118 @@
+{
+  "previous": {
+    "success": true,
+    "result": {
+      "transactions": {
+        "roundId": 1
+      },
+      "user": {
+        "balance": {
+          "cash": {
+            "atEnd": "9998.00"
+          }
+        }
+      }
+    }
+  },
+  "response": {
+    "success": true,
+    "result": {
+      "transactions": {
+        "roundId": 2
+      },
+      "user": {
+        "balance": {
+          "cash": {
+            "atStart": "9998.00",
+            "afterBet": "9996.00",
+            "atEnd": "9996.00"
+          }
+        }
+      },
+      "game": {
+        "win": {
+          "total": "0.00",
+          "winMul": "0.00",
+          "stake": "2.00"
+        },
+        "nsp": {
+          "stake": 2,
+          "reels": [
+            [
+              "P",
+              "A",
+              "Q",
+              "T",
+              "J",
+              "A",
+              "X",
+              "T",
+              "K"
+            ],
+            [
+              "Z",
+              "T",
+              "J",
+              "P",
+              "Y",
+              "Q",
+              "A",
+              "T",
+              "J"
+            ],
+            [
+              "Q",
+              "Z",
+              "T",
+              "X",
+              "Q",
+              "J",
+              "S",
+              "X",
+              "Y"
+            ],
+            [
+              "P",
+              "Q",
+              "T",
+              "J",
+              "K",
+              "T",
+              "Y",
+              "J",
+              "X"
+            ],
+            [
+              "J",
+              "Q",
+              "A",
+              "T",
+              "X",
+              "Q",
+              "Z",
+              "T",
+              "J"
+            ]
+          ],
+          "multiWays": [],
+          "multiplier": 1,
+          "winMul": "0.00",
+          "winning": "0.00",
+          "spinning": {
+            "nearMiss": false
+          },
+          "state": {
+            "expand": []
+          }
+        },
+        "hasState": true
+      }
+    }
+  },
+  "request": {
+    "stake": 2,
+    "bonusId": null,
+    "extras": null,
+    "gameMode": 0
+  }
+}

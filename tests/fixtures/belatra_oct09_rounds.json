@@ -1,0 +1,5753 @@
+[
+  {
+    "source": "zeus",
+    "exchanges": [
+      {
+        "request": {
+          "q": "start"
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "basedeal",
+            "phaseNext": "toRespin",
+            "historyId": 189627610,
+            "respinInfo": {
+              "nIt": 1,
+              "mask": [
+                [
+                  126,
+                  126,
+                  126,
+                  7,
+                  126
+                ],
+                [
+                  126,
+                  126,
+                  126,
+                  126,
+                  126
+                ],
+                [
+                  7,
+                  126,
+                  126,
+                  126,
+                  126
+                ],
+                [
+                  126,
+                  126,
+                  126,
+                  126,
+                  126
+                ]
+              ],
+              "total": 1,
+              "award": 1,
+              "nesting": 1
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askRespin",
+          "ghistId": 189627610
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "basedeal",
+            "phaseNext": "toRespin",
+            "historyId": 189627610,
+            "respinInfo": {
+              "nIt": 2,
+              "mask": [
+                [
+                  126,
+                  126,
+                  7,
+                  7,
+                  126
+                ],
+                [
+                  126,
+                  126,
+                  126,
+                  126,
+                  126
+                ],
+                [
+                  7,
+                  126,
+                  2,
+                  126,
+                  126
+                ],
+                [
+                  126,
+                  7,
+                  7,
+                  126,
+                  126
+                ]
+              ],
+              "total": 2,
+              "award": 1,
+              "nesting": 2
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askRespin",
+          "ghistId": 189627610
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "basedeal",
+            "phaseNext": "toPaid",
+            "historyId": 189627610,
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "finish",
+          "ghistId": 189627610
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "finished",
+            "phaseNext": "toIdle",
+            "historyId": 189627610
+          }
+        }
+      }
+    ]
+  },
+  {
+    "source": "zeus",
+    "exchanges": [
+      {
+        "request": {
+          "q": "start",
+          "ghistId": 189627610
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "basedeal",
+            "phaseNext": "toPaid",
+            "historyId": 189627680,
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "finish",
+          "ghistId": 189627680
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "finished",
+            "phaseNext": "toIdle",
+            "historyId": 189627680
+          }
+        }
+      }
+    ]
+  },
+  {
+    "source": "zeus",
+    "exchanges": [
+      {
+        "request": {
+          "q": "start",
+          "ghistId": 189627680
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "basedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189627700,
+            "freeInfo": {
+              "total": 6,
+              "remain": 6,
+              "award": 6,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 0,
+              "fg_aux": 0
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askNextFG",
+          "remainFG": 6,
+          "ghistId": 189627700
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189627700,
+            "freeInfo": {
+              "total": 6,
+              "remain": 6,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 0,
+              "fg_aux": 0
+            },
+            "respinInfo": {
+              "nIt": 1,
+              "mask": [
+                [
+                  126,
+                  126,
+                  126,
+                  126,
+                  7
+                ],
+                [
+                  126,
+                  126,
+                  126,
+                  126,
+                  126
+                ],
+                [
+                  126,
+                  126,
+                  126,
+                  126,
+                  126
+                ],
+                [
+                  126,
+                  7,
+                  126,
+                  7,
+                  126
+                ]
+              ],
+              "total": 1,
+              "award": 1,
+              "nesting": 1
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askRespin",
+          "ghistId": 189627700
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189627700,
+            "freeInfo": {
+              "total": 6,
+              "remain": 6,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 0,
+              "fg_aux": 0
+            },
+            "respinInfo": {
+              "nIt": 2,
+              "mask": [
+                [
+                  126,
+                  126,
+                  126,
+                  7,
+                  7
+                ],
+                [
+                  126,
+                  126,
+                  126,
+                  126,
+                  126
+                ],
+                [
+                  126,
+                  126,
+                  126,
+                  126,
+                  126
+                ],
+                [
+                  126,
+                  7,
+                  126,
+                  7,
+                  126
+                ]
+              ],
+              "total": 2,
+              "award": 1,
+              "nesting": 2
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askRespin",
+          "ghistId": 189627700
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189627700,
+            "freeInfo": {
+              "total": 6,
+              "remain": 6,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 0,
+              "fg_aux": 0
+            },
+            "respinInfo": {
+              "nIt": 3,
+              "mask": [
+                [
+                  126,
+                  126,
+                  126,
+                  7,
+                  7
+                ],
+                [
+                  126,
+                  126,
+                  7,
+                  7,
+                  126
+                ],
+                [
+                  126,
+                  126,
+                  126,
+                  126,
+                  126
+                ],
+                [
+                  126,
+                  7,
+                  126,
+                  7,
+                  126
+                ]
+              ],
+              "total": 3,
+              "award": 1,
+              "nesting": 3
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askRespin",
+          "ghistId": 189627700
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189627700,
+            "freeInfo": {
+              "total": 6,
+              "remain": 5,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 0,
+              "fg_aux": 0
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askNextFG",
+          "remainFG": 5,
+          "ghistId": 189627700
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189627700,
+            "freeInfo": {
+              "total": 6,
+              "remain": 5,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 0,
+              "fg_aux": 0
+            },
+            "respinInfo": {
+              "nIt": 1,
+              "mask": [
+                [
+                  126,
+                  126,
+                  126,
+                  5,
+                  126
+                ],
+                [
+                  126,
+                  126,
+                  126,
+                  5,
+                  5
+                ],
+                [
+                  126,
+                  126,
+                  126,
+                  126,
+                  126
+                ],
+                [
+                  126,
+                  126,
+                  5,
+                  126,
+                  126
+                ]
+              ],
+              "total": 1,
+              "award": 1,
+              "nesting": 1
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askRespin",
+          "ghistId": 189627700
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189627700,
+            "freeInfo": {
+              "total": 6,
+              "remain": 4,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 0,
+              "fg_aux": 0
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askNextFG",
+          "remainFG": 4,
+          "ghistId": 189627700
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189627700,
+            "freeInfo": {
+              "total": 6,
+              "remain": 4,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 0,
+              "fg_aux": 0
+            },
+            "respinInfo": {
+              "nIt": 1,
+              "mask": [
+                [
+                  126,
+                  126,
+                  126,
+                  126,
+                  126
+                ],
+                [
+                  126,
+                  126,
+                  126,
+                  126,
+                  5
+                ],
+                [
+                  5,
+                  126,
+                  126,
+                  126,
+                  126
+                ],
+                [
+                  126,
+                  126,
+                  126,
+                  126,
+                  126
+                ]
+              ],
+              "total": 1,
+              "award": 1,
+              "nesting": 1
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askRespin",
+          "ghistId": 189627700
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189627700,
+            "freeInfo": {
+              "total": 6,
+              "remain": 4,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 0,
+              "fg_aux": 0
+            },
+            "respinInfo": {
+              "nIt": 2,
+              "mask": [
+                [
+                  126,
+                  126,
+                  126,
+                  126,
+                  126
+                ],
+                [
+                  126,
+                  126,
+                  5,
+                  126,
+                  5
+                ],
+                [
+                  5,
+                  126,
+                  126,
+                  126,
+                  126
+                ],
+                [
+                  126,
+                  126,
+                  126,
+                  126,
+                  126
+                ]
+              ],
+              "total": 2,
+              "award": 1,
+              "nesting": 2
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askRespin",
+          "ghistId": 189627700
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189627700,
+            "freeInfo": {
+              "total": 6,
+              "remain": 4,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 120,
+              "fg_aux": 0
+            },
+            "respinInfo": {
+              "nIt": 3,
+              "mask": [
+                [
+                  126,
+                  126,
+                  2,
+                  126,
+                  126
+                ],
+                [
+                  126,
+                  126,
+                  5,
+                  126,
+                  5
+                ],
+                [
+                  5,
+                  126,
+                  5,
+                  126,
+                  126
+                ],
+                [
+                  126,
+                  126,
+                  126,
+                  2,
+                  126
+                ]
+              ],
+              "total": 3,
+              "award": 1,
+              "nesting": 3
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askRespin",
+          "ghistId": 189627700
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189627700,
+            "freeInfo": {
+              "total": 6,
+              "remain": 4,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 120,
+              "fg_aux": 0
+            },
+            "respinInfo": {
+              "nIt": 4,
+              "mask": [
+                [
+                  126,
+                  126,
+                  2,
+                  126,
+                  126
+                ],
+                [
+                  126,
+                  126,
+                  5,
+                  126,
+                  5
+                ],
+                [
+                  5,
+                  126,
+                  5,
+                  126,
+                  126
+                ],
+                [
+                  5,
+                  126,
+                  126,
+                  2,
+                  126
+                ]
+              ],
+              "total": 4,
+              "award": 1,
+              "nesting": 4
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askRespin",
+          "ghistId": 189627700
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189627700,
+            "freeInfo": {
+              "total": 6,
+              "remain": 3,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 120,
+              "fg_aux": 0
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askNextFG",
+          "remainFG": 3,
+          "ghistId": 189627700
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189627700,
+            "freeInfo": {
+              "total": 6,
+              "remain": 3,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 120,
+              "fg_aux": 0
+            },
+            "respinInfo": {
+              "nIt": 1,
+              "mask": [
+                [
+                  7,
+                  126,
+                  2,
+                  7,
+                  7
+                ],
+                [
+                  126,
+                  126,
+                  7,
+                  7,
+                  7
+                ],
+                [
+                  126,
+                  126,
+                  126,
+                  126,
+                  7
+                ],
+                [
+                  126,
+                  126,
+                  7,
+                  2,
+                  7
+                ]
+              ],
+              "total": 1,
+              "award": 1,
+              "nesting": 1
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askRespin",
+          "ghistId": 189627700
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189627700,
+            "freeInfo": {
+              "total": 6,
+              "remain": 2,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 120,
+              "fg_aux": 0
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askNextFG",
+          "remainFG": 2,
+          "ghistId": 189627700
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189627700,
+            "freeInfo": {
+              "total": 6,
+              "remain": 2,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 1320,
+              "fg_aux": 0
+            },
+            "respinInfo": {
+              "nIt": 1,
+              "mask": [
+                [
+                  126,
+                  126,
+                  2,
+                  126,
+                  126
+                ],
+                [
+                  126,
+                  126,
+                  126,
+                  3,
+                  126
+                ],
+                [
+                  126,
+                  126,
+                  126,
+                  126,
+                  126
+                ],
+                [
+                  126,
+                  126,
+                  126,
+                  2,
+                  126
+                ]
+              ],
+              "total": 1,
+              "award": 1,
+              "nesting": 1
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askRespin",
+          "ghistId": 189627700
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189627700,
+            "freeInfo": {
+              "total": 6,
+              "remain": 2,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 1320,
+              "fg_aux": 0
+            },
+            "respinInfo": {
+              "nIt": 2,
+              "mask": [
+                [
+                  126,
+                  126,
+                  2,
+                  126,
+                  126
+                ],
+                [
+                  3,
+                  126,
+                  126,
+                  3,
+                  126
+                ],
+                [
+                  126,
+                  126,
+                  126,
+                  126,
+                  126
+                ],
+                [
+                  126,
+                  126,
+                  126,
+                  2,
+                  126
+                ]
+              ],
+              "total": 2,
+              "award": 1,
+              "nesting": 2
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askRespin",
+          "ghistId": 189627700
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189627700,
+            "freeInfo": {
+              "total": 6,
+              "remain": 2,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 1320,
+              "fg_aux": 0
+            },
+            "respinInfo": {
+              "nIt": 3,
+              "mask": [
+                [
+                  126,
+                  126,
+                  2,
+                  3,
+                  126
+                ],
+                [
+                  3,
+                  126,
+                  126,
+                  3,
+                  126
+                ],
+                [
+                  3,
+                  126,
+                  126,
+                  126,
+                  126
+                ],
+                [
+                  3,
+                  126,
+                  126,
+                  2,
+                  126
+                ]
+              ],
+              "total": 3,
+              "award": 1,
+              "nesting": 3
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askRespin",
+          "ghistId": 189627700
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189627700,
+            "freeInfo": {
+              "total": 6,
+              "remain": 1,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 1320,
+              "fg_aux": 0
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askNextFG",
+          "remainFG": 1,
+          "ghistId": 189627700
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189627700,
+            "freeInfo": {
+              "total": 6,
+              "remain": 1,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 1320,
+              "fg_aux": 0
+            },
+            "respinInfo": {
+              "nIt": 1,
+              "mask": [
+                [
+                  126,
+                  126,
+                  2,
+                  10,
+                  10
+                ],
+                [
+                  126,
+                  10,
+                  126,
+                  10,
+                  126
+                ],
+                [
+                  126,
+                  126,
+                  126,
+                  10,
+                  126
+                ],
+                [
+                  126,
+                  10,
+                  126,
+                  2,
+                  126
+                ]
+              ],
+              "total": 1,
+              "award": 1,
+              "nesting": 1
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askRespin",
+          "ghistId": 189627700
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toPaid",
+            "historyId": 189627700,
+            "freeInfo": {
+              "total": 6,
+              "remain": 0,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 1320,
+              "fg_aux": 0
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "finish",
+          "ghistId": 189627700
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "finished",
+            "phaseNext": "toIdle",
+            "historyId": 189627700
+          }
+        }
+      }
+    ]
+  },
+  {
+    "source": "zeus",
+    "exchanges": [
+      {
+        "request": {
+          "q": "start",
+          "ghistId": 189627700
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "basedeal",
+            "phaseNext": "toRespin",
+            "historyId": 189628549,
+            "respinInfo": {
+              "nIt": 1,
+              "mask": [
+                [
+                  126,
+                  126,
+                  126,
+                  5,
+                  126
+                ],
+                [
+                  5,
+                  5,
+                  126,
+                  5,
+                  126
+                ],
+                [
+                  126,
+                  126,
+                  5,
+                  5,
+                  5
+                ],
+                [
+                  126,
+                  126,
+                  5,
+                  5,
+                  5
+                ]
+              ],
+              "total": 1,
+              "award": 1,
+              "nesting": 1
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askRespin",
+          "ghistId": 189628549
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "basedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189628549,
+            "freeInfo": {
+              "total": 6,
+              "remain": 6,
+              "award": 6,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 0,
+              "fg_aux": 0
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askNextFG",
+          "remainFG": 6,
+          "ghistId": 189628549
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189628549,
+            "freeInfo": {
+              "total": 6,
+              "remain": 6,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 100,
+              "fg_aux": 0
+            },
+            "respinInfo": {
+              "nIt": 1,
+              "mask": [
+                [
+                  10,
+                  126,
+                  2,
+                  2,
+                  126
+                ],
+                [
+                  126,
+                  126,
+                  126,
+                  2,
+                  126
+                ],
+                [
+                  126,
+                  10,
+                  126,
+                  126,
+                  126
+                ],
+                [
+                  2,
+                  126,
+                  126,
+                  126,
+                  126
+                ]
+              ],
+              "total": 1,
+              "award": 1,
+              "nesting": 1
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askRespin",
+          "ghistId": 189628549
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189628549,
+            "freeInfo": {
+              "total": 6,
+              "remain": 6,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 1480,
+              "fg_aux": 0
+            },
+            "respinInfo": {
+              "nIt": 2,
+              "mask": [
+                [
+                  10,
+                  126,
+                  2,
+                  2,
+                  126
+                ],
+                [
+                  126,
+                  126,
+                  126,
+                  2,
+                  10
+                ],
+                [
+                  126,
+                  10,
+                  126,
+                  126,
+                  10
+                ],
+                [
+                  2,
+                  126,
+                  126,
+                  10,
+                  126
+                ]
+              ],
+              "total": 2,
+              "award": 1,
+              "nesting": 2
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askRespin",
+          "ghistId": 189628549
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189628549,
+            "freeInfo": {
+              "total": 6,
+              "remain": 5,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 1480,
+              "fg_aux": 0
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askNextFG",
+          "remainFG": 5,
+          "ghistId": 189628549
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189628549,
+            "freeInfo": {
+              "total": 6,
+              "remain": 5,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 1480,
+              "fg_aux": 0
+            },
+            "respinInfo": {
+              "nIt": 1,
+              "mask": [
+                [
+                  126,
+                  126,
+                  2,
+                  2,
+                  126
+                ],
+                [
+                  126,
+                  126,
+                  126,
+                  2,
+                  4
+                ],
+                [
+                  126,
+                  4,
+                  4,
+                  126,
+                  126
+                ],
+                [
+                  2,
+                  126,
+                  4,
+                  126,
+                  126
+                ]
+              ],
+              "total": 1,
+              "award": 1,
+              "nesting": 1
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askRespin",
+          "ghistId": 189628549
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189628549,
+            "freeInfo": {
+              "total": 6,
+              "remain": 4,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 1680,
+              "fg_aux": 0
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askNextFG",
+          "remainFG": 4,
+          "ghistId": 189628549
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189628549,
+            "freeInfo": {
+              "total": 6,
+              "remain": 4,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 1680,
+              "fg_aux": 0
+            },
+            "respinInfo": {
+              "nIt": 1,
+              "mask": [
+                [
+                  126,
+                  126,
+                  2,
+                  2,
+                  126
+                ],
+                [
+                  126,
+                  9,
+                  126,
+                  2,
+                  126
+                ],
+                [
+                  126,
+                  126,
+                  126,
+                  126,
+                  126
+                ],
+                [
+                  2,
+                  126,
+                  126,
+                  126,
+                  126
+                ]
+              ],
+              "total": 1,
+              "award": 1,
+              "nesting": 1
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askRespin",
+          "ghistId": 189628549
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189628549,
+            "freeInfo": {
+              "total": 6,
+              "remain": 3,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 1680,
+              "fg_aux": 0
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askNextFG",
+          "remainFG": 3,
+          "ghistId": 189628549
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189628549,
+            "freeInfo": {
+              "total": 6,
+              "remain": 3,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 1680,
+              "fg_aux": 0
+            },
+            "respinInfo": {
+              "nIt": 1,
+              "mask": [
+                [
+                  126,
+                  126,
+                  2,
+                  2,
+                  126
+                ],
+                [
+                  126,
+                  126,
+                  126,
+                  2,
+                  126
+                ],
+                [
+                  6,
+                  126,
+                  126,
+                  126,
+                  126
+                ],
+                [
+                  2,
+                  6,
+                  126,
+                  126,
+                  126
+                ]
+              ],
+              "total": 1,
+              "award": 1,
+              "nesting": 1
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askRespin",
+          "ghistId": 189628549
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189628549,
+            "freeInfo": {
+              "total": 6,
+              "remain": 2,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 1680,
+              "fg_aux": 0
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askNextFG",
+          "remainFG": 2,
+          "ghistId": 189628549
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189628549,
+            "freeInfo": {
+              "total": 6,
+              "remain": 2,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 1680,
+              "fg_aux": 0
+            },
+            "respinInfo": {
+              "nIt": 1,
+              "mask": [
+                [
+                  126,
+                  126,
+                  2,
+                  2,
+                  126
+                ],
+                [
+                  126,
+                  126,
+                  126,
+                  2,
+                  126
+                ],
+                [
+                  126,
+                  126,
+                  126,
+                  126,
+                  126
+                ],
+                [
+                  2,
+                  126,
+                  126,
+                  126,
+                  3
+                ]
+              ],
+              "total": 1,
+              "award": 1,
+              "nesting": 1
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askRespin",
+          "ghistId": 189628549
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189628549,
+            "freeInfo": {
+              "total": 6,
+              "remain": 2,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 1680,
+              "fg_aux": 0
+            },
+            "respinInfo": {
+              "nIt": 2,
+              "mask": [
+                [
+                  3,
+                  126,
+                  2,
+                  2,
+                  126
+                ],
+                [
+                  126,
+                  126,
+                  126,
+                  2,
+                  126
+                ],
+                [
+                  126,
+                  126,
+                  126,
+                  126,
+                  126
+                ],
+                [
+                  2,
+                  126,
+                  126,
+                  126,
+                  3
+                ]
+              ],
+              "total": 2,
+              "award": 1,
+              "nesting": 2
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askRespin",
+          "ghistId": 189628549
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189628549,
+            "freeInfo": {
+              "total": 6,
+              "remain": 2,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 1680,
+              "fg_aux": 0
+            },
+            "respinInfo": {
+              "nIt": 3,
+              "mask": [
+                [
+                  3,
+                  3,
+                  2,
+                  2,
+                  126
+                ],
+                [
+                  126,
+                  126,
+                  126,
+                  2,
+                  126
+                ],
+                [
+                  126,
+                  126,
+                  3,
+                  126,
+                  126
+                ],
+                [
+                  2,
+                  126,
+                  3,
+                  126,
+                  3
+                ]
+              ],
+              "total": 3,
+              "award": 1,
+              "nesting": 3
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askRespin",
+          "ghistId": 189628549
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189628549,
+            "freeInfo": {
+              "total": 6,
+              "remain": 1,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 3180,
+              "fg_aux": 0
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askNextFG",
+          "remainFG": 1,
+          "ghistId": 189628549
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189628549,
+            "freeInfo": {
+              "total": 6,
+              "remain": 1,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 3180,
+              "fg_aux": 0
+            },
+            "respinInfo": {
+              "nIt": 1,
+              "mask": [
+                [
+                  126,
+                  126,
+                  2,
+                  2,
+                  126
+                ],
+                [
+                  126,
+                  126,
+                  126,
+                  2,
+                  126
+                ],
+                [
+                  126,
+                  6,
+                  126,
+                  2,
+                  6
+                ],
+                [
+                  2,
+                  6,
+                  126,
+                  126,
+                  6
+                ]
+              ],
+              "total": 1,
+              "award": 1,
+              "nesting": 1
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askRespin",
+          "ghistId": 189628549
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toPaid",
+            "historyId": 189628549,
+            "freeInfo": {
+              "total": 6,
+              "remain": 0,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 3380,
+              "fg_aux": 0
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "finish",
+          "ghistId": 189628549
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "finished",
+            "phaseNext": "toIdle",
+            "historyId": 189628549
+          }
+        }
+      }
+    ]
+  },
+  {
+    "source": "zeus",
+    "exchanges": [
+      {
+        "request": {
+          "q": "start",
+          "ghistId": 189628549
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "basedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189629392,
+            "freeInfo": {
+              "total": 6,
+              "remain": 6,
+              "award": 6,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 0,
+              "fg_aux": 0
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askNextFG",
+          "remainFG": 6,
+          "ghistId": 189629392
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189629392,
+            "freeInfo": {
+              "total": 6,
+              "remain": 6,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 20,
+              "fg_aux": 0
+            },
+            "respinInfo": {
+              "nIt": 1,
+              "mask": [
+                [
+                  7,
+                  126,
+                  126,
+                  126,
+                  126
+                ],
+                [
+                  126,
+                  126,
+                  7,
+                  126,
+                  126
+                ],
+                [
+                  126,
+                  126,
+                  126,
+                  126,
+                  126
+                ],
+                [
+                  126,
+                  126,
+                  126,
+                  126,
+                  126
+                ]
+              ],
+              "total": 1,
+              "award": 1,
+              "nesting": 1
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askRespin",
+          "ghistId": 189629392
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189629392,
+            "freeInfo": {
+              "total": 6,
+              "remain": 6,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 20,
+              "fg_aux": 0
+            },
+            "respinInfo": {
+              "nIt": 2,
+              "mask": [
+                [
+                  7,
+                  126,
+                  126,
+                  126,
+                  126
+                ],
+                [
+                  7,
+                  126,
+                  7,
+                  126,
+                  126
+                ],
+                [
+                  7,
+                  126,
+                  126,
+                  126,
+                  126
+                ],
+                [
+                  7,
+                  126,
+                  126,
+                  126,
+                  126
+                ]
+              ],
+              "total": 2,
+              "award": 1,
+              "nesting": 2
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askRespin",
+          "ghistId": 189629392
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189629392,
+            "freeInfo": {
+              "total": 6,
+              "remain": 6,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 20,
+              "fg_aux": 0
+            },
+            "respinInfo": {
+              "nIt": 3,
+              "mask": [
+                [
+                  7,
+                  126,
+                  126,
+                  126,
+                  126
+                ],
+                [
+                  7,
+                  126,
+                  7,
+                  126,
+                  7
+                ],
+                [
+                  7,
+                  126,
+                  126,
+                  126,
+                  126
+                ],
+                [
+                  7,
+                  126,
+                  126,
+                  126,
+                  126
+                ]
+              ],
+              "total": 3,
+              "award": 1,
+              "nesting": 3
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askRespin",
+          "ghistId": 189629392
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189629392,
+            "freeInfo": {
+              "total": 6,
+              "remain": 6,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 20,
+              "fg_aux": 0
+            },
+            "respinInfo": {
+              "nIt": 4,
+              "mask": [
+                [
+                  7,
+                  126,
+                  126,
+                  126,
+                  126
+                ],
+                [
+                  7,
+                  126,
+                  7,
+                  7,
+                  7
+                ],
+                [
+                  7,
+                  126,
+                  126,
+                  126,
+                  126
+                ],
+                [
+                  7,
+                  126,
+                  126,
+                  126,
+                  126
+                ]
+              ],
+              "total": 4,
+              "award": 1,
+              "nesting": 4
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askRespin",
+          "ghistId": 189629392
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189629392,
+            "freeInfo": {
+              "total": 6,
+              "remain": 5,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 20,
+              "fg_aux": 0
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askNextFG",
+          "remainFG": 5,
+          "ghistId": 189629392
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189629392,
+            "freeInfo": {
+              "total": 6,
+              "remain": 5,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 20,
+              "fg_aux": 0
+            },
+            "respinInfo": {
+              "nIt": 1,
+              "mask": [
+                [
+                  126,
+                  126,
+                  126,
+                  126,
+                  2
+                ],
+                [
+                  4,
+                  126,
+                  126,
+                  126,
+                  126
+                ],
+                [
+                  126,
+                  126,
+                  126,
+                  126,
+                  126
+                ],
+                [
+                  4,
+                  126,
+                  126,
+                  126,
+                  4
+                ]
+              ],
+              "total": 1,
+              "award": 1,
+              "nesting": 1
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askRespin",
+          "ghistId": 189629392
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189629392,
+            "freeInfo": {
+              "total": 6,
+              "remain": 5,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 20,
+              "fg_aux": 0
+            },
+            "respinInfo": {
+              "nIt": 2,
+              "mask": [
+                [
+                  126,
+                  126,
+                  126,
+                  126,
+                  2
+                ],
+                [
+                  4,
+                  126,
+                  126,
+                  126,
+                  126
+                ],
+                [
+                  126,
+                  126,
+                  4,
+                  126,
+                  126
+                ],
+                [
+                  4,
+                  126,
+                  126,
+                  126,
+                  4
+                ]
+              ],
+              "total": 2,
+              "award": 1,
+              "nesting": 2
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askRespin",
+          "ghistId": 189629392
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189629392,
+            "freeInfo": {
+              "total": 6,
+              "remain": 5,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 20,
+              "fg_aux": 0
+            },
+            "respinInfo": {
+              "nIt": 3,
+              "mask": [
+                [
+                  126,
+                  126,
+                  4,
+                  126,
+                  2
+                ],
+                [
+                  4,
+                  126,
+                  126,
+                  126,
+                  126
+                ],
+                [
+                  126,
+                  126,
+                  4,
+                  126,
+                  126
+                ],
+                [
+                  4,
+                  126,
+                  126,
+                  126,
+                  4
+                ]
+              ],
+              "total": 3,
+              "award": 1,
+              "nesting": 3
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askRespin",
+          "ghistId": 189629392
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189629392,
+            "freeInfo": {
+              "total": 6,
+              "remain": 5,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 20,
+              "fg_aux": 0
+            },
+            "respinInfo": {
+              "nIt": 4,
+              "mask": [
+                [
+                  4,
+                  126,
+                  4,
+                  126,
+                  2
+                ],
+                [
+                  4,
+                  126,
+                  126,
+                  126,
+                  126
+                ],
+                [
+                  126,
+                  126,
+                  4,
+                  126,
+                  126
+                ],
+                [
+                  4,
+                  126,
+                  126,
+                  126,
+                  4
+                ]
+              ],
+              "total": 4,
+              "award": 1,
+              "nesting": 4
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askRespin",
+          "ghistId": 189629392
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189629392,
+            "freeInfo": {
+              "total": 6,
+              "remain": 5,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 20,
+              "fg_aux": 0
+            },
+            "respinInfo": {
+              "nIt": 5,
+              "mask": [
+                [
+                  4,
+                  126,
+                  4,
+                  126,
+                  2
+                ],
+                [
+                  4,
+                  126,
+                  126,
+                  126,
+                  126
+                ],
+                [
+                  126,
+                  4,
+                  4,
+                  126,
+                  126
+                ],
+                [
+                  4,
+                  126,
+                  126,
+                  126,
+                  4
+                ]
+              ],
+              "total": 5,
+              "award": 1,
+              "nesting": 5
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askRespin",
+          "ghistId": 189629392
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189629392,
+            "freeInfo": {
+              "total": 6,
+              "remain": 4,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 120,
+              "fg_aux": 0
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askNextFG",
+          "remainFG": 4,
+          "ghistId": 189629392
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189629392,
+            "freeInfo": {
+              "total": 6,
+              "remain": 4,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 120,
+              "fg_aux": 0
+            },
+            "respinInfo": {
+              "nIt": 1,
+              "mask": [
+                [
+                  126,
+                  126,
+                  9,
+                  126,
+                  2
+                ],
+                [
+                  126,
+                  126,
+                  126,
+                  126,
+                  9
+                ],
+                [
+                  126,
+                  126,
+                  126,
+                  126,
+                  9
+                ],
+                [
+                  9,
+                  126,
+                  126,
+                  126,
+                  126
+                ]
+              ],
+              "total": 1,
+              "award": 1,
+              "nesting": 1
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askRespin",
+          "ghistId": 189629392
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189629392,
+            "freeInfo": {
+              "total": 6,
+              "remain": 3,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 120,
+              "fg_aux": 0
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askNextFG",
+          "remainFG": 3,
+          "ghistId": 189629392
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189629392,
+            "freeInfo": {
+              "total": 6,
+              "remain": 3,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 120,
+              "fg_aux": 0
+            },
+            "respinInfo": {
+              "nIt": 1,
+              "mask": [
+                [
+                  126,
+                  8,
+                  126,
+                  126,
+                  2
+                ],
+                [
+                  126,
+                  126,
+                  126,
+                  126,
+                  126
+                ],
+                [
+                  126,
+                  126,
+                  8,
+                  126,
+                  2
+                ],
+                [
+                  8,
+                  126,
+                  126,
+                  126,
+                  126
+                ]
+              ],
+              "total": 1,
+              "award": 1,
+              "nesting": 1
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askRespin",
+          "ghistId": 189629392
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189629392,
+            "freeInfo": {
+              "total": 6,
+              "remain": 2,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 120,
+              "fg_aux": 0
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askNextFG",
+          "remainFG": 2,
+          "ghistId": 189629392
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189629392,
+            "freeInfo": {
+              "total": 6,
+              "remain": 2,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 120,
+              "fg_aux": 0
+            },
+            "respinInfo": {
+              "nIt": 1,
+              "mask": [
+                [
+                  126,
+                  126,
+                  126,
+                  126,
+                  2
+                ],
+                [
+                  126,
+                  126,
+                  126,
+                  126,
+                  126
+                ],
+                [
+                  126,
+                  126,
+                  4,
+                  4,
+                  2
+                ],
+                [
+                  126,
+                  126,
+                  4,
+                  126,
+                  126
+                ]
+              ],
+              "total": 1,
+              "award": 1,
+              "nesting": 1
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askRespin",
+          "ghistId": 189629392
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189629392,
+            "freeInfo": {
+              "total": 6,
+              "remain": 2,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 120,
+              "fg_aux": 0
+            },
+            "respinInfo": {
+              "nIt": 2,
+              "mask": [
+                [
+                  126,
+                  4,
+                  4,
+                  126,
+                  2
+                ],
+                [
+                  126,
+                  126,
+                  4,
+                  126,
+                  126
+                ],
+                [
+                  4,
+                  126,
+                  4,
+                  4,
+                  2
+                ],
+                [
+                  126,
+                  126,
+                  4,
+                  126,
+                  126
+                ]
+              ],
+              "total": 2,
+              "award": 1,
+              "nesting": 2
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askRespin",
+          "ghistId": 189629392
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189629392,
+            "freeInfo": {
+              "total": 6,
+              "remain": 1,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 120,
+              "fg_aux": 0
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askNextFG",
+          "remainFG": 1,
+          "ghistId": 189629392
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189629392,
+            "freeInfo": {
+              "total": 6,
+              "remain": 1,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 120,
+              "fg_aux": 0
+            },
+            "respinInfo": {
+              "nIt": 1,
+              "mask": [
+                [
+                  126,
+                  126,
+                  126,
+                  5,
+                  2
+                ],
+                [
+                  126,
+                  126,
+                  5,
+                  5,
+                  126
+                ],
+                [
+                  126,
+                  126,
+                  126,
+                  126,
+                  2
+                ],
+                [
+                  126,
+                  126,
+                  126,
+                  126,
+                  126
+                ]
+              ],
+              "total": 1,
+              "award": 1,
+              "nesting": 1
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askRespin",
+          "ghistId": 189629392
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toPaid",
+            "historyId": 189629392,
+            "freeInfo": {
+              "total": 6,
+              "remain": 0,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 120,
+              "fg_aux": 0
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "finish",
+          "ghistId": 189629392
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "finished",
+            "phaseNext": "toIdle",
+            "historyId": 189629392
+          }
+        }
+      }
+    ]
+  },
+  {
+    "source": "zeus",
+    "exchanges": [
+      {
+        "request": {
+          "q": "start",
+          "ghistId": 189629392
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "basedeal",
+            "phaseNext": "toPaid",
+            "historyId": 189630133,
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "finish",
+          "ghistId": 189630133
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "finished",
+            "phaseNext": "toIdle",
+            "historyId": 189630133
+          }
+        }
+      }
+    ]
+  },
+  {
+    "source": "pagoda",
+    "exchanges": [
+      {
+        "request": {
+          "q": "start"
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "basedeal",
+            "phaseNext": "toPaid",
+            "historyId": 189626767,
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "finish",
+          "ghistId": 189626767
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "finished",
+            "phaseNext": "toIdle",
+            "historyId": 189626767
+          }
+        }
+      }
+    ]
+  },
+  {
+    "source": "pagoda",
+    "exchanges": [
+      {
+        "request": {
+          "q": "start",
+          "ghistId": 189626767
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "basedeal",
+            "phaseNext": "toPaid",
+            "historyId": 189626808,
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "finish",
+          "ghistId": 189626808
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "finished",
+            "phaseNext": "toIdle",
+            "historyId": 189626808
+          }
+        }
+      }
+    ]
+  },
+  {
+    "source": "pagoda",
+    "exchanges": [
+      {
+        "request": {
+          "q": "start",
+          "ghistId": 189626808
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "basedeal",
+            "phaseNext": "toPaid",
+            "historyId": 189626829,
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "finish",
+          "ghistId": 189626829
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "finished",
+            "phaseNext": "toIdle",
+            "historyId": 189626829
+          }
+        }
+      }
+    ]
+  },
+  {
+    "source": "pagoda",
+    "exchanges": [
+      {
+        "request": {
+          "q": "start",
+          "ghistId": 189626829
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "basedeal",
+            "phaseNext": "toPaid",
+            "historyId": 189626846,
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "finish",
+          "ghistId": 189626846
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "finished",
+            "phaseNext": "toIdle",
+            "historyId": 189626846
+          }
+        }
+      }
+    ]
+  },
+  {
+    "source": "pagoda",
+    "exchanges": [
+      {
+        "request": {
+          "q": "start",
+          "ghistId": 189626846
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "basedeal",
+            "phaseNext": "toBonus2",
+            "historyId": 189626887,
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askBonus2",
+          "wasAttempt": 0,
+          "ghistId": 189626887
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "Bonus2",
+            "phaseNext": "toBonus2",
+            "historyId": 189626887,
+            "other": {
+              "autochoice": "start",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            },
+            "subGameInfo": [
+              {
+                "category": "Bonus2",
+                "type": "2",
+                "attempt": 1,
+                "userChoice": "",
+                "respinRemain": 3,
+                "startRespin": 3,
+                "stopBox": [
+                  [
+                    0,
+                    1,
+                    1
+                  ],
+                  [
+                    1,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0
+                  ]
+                ],
+                "boxId_curLevel": 1,
+                "boxId_nextLevel": 2
+              }
+            ]
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askBonus2start",
+          "wasAttempt": 1,
+          "ghistId": 189626887
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "Bonus2",
+            "phaseNext": "toBonus2",
+            "historyId": 189626887,
+            "other": {
+              "autochoice": "start",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            },
+            "subGameInfo": [
+              {
+                "category": "Bonus2",
+                "type": "2",
+                "attempt": 2,
+                "userChoice": "start",
+                "respinRemain": 3,
+                "startRespin": 3,
+                "stopBox": [
+                  [
+                    5,
+                    1,
+                    1
+                  ],
+                  [
+                    1,
+                    15,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0
+                  ]
+                ],
+                "boxId_curLevel": 1,
+                "boxId_nextLevel": 2
+              }
+            ]
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askBonus2start",
+          "wasAttempt": 2,
+          "ghistId": 189626887
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "Bonus2",
+            "phaseNext": "toBonus2",
+            "historyId": 189626887,
+            "other": {
+              "autochoice": "start",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            },
+            "subGameInfo": [
+              {
+                "category": "Bonus2",
+                "type": "2",
+                "attempt": 3,
+                "userChoice": "start",
+                "respinRemain": 2,
+                "startRespin": 3,
+                "stopBox": [
+                  [
+                    5,
+                    1,
+                    1
+                  ],
+                  [
+                    1,
+                    15,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0
+                  ]
+                ],
+                "boxId_curLevel": 1,
+                "boxId_nextLevel": 2
+              }
+            ]
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askBonus2start",
+          "wasAttempt": 3,
+          "ghistId": 189626887
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "Bonus2",
+            "phaseNext": "toBonus2",
+            "historyId": 189626887,
+            "other": {
+              "autochoice": "start",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            },
+            "subGameInfo": [
+              {
+                "category": "Bonus2",
+                "type": "2",
+                "attempt": 4,
+                "userChoice": "start",
+                "respinRemain": 3,
+                "startRespin": 2,
+                "stopBox": [
+                  [
+                    5,
+                    1,
+                    1
+                  ],
+                  [
+                    1,
+                    15,
+                    2
+                  ],
+                  [
+                    0,
+                    0,
+                    0
+                  ]
+                ],
+                "boxId_curLevel": 1,
+                "boxId_nextLevel": 2
+              }
+            ]
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askBonus2start",
+          "wasAttempt": 4,
+          "ghistId": 189626887
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "Bonus2",
+            "phaseNext": "toBonus2",
+            "historyId": 189626887,
+            "other": {
+              "autochoice": "start",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            },
+            "subGameInfo": [
+              {
+                "category": "Bonus2",
+                "type": "2",
+                "attempt": 5,
+                "userChoice": "start",
+                "respinRemain": 2,
+                "startRespin": 3,
+                "stopBox": [
+                  [
+                    5,
+                    1,
+                    1
+                  ],
+                  [
+                    1,
+                    15,
+                    2
+                  ],
+                  [
+                    0,
+                    0,
+                    0
+                  ]
+                ],
+                "boxId_curLevel": 1,
+                "boxId_nextLevel": 2
+              }
+            ]
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askBonus2start",
+          "wasAttempt": 5,
+          "ghistId": 189626887
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "Bonus2",
+            "phaseNext": "toBonus2",
+            "historyId": 189626887,
+            "other": {
+              "autochoice": "start",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            },
+            "subGameInfo": [
+              {
+                "category": "Bonus2",
+                "type": "2",
+                "attempt": 6,
+                "userChoice": "start",
+                "respinRemain": 3,
+                "startRespin": 2,
+                "stopBox": [
+                  [
+                    5,
+                    1,
+                    1
+                  ],
+                  [
+                    1,
+                    15,
+                    2
+                  ],
+                  [
+                    0,
+                    0,
+                    10
+                  ]
+                ],
+                "boxId_curLevel": 1,
+                "boxId_nextLevel": 2
+              }
+            ]
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askBonus2start",
+          "wasAttempt": 6,
+          "ghistId": 189626887
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "Bonus2",
+            "phaseNext": "toBonus2",
+            "historyId": 189626887,
+            "other": {
+              "autochoice": "start",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            },
+            "subGameInfo": [
+              {
+                "category": "Bonus2",
+                "type": "2",
+                "attempt": 7,
+                "userChoice": "start",
+                "respinRemain": 2,
+                "startRespin": 3,
+                "stopBox": [
+                  [
+                    5,
+                    1,
+                    1
+                  ],
+                  [
+                    1,
+                    15,
+                    2
+                  ],
+                  [
+                    0,
+                    0,
+                    10
+                  ]
+                ],
+                "boxId_curLevel": 1,
+                "boxId_nextLevel": 2
+              }
+            ]
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askBonus2start",
+          "wasAttempt": 7,
+          "ghistId": 189626887
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "Bonus2",
+            "phaseNext": "toBonus2",
+            "historyId": 189626887,
+            "other": {
+              "autochoice": "start",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            },
+            "subGameInfo": [
+              {
+                "category": "Bonus2",
+                "type": "2",
+                "attempt": 8,
+                "userChoice": "start",
+                "respinRemain": 1,
+                "startRespin": 2,
+                "stopBox": [
+                  [
+                    5,
+                    1,
+                    1
+                  ],
+                  [
+                    1,
+                    15,
+                    2
+                  ],
+                  [
+                    0,
+                    0,
+                    10
+                  ]
+                ],
+                "boxId_curLevel": 1,
+                "boxId_nextLevel": 2
+              }
+            ]
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askBonus2start",
+          "wasAttempt": 8,
+          "ghistId": 189626887
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "Bonus2",
+            "phaseNext": "toBonus2",
+            "historyId": 189626887,
+            "other": {
+              "autochoice": "start",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            },
+            "subGameInfo": [
+              {
+                "category": "Bonus2",
+                "type": "2",
+                "attempt": 9,
+                "userChoice": "start",
+                "respinRemain": 3,
+                "startRespin": 1,
+                "stopBox": [
+                  [
+                    5,
+                    1,
+                    1
+                  ],
+                  [
+                    1,
+                    15,
+                    2
+                  ],
+                  [
+                    0,
+                    3,
+                    10
+                  ]
+                ],
+                "boxId_curLevel": 1,
+                "boxId_nextLevel": 2
+              }
+            ]
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askBonus2start",
+          "wasAttempt": 9,
+          "ghistId": 189626887
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "Bonus2",
+            "phaseNext": "toBonus2",
+            "historyId": 189626887,
+            "other": {
+              "autochoice": "start",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            },
+            "subGameInfo": [
+              {
+                "category": "Bonus2",
+                "type": "2",
+                "attempt": 10,
+                "userChoice": "start",
+                "respinRemain": 2,
+                "startRespin": 3,
+                "stopBox": [
+                  [
+                    5,
+                    1,
+                    1
+                  ],
+                  [
+                    1,
+                    15,
+                    2
+                  ],
+                  [
+                    0,
+                    3,
+                    10
+                  ]
+                ],
+                "boxId_curLevel": 1,
+                "boxId_nextLevel": 2
+              }
+            ]
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askBonus2start",
+          "wasAttempt": 10,
+          "ghistId": 189626887
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "Bonus2",
+            "phaseNext": "toBonus2",
+            "historyId": 189626887,
+            "other": {
+              "autochoice": "start",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            },
+            "subGameInfo": [
+              {
+                "category": "Bonus2",
+                "type": "2",
+                "attempt": 11,
+                "userChoice": "start",
+                "respinRemain": 1,
+                "startRespin": 2,
+                "stopBox": [
+                  [
+                    5,
+                    1,
+                    1
+                  ],
+                  [
+                    1,
+                    15,
+                    2
+                  ],
+                  [
+                    0,
+                    3,
+                    10
+                  ]
+                ],
+                "boxId_curLevel": 1,
+                "boxId_nextLevel": 2
+              }
+            ]
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askBonus2start",
+          "wasAttempt": 11,
+          "ghistId": 189626887
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "Bonus2",
+            "phaseNext": "toBonus2",
+            "historyId": 189626887,
+            "other": {
+              "autochoice": "start",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            },
+            "subGameInfo": [
+              {
+                "category": "Bonus2",
+                "type": "2",
+                "attempt": 12,
+                "userChoice": "start",
+                "respinRemain": 0,
+                "startRespin": 1,
+                "stopBox": [
+                  [
+                    5,
+                    1,
+                    1
+                  ],
+                  [
+                    1,
+                    15,
+                    2
+                  ],
+                  [
+                    0,
+                    3,
+                    10
+                  ]
+                ],
+                "boxId_curLevel": 1,
+                "boxId_nextLevel": 2
+              }
+            ]
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askBonus2start",
+          "wasAttempt": 12,
+          "ghistId": 189626887
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "Bonus2_finished",
+            "phaseNext": "toPaid",
+            "historyId": 189626887,
+            "other": {
+              "autochoice": "start",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            },
+            "subGameInfo": [
+              {
+                "category": "Bonus2",
+                "type": "2",
+                "attempt": 12,
+                "userChoice": "start",
+                "respinRemain": -1,
+                "startRespin": 1,
+                "stopBox": [
+                  [
+                    5,
+                    1,
+                    1
+                  ],
+                  [
+                    1,
+                    15,
+                    2
+                  ],
+                  [
+                    0,
+                    3,
+                    10
+                  ]
+                ],
+                "boxId_curLevel": 1,
+                "boxId_nextLevel": 2
+              }
+            ]
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "finish",
+          "ghistId": 189626887
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "finished",
+            "phaseNext": "toIdle",
+            "historyId": 189626887
+          }
+        }
+      }
+    ]
+  },
+  {
+    "source": "pagoda",
+    "exchanges": [
+      {
+        "request": {
+          "q": "start",
+          "ghistId": 189626887
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "basedeal",
+            "phaseNext": "toPaid",
+            "historyId": 189627347,
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "finish",
+          "ghistId": 189627347
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "finished",
+            "phaseNext": "toIdle",
+            "historyId": 189627347
+          }
+        }
+      }
+    ]
+  },
+  {
+    "source": "pagoda",
+    "exchanges": [
+      {
+        "request": {
+          "q": "start",
+          "ghistId": 189627347
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "basedeal",
+            "phaseNext": "toPaid",
+            "historyId": 189627359,
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "finish",
+          "ghistId": 189627359
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "finished",
+            "phaseNext": "toIdle",
+            "historyId": 189627359
+          }
+        }
+      }
+    ]
+  },
+  {
+    "source": "longneck",
+    "exchanges": [
+      {
+        "request": {
+          "q": "start"
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "basedeal",
+            "phaseNext": "toPaid",
+            "historyId": 189630386,
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "finish",
+          "ghistId": 189630386
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "finished",
+            "phaseNext": "toIdle",
+            "historyId": 189630386
+          }
+        }
+      }
+    ]
+  },
+  {
+    "source": "longneck",
+    "exchanges": [
+      {
+        "request": {
+          "q": "start",
+          "ghistId": 189630386
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "basedeal",
+            "phaseNext": "toPaid",
+            "historyId": 189630395,
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "finish",
+          "ghistId": 189630395
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "finished",
+            "phaseNext": "toIdle",
+            "historyId": 189630395
+          }
+        }
+      }
+    ]
+  },
+  {
+    "source": "longneck",
+    "exchanges": [
+      {
+        "request": {
+          "q": "start",
+          "ghistId": 189630395
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "basedeal",
+            "phaseNext": "toPaid",
+            "historyId": 189630403,
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "finish",
+          "ghistId": 189630403
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "finished",
+            "phaseNext": "toIdle",
+            "historyId": 189630403
+          }
+        }
+      }
+    ]
+  },
+  {
+    "source": "longneck",
+    "exchanges": [
+      {
+        "request": {
+          "q": "start",
+          "ghistId": 189630403
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "basedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189630415,
+            "freeInfo": {
+              "total": 10,
+              "remain": 10,
+              "award": 10,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 0,
+              "fg_aux": 0
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askNextFG",
+          "remainFG": 10,
+          "ghistId": 189630415
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189630415,
+            "freeInfo": {
+              "total": 10,
+              "remain": 9,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 0,
+              "fg_aux": 0
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askNextFG",
+          "remainFG": 9,
+          "ghistId": 189630415
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189630415,
+            "freeInfo": {
+              "total": 10,
+              "remain": 8,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 0,
+              "fg_aux": 0
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askNextFG",
+          "remainFG": 8,
+          "ghistId": 189630415
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189630415,
+            "freeInfo": {
+              "total": 10,
+              "remain": 7,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 4800,
+              "fg_aux": 0
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askNextFG",
+          "remainFG": 7,
+          "ghistId": 189630415
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189630415,
+            "freeInfo": {
+              "total": 10,
+              "remain": 6,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 4800,
+              "fg_aux": 0
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askNextFG",
+          "remainFG": 6,
+          "ghistId": 189630415
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189630415,
+            "freeInfo": {
+              "total": 10,
+              "remain": 5,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 4800,
+              "fg_aux": 0
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askNextFG",
+          "remainFG": 5,
+          "ghistId": 189630415
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189630415,
+            "freeInfo": {
+              "total": 10,
+              "remain": 4,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 5900,
+              "fg_aux": 0
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askNextFG",
+          "remainFG": 4,
+          "ghistId": 189630415
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189630415,
+            "freeInfo": {
+              "total": 10,
+              "remain": 3,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 6250,
+              "fg_aux": 0
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askNextFG",
+          "remainFG": 3,
+          "ghistId": 189630415
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189630415,
+            "freeInfo": {
+              "total": 11,
+              "remain": 3,
+              "award": 1,
+              "nesting": 2,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 6250,
+              "fg_aux": 0
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askNextFG",
+          "remainFG": 3,
+          "ghistId": 189630415
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189630415,
+            "freeInfo": {
+              "total": 11,
+              "remain": 2,
+              "award": 0,
+              "nesting": 2,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 6250,
+              "fg_aux": 0
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askNextFG",
+          "remainFG": 2,
+          "ghistId": 189630415
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189630415,
+            "freeInfo": {
+              "total": 11,
+              "remain": 1,
+              "award": 0,
+              "nesting": 2,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 6250,
+              "fg_aux": 0
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askNextFG",
+          "remainFG": 1,
+          "ghistId": 189630415
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toPaid",
+            "historyId": 189630415,
+            "freeInfo": {
+              "total": 11,
+              "remain": 0,
+              "award": 0,
+              "nesting": 2,
+              "wildDir": 0,
+              "wildReelId": null,
+              "allwin": 7195,
+              "fg_aux": 0
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "finish",
+          "ghistId": 189630415
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "finished",
+            "phaseNext": "toIdle",
+            "historyId": 189630415
+          }
+        }
+      }
+    ]
+  },
+  {
+    "source": "longneck",
+    "exchanges": [
+      {
+        "request": {
+          "q": "start",
+          "ghistId": 189630415
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "basedeal",
+            "phaseNext": "toPaid",
+            "historyId": 189630957,
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "finish",
+          "ghistId": 189630957
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "finished",
+            "phaseNext": "toIdle",
+            "historyId": 189630957
+          }
+        }
+      }
+    ]
+  },
+  {
+    "source": "longneck",
+    "exchanges": [
+      {
+        "request": {
+          "q": "start",
+          "ghistId": 189630957
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "basedeal",
+            "phaseNext": "toPaid",
+            "historyId": 189630969,
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "finish",
+          "ghistId": 189630969
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "finished",
+            "phaseNext": "toIdle",
+            "historyId": 189630969
+          }
+        }
+      }
+    ]
+  },
+  {
+    "source": "longneck",
+    "exchanges": [
+      {
+        "request": {
+          "q": "start",
+          "ghistId": 189630969
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "basedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189631008,
+            "freeInfo": {
+              "total": 12,
+              "remain": 12,
+              "award": 12,
+              "nesting": 1,
+              "wildDir": 1,
+              "wildReelId": null,
+              "allwin": 0,
+              "fg_aux": 0
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askNextFG",
+          "remainFG": 12,
+          "ghistId": 189631008
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189631008,
+            "freeInfo": {
+              "total": 12,
+              "remain": 11,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 1,
+              "wildReelId": null,
+              "allwin": 0,
+              "fg_aux": 0
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askNextFG",
+          "remainFG": 11,
+          "ghistId": 189631008
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189631008,
+            "freeInfo": {
+              "total": 12,
+              "remain": 10,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 1,
+              "wildReelId": null,
+              "allwin": 25,
+              "fg_aux": 0
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askNextFG",
+          "remainFG": 10,
+          "ghistId": 189631008
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189631008,
+            "freeInfo": {
+              "total": 12,
+              "remain": 9,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 1,
+              "wildReelId": null,
+              "allwin": 25,
+              "fg_aux": 0
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askNextFG",
+          "remainFG": 9,
+          "ghistId": 189631008
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189631008,
+            "freeInfo": {
+              "total": 12,
+              "remain": 8,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 1,
+              "wildReelId": null,
+              "allwin": 25,
+              "fg_aux": 0
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askNextFG",
+          "remainFG": 8,
+          "ghistId": 189631008
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189631008,
+            "freeInfo": {
+              "total": 12,
+              "remain": 7,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 1,
+              "wildReelId": null,
+              "allwin": 4185,
+              "fg_aux": 0
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askNextFG",
+          "remainFG": 7,
+          "ghistId": 189631008
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189631008,
+            "freeInfo": {
+              "total": 12,
+              "remain": 6,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 1,
+              "wildReelId": null,
+              "allwin": 4185,
+              "fg_aux": 0
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askNextFG",
+          "remainFG": 6,
+          "ghistId": 189631008
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189631008,
+            "freeInfo": {
+              "total": 12,
+              "remain": 5,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 1,
+              "wildReelId": null,
+              "allwin": 4185,
+              "fg_aux": 0
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askNextFG",
+          "remainFG": 5,
+          "ghistId": 189631008
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189631008,
+            "freeInfo": {
+              "total": 12,
+              "remain": 4,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 1,
+              "wildReelId": null,
+              "allwin": 4185,
+              "fg_aux": 0
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askNextFG",
+          "remainFG": 4,
+          "ghistId": 189631008
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189631008,
+            "freeInfo": {
+              "total": 12,
+              "remain": 3,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 1,
+              "wildReelId": null,
+              "allwin": 4785,
+              "fg_aux": 0
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askNextFG",
+          "remainFG": 3,
+          "ghistId": 189631008
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189631008,
+            "freeInfo": {
+              "total": 12,
+              "remain": 2,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 1,
+              "wildReelId": null,
+              "allwin": 5585,
+              "fg_aux": 0
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askNextFG",
+          "remainFG": 2,
+          "ghistId": 189631008
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toNextFG",
+            "historyId": 189631008,
+            "freeInfo": {
+              "total": 12,
+              "remain": 1,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 1,
+              "wildReelId": null,
+              "allwin": 5585,
+              "fg_aux": 0
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "play",
+          "userAction": "askNextFG",
+          "remainFG": 1,
+          "ghistId": 189631008
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "freedeal",
+            "phaseNext": "toPaid",
+            "historyId": 189631008,
+            "freeInfo": {
+              "total": 12,
+              "remain": 0,
+              "award": 0,
+              "nesting": 1,
+              "wildDir": 1,
+              "wildReelId": null,
+              "allwin": 7385,
+              "fg_aux": 0
+            },
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "finish",
+          "ghistId": 189631008
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "finished",
+            "phaseNext": "toIdle",
+            "historyId": 189631008
+          }
+        }
+      }
+    ]
+  },
+  {
+    "source": "longneck",
+    "exchanges": [
+      {
+        "request": {
+          "q": "start",
+          "ghistId": 189631008
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "basedeal",
+            "phaseNext": "toPaid",
+            "historyId": 189631465,
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "finish",
+          "ghistId": 189631465
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "finished",
+            "phaseNext": "toIdle",
+            "historyId": 189631465
+          }
+        }
+      }
+    ]
+  },
+  {
+    "source": "longneck",
+    "exchanges": [
+      {
+        "request": {
+          "q": "start",
+          "ghistId": 189631465
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "basedeal",
+            "phaseNext": "toPaid",
+            "historyId": 189631514,
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "finish",
+          "ghistId": 189631514
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "finished",
+            "phaseNext": "toIdle",
+            "historyId": 189631514
+          }
+        }
+      }
+    ]
+  },
+  {
+    "source": "longneck",
+    "exchanges": [
+      {
+        "request": {
+          "q": "start",
+          "ghistId": 189631514
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "basedeal",
+            "phaseNext": "toPaid",
+            "historyId": 189631539,
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "finish",
+          "ghistId": 189631539
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "finished",
+            "phaseNext": "toIdle",
+            "historyId": 189631539
+          }
+        }
+      }
+    ]
+  },
+  {
+    "source": "longneck",
+    "exchanges": [
+      {
+        "request": {
+          "q": "start",
+          "ghistId": 189631539
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "basedeal",
+            "phaseNext": "toPaid",
+            "historyId": 189631549,
+            "other": {
+              "autochoice": "BackToGame",
+              "betDependCurrBetAssort": null,
+              "newDenomAssort": null,
+              "newBetAssort": null,
+              "minBetPerGame_cents": null,
+              "maxBetPerGame_cents": null,
+              "showingInMoney": 0
+            }
+          }
+        }
+      },
+      {
+        "request": {
+          "q": "finish",
+          "ghistId": 189631549
+        },
+        "response": {
+          "gs": {
+            "phaseCur": "finished",
+            "phaseNext": "toIdle",
+            "historyId": 189631549
+          }
+        }
+      }
+    ]
+  }
+]

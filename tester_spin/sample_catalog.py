@@ -72,7 +72,11 @@ def _choices(provider: str, root: Path, files: list[Path]) -> list[dict[str, Any
     elif provider == "redtiger":
         summary = _read(root / "summary.json")
         if isinstance(summary, dict):
-            if isinstance(summary.get("branch_prefix"), list):
+            if isinstance(summary.get('choice_continuations'), list):
+                choices = [{"command":"choice","value":row['selected']}
+                    for row in summary['choice_continuations']
+                    if isinstance(row,dict) and row.get('selected') is not None]
+            elif isinstance(summary.get("branch_prefix"), list):
                 choices = [{"command": "choice", "value": value} for value in summary["branch_prefix"]]
             else:
                 choices = [
@@ -90,7 +94,8 @@ def _choices(provider: str, root: Path, files: list[Path]) -> list[dict[str, Any
             if provider == "hacksaw":
                 instruction = data.get("continueInstructions")
                 action = instruction.get("action") if isinstance(instruction, dict) else None
-                if isinstance(action, str) and action in {"play", "gamble", "wild", "warehouse", "fs", "lives"}:
+                if (isinstance(action, str) and re.fullmatch(r"[A-Za-z0-9_-]{1,100}", action)
+                        and action != "win_presentation_complete"):
                     choices.append({"command": "bet", "field": "continueInstructions.action", "value": action})
                 continue
             if provider == "bgaming":
@@ -102,6 +107,45 @@ def _choices(provider: str, root: Path, files: list[Path]) -> list[dict[str, Any
             if command in {"pick", "select"} and "index" in data:
                 choices.append({"command": command, "field": "index", "value": data["index"]})
     return choices
+
+
+def _sampling_routes(result, attempt, directory, root, route):
+    if result.provider != 'redtiger':
+        return [route]
+    parent = directory.relative_to(root).parts[0]
+    marker = next((m for m in result.discovered_modes if isinstance(m,dict)
+        and m.get('kind')=='DIAGNOSTIC' and m.get('parent')==parent
+        and m.get('observed') is True and m.get('coverage_required') is False
+        and m.get('source')=='choice_transition.gameData.progress.level'
+        and m.get('coverage_scope')=='available_actions_not_all_repeat_counts'
+        and m.get('entry_prefix')==[]), None)
+    if marker is None:
+        return [route]
+    options, repeats = marker.get('options'), marker.get('repeat_actions')
+    proof = _read(directory/'return-to-base.json') or {}
+    if (not isinstance(options,list) or not options or not isinstance(repeats,list)
+            or not repeats or not all(isinstance(v,str) and v for v in options+repeats)
+            or not set(repeats)<=set(options)
+            or proof.get('status')!='CONFIRMED'
+            or type(proof.get('consecutive_base')) is not int or proof['consecutive_base']<2):
+        return [route]
+    summary = _read(directory/'summary.json') or {}
+    records = summary.get('choice_continuations')
+    if not isinstance(records,list):
+        return [route]
+    if any(not isinstance(r,dict) or set(r.get('available',[]))!=set(options)
+           or r.get('selected') not in options for r in records):
+        return [route]
+    kind = next((m.get('kind') for m in result.discovered_modes
+                 if isinstance(m,dict) and m.get('id')==parent),None)
+    if kind not in {'SPIN','PURCHASE','ANTE_BET'}:
+        return [route]
+    common = {'mode_id':parent,'mode_kind':kind,
+              'coverage_basis':'server-confirmed-recurring-controls/v1'}
+    routes = [{**common,'choices':[]}]
+    for action in sorted({r['selected'] for r in records}):
+        routes.append({**common,'choices':[{'command':'choice','value':action}]})
+    return routes
 
 
 def _include_evidence_file(provider: str, directory: Path, path: Path) -> bool:
@@ -164,25 +208,28 @@ def build_sample_catalog(result: GameTestResult, *, samples_per_path: int = 1) -
             "mode_kind": attempt.mode_kind,
             "choices": _choices(result.provider, directory, files),
         }
-        key = hashlib.sha256(json.dumps(route, sort_keys=True, ensure_ascii=False).encode()).hexdigest()
-        group = groups.setdefault(key, {"id": key, **route, "validated_samples": 0, "samples": []})
         valid = bool(attempt.ok and attempt.terminal and not attempt.warning and not attempt.error and evidence)
-        group["validated_samples"] += int(valid)
-        group["samples"].append({
-            "attempt": attempt.number,
-            "artifact_dir": directory.relative_to(root).as_posix(),
-            "validated": valid,
-            "terminal": attempt.terminal,
-            "observed_state_sequence": states,
-            "evidence": evidence,
-        })
+        for sampling_route in _sampling_routes(result,attempt,directory,root,route):
+            key = hashlib.sha256(json.dumps(sampling_route, sort_keys=True, ensure_ascii=False).encode()).hexdigest()
+            group = groups.setdefault(key, {"id": key, **sampling_route, "validated_samples": 0, "samples": []})
+            group["validated_samples"] += int(valid)
+            group["samples"].append({
+                "attempt": attempt.number,
+                "artifact_dir": directory.relative_to(root).as_posix(),
+                "validated": valid,
+                "terminal": attempt.terminal,
+                "observed_state_sequence": states,
+                "evidence": evidence,
+            })
     for group in groups.values():
         group["missing_samples"] = max(0, target - group["validated_samples"])
     return {
         "schema": "tester-spin/sample-catalog/v2",
         "provider": result.provider,
         "game": result.slug,
-        "scope": "observed_paths_only",
+        "scope": ("observed_paths_and_recurring_controls" if any(
+            g.get('coverage_basis')=='server-confirmed-recurring-controls/v1' for g in groups.values())
+            else "observed_paths_only"),
         "samples_per_path": target,
         "groups": list(groups.values()),
         "observed_state_types": list(state_types.values()),

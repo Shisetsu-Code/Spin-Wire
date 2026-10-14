@@ -1,0 +1,87 @@
+{
+  "step": 1,
+  "status": "RESULTED",
+  "betamount": "20.00",
+  "betdata": {
+    "coin": "20.00",
+    "cashBet": "20.00",
+    "cmd": "BUYBONUS",
+    "accWa": "0.00",
+    "accC": 0,
+    "cmds": [
+      "BUYBONUS",
+      "GAMBLE"
+    ]
+  },
+  "eventdata": {
+    "accC": 0,
+    "accWa": "0.00",
+    "initialPlayerState": {
+      "freespinsRemaining": 0,
+      "multiplier": 1,
+      "heights": null,
+      "goldenBet": false,
+      "buyBonus": false,
+      "variant": 0
+    },
+    "nextCmds": "BUYBONUS,GAMBLE",
+    "playerState": {
+      "freespinsRemaining": 6,
+      "multiplier": 1,
+      "heights": null,
+      "goldenBet": false,
+      "buyBonus": true,
+      "variant": 0
+    },
+    "response": {
+      "coinWin": 0,
+      "cashWin": "0.00",
+      "clientData": {
+        "bonusTriggered": true,
+        "boards": [
+          {
+            "board": [
+              [
+                3,
+                7,
+                5
+              ],
+              [
+                2,
+                6,
+                9
+              ],
+              [
+                9,
+                4,
+                5
+              ],
+              [
+                3,
+                8,
+                8
+              ],
+              [
+                9,
+                5,
+                7
+              ],
+              [
+                5,
+                6,
+                2
+              ]
+            ],
+            "total_ways": 729,
+            "multiplier": 1,
+            "scattersCount": 3,
+            "winningRows": []
+          }
+        ],
+        "wagerId": "4 3 64 30 33 82 74 47"
+      }
+    }
+  },
+  "betcurrency": "EUR",
+  "wonamount": "0.00"
+}

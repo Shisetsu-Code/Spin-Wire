@@ -1,0 +1,82 @@
+{
+  "accC": 0,
+  "accWa": "0.00",
+  "finalBoard": [
+    [
+      "HIGH_3",
+      "HIGH_4",
+      "LOW_4",
+      "LOW_4"
+    ],
+    [
+      "LOW_4",
+      "HIGH_4",
+      "LOW_4",
+      "LOW_3"
+    ],
+    [
+      "LOW_2",
+      "LOW_2",
+      "LOW_2",
+      "LOW_2"
+    ],
+    [
+      "LOW_3",
+      "LOW_3",
+      "HIGH_3",
+      "HIGH_3"
+    ],
+    [
+      "HIGH_3",
+      "LOW_3",
+      "LOW_3",
+      "LOW_4"
+    ]
+  ],
+  "reelSet": "BaseReels",
+  "reels": [
+    [
+      "HIGH_3",
+      "HIGH_4",
+      "LOW_4",
+      "LOW_4"
+    ],
+    [
+      "LOW_4",
+      "HIGH_4",
+      "LOW_4",
+      "LOW_3"
+    ],
+    [
+      "LOW_2",
+      "LOW_2",
+      "LOW_2",
+      "LOW_2"
+    ],
+    [
+      "LOW_3",
+      "LOW_3",
+      "HIGH_3",
+      "HIGH_3"
+    ],
+    [
+      "HYBRID_SCATTER_HIGH_3",
+      "LOW_3",
+      "LOW_3",
+      "LOW_4"
+    ]
+  ],
+  "replaceIcons": {
+    "16": "HIGH_3"
+  },
+  "rpos": [
+    12,
+    140,
+    155,
+    89,
+    76
+  ],
+  "wonCoins": 0,
+  "wonMoney": "0.00",
+  "wtw": []
+}

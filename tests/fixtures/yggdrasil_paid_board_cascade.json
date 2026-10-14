@@ -1,0 +1,299 @@
+[
+  {
+    "step": 1,
+    "betamount": "0.10",
+    "betcurrency": "EUR",
+    "wonamount": "0.00",
+    "status": "RESULTED",
+    "betdata": {
+      "coin": "0.005",
+      "cashBet": "0.10",
+      "cmd": "BASE_SPIN",
+      "accWa": "0.00",
+      "accC": 0
+    },
+    "eventdata": {
+      "accC": 16,
+      "accWa": "0.08",
+      "response": {
+        "coinWin": 16,
+        "cashWin": "0.08",
+        "clientData": {
+          "win": {
+            "prizes": [
+              {
+                "symbol": "HIGH_4",
+                "oak": 3,
+                "positions": [
+                  {
+                    "x": 0,
+                    "y": 1
+                  },
+                  {
+                    "x": 1,
+                    "y": 1
+                  },
+                  {
+                    "x": 2,
+                    "y": 1
+                  }
+                ],
+                "coins": 16,
+                "cash": "0.08",
+                "payline": 0,
+                "multiplier": 1,
+                "coinsBeforeMultiplier": 16,
+                "cashBeforeMultiplier": "0.08"
+              }
+            ],
+            "wonCoins": 16,
+            "wonCash": "0.08",
+            "accumulatedWonCoins": 16,
+            "accumulatedWonCash": "0.08",
+            "accumulatedRoundWonCoins": 0,
+            "accumulatedRoundWonCash": "0.00"
+          },
+          "reels": {
+            "reelSetName": "baseReels0",
+            "reelStopPositions": [
+              27,
+              418,
+              623,
+              390,
+              344
+            ]
+          },
+          "initialBoard": [
+            [
+              "HIGH_3",
+              "HIGH_4",
+              "LOW_1"
+            ],
+            [
+              "HIGH_1",
+              "HIGH_4",
+              "HIGH_2"
+            ],
+            [
+              "HIGH_2",
+              "HIGH_4",
+              "LOW_4"
+            ],
+            [
+              "LOW_2",
+              "LOW_3",
+              "LOW_1"
+            ],
+            [
+              "LOW_4",
+              "HIGH_4",
+              "LOW_2"
+            ]
+          ],
+          "finalBoard": [
+            [
+              "EMPTY",
+              "HIGH_3",
+              "LOW_1"
+            ],
+            [
+              "EMPTY",
+              "HIGH_1",
+              "HIGH_2"
+            ],
+            [
+              "EMPTY",
+              "HIGH_2",
+              "LOW_4"
+            ],
+            [
+              "LOW_2",
+              "LOW_3",
+              "LOW_1"
+            ],
+            [
+              "LOW_4",
+              "HIGH_4",
+              "LOW_2"
+            ]
+          ],
+          "multiplier": 1,
+          "winPositions": [
+            {
+              "row": 1,
+              "column": 0
+            },
+            {
+              "row": 1,
+              "column": 1
+            },
+            {
+              "row": 1,
+              "column": 2
+            }
+          ],
+          "positionShifts": [
+            {
+              "origin": {
+                "row": 0,
+                "column": 0
+              },
+              "target": {
+                "row": 1,
+                "column": 0
+              }
+            },
+            {
+              "origin": {
+                "row": 0,
+                "column": 2
+              },
+              "target": {
+                "row": 1,
+                "column": 2
+              }
+            },
+            {
+              "origin": {
+                "row": 0,
+                "column": 1
+              },
+              "target": {
+                "row": 1,
+                "column": 1
+              }
+            }
+          ],
+          "columnIndexToNewWildsNumber": {},
+          "respinAwarded": true
+        }
+      }
+    }
+  },
+  {
+    "step": 2,
+    "betamount": "0.00",
+    "betcurrency": "EUR",
+    "wonamount": "0.00",
+    "status": "RESULTED",
+    "betdata": {
+      "coin": "0.005",
+      "cashBet": "0.10",
+      "cmd": "BASE_SPIN",
+      "accWa": "0.08",
+      "accC": 16,
+      "cmds": [
+        "C"
+      ]
+    },
+    "eventdata": {
+      "accC": 16,
+      "accWa": "0.08",
+      "boostData": {
+        "boostDatas": [
+          {
+            "numberOfWilds": 0,
+            "multiplier": 1
+          },
+          {
+            "numberOfWilds": 0,
+            "multiplier": 2
+          }
+        ]
+      },
+      "nextCmds": "C",
+      "response": {
+        "coinWin": 0,
+        "cashWin": "0.00",
+        "clientData": {
+          "win": {
+            "prizes": [],
+            "wonCoins": 0,
+            "wonCash": "0.00",
+            "accumulatedWonCoins": 16,
+            "accumulatedWonCash": "0.08",
+            "accumulatedRoundWonCoins": 0,
+            "accumulatedRoundWonCash": "0.00"
+          },
+          "reels": {
+            "reelSetName": "NO_REEL_SET",
+            "reelStopPositions": null
+          },
+          "initialBoard": [
+            [
+              "HIGH_4",
+              "HIGH_3",
+              "LOW_1"
+            ],
+            [
+              "HIGH_2",
+              "HIGH_1",
+              "HIGH_2"
+            ],
+            [
+              "LOW_4",
+              "HIGH_2",
+              "LOW_4"
+            ],
+            [
+              "LOW_2",
+              "LOW_3",
+              "LOW_1"
+            ],
+            [
+              "LOW_4",
+              "HIGH_4",
+              "LOW_2"
+            ]
+          ],
+          "finalBoard": [
+            [
+              "HIGH_4",
+              "HIGH_3",
+              "LOW_1"
+            ],
+            [
+              "HIGH_2",
+              "HIGH_1",
+              "HIGH_2"
+            ],
+            [
+              "LOW_4",
+              "HIGH_2",
+              "LOW_4"
+            ],
+            [
+              "LOW_2",
+              "LOW_3",
+              "LOW_1"
+            ],
+            [
+              "LOW_4",
+              "HIGH_4",
+              "LOW_2"
+            ]
+          ],
+          "multiplier": 2,
+          "winPositions": []
+        }
+      }
+    }
+  },
+  {
+    "step": 3,
+    "betamount": "0.00",
+    "betcurrency": "EUR",
+    "wonamount": "0.08",
+    "status": "RESULTED",
+    "betdata": {
+      "coin": "0.005",
+      "cashBet": "0.10",
+      "cmd": "C",
+      "accWa": "0.08",
+      "accC": 16
+    },
+    "eventdata": {
+      "exactWon": "0.0800"
+    }
+  }
+]

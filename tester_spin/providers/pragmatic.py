@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from tester_spin.feature_domains import initialization_domains
+
 from tester_spin.return_to_base import audit_enabled, audit_blocked, pending_return
 
 import html
@@ -742,6 +744,8 @@ class PragmaticProvider(ProviderAdapter):
             status=status,
             symbol=symbol,
             discovered_modes=[] if catalog is None else [mode.to_dict() for mode in catalog.enabled()],
+            feature_domains={} if catalog is None else initialization_domains(
+                "pragmatic", discovery.init_response, catalog.enabled()),
             started_at=started_at,
             finished_at=finished_at,
             elapsed_ms=elapsed_ms,
@@ -1209,7 +1213,7 @@ class PragmaticProvider(ProviderAdapter):
         if fields.get('action') == 'doSpin' or game_profile(getattr(bootstrap,'symbol','')).get('kind') == 'scratchcard':
             apply_spin_rule(fields,getattr(bootstrap,'symbol',''))
         previous = getattr(bootstrap, "current_response", None) or bootstrap.calibration_response
-        if fields.get("action") == "doSpin" and previous.get("rs") == "mc" and previous.get("rs_t") in (None, "") and not automatic_fs_respin(previous):
+        if fields.get("action") == "doSpin" and previous.get("rs") == "mc" and previous.get("rs_t") in (None, "") and not automatic_fs_respin(previous, symbol=getattr(bootstrap, "symbol", "")):
             contract = getattr(bootstrap, "reel_contract", None) or self._resolve_reel_contract(bootstrap)
             selection = reel_selection(previous, contract, override=getattr(bootstrap, "reel_override", None))
             if selection is None:
@@ -1218,6 +1222,25 @@ class PragmaticProvider(ProviderAdapter):
             caller_fields.update(selection["fields"])
             bootstrap.reel_override = None
             self._write_json(root / f"step-{step:03d}-{label}.reel-selection.json", selection)
+        if fields.get("action") == "doMysteryScatter" or (getattr(bootstrap, "symbol", "") == "vs10bookfallen" and fields.get("action") == "doSpin" and fields.get("pur") == "0"):
+            from tester_spin.providers.pragmatic_observed_transitions import mystery_selection
+            purchase = fields.get('action') == 'doSpin'
+            choice_state = fields if purchase else previous
+            selection = mystery_selection(choice_state, getattr(bootstrap, 'symbol', ''), purchase=purchase)
+            if selection is None and getattr(bootstrap, 'symbol', '') == 'vs10bookfallen':
+                raise RuntimeError('Book of Fallen: estado de selección de símbolo no certificado')
+            if selection is not None:
+                import threading
+                lock = self.__dict__.setdefault("_bonus_choice_lock", threading.Lock())
+                key = (bootstrap.symbol, selection['branch_signature'], selection['contract_sha256'])
+                with lock:
+                    counts = self.__dict__.setdefault("_bonus_choice_counts", {}).setdefault(key, {})
+                    selected = min(selection['domain'], key=lambda value: (counts.get(value, 0), int(value)))
+                    counts[selected] = counts.get(selected, 0) + 1
+                selection = mystery_selection(choice_state, bootstrap.symbol, override=selected, purchase=purchase)
+                fields.update(selection['fields'])
+                caller_fields.update(selection['fields'])
+                self._write_json(root / f"step-{step:03d}-{label}.bonus-selection.json", selection)
         if fields.get("action") == "doBonus":
             from tester_spin.providers.pragmatic_bonus_contract import bonus_selection
             from tester_spin.providers.pragmatic_observed_transitions import observed_bonus_rule
@@ -1237,8 +1260,10 @@ class PragmaticProvider(ProviderAdapter):
             if selection['domain']:
                 with lock:
                     counts = self.__dict__.setdefault("_bonus_choice_counts", {}).setdefault(key, {})
-                    selected = min(selection["domain"], key=lambda value: (counts.get(value, 0), int(value)))
-                    counts[selected] = counts.get(selected, 0) + 1
+                    domain_map = selection.get('coverage_domain_map', {})
+                    selected = min(selection["domain"], key=lambda value: (counts.get(domain_map.get(value, value), 0), int(value)))
+                    count_key = domain_map.get(selected, selected)
+                    counts[count_key] = counts.get(count_key, 0) + 1
                 if rule_selection:
                     selection = observed_bonus_rule(previous, getattr(bootstrap, 'symbol', ''), override=selected)
                 else:

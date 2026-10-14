@@ -1,0 +1,47 @@
+{
+  "accC": 0,
+  "accWa": "0.00",
+  "grandTotal": 0,
+  "multiplier": 1,
+  "reelSet": "Reels",
+  "reels": [
+    [
+      "SYM8",
+      "SYM4",
+      "SYM4"
+    ],
+    [
+      "SYM7",
+      "SYM7",
+      "SYM3"
+    ],
+    [
+      "SYM7",
+      "SYM7",
+      "SYM6"
+    ],
+    [
+      "SYM6",
+      "SYM6",
+      "SYM6"
+    ],
+    [
+      "SYM3",
+      "SYM9",
+      "SYM9"
+    ]
+  ],
+  "rpos": [
+    43,
+    36,
+    12,
+    35,
+    2
+  ],
+  "wonCoins": 0,
+  "wts": [
+    "00000000000000000000000000",
+    "000000000000000"
+  ],
+  "wtw": []
+}

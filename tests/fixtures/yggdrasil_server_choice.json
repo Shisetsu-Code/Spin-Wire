@@ -1,0 +1,43 @@
+{
+  "wagerid": "fixture-choice-round",
+  "status": "Pending",
+  "bets": [
+    {
+      "step": 1,
+      "status": "RESULTED",
+      "betamount": "0.20",
+      "betcurrency": "EUR",
+      "betdata": {
+        "coin": "0.01",
+        "cashBet": "0.20",
+        "cmd": "BASE_SPIN",
+        "accC": 0,
+        "accWa": "0.00"
+      },
+      "eventdata": {
+        "nextCmds": null
+      }
+    },
+    {
+      "step": 2,
+      "status": "RESULTED",
+      "betamount": "0.00",
+      "betcurrency": "EUR",
+      "betdata": {
+        "coin": "0.01",
+        "cashBet": "0.20",
+        "cmd": "BASE_SPIN",
+        "cmds": [
+          "NON_GAMBLE_9",
+          "GAMBLE_9_11",
+          "GAMBLE_9_19"
+        ],
+        "accC": 0,
+        "accWa": "0.00"
+      },
+      "eventdata": {
+        "nextCmds": "NON_GAMBLE_9,GAMBLE_9_11,GAMBLE_9_19"
+      }
+    }
+  ]
+}

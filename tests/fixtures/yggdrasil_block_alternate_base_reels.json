@@ -1,0 +1,125 @@
+{
+  "accC": 0,
+  "accWa": "0.00",
+  "blockDetails": [
+    {
+      "startRow": -2,
+      "reelIndex": 2,
+      "blockSize": 3
+    }
+  ],
+  "finalBoard": [
+    [
+      "HIGH3",
+      "LOW1",
+      "LOW1",
+      "LOW1"
+    ],
+    [
+      "HIGH4",
+      "HIGH4",
+      "HIGH4",
+      "LOW4"
+    ],
+    [
+      "SCATTER",
+      "LOW4",
+      "LOW4",
+      "LOW4"
+    ],
+    [
+      "SCATTER",
+      "LOW4",
+      "LOW4",
+      "LOW4"
+    ],
+    [
+      "SCATTER",
+      "LOW4",
+      "LOW4",
+      "LOW4"
+    ],
+    [
+      "LOW3",
+      "LOW3",
+      "LOW3",
+      "LOW1"
+    ]
+  ],
+  "reelDetails": {
+    "0": {
+      "reelIndex": 0,
+      "reelName": "baseReels2"
+    },
+    "1": {
+      "reelIndex": 1,
+      "reelName": "baseReels2"
+    },
+    "2": {
+      "reelIndex": 2,
+      "reelName": "base3Reels2"
+    },
+    "3": {
+      "reelIndex": 2,
+      "reelName": "base3Reels2"
+    },
+    "4": {
+      "reelIndex": 2,
+      "reelName": "base3Reels2"
+    },
+    "5": {
+      "reelIndex": 5,
+      "reelName": "baseReels2"
+    }
+  },
+  "reelSet": "BaseReels",
+  "reels": [
+    [
+      "HIGH3",
+      "LOW1",
+      "LOW1",
+      "LOW1"
+    ],
+    [
+      "HIGH4",
+      "HIGH4",
+      "HIGH4",
+      "LOW4"
+    ],
+    [
+      "SCATTER",
+      "LOW4",
+      "LOW4",
+      "LOW4"
+    ],
+    [
+      "SCATTER",
+      "LOW4",
+      "LOW4",
+      "LOW4"
+    ],
+    [
+      "SCATTER",
+      "LOW4",
+      "LOW4",
+      "LOW4"
+    ],
+    [
+      "LOW3",
+      "LOW3",
+      "LOW3",
+      "LOW1"
+    ]
+  ],
+  "rpos": [
+    204,
+    64,
+    131,
+    131,
+    131,
+    139
+  ],
+  "wonCoins": 0,
+  "wonMoney": "0.00",
+  "wtw": []
+}

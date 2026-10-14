@@ -1068,27 +1068,13 @@ class BelatraProvider(ProviderAdapter):
         if history_id is None:
             raise RuntimeError("Belatra start response does not contain historyId.")
 
-        # Modern base wins commonly go toPaid. Older titles can expose the
-        # optional double/gamble dialog instead. A Lucky Drink HAR confirms that
-        # the official client may decline that dialog by sending q=finish directly.
-        if phase_next not in {"toPaid", "toDoubleDialog"}:
-            return True, False, 1, phase_cur, phase_next
-
-        finish_response = self._post_direct_game(
-            state,
-            {"q": "finish", "ghistId": history_id},
-            timeout_s=timeout_s,
-            artifact_dir=attempt_dir,
-            label="finish",
+        # Ordinary spins and return probes can also trigger features.
+        from tester_spin.providers.belatra_exhaustive import _continue_round
+        terminal, steps, current, following = _continue_round(
+            self, state, start_response, timeout_s=timeout_s,
+            artifact_dir=attempt_dir, finish_label="finish",
         )
-        finish_gs = finish_response.get("gs")
-        if not isinstance(finish_gs, dict):
-            raise RuntimeError("Belatra finish response does not contain gs.")
-
-        finish_cur = str(finish_gs.get("phaseCur") or "")
-        finish_next = str(finish_gs.get("phaseNext") or "")
-        terminal = finish_cur == "finished" and finish_next == "toIdle"
-        return True, terminal, 2, finish_cur, finish_next
+        return True, terminal, steps, current, following
 
     @staticmethod
     def _runtime_noise_url(url: str) -> bool:

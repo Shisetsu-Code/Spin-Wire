@@ -67,16 +67,16 @@ def test_adapter_replays_captured_spin_shape():
 
 def test_spin_profile_does_not_certify_unobserved_purchases():
     result = run_captured_adapter(purchases=True)
-    assert result.status == 'OK'
+    assert result.status == 'PARCIAL'
     assert len(result.attempts) == 2  # Only the requested normal spins were sent.
     mode = result.discovered_modes[1]
-    assert mode['kind'] == 'DISCOVERED_ONLY'
-    assert mode['coverage_required'] is False
+    assert mode['kind'] == 'PURCHASE'
+    assert mode['coverage_required'] is True
     assert mode['client_observed'] is False
     assert not mode['executable']
     assert not mode['validated']
     from tester_spin.feature_summary import feature_summary
-    assert 'Compras: Sin datos' in feature_summary(result.to_dict())
+    assert 'Compras: Sí | Cantidad: 1' in feature_summary(result.to_dict())
 
 
 def test_original_purchase_payload_remains_unchanged():

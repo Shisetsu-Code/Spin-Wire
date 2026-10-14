@@ -46,7 +46,7 @@ def _selector_policy(source, selector, prefix, data):
         return 'number', domain
     if re.fullmatch(_ID, selector):
         condition = re.search(re.escape(selector) + '=' + _ID + r'\.serverData\.get\("version"\)\?Number\((' + _ID + r')\):String\(\1\);$', prefix)
-        mapping = re.search(r'\.set\("version",\(function\(('+_ID+r')\)\{var '+_ID+r';return null!==\('+_ID+r'=\1\.settings\.version\)&&void 0!=='+_ID+r'\?'+_ID+r':null\}\)\)', source)
+        mapping = re.search(r'\.set\("version",(?P<wrapper>\()?function\((?P<data>'+_ID+r')\)\{var (?P<temporary>'+_ID+r');return null!==\((?P=temporary)=(?P=data)\.settings\.version\)&&void 0!==(?P=temporary)\?(?P=temporary):null\}(?(wrapper)\))\)', source)
         if condition and mapping:
             version = (data or {}).get('settings', {}).get('version')
             return ('number' if version else 'string'), None
@@ -116,6 +116,16 @@ def source_purchase_contract(source, data=None):
                     profile['purchase_ui_modes'] = list(profile['purchase_modes'])
                 params.append('selected_mode')
     profile['purchase_params'] = {str(mode): list(params) for mode in profile['purchase_modes']}
+    if modern_bridge:
+        paid_calls = list(re.finditer(r'\.sendPlayAsync\(\{name:"buy_spin",params:\{bet_per_line:'+_ID+r'\.bus\.getUI\("bet_per_line"\),lines:'+_ID+r'\.bus\.getUI\("lines"\),paid_feature:\{([^{}]+)\}\[('+_ID+r')\]\}\},', source))
+        if len(paid_calls) == 1:
+            body = paid_calls[0][1]
+            pairs = re.findall(r'([0-9]+):"([a-z_]+)"', body)
+            if pairs and ','.join(k+':"'+v+'"' for k,v in pairs) == body and len({k for k,v in pairs}) == len(pairs):
+                mapping = {k:{'paid_feature':v} for k,v in pairs}
+                profile['purchase_modes'] = [v for v in available if str(v) in mapping]
+                profile['purchase_params'] = {str(v):['bet_per_line','lines','paid_feature'] for v in profile['purchase_modes']}
+                profile['purchase_wire_values'] = mapping
     if re.search(r'\.sendPlayAsync\(\{name:' + _ID + r'\.serverData\.get\("actions"\)\.last\(\),params:\{\}\},null\)', source):
         profile['continuations'] = {'bonus_init': {'current': 'spins'},
                                     'respin': {'current': 'bonus'},

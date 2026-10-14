@@ -1,0 +1,1775 @@
+[
+  {
+    "step": 1,
+    "betamount": "0.20",
+    "betcurrency": "EUR",
+    "wonamount": "0.00",
+    "status": "RESULTED",
+    "betdata": {
+      "coin": "0.01",
+      "cashBet": "0.20",
+      "cmd": "BASE_SPIN",
+      "accWa": "0.08",
+      "accC": 8,
+      "cmds": [
+        "C"
+      ]
+    },
+    "eventdata": {
+      "accC": 8,
+      "accWa": "0.08",
+      "boostData": {
+        "isWinFreeSpins": false,
+        "isHit8MysteryOnScreen": false,
+        "isHit4RespinInARow": false
+      },
+      "initialPlayerState": {},
+      "nextCmds": "C",
+      "playerState": {},
+      "response": {
+        "coinWin": 8,
+        "cashWin": "0.08",
+        "clientData": {
+          "rounds": [
+            {
+              "multiplier": 0,
+              "index": 1,
+              "reels": {
+                "type": "MainGame",
+                "eventsLeft": [],
+                "eventsRight": [
+                  {
+                    "type": "MainGame",
+                    "coords": [
+                      {
+                        "x": 6,
+                        "y": 1
+                      },
+                      {
+                        "x": 5,
+                        "y": 0
+                      },
+                      {
+                        "x": 4,
+                        "y": 0
+                      },
+                      {
+                        "x": 4,
+                        "y": 2
+                      }
+                    ],
+                    "win": 8,
+                    "winCash": 0.08,
+                    "id": 4,
+                    "symbol": "H3",
+                    "multiplier": 1
+                  }
+                ],
+                "winLeft": 0,
+                "winRight": 8,
+                "multLeft": 1,
+                "multRight": 1,
+                "win": 8,
+                "winSum": 0.08,
+                "cashWin": 0.08,
+                "hidden": [],
+                "scatter": [],
+                "positionsHidden": [
+                  [
+                    "H5",
+                    "H2",
+                    "10"
+                  ],
+                  [
+                    "H4",
+                    "H2",
+                    "H2",
+                    "H2",
+                    "10"
+                  ],
+                  [
+                    "J",
+                    "J",
+                    "J",
+                    "A",
+                    "A"
+                  ],
+                  [
+                    "10",
+                    "Q",
+                    "Q",
+                    "Q",
+                    "H4"
+                  ],
+                  [
+                    "H3",
+                    "10",
+                    "H3",
+                    "10",
+                    "10"
+                  ],
+                  [
+                    "H3",
+                    "A",
+                    "A",
+                    "A",
+                    "K"
+                  ],
+                  [
+                    "K",
+                    "H3",
+                    "A"
+                  ]
+                ],
+                "positions": [
+                  [
+                    "H5",
+                    "H2",
+                    "10"
+                  ],
+                  [
+                    "H4",
+                    "H2",
+                    "H2",
+                    "H2",
+                    "10"
+                  ],
+                  [
+                    "J",
+                    "J",
+                    "J",
+                    "A",
+                    "A"
+                  ],
+                  [
+                    "10",
+                    "Q",
+                    "Q",
+                    "Q",
+                    "H4"
+                  ],
+                  [
+                    "H3",
+                    "10",
+                    "H3",
+                    "10",
+                    "10"
+                  ],
+                  [
+                    "H3",
+                    "A",
+                    "A",
+                    "A",
+                    "K"
+                  ],
+                  [
+                    "K",
+                    "H3",
+                    "A"
+                  ]
+                ],
+                "maxWinReached": false
+              }
+            }
+          ],
+          "winTypes": [],
+          "maxWinReached": false
+        }
+      }
+    }
+  },
+  {
+    "step": 1,
+    "betamount": "0.20",
+    "betcurrency": "EUR",
+    "wonamount": "0.00",
+    "status": "RESULTED",
+    "betdata": {
+      "coin": "0.01",
+      "cashBet": "0.20",
+      "cmd": "BASE_SPIN",
+      "accWa": "0.00",
+      "accC": 0
+    },
+    "eventdata": {
+      "accC": 0,
+      "accWa": "0.00",
+      "boostData": {
+        "isWinFreeSpins": false,
+        "isHit8MysteryOnScreen": false,
+        "isHit4RespinInARow": false
+      },
+      "initialPlayerState": {},
+      "playerState": {},
+      "response": {
+        "coinWin": 0,
+        "cashWin": "0.00",
+        "clientData": {
+          "rounds": [
+            {
+              "multiplier": 0,
+              "index": 1,
+              "reels": {
+                "type": "MainGame",
+                "eventsLeft": [],
+                "eventsRight": [],
+                "winLeft": 0,
+                "winRight": 0,
+                "multLeft": 1,
+                "multRight": 1,
+                "win": 0,
+                "winSum": 0,
+                "cashWin": 0,
+                "hidden": [],
+                "scatter": [],
+                "positionsHidden": [
+                  [
+                    "H5",
+                    "H2",
+                    "10"
+                  ],
+                  [
+                    "H2",
+                    "H4",
+                    "H2",
+                    "H2",
+                    "H2"
+                  ],
+                  [
+                    "A",
+                    "A",
+                    "H1",
+                    "H5",
+                    "H5"
+                  ],
+                  [
+                    "J",
+                    "A",
+                    "A",
+                    "J",
+                    "J"
+                  ],
+                  [
+                    "H2",
+                    "H4",
+                    "H2",
+                    "H2",
+                    "H2"
+                  ],
+                  [
+                    "J",
+                    "A",
+                    "A",
+                    "K",
+                    "K"
+                  ],
+                  [
+                    "J",
+                    "K",
+                    "H3"
+                  ]
+                ],
+                "positions": [
+                  [
+                    "H5",
+                    "H2",
+                    "10"
+                  ],
+                  [
+                    "H2",
+                    "H4",
+                    "H2",
+                    "H2",
+                    "H2"
+                  ],
+                  [
+                    "A",
+                    "A",
+                    "H1",
+                    "H5",
+                    "H5"
+                  ],
+                  [
+                    "J",
+                    "A",
+                    "A",
+                    "J",
+                    "J"
+                  ],
+                  [
+                    "H2",
+                    "H4",
+                    "H2",
+                    "H2",
+                    "H2"
+                  ],
+                  [
+                    "J",
+                    "A",
+                    "A",
+                    "K",
+                    "K"
+                  ],
+                  [
+                    "J",
+                    "K",
+                    "H3"
+                  ]
+                ],
+                "maxWinReached": false
+              }
+            }
+          ],
+          "winTypes": [],
+          "maxWinReached": false
+        }
+      }
+    }
+  },
+  {
+    "step": 1,
+    "betamount": "0.20",
+    "betcurrency": "EUR",
+    "wonamount": "0.00",
+    "status": "RESULTED",
+    "betdata": {
+      "coin": "0.01",
+      "cashBet": "0.20",
+      "cmd": "BASE_SPIN",
+      "accWa": "0.00",
+      "accC": 0
+    },
+    "eventdata": {
+      "accC": 0,
+      "accWa": "0.00",
+      "boostData": {
+        "isWinFreeSpins": false,
+        "isHit8MysteryOnScreen": false,
+        "isHit4RespinInARow": false
+      },
+      "initialPlayerState": {},
+      "playerState": {},
+      "response": {
+        "coinWin": 0,
+        "cashWin": "0.00",
+        "clientData": {
+          "rounds": [
+            {
+              "multiplier": 0,
+              "index": 1,
+              "reels": {
+                "type": "MainGame",
+                "eventsLeft": [],
+                "eventsRight": [],
+                "winLeft": 0,
+                "winRight": 0,
+                "multLeft": 1,
+                "multRight": 1,
+                "win": 0,
+                "winSum": 0,
+                "cashWin": 0,
+                "hidden": [
+                  {
+                    "x": 3,
+                    "y": 0,
+                    "changeTo": "A",
+                    "multi": 0,
+                    "persistent": false
+                  },
+                  {
+                    "x": 3,
+                    "y": 1,
+                    "changeTo": "A",
+                    "multi": 0,
+                    "persistent": false
+                  },
+                  {
+                    "x": 5,
+                    "y": 3,
+                    "changeTo": "A",
+                    "multi": 0,
+                    "persistent": false
+                  },
+                  {
+                    "x": 3,
+                    "y": 4,
+                    "changeTo": "A",
+                    "multi": 0,
+                    "persistent": false
+                  }
+                ],
+                "scatter": [],
+                "positionsHidden": [
+                  [
+                    "10",
+                    "H2",
+                    "Q"
+                  ],
+                  [
+                    "Q",
+                    "Q",
+                    "Q",
+                    "H4",
+                    "Q"
+                  ],
+                  [
+                    "A",
+                    "A",
+                    "A",
+                    "K",
+                    "K"
+                  ],
+                  [
+                    "HIDDEN",
+                    "HIDDEN",
+                    "H3",
+                    "H3",
+                    "HIDDEN"
+                  ],
+                  [
+                    "H4",
+                    "H5",
+                    "H5",
+                    "H5",
+                    "H4"
+                  ],
+                  [
+                    "K",
+                    "K",
+                    "H1",
+                    "HIDDEN",
+                    "K"
+                  ],
+                  [
+                    "A",
+                    "K",
+                    "H4"
+                  ]
+                ],
+                "positions": [
+                  [
+                    "10",
+                    "H2",
+                    "Q"
+                  ],
+                  [
+                    "Q",
+                    "Q",
+                    "Q",
+                    "H4",
+                    "Q"
+                  ],
+                  [
+                    "A",
+                    "A",
+                    "A",
+                    "K",
+                    "K"
+                  ],
+                  [
+                    "A",
+                    "A",
+                    "H3",
+                    "H3",
+                    "A"
+                  ],
+                  [
+                    "H4",
+                    "H5",
+                    "H5",
+                    "H5",
+                    "H4"
+                  ],
+                  [
+                    "K",
+                    "K",
+                    "H1",
+                    "A",
+                    "K"
+                  ],
+                  [
+                    "A",
+                    "K",
+                    "H4"
+                  ]
+                ],
+                "maxWinReached": false
+              }
+            }
+          ],
+          "winTypes": [],
+          "maxWinReached": false
+        }
+      }
+    }
+  },
+  {
+    "step": 1,
+    "betamount": "0.20",
+    "betcurrency": "EUR",
+    "wonamount": "0.00",
+    "status": "RESULTED",
+    "betdata": {
+      "coin": "0.01",
+      "cashBet": "0.20",
+      "cmd": "BASE_SPIN",
+      "accWa": "0.00",
+      "accC": 0
+    },
+    "eventdata": {
+      "accC": 0,
+      "accWa": "0.00",
+      "boostData": {
+        "isWinFreeSpins": false,
+        "isHit8MysteryOnScreen": false,
+        "isHit4RespinInARow": false
+      },
+      "initialPlayerState": {},
+      "playerState": {},
+      "response": {
+        "coinWin": 0,
+        "cashWin": "0.00",
+        "clientData": {
+          "rounds": [
+            {
+              "multiplier": 0,
+              "index": 1,
+              "reels": {
+                "type": "MainGame",
+                "eventsLeft": [],
+                "eventsRight": [],
+                "winLeft": 0,
+                "winRight": 0,
+                "multLeft": 1,
+                "multRight": 1,
+                "win": 0,
+                "winSum": 0,
+                "cashWin": 0,
+                "hidden": [],
+                "scatter": [
+                  {
+                    "x": 0,
+                    "y": 2,
+                    "persistent": false
+                  }
+                ],
+                "positionsHidden": [
+                  [
+                    "10",
+                    "H5",
+                    "SCATTER"
+                  ],
+                  [
+                    "H4",
+                    "10",
+                    "10",
+                    "H5",
+                    "H2"
+                  ],
+                  [
+                    "H1",
+                    "H3",
+                    "A",
+                    "A",
+                    "A"
+                  ],
+                  [
+                    "A",
+                    "A",
+                    "J",
+                    "J",
+                    "J"
+                  ],
+                  [
+                    "H5",
+                    "Q",
+                    "H2",
+                    "Q",
+                    "Q"
+                  ],
+                  [
+                    "J",
+                    "J",
+                    "J",
+                    "H1",
+                    "J"
+                  ],
+                  [
+                    "10",
+                    "J",
+                    "K"
+                  ]
+                ],
+                "positions": [
+                  [
+                    "10",
+                    "H5",
+                    "SCATTER"
+                  ],
+                  [
+                    "H4",
+                    "10",
+                    "10",
+                    "H5",
+                    "H2"
+                  ],
+                  [
+                    "H1",
+                    "H3",
+                    "A",
+                    "A",
+                    "A"
+                  ],
+                  [
+                    "A",
+                    "A",
+                    "J",
+                    "J",
+                    "J"
+                  ],
+                  [
+                    "H5",
+                    "Q",
+                    "H2",
+                    "Q",
+                    "Q"
+                  ],
+                  [
+                    "J",
+                    "J",
+                    "J",
+                    "H1",
+                    "J"
+                  ],
+                  [
+                    "10",
+                    "J",
+                    "K"
+                  ]
+                ],
+                "maxWinReached": false
+              }
+            }
+          ],
+          "winTypes": [],
+          "maxWinReached": false
+        }
+      }
+    }
+  },
+  {
+    "step": 1,
+    "betamount": "0.20",
+    "betcurrency": "EUR",
+    "wonamount": "0.00",
+    "status": "RESULTED",
+    "betdata": {
+      "coin": "0.01",
+      "cashBet": "0.20",
+      "cmd": "BASE_SPIN",
+      "accWa": "0.00",
+      "accC": 0
+    },
+    "eventdata": {
+      "accC": 0,
+      "accWa": "0.00",
+      "boostData": {
+        "isWinFreeSpins": false,
+        "isHit8MysteryOnScreen": false,
+        "isHit4RespinInARow": false
+      },
+      "initialPlayerState": {},
+      "playerState": {},
+      "response": {
+        "coinWin": 0,
+        "cashWin": "0.00",
+        "clientData": {
+          "rounds": [
+            {
+              "multiplier": 0,
+              "index": 1,
+              "reels": {
+                "type": "MainGame",
+                "eventsLeft": [],
+                "eventsRight": [],
+                "winLeft": 0,
+                "winRight": 0,
+                "multLeft": 1,
+                "multRight": 1,
+                "win": 0,
+                "winSum": 0,
+                "cashWin": 0,
+                "hidden": [],
+                "scatter": [
+                  {
+                    "x": 0,
+                    "y": 2,
+                    "persistent": false
+                  }
+                ],
+                "positionsHidden": [
+                  [
+                    "10",
+                    "H5",
+                    "SCATTER"
+                  ],
+                  [
+                    "Q",
+                    "10",
+                    "10",
+                    "Q",
+                    "10"
+                  ],
+                  [
+                    "K",
+                    "K",
+                    "H3",
+                    "K",
+                    "J"
+                  ],
+                  [
+                    "Q",
+                    "Q",
+                    "J",
+                    "J",
+                    "J"
+                  ],
+                  [
+                    "H4",
+                    "H4",
+                    "H5",
+                    "H5",
+                    "H5"
+                  ],
+                  [
+                    "J",
+                    "H1",
+                    "J",
+                    "H1",
+                    "J"
+                  ],
+                  [
+                    "10",
+                    "J",
+                    "K"
+                  ]
+                ],
+                "positions": [
+                  [
+                    "10",
+                    "H5",
+                    "SCATTER"
+                  ],
+                  [
+                    "Q",
+                    "10",
+                    "10",
+                    "Q",
+                    "10"
+                  ],
+                  [
+                    "K",
+                    "K",
+                    "H3",
+                    "K",
+                    "J"
+                  ],
+                  [
+                    "Q",
+                    "Q",
+                    "J",
+                    "J",
+                    "J"
+                  ],
+                  [
+                    "H4",
+                    "H4",
+                    "H5",
+                    "H5",
+                    "H5"
+                  ],
+                  [
+                    "J",
+                    "H1",
+                    "J",
+                    "H1",
+                    "J"
+                  ],
+                  [
+                    "10",
+                    "J",
+                    "K"
+                  ]
+                ],
+                "maxWinReached": false
+              }
+            }
+          ],
+          "winTypes": [],
+          "maxWinReached": false
+        }
+      }
+    }
+  },
+  {
+    "step": 1,
+    "betamount": "0.20",
+    "betcurrency": "EUR",
+    "wonamount": "0.00",
+    "status": "RESULTED",
+    "betdata": {
+      "coin": "0.01",
+      "cashBet": "0.20",
+      "cmd": "BASE_SPIN",
+      "accWa": "0.00",
+      "accC": 0
+    },
+    "eventdata": {
+      "accC": 0,
+      "accWa": "0.00",
+      "boostData": {
+        "isWinFreeSpins": false,
+        "isHit8MysteryOnScreen": false,
+        "isHit4RespinInARow": false
+      },
+      "initialPlayerState": {},
+      "playerState": {},
+      "response": {
+        "coinWin": 0,
+        "cashWin": "0.00",
+        "clientData": {
+          "rounds": [
+            {
+              "multiplier": 0,
+              "index": 1,
+              "reels": {
+                "type": "MainGame",
+                "eventsLeft": [],
+                "eventsRight": [],
+                "winLeft": 0,
+                "winRight": 0,
+                "multLeft": 1,
+                "multRight": 1,
+                "win": 0,
+                "winSum": 0,
+                "cashWin": 0,
+                "hidden": [],
+                "scatter": [],
+                "positionsHidden": [
+                  [
+                    "10",
+                    "Q",
+                    "H5"
+                  ],
+                  [
+                    "Q",
+                    "10",
+                    "H4",
+                    "H4",
+                    "10"
+                  ],
+                  [
+                    "H1",
+                    "K",
+                    "K",
+                    "K",
+                    "H4"
+                  ],
+                  [
+                    "H5",
+                    "H5",
+                    "H1",
+                    "H3",
+                    "H5"
+                  ],
+                  [
+                    "H2",
+                    "Q",
+                    "Q",
+                    "H5",
+                    "Q"
+                  ],
+                  [
+                    "J",
+                    "J",
+                    "H3",
+                    "H3",
+                    "A"
+                  ],
+                  [
+                    "A",
+                    "J",
+                    "K"
+                  ]
+                ],
+                "positions": [
+                  [
+                    "10",
+                    "Q",
+                    "H5"
+                  ],
+                  [
+                    "Q",
+                    "10",
+                    "H4",
+                    "H4",
+                    "10"
+                  ],
+                  [
+                    "H1",
+                    "K",
+                    "K",
+                    "K",
+                    "H4"
+                  ],
+                  [
+                    "H5",
+                    "H5",
+                    "H1",
+                    "H3",
+                    "H5"
+                  ],
+                  [
+                    "H2",
+                    "Q",
+                    "Q",
+                    "H5",
+                    "Q"
+                  ],
+                  [
+                    "J",
+                    "J",
+                    "H3",
+                    "H3",
+                    "A"
+                  ],
+                  [
+                    "A",
+                    "J",
+                    "K"
+                  ]
+                ],
+                "maxWinReached": false
+              }
+            }
+          ],
+          "winTypes": [],
+          "maxWinReached": false
+        }
+      }
+    }
+  },
+  {
+    "step": 1,
+    "betamount": "0.20",
+    "betcurrency": "EUR",
+    "wonamount": "0.00",
+    "status": "RESULTED",
+    "betdata": {
+      "coin": "0.01",
+      "cashBet": "0.20",
+      "cmd": "BASE_SPIN",
+      "accWa": "0.00",
+      "accC": 0
+    },
+    "eventdata": {
+      "accC": 0,
+      "accWa": "0.00",
+      "boostData": {
+        "isWinFreeSpins": false,
+        "isHit8MysteryOnScreen": false,
+        "isHit4RespinInARow": false
+      },
+      "initialPlayerState": {},
+      "playerState": {},
+      "response": {
+        "coinWin": 0,
+        "cashWin": "0.00",
+        "clientData": {
+          "rounds": [
+            {
+              "multiplier": 0,
+              "index": 1,
+              "reels": {
+                "type": "MainGame",
+                "eventsLeft": [],
+                "eventsRight": [],
+                "winLeft": 0,
+                "winRight": 0,
+                "multLeft": 1,
+                "multRight": 1,
+                "win": 0,
+                "winSum": 0,
+                "cashWin": 0,
+                "hidden": [
+                  {
+                    "x": 5,
+                    "y": 0,
+                    "changeTo": "A",
+                    "multi": 0,
+                    "persistent": false
+                  },
+                  {
+                    "x": 4,
+                    "y": 1,
+                    "changeTo": "A",
+                    "multi": 0,
+                    "persistent": false
+                  },
+                  {
+                    "x": 4,
+                    "y": 2,
+                    "changeTo": "A",
+                    "multi": 0,
+                    "persistent": false
+                  }
+                ],
+                "scatter": [],
+                "positionsHidden": [
+                  [
+                    "10",
+                    "H5",
+                    "Q"
+                  ],
+                  [
+                    "Q",
+                    "Q",
+                    "Q",
+                    "H5",
+                    "H2"
+                  ],
+                  [
+                    "A",
+                    "A",
+                    "A",
+                    "K",
+                    "K"
+                  ],
+                  [
+                    "K",
+                    "K",
+                    "H1",
+                    "H1",
+                    "K"
+                  ],
+                  [
+                    "Q",
+                    "HIDDEN",
+                    "HIDDEN",
+                    "Q",
+                    "Q"
+                  ],
+                  [
+                    "HIDDEN",
+                    "H4",
+                    "H4",
+                    "H2",
+                    "H2"
+                  ],
+                  [
+                    "H4",
+                    "H1",
+                    "J"
+                  ]
+                ],
+                "positions": [
+                  [
+                    "10",
+                    "H5",
+                    "Q"
+                  ],
+                  [
+                    "Q",
+                    "Q",
+                    "Q",
+                    "H5",
+                    "H2"
+                  ],
+                  [
+                    "A",
+                    "A",
+                    "A",
+                    "K",
+                    "K"
+                  ],
+                  [
+                    "K",
+                    "K",
+                    "H1",
+                    "H1",
+                    "K"
+                  ],
+                  [
+                    "Q",
+                    "A",
+                    "A",
+                    "Q",
+                    "Q"
+                  ],
+                  [
+                    "A",
+                    "H4",
+                    "H4",
+                    "H2",
+                    "H2"
+                  ],
+                  [
+                    "H4",
+                    "H1",
+                    "J"
+                  ]
+                ],
+                "maxWinReached": false
+              }
+            }
+          ],
+          "winTypes": [],
+          "maxWinReached": false
+        }
+      }
+    }
+  },
+  {
+    "step": 1,
+    "betamount": "0.20",
+    "betcurrency": "EUR",
+    "wonamount": "0.00",
+    "status": "RESULTED",
+    "betdata": {
+      "coin": "0.01",
+      "cashBet": "0.20",
+      "cmd": "BASE_SPIN",
+      "accWa": "0.00",
+      "accC": 0
+    },
+    "eventdata": {
+      "accC": 0,
+      "accWa": "0.00",
+      "boostData": {
+        "isWinFreeSpins": false,
+        "isHit8MysteryOnScreen": false,
+        "isHit4RespinInARow": false
+      },
+      "initialPlayerState": {},
+      "playerState": {},
+      "response": {
+        "coinWin": 0,
+        "cashWin": "0.00",
+        "clientData": {
+          "rounds": [
+            {
+              "multiplier": 0,
+              "index": 1,
+              "reels": {
+                "type": "MainGame",
+                "eventsLeft": [],
+                "eventsRight": [],
+                "winLeft": 0,
+                "winRight": 0,
+                "multLeft": 1,
+                "multRight": 1,
+                "win": 0,
+                "winSum": 0,
+                "cashWin": 0,
+                "hidden": [],
+                "scatter": [],
+                "positionsHidden": [
+                  [
+                    "Q",
+                    "10",
+                    "H5"
+                  ],
+                  [
+                    "H3",
+                    "10",
+                    "H3",
+                    "10",
+                    "10"
+                  ],
+                  [
+                    "J",
+                    "J",
+                    "A",
+                    "J",
+                    "J"
+                  ],
+                  [
+                    "J",
+                    "A",
+                    "A",
+                    "J",
+                    "J"
+                  ],
+                  [
+                    "H5",
+                    "H4",
+                    "Q",
+                    "10",
+                    "H4"
+                  ],
+                  [
+                    "J",
+                    "K",
+                    "J",
+                    "J",
+                    "J"
+                  ],
+                  [
+                    "K",
+                    "J",
+                    "A"
+                  ]
+                ],
+                "positions": [
+                  [
+                    "Q",
+                    "10",
+                    "H5"
+                  ],
+                  [
+                    "H3",
+                    "10",
+                    "H3",
+                    "10",
+                    "10"
+                  ],
+                  [
+                    "J",
+                    "J",
+                    "A",
+                    "J",
+                    "J"
+                  ],
+                  [
+                    "J",
+                    "A",
+                    "A",
+                    "J",
+                    "J"
+                  ],
+                  [
+                    "H5",
+                    "H4",
+                    "Q",
+                    "10",
+                    "H4"
+                  ],
+                  [
+                    "J",
+                    "K",
+                    "J",
+                    "J",
+                    "J"
+                  ],
+                  [
+                    "K",
+                    "J",
+                    "A"
+                  ]
+                ],
+                "maxWinReached": false
+              }
+            }
+          ],
+          "winTypes": [],
+          "maxWinReached": false
+        }
+      }
+    }
+  },
+  {
+    "step": 1,
+    "betamount": "0.20",
+    "betcurrency": "EUR",
+    "wonamount": "0.00",
+    "status": "RESULTED",
+    "betdata": {
+      "coin": "0.01",
+      "cashBet": "0.20",
+      "cmd": "BASE_SPIN",
+      "accWa": "0.00",
+      "accC": 0
+    },
+    "eventdata": {
+      "accC": 0,
+      "accWa": "0.00",
+      "boostData": {
+        "isWinFreeSpins": false,
+        "isHit8MysteryOnScreen": false,
+        "isHit4RespinInARow": false
+      },
+      "initialPlayerState": {},
+      "playerState": {},
+      "response": {
+        "coinWin": 0,
+        "cashWin": "0.00",
+        "clientData": {
+          "rounds": [
+            {
+              "multiplier": 0,
+              "index": 1,
+              "reels": {
+                "type": "MainGame",
+                "eventsLeft": [],
+                "eventsRight": [],
+                "winLeft": 0,
+                "winRight": 0,
+                "multLeft": 1,
+                "multRight": 1,
+                "win": 0,
+                "winSum": 0,
+                "cashWin": 0,
+                "hidden": [
+                  {
+                    "x": 4,
+                    "y": 1,
+                    "changeTo": "A",
+                    "multi": 0,
+                    "persistent": false
+                  },
+                  {
+                    "x": 4,
+                    "y": 2,
+                    "changeTo": "A",
+                    "multi": 0,
+                    "persistent": false
+                  },
+                  {
+                    "x": 5,
+                    "y": 3,
+                    "changeTo": "A",
+                    "multi": 0,
+                    "persistent": false
+                  },
+                  {
+                    "x": 5,
+                    "y": 4,
+                    "changeTo": "A",
+                    "multi": 0,
+                    "persistent": false
+                  }
+                ],
+                "scatter": [],
+                "positionsHidden": [
+                  [
+                    "H2",
+                    "H4",
+                    "H5"
+                  ],
+                  [
+                    "H1",
+                    "H3",
+                    "10",
+                    "H3",
+                    "10"
+                  ],
+                  [
+                    "H3",
+                    "A",
+                    "A",
+                    "H3",
+                    "H3"
+                  ],
+                  [
+                    "H4",
+                    "10",
+                    "10",
+                    "10",
+                    "10"
+                  ],
+                  [
+                    "Q",
+                    "HIDDEN",
+                    "HIDDEN",
+                    "H2",
+                    "Q"
+                  ],
+                  [
+                    "H4",
+                    "H2",
+                    "H2",
+                    "HIDDEN",
+                    "HIDDEN"
+                  ],
+                  [
+                    "K",
+                    "J",
+                    "H1"
+                  ]
+                ],
+                "positions": [
+                  [
+                    "H2",
+                    "H4",
+                    "H5"
+                  ],
+                  [
+                    "H1",
+                    "H3",
+                    "10",
+                    "H3",
+                    "10"
+                  ],
+                  [
+                    "H3",
+                    "A",
+                    "A",
+                    "H3",
+                    "H3"
+                  ],
+                  [
+                    "H4",
+                    "10",
+                    "10",
+                    "10",
+                    "10"
+                  ],
+                  [
+                    "Q",
+                    "A",
+                    "A",
+                    "H2",
+                    "Q"
+                  ],
+                  [
+                    "H4",
+                    "H2",
+                    "H2",
+                    "A",
+                    "A"
+                  ],
+                  [
+                    "K",
+                    "J",
+                    "H1"
+                  ]
+                ],
+                "maxWinReached": false
+              }
+            }
+          ],
+          "winTypes": [],
+          "maxWinReached": false
+        }
+      }
+    }
+  },
+  {
+    "step": 1,
+    "betamount": "0.20",
+    "betcurrency": "EUR",
+    "wonamount": "0.00",
+    "status": "RESULTED",
+    "betdata": {
+      "coin": "0.01",
+      "cashBet": "0.20",
+      "cmd": "BASE_SPIN",
+      "accWa": "0.00",
+      "accC": 0
+    },
+    "eventdata": {
+      "accC": 0,
+      "accWa": "0.00",
+      "boostData": {
+        "isWinFreeSpins": false,
+        "isHit8MysteryOnScreen": false,
+        "isHit4RespinInARow": false
+      },
+      "initialPlayerState": {},
+      "playerState": {},
+      "response": {
+        "coinWin": 0,
+        "cashWin": "0.00",
+        "clientData": {
+          "rounds": [
+            {
+              "multiplier": 0,
+              "index": 1,
+              "reels": {
+                "type": "MainGame",
+                "eventsLeft": [],
+                "eventsRight": [],
+                "winLeft": 0,
+                "winRight": 0,
+                "multLeft": 1,
+                "multRight": 1,
+                "win": 0,
+                "winSum": 0,
+                "cashWin": 0,
+                "hidden": [
+                  {
+                    "x": 4,
+                    "y": 0,
+                    "changeTo": "J",
+                    "multi": 0,
+                    "persistent": false
+                  },
+                  {
+                    "x": 4,
+                    "y": 1,
+                    "changeTo": "J",
+                    "multi": 0,
+                    "persistent": false
+                  },
+                  {
+                    "x": 4,
+                    "y": 4,
+                    "changeTo": "J",
+                    "multi": 0,
+                    "persistent": false
+                  }
+                ],
+                "scatter": [],
+                "positionsHidden": [
+                  [
+                    "H5",
+                    "10",
+                    "Q"
+                  ],
+                  [
+                    "10",
+                    "H4",
+                    "H4",
+                    "10",
+                    "10"
+                  ],
+                  [
+                    "J",
+                    "K",
+                    "K",
+                    "J",
+                    "J"
+                  ],
+                  [
+                    "H1",
+                    "H3",
+                    "H5",
+                    "H5",
+                    "J"
+                  ],
+                  [
+                    "HIDDEN",
+                    "HIDDEN",
+                    "Q",
+                    "Q",
+                    "HIDDEN"
+                  ],
+                  [
+                    "A",
+                    "A",
+                    "H3",
+                    "H3",
+                    "H1"
+                  ],
+                  [
+                    "A",
+                    "H1",
+                    "J"
+                  ]
+                ],
+                "positions": [
+                  [
+                    "H5",
+                    "10",
+                    "Q"
+                  ],
+                  [
+                    "10",
+                    "H4",
+                    "H4",
+                    "10",
+                    "10"
+                  ],
+                  [
+                    "J",
+                    "K",
+                    "K",
+                    "J",
+                    "J"
+                  ],
+                  [
+                    "H1",
+                    "H3",
+                    "H5",
+                    "H5",
+                    "J"
+                  ],
+                  [
+                    "J",
+                    "J",
+                    "Q",
+                    "Q",
+                    "J"
+                  ],
+                  [
+                    "A",
+                    "A",
+                    "H3",
+                    "H3",
+                    "H1"
+                  ],
+                  [
+                    "A",
+                    "H1",
+                    "J"
+                  ]
+                ],
+                "maxWinReached": false
+              }
+            }
+          ],
+          "winTypes": [],
+          "maxWinReached": false
+        }
+      }
+    }
+  },
+  {
+    "step": 1,
+    "betamount": "0.20",
+    "betcurrency": "EUR",
+    "wonamount": "0.00",
+    "status": "RESULTED",
+    "betdata": {
+      "coin": "0.01",
+      "cashBet": "0.20",
+      "cmd": "BASE_SPIN",
+      "accWa": "0.00",
+      "accC": 0
+    },
+    "eventdata": {
+      "accC": 0,
+      "accWa": "0.00",
+      "boostData": {
+        "isWinFreeSpins": false,
+        "isHit8MysteryOnScreen": false,
+        "isHit4RespinInARow": false
+      },
+      "initialPlayerState": {},
+      "playerState": {},
+      "response": {
+        "coinWin": 0,
+        "cashWin": "0.00",
+        "clientData": {
+          "rounds": [
+            {
+              "multiplier": 0,
+              "index": 1,
+              "reels": {
+                "type": "MainGame",
+                "eventsLeft": [],
+                "eventsRight": [],
+                "winLeft": 0,
+                "winRight": 0,
+                "multLeft": 1,
+                "multRight": 1,
+                "win": 0,
+                "winSum": 0,
+                "cashWin": 0,
+                "hidden": [],
+                "scatter": [],
+                "positionsHidden": [
+                  [
+                    "Q",
+                    "10",
+                    "H5"
+                  ],
+                  [
+                    "H5",
+                    "H1",
+                    "10",
+                    "J",
+                    "J"
+                  ],
+                  [
+                    "J",
+                    "J",
+                    "H3",
+                    "H3",
+                    "A"
+                  ],
+                  [
+                    "H5",
+                    "10",
+                    "Q",
+                    "Q",
+                    "Q"
+                  ],
+                  [
+                    "Q",
+                    "H5",
+                    "Q",
+                    "Q",
+                    "K"
+                  ],
+                  [
+                    "A",
+                    "A",
+                    "J",
+                    "A",
+                    "A"
+                  ],
+                  [
+                    "J",
+                    "K",
+                    "A"
+                  ]
+                ],
+                "positions": [
+                  [
+                    "Q",
+                    "10",
+                    "H5"
+                  ],
+                  [
+                    "H5",
+                    "H1",
+                    "10",
+                    "J",
+                    "J"
+                  ],
+                  [
+                    "J",
+                    "J",
+                    "H3",
+                    "H3",
+                    "A"
+                  ],
+                  [
+                    "H5",
+                    "10",
+                    "Q",
+                    "Q",
+                    "Q"
+                  ],
+                  [
+                    "Q",
+                    "H5",
+                    "Q",
+                    "Q",
+                    "K"
+                  ],
+                  [
+                    "A",
+                    "A",
+                    "J",
+                    "A",
+                    "A"
+                  ],
+                  [
+                    "J",
+                    "K",
+                    "A"
+                  ]
+                ],
+                "maxWinReached": false
+              }
+            }
+          ],
+          "winTypes": [],
+          "maxWinReached": false
+        }
+      }
+    }
+  }
+]

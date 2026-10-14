@@ -1,0 +1,200 @@
+{
+  "step": 1,
+  "betamount": "0.10",
+  "betcurrency": "EUR",
+  "wonamount": "0.00",
+  "status": "RESULTED",
+  "betdata": {
+    "coin": "0.005",
+    "cashBet": "0.10",
+    "cmd": "BASE_SPIN",
+    "accWa": "0.00",
+    "accC": 0
+  },
+  "eventdata": {
+    "accC": 0,
+    "accWa": "0.00",
+    "boostData": {
+      "collectedWolfSymbols": 1,
+      "collectedMaleHunterBonusSymbols": 0,
+      "collectedFemaleHunterBonusSymbols": 0,
+      "collectedMaleHunterRagePoints": 0,
+      "collectedFemaleHunterRagePoints": 0
+    },
+    "initialPlayerState": {
+      "collections": {
+        "leftHunter": {
+          "amount": 20,
+          "gathered": 0,
+          "coinsSum": "0.00"
+        },
+        "rightHunter": {
+          "amount": 50,
+          "gathered": 0,
+          "coinsSum": "0.00"
+        },
+        "wolfHp": {
+          "amount": 600,
+          "gathered": 0,
+          "coinsSum": "0.00"
+        },
+        "userWonFreespins": false
+      },
+      "newUser": false
+    },
+    "playerState": {
+      "collections": {
+        "leftHunter": {
+          "amount": 20,
+          "gathered": 0,
+          "coinsSum": "0.00"
+        },
+        "rightHunter": {
+          "amount": 50,
+          "gathered": 0,
+          "coinsSum": "0.00"
+        },
+        "wolfHp": {
+          "amount": 600,
+          "gathered": 0,
+          "coinsSum": "0.00"
+        },
+        "userWonFreespins": false
+      },
+      "newUser": false
+    },
+    "response": {
+      "coinWin": 0,
+      "cashWin": "0.00",
+      "clientData": {
+        "accC": 0,
+        "accWa": "0.00",
+        "beforeCollections": {
+          "leftHunter": {
+            "amount": 20,
+            "gathered": 0,
+            "coinsSum": "0.00"
+          },
+          "rightHunter": {
+            "amount": 50,
+            "gathered": 0,
+            "coinsSum": "0.00"
+          },
+          "wolfHp": {
+            "amount": 600,
+            "gathered": 0,
+            "coinsSum": "0.00"
+          },
+          "userWonFreespins": false
+        },
+        "coinValue": "0.005",
+        "collections": {
+          "leftHunter": {
+            "amount": 20,
+            "gathered": 0,
+            "coinsSum": "0.00"
+          },
+          "rightHunter": {
+            "amount": 50,
+            "gathered": 0,
+            "coinsSum": "0.00"
+          },
+          "wolfHp": {
+            "amount": 600,
+            "gathered": 0,
+            "coinsSum": "0.00"
+          },
+          "userWonFreespins": false
+        },
+        "fights": [
+          {
+            "field": {
+              "row": 0,
+              "column": 2,
+              "icon": {
+                "iconEnum": "High1",
+                "iconType": "NORMAL"
+              }
+            },
+            "rageChangeRightHunter": 0,
+            "rageChangeLeftHunter": 0,
+            "werewolfHpChange": 0
+          }
+        ],
+        "finalBoard": [
+          [
+            "Low2",
+            "Low2",
+            "Low1"
+          ],
+          [
+            "High2",
+            "High2",
+            "Low3"
+          ],
+          [
+            "High1",
+            "Low4",
+            "High4"
+          ],
+          [
+            "Low4",
+            "Low2",
+            "Low1"
+          ],
+          [
+            "Low3",
+            "Low3",
+            "Low2"
+          ]
+        ],
+        "freespinsAwarded": {},
+        "leftHunterWeapon": 0,
+        "reelSet": "BaseReels2",
+        "reels": [
+          [
+            "Low2",
+            "Low2",
+            "Low1"
+          ],
+          [
+            "High2",
+            "High2",
+            "Low3"
+          ],
+          [
+            "High1",
+            "Low4",
+            "High4"
+          ],
+          [
+            "Low4",
+            "Low2",
+            "Low1"
+          ],
+          [
+            "Low3",
+            "Low3",
+            "Low2"
+          ]
+        ],
+        "respinWon": false,
+        "rightHunterWeapon": 0,
+        "rpos": [
+          55,
+          53,
+          173,
+          192,
+          178
+        ],
+        "spinName": "BaseSpin",
+        "stickyA": "000000000000000",
+        "stickyB": "000000000000000",
+        "stickyN": "000000000000000",
+        "wonCoins": 0,
+        "wonMoney": "0.00",
+        "wtw": []
+      }
+    }
+  }
+}

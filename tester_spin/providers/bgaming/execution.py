@@ -110,6 +110,7 @@ class BGamingExecutionMixin:
         responded_attempts = 0
         successes = 0
         discovered_modes: list[dict[str, Any]] = []
+        feature_domains = {}
         discovered_mode_ids: set[str] = set()
         pending_actions: set[str] = set()
         coverage_gaps: set[str] = set()
@@ -520,6 +521,9 @@ class BGamingExecutionMixin:
                 if legacy_line_bets
                 else discover_purchase_modes(init_data)
             )
+            from tester_spin.feature_domains import initialization_domains
+            if not legacy_line_bets:
+                feature_domains = initialization_domains("bgaming", init_data, purchase_modes)
             client_purchase_features = (
                 set(active_profile.purchase_features)
                 if active_profile is not None
@@ -1745,6 +1749,7 @@ class BGamingExecutionMixin:
             status=status,
             symbol=game.symbol,
             discovered_modes=discovered_modes,
+            feature_domains=feature_domains,
             started_at=started_iso,
             finished_at=utc_now_iso(),
             elapsed_ms=elapsed_total,

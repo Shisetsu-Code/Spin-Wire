@@ -43,7 +43,7 @@ def refresh_signing_profile(game, *, http, root, timeout_s, stop_event, progress
         response = http.get(url, headers={"Cache-Control": "no-cache"}, timeout=timeout_s)
         if response.status_code == 404:
             stop_event.set()
-            progress("KA Gaming: HTTP 404 al actualizar cliente; ejecución detenida.")
+            progress("KA Gaming: HTTP 404 al actualizar cliente; ejecuciÃƒÂ³n detenida.")
         response.raise_for_status()
         return response.text
     if urlparse(game.url).hostname != "gamesdemo.kaga88.com":
@@ -55,13 +55,13 @@ def refresh_signing_profile(game, *, http, root, timeout_s, stop_event, progress
     source = get("https://gamesdemo.kaga88.com/game.min." + build[1] + ".js")
     profile = parse_signing_profile(source)
     if profile is None or profile[0] != build[1]:
-        raise ValueError("KA Gaming: firma actual no reconocida; no se envía apuesta")
+        raise ValueError("KA Gaming: firma actual no reconocida; no se envÃƒÂ­a apuesta")
     cache = root / "runtime"
     cache.mkdir(parents=True, exist_ok=True)
     temporary = cache / ("game.min." + build[1] + "." + secrets.token_hex(3) + ".tmp")
     temporary.write_text(source, encoding="utf-8")
     temporary.replace(cache / ("game.min." + build[1] + ".js"))
-    progress("KA Gaming: cliente actual " + profile[1] + "; sesión nueva por juego.")
+    progress("KA Gaming: cliente actual " + profile[1] + "; sesiÃƒÂ³n nueva por juego.")
     return profile
 
 
@@ -116,23 +116,28 @@ def base_terminal(state: dict) -> bool:
 
 
 def run_rmp_game(game: Game, *, http, root: Path, profile: tuple[str, str, str], modes: list[dict],
-                 spins: int, timeout_s: float, stop_event: threading.Event, progress) -> GameTestResult:
+                 spins: int, timeout_s: float, stop_event: threading.Event, progress, capabilities=None) -> GameTestResult:
     started = utc_now_iso()
     clock = time.monotonic()
     run_dir = root / game.slug / "tests" / (time.strftime("%Y%m%d-%H%M%S") + "-" + secrets.token_hex(3))
     run_dir.mkdir(parents=True, exist_ok=True)
     attempts = []
+    feature_domains = {}
     successes = 0
     error = ""
     status = "PARCIAL"
     endpoint = "https://rmpdemo.kaga88.com/kaga/command/spin"
     query = parse_qs(urlparse(game.url).query)
     if urlparse(game.url).hostname != "gamesdemo.kaga88.com" or query.get("p", [""])[0] != "demo":
-        raise ValueError("KA RMP: sÃ³lo se admite el launcher oficial demo observado")
+        raise ValueError("KA RMP: sÃƒÆ’Ã‚Â³lo se admite el launcher oficial demo observado")
     user = str(secrets.randbelow(999_999_999) + 1)
     symbol = game.symbol or query.get("g", [""])[0]
-    context = {"dt": "", "dv": "", "av": profile[1], "idv": secrets.token_hex(32),
-               "lg": query.get("loc", ["es"])[0], "do": "Windows", "as": "", "ak": "accessKey"}
+    from tester_spin.providers.ka_gaming.device_context import current_client_identity
+    agent,device=current_client_identity(getattr(http,'headers',{}).get('User-Agent'))
+    context = {**device, "av": profile[1], "idv": secrets.token_hex(32),
+               "lg": query.get("loc", ["es"])[0], "as": "", "ak": "accessKey"}
+    from tester_spin.http_har import HTTPHar
+    capture=HTTPHar(run_dir/"analysis"/"http.har")
     wire_index = 0
     artifact_dir = run_dir
 
@@ -147,13 +152,16 @@ def run_rmp_game(game: Game, *, http, root: Path, profile: tuple[str, str, str],
         # Local evidence contains payloads; reusable contracts omit credentials.
         (artifact_dir / (label + ".request.json")).write_text(json.dumps({"method": "POST", "endpoint": "https://rmpdemo.kaga88.com/kaga/" + path,
             "params": {**params, "u": "<demo-user>"}, "payload": body}, ensure_ascii=False, indent=2), encoding="utf-8")
-        response = http.post("https://rmpdemo.kaga88.com/kaga/" + path, params=params, data=raw,
-            headers={"Content-Type": "application/json", "ctx": json.dumps(ctx, separators=(",", ":")),
-                     "Origin": "https://gamesdemo.kaga88.com", "Referer": "https://gamesdemo.kaga88.com/"}, timeout=timeout_s)
+        endpoint_url="https://rmpdemo.kaga88.com/kaga/"+path
+        headers={"User-Agent":agent,"Content-Type":"application/json","ctx":json.dumps(ctx,separators=(",",":")),
+                 "Origin":"https://gamesdemo.kaga88.com","Referer":"https://gamesdemo.kaga88.com/"}
+        sent=time.monotonic()
+        response=http.post(endpoint_url,params=params,data=raw,headers=headers,timeout=timeout_s)
+        capture.append(endpoint_url,params,raw,headers,response,time.monotonic()-sent)
         (artifact_dir / (label + ".response.raw.json")).write_text(response.text, encoding="utf-8")
         if response.status_code == 404:
             stop_event.set()
-            progress("KA Gaming: HTTP 404; se detiene toda la ejecuciÃ³n del proveedor.")
+            progress("KA Gaming: HTTP 404; se detiene toda la ejecuciÃƒÆ’Ã‚Â³n del proveedor.")
         response.raise_for_status()
         data = response.json()
         if not isinstance(data, dict) or data.get("e") is not False or data.get("ec") != 0:
@@ -163,13 +171,21 @@ def run_rmp_game(game: Game, *, http, root: Path, profile: tuple[str, str, str],
 
     try:
         if stop_event.is_set():
-            error = "EjecuciÃ³n detenida antes del arranque"
+            error = "EjecuciÃƒÆ’Ã‚Â³n detenida antes del arranque"
         else:
             initial = post("rmp/startGame", {"un": user, "pn": "demo", "ak": "accessKey", "gn": symbol,
                 "loc": context["lg"], "to": "123", "cr": "USD", "gm": 0, "tb": None, "mi": -1, "mc": 0})
             if not initial.get("un") or not initial.get("si"):
-                raise ValueError("KA RMP: startGame no devolviÃ³ un/si")
+                raise ValueError("KA RMP: startGame no devolviÃƒÆ’Ã‚Â³ un/si")
             context.update(u=initial["un"], c=initial["si"])
+            if capabilities is not None:
+                from tester_spin.providers.ka_gaming.capabilities import client_declarations
+                declaration = client_declarations(capabilities.get('common',''), capabilities.get('client',''), symbol, initial)
+                feature_domains = declaration['domains']
+                if feature_domains['purchase']['complete']:
+                    modes = [m for m in modes if m.get('kind') != 'PURCHASE' and m.get('id') != 'BUY_BONUS_UNRESOLVED'] + declaration['modes']
+                (run_dir/'feature-declaration.json').write_text(json.dumps(declaration,indent=2),encoding='utf-8')
+
             state = initial.get("sgr", {}).get("lsd", {})
             allowed_cps = initial.get("cup") or initial.get("sgr", {}).get("cps")
             if isinstance(allowed_cps, list) and allowed_cps:
@@ -177,21 +193,55 @@ def run_rmp_game(game: Game, *, http, root: Path, profile: tuple[str, str, str],
                     valid = [value for value in allowed_cps if isinstance(value, (int, float))
                              and not isinstance(value, bool) and value > 0]
                     if not valid:
-                        raise ValueError("KA RMP: tabla de cps invÃ¡lida")
+                        raise ValueError("KA RMP: tabla de cps invÃƒÆ’Ã‚Â¡lida")
                     state = {**state, "cps": min(valid)}
             if not base_terminal(state):
-                error = "KA RMP: estado inicial activo; continuaciÃ³n todavÃ­a no observada"
+                error = "KA RMP: estado inicial activo; continuaciÃƒÆ’Ã‚Â³n todavÃƒÆ’Ã‚Â­a no observada"
             else:
+                base_fields={k:state.get(k) for k in ('sel','cps','atb','dn')}
+                def check_base(directory):
+                    from tester_spin.return_to_base import verify_return_to_base,save_exchange
+                    def play(target):
+                        nonlocal state,artifact_dir
+                        previous_dir=artifact_dir
+                        artifact_dir=target
+                        captures=[]
+                        had_feature=False
+                        try:
+                            fields=dict(base_fields)
+                            for step in range(1,65):
+                                if stop_event.is_set():raise InterruptedError('DetenciÃƒÂ³n solicitada')
+                                if any(not isinstance(fields.get(k),(int,float)) or isinstance(fields[k],bool)
+                                       or not math.isfinite(fields[k]) for k in ('sel','cps','atb','dn')):
+                                    return dict(ok=False,base=False,known=False,captures=captures,reason='unknown base wager')
+                                command={'gn':symbol,'sid':secrets.randbelow(2_147_483_647),**fields}
+                                reply=post('command/spin',command)
+                                captures.append(save_exchange(target,command,reply,step))
+                                state=reply.get('md',{})
+                                if not isinstance(state,dict) or any(state.get(k)!=v for k,v in fields.items()):
+                                    return dict(ok=True,base=False,known=False,captures=captures,reason='changed wager')
+                                if isinstance(state,dict) and base_terminal(state):
+                                    same_wager=all(state.get(k)==v for k,v in base_fields.items())
+                                    return dict(ok=True,base=not had_feature and same_wager,known=same_wager,captures=captures)
+                                had_feature=True
+                                if (not isinstance(state,dict) or state.get('rf')!=0
+                                        or not resolved_additional_spins(state.get('as')) or state.get('mb')
+                                        or not (state.get('acb')==1 or state.get('fs') is True)):
+                                    return dict(ok=True,base=False,known=False,captures=captures,reason='unknown continuation')
+                                fields={k:state.get(k) for k in base_fields}
+                            return dict(ok=True,base=False,known=False,captures=captures,reason='continuation limit')
+                        finally:artifact_dir=previous_dir
+                    return verify_return_to_base(directory,play,stop_event=stop_event)
                 spin_mode = next(m for m in modes if m["id"] == "SPIN")
-                purchases = [m for m in modes if m.get("id") == "BUY_POS_1" and m.get("pos") == [1] and m.get("source") in {"manual-har", "provider-family-candidate"}]
-                jobs = [spin_mode] * max(1, spins) + purchases
+                purchases = [m for m in modes if m.get("id") == "BUY_POS_1" and m.get("pos") == [1] and m.get("source") in {"manual-har", "client-declaration"}]
+                jobs = [spin_mode] * max(1, spins) + [m for m in purchases for _ in range(max(1,spins))]
                 for number, mode in enumerate(jobs, 1):
                     if stop_event.is_set():
-                        error = "EjecuciÃ³n detenida"
+                        error = "EjecuciÃƒÆ’Ã‚Â³n detenida"
                         break
                     for field in ("sel", "cps", "atb", "dn"):
                         if not isinstance(state.get(field), (int, float)) or isinstance(state[field], bool):
-                            raise ValueError(f"KA RMP: falta parÃ¡metro de apuesta {field}")
+                            raise ValueError(f"KA RMP: falta parÃƒÆ’Ã‚Â¡metro de apuesta {field}")
                     body = {"gn": symbol, "sel": state["sel"], "sid": secrets.randbelow(2_147_483_647),
                             "cps": state["cps"], "atb": state["atb"], "dn": state["dn"]}
                     if mode in purchases:
@@ -201,10 +251,11 @@ def run_rmp_game(game: Game, *, http, root: Path, profile: tuple[str, str, str],
                     tick = time.monotonic()
                     result = post("command/spin", body)
                     state = result.get("md", {})
-                    terminal = isinstance(state, dict) and base_terminal(state)
-                    purchase_started = mode not in purchases or (isinstance(state, dict) and state.get("pos") == [1]
+                    wager_matches = isinstance(state,dict) and all(state.get(k)==body[k] for k in base_fields)
+                    terminal = wager_matches and base_terminal(state)
+                    purchase_started = wager_matches and (mode not in purchases or (isinstance(state, dict) and state.get("pos") == [1]
                         and state.get("acb") == 1 and isinstance(state.get("fsr"), int)
-                        and not isinstance(state.get("fsr"), bool) and state["fsr"] > 0)
+                        and not isinstance(state.get("fsr"), bool) and state["fsr"] > 0))
                     terminal = terminal and purchase_started
                     steps = 1
                     # Only the free-games family demonstrated by these captures.
@@ -216,20 +267,25 @@ def run_rmp_game(game: Game, *, http, root: Path, profile: tuple[str, str, str],
                         result = post("command/spin", continuation)
                         steps += 1
                         state = result.get("md", {})
-                        terminal = isinstance(state,dict) and base_terminal(state)
+                        wager_matches=isinstance(state,dict) and all(state.get(k)==continuation[k] for k in base_fields)
+                        if not wager_matches:break
+                        terminal = base_terminal(state)
+                    round_terminal=terminal
+                    if terminal:
+                        terminal=check_base(artifact_dir).get('status')=='CONFIRMED'
                     mode.update(executable=True, observed=True, validated=terminal, source="live-rmp" if mode["id"]=="SPIN" else mode["source"],
                         evidence_level="REMOTE_EXECUTION",execution_state="PROVEN_TERMINAL" if terminal else "CONTINUATION_PENDING")
                     mode["required_options"] = ["spin" if mode["id"]=="SPIN" else "pos:1"]
                     mode["covered_options"] = list(mode["required_options"]) if terminal else []
                     attempts.append(SpinAttempt(number=number, mode_id=mode["id"], mode_kind=mode.get("kind","SPIN"), ok=terminal, status_code=200, endpoint=endpoint,
-                        terminal=terminal, wire_steps=steps, symbol=symbol, elapsed_ms=(time.monotonic() - tick) * 1000,
-                        artifact_dir=str(artifact_dir), warning="" if terminal else "ContinuaciÃ³n KA pendiente"))
-                    successes += int(terminal and mode["id"] == "SPIN")
+                        terminal=round_terminal, wire_steps=steps, symbol=symbol, elapsed_ms=(time.monotonic() - tick) * 1000,
+                        artifact_dir=str(artifact_dir), warning="" if terminal else "ContinuaciÃƒÂ³n o regreso al base KA pendiente"))
+                    successes += int(terminal)
                     progress(f"[{game.name}] KA RMP SPIN {number}/{spins}: {'OK' if terminal else 'PARCIAL'}, ec=0.")
                     if not terminal:
-                        error = "KA RMP: bonus/free games activo; continuaciÃ³n todavÃ­a no observada"
+                        error = "KA RMP: regreso al giro base pendiente" if round_terminal else "KA RMP: bonus/free games activo; continuaciÃƒÂ³n todavÃƒÂ­a no observada"
                         break
-                if successes == max(1, spins) and all(m.get("validated") for m in purchases):
+                if successes == len(jobs) and all(m.get("validated") for m in purchases):
                     status = "OK"
     except Exception as exc:
         status = "ERROR" if not successes else "PARCIAL"
@@ -240,7 +296,7 @@ def run_rmp_game(game: Game, *, http, root: Path, profile: tuple[str, str, str],
             try:
                 post("rmp/endSession", {"es": "quit"})
             except Exception as exc:
-                progress(f"[{game.name}] KA RMP: cierre de sesiÃ³n pendiente ({type(exc).__name__}).")
+                progress(f"[{game.name}] KA RMP: cierre de sesiÃƒÆ’Ã‚Â³n pendiente ({type(exc).__name__}).")
 
     for mode in modes:
         if mode["id"] == "SPIN":
@@ -252,8 +308,11 @@ def run_rmp_game(game: Game, *, http, root: Path, profile: tuple[str, str, str],
                               and not mode.get("validated") for mode in modes):
         status = "PARCIAL"
         error = "KA RMP: spin base validado; modos anunciados sin contrato observado"
+    if status == 'OK' and any(domain.get('complete') is False for domain in feature_domains.values()):
+        status = 'PARCIAL'
+        error = 'KA RMP: declaracion del cliente incompleta; disponibilidad pendiente'
     return GameTestResult(provider="ka_gaming", slug=game.slug, game_name=game.name, game_url=game.url,
-        symbol=symbol, requested_spins=max(1, spins), successful_spins=successes,
-        failed_spins=max(0, max(1, spins) - successes), status=status, error=error, discovered_modes=modes,
+        symbol=symbol, requested_spins=len(jobs) if 'jobs' in locals() else max(1,spins), successful_spins=successes,
+        failed_spins=max(0,(len(jobs) if 'jobs' in locals() else max(1,spins))-successes), status=status, error=error, discovered_modes=modes,
         started_at=started, finished_at=utc_now_iso(), elapsed_ms=(time.monotonic() - clock) * 1000,
-        run_dir=str(run_dir), attempts=attempts)
+        run_dir=str(run_dir), attempts=attempts, feature_domains=feature_domains)

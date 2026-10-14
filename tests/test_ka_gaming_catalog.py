@@ -15,7 +15,7 @@ class KAGamingCatalogTests(unittest.TestCase):
         modes = declared_modes_from_row({"gameType": "slots", "variantType": "ways", "availableFeatures": ["fg", "bp"], "supportsBuyFeature": True})
         self.assertEqual(modes[0], {"id": "SPIN", "kind": "WAYS", "source": "catalog", "executable": False, "coverage_required": False})
         self.assertIn({"id": "FREE_GAMES", "kind": "FEATURE", "source": "catalog", "executable": False, "coverage_required": False}, modes)
-        self.assertIn({"id": "BONUS_PURCHASE", "kind": "FEATURE", "source": "catalog", "executable": False, "coverage_required": False}, modes)
+        self.assertIn({"id": "BONUS_FEATURE_UNCLASSIFIED", "kind": "FEATURE", "source": "catalog", "executable": False, "coverage_required": False}, modes)
     def test_valid_catalog_builds_deterministic_games(self) -> None:
         games = games_from_catalog(payload(), language="es")
         self.assertEqual([game.slug for game in games], ["a"])

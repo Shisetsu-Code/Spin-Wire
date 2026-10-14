@@ -13,17 +13,18 @@ from curl_cffi import requests
 from tester_spin.models import Game, GameTestResult, utc_now_iso
 from tester_spin.providers.base import ProviderAdapter
 from tester_spin.providers.result_farm_contract import ProviderFarmSpec, build_result_farm_contract, validate_result_farm_contract
-from .protocol import SLUG, ENDPOINT, play_records, discovered_modes
+from .limits import gate_for
+from .protocol import SLUG, ENDPOINT, PURCHASE, play_records, discovered_modes, game_declarations, declared_modes
 
 ORIGIN = "https://yggdrasilgaming.com"
 SPEC = ProviderFarmSpec(provider="yggdrasil", protocol_family="yggdrasil-form-commands",
-    bootstrap_strategy="yggdrasil-demo-capture-required", transport="http-form",
-    terminal_contract={"type": "provider", "name": "yggdrasil-terminal-capture-required"},
+    bootstrap_strategy="yggdrasil-new-demo-authenticate-game-restore", transport="http-form",
+    terminal_contract={"type": "provider", "name": "yggdrasil-finished-resulted-no-pending-commands-and-base-return"},
     stable_metadata_keys=("catalog_source",),
     mode_option_keys=("request_shape", "observed_amount", "observed_coin"),
-    runtime_outputs=("gameHistorySessionId", "gameHistoryTicketId", "clientinfo"),
+    runtime_outputs=("token", "wagerid"),
     protocol_static={"endpoint": ENDPOINT, "content_type": "application/x-www-form-urlencoded",
-                     "purchase_command_pattern": "BB_*"})
+                     "purchase_command_pattern": PURCHASE.pattern, "mode_role_source":"current Config.bettingModes or learned Modes wire families"})
 
 
 class YggdrasilProvider(ProviderAdapter):
@@ -36,22 +37,30 @@ class YggdrasilProvider(ProviderAdapter):
         self.provider_root = Path(data_root) / "providers" / self.key
         self.provider_root.mkdir(parents=True, exist_ok=True)
         self.http = requests.Session(impersonate="chrome")
-        self.set_catalog_authority(False, "Catálogo importado de MultiPlay; actualización parcial")
+        self.request_gate = gate_for(self.provider_root)
+        self.set_catalog_authority(False, 'Catálogo importado de MultiPlay; actualización parcial')
+
+    def test_start_block_reason(self, *, timeout_s):
+        remaining_fn=getattr(self.request_gate,'remaining_cooldown_s',None)
+        remaining=remaining_fn() if remaining_fn is not None else 0
+        if remaining>timeout_s:
+            return f'Pausa 429 del servidor vigente ({int(remaining)+1} segundos); no se prueban ni se cambian resultados de los juegos pendientes.'
+        return ''
 
     def game_dir(self, game: Game) -> Path:
         if game.provider != self.key or not SLUG.fullmatch(game.slug):
-            raise ValueError("Yggdrasil: slug o proveedor inválido")
+            raise ValueError('Yggdrasil: slug o proveedor inválido')
         directory = self.provider_root / game.slug
         directory.mkdir(parents=True, exist_ok=True)
         return directory
 
     def catalog_record_invalid_reason(self, game: Game) -> str:
-        return "Yggdrasil: fila inválida" if (game.provider != self.key or not SLUG.fullmatch(game.slug)
+        return 'Yggdrasil: fila inválida' if (game.provider != self.key or not SLUG.fullmatch(game.slug)
             or game.url != ORIGIN + "/games/" + game.slug + "/") else ""
 
     def crawl_catalog(self, *, stop_event: threading.Event, progress, max_pages: int = 100, on_game=None):
         # A historical snapshot cannot authorize deleting newer catalog entries.
-        self.set_catalog_authority(False, "Snapshot MultiPlay y enlaces públicos sin paginación completa verificada")
+        self.set_catalog_authority(False, 'Snapshot MultiPlay y enlaces públicos sin paginación completa verificada')
         if stop_event.is_set():
             return []
         snapshot = json.loads(Path(__file__).with_name("catalog.json").read_text(encoding="utf-8"))
@@ -108,7 +117,7 @@ class YggdrasilProvider(ProviderAdapter):
         if stop_event.is_set():
             return
         if self.catalog_record_invalid_reason(game):
-            raise ValueError("Yggdrasil: página oficial inválida")
+            raise ValueError('Yggdrasil: página oficial inválida')
         response = self.http.get(game.url, timeout=timeout_s)
         response.raise_for_status()
         (self.har_artifact_dir(game) / "official-page.html").write_text(response.text, encoding="utf-8")
@@ -117,10 +126,14 @@ class YggdrasilProvider(ProviderAdapter):
         for element in soup.select('[data-iframe-src]'):
             parsed = urlsplit(element["data-iframe-src"])
             query = parse_qs(parsed.query)
-            gameids = query.get("gameid", [])
-            if (parsed.scheme == "https" and parsed.hostname == "staticdemo.yggdrasilgaming.com"
-                    and parsed.path == "/init/launchClient.html" and query.get("org") == ["Demo"]
-                    and len(gameids) == 1 and gameids[0].isdecimal()):
+            gameids = [value.strip() for value in query.get("gameid", [])]
+            pff_identity=(parsed.scheme=="https" and parsed.hostname=="staticpff.yggdrasilgaming.com" and parsed.path=="/init/launchClient.html" and query.get("org",["Demo"])==["Demo"] and len(gameids)==1 and gameids[0].isdecimal())
+            if pff_identity or (parsed.scheme == "https" and parsed.hostname == "staticdemo.yggdrasilgaming.com"
+                    and query.get("org") == ["Demo"]
+                    and len(gameids) == 1 and gameids[0].isdecimal()
+                    and (parsed.path == "/init/launchClient.html" or
+                         (parsed.path == f"/{gameids[0]}/index.html" and
+                          query.get("appsrv") == ["https://demo.yggdrasilgaming.com"]))):
                 identifiers.add(gameids[0])
         buy_bonus = False
         for label in soup.select('dt'):
@@ -144,21 +157,40 @@ class YggdrasilProvider(ProviderAdapter):
                                 "PARCIAL", symbol=game.symbol)
         result.failed_spins = result.requested_spins
         if stop_event.is_set():
-            result.error = "Ejecución detenida"
+            result.error = 'Ejecución detenida'
             return result
         started = time.monotonic()
         directory = self.game_dir(game)
         run_dir = directory / "tests" / (time.strftime("%Y%m%d-%H%M%S") + "-" + uuid.uuid4().hex[:6])
         run_dir.mkdir(parents=True)
         result.run_dir = str(run_dir)
+        try:
+            identity = json.loads((directory / "game.json").read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            identity = {}
+        if (game.symbol and game.symbol.isdecimal() and identity.get("symbol") == game.symbol
+                and identity.get("identifier_source") == game.url and callable(getattr(self.http, "post", None))):
+            from .execution import execute
+            return execute(self, game, result, run_dir, spins=max(1,int(spins)), timeout_s=timeout_s,
+                           stop_event=stop_event, progress=progress)
         records = []
+        declarations = []
         for path in sorted(self.har_artifact_dir(game).glob("*.har")):
             try:
-                records.extend(play_records(json.loads(path.read_text(encoding="utf-8"))))
+                har = json.loads(path.read_text(encoding="utf-8-sig"))
+                records.extend(play_records(har))
+                declarations.extend(game_declarations(har))
             except (OSError, ValueError, TypeError, AttributeError):
                 progress(f"Yggdrasil: captura inválida {path.name}.")
         selected = [record for record in records if result.symbol and record["gameid"] == result.symbol]
-        result.discovered_modes = discovered_modes(selected, result.symbol)
+        matching = [d for d in declarations if result.symbol and d["gameid"] == result.symbol]
+        if matching:
+            available = matching[-1]["modes"]
+            result.discovered_modes = declared_modes(available, selected, result.symbol)
+            result.feature_domains["purchase"] = {"complete": all(k == "BASIC" or k.startswith("BB_") for k in available),
+                "source": "server.game.cfg.Modes", "options": [k for k in available if k.startswith("BB_")]}
+        else:
+            result.discovered_modes = discovered_modes(selected, result.symbol)
         (run_dir / "observed-play-commands.json").write_text(json.dumps(selected, indent=2), encoding="utf-8")
         result.error = "Yggdrasil: falta bootstrap, comando de giro base y cierre de ronda; compras capturadas sin executor validado"
         result.finished_at = utc_now_iso()

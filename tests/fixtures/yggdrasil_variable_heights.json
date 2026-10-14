@@ -1,0 +1,257 @@
+{
+  "win": {
+    "prizes": [
+      {
+        "symbol": "LOW_3",
+        "oak": 3,
+        "positions": [
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 1
+          },
+          {
+            "x": 1,
+            "y": 1
+          },
+          {
+            "x": 1,
+            "y": 2
+          },
+          {
+            "x": 2,
+            "y": 3
+          },
+          {
+            "x": 2,
+            "y": 4
+          }
+        ],
+        "coins": 16,
+        "cash": "0.16",
+        "ways": 8
+      },
+      {
+        "symbol": "LOW_5",
+        "oak": 3,
+        "positions": [
+          {
+            "x": 0,
+            "y": 2
+          },
+          {
+            "x": 0,
+            "y": 3
+          },
+          {
+            "x": 1,
+            "y": 0
+          },
+          {
+            "x": 2,
+            "y": 1
+          },
+          {
+            "x": 2,
+            "y": 2
+          }
+        ],
+        "coins": 8,
+        "cash": "0.08",
+        "ways": 4
+      }
+    ],
+    "wonCoins": 24,
+    "wonCash": "0.24",
+    "accumulatedWonCoins": 24,
+    "accumulatedWonCash": "0.24",
+    "accumulatedRoundWonCoins": 0,
+    "accumulatedRoundWonCash": "0.00"
+  },
+  "reels": {
+    "reelSetName": "base1_2",
+    "reelStopPositions": [
+      335,
+      43,
+      349,
+      303,
+      228
+    ]
+  },
+  "initialBoard": [
+    [
+      "LOW_3",
+      "LOW_3",
+      "LOW_5",
+      "LOW_5",
+      "",
+      "",
+      ""
+    ],
+    [
+      "LOW_5",
+      "LOW_3",
+      "LOW_3",
+      "LOW_1",
+      "LOW_1",
+      "",
+      ""
+    ],
+    [
+      "HIGH_4",
+      "LOW_5",
+      "LOW_5",
+      "LOW_3",
+      "LOW_3",
+      "LOW_1",
+      ""
+    ],
+    [
+      "LOW_2",
+      "LOW_2",
+      "LOW_4",
+      "",
+      "",
+      "",
+      ""
+    ],
+    [
+      "LOW_3",
+      "LOW_3",
+      "HIGH_1",
+      "HIGH_1",
+      "LOW_2",
+      "LOW_2",
+      "LOW_4"
+    ]
+  ],
+  "finalBoard": [
+    [
+      "LOW_3",
+      "LOW_3",
+      "LOW_5",
+      "LOW_5",
+      "",
+      "",
+      ""
+    ],
+    [
+      "LOW_5",
+      "LOW_3",
+      "LOW_3",
+      "LOW_1",
+      "LOW_1",
+      "",
+      ""
+    ],
+    [
+      "HIGH_4",
+      "LOW_5",
+      "LOW_5",
+      "LOW_3",
+      "LOW_3",
+      "LOW_1",
+      ""
+    ],
+    [
+      "LOW_2",
+      "LOW_2",
+      "LOW_4",
+      "",
+      "",
+      "",
+      ""
+    ],
+    [
+      "LOW_3",
+      "LOW_3",
+      "HIGH_1",
+      "HIGH_1",
+      "LOW_2",
+      "LOW_2",
+      "LOW_4"
+    ]
+  ],
+  "initialReelsHeight": [
+    4,
+    5,
+    6,
+    3,
+    7
+  ],
+  "finalReelsHeight": [
+    4,
+    5,
+    6,
+    3,
+    7
+  ],
+  "filledBoard": [
+    [
+      "LOW_3",
+      "LOW_3",
+      "LOW_5",
+      "LOW_5",
+      "LOW_5",
+      "HIGH_3",
+      "HIGH_3",
+      "LOW_1",
+      "LOW_1"
+    ],
+    [
+      "LOW_5",
+      "LOW_3",
+      "LOW_3",
+      "LOW_1",
+      "LOW_1",
+      "SCATTER",
+      "HIGH_3",
+      "HIGH_3",
+      "LOW_5"
+    ],
+    [
+      "HIGH_4",
+      "LOW_5",
+      "LOW_5",
+      "LOW_3",
+      "LOW_3",
+      "LOW_1",
+      "LOW_1",
+      "LOW_1",
+      "HIGH_5"
+    ],
+    [
+      "LOW_2",
+      "LOW_2",
+      "LOW_4",
+      "LOW_4",
+      "LOW_2",
+      "LOW_2",
+      "LOW_4",
+      "LOW_4",
+      "HIGH_3"
+    ],
+    [
+      "LOW_3",
+      "LOW_3",
+      "HIGH_1",
+      "HIGH_1",
+      "LOW_2",
+      "LOW_2",
+      "LOW_4",
+      "LOW_4",
+      "LOW_4"
+    ]
+  ],
+  "reelsOrder": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "freeSpinsAwarded": 0
+}

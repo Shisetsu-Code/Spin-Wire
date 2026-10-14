@@ -1,0 +1,115 @@
+{
+  "wagerid": "fixture-refusal",
+  "status": "Pending",
+  "bets": [
+    {
+      "step": 1,
+      "status": "RESULTED",
+      "betamount": "18.75",
+      "betcurrency": "EUR",
+      "betdata": {
+        "coin": "0.01",
+        "cashBet": "18.75",
+        "initialBalance": 0,
+        "cmd": "BUY_A_BONUS",
+        "accWa": "0.00",
+        "accC": 0,
+        "cmds": [
+          "FREE_SPINS_7_0",
+          "GAMBLE_LVL_1_L",
+          "GAMBLE_LVL_1_R"
+        ]
+      },
+      "eventdata": {
+        "accC": 0,
+        "accWa": "0.00",
+        "boostData": {
+          "boostDatas": [
+            {
+              "buyBonus": true,
+              "freespinsTriggered": false,
+              "featureTriggered": false,
+              "fiveOakWon": false
+            }
+          ]
+        },
+        "nextCmds": "FREE_SPINS_7_0,GAMBLE_LVL_1_L,GAMBLE_LVL_1_R",
+        "response": {
+          "coinWin": 0,
+          "cashWin": "0.00",
+          "clientData": {
+            "initialBoard": [
+              [
+                "LOW_4",
+                "LOW_4",
+                "LOW_2",
+                "SCATTER"
+              ],
+              [
+                "HIGH_4",
+                "LOW_3",
+                "SCATTER",
+                "HIGH_3"
+              ],
+              [
+                "LOW_3",
+                "LOW_3",
+                "HIGH_4",
+                "LOW_4"
+              ],
+              [
+                "HIGH_1",
+                "HIGH_4",
+                "LOW_3",
+                "LOW_3"
+              ],
+              [
+                "LOW_4",
+                "LOW_1",
+                "LOW_3",
+                "SCATTER"
+              ]
+            ],
+            "finalBoard": [
+              [
+                "LOW_4",
+                "LOW_4",
+                "LOW_2",
+                "SCATTER"
+              ],
+              [
+                "HIGH_4",
+                "LOW_3",
+                "SCATTER",
+                "HIGH_3"
+              ],
+              [
+                "LOW_3",
+                "LOW_3",
+                "HIGH_4",
+                "LOW_4"
+              ],
+              [
+                "HIGH_1",
+                "HIGH_4",
+                "LOW_3",
+                "LOW_3"
+              ],
+              [
+                "LOW_4",
+                "LOW_1",
+                "LOW_3",
+                "SCATTER"
+              ]
+            ],
+            "gambleTriggerFrontEndData": {
+              "currentGambleLevel": 0,
+              "currentFreeSpinsToAward": 7,
+              "currentBerzerksToAward": 0
+            }
+          }
+        }
+      }
+    }
+  ]
+}

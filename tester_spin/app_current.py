@@ -10,7 +10,8 @@ from tester_spin.app_live import LiveTesterSpinApp
 from tester_spin.catalog_maintenance import purge_provider_catalog_artifacts
 from tester_spin.execution_backend import ExecutionConfig, LocalThreadExecutionBackend
 from tester_spin.models import Game, GameTestResult
-from tester_spin.feature_summary import feature_summary
+from tester_spin.mechanics import classify_mechanics, merge_mechanics, mechanics_badge, run_mechanics
+from tester_spin.feature_summary import feature_summary, feature_table_counts
 from tester_spin.ui_game_index import game_sort_key, retryable_games
 
 
@@ -23,15 +24,63 @@ class CurrentTesterSpinApp(LiveTesterSpinApp):
         "status": "Estado",
         "tested": "Última prueba",
         "url": "Link",
+        "purchases": "Cantidad de compras",
+        "antebets": "Cantidad de antebets",
+        "mechanics": "Mecánica particular",
     }
     _MAX_EVENTS_PER_TICK = 160
     _UI_DRAIN_BUDGET_S = 0.012
 
     def __init__(self) -> None:
+        self._mechanics_index = {}
+        self._feature_results = {}
         self._sort_column = "name"
         self._sort_reverse = False
         self._execution_backend = LocalThreadExecutionBackend()
         super().__init__()
+        from tester_spin.ui_layout import LayoutPreferences
+        self._layout_preferences = LayoutPreferences(self, self.data_root / "ui-layout.json")
+        def backfill():
+            import json
+            from pathlib import Path
+            cache = self.data_root / "mechanics-index.json"
+            try:
+                try:
+                    index = json.loads(cache.read_text(encoding="utf-8"))
+                    if not isinstance(index, dict):
+                        index = {}
+                except (OSError, ValueError):
+                    index = {}
+                scans_path = self.data_root / "mechanics-scanned.json"
+                try:
+                    scanned = set(json.loads(scans_path.read_text(encoding="utf-8")))
+                except (OSError, ValueError, TypeError):
+                    scanned = set()
+                runs = []
+                for key, record in self.storage.mechanics_history(runs).items():
+                    index[key] = merge_mechanics(index.get(key, {}), record)
+                self._events.put(("mechanics_index", dict(index)))
+                examined = 0
+                for key, run_dir in runs:
+                    if run_dir in scanned or not Path(run_dir).is_dir():
+                        continue
+                    index[key] = merge_mechanics(index.get(key, {}), run_mechanics({"run_dir": run_dir}))
+                    scanned.add(run_dir)
+                    examined += 1
+                    if examined % 25 == 0:
+                        self._events.put(("mechanics_index", dict(index)))
+                temporary_scans = scans_path.with_suffix(".tmp")
+                # Publish classification before marking its artifacts as scanned.
+
+                self._events.put(("mechanics_index", index))
+                temporary = cache.with_suffix(".tmp")
+                temporary.write_text(json.dumps(index, ensure_ascii=False), encoding="utf-8")
+                temporary.replace(cache)
+                temporary_scans.write_text(json.dumps(sorted(scanned)), encoding="utf-8")
+                temporary_scans.replace(scans_path)
+            except (OSError, ValueError) as exc:
+                self._events.put(("log", f"Índice de mecánicas incompleto: {exc}"))
+        threading.Thread(target=backfill, daemon=True, name="mechanics-history").start()
 
     def _build(self) -> None:
         super()._build()
@@ -289,7 +338,23 @@ class CurrentTesterSpinApp(LiveTesterSpinApp):
             if game is not None:
                 rows.append((iid, game))
 
-        if self._sort_column == "tested":
+        for iid, game in rows:
+            counts = feature_table_counts(self._feature_results.get(iid, {}))
+            self.tree.set(iid, 'purchases', '—' if counts[0] is None else counts[0])
+            self.tree.set(iid, 'antebets', '—' if counts[1] is None else counts[1])
+            self.tree.set(iid, 'mechanics', mechanics_badge(merge_mechanics(self._mechanics_index.get(iid, {}), classify_mechanics(self._feature_results.get(iid, {})))))
+        if self._sort_column in {'purchases', 'antebets'}:
+            index = 0 if self._sort_column == 'purchases' else 1
+            known, unknown = [], []
+            for item in rows:
+                count = feature_table_counts(self._feature_results.get(item[0], {}))[index]
+                (unknown if count is None else known).append((item, count))
+            known.sort(key=lambda value: (value[1], value[0][1].name.casefold()), reverse=self._sort_reverse)
+            unknown.sort(key=lambda value: value[0][1].name.casefold())
+            ordered = [item for item, _count in known + unknown]
+        elif self._sort_column == "mechanics":
+            ordered = sorted(rows, key=lambda item: (self.tree.set(item[0], "mechanics").casefold(), item[1].name.casefold()), reverse=self._sort_reverse)
+        elif self._sort_column == "tested":
             tested = [(iid, game) for iid, game in rows if str(game.last_test_at or "").strip()]
             untested = [(iid, game) for iid, game in rows if not str(game.last_test_at or "").strip()]
             tested.sort(
@@ -330,6 +395,10 @@ class CurrentTesterSpinApp(LiveTesterSpinApp):
         )
 
     def _refresh_games(self) -> None:
+        self._feature_results = {
+            f"{row.get('provider')}::{row.get('slug')}": row
+            for row in self.storage.latest_results()
+        }
         super()._refresh_games()
         self._apply_current_sort()
         self._update_sort_headings()
@@ -374,6 +443,10 @@ class CurrentTesterSpinApp(LiveTesterSpinApp):
                     if game is not None:
                         LiveTesterSpinApp._upsert_catalog_game(self, game)
                         table_dirty = True
+            elif kind == "mechanics_index":
+                for key, record in value.items():
+                    self._mechanics_index[key] = merge_mechanics(self._mechanics_index.get(key, {}), record)
+                table_dirty = True
             elif kind == "log":
                 log_lines.append(str(value))
             elif kind == "catalog_done":
@@ -406,6 +479,8 @@ class CurrentTesterSpinApp(LiveTesterSpinApp):
                     # Apply the authoritative result to the cached row instead of
                     # issuing a read-back query. This matters for remote D1.
                     iid = f"{result.provider}::{result.slug}"
+                    self._feature_results[iid] = result.to_dict()
+                    self._mechanics_index[iid] = merge_mechanics(self._mechanics_index.get(iid, {}), classify_mechanics(self._feature_results[iid]))
                     game = self._games.get(iid)
                     if game is not None:
                         game.symbol = result.symbol or game.symbol

@@ -1,0 +1,92 @@
+[
+  {
+    "game_id": "10001Nights",
+    "game": {
+      "hasFeatureBuy": false,
+      "mathModes": null
+    },
+    "expected": []
+  },
+  {
+    "game_id": "AliBabasLuck",
+    "game": {
+      "hasFeatureBuy": false,
+      "mathModes": null
+    },
+    "expected": []
+  },
+  {
+    "game_id": "SpookyCarnival",
+    "game": {
+      "hasFeatureBuy": false,
+      "featureBuy": [],
+      "mathModes": null
+    },
+    "expected": []
+  },
+  {
+    "game_id": "BigCatRescueMegaWays",
+    "game": {
+      "hasFeatureBuy": false,
+      "mathModes": null
+    },
+    "expected": []
+  },
+  {
+    "game_id": "MonopolyMoneyMagnate",
+    "game": {
+      "hasFeatureBuy": true,
+      "featureBuy": [
+        {
+          "name": "FreeSpins",
+          "price": 50
+        },
+        {
+          "name": "HoldRespins",
+          "price": 20
+        }
+      ],
+      "mathModes": [
+        {
+          "type": "featureBuy",
+          "name": "FreeSpins",
+          "id": 101,
+          "priceMultiplier": "50.00"
+        },
+        {
+          "type": "featureBuy",
+          "name": "HoldRespins",
+          "id": 102,
+          "priceMultiplier": "20.00"
+        }
+      ]
+    },
+    "expected": [
+      "FreeSpins",
+      "HoldRespins"
+    ]
+  },
+  {
+    "game_id": "777DiamondStrike",
+    "game": {
+      "hasFeatureBuy": true,
+      "featureBuy": [
+        {
+          "name": "FreeSpins",
+          "price": 100
+        }
+      ],
+      "mathModes": [
+        {
+          "type": "featureBuy",
+          "name": "FreeSpins",
+          "id": 101,
+          "priceMultiplier": "100.00"
+        }
+      ]
+    },
+    "expected": [
+      "FreeSpins"
+    ]
+  }
+]

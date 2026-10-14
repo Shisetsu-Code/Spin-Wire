@@ -1,0 +1,345 @@
+{
+  "code": 0,
+  "data": {
+    "wager": {
+      "wagerid": "fixture-bbg-ordinary",
+      "status": "Pending",
+      "bets": [
+        {
+          "step": 1,
+          "betamount": "0.20",
+          "betcurrency": "EUR",
+          "wonamount": "0.00",
+          "status": "RESULTED",
+          "betdata": {
+            "coin": "0.20",
+            "cashBet": "0.20",
+            "cmd": "BASE_SPIN",
+            "accWa": "0.16",
+            "accC": 0,
+            "cmds": [
+              "C"
+            ]
+          },
+          "eventdata": {
+            "accC": 0,
+            "accWa": "0.16",
+            "initialPlayerState": {
+              "stake": 0,
+              "totalStake": 0,
+              "currentWinnings": 0,
+              "totalWinnings": 0,
+              "baseGameWinnings": 0,
+              "finished": false
+            },
+            "nextCmds": "C",
+            "playerState": {
+              "leftMultiplier": 1,
+              "rightMultiplier": 2,
+              "isGoldenBetActive": false,
+              "isBuyBonusActive": false,
+              "isSuperBuyBonusActive": false,
+              "gambleAwarded": false,
+              "freeSpinsAwarded": 0,
+              "isWinCapped": false,
+              "nextLeftIncrement": 1,
+              "nextRightIncrement": 1,
+              "version": "1.0.3",
+              "name": "Florageddon",
+              "stake": 0.2,
+              "totalStake": 0.2,
+              "currentWinnings": 0.16,
+              "totalWinnings": 0.16,
+              "baseGameWinnings": 0.16,
+              "currentAction": "Spin",
+              "nextActions": [
+                "Spin"
+              ],
+              "finished": true,
+              "reelId": "BaseGame",
+              "initialGrid": [
+                [
+                  10,
+                  2,
+                  7
+                ],
+                [
+                  11,
+                  2,
+                  2
+                ],
+                [
+                  5,
+                  7,
+                  7
+                ],
+                [
+                  3,
+                  7,
+                  7
+                ],
+                [
+                  6,
+                  5,
+                  7
+                ]
+              ],
+              "finalGrid": [
+                [
+                  10,
+                  2,
+                  7
+                ],
+                [
+                  11,
+                  2,
+                  2
+                ],
+                [
+                  13,
+                  8,
+                  5
+                ],
+                [
+                  9,
+                  3,
+                  3
+                ],
+                [
+                  6,
+                  5,
+                  0
+                ]
+              ]
+            },
+            "response": {
+              "coinWin": 0,
+              "cashWin": "0.16",
+              "clientData": {
+                "leftMultiplier": 1,
+                "rightMultiplier": 2,
+                "isGoldenBetActive": false,
+                "isBuyBonusActive": false,
+                "isSuperBuyBonusActive": false,
+                "gambleAwarded": false,
+                "freeSpinsAwarded": 0,
+                "isWinCapped": false,
+                "nextLeftIncrement": 1,
+                "nextRightIncrement": 1,
+                "version": "1.0.3",
+                "name": "Florageddon",
+                "stake": 0.2,
+                "totalStake": 0.2,
+                "currentWinnings": 0.16,
+                "totalWinnings": 0.16,
+                "baseGameWinnings": 0.16,
+                "currentAction": "Spin",
+                "nextActions": [
+                  "Spin"
+                ],
+                "finished": true,
+                "reelId": "BaseGame",
+                "initialGrid": [
+                  [
+                    10,
+                    2,
+                    7
+                  ],
+                  [
+                    11,
+                    2,
+                    2
+                  ],
+                  [
+                    5,
+                    7,
+                    7
+                  ],
+                  [
+                    3,
+                    7,
+                    7
+                  ],
+                  [
+                    6,
+                    5,
+                    7
+                  ]
+                ],
+                "finalGrid": [
+                  [
+                    10,
+                    2,
+                    7
+                  ],
+                  [
+                    11,
+                    2,
+                    2
+                  ],
+                  [
+                    13,
+                    8,
+                    5
+                  ],
+                  [
+                    9,
+                    3,
+                    3
+                  ],
+                  [
+                    6,
+                    5,
+                    0
+                  ]
+                ],
+                "wins": [],
+                "cascadeDetails": [
+                  {
+                    "leftMultiplier": 1,
+                    "rightMultiplier": 1,
+                    "wildOffSets": [
+                      14
+                    ],
+                    "rewardCollected": "",
+                    "rewardAwarded": "",
+                    "cascadeProgressCount": 1,
+                    "cascadeGrid": [
+                      [
+                        10,
+                        2,
+                        7
+                      ],
+                      [
+                        11,
+                        2,
+                        2
+                      ],
+                      [
+                        5,
+                        7,
+                        7
+                      ],
+                      [
+                        3,
+                        7,
+                        7
+                      ],
+                      [
+                        6,
+                        5,
+                        7
+                      ]
+                    ],
+                    "doubleWildOffset": -1,
+                    "wildStackOffsets": [],
+                    "cascadeIndex": 0,
+                    "offsetsToRemove": [
+                      7,
+                      8,
+                      14,
+                      13,
+                      12
+                    ],
+                    "currentWinnings": 0.16,
+                    "accumulativeWinnings": 0.16,
+                    "wins": [
+                      {
+                        "id": "7:3",
+                        "type": "ways",
+                        "method": "RtoL",
+                        "winnings": 0.04,
+                        "payoutFactor": 0.2,
+                        "multiplier": 1,
+                        "wildMultiplier": 1,
+                        "symbolPos": [
+                          7,
+                          8,
+                          14
+                        ],
+                        "lineIndex": -1,
+                        "stake": 0.2,
+                        "winSymbols": [
+                          7,
+                          7,
+                          7
+                        ]
+                      },
+                      {
+                        "id": "7:3",
+                        "type": "ways",
+                        "method": "RtoL",
+                        "winnings": 0.04,
+                        "payoutFactor": 0.2,
+                        "multiplier": 1,
+                        "wildMultiplier": 1,
+                        "symbolPos": [
+                          7,
+                          13,
+                          14
+                        ],
+                        "lineIndex": -1,
+                        "stake": 0.2,
+                        "winSymbols": [
+                          7,
+                          7,
+                          7
+                        ]
+                      },
+                      {
+                        "id": "7:3",
+                        "type": "ways",
+                        "method": "RtoL",
+                        "winnings": 0.04,
+                        "payoutFactor": 0.2,
+                        "multiplier": 1,
+                        "wildMultiplier": 1,
+                        "symbolPos": [
+                          8,
+                          12,
+                          14
+                        ],
+                        "lineIndex": -1,
+                        "stake": 0.2,
+                        "winSymbols": [
+                          7,
+                          7,
+                          7
+                        ]
+                      },
+                      {
+                        "id": "7:3",
+                        "type": "ways",
+                        "method": "RtoL",
+                        "winnings": 0.04,
+                        "payoutFactor": 0.2,
+                        "multiplier": 1,
+                        "wildMultiplier": 1,
+                        "symbolPos": [
+                          12,
+                          13,
+                          14
+                        ],
+                        "lineIndex": -1,
+                        "stake": 0.2,
+                        "winSymbols": [
+                          7,
+                          7,
+                          7
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          },
+          "prizes": null,
+          "prepaid": false
+        }
+      ],
+      "prepaid": false
+    }
+  },
+  "fn": "play"
+}

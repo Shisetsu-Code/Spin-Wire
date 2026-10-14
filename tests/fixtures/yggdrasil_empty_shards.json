@@ -1,0 +1,138 @@
+{
+  "accC": 0,
+  "accWa": "0.00",
+  "jpPlayerValue1": "104.38",
+  "jpPlayerValue2": "437.80",
+  "jpPlayerValue3": "830.12",
+  "jpPlayerValue4": "5084.95",
+  "jpPlayerValue5": "68223.73",
+  "jpValue1": "104.38",
+  "jpValue2": "437.80",
+  "jpValue3": "830.12",
+  "jpValue4": "5084.95",
+  "jpValue5": "68223.73",
+  "reelSet": "Reels",
+  "reels": [
+    [
+      "SYM4",
+      "SYM5",
+      "SYM7"
+    ],
+    [
+      "SYM7",
+      "SYM9",
+      "SYM8"
+    ],
+    [
+      "SYM5",
+      "SYM8",
+      "SYM10"
+    ],
+    [
+      "SYM10",
+      "SYM4",
+      "SYM0"
+    ],
+    [
+      "SYM6",
+      "SYM5",
+      "SYM10"
+    ]
+  ],
+  "rpos": [
+    24,
+    29,
+    19,
+    72,
+    30
+  ],
+  "shardCounter": {
+    "count": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "c": [
+      [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "a": [
+      [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    ]
+  },
+  "wonCoins": 0,
+  "wts": [
+    "000000000000000000000",
+    "000000000000000"
+  ],
+  "wtw": []
+}

@@ -1,0 +1,695 @@
+[
+  {
+    "slug": "enchanted-waters",
+    "cd": {
+      "actions": [
+        {
+          "name": "spinReels",
+          "boardName": ""
+        },
+        {
+          "name": "stopReels",
+          "board": [
+            [
+              {
+                "name": "LOW_3"
+              },
+              {
+                "name": "LOW_1"
+              },
+              {
+                "name": "HIGH_3"
+              },
+              {
+                "name": "LOW_4"
+              }
+            ],
+            [
+              {
+                "name": "LOW_1"
+              },
+              {
+                "name": "LOW_1"
+              },
+              {
+                "name": "LOW_4"
+              },
+              {
+                "name": "LOW_2"
+              }
+            ],
+            [
+              {
+                "name": "LOW_4"
+              },
+              {
+                "name": "SCATTER"
+              },
+              {
+                "name": "LOW_1"
+              },
+              {
+                "name": "HIGH_3"
+              }
+            ],
+            [
+              {
+                "name": "LOW_3"
+              },
+              {
+                "name": "HIGH_1"
+              },
+              {
+                "name": "LOW_1"
+              },
+              {
+                "name": "LOW_3"
+              }
+            ],
+            [
+              {
+                "name": "HIGH_1"
+              },
+              {
+                "name": "HIGH_2"
+              },
+              {
+                "name": "LOW_2"
+              },
+              {
+                "name": "LOW_1"
+              }
+            ]
+          ]
+        },
+        {
+          "name": "showWinResults",
+          "type": "regular",
+          "wins": [
+            {
+              "value": {
+                "cash": 0.2,
+                "coins": 20
+              },
+              "multiplier": 1,
+              "positions": [
+                {
+                  "column": 0,
+                  "row": 1
+                },
+                {
+                  "column": 1,
+                  "row": 0
+                },
+                {
+                  "column": 1,
+                  "row": 1
+                },
+                {
+                  "column": 2,
+                  "row": 2
+                },
+                {
+                  "column": 3,
+                  "row": 2
+                },
+                {
+                  "column": 4,
+                  "row": 3
+                }
+              ],
+              "symbol": "LOW_1",
+              "oak": 5,
+              "ways": 2
+            },
+            {
+              "value": {
+                "cash": 0.01,
+                "coins": 1
+              },
+              "multiplier": 1,
+              "positions": [
+                {
+                  "column": 0,
+                  "row": 3
+                },
+                {
+                  "column": 1,
+                  "row": 2
+                },
+                {
+                  "column": 2,
+                  "row": 0
+                }
+              ],
+              "symbol": "LOW_4",
+              "oak": 3,
+              "ways": 1
+            }
+          ]
+        },
+        {
+          "name": "setWinCounters",
+          "counters": [
+            {
+              "name": "currentWin",
+              "value": {
+                "cash": 0.21,
+                "coins": 21
+              }
+            },
+            {
+              "name": "spinWin",
+              "value": {
+                "cash": 0.21,
+                "coins": 21
+              }
+            },
+            {
+              "name": "freeSpinsWin",
+              "value": {
+                "cash": 0.0,
+                "coins": 0
+              }
+            },
+            {
+              "name": "totalWin",
+              "value": {
+                "cash": 0.21,
+                "coins": 21
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "slug": "enchanted-waters",
+    "cd": {
+      "actions": [
+        {
+          "name": "spinReels",
+          "boardName": ""
+        },
+        {
+          "name": "stopReels",
+          "board": [
+            [
+              {
+                "name": "LOW_4"
+              },
+              {
+                "name": "HIGH_2"
+              },
+              {
+                "name": "HIGH_2"
+              },
+              {
+                "name": "LOW_4"
+              }
+            ],
+            [
+              {
+                "name": "LOW_4"
+              },
+              {
+                "name": "HIGH_4"
+              },
+              {
+                "name": "LOW_4"
+              },
+              {
+                "name": "LOW_1"
+              }
+            ],
+            [
+              {
+                "name": "LOW_2"
+              },
+              {
+                "name": "LOW_3"
+              },
+              {
+                "name": "HIGH_1"
+              },
+              {
+                "name": "LOW_4"
+              }
+            ],
+            [
+              {
+                "name": "HIGH_3"
+              },
+              {
+                "name": "LOW_3"
+              },
+              {
+                "name": "HIGH_5"
+              },
+              {
+                "name": "HIGH_5"
+              }
+            ],
+            [
+              {
+                "name": "LOW_1"
+              },
+              {
+                "name": "LOW_1"
+              },
+              {
+                "name": "LOW_3"
+              },
+              {
+                "name": "HIGH_4"
+              }
+            ]
+          ]
+        },
+        {
+          "name": "showWinResults",
+          "type": "regular",
+          "wins": [
+            {
+              "value": {
+                "cash": 0.04,
+                "coins": 4
+              },
+              "multiplier": 1,
+              "positions": [
+                {
+                  "column": 0,
+                  "row": 0
+                },
+                {
+                  "column": 0,
+                  "row": 3
+                },
+                {
+                  "column": 1,
+                  "row": 0
+                },
+                {
+                  "column": 1,
+                  "row": 2
+                },
+                {
+                  "column": 2,
+                  "row": 3
+                }
+              ],
+              "symbol": "LOW_4",
+              "oak": 3,
+              "ways": 4
+            }
+          ]
+        },
+        {
+          "name": "setWinCounters",
+          "counters": [
+            {
+              "name": "currentWin",
+              "value": {
+                "cash": 0.04,
+                "coins": 4
+              }
+            },
+            {
+              "name": "spinWin",
+              "value": {
+                "cash": 0.04,
+                "coins": 4
+              }
+            },
+            {
+              "name": "freeSpinsWin",
+              "value": {
+                "cash": 0.0,
+                "coins": 0
+              }
+            },
+            {
+              "name": "totalWin",
+              "value": {
+                "cash": 0.04,
+                "coins": 4
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "slug": "ragnaravens-wildenergy",
+    "cd": {
+      "actions": [
+        {
+          "name": "spinReels",
+          "boardName": ""
+        },
+        {
+          "name": "stopReels",
+          "symbols": [
+            {
+              "position": {
+                "column": 0,
+                "row": 0
+              },
+              "name": "LOW_2"
+            },
+            {
+              "position": {
+                "column": 0,
+                "row": 1
+              },
+              "name": "HIGH_3"
+            },
+            {
+              "position": {
+                "column": 0,
+                "row": 2
+              },
+              "name": "HIGH_3"
+            },
+            {
+              "position": {
+                "column": 1,
+                "row": 0
+              },
+              "name": "LOW_4"
+            },
+            {
+              "position": {
+                "column": 1,
+                "row": 1
+              },
+              "side": "LEFT",
+              "name": "MULTIPLIERWILD"
+            },
+            {
+              "position": {
+                "column": 1,
+                "row": 2
+              },
+              "name": "LOW_4"
+            },
+            {
+              "position": {
+                "column": 2,
+                "row": 0
+              },
+              "name": "LOW_1"
+            },
+            {
+              "position": {
+                "column": 2,
+                "row": 1
+              },
+              "name": "LOW_4"
+            },
+            {
+              "position": {
+                "column": 2,
+                "row": 2
+              },
+              "name": "LOW_4"
+            },
+            {
+              "position": {
+                "column": 3,
+                "row": 0
+              },
+              "name": "LOW_1"
+            },
+            {
+              "position": {
+                "column": 3,
+                "row": 1
+              },
+              "name": "LOW_4"
+            },
+            {
+              "position": {
+                "column": 3,
+                "row": 2
+              },
+              "name": "LOW_4"
+            },
+            {
+              "position": {
+                "column": 4,
+                "row": 0
+              },
+              "name": "HIGH_2"
+            },
+            {
+              "position": {
+                "column": 4,
+                "row": 1
+              },
+              "name": "LOW_4"
+            },
+            {
+              "position": {
+                "column": 4,
+                "row": 2
+              },
+              "name": "LOW_1"
+            },
+            {
+              "position": {
+                "column": 5,
+                "row": 0
+              },
+              "name": "LOW_3"
+            },
+            {
+              "position": {
+                "column": 5,
+                "row": 1
+              },
+              "name": "LOW_3"
+            },
+            {
+              "position": {
+                "column": 5,
+                "row": 2
+              },
+              "name": "HIGH_2"
+            }
+          ]
+        },
+        {
+          "name": "finishSpin",
+          "winCounters": [
+            {
+              "name": "currentWin",
+              "value": {
+                "cash": 0.0,
+                "coins": 0
+              }
+            },
+            {
+              "name": "spinWin",
+              "value": {
+                "cash": 0.0,
+                "coins": 0
+              }
+            },
+            {
+              "name": "freeSpinsWin",
+              "value": {
+                "cash": 0.0,
+                "coins": 0
+              }
+            },
+            {
+              "name": "totalWin",
+              "value": {
+                "cash": 0.0,
+                "coins": 0
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "slug": "ragnaravens-wildenergy",
+    "cd": {
+      "actions": [
+        {
+          "name": "spinReels",
+          "boardName": ""
+        },
+        {
+          "name": "stopReels",
+          "symbols": [
+            {
+              "position": {
+                "column": 0,
+                "row": 0
+              },
+              "name": "LOW_1"
+            },
+            {
+              "position": {
+                "column": 0,
+                "row": 1
+              },
+              "name": "HIGH_3"
+            },
+            {
+              "position": {
+                "column": 0,
+                "row": 2
+              },
+              "name": "HIGH_3"
+            },
+            {
+              "position": {
+                "column": 1,
+                "row": 0
+              },
+              "name": "LOW_3"
+            },
+            {
+              "position": {
+                "column": 1,
+                "row": 1
+              },
+              "name": "HIGH_1"
+            },
+            {
+              "position": {
+                "column": 1,
+                "row": 2
+              },
+              "name": "HIGH_1"
+            },
+            {
+              "position": {
+                "column": 2,
+                "row": 0
+              },
+              "name": "LOW_1"
+            },
+            {
+              "position": {
+                "column": 2,
+                "row": 1
+              },
+              "name": "LOW_1"
+            },
+            {
+              "position": {
+                "column": 2,
+                "row": 2
+              },
+              "name": "LOW_4"
+            },
+            {
+              "position": {
+                "column": 3,
+                "row": 0
+              },
+              "name": "HIGH_2"
+            },
+            {
+              "position": {
+                "column": 3,
+                "row": 1
+              },
+              "name": "LOW_1"
+            },
+            {
+              "position": {
+                "column": 3,
+                "row": 2
+              },
+              "name": "LOW_1"
+            },
+            {
+              "position": {
+                "column": 4,
+                "row": 0
+              },
+              "name": "LOW_1"
+            },
+            {
+              "position": {
+                "column": 4,
+                "row": 1
+              },
+              "name": "LOW_2"
+            },
+            {
+              "position": {
+                "column": 4,
+                "row": 2
+              },
+              "name": "LOW_1"
+            },
+            {
+              "position": {
+                "column": 5,
+                "row": 0
+              },
+              "name": "HIGH_3"
+            },
+            {
+              "position": {
+                "column": 5,
+                "row": 1
+              },
+              "name": "HIGH_4"
+            },
+            {
+              "position": {
+                "column": 5,
+                "row": 2
+              },
+              "name": "HIGH_4"
+            }
+          ]
+        },
+        {
+          "name": "finishSpin",
+          "winCounters": [
+            {
+              "name": "currentWin",
+              "value": {
+                "cash": 0.0,
+                "coins": 0
+              }
+            },
+            {
+              "name": "spinWin",
+              "value": {
+                "cash": 0.0,
+                "coins": 0
+              }
+            },
+            {
+              "name": "freeSpinsWin",
+              "value": {
+                "cash": 0.0,
+                "coins": 0
+              }
+            },
+            {
+              "name": "totalWin",
+              "value": {
+                "cash": 0.0,
+                "coins": 0
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

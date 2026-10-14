@@ -1,0 +1,7724 @@
+{
+  "symbol_actions": {
+    "actions": [
+      {
+        "name": "spinReels"
+      },
+      {
+        "name": "stopReels",
+        "symbols": [
+          {
+            "position": {
+              "row": 0,
+              "column": 0
+            },
+            "subsymbol": false,
+            "name": "HIGH_4"
+          },
+          {
+            "position": {
+              "row": 0,
+              "column": 1
+            },
+            "subsymbol": false,
+            "name": "LOW_3"
+          },
+          {
+            "position": {
+              "row": 0,
+              "column": 2
+            },
+            "subsymbol": false,
+            "name": "HIGH_3"
+          },
+          {
+            "position": {
+              "row": 0,
+              "column": 3
+            },
+            "subsymbol": false,
+            "name": "LOW_3"
+          },
+          {
+            "position": {
+              "row": 0,
+              "column": 4
+            },
+            "subsymbol": false,
+            "name": "HIGH_4"
+          },
+          {
+            "position": {
+              "row": 0,
+              "column": 5
+            },
+            "subsymbol": false,
+            "name": "HIGH_4"
+          },
+          {
+            "position": {
+              "row": 1,
+              "column": 0
+            },
+            "subsymbol": false,
+            "name": "HIGH_4"
+          },
+          {
+            "position": {
+              "row": 1,
+              "column": 1
+            },
+            "subsymbol": false,
+            "name": "LOW_2"
+          },
+          {
+            "position": {
+              "row": 1,
+              "column": 2
+            },
+            "subsymbol": false,
+            "name": "HIGH_1"
+          },
+          {
+            "position": {
+              "row": 1,
+              "column": 3
+            },
+            "subsymbol": false,
+            "name": "LOW_4"
+          },
+          {
+            "position": {
+              "row": 1,
+              "column": 4
+            },
+            "subsymbol": false,
+            "name": "LOW_3"
+          },
+          {
+            "position": {
+              "row": 1,
+              "column": 5
+            },
+            "subsymbol": false,
+            "name": "HIGH_4"
+          },
+          {
+            "position": {
+              "row": 2,
+              "column": 0
+            },
+            "subsymbol": false,
+            "name": "HIGH_2"
+          },
+          {
+            "position": {
+              "row": 2,
+              "column": 1
+            },
+            "subsymbol": false,
+            "name": "LOW_4"
+          },
+          {
+            "position": {
+              "row": 2,
+              "column": 2
+            },
+            "subsymbol": false,
+            "name": "LOW_1"
+          },
+          {
+            "position": {
+              "row": 2,
+              "column": 3
+            },
+            "subsymbol": false,
+            "name": "LOW_4"
+          },
+          {
+            "position": {
+              "row": 2,
+              "column": 4
+            },
+            "subsymbol": false,
+            "name": "HIGH_4"
+          },
+          {
+            "position": {
+              "row": 2,
+              "column": 5
+            },
+            "subsymbol": false,
+            "name": "HIGH_2"
+          },
+          {
+            "position": {
+              "row": 3,
+              "column": 0
+            },
+            "subsymbol": false,
+            "name": "HIGH_2"
+          },
+          {
+            "position": {
+              "row": 3,
+              "column": 1
+            },
+            "subsymbol": false,
+            "name": "LOW_4"
+          },
+          {
+            "position": {
+              "row": 3,
+              "column": 2
+            },
+            "subsymbol": false,
+            "name": "LOW_4"
+          },
+          {
+            "position": {
+              "row": 3,
+              "column": 3
+            },
+            "subsymbol": false,
+            "name": "LOW_3"
+          },
+          {
+            "position": {
+              "row": 3,
+              "column": 4
+            },
+            "subsymbol": false,
+            "name": "HIGH_4"
+          },
+          {
+            "position": {
+              "row": 3,
+              "column": 5
+            },
+            "subsymbol": false,
+            "name": "HIGH_2"
+          },
+          {
+            "position": {
+              "row": 4,
+              "column": 0
+            },
+            "subsymbol": false,
+            "name": "LOW_1"
+          },
+          {
+            "position": {
+              "row": 4,
+              "column": 1
+            },
+            "subsymbol": false,
+            "name": "LOW_3"
+          },
+          {
+            "position": {
+              "row": 4,
+              "column": 2
+            },
+            "subsymbol": false,
+            "name": "LOW_4"
+          },
+          {
+            "position": {
+              "row": 4,
+              "column": 3
+            },
+            "subsymbol": false,
+            "name": "LOW_3"
+          },
+          {
+            "position": {
+              "row": 4,
+              "column": 4
+            },
+            "subsymbol": false,
+            "name": "HIGH_4"
+          },
+          {
+            "position": {
+              "row": 4,
+              "column": 5
+            },
+            "subsymbol": false,
+            "name": "SCATTER"
+          },
+          {
+            "position": {
+              "row": 5,
+              "column": 0
+            },
+            "subsymbol": false,
+            "name": "LOW_1"
+          },
+          {
+            "position": {
+              "row": 5,
+              "column": 1
+            },
+            "subsymbol": false,
+            "name": "LOW_3"
+          },
+          {
+            "position": {
+              "row": 5,
+              "column": 2
+            },
+            "subsymbol": false,
+            "name": "LOW_3"
+          },
+          {
+            "position": {
+              "row": 5,
+              "column": 3
+            },
+            "subsymbol": false,
+            "name": "LOW_4"
+          },
+          {
+            "position": {
+              "row": 5,
+              "column": 4
+            },
+            "subsymbol": false,
+            "name": "LOW_4"
+          },
+          {
+            "position": {
+              "row": 5,
+              "column": 5
+            },
+            "subsymbol": false,
+            "name": "LOW_1"
+          }
+        ]
+      }
+    ]
+  },
+  "structured_no_award": {
+    "win": {
+      "prizes": [],
+      "wonCoins": 0,
+      "wonCash": "0.00",
+      "accumulatedWonCoins": 0,
+      "accumulatedWonCash": "0.00",
+      "accumulatedRoundWonCoins": 0,
+      "accumulatedRoundWonCash": "0.00"
+    },
+    "reels": {
+      "reelSetName": "baseReels",
+      "reelStopPositions": [
+        8,
+        157,
+        44,
+        4,
+        55
+      ]
+    },
+    "initialBoard": [
+      [
+        "HIGH_2",
+        "HIGH_4",
+        "HIGH_4"
+      ],
+      [
+        "LOW_1",
+        "LOW_4",
+        "LOW_1"
+      ],
+      [
+        "HIGH_4",
+        "LOW_4",
+        "HIGH_4"
+      ],
+      [
+        "HIGH_2",
+        "LOW_4",
+        "HIGH_1"
+      ],
+      [
+        "HIGH_4",
+        "LOW_3",
+        "LOW_2"
+      ]
+    ],
+    "finalBoard": [
+      [
+        "HIGH_2",
+        "HIGH_4",
+        "HIGH_4"
+      ],
+      [
+        "LOW_1",
+        "LOW_4",
+        "LOW_1"
+      ],
+      [
+        "HIGH_4",
+        "LOW_4",
+        "HIGH_4"
+      ],
+      [
+        "HIGH_2",
+        "LOW_4",
+        "HIGH_1"
+      ],
+      [
+        "HIGH_4",
+        "LOW_3",
+        "LOW_2"
+      ]
+    ],
+    "freeSpinsAwarded": 0
+  },
+  "flat_numbered": {
+    "accC": 0,
+    "accWa": "0.00",
+    "finalBoard": [
+      [
+        "SCATTER",
+        "LOW_2",
+        "LOW_2",
+        "LOW_2",
+        "LOW_3",
+        "HIGH_2"
+      ],
+      [
+        "HIGH_2",
+        "HIGH_4",
+        "LOW_3",
+        "HIGH_3",
+        "HIGH_1",
+        "LOW_3"
+      ],
+      [
+        "LOW_3",
+        "LOW_2",
+        "LOW_2",
+        "LOW_2",
+        "LOW_2",
+        "HIGH_4"
+      ]
+    ],
+    "reelSet": "BaseReels2",
+    "reels": [
+      [
+        "SCATTER",
+        "LOW_2",
+        "LOW_2",
+        "LOW_2",
+        "LOW_3",
+        "HIGH_2"
+      ],
+      [
+        "HIGH_2",
+        "HIGH_4",
+        "LOW_3",
+        "HIGH_3",
+        "HIGH_1",
+        "LOW_3"
+      ],
+      [
+        "LOW_3",
+        "LOW_2",
+        "LOW_2",
+        "LOW_2",
+        "LOW_2",
+        "HIGH_4"
+      ]
+    ],
+    "rpos": [
+      2,
+      23,
+      31
+    ],
+    "wonCoins": 0,
+    "wonMoney": "0.00",
+    "wtw": []
+  },
+  "persistent_collectibles": {
+    "accC": 0,
+    "accWa": "0.00",
+    "averageCoinValue": {
+      "COLLECTIBLE_1": "0.00",
+      "COLLECTIBLE_2": "0.00",
+      "COLLECTIBLE_3": "0.00",
+      "COLLECTIBLE_4": "0.00"
+    },
+    "collections": {
+      "collectibles": {
+        "COLLECTIBLE_1": {
+          "amount": 3,
+          "gathered": 0,
+          "coinsSum": "0.00",
+          "bets": []
+        },
+        "COLLECTIBLE_2": {
+          "amount": 0,
+          "gathered": 0,
+          "coinsSum": "0.00",
+          "bets": []
+        },
+        "COLLECTIBLE_3": {
+          "amount": 0,
+          "gathered": 0,
+          "coinsSum": "0.00",
+          "bets": []
+        },
+        "COLLECTIBLE_4": {
+          "amount": 0,
+          "gathered": 0,
+          "coinsSum": "0.00",
+          "bets": []
+        }
+      },
+      "userWonFreespins": false
+    },
+    "finalBoard": [
+      [
+        "High3",
+        "Low3",
+        "Low3",
+        "Low3"
+      ],
+      [
+        "High1",
+        "Low2",
+        "Low2",
+        "Low2"
+      ],
+      [
+        "Low2",
+        "High2",
+        "High2",
+        "High2"
+      ],
+      [
+        "Low1",
+        "Low1",
+        "Low2",
+        "Low4"
+      ],
+      [
+        "High3",
+        "Low1",
+        "Low1",
+        "High3"
+      ]
+    ],
+    "previousCollections": {
+      "collectibles": {
+        "COLLECTIBLE_1": {
+          "amount": 3,
+          "gathered": 0,
+          "coinsSum": "0.00",
+          "bets": []
+        },
+        "COLLECTIBLE_2": {
+          "amount": 0,
+          "gathered": 0,
+          "coinsSum": "0.00",
+          "bets": []
+        },
+        "COLLECTIBLE_3": {
+          "amount": 0,
+          "gathered": 0,
+          "coinsSum": "0.00",
+          "bets": []
+        },
+        "COLLECTIBLE_4": {
+          "amount": 0,
+          "gathered": 0,
+          "coinsSum": "0.00",
+          "bets": []
+        }
+      },
+      "userWonFreespins": false
+    },
+    "reelSet": "BaseReels0",
+    "reels": [
+      [
+        "High3",
+        "Low3",
+        "Low3",
+        "Low3"
+      ],
+      [
+        "High1",
+        "Low2",
+        "Low2",
+        "Low2"
+      ],
+      [
+        "Low2",
+        "High2",
+        "High2",
+        "High2"
+      ],
+      [
+        "Low1",
+        "Low1",
+        "Low2",
+        "Low4"
+      ],
+      [
+        "High3",
+        "Low1",
+        "Low1",
+        "High3"
+      ]
+    ],
+    "rpos": [
+      414,
+      198,
+      345,
+      452,
+      706
+    ],
+    "spinName": "DwarfMineBaseGameSpin",
+    "wonCoins": 0,
+    "wonMoney": "0.00",
+    "wtw": []
+  },
+  "numeric_grid": {
+    "stake": 0.2,
+    "totalStake": 0.2,
+    "finished": true,
+    "currentAction": "Spin",
+    "nextActions": [
+      "Spin"
+    ],
+    "finalGrid": [
+      [
+        8,
+        1,
+        1,
+        6,
+        3
+      ],
+      [
+        3,
+        8,
+        7,
+        0,
+        0
+      ],
+      [
+        7,
+        7,
+        2,
+        2,
+        2
+      ],
+      [
+        7,
+        7,
+        2,
+        2,
+        2
+      ],
+      [
+        7,
+        7,
+        2,
+        2,
+        2
+      ]
+    ],
+    "gigaReelConfig": 113,
+    "gigaOffsets": [
+      -1
+    ],
+    "gameModeSet": "BaseGame0",
+    "wins": [],
+    "totalWinnings": 0,
+    "baseGameWinnings": 0,
+    "currentWinnings": 0
+  },
+  "symbol_win_actions": {
+    "actions": [
+      {
+        "name": "spinReels"
+      },
+      {
+        "name": "stopReels",
+        "symbols": [
+          {
+            "position": {
+              "column": 0,
+              "row": 0
+            },
+            "name": "HIGH_4"
+          },
+          {
+            "position": {
+              "column": 0,
+              "row": 1
+            },
+            "name": "LOW_2"
+          },
+          {
+            "position": {
+              "column": 0,
+              "row": 2
+            },
+            "name": "LOW_2"
+          },
+          {
+            "position": {
+              "column": 0,
+              "row": 3
+            },
+            "name": "LOW_2"
+          },
+          {
+            "position": {
+              "column": 1,
+              "row": 0
+            },
+            "name": "HIGH_3"
+          },
+          {
+            "position": {
+              "column": 1,
+              "row": 1
+            },
+            "name": "LOW_2"
+          },
+          {
+            "position": {
+              "column": 1,
+              "row": 2
+            },
+            "name": "LOW_2"
+          },
+          {
+            "position": {
+              "column": 1,
+              "row": 3
+            },
+            "name": "LOW_3"
+          },
+          {
+            "position": {
+              "column": 2,
+              "row": 0
+            },
+            "name": "LOW_2"
+          },
+          {
+            "position": {
+              "column": 2,
+              "row": 1
+            },
+            "name": "HIGH_3"
+          },
+          {
+            "position": {
+              "column": 2,
+              "row": 2
+            },
+            "name": "HIGH_3"
+          },
+          {
+            "position": {
+              "column": 2,
+              "row": 3
+            },
+            "name": "HIGH_3"
+          },
+          {
+            "position": {
+              "column": 3,
+              "row": 0
+            },
+            "name": "HIGH_3"
+          },
+          {
+            "position": {
+              "column": 3,
+              "row": 1
+            },
+            "name": "HIGH_3"
+          },
+          {
+            "position": {
+              "column": 3,
+              "row": 2
+            },
+            "name": "LOW_3"
+          },
+          {
+            "position": {
+              "column": 3,
+              "row": 3
+            },
+            "name": "LOW_3"
+          },
+          {
+            "position": {
+              "column": 4,
+              "row": 0
+            },
+            "name": "LOW_3"
+          },
+          {
+            "position": {
+              "column": 4,
+              "row": 1
+            },
+            "name": "LOW_3"
+          },
+          {
+            "position": {
+              "column": 4,
+              "row": 2
+            },
+            "name": "HIGH_4"
+          },
+          {
+            "position": {
+              "column": 4,
+              "row": 3
+            },
+            "name": "HIGH_4"
+          }
+        ]
+      },
+      {
+        "name": "showWinResults",
+        "type": "regular",
+        "wins": [
+          {
+            "value": {
+              "cash": 0.02,
+              "coins": 2
+            },
+            "multiplier": 1,
+            "positions": [
+              {
+                "column": 0,
+                "row": 2
+              },
+              {
+                "column": 1,
+                "row": 1
+              },
+              {
+                "column": 2,
+                "row": 0
+              }
+            ],
+            "symbol": "LOW_2",
+            "oak": 3,
+            "direction": "LEFT_TO_RIGHT",
+            "paylineIndex": 6
+          },
+          {
+            "value": {
+              "cash": 0.02,
+              "coins": 2
+            },
+            "multiplier": 1,
+            "positions": [
+              {
+                "column": 0,
+                "row": 1
+              },
+              {
+                "column": 1,
+                "row": 1
+              },
+              {
+                "column": 2,
+                "row": 0
+              }
+            ],
+            "symbol": "LOW_2",
+            "oak": 3,
+            "direction": "LEFT_TO_RIGHT",
+            "paylineIndex": 22
+          }
+        ],
+        "isOverWinCap": false
+      },
+      {
+        "name": "setWinCounters",
+        "counters": [
+          {
+            "name": "currentWin",
+            "value": {
+              "cash": 0.04,
+              "coins": 4
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "jackpot_collections": {
+    "averageCoinValue": {
+      "MOUNTAIN": "0.00",
+      "HIGHLAND": "0.00",
+      "JUNGLE": "0.00",
+      "DESERT": "0.00",
+      "TEMPLARS": "0.00"
+    },
+    "collectionBeforeSpin": {
+      "MOUNTAIN": {
+        "amount": 2,
+        "gathered": 0,
+        "coinValuesSum": "0.00",
+        "jackpotStakeValuesSum": "0.00",
+        "coinValues": [],
+        "jackpotStakeValues": []
+      },
+      "HIGHLAND": {
+        "amount": 1,
+        "gathered": 0,
+        "coinValuesSum": "0.00",
+        "jackpotStakeValuesSum": "0.00",
+        "coinValues": [],
+        "jackpotStakeValues": []
+      },
+      "JUNGLE": {
+        "amount": 1,
+        "gathered": 0,
+        "coinValuesSum": "0.00",
+        "jackpotStakeValuesSum": "0.00",
+        "coinValues": [],
+        "jackpotStakeValues": []
+      },
+      "DESERT": {
+        "amount": 1,
+        "gathered": 0,
+        "coinValuesSum": "0.00",
+        "jackpotStakeValuesSum": "0.00",
+        "coinValues": [],
+        "jackpotStakeValues": []
+      },
+      "TEMPLARS": {
+        "amount": 1,
+        "gathered": 0,
+        "coinValuesSum": "0.00",
+        "jackpotStakeValuesSum": "0.00",
+        "coinValues": [],
+        "jackpotStakeValues": []
+      }
+    },
+    "collections": {
+      "MOUNTAIN": {
+        "amount": 2,
+        "gathered": 0,
+        "coinValuesSum": "0.00",
+        "jackpotStakeValuesSum": "0.00",
+        "coinValues": [],
+        "jackpotStakeValues": []
+      },
+      "HIGHLAND": {
+        "amount": 1,
+        "gathered": 0,
+        "coinValuesSum": "0.00",
+        "jackpotStakeValuesSum": "0.00",
+        "coinValues": [],
+        "jackpotStakeValues": []
+      },
+      "JUNGLE": {
+        "amount": 1,
+        "gathered": 0,
+        "coinValuesSum": "0.00",
+        "jackpotStakeValuesSum": "0.00",
+        "coinValues": [],
+        "jackpotStakeValues": []
+      },
+      "DESERT": {
+        "amount": 1,
+        "gathered": 0,
+        "coinValuesSum": "0.00",
+        "jackpotStakeValuesSum": "0.00",
+        "coinValues": [],
+        "jackpotStakeValues": []
+      },
+      "TEMPLARS": {
+        "amount": 1,
+        "gathered": 0,
+        "coinValuesSum": "0.00",
+        "jackpotStakeValuesSum": "0.00",
+        "coinValues": [],
+        "jackpotStakeValues": []
+      }
+    },
+    "finalBoard": [
+      [
+        "High3",
+        "Low4",
+        "High4"
+      ],
+      [
+        "Low3",
+        "High3",
+        "Low2"
+      ],
+      [
+        "Low4",
+        "Low3",
+        "High1"
+      ],
+      [
+        "Low1",
+        "High2",
+        "Low3"
+      ],
+      [
+        "Low1",
+        "Low2",
+        "High1"
+      ]
+    ],
+    "jackpotStatus": {
+      "fixture_0": "3487.99",
+      "fixture_1": "511.09",
+      "fixture_2": "627.01",
+      "fixture_3": "145.43",
+      "fixture_4": "18975.98"
+    },
+    "reelSet": "BaseReels",
+    "reels": [
+      [
+        "High3",
+        "Low4",
+        "High4"
+      ],
+      [
+        "Low3",
+        "High3",
+        "Low2"
+      ],
+      [
+        "Low4",
+        "Low3",
+        "High1"
+      ],
+      [
+        "Low1",
+        "High2",
+        "Low3"
+      ],
+      [
+        "Low1",
+        "Low2",
+        "High1"
+      ]
+    ],
+    "rpos": [
+      114,
+      74,
+      86,
+      57,
+      9
+    ],
+    "wonCoins": 0,
+    "wonMoney": "0.00",
+    "wtw": []
+  },
+  "block_board": {
+    "win": {
+      "prizes": [],
+      "wonCoins": 0,
+      "wonCash": "0.00",
+      "accumulatedWonCoins": 0,
+      "accumulatedWonCash": "0.00",
+      "accumulatedRoundWonCoins": 0,
+      "accumulatedRoundWonCash": "0.00"
+    },
+    "initialBoard": [
+      [
+        "LOW_2",
+        "SCATTER",
+        "SCATTER",
+        "LOW_6"
+      ],
+      [
+        "LOW_1",
+        "LOW_1",
+        "LOW_3",
+        "HIGH_2"
+      ],
+      [
+        "HIGH_2",
+        "LOW_1",
+        "LOW_3",
+        "LOW_3"
+      ],
+      [
+        "HIGH_2",
+        "LOW_3",
+        "LOW_3",
+        "HIGH_4"
+      ],
+      [
+        "HIGH_2",
+        "LOW_3",
+        "LOW_3",
+        "HIGH_4"
+      ],
+      [
+        "LOW_3",
+        "HIGH_2",
+        "HIGH_2",
+        "LOW_5"
+      ]
+    ],
+    "finalBoard": [
+      [
+        "LOW_2",
+        "SCATTER",
+        "SCATTER",
+        "LOW_6"
+      ],
+      [
+        "LOW_1",
+        "LOW_1",
+        "LOW_3",
+        "HIGH_2"
+      ],
+      [
+        "HIGH_2",
+        "LOW_1",
+        "LOW_3",
+        "LOW_3"
+      ],
+      [
+        "HIGH_2",
+        "LOW_3",
+        "LOW_3",
+        "HIGH_4"
+      ],
+      [
+        "HIGH_2",
+        "LOW_3",
+        "LOW_3",
+        "HIGH_4"
+      ],
+      [
+        "LOW_3",
+        "HIGH_2",
+        "HIGH_2",
+        "LOW_5"
+      ]
+    ],
+    "gigabloxData": [
+      {
+        "columns": [
+          3,
+          4
+        ],
+        "details": {
+          "columnIcons": [
+            "HIGH_2",
+            "LOW_3",
+            "LOW_3",
+            "HIGH_4"
+          ]
+        },
+        "blockStartRowIndex": -1
+      }
+    ]
+  },
+  "block_board_modified": {
+    "win": {
+      "prizes": [],
+      "wonCoins": 0,
+      "wonCash": "0.00",
+      "accumulatedWonCoins": 0,
+      "accumulatedWonCash": "0.00",
+      "accumulatedRoundWonCoins": 0,
+      "accumulatedRoundWonCash": "0.00"
+    },
+    "initialBoard": [
+      [
+        "LOW_1",
+        "HIGH_3",
+        "HIGH_3",
+        "HIGH_1",
+        "HIGH_1",
+        "LOW_3"
+      ],
+      [
+        "LOW_1",
+        "HIGH_3",
+        "HIGH_3",
+        "HIGH_1",
+        "HIGH_1",
+        "LOW_3"
+      ],
+      [
+        "HIGH_2",
+        "HIGH_4",
+        "LOW_4",
+        "LOW_2",
+        "HIGH_3",
+        "HIGH_3"
+      ],
+      [
+        "HIGH_4",
+        "LOW_4",
+        "LOW_2",
+        "HIGH_2",
+        "HIGH_2",
+        "LOW_1"
+      ],
+      [
+        "LOW_4",
+        "LOW_4",
+        "LOW_3",
+        "LOW_3",
+        "HIGH_2",
+        "HIGH_2"
+      ],
+      [
+        "HIGH_1",
+        "HIGH_2",
+        "HIGH_4",
+        "LOW_1",
+        "LOW_1",
+        "LOW_2"
+      ]
+    ],
+    "finalBoard": [
+      [
+        "LOW_1",
+        "HIGH_3",
+        "HIGH_3",
+        "HIGH_1",
+        "HIGH_1",
+        "LOW_3"
+      ],
+      [
+        "LOW_1",
+        "HIGH_3",
+        "HIGH_3",
+        "HIGH_1",
+        "HIGH_1",
+        "LOW_3"
+      ],
+      [
+        "HIGH_2",
+        "HIGH_4",
+        "LOW_4",
+        "LOW_2",
+        "HIGH_3",
+        "HIGH_3"
+      ],
+      [
+        "HIGH_4",
+        "LOW_4",
+        "LOW_2",
+        "HIGH_2",
+        "HIGH_2",
+        "LOW_1"
+      ],
+      [
+        "LOW_4",
+        "LOW_4",
+        "LOW_3",
+        "LOW_3",
+        "HIGH_2",
+        "HIGH_2"
+      ],
+      [
+        "HIGH_1",
+        "HIGH_2",
+        "HIGH_4",
+        "LOW_1",
+        "LOW_1",
+        "LOW_2"
+      ]
+    ],
+    "gigabloxData": [
+      {
+        "columns": [
+          0,
+          1
+        ],
+        "details": {
+          "columnIcons": [
+            "LOW_1",
+            "HIGH_3",
+            "HIGH_3",
+            "HIGH_1",
+            "HIGH_1",
+            "LOW_3"
+          ]
+        },
+        "blockStartRowIndex": -1
+      }
+    ],
+    "rowsNumber": 4,
+    "goldenBet": false,
+    "multiplier": 1
+  },
+  "block_board_prizes": {
+    "win": {
+      "prizes": [
+        {
+          "symbol": "LOW_4",
+          "oak": 4,
+          "positions": [
+            {
+              "x": 0,
+              "y": 3
+            },
+            {
+              "x": 1,
+              "y": 1
+            },
+            {
+              "x": 1,
+              "y": 2
+            },
+            {
+              "x": 2,
+              "y": 1
+            },
+            {
+              "x": 2,
+              "y": 2
+            },
+            {
+              "x": 3,
+              "y": 0
+            },
+            {
+              "x": 3,
+              "y": 1
+            }
+          ],
+          "coins": 24,
+          "cash": "0.24",
+          "ways": 8
+        }
+      ],
+      "wonCoins": 24,
+      "wonCash": "0.24",
+      "accumulatedWonCoins": 24,
+      "accumulatedWonCash": "0.24",
+      "accumulatedRoundWonCoins": 24,
+      "accumulatedRoundWonCash": "0.24"
+    },
+    "reels": {
+      "reelSetName": "reelsA",
+      "reelStopPositions": [
+        41,
+        0,
+        0,
+        8,
+        47,
+        20
+      ]
+    },
+    "initialBoard": [
+      [
+        "LOW_1",
+        "HIGH_3",
+        "HIGH_3",
+        "LOW_4"
+      ],
+      [
+        "LOW_3",
+        "LOW_4",
+        "LOW_4",
+        "LOW_2"
+      ],
+      [
+        "LOW_3",
+        "LOW_4",
+        "LOW_4",
+        "LOW_2"
+      ],
+      [
+        "LOW_4",
+        "LOW_4",
+        "LOW_1",
+        "LOW_1"
+      ],
+      [
+        "HIGH_4",
+        "HIGH_4",
+        "LOW_2",
+        "LOW_2"
+      ],
+      [
+        "LOW_3",
+        "HIGH_4",
+        "HIGH_4",
+        "LOW_3"
+      ]
+    ],
+    "finalBoard": [
+      [
+        "LOW_1",
+        "HIGH_3",
+        "HIGH_3",
+        "LOW_4"
+      ],
+      [
+        "LOW_3",
+        "LOW_4",
+        "LOW_4",
+        "LOW_2"
+      ],
+      [
+        "LOW_3",
+        "LOW_4",
+        "LOW_4",
+        "LOW_2"
+      ],
+      [
+        "LOW_4",
+        "LOW_4",
+        "LOW_1",
+        "LOW_1"
+      ],
+      [
+        "HIGH_4",
+        "HIGH_4",
+        "LOW_2",
+        "LOW_2"
+      ],
+      [
+        "LOW_3",
+        "HIGH_4",
+        "HIGH_4",
+        "LOW_3"
+      ]
+    ],
+    "gigabloxData": [
+      {
+        "columns": [
+          1,
+          2
+        ],
+        "details": {
+          "blocks": [
+            {
+              "position": {
+                "x": 1,
+                "y": -1
+              },
+              "icon": "LOW_3",
+              "size": 2
+            },
+            {
+              "position": {
+                "x": 1,
+                "y": 1
+              },
+              "icon": "LOW_4",
+              "size": 2
+            },
+            {
+              "position": {
+                "x": 1,
+                "y": 3
+              },
+              "icon": "LOW_2",
+              "size": 2
+            }
+          ]
+        },
+        "blockStartRowIndex": -1
+      }
+    ],
+    "totalWin": 24,
+    "coinWin": 24,
+    "capLimitReached": false
+  },
+  "giga_animation": {
+    "actions": [
+      {
+        "name": "spinReels"
+      },
+      {
+        "name": "gigabloxReels",
+        "gigabloxData": [
+          {
+            "column": 2,
+            "width": 2
+          }
+        ]
+      },
+      {
+        "name": "stopReels",
+        "symbols": [
+          {
+            "position": {
+              "column": 0,
+              "row": 0
+            },
+            "name": "LOW_1"
+          },
+          {
+            "position": {
+              "column": 0,
+              "row": 1
+            },
+            "name": "LOW_4"
+          },
+          {
+            "position": {
+              "column": 0,
+              "row": 2
+            },
+            "name": "LOW_4"
+          },
+          {
+            "position": {
+              "column": 0,
+              "row": 3
+            },
+            "name": "HIGH_3"
+          },
+          {
+            "position": {
+              "column": 1,
+              "row": 0
+            },
+            "name": "LOW_4"
+          },
+          {
+            "position": {
+              "column": 1,
+              "row": 1
+            },
+            "name": "LOW_2"
+          },
+          {
+            "position": {
+              "column": 1,
+              "row": 2
+            },
+            "name": "LOW_2"
+          },
+          {
+            "position": {
+              "column": 1,
+              "row": 3
+            },
+            "name": "HIGH_2"
+          },
+          {
+            "position": {
+              "column": 2,
+              "row": 0
+            },
+            "width": 2,
+            "height": 2,
+            "name": "LOW_1"
+          },
+          {
+            "position": {
+              "column": 2,
+              "row": 2
+            },
+            "width": 2,
+            "height": 2,
+            "name": "HIGH_3"
+          },
+          {
+            "position": {
+              "column": 4,
+              "row": 0
+            },
+            "name": "HIGH_3"
+          },
+          {
+            "position": {
+              "column": 4,
+              "row": 1
+            },
+            "name": "LOW_2"
+          },
+          {
+            "position": {
+              "column": 4,
+              "row": 2
+            },
+            "name": "LOW_2"
+          },
+          {
+            "position": {
+              "column": 4,
+              "row": 3
+            },
+            "name": "LOW_2"
+          },
+          {
+            "position": {
+              "column": 5,
+              "row": 0
+            },
+            "name": "HIGH_1"
+          },
+          {
+            "position": {
+              "column": 5,
+              "row": 1
+            },
+            "name": "HIGH_1"
+          },
+          {
+            "position": {
+              "column": 5,
+              "row": 2
+            },
+            "name": "HIGH_1"
+          },
+          {
+            "position": {
+              "column": 5,
+              "row": 3
+            },
+            "name": "HIGH_3"
+          }
+        ]
+      }
+    ]
+  },
+  "drop_animation": {
+    "actions": [
+      {
+        "name": "dropInReels",
+        "symbols": [
+          {
+            "position": {
+              "column": 0,
+              "row": 0
+            },
+            "name": "HIGH_3"
+          },
+          {
+            "position": {
+              "column": 0,
+              "row": 1
+            },
+            "name": "LOW_5"
+          },
+          {
+            "position": {
+              "column": 0,
+              "row": 2
+            },
+            "name": "HIGH_6"
+          },
+          {
+            "position": {
+              "column": 1,
+              "row": 0
+            },
+            "name": "LOW_3"
+          },
+          {
+            "position": {
+              "column": 1,
+              "row": 1
+            },
+            "name": "HIGH_2"
+          },
+          {
+            "position": {
+              "column": 1,
+              "row": 2
+            },
+            "name": "LOW_4"
+          },
+          {
+            "position": {
+              "column": 2,
+              "row": 0
+            },
+            "name": "SCATTER"
+          },
+          {
+            "position": {
+              "column": 2,
+              "row": 1
+            },
+            "name": "HIGH_5"
+          },
+          {
+            "position": {
+              "column": 2,
+              "row": 2
+            },
+            "name": "LOW_3"
+          },
+          {
+            "position": {
+              "column": 3,
+              "row": 0
+            },
+            "name": "LOW_6"
+          },
+          {
+            "position": {
+              "column": 3,
+              "row": 1
+            },
+            "name": "LOW_1"
+          },
+          {
+            "position": {
+              "column": 3,
+              "row": 2
+            },
+            "name": "LOW_6"
+          },
+          {
+            "position": {
+              "column": 4,
+              "row": 0
+            },
+            "name": "LOW_4"
+          },
+          {
+            "position": {
+              "column": 4,
+              "row": 1
+            },
+            "name": "LOW_1"
+          },
+          {
+            "position": {
+              "column": 4,
+              "row": 2
+            },
+            "name": "LOW_1"
+          }
+        ]
+      }
+    ]
+  },
+  "block_drop_animation": {
+    "actions": [
+      {
+        "name": "dropOutReels"
+      },
+      {
+        "name": "dropInReels",
+        "symbols": [
+          {
+            "position": {
+              "column": 0,
+              "row": 0
+            },
+            "name": "LOW_1"
+          },
+          {
+            "position": {
+              "column": 0,
+              "row": 1
+            },
+            "name": "HIGH_1"
+          },
+          {
+            "position": {
+              "column": 0,
+              "row": 2
+            },
+            "height": 2,
+            "width": 2,
+            "name": "LOW_5"
+          },
+          {
+            "position": {
+              "column": 0,
+              "row": 4
+            },
+            "name": "HIGH_2"
+          },
+          {
+            "position": {
+              "column": 0,
+              "row": 5
+            },
+            "name": "LOW_5"
+          },
+          {
+            "position": {
+              "column": 1,
+              "row": 0
+            },
+            "height": 2,
+            "width": 2,
+            "name": "LOW_3"
+          },
+          {
+            "position": {
+              "column": 1,
+              "row": 4
+            },
+            "name": "HIGH_4"
+          },
+          {
+            "position": {
+              "column": 1,
+              "row": 5
+            },
+            "name": "HIGH_3"
+          },
+          {
+            "position": {
+              "column": 2,
+              "row": 2
+            },
+            "name": "LOW_3"
+          },
+          {
+            "position": {
+              "column": 2,
+              "row": 3
+            },
+            "height": 2,
+            "width": 2,
+            "name": "LOW_1"
+          },
+          {
+            "position": {
+              "column": 2,
+              "row": 5
+            },
+            "name": "LOW_5"
+          },
+          {
+            "position": {
+              "column": 3,
+              "row": 0
+            },
+            "name": "LOW_2"
+          },
+          {
+            "position": {
+              "column": 3,
+              "row": 1
+            },
+            "height": 2,
+            "width": 2,
+            "name": "LOW_4"
+          },
+          {
+            "position": {
+              "column": 3,
+              "row": 5
+            },
+            "name": "HIGH_2"
+          },
+          {
+            "position": {
+              "column": 4,
+              "row": 0
+            },
+            "name": "LOW_1"
+          },
+          {
+            "position": {
+              "column": 4,
+              "row": 3
+            },
+            "name": "HIGH_3"
+          },
+          {
+            "position": {
+              "column": 4,
+              "row": 4
+            },
+            "name": "HIGH_5"
+          },
+          {
+            "position": {
+              "column": 4,
+              "row": 5
+            },
+            "name": "HIGH_1"
+          }
+        ]
+      }
+    ]
+  },
+  "typed_multiplier_counters": {
+    "actions": [
+      {
+        "$type": "ActionGame_PresentModeStart",
+        "animationIdentifier": "Default",
+        "modeName": "BaseGame",
+        "actionSource": {
+          "$type": "ActionSource_Empty"
+        }
+      },
+      {
+        "$type": "ActionGame_NewSpin",
+        "board": {
+          "cells": [
+            {
+              "position": {
+                "x": 0,
+                "y": 0
+              },
+              "counters": [],
+              "symbol": {
+                "symbolCode": "Lo2",
+                "counters": []
+              }
+            },
+            {
+              "position": {
+                "x": 0,
+                "y": 1
+              },
+              "counters": [],
+              "symbol": {
+                "symbolCode": "Lo2",
+                "counters": []
+              }
+            },
+            {
+              "position": {
+                "x": 0,
+                "y": 2
+              },
+              "counters": [],
+              "symbol": {
+                "symbolCode": "Hi4",
+                "counters": []
+              }
+            },
+            {
+              "position": {
+                "x": 1,
+                "y": 0
+              },
+              "counters": [],
+              "symbol": {
+                "symbolCode": "Hi2",
+                "counters": []
+              }
+            },
+            {
+              "position": {
+                "x": 1,
+                "y": 1
+              },
+              "counters": [],
+              "symbol": {
+                "symbolCode": "Hi3",
+                "counters": []
+              }
+            },
+            {
+              "position": {
+                "x": 1,
+                "y": 2
+              },
+              "counters": [],
+              "symbol": {
+                "symbolCode": "Hi2",
+                "counters": []
+              }
+            },
+            {
+              "position": {
+                "x": 2,
+                "y": 0
+              },
+              "counters": [],
+              "symbol": {
+                "symbolCode": "Hi1",
+                "counters": []
+              }
+            },
+            {
+              "position": {
+                "x": 2,
+                "y": 1
+              },
+              "counters": [],
+              "symbol": {
+                "symbolCode": "Lo1",
+                "counters": []
+              }
+            },
+            {
+              "position": {
+                "x": 2,
+                "y": 2
+              },
+              "counters": [],
+              "symbol": {
+                "symbolCode": "Hi1",
+                "counters": []
+              }
+            },
+            {
+              "position": {
+                "x": 3,
+                "y": 0
+              },
+              "counters": [],
+              "symbol": {
+                "symbolCode": "Lo2",
+                "counters": []
+              }
+            },
+            {
+              "position": {
+                "x": 3,
+                "y": 1
+              },
+              "counters": [],
+              "symbol": {
+                "symbolCode": "Lo1",
+                "counters": []
+              }
+            },
+            {
+              "position": {
+                "x": 3,
+                "y": 2
+              },
+              "counters": [],
+              "symbol": {
+                "symbolCode": "Hi2",
+                "counters": []
+              }
+            },
+            {
+              "position": {
+                "x": 4,
+                "y": 0
+              },
+              "counters": [],
+              "symbol": {
+                "symbolCode": "Lo1",
+                "counters": []
+              }
+            },
+            {
+              "position": {
+                "x": 4,
+                "y": 1
+              },
+              "counters": [],
+              "symbol": {
+                "symbolCode": "Lo3",
+                "counters": []
+              }
+            },
+            {
+              "position": {
+                "x": 4,
+                "y": 2
+              },
+              "counters": [],
+              "symbol": {
+                "symbolCode": "Lo4",
+                "counters": []
+              }
+            }
+          ],
+          "counters": []
+        },
+        "animationIdentifier": "Default",
+        "actionSource": {
+          "$type": "ActionSource_Empty"
+        }
+      },
+      {
+        "$type": "ActionGame_SetCounterBoard",
+        "animationIdentifier": "Default",
+        "name": "MultiplierReel0",
+        "value": 1,
+        "actionSource": {
+          "$type": "ActionSource_Empty"
+        }
+      },
+      {
+        "$type": "ActionGame_SetCounterBoard",
+        "animationIdentifier": "Default",
+        "name": "MultiplierReel1",
+        "value": 1,
+        "actionSource": {
+          "$type": "ActionSource_Empty"
+        }
+      },
+      {
+        "$type": "ActionGame_SetCounterBoard",
+        "animationIdentifier": "Default",
+        "name": "MultiplierReel2",
+        "value": 1,
+        "actionSource": {
+          "$type": "ActionSource_Empty"
+        }
+      },
+      {
+        "$type": "ActionGame_SetCounterBoard",
+        "animationIdentifier": "Default",
+        "name": "MultiplierReel3",
+        "value": 1,
+        "actionSource": {
+          "$type": "ActionSource_Empty"
+        }
+      },
+      {
+        "$type": "ActionGame_SetCounterBoard",
+        "animationIdentifier": "Default",
+        "name": "MultiplierReel4",
+        "value": 1,
+        "actionSource": {
+          "$type": "ActionSource_Empty"
+        }
+      },
+      {
+        "$type": "ActionGame_FeatureHappened",
+        "featureIdentifier": "Spin",
+        "animationIdentifier": "Default",
+        "actionSource": {
+          "$type": "ActionSource_Empty"
+        }
+      },
+      {
+        "$type": "ActionGame_PresentModeWin",
+        "animationIdentifier": "Default",
+        "modeWin": {
+          "currency": "EUR",
+          "amount": 0.0,
+          "amountNormalizedToBet": 0
+        },
+        "accumulatedRoundWin": {
+          "currency": "EUR",
+          "amount": 0.0,
+          "amountNormalizedToBet": 0
+        },
+        "actionSource": {
+          "$type": "ActionSource_Empty"
+        }
+      }
+    ],
+    "isFinished": true
+  },
+  "multiplier_base": {
+    "win": {
+      "prizes": [],
+      "wonCoins": 0,
+      "wonCash": "0.00",
+      "accumulatedWonCoins": 0,
+      "accumulatedWonCash": "0.00",
+      "accumulatedRoundWonCoins": 0,
+      "accumulatedRoundWonCash": "0.00"
+    },
+    "reels": {
+      "reelSetName": "baseReels0A",
+      "reelStopPositions": [
+        224,
+        199,
+        34,
+        94,
+        91,
+        408
+      ]
+    },
+    "initialBoard": [
+      [
+        "LOW_2",
+        "LOW_4",
+        "LOW_2",
+        "LOW_2",
+        "LOW_4",
+        "LOW_2"
+      ],
+      [
+        "LOW_4",
+        "LOW_4",
+        "HIGH_3",
+        "LOW_2",
+        "LOW_2",
+        "HIGH_3"
+      ],
+      [
+        "LOW_3",
+        "LOW_3",
+        "LOW_1",
+        "LOW_1",
+        "HIGH_3",
+        "LOW_1"
+      ],
+      [
+        "LOW_3",
+        "HIGH_2",
+        "HIGH_3",
+        "LOW_1",
+        "HIGH_2",
+        "HIGH_2"
+      ],
+      [
+        "LOW_3",
+        "LOW_4",
+        "LOW_4",
+        "HIGH_4",
+        "LOW_4",
+        "HIGH_1"
+      ],
+      [
+        "LOW_1",
+        "LOW_1",
+        "HIGH_4",
+        "HIGH_4",
+        "LOW_4",
+        "LOW_4"
+      ]
+    ],
+    "finalBoard": [
+      [
+        "LOW_2",
+        "LOW_4",
+        "LOW_2",
+        "LOW_2",
+        "LOW_4",
+        "LOW_2"
+      ],
+      [
+        "LOW_4",
+        "LOW_4",
+        "HIGH_3",
+        "LOW_2",
+        "LOW_2",
+        "HIGH_3"
+      ],
+      [
+        "LOW_3",
+        "LOW_3",
+        "LOW_1",
+        "LOW_1",
+        "HIGH_3",
+        "LOW_1"
+      ],
+      [
+        "LOW_3",
+        "HIGH_2",
+        "HIGH_3",
+        "LOW_1",
+        "HIGH_2",
+        "HIGH_2"
+      ],
+      [
+        "LOW_3",
+        "LOW_4",
+        "LOW_4",
+        "HIGH_4",
+        "LOW_4",
+        "HIGH_1"
+      ],
+      [
+        "LOW_1",
+        "LOW_1",
+        "HIGH_4",
+        "HIGH_4",
+        "LOW_4",
+        "LOW_4"
+      ]
+    ],
+    "gameMode": "BASE_GAME",
+    "finalMultipliers": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "accumulatedAvalancheSessionWonCoins": 0,
+    "accumulatedAvalancheSessionWonCash": "0.00000",
+    "freeSpinsLeft": 0,
+    "totalWin": 0,
+    "coinWinAdjustedToMaxWinCap": 0,
+    "capLimitReached": false,
+    "respin": false,
+    "lastRespin": true
+  },
+  "named_multiplier_counter": {
+    "actions": [
+      {
+        "name": "setCounters",
+        "counters": [
+          {
+            "name": "wildMultiplier",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "name": "stopReels",
+        "board": [
+          [
+            "HIGH_2",
+            "HIGH_2",
+            "HIGH_2"
+          ],
+          [
+            "HIGH_4",
+            "LOW_3",
+            "LOW_1"
+          ],
+          [
+            "HIGH_4",
+            "LOW_3",
+            "LOW_3"
+          ],
+          [
+            "HIGH_4",
+            "HIGH_4",
+            "LOW_4"
+          ],
+          [
+            "LOW_4",
+            "LOW_2",
+            "LOW_2"
+          ]
+        ]
+      }
+    ]
+  },
+  "numeric_bonus_flags": {
+    "screen": [
+      [
+        6,
+        5,
+        5
+      ],
+      [
+        3,
+        6,
+        5
+      ],
+      [
+        9,
+        9,
+        1
+      ],
+      [
+        11,
+        2,
+        5
+      ],
+      [
+        2,
+        2,
+        8
+      ]
+    ],
+    "winningRows": [],
+    "cashPrizes": [
+      {
+        "cashPrize": 1,
+        "position": {
+          "reel": 2,
+          "row": 0
+        }
+      },
+      {
+        "cashPrize": 3,
+        "position": {
+          "reel": 2,
+          "row": 1
+        }
+      }
+    ],
+    "modifiersData": {
+      "currentMultipliers": [
+        1,
+        2,
+        4,
+        8,
+        16
+      ],
+      "activeMultiplier": 1,
+      "collectFish": false,
+      "collectedCashPrize": 0
+    },
+    "bonusData": {
+      "bonusTriggered": false,
+      "freespinsAwarded": 0
+    },
+    "wagerId": "fixture-round"
+  },
+  "enum_regular_round": {
+    "Code": 2001,
+    "Completed": true,
+    "Bet": {
+      "Lines": 20,
+      "FeeMultiplier": 1.0,
+      "Amount": 1.0,
+      "GameMode": 0,
+      "Scale": 1.0,
+      "TotalBet": 20.0
+    },
+    "Round": {
+      "Info": {
+        "RID": 1,
+        "SRC": 1,
+        "IDX": 0,
+        "GameMode": 0,
+        "RoundType": 0,
+        "Count": 0,
+        "Passed": 1,
+        "Bet": 20
+      },
+      "VISData": {
+        "Grids": [
+          [
+            [
+              5,
+              7,
+              8,
+              7,
+              3,
+              8,
+              2
+            ],
+            [
+              8,
+              5,
+              3,
+              7,
+              4,
+              8,
+              6
+            ],
+            [
+              7,
+              8,
+              5,
+              5,
+              7,
+              4,
+              7
+            ],
+            [
+              2,
+              5,
+              6,
+              5,
+              5,
+              7,
+              7
+            ],
+            [
+              6,
+              8,
+              8,
+              2,
+              8,
+              3,
+              5
+            ],
+            [
+              5,
+              5,
+              3,
+              8,
+              7,
+              3,
+              4
+            ],
+            [
+              7,
+              8,
+              7,
+              7,
+              7,
+              2,
+              2
+            ]
+          ]
+        ],
+        "Prizes": [],
+        "Events": [
+          {
+            "Type": 10,
+            "SymbolKit": 0,
+            "Grids": [
+              0
+            ]
+          },
+          {
+            "Type": 50,
+            "SwappedSymbols": [
+              [
+                7,
+                0,
+                3
+              ],
+              [
+                7,
+                1,
+                3
+              ],
+              [
+                7,
+                3,
+                6
+              ],
+              [
+                7,
+                5,
+                4
+              ],
+              [
+                7,
+                6,
+                4
+              ]
+            ]
+          },
+          {
+            "Type": 20,
+            "Rules": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ]
+          },
+          {
+            "Type": 20,
+            "Rules": [
+              8
+            ]
+          }
+        ],
+        "FEV": {
+          "50": [
+            1
+          ]
+        }
+      }
+    }
+  },
+  "enum_progress_round": {
+    "Code": 2001,
+    "Completed": true,
+    "Bet": {
+      "Lines": 20,
+      "FeeMultiplier": 1.0,
+      "Amount": 1.0,
+      "GameMode": 0,
+      "Scale": 1.0,
+      "TotalBet": 20.0
+    },
+    "Round": {
+      "Info": {
+        "RID": 1,
+        "SRC": 1,
+        "IDX": 0,
+        "GameMode": 0,
+        "RoundType": 0,
+        "Count": 0,
+        "Passed": 1,
+        "Bet": 20
+      },
+      "VISData": {
+        "Grids": [
+          [
+            [
+              6,
+              10,
+              11
+            ],
+            [
+              9,
+              10,
+              11
+            ],
+            [
+              5,
+              9,
+              2
+            ],
+            [
+              10,
+              12,
+              8
+            ],
+            [
+              4,
+              6,
+              10
+            ]
+          ]
+        ],
+        "Prizes": [],
+        "Events": [
+          {
+            "Type": 10,
+            "SymbolKit": 0,
+            "ReelStops": [
+              10,
+              91,
+              107,
+              60,
+              0
+            ],
+            "Grids": [
+              0
+            ]
+          },
+          {
+            "Type": 201,
+            "ProgressPerBet": {
+              "20": {
+                "RegularFreeSpinsSymbolCount": 0,
+                "SuperFreeSpinsSymbolCount": 0,
+                "RetriggerRegularFreeSpinsSymbolCount": 0,
+                "RetriggerSuperFreeSpinsSymbolCount": 0
+              }
+            }
+          },
+          {
+            "Type": 20,
+            "Rules": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ]
+          }
+        ],
+        "FEV": {
+          "201": [
+            1
+          ]
+        }
+      }
+    }
+  },
+  "flat_block_geometry": {
+    "accC": 0,
+    "accWa": "0.00",
+    "blockDetails": [
+      {
+        "startRowIndex": -1,
+        "startReelIndex": 1,
+        "size": 3,
+        "symbol": "HIGH1"
+      }
+    ],
+    "finalBoard": [
+      [
+        "HIGH2",
+        "HIGH2",
+        "LOW4",
+        "LOW4",
+        "LOW4",
+        "HIGH4"
+      ],
+      [
+        "HIGH1",
+        "HIGH1",
+        "LOW1",
+        "LOW1",
+        "LOW1",
+        "LOW3"
+      ],
+      [
+        "HIGH1",
+        "HIGH1",
+        "LOW1",
+        "LOW1",
+        "LOW1",
+        "LOW3"
+      ],
+      [
+        "HIGH1",
+        "HIGH1",
+        "LOW1",
+        "LOW1",
+        "LOW1",
+        "LOW3"
+      ],
+      [
+        "SCATTER",
+        "LOW1",
+        "LOW1",
+        "LOW1",
+        "LOW2",
+        "LOW2"
+      ],
+      [
+        "HIGH3",
+        "HIGH3",
+        "HIGH1",
+        "HIGH1",
+        "LOW1",
+        "LOW1"
+      ]
+    ],
+    "reelDetails": {
+      "0": {
+        "reelIndex": 0,
+        "reelName": "baseReels"
+      },
+      "1": {
+        "reelIndex": 1,
+        "reelName": "base3Reels"
+      },
+      "2": {
+        "reelIndex": 1,
+        "reelName": "base3Reels"
+      },
+      "3": {
+        "reelIndex": 1,
+        "reelName": "base3Reels"
+      },
+      "4": {
+        "reelIndex": 4,
+        "reelName": "baseReels"
+      },
+      "5": {
+        "reelIndex": 5,
+        "reelName": "baseReels"
+      }
+    },
+    "reelSet": "BaseReels",
+    "reels": [
+      [
+        "HIGH2",
+        "HIGH2",
+        "LOW4",
+        "LOW4",
+        "LOW4",
+        "HIGH4"
+      ],
+      [
+        "HIGH1",
+        "HIGH1",
+        "LOW1",
+        "LOW1",
+        "LOW1",
+        "LOW3"
+      ],
+      [
+        "HIGH1",
+        "HIGH1",
+        "LOW1",
+        "LOW1",
+        "LOW1",
+        "LOW3"
+      ],
+      [
+        "HIGH1",
+        "HIGH1",
+        "LOW1",
+        "LOW1",
+        "LOW1",
+        "LOW3"
+      ],
+      [
+        "SCATTER",
+        "LOW1",
+        "LOW1",
+        "LOW1",
+        "LOW2",
+        "LOW2"
+      ],
+      [
+        "HIGH3",
+        "HIGH3",
+        "HIGH1",
+        "HIGH1",
+        "LOW1",
+        "LOW1"
+      ]
+    ],
+    "rpos": [
+      149,
+      1267,
+      1267,
+      1267,
+      6,
+      914
+    ],
+    "wonCoins": 0,
+    "wonMoney": "0.00",
+    "wtw": []
+  },
+  "board_with_reels": {
+    "win": {
+      "prizes": [],
+      "wonCoins": 0,
+      "wonCash": "0.00",
+      "accumulatedWonCoins": 0,
+      "accumulatedWonCash": "0.00",
+      "accumulatedRoundWonCoins": 0,
+      "accumulatedRoundWonCash": "0.00"
+    },
+    "reels": {
+      "reelSetName": "Reels",
+      "reelStopPositions": [
+        45,
+        26,
+        8,
+        2,
+        123
+      ]
+    },
+    "initialBoard": [
+      [
+        "LOW_3",
+        "LOW_3",
+        "HIGH_4",
+        "HIGH_4"
+      ],
+      [
+        "LOW_3",
+        "LOW_3",
+        "LOW_3",
+        "WILD"
+      ],
+      [
+        "LOW_4",
+        "HIGH_3",
+        "HIGH_3",
+        "LOW_2"
+      ],
+      [
+        "HIGH_4",
+        "HIGH_4",
+        "HIGH_4",
+        "HIGH_4"
+      ],
+      [
+        "HIGH_2",
+        "HIGH_2",
+        "LOW_1",
+        "LOW_1"
+      ]
+    ],
+    "finalBoard": [
+      [
+        "LOW_3",
+        "LOW_3",
+        "HIGH_4",
+        "HIGH_4"
+      ],
+      [
+        "LOW_3",
+        "LOW_3",
+        "LOW_3",
+        "WILD"
+      ],
+      [
+        "LOW_4",
+        "HIGH_3",
+        "HIGH_3",
+        "LOW_2"
+      ],
+      [
+        "HIGH_4",
+        "HIGH_4",
+        "HIGH_4",
+        "HIGH_4"
+      ],
+      [
+        "HIGH_2",
+        "HIGH_2",
+        "LOW_1",
+        "LOW_1"
+      ]
+    ]
+  },
+  "named_actions_with_totals": {
+    "wonCoins": 0,
+    "actions": [
+      {
+        "name": "spinReels"
+      },
+      {
+        "name": "stopReels",
+        "symbols": [
+          {
+            "position": {
+              "row": 0,
+              "column": 0
+            },
+            "name": "HIGH_1"
+          },
+          {
+            "position": {
+              "row": 1,
+              "column": 0
+            },
+            "name": "LOW_4"
+          },
+          {
+            "position": {
+              "row": 2,
+              "column": 0
+            },
+            "name": "LOW_4"
+          },
+          {
+            "position": {
+              "row": 3,
+              "column": 0
+            },
+            "name": "LOW_3"
+          },
+          {
+            "position": {
+              "row": 0,
+              "column": 1
+            },
+            "name": "LOW_2"
+          },
+          {
+            "position": {
+              "row": 1,
+              "column": 1
+            },
+            "name": "LOW_2"
+          },
+          {
+            "position": {
+              "row": 2,
+              "column": 1
+            },
+            "name": "LOW_2"
+          },
+          {
+            "position": {
+              "row": 3,
+              "column": 1
+            },
+            "name": "HIGH_3"
+          },
+          {
+            "position": {
+              "row": 0,
+              "column": 2
+            },
+            "name": "LOW_4"
+          },
+          {
+            "position": {
+              "row": 1,
+              "column": 2
+            },
+            "name": "LOW_4"
+          },
+          {
+            "position": {
+              "row": 2,
+              "column": 2
+            },
+            "name": "LOW_4"
+          },
+          {
+            "position": {
+              "row": 3,
+              "column": 2
+            },
+            "name": "WILD"
+          },
+          {
+            "position": {
+              "row": 0,
+              "column": 3
+            },
+            "name": "LOW_4"
+          },
+          {
+            "position": {
+              "row": 1,
+              "column": 3
+            },
+            "name": "LOW_4"
+          },
+          {
+            "position": {
+              "row": 2,
+              "column": 3
+            },
+            "name": "LOW_4"
+          },
+          {
+            "position": {
+              "row": 3,
+              "column": 3
+            },
+            "name": "HIGH_4"
+          },
+          {
+            "position": {
+              "row": 0,
+              "column": 4
+            },
+            "name": "LOW_1"
+          },
+          {
+            "position": {
+              "row": 1,
+              "column": 4
+            },
+            "name": "LOW_1"
+          },
+          {
+            "position": {
+              "row": 2,
+              "column": 4
+            },
+            "name": "LOW_1"
+          },
+          {
+            "position": {
+              "row": 3,
+              "column": 4
+            },
+            "name": "LOW_2"
+          }
+        ]
+      }
+    ],
+    "wonMoney": "0.00"
+  },
+  "multiplier_board_flags": {
+    "win": {
+      "prizes": [],
+      "wonCoins": 0,
+      "wonCash": "0.00",
+      "accumulatedWonCoins": 0,
+      "accumulatedWonCash": "0.00",
+      "accumulatedRoundWonCoins": 0,
+      "accumulatedRoundWonCash": "0.00"
+    },
+    "initialBoard": [
+      [
+        "LOW_4",
+        "LOW_4",
+        "LOW_4"
+      ],
+      [
+        "LOW_3",
+        "HIGH_3",
+        "HIGH_1"
+      ],
+      [
+        "LOW_3",
+        "LOW_1",
+        "HIGH_2"
+      ],
+      [
+        "LOW_2",
+        "HIGH_1",
+        "LOW_2"
+      ],
+      [
+        "LOW_4",
+        "LOW_4",
+        "LOW_1"
+      ]
+    ],
+    "finalBoard": [
+      [
+        "LOW_4",
+        "LOW_4",
+        "LOW_4"
+      ],
+      [
+        "LOW_3",
+        "HIGH_3",
+        "HIGH_1"
+      ],
+      [
+        "LOW_3",
+        "LOW_1",
+        "HIGH_2"
+      ],
+      [
+        "LOW_2",
+        "HIGH_1",
+        "LOW_2"
+      ],
+      [
+        "LOW_4",
+        "LOW_4",
+        "LOW_1"
+      ]
+    ],
+    "winPositions": [],
+    "multiplier": 1,
+    "goldenBet": false,
+    "coinsBeforeMultiplier": 0
+  },
+  "classic_jackpot_collections": {
+    "accC": 0,
+    "accWa": "0.00",
+    "averageCoinValue": {
+      "MOUNTAIN": "0.00",
+      "HIGHLAND": "0.00",
+      "JUNGLE": "0.00",
+      "DESERT": "0.00",
+      "TEMPLARS": "0.00"
+    },
+    "collectionBeforeSpin": {
+      "MOUNTAIN": {
+        "amount": 0,
+        "gathered": 0,
+        "coinsSum": "0.00",
+        "bets": []
+      },
+      "HIGHLAND": {
+        "amount": 0,
+        "gathered": 0,
+        "coinsSum": "0.00",
+        "bets": []
+      },
+      "JUNGLE": {
+        "amount": 0,
+        "gathered": 0,
+        "coinsSum": "0.00",
+        "bets": []
+      },
+      "DESERT": {
+        "amount": 0,
+        "gathered": 0,
+        "coinsSum": "0.00",
+        "bets": []
+      },
+      "TEMPLARS": {
+        "amount": 0,
+        "gathered": 0,
+        "coinsSum": "0.00",
+        "bets": []
+      }
+    },
+    "collections": {
+      "MOUNTAIN": {
+        "amount": 0,
+        "gathered": 0,
+        "coinsSum": "0.00",
+        "bets": []
+      },
+      "HIGHLAND": {
+        "amount": 0,
+        "gathered": 0,
+        "coinsSum": "0.00",
+        "bets": []
+      },
+      "JUNGLE": {
+        "amount": 0,
+        "gathered": 0,
+        "coinsSum": "0.00",
+        "bets": []
+      },
+      "DESERT": {
+        "amount": 0,
+        "gathered": 0,
+        "coinsSum": "0.00",
+        "bets": []
+      },
+      "TEMPLARS": {
+        "amount": 0,
+        "gathered": 0,
+        "coinsSum": "0.00",
+        "bets": []
+      }
+    },
+    "finalBoard": [
+      [
+        "High1",
+        "Low3",
+        "Low1"
+      ],
+      [
+        "High4",
+        "Low3",
+        "Low1"
+      ],
+      [
+        "Low2",
+        "High1",
+        "Low4"
+      ],
+      [
+        "Low2",
+        "Scatter",
+        "Low1"
+      ],
+      [
+        "High2",
+        "Low1",
+        "Low2"
+      ]
+    ],
+    "jackpotStatus": {
+      "fixture_0": "2206.81",
+      "fixture_1": "578.27",
+      "fixture_2": "1688.33",
+      "fixture_3": "212.06",
+      "fixture_4": "34981.00"
+    },
+    "reelSet": "BaseReels",
+    "reels": [
+      [
+        "High1",
+        "Low3",
+        "Low1"
+      ],
+      [
+        "High4",
+        "Low3",
+        "Low1"
+      ],
+      [
+        "Low2",
+        "High1",
+        "Low4"
+      ],
+      [
+        "Low2",
+        "Scatter",
+        "Low1"
+      ],
+      [
+        "High2",
+        "Low1",
+        "Low2"
+      ]
+    ],
+    "rpos": [
+      23,
+      6,
+      69,
+      17,
+      17
+    ],
+    "wonCoins": 0,
+    "wonMoney": "0.00",
+    "wtw": []
+  },
+  "named_dick-the-farmer": {
+    "actions": [
+      {
+        "name": "spinReels"
+      },
+      {
+        "name": "stopReels",
+        "symbols": [
+          {
+            "position": {
+              "column": 0,
+              "row": 0
+            },
+            "name": "LOW_2"
+          },
+          {
+            "position": {
+              "column": 0,
+              "row": 1
+            },
+            "name": "LOW_4"
+          },
+          {
+            "position": {
+              "column": 0,
+              "row": 2
+            },
+            "name": "LOW_4"
+          },
+          {
+            "position": {
+              "column": 0,
+              "row": 3
+            },
+            "name": "SCATTER"
+          },
+          {
+            "position": {
+              "column": 1,
+              "row": 0
+            },
+            "name": "HIGH_1"
+          },
+          {
+            "position": {
+              "column": 1,
+              "row": 1
+            },
+            "name": "LOW_2"
+          },
+          {
+            "position": {
+              "column": 1,
+              "row": 2
+            },
+            "name": "LOW_4"
+          },
+          {
+            "position": {
+              "column": 1,
+              "row": 3
+            },
+            "name": "LOW_4"
+          },
+          {
+            "position": {
+              "column": 2,
+              "row": 0
+            },
+            "name": "LOW_1"
+          },
+          {
+            "position": {
+              "column": 2,
+              "row": 1
+            },
+            "name": "LOW_4"
+          },
+          {
+            "position": {
+              "column": 2,
+              "row": 2
+            },
+            "name": "HIGH_2"
+          },
+          {
+            "position": {
+              "column": 2,
+              "row": 3
+            },
+            "name": "LOW_5"
+          },
+          {
+            "position": {
+              "column": 3,
+              "row": 0
+            },
+            "name": "HIGH_3"
+          },
+          {
+            "position": {
+              "column": 3,
+              "row": 1
+            },
+            "name": "LOW_5"
+          },
+          {
+            "position": {
+              "column": 3,
+              "row": 2
+            },
+            "name": "LOW_5"
+          },
+          {
+            "position": {
+              "column": 3,
+              "row": 3
+            },
+            "name": "LOW_5"
+          },
+          {
+            "position": {
+              "column": 4,
+              "row": 0
+            },
+            "name": "HIGH_2"
+          },
+          {
+            "position": {
+              "column": 4,
+              "row": 1
+            },
+            "name": "LOW_1"
+          },
+          {
+            "position": {
+              "column": 4,
+              "row": 2
+            },
+            "name": "LOW_4"
+          },
+          {
+            "position": {
+              "column": 4,
+              "row": 3
+            },
+            "name": "HIGH_4"
+          },
+          {
+            "position": {
+              "column": 5,
+              "row": 0
+            },
+            "name": "HIGH_1"
+          },
+          {
+            "position": {
+              "column": 5,
+              "row": 1
+            },
+            "name": "LOW_2"
+          },
+          {
+            "position": {
+              "column": 5,
+              "row": 2
+            },
+            "name": "LOW_4"
+          },
+          {
+            "position": {
+              "column": 5,
+              "row": 3
+            },
+            "name": "HIGH_4"
+          }
+        ]
+      },
+      {
+        "name": "showInfo",
+        "key": "louder",
+        "value": "1"
+      },
+      {
+        "name": "setCounters",
+        "counters": [
+          {
+            "name": "globalMultiplier",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "name": "showWinResults",
+        "type": "regular",
+        "wins": [
+          {
+            "value": {
+              "cash": 0.08,
+              "coins": 8
+            },
+            "multiplier": 2,
+            "initialValue": {
+              "cash": 0.04,
+              "coins": 4
+            },
+            "positions": [
+              {
+                "column": 0,
+                "row": 1
+              },
+              {
+                "column": 0,
+                "row": 2
+              },
+              {
+                "column": 1,
+                "row": 2
+              },
+              {
+                "column": 1,
+                "row": 3
+              },
+              {
+                "column": 2,
+                "row": 1
+              }
+            ],
+            "symbol": "LOW_4",
+            "oak": 3,
+            "direction": "LEFT_TO_RIGHT",
+            "ways": 4
+          }
+        ]
+      },
+      {
+        "name": "setWinCounters",
+        "counters": [
+          {
+            "name": "currentWin",
+            "value": {
+              "cash": 0.08,
+              "coins": 8
+            },
+            "multiplier": 2
+          },
+          {
+            "name": "spinWin",
+            "value": {
+              "cash": 0.08,
+              "coins": 8
+            },
+            "multiplier": 2
+          },
+          {
+            "name": "totalWin",
+            "value": {
+              "cash": 0.08,
+              "coins": 8
+            }
+          }
+        ]
+      },
+      {
+        "name": "setCounters",
+        "counters": [
+          {
+            "name": "globalMultiplier",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  "named_wild-stack-frenzy": {
+    "actions": [
+      {
+        "name": "spinReels",
+        "boardName": ""
+      },
+      {
+        "name": "stopReels",
+        "symbols": [
+          {
+            "position": {
+              "column": 0,
+              "row": 0
+            },
+            "name": "HIGH_4"
+          },
+          {
+            "position": {
+              "column": 0,
+              "row": 1
+            },
+            "name": "LOW_4"
+          },
+          {
+            "position": {
+              "column": 0,
+              "row": 2
+            },
+            "name": "LOW_1"
+          },
+          {
+            "position": {
+              "column": 0,
+              "row": 3
+            },
+            "name": "HIGH_3"
+          },
+          {
+            "position": {
+              "column": 1,
+              "row": 0
+            },
+            "name": "LOW_1"
+          },
+          {
+            "position": {
+              "column": 1,
+              "row": 1
+            },
+            "name": "HIGH_2"
+          },
+          {
+            "position": {
+              "column": 1,
+              "row": 2
+            },
+            "name": "LOW_3"
+          },
+          {
+            "position": {
+              "column": 1,
+              "row": 3
+            },
+            "name": "LOW_2"
+          },
+          {
+            "position": {
+              "column": 2,
+              "row": 0
+            },
+            "name": "LOW_2"
+          },
+          {
+            "position": {
+              "column": 2,
+              "row": 1
+            },
+            "name": "LOW_1"
+          },
+          {
+            "position": {
+              "column": 2,
+              "row": 2
+            },
+            "name": "HIGH_3"
+          },
+          {
+            "position": {
+              "column": 2,
+              "row": 3
+            },
+            "name": "LOW_2"
+          },
+          {
+            "position": {
+              "column": 3,
+              "row": 0
+            },
+            "name": "WILD_1"
+          },
+          {
+            "position": {
+              "column": 3,
+              "row": 1
+            },
+            "name": "HIGH_4"
+          },
+          {
+            "position": {
+              "column": 3,
+              "row": 2
+            },
+            "name": "LOW_4"
+          },
+          {
+            "position": {
+              "column": 3,
+              "row": 3
+            },
+            "name": "LOW_3"
+          },
+          {
+            "position": {
+              "column": 4,
+              "row": 0
+            },
+            "name": "LOW_1"
+          },
+          {
+            "position": {
+              "column": 4,
+              "row": 1
+            },
+            "name": "HIGH_2"
+          },
+          {
+            "position": {
+              "column": 4,
+              "row": 2
+            },
+            "name": "LOW_3"
+          },
+          {
+            "position": {
+              "column": 4,
+              "row": 3
+            },
+            "name": "SCATTER"
+          }
+        ]
+      }
+    ]
+  },
+  "named_rainbow-ryan-2": {
+    "actions": [
+      {
+        "name": "spinReels"
+      },
+      {
+        "name": "stopReels",
+        "symbols": [
+          {
+            "position": {
+              "column": 0,
+              "row": 0
+            },
+            "name": "LOW_5"
+          },
+          {
+            "position": {
+              "column": 0,
+              "row": 1
+            },
+            "name": "LOW_5"
+          },
+          {
+            "position": {
+              "column": 0,
+              "row": 2
+            },
+            "name": "LOW_5"
+          },
+          {
+            "position": {
+              "column": 0,
+              "row": 3
+            },
+            "name": "HIGH_4"
+          },
+          {
+            "position": {
+              "column": 1,
+              "row": 0
+            },
+            "name": "HIGH_4"
+          },
+          {
+            "position": {
+              "column": 1,
+              "row": 1
+            },
+            "name": "LOW_4"
+          },
+          {
+            "position": {
+              "column": 1,
+              "row": 2
+            },
+            "name": "LOW_4"
+          },
+          {
+            "position": {
+              "column": 1,
+              "row": 3
+            },
+            "name": "LOW_2"
+          },
+          {
+            "position": {
+              "column": 2,
+              "row": 0
+            },
+            "name": "HIGH_2"
+          },
+          {
+            "position": {
+              "column": 2,
+              "row": 1
+            },
+            "name": "LOW_4"
+          },
+          {
+            "position": {
+              "column": 2,
+              "row": 2
+            },
+            "name": "LOW_4"
+          },
+          {
+            "position": {
+              "column": 2,
+              "row": 3
+            },
+            "name": "HIGH_3"
+          },
+          {
+            "position": {
+              "column": 3,
+              "row": 0
+            },
+            "name": "LOW_3"
+          },
+          {
+            "position": {
+              "column": 3,
+              "row": 1
+            },
+            "name": "HIGH_2"
+          },
+          {
+            "position": {
+              "column": 3,
+              "row": 2
+            },
+            "name": "LOW_2"
+          },
+          {
+            "position": {
+              "column": 3,
+              "row": 3
+            },
+            "name": "LOW_4"
+          },
+          {
+            "position": {
+              "column": 4,
+              "row": 0
+            },
+            "name": "LOW_2"
+          },
+          {
+            "position": {
+              "column": 4,
+              "row": 1
+            },
+            "name": "HIGH_4"
+          },
+          {
+            "position": {
+              "column": 4,
+              "row": 2
+            },
+            "name": "LOW_1"
+          },
+          {
+            "position": {
+              "column": 4,
+              "row": 3
+            },
+            "name": "HIGH_1"
+          },
+          {
+            "position": {
+              "column": 5,
+              "row": 0
+            },
+            "name": "HIGH_4"
+          },
+          {
+            "position": {
+              "column": 5,
+              "row": 1
+            },
+            "name": "LOW_3"
+          },
+          {
+            "position": {
+              "column": 5,
+              "row": 2
+            },
+            "subSymbol": "SINGLE",
+            "name": "LOW_3"
+          },
+          {
+            "position": {
+              "column": 5,
+              "row": 3
+            },
+            "name": "HIGH_3"
+          }
+        ]
+      },
+      {
+        "name": "setCollections",
+        "collections": [
+          {
+            "name": "0.010",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  "named_winterberries-2": {
+    "actions": [
+      {
+        "name": "stopReels",
+        "board": [
+          [
+            "HIGH_2",
+            "HIGH_3",
+            "LOW_2"
+          ],
+          [
+            "LOW_3",
+            "LOW_4",
+            "LOW_1"
+          ],
+          [
+            "HIGH_3",
+            "LOW_3",
+            "LOW_3"
+          ],
+          [
+            "LOW_2",
+            "LOW_4",
+            "HIGH_4"
+          ],
+          [
+            "HIGH_4",
+            "HIGH_1",
+            "HIGH_2"
+          ],
+          [
+            "LOW_4",
+            "HIGH_4",
+            "HIGH_1"
+          ]
+        ]
+      },
+      {
+        "name": "setReelsMultiplier",
+        "reelsMultipliers": [
+          {
+            "reel": 0,
+            "multiplier": 1
+          },
+          {
+            "reel": 1,
+            "multiplier": 2
+          },
+          {
+            "reel": 2,
+            "multiplier": 4
+          },
+          {
+            "reel": 3,
+            "multiplier": 8
+          },
+          {
+            "reel": 4,
+            "multiplier": 16
+          },
+          {
+            "reel": 5,
+            "multiplier": 32
+          }
+        ]
+      }
+    ]
+  },
+  "named_timber-trail-treasures": {
+    "actions": [
+      {
+        "name": "spinReels",
+        "syncedReels": [
+          0,
+          1
+        ]
+      },
+      {
+        "name": "stopReels",
+        "symbols": [
+          {
+            "position": {
+              "column": 0,
+              "row": 0
+            },
+            "name": "LOW_4"
+          },
+          {
+            "position": {
+              "column": 0,
+              "row": 1
+            },
+            "name": "HIGH_3"
+          },
+          {
+            "position": {
+              "column": 0,
+              "row": 2
+            },
+            "name": "LOW_4"
+          },
+          {
+            "position": {
+              "column": 0,
+              "row": 3
+            },
+            "name": "LOW_2"
+          },
+          {
+            "position": {
+              "column": 1,
+              "row": 0
+            },
+            "name": "LOW_4"
+          },
+          {
+            "position": {
+              "column": 1,
+              "row": 1
+            },
+            "name": "HIGH_3"
+          },
+          {
+            "position": {
+              "column": 1,
+              "row": 2
+            },
+            "name": "LOW_4"
+          },
+          {
+            "position": {
+              "column": 1,
+              "row": 3
+            },
+            "name": "LOW_2"
+          },
+          {
+            "position": {
+              "column": 2,
+              "row": 0
+            },
+            "name": "HIGH_2"
+          },
+          {
+            "position": {
+              "column": 2,
+              "row": 1
+            },
+            "name": "LOW_2"
+          },
+          {
+            "position": {
+              "column": 2,
+              "row": 2
+            },
+            "name": "LOW_1"
+          },
+          {
+            "position": {
+              "column": 2,
+              "row": 3
+            },
+            "name": "LOW_3"
+          },
+          {
+            "position": {
+              "column": 3,
+              "row": 0
+            },
+            "name": "LOW_5"
+          },
+          {
+            "position": {
+              "column": 3,
+              "row": 1
+            },
+            "name": "LOW_5"
+          },
+          {
+            "position": {
+              "column": 3,
+              "row": 2
+            },
+            "name": "LOW_4"
+          },
+          {
+            "position": {
+              "column": 3,
+              "row": 3
+            },
+            "name": "HIGH_1"
+          },
+          {
+            "position": {
+              "column": 4,
+              "row": 0
+            },
+            "name": "LOW_4"
+          },
+          {
+            "position": {
+              "column": 4,
+              "row": 1
+            },
+            "name": "LOW_1"
+          },
+          {
+            "position": {
+              "column": 4,
+              "row": 2
+            },
+            "name": "LOW_1"
+          },
+          {
+            "position": {
+              "column": 4,
+              "row": 3
+            },
+            "name": "HIGH_4"
+          },
+          {
+            "position": {
+              "column": 5,
+              "row": 0
+            },
+            "name": "HIGH_1"
+          },
+          {
+            "position": {
+              "column": 5,
+              "row": 1
+            },
+            "name": "LOW_2"
+          },
+          {
+            "position": {
+              "column": 5,
+              "row": 2
+            },
+            "name": "HIGH_4"
+          },
+          {
+            "position": {
+              "column": 5,
+              "row": 3
+            },
+            "name": "LOW_2"
+          }
+        ]
+      },
+      {
+        "name": "showInfo",
+        "key": "louder",
+        "value": "1"
+      },
+      {
+        "name": "setCounters",
+        "counters": [
+          {
+            "name": "globalMultiplier",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "name": "showWinResults",
+        "type": "regular",
+        "wins": [
+          {
+            "value": {
+              "cash": 0.04,
+              "coins": 4
+            },
+            "multiplier": 2,
+            "initialValue": {
+              "cash": 0.02,
+              "coins": 2
+            },
+            "positions": [
+              {
+                "column": 0,
+                "row": 3
+              },
+              {
+                "column": 1,
+                "row": 3
+              },
+              {
+                "column": 2,
+                "row": 1
+              }
+            ],
+            "symbol": "LOW_2",
+            "oak": 3,
+            "direction": "LEFT_TO_RIGHT",
+            "ways": 1
+          }
+        ]
+      },
+      {
+        "name": "setWinCounters",
+        "counters": [
+          {
+            "name": "currentWin",
+            "value": {
+              "cash": 0.04,
+              "coins": 4
+            },
+            "multiplier": 2
+          },
+          {
+            "name": "spinWin",
+            "value": {
+              "cash": 0.04,
+              "coins": 4
+            },
+            "multiplier": 2
+          },
+          {
+            "name": "totalWin",
+            "value": {
+              "cash": 0.04,
+              "coins": 4
+            }
+          }
+        ]
+      },
+      {
+        "name": "setCounters",
+        "counters": [
+          {
+            "name": "globalMultiplier",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  "classic_arthurs-fortune": {
+    "accC": 0,
+    "accWa": "0.00",
+    "finalBoard": [
+      [
+        "WILD",
+        "LOW_5",
+        "LOW_4"
+      ],
+      [
+        "LOW_3",
+        "LOW_1",
+        "LOW_5"
+      ],
+      [
+        "HIGH_3",
+        "LOW_4",
+        "HIGH_5"
+      ],
+      [
+        "HIGH_2",
+        "LOW_2",
+        "LOW_3"
+      ],
+      [
+        "LOW_2",
+        "LOW_4",
+        "HIGH_2"
+      ]
+    ],
+    "reelSet": "Base_1",
+    "reels": [
+      [
+        "WILD",
+        "LOW_5",
+        "LOW_4"
+      ],
+      [
+        "LOW_3",
+        "LOW_1",
+        "LOW_5"
+      ],
+      [
+        "HIGH_3",
+        "LOW_4",
+        "HIGH_5"
+      ],
+      [
+        "HIGH_2",
+        "LOW_2",
+        "LOW_3"
+      ],
+      [
+        "LOW_2",
+        "LOW_4",
+        "HIGH_2"
+      ]
+    ],
+    "rpos": [
+      40,
+      124,
+      72,
+      87,
+      29
+    ],
+    "scatterReplacingIcon": "LOW_5",
+    "wonCoins": 0,
+    "wonMoney": "0.00",
+    "wtw": []
+  },
+  "classic_winter-berries": {
+    "accC": 0,
+    "accWa": "0.00",
+    "finalBoard": [
+      [
+        "SYM9",
+        "SYM9",
+        "SYM5"
+      ],
+      [
+        "SYM9",
+        "SYM6",
+        "SYM6"
+      ],
+      [
+        "SYM7",
+        "SYM7",
+        "SYM8"
+      ],
+      [
+        "SYM9",
+        "SYM9",
+        "SYM9"
+      ],
+      [
+        "SYM8",
+        "SYM8",
+        "SYM8"
+      ]
+    ],
+    "multiplierValue": 1,
+    "reelSet": "Reels",
+    "reels": [
+      [
+        "SYM9",
+        "SYM9",
+        "SYM5"
+      ],
+      [
+        "SYM9",
+        "SYM6",
+        "SYM6"
+      ],
+      [
+        "SYM7",
+        "SYM7",
+        "SYM8"
+      ],
+      [
+        "SYM9",
+        "SYM9",
+        "SYM9"
+      ],
+      [
+        "SYM8",
+        "SYM8",
+        "SYM8"
+      ]
+    ],
+    "rpos": [
+      10,
+      21,
+      26,
+      31,
+      39
+    ],
+    "wonCoins": 0,
+    "wonMoney": "0.00",
+    "wtw": []
+  },
+  "classic_football-glory": {
+    "accC": 0,
+    "accWa": "0.00",
+    "finalBoard": [
+      [
+        "LOW_2",
+        "LOW_2",
+        "HIGH_4",
+        "HIGH_4"
+      ],
+      [
+        "LOW_1",
+        "LOW_1",
+        "LOW_1",
+        "HIGH_4"
+      ],
+      [
+        "LOW_2",
+        "LOW_2",
+        "HIGH_2",
+        "HIGH_2"
+      ],
+      [
+        "HIGH_3",
+        "LOW_2",
+        "LOW_2",
+        "HIGH_2"
+      ],
+      [
+        "LOW_3",
+        "LOW_3",
+        "HIGH_4",
+        "HIGH_4"
+      ]
+    ],
+    "gloryAfterSpin": {
+      "HIGH_2": {
+        "amount": 0,
+        "gathered": 0,
+        "coinsSum": "0.00"
+      },
+      "HIGH_4": {
+        "amount": 0,
+        "gathered": 0,
+        "coinsSum": "0.00"
+      },
+      "HIGH_3": {
+        "amount": 0,
+        "gathered": 0,
+        "coinsSum": "0.00"
+      },
+      "HIGH_1": {
+        "amount": 0,
+        "gathered": 0,
+        "coinsSum": "0.00"
+      }
+    },
+    "gloryBeforeSpin": {
+      "HIGH_2": {
+        "amount": 0,
+        "gathered": 0,
+        "coinsSum": "0.00"
+      },
+      "HIGH_4": {
+        "amount": 0,
+        "gathered": 0,
+        "coinsSum": "0.00"
+      },
+      "HIGH_3": {
+        "amount": 0,
+        "gathered": 0,
+        "coinsSum": "0.00"
+      },
+      "HIGH_1": {
+        "amount": 0,
+        "gathered": 0,
+        "coinsSum": "0.00"
+      }
+    },
+    "reelSet": "BaseGameReels",
+    "reels": [
+      [
+        "LOW_2",
+        "LOW_2",
+        "HIGH_4",
+        "HIGH_4"
+      ],
+      [
+        "LOW_1",
+        "LOW_1",
+        "LOW_1",
+        "HIGH_4"
+      ],
+      [
+        "LOW_2",
+        "LOW_2",
+        "HIGH_2",
+        "HIGH_2"
+      ],
+      [
+        "HIGH_3",
+        "LOW_2",
+        "LOW_2",
+        "HIGH_2"
+      ],
+      [
+        "LOW_3",
+        "LOW_3",
+        "HIGH_4",
+        "HIGH_4"
+      ]
+    ],
+    "rpos": [
+      25,
+      17,
+      65,
+      250,
+      89
+    ],
+    "wonCoins": 0,
+    "wonMoney": "0.00",
+    "wtw": []
+  },
+  "classic_dr_fortuno": {
+    "accC": 0,
+    "accWa": "0.00",
+    "baseWonCoins": 0,
+    "finalBoard": [
+      [
+        "Low3",
+        "Low2",
+        "Low3"
+      ],
+      [
+        "Low4",
+        "High2",
+        "High2"
+      ],
+      [
+        "Low2",
+        "Low1",
+        "Low2"
+      ],
+      [
+        "Low1",
+        "Low4",
+        "Low1"
+      ],
+      [
+        "Low1",
+        "Low4",
+        "Low1"
+      ]
+    ],
+    "jackpotInfo": {
+      "secondsToGuaranteedFallout": 0,
+      "jackpotValue": "668.10",
+      "clockIsTicking": false,
+      "operatorHasDailyJackpot": true
+    },
+    "reelSet": "BaseReels1",
+    "reels": [
+      [
+        "Low3",
+        "Low2",
+        "Low3"
+      ],
+      [
+        "Low4",
+        "High2",
+        "High2"
+      ],
+      [
+        "Low2",
+        "Low1",
+        "Low2"
+      ],
+      [
+        "Low1",
+        "Low4",
+        "Low1"
+      ],
+      [
+        "Low1",
+        "Low4",
+        "Low1"
+      ]
+    ],
+    "reelsPositionsAfterNudge": [
+      132,
+      35,
+      95,
+      108,
+      108
+    ],
+    "rpos": [
+      132,
+      35,
+      95,
+      108,
+      108
+    ],
+    "wonCoins": 0,
+    "wonMoney": "0.00",
+    "wtw": []
+  },
+  "classic_rainbow-ryan": {
+    "accC": 0,
+    "accWa": "0.00",
+    "reelSet": "BaseReelsLeft",
+    "reels": [
+      [
+        "Low1",
+        "Low3",
+        "Low3",
+        "High3"
+      ],
+      [
+        "Low2",
+        "Low2",
+        "High4",
+        "High4"
+      ],
+      [
+        "Low3",
+        "Low3",
+        "High3",
+        "High3"
+      ],
+      [
+        "Low3",
+        "High4",
+        "High4",
+        "Low4"
+      ],
+      [
+        "High3",
+        "Low3",
+        "High1",
+        "High1"
+      ],
+      [
+        "Low2",
+        "Low2",
+        "High2",
+        "High2"
+      ]
+    ],
+    "rpos": [
+      147,
+      94,
+      121,
+      34,
+      219,
+      218
+    ],
+    "syncReelsCount": 1,
+    "usedReels": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "wonAmount": "0.00",
+    "wonCoins": 0,
+    "wts": [
+      "0000000000",
+      "000000000000000000000000"
+    ],
+    "wtw": []
+  },
+  "classic_joker-millions": {
+    "accC": 0,
+    "accWa": "0.00",
+    "coinsAccd": 0,
+    "currentSticky": 0,
+    "finalBoard": [
+      [
+        "SYM8",
+        "SYM8",
+        "SYM5"
+      ],
+      [
+        "SYM5",
+        "SYM5",
+        "SYM7"
+      ],
+      [
+        "SYM6",
+        "SYM6",
+        "SYM3"
+      ],
+      [
+        "SYM4",
+        "SYM0",
+        "SYM5"
+      ],
+      [
+        "SYM8",
+        "SYM8",
+        "SYM8"
+      ]
+    ],
+    "grandTotal": 0,
+    "jpPlayerValue": "206594.08",
+    "reelSet": "Reels",
+    "reels": [
+      [
+        "SYM8",
+        "SYM8",
+        "SYM5"
+      ],
+      [
+        "SYM5",
+        "SYM5",
+        "SYM7"
+      ],
+      [
+        "SYM6",
+        "SYM6",
+        "SYM3"
+      ],
+      [
+        "SYM4",
+        "SYM0",
+        "SYM5"
+      ],
+      [
+        "SYM8",
+        "SYM8",
+        "SYM8"
+      ]
+    ],
+    "rpos": [
+      41,
+      34,
+      54,
+      1,
+      22
+    ],
+    "wonCoins": 0,
+    "wonMoney": "0.00",
+    "wtw": []
+  },
+  "classic_lightning-joker": {
+    "accC": 0,
+    "accWa": "0.00",
+    "baseGameCoins": 0,
+    "finalBoard": [
+      [
+        "LOW_2",
+        "SCATTER",
+        "LOW_4"
+      ],
+      [
+        "HIGH_2",
+        "HIGH_1",
+        "HIGH_1"
+      ],
+      [
+        "HIGH_1",
+        "HIGH_2",
+        "LOW_4"
+      ]
+    ],
+    "notStackedIndex": 0,
+    "reelSet": "BaseReels",
+    "reels": [
+      [
+        "LOW_2",
+        "SCATTER",
+        "LOW_4"
+      ],
+      [
+        "HIGH_2",
+        "HIGH_1",
+        "HIGH_1"
+      ],
+      [
+        "HIGH_1",
+        "HIGH_2",
+        "LOW_4"
+      ]
+    ],
+    "rpos": [
+      224,
+      284,
+      536
+    ],
+    "wonCoins": 0,
+    "wonMoney": "0.00",
+    "wtw": []
+  },
+  "classic_vikings-go-berzerk": {
+    "accC": 0,
+    "accWa": "0.00",
+    "experienceAfterSpin": {
+      "High2": {
+        "amount": 0,
+        "gathered": 0,
+        "coinsSum": "0.00"
+      },
+      "High4": {
+        "amount": 364,
+        "gathered": 0,
+        "coinsSum": "0.00"
+      },
+      "High3": {
+        "amount": 0,
+        "gathered": 0,
+        "coinsSum": "0.00"
+      },
+      "High1": {
+        "amount": 0,
+        "gathered": 0,
+        "coinsSum": "0.00"
+      }
+    },
+    "experienceBeforeSpin": {
+      "High2": {
+        "amount": 0,
+        "gathered": 0,
+        "coinsSum": "0.00"
+      },
+      "High4": {
+        "amount": 364,
+        "gathered": 0,
+        "coinsSum": "0.00"
+      },
+      "High3": {
+        "amount": 0,
+        "gathered": 0,
+        "coinsSum": "0.00"
+      },
+      "High1": {
+        "amount": 0,
+        "gathered": 0,
+        "coinsSum": "0.00"
+      }
+    },
+    "finalBoard": [
+      [
+        "Low1",
+        "Freespin",
+        "Low2",
+        "Low2"
+      ],
+      [
+        "High3",
+        "Low4",
+        "Low4",
+        "Low4"
+      ],
+      [
+        "Low3",
+        "Low3",
+        "Low3",
+        "Freespin"
+      ],
+      [
+        "Low2",
+        "Low2",
+        "High1",
+        "Wild"
+      ],
+      [
+        "Low4",
+        "Low4",
+        "High1",
+        "High1"
+      ]
+    ],
+    "reelSet": "Reels",
+    "reels": [
+      [
+        "Low1",
+        "Freespin",
+        "Low2",
+        "Low2"
+      ],
+      [
+        "High3",
+        "Low4",
+        "Low4",
+        "Low4"
+      ],
+      [
+        "Low3",
+        "Low3",
+        "Low3",
+        "Freespin"
+      ],
+      [
+        "Low2",
+        "Low2",
+        "High1",
+        "Wild"
+      ],
+      [
+        "Low4",
+        "Low4",
+        "High1",
+        "High1"
+      ]
+    ],
+    "rpos": [
+      32,
+      3,
+      21,
+      283,
+      710
+    ],
+    "wonCoins": 0,
+    "wonMoney": "0.00",
+    "wtw": []
+  },
+  "flat_multiplier_multifly": {
+    "accC": 0,
+    "accWa": "0.00",
+    "accumulatedFreeSpinCoins": 0,
+    "finalBoard": [
+      [
+        "LOW_5",
+        "HIGH_2",
+        "HIGH_3"
+      ],
+      [
+        "LOW_4",
+        "LOW_2",
+        "LOW_6"
+      ],
+      [
+        "LOW_1",
+        "HIGH_1",
+        "LOW_6"
+      ],
+      [
+        "HIGH_3",
+        "LOW_3",
+        "HIGH_3"
+      ],
+      [
+        "LOW_6",
+        "HIGH_2",
+        "HIGH_3"
+      ]
+    ],
+    "finalMultiplier": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "initialMultiplier": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "isFreeSpinsAwarded": false,
+    "isRespin": false,
+    "isRespinAwarded": false,
+    "middleMultiplier": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "reels": [
+      [
+        "LOW_5",
+        "HIGH_2",
+        "HIGH_3"
+      ],
+      [
+        "LOW_4",
+        "LOW_2",
+        "LOW_6"
+      ],
+      [
+        "LOW_1",
+        "HIGH_1",
+        "LOW_6"
+      ],
+      [
+        "HIGH_3",
+        "LOW_3",
+        "HIGH_3"
+      ],
+      [
+        "LOW_6",
+        "HIGH_2",
+        "HIGH_3"
+      ]
+    ],
+    "wildsFromReels": [],
+    "wonCoins": 0,
+    "wonMoney": "0.00",
+    "wtw": []
+  },
+  "flat_multiplier_firekick-multimax": {
+    "win": {
+      "prizes": [],
+      "wonCoins": 0,
+      "wonCash": "0.00",
+      "accumulatedWonCoins": 0,
+      "accumulatedWonCash": "0.00",
+      "accumulatedRoundWonCoins": 0,
+      "accumulatedRoundWonCash": "0.00"
+    },
+    "reels": [
+      [
+        "LOW_2",
+        "LOW_6",
+        "LOW_6"
+      ],
+      [
+        "SCATTER",
+        "LOW_5",
+        "HIGH_3"
+      ],
+      [
+        "LOW_6",
+        "LOW_5",
+        "LOW_4"
+      ],
+      [
+        "LOW_5",
+        "HIGH_2",
+        "LOW_1"
+      ],
+      [
+        "HIGH_3",
+        "LOW_5",
+        "HIGH_1"
+      ]
+    ],
+    "finalBoard": [
+      [
+        "LOW_2",
+        "LOW_6",
+        "LOW_6"
+      ],
+      [
+        "SCATTER",
+        "LOW_5",
+        "HIGH_3"
+      ],
+      [
+        "LOW_6",
+        "LOW_5",
+        "LOW_4"
+      ],
+      [
+        "LOW_5",
+        "HIGH_2",
+        "LOW_1"
+      ],
+      [
+        "HIGH_3",
+        "LOW_5",
+        "HIGH_1"
+      ]
+    ],
+    "gameMode": "BASE_GAME",
+    "isRespin": false,
+    "isLastRespin": true,
+    "isFreeSpinsAwarded": false,
+    "isRespinAwarded": false,
+    "reSpins": false,
+    "wildsFromReels": [],
+    "wonMoney": "0.00",
+    "wonCoins": 0,
+    "freeSpinsAwarded": 0,
+    "freeSpins": 0,
+    "accumulatedFreeSpinCoins": 0,
+    "accumulatedFreeSpinWonAmount": "0.00",
+    "initialMultiplier": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "middleMultiplier": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "finalMultiplier": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "spinPrizeOaks": [],
+    "coinWinAdjustedToMaxWinCap": 0,
+    "capLimitReached": false,
+    "accC": 0,
+    "accWa": "0.00",
+    "wtw": [],
+    "gambleProbability": 0
+  },
+  "flat_multiplier_brazil-bomba": {
+    "accC": 0,
+    "accWa": "0.00",
+    "coinsBeforeMultiplier": 0,
+    "finalBoard": [
+      [
+        "HIGH_4",
+        "HIGH_4",
+        "HIGH_4",
+        "HIGH_5",
+        "HIGH_5",
+        "LOW_4",
+        "LOW_5",
+        "LOW_5"
+      ],
+      [
+        "LOW_6",
+        "HIGH_3",
+        "HIGH_3",
+        "LOW_4",
+        "LOW_4",
+        "HIGH_3",
+        "LOW_1",
+        "LOW_1"
+      ],
+      [
+        "HIGH_5",
+        "LOW_2",
+        "LOW_2",
+        "HIGH_5",
+        "HIGH_5",
+        "LOW_3",
+        "LOW_3",
+        "LOW_3"
+      ],
+      [
+        "HIGH_4",
+        "HIGH_4",
+        "HIGH_5",
+        "LOW_3",
+        "LOW_3",
+        "HIGH_2",
+        "LOW_1",
+        "LOW_1"
+      ],
+      [
+        "HIGH_2",
+        "LOW_1",
+        "LOW_1",
+        "LOW_1",
+        "HIGH_3",
+        "HIGH_3",
+        "LOW_2",
+        "LOW_2"
+      ],
+      [
+        "HIGH_4",
+        "HIGH_4",
+        "HIGH_5",
+        "LOW_6",
+        "LOW_6",
+        "HIGH_1",
+        "SCATTER",
+        "LOW_3"
+      ]
+    ],
+    "multiplier": 1,
+    "reels": [
+      [
+        "HIGH_4",
+        "HIGH_4",
+        "HIGH_4",
+        "HIGH_5",
+        "HIGH_5",
+        "LOW_4",
+        "LOW_5",
+        "LOW_5"
+      ],
+      [
+        "LOW_6",
+        "HIGH_3",
+        "HIGH_3",
+        "LOW_4",
+        "LOW_4",
+        "HIGH_3",
+        "LOW_1",
+        "LOW_1"
+      ],
+      [
+        "HIGH_5",
+        "LOW_2",
+        "LOW_2",
+        "HIGH_5",
+        "HIGH_5",
+        "LOW_3",
+        "LOW_3",
+        "LOW_3"
+      ],
+      [
+        "HIGH_4",
+        "HIGH_4",
+        "HIGH_5",
+        "LOW_3",
+        "LOW_3",
+        "HIGH_2",
+        "LOW_1",
+        "LOW_1"
+      ],
+      [
+        "HIGH_2",
+        "LOW_1",
+        "LOW_1",
+        "LOW_1",
+        "HIGH_3",
+        "HIGH_3",
+        "LOW_2",
+        "LOW_2"
+      ],
+      [
+        "HIGH_4",
+        "HIGH_4",
+        "HIGH_5",
+        "LOW_6",
+        "LOW_6",
+        "HIGH_1",
+        "SCATTER",
+        "LOW_3"
+      ]
+    ],
+    "wonCoins": 0,
+    "wonMoney": "0.00",
+    "wtw": []
+  },
+  "classic_scatter_extra_money": {
+    "accC": 0,
+    "accWa": "0.00",
+    "featuresUsed": [
+      "noFeature"
+    ],
+    "finalBoard": [
+      [
+        "Mid1",
+        "High3",
+        "Mid2"
+      ],
+      [
+        "Low4",
+        "Mid3",
+        "Low3"
+      ],
+      [
+        "Mid2",
+        "Low4",
+        "Mid1"
+      ],
+      [
+        "Low2",
+        "Low4",
+        "High2"
+      ],
+      [
+        "Mid2",
+        "Low1",
+        "Low4"
+      ]
+    ],
+    "reelSet": "BaseReel",
+    "reels": [
+      [
+        "Mid1",
+        "High3",
+        "Mid2"
+      ],
+      [
+        "Low4",
+        "Mid3",
+        "Low3"
+      ],
+      [
+        "Mid2",
+        "Low4",
+        "Mid1"
+      ],
+      [
+        "Low2",
+        "Low4",
+        "High2"
+      ],
+      [
+        "Mid2",
+        "Low1",
+        "Low4"
+      ]
+    ],
+    "rpos": [
+      37,
+      54,
+      23,
+      15,
+      32
+    ],
+    "scatterWonExtraCoins": 0,
+    "scatterWonExtraMoney": "0.00",
+    "wonCoins": 0,
+    "wonMoney": "0.00",
+    "wtw": []
+  },
+  "presentation_pushy-cats": {
+    "win": {
+      "prizes": [],
+      "wonCoins": 0,
+      "wonCash": "0.00",
+      "accumulatedWonCoins": 0,
+      "accumulatedWonCash": "0.00",
+      "accumulatedRoundWonCoins": 0,
+      "accumulatedRoundWonCash": "0.00"
+    },
+    "initialBoard": [
+      [
+        "HIGH_2",
+        "LOW_4",
+        "LOW_1"
+      ],
+      [
+        "HIGH_2",
+        "LOW_3",
+        "HIGH_3"
+      ],
+      [
+        "HIGH_3",
+        "LOW_3",
+        "HIGH_2"
+      ],
+      [
+        "HIGH_1",
+        "LOW_3",
+        "HIGH_3"
+      ],
+      [
+        "HIGH_3",
+        "LOW_4",
+        "HIGH_3"
+      ]
+    ],
+    "finalBoard": [
+      [
+        "HIGH_2",
+        "LOW_4",
+        "LOW_1"
+      ],
+      [
+        "HIGH_2",
+        "LOW_3",
+        "HIGH_3"
+      ],
+      [
+        "HIGH_3",
+        "LOW_3",
+        "HIGH_2"
+      ],
+      [
+        "HIGH_1",
+        "LOW_3",
+        "HIGH_3"
+      ],
+      [
+        "HIGH_3",
+        "LOW_4",
+        "HIGH_3"
+      ]
+    ],
+    "wildsPositions": [],
+    "playerStateBefore": {
+      "bonusProgress": {}
+    },
+    "playerStateAfter": {
+      "bonusProgress": {}
+    }
+  },
+  "presentation_vikings-go-berzerk-reloaded": {
+    "win": {
+      "prizes": [],
+      "wonCoins": 0,
+      "wonCash": "0.00",
+      "accumulatedWonCoins": 0,
+      "accumulatedWonCash": "0.00",
+      "accumulatedRoundWonCoins": 0,
+      "accumulatedRoundWonCash": "0.00"
+    },
+    "initialBoard": [
+      [
+        "LOW_2",
+        "LOW_2",
+        "LOW_2",
+        "LOW_2"
+      ],
+      [
+        "HIGH_4",
+        "HIGH_4",
+        "LOW_3",
+        "LOW_3"
+      ],
+      [
+        "HIGH_4",
+        "HIGH_4",
+        "HIGH_1",
+        "HIGH_1"
+      ],
+      [
+        "LOW_3",
+        "LOW_3",
+        "HIGH_2",
+        "HIGH_2"
+      ],
+      [
+        "LOW_1",
+        "SCATTER",
+        "HIGH_1",
+        "HIGH_1"
+      ]
+    ],
+    "finalBoard": [
+      [
+        "LOW_2",
+        "LOW_2",
+        "LOW_2",
+        "LOW_2"
+      ],
+      [
+        "HIGH_4",
+        "HIGH_4",
+        "LOW_3",
+        "LOW_3"
+      ],
+      [
+        "HIGH_4",
+        "HIGH_4",
+        "HIGH_1",
+        "HIGH_1"
+      ],
+      [
+        "LOW_3",
+        "LOW_3",
+        "HIGH_2",
+        "HIGH_2"
+      ],
+      [
+        "LOW_1",
+        "SCATTER",
+        "HIGH_1",
+        "HIGH_1"
+      ]
+    ],
+    "ragnarokFeatureFrontEndData": {
+      "teaserTriggered": false,
+      "featureTriggered": false
+    }
+  },
+  "presentation_suncatcher-gigablox": {
+    "win": {
+      "prizes": [],
+      "wonCoins": 0,
+      "wonCash": "0.00",
+      "accumulatedWonCoins": 0,
+      "accumulatedWonCash": "0.00",
+      "accumulatedRoundWonCoins": 0,
+      "accumulatedRoundWonCash": "0.00"
+    },
+    "initialBoard": [
+      [
+        "LOW_1",
+        "LOW_3",
+        "LOW_3"
+      ],
+      [
+        "LOW_1",
+        "LOW_3",
+        "LOW_3"
+      ],
+      [
+        "LOW_2",
+        "LOW_2",
+        "LOW_2"
+      ],
+      [
+        "LOW_2",
+        "LOW_2",
+        "LOW_2"
+      ],
+      [
+        "LOW_3",
+        "LOW_3",
+        "LOW_3"
+      ]
+    ],
+    "finalBoard": [
+      [
+        "LOW_1",
+        "LOW_3",
+        "LOW_3"
+      ],
+      [
+        "LOW_1",
+        "LOW_3",
+        "LOW_3"
+      ],
+      [
+        "LOW_2",
+        "LOW_2",
+        "LOW_2"
+      ],
+      [
+        "LOW_2",
+        "LOW_2",
+        "LOW_2"
+      ],
+      [
+        "LOW_3",
+        "LOW_3",
+        "LOW_3"
+      ]
+    ],
+    "gigablox": [
+      {
+        "columns": [
+          0,
+          1
+        ],
+        "details": {
+          "reelSetName": "basereels2_0",
+          "reelIndexFromReelSet": 0,
+          "reelStopPosition": 281
+        },
+        "blockStartRowIndex": -1
+      },
+      {
+        "columns": [
+          2,
+          3
+        ],
+        "details": {
+          "reelSetName": "basereels2_0",
+          "reelIndexFromReelSet": 2,
+          "reelStopPosition": 27
+        },
+        "blockStartRowIndex": 0
+      },
+      {
+        "columns": [
+          4
+        ],
+        "details": {
+          "reelSetName": "basereels1_0",
+          "reelIndexFromReelSet": 4,
+          "reelStopPosition": 155
+        },
+        "blockStartRowIndex": 0
+      }
+    ],
+    "wildsToExpand": [],
+    "goldenBet": false,
+    "extraCoinWin": 0
+  },
+  "presentation_raptor-2": {
+    "actions": [
+      {
+        "$type": "ActionGame_PresentModeStart",
+        "animationIdentifier": "Default",
+        "modeName": "BaseGame",
+        "actionSource": {
+          "$type": "ActionSource_Empty"
+        }
+      },
+      {
+        "$type": "ActionGame_SetCounterBoard",
+        "animationIdentifier": "Default",
+        "name": "Doublemax",
+        "value": 1,
+        "actionSource": {
+          "$type": "ActionSource_Empty"
+        }
+      },
+      {
+        "$type": "ActionGame_NewSpin",
+        "board": {
+          "cells": [
+            {
+              "position": {
+                "x": 0,
+                "y": 0
+              },
+              "counters": [],
+              "symbol": {
+                "symbolCode": "Lo4",
+                "counters": []
+              }
+            },
+            {
+              "position": {
+                "x": 0,
+                "y": 1
+              },
+              "counters": [],
+              "symbol": {
+                "symbolCode": "FS",
+                "counters": []
+              }
+            },
+            {
+              "position": {
+                "x": 0,
+                "y": 2
+              },
+              "counters": [],
+              "symbol": {
+                "symbolCode": "Hi1",
+                "counters": []
+              }
+            },
+            {
+              "position": {
+                "x": 1,
+                "y": 0
+              },
+              "counters": [],
+              "symbol": {
+                "symbolCode": "Hi3",
+                "counters": []
+              }
+            },
+            {
+              "position": {
+                "x": 1,
+                "y": 1
+              },
+              "counters": [],
+              "symbol": {
+                "symbolCode": "Hi4",
+                "counters": []
+              }
+            },
+            {
+              "position": {
+                "x": 1,
+                "y": 2
+              },
+              "counters": [],
+              "symbol": {
+                "symbolCode": "Lo3",
+                "counters": []
+              }
+            },
+            {
+              "position": {
+                "x": 2,
+                "y": 0
+              },
+              "counters": [],
+              "symbol": {
+                "symbolCode": "Hi1",
+                "counters": []
+              }
+            },
+            {
+              "position": {
+                "x": 2,
+                "y": 1
+              },
+              "counters": [],
+              "symbol": {
+                "symbolCode": "Hi3",
+                "counters": []
+              }
+            },
+            {
+              "position": {
+                "x": 2,
+                "y": 2
+              },
+              "counters": [],
+              "symbol": {
+                "symbolCode": "Lo3",
+                "counters": []
+              }
+            },
+            {
+              "position": {
+                "x": 3,
+                "y": 0
+              },
+              "counters": [],
+              "symbol": {
+                "symbolCode": "Hi3",
+                "counters": []
+              }
+            },
+            {
+              "position": {
+                "x": 3,
+                "y": 1
+              },
+              "counters": [],
+              "symbol": {
+                "symbolCode": "Lo4",
+                "counters": []
+              }
+            },
+            {
+              "position": {
+                "x": 3,
+                "y": 2
+              },
+              "counters": [],
+              "symbol": {
+                "symbolCode": "Lo4",
+                "counters": []
+              }
+            },
+            {
+              "position": {
+                "x": 4,
+                "y": 0
+              },
+              "counters": [],
+              "symbol": {
+                "symbolCode": "Lo1",
+                "counters": []
+              }
+            },
+            {
+              "position": {
+                "x": 4,
+                "y": 1
+              },
+              "counters": [],
+              "symbol": {
+                "symbolCode": "Hi3",
+                "counters": []
+              }
+            },
+            {
+              "position": {
+                "x": 4,
+                "y": 2
+              },
+              "counters": [],
+              "symbol": {
+                "symbolCode": "Hi1",
+                "counters": []
+              }
+            }
+          ],
+          "counters": []
+        },
+        "animationIdentifier": "Default",
+        "actionSource": {
+          "$type": "ActionSource_Empty"
+        }
+      },
+      {
+        "$type": "ActionGame_PresentModeWin",
+        "animationIdentifier": "Default",
+        "modeWin": {
+          "currency": "EUR",
+          "amount": 0.0,
+          "amountNormalizedToBet": 0
+        },
+        "accumulatedRoundWin": {
+          "currency": "EUR",
+          "amount": 0.0,
+          "amountNormalizedToBet": 0
+        },
+        "actionSource": {
+          "$type": "ActionSource_Empty"
+        }
+      }
+    ],
+    "isFinished": true
+  },
+  "neutral_royal-family": {
+    "accC": 0,
+    "accWa": "0.00",
+    "coinsBeforeMultiplier": 0,
+    "collectionAfter": {
+      "Reel0": [
+        "",
+        ""
+      ],
+      "Reel1": [
+        "",
+        ""
+      ],
+      "Reel2": [
+        "",
+        ""
+      ],
+      "Reel3": [
+        "",
+        ""
+      ],
+      "Reel4": [
+        "",
+        ""
+      ]
+    },
+    "collectionBefore": {
+      "Reel0": [
+        "",
+        ""
+      ],
+      "Reel1": [
+        "",
+        ""
+      ],
+      "Reel2": [
+        "",
+        ""
+      ],
+      "Reel3": [
+        "",
+        ""
+      ],
+      "Reel4": [
+        "",
+        ""
+      ]
+    },
+    "newCollectionItemsRow": [],
+    "newItems": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "reelSet": "BaseReels",
+    "reels": [
+      [
+        "High2",
+        "High2",
+        "High2",
+        "Low4"
+      ],
+      [
+        "High4",
+        "High4",
+        "High3",
+        "High3"
+      ],
+      [
+        "Low2",
+        "Low3",
+        "Low3",
+        "Low3"
+      ],
+      [
+        "High1",
+        "High1",
+        "High4",
+        "High4"
+      ],
+      [
+        "High4",
+        "High4",
+        "High1",
+        "High1"
+      ]
+    ],
+    "rpos": [
+      7,
+      2,
+      42,
+      0,
+      148
+    ],
+    "wonCoins": 0,
+    "wts": [
+      "00000000000000000000000000",
+      "00000000000000000000"
+    ],
+    "wtw": []
+  },
+  "neutral_pumpkin-smash": {
+    "accC": 0,
+    "accWa": "0.00",
+    "multipliers": {
+      "Low4": 1,
+      "High4": 1,
+      "High3": 1,
+      "High2": 1,
+      "High1": 1,
+      "Low1": 1,
+      "Low2": 1,
+      "Low3": 1
+    },
+    "pumpkinsAmount": 0,
+    "reelSet": "Reels",
+    "reels": [
+      [
+        "Low1",
+        "High4",
+        "Low2"
+      ],
+      [
+        "Low2",
+        "Low3",
+        "High3"
+      ],
+      [
+        "Low4",
+        "Low2",
+        "Bonus"
+      ],
+      [
+        "Low2",
+        "Low3",
+        "Low4"
+      ],
+      [
+        "High3",
+        "Low4",
+        "High2"
+      ]
+    ],
+    "rpos": [
+      24,
+      16,
+      92,
+      64,
+      80
+    ],
+    "wonAmount": "0.00",
+    "wonCoins": 0,
+    "wts": [
+      "000000000000000000000",
+      "000000000000000"
+    ],
+    "wtw": []
+  },
+  "neutral_sunny-shores": {
+    "accC": 0,
+    "accWa": "0.00",
+    "reelSet": "ReelsSetA",
+    "reels": [
+      [
+        "High2",
+        "Low3",
+        "Low3",
+        "Low3",
+        "High2"
+      ],
+      [
+        "High3",
+        "High3",
+        "High3",
+        "High3",
+        "High1"
+      ],
+      [
+        "High1",
+        "High1",
+        "High3",
+        "High3",
+        "High3"
+      ],
+      [
+        "High2",
+        "Low1",
+        "Low1",
+        "Low1",
+        "High2"
+      ],
+      [
+        "High1",
+        "High1",
+        "High1",
+        "Low1",
+        "Low1"
+      ]
+    ],
+    "rpos": [
+      205,
+      156,
+      5,
+      119,
+      86
+    ],
+    "stickyA": "0000000000000000000000000",
+    "stickyB": "0000000000000000000000000",
+    "stickyN": "0000000000000000000000000",
+    "wonAmount": "0.00",
+    "wonCoins": 0,
+    "wts": [
+      "0000000000000000000000000000",
+      "0000000000000000000000000"
+    ],
+    "wtw": []
+  },
+  "neutral_valley-of-the-gods-2": {
+    "accC": 0,
+    "accWa": "0.00",
+    "blockers": {
+      "initialBlockers": [
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 2
+        },
+        {
+          "x": 1,
+          "y": 0
+        },
+        {
+          "x": 1,
+          "y": 3
+        },
+        {
+          "x": 2,
+          "y": 0
+        },
+        {
+          "x": 2,
+          "y": 4
+        },
+        {
+          "x": 4,
+          "y": 6
+        },
+        {
+          "x": 4,
+          "y": 0
+        },
+        {
+          "x": 5,
+          "y": 2
+        },
+        {
+          "x": 5,
+          "y": 5
+        },
+        {
+          "x": 3,
+          "y": 0
+        },
+        {
+          "x": 3,
+          "y": 5
+        },
+        {
+          "x": 5,
+          "y": 1
+        },
+        {
+          "x": 5,
+          "y": 6
+        },
+        {
+          "x": 5,
+          "y": 0
+        },
+        {
+          "x": 5,
+          "y": 7
+        }
+      ],
+      "removals": []
+    },
+    "connectBonus": [
+      {
+        "x": 2,
+        "y": 1,
+        "newSymbol": "LOW_3"
+      }
+    ],
+    "finalBoard": [
+      [
+        "BLOCKER",
+        "LOW_2",
+        "BLOCKER",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "BLOCKER",
+        "HIGH_4",
+        "LOW_3",
+        "BLOCKER",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "BLOCKER",
+        "LOW_3",
+        "HIGH_1",
+        "LOW_2",
+        "BLOCKER",
+        "",
+        "",
+        ""
+      ],
+      [
+        "BLOCKER",
+        "LOW_3",
+        "HIGH_3",
+        "LOW_2",
+        "HIGH_2",
+        "BLOCKER",
+        "",
+        ""
+      ],
+      [
+        "BLOCKER",
+        "HIGH_3",
+        "LOW_2",
+        "HIGH_4",
+        "LOW_4",
+        "HIGH_2",
+        "BLOCKER",
+        ""
+      ],
+      [
+        "BLOCKER",
+        "BLOCKER",
+        "BLOCKER",
+        "LOW_5",
+        "LOW_3",
+        "BLOCKER",
+        "BLOCKER",
+        "BLOCKER"
+      ]
+    ],
+    "reelSet": "BaseReels",
+    "reels": [
+      [
+        "LOW_1",
+        "LOW_2",
+        "LOW_6",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "LOW_1",
+        "HIGH_4",
+        "LOW_3",
+        "LOW_2",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "LOW_3",
+        "HIGH_4",
+        "HIGH_1",
+        "LOW_2",
+        "LOW_1",
+        "",
+        "",
+        ""
+      ],
+      [
+        "LOW_4",
+        "LOW_3",
+        "HIGH_3",
+        "LOW_2",
+        "HIGH_2",
+        "LOW_6",
+        "",
+        ""
+      ],
+      [
+        "LOW_6",
+        "HIGH_3",
+        "LOW_2",
+        "HIGH_4",
+        "LOW_4",
+        "HIGH_2",
+        "LOW_3",
+        ""
+      ],
+      [
+        "LOW_1",
+        "HIGH_1",
+        "HIGH_4",
+        "LOW_5",
+        "LOW_3",
+        "LOW_4",
+        "LOW_1",
+        "HIGH_1"
+      ]
+    ],
+    "rpos": [
+      76,
+      82,
+      54,
+      134,
+      9,
+      129
+    ],
+    "tokens": [],
+    "wonCoins": 0,
+    "wonMoney": "0.00",
+    "wtw": []
+  },
+  "neutral_temple-stacks": {
+    "accC": 0,
+    "accWa": "0.00",
+    "bonusMoneyWon": "0.00",
+    "finalBoard": [
+      [
+        "LOW_1",
+        "LOW_4",
+        "LOW_2"
+      ],
+      [
+        "LOW_4",
+        "HIGH_1",
+        "LOW_1"
+      ],
+      [
+        "HIGH_2",
+        "LOW_2",
+        "LOW_5"
+      ],
+      [
+        "LOW_5",
+        "LOW_3",
+        "LOW_4"
+      ],
+      [
+        "LOW_4",
+        "LOW_1",
+        "HIGH_2"
+      ]
+    ],
+    "reelSet": "BaseGameReels",
+    "reels": [
+      [
+        "LOW_1",
+        "LOW_4",
+        "LOW_2"
+      ],
+      [
+        "LOW_4",
+        "HIGH_1",
+        "LOW_1"
+      ],
+      [
+        "HIGH_2",
+        "LOW_2",
+        "LOW_5"
+      ],
+      [
+        "LOW_5",
+        "LOW_3",
+        "LOW_4"
+      ],
+      [
+        "LOW_4",
+        "LOW_1",
+        "HIGH_2"
+      ]
+    ],
+    "reelsPermutation": [
+      2,
+      0,
+      1,
+      3,
+      4
+    ],
+    "rpos": [
+      37,
+      87,
+      77,
+      42,
+      44
+    ],
+    "splitzContainers": [],
+    "totalWaysAmount": 243,
+    "wonCoins": 0,
+    "wonMoney": "0.00",
+    "wtw": []
+  },
+  "neutral_yokozuna-clash": {
+    "accC": 0,
+    "accWa": "0.00",
+    "finalBoard": [
+      [
+        "LOW_1",
+        "LOW_1",
+        "LOW_1"
+      ],
+      [
+        "LOW_3",
+        "LOW_3",
+        "LOW_4"
+      ],
+      [
+        "HIGH_1",
+        "HIGH_1",
+        "LOW_4"
+      ],
+      [
+        "HIGH_2",
+        "LOW_1",
+        "HIGH_2"
+      ],
+      [
+        "LOW_2",
+        "LOW_3",
+        "LOW_3"
+      ]
+    ],
+    "reelSet": "BaseReels2",
+    "reels": [
+      [
+        "LOW_1",
+        "LOW_1",
+        "LOW_1"
+      ],
+      [
+        "LOW_3",
+        "LOW_3",
+        "LOW_4"
+      ],
+      [
+        "HIGH_1",
+        "HIGH_1",
+        "LOW_4"
+      ],
+      [
+        "HIGH_2",
+        "LOW_1",
+        "HIGH_2"
+      ],
+      [
+        "LOW_2",
+        "LOW_3",
+        "LOW_3"
+      ]
+    ],
+    "rpos": [
+      114,
+      84,
+      89,
+      80,
+      82
+    ],
+    "spinData": {
+      "featuresOutputs": {}
+    },
+    "wonCoins": 0,
+    "wonMoney": "0.00",
+    "wtw": []
+  },
+  "neutral_scara-bucks": {
+    "Code": 2001,
+    "Completed": true,
+    "Bet": {
+      "Lines": 20,
+      "FeeMultiplier": 1.0,
+      "Amount": 1.0,
+      "GameMode": 0,
+      "Scale": 1.0,
+      "TotalBet": 20.0
+    },
+    "Round": {
+      "Info": {
+        "RID": 1,
+        "SRC": 1,
+        "IDX": 0,
+        "GameMode": 0,
+        "RoundType": 0,
+        "Count": 0,
+        "Passed": 1,
+        "Bet": 20
+      },
+      "VISData": {
+        "Grids": [
+          [
+            [
+              3,
+              4,
+              6,
+              8,
+              1,
+              1,
+              3
+            ],
+            [
+              4,
+              6,
+              5,
+              8,
+              8,
+              3,
+              1
+            ],
+            [
+              2,
+              8,
+              8,
+              3,
+              4,
+              6,
+              6
+            ],
+            [
+              6,
+              6,
+              5,
+              4,
+              3,
+              1,
+              3
+            ],
+            [
+              5,
+              5,
+              7,
+              8,
+              7,
+              6,
+              8
+            ],
+            [
+              6,
+              4,
+              7,
+              5,
+              8,
+              1,
+              6
+            ],
+            [
+              4,
+              1,
+              3,
+              6,
+              6,
+              3,
+              8
+            ]
+          ]
+        ],
+        "Prizes": [],
+        "Events": [
+          {
+            "Type": 10,
+            "SymbolKit": 0,
+            "Grids": [
+              0
+            ]
+          },
+          {
+            "Type": 50,
+            "SwappedSymbols": [
+              [
+                3,
+                0,
+                0
+              ],
+              [
+                3,
+                0,
+                6
+              ],
+              [
+                3,
+                2,
+                3
+              ],
+              [
+                3,
+                3,
+                4
+              ],
+              [
+                3,
+                6,
+                5
+              ]
+            ]
+          },
+          {
+            "Type": 201,
+            "Symbol": 6
+          },
+          {
+            "Type": 20,
+            "Rules": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ]
+          }
+        ],
+        "FEV": {
+          "50": [
+            1
+          ],
+          "201": [
+            2
+          ]
+        }
+      }
+    }
+  },
+  "neutral_pirates-smugglers-paradise": {
+    "accC": 0,
+    "accWa": "0.00",
+    "currentMode": "SPIN",
+    "reelSet": "ReelsB",
+    "reels": [
+      [
+        "Low3",
+        "Mid2",
+        "Mid2",
+        "Mid2",
+        "Low2"
+      ],
+      [
+        "Low4",
+        "Low4",
+        "Mid4",
+        "Mid4",
+        "Mid4"
+      ],
+      [
+        "Low2",
+        "Low2",
+        "Low2",
+        "Mid1",
+        "Mid1"
+      ],
+      [
+        "Low4",
+        "Low4",
+        "Low4",
+        "High3",
+        "High3"
+      ],
+      [
+        "Low2",
+        "Low2",
+        "Mid2",
+        "Mid2",
+        "Mid2"
+      ]
+    ],
+    "rpos": [
+      145,
+      38,
+      43,
+      94,
+      32
+    ],
+    "scattersInfo": {
+      "totalNumberOfScatters": 0,
+      "positionsOfNewScatters": []
+    },
+    "sticky": "0000000000000000000000000",
+    "wonCoins": 0,
+    "wts": [],
+    "wtw": []
+  },
+  "closed_flags_calavera-crush": {
+    "GoldenBet": false,
+    "BuyBonus": false,
+    "debug": "BG - INITIAL",
+    "reelId": "BaseReel",
+    "initialBoard": [
+      [
+        "LOW_6",
+        "LOW_6",
+        "LOW_5",
+        "LOW_5",
+        "LOW_2"
+      ],
+      [
+        "HIGH_4",
+        "HIGH_4",
+        "LOW_5",
+        "LOW_5",
+        "HIGH_2"
+      ],
+      [
+        "LOW_3",
+        "LOW_3",
+        "LOW_4",
+        "LOW_4",
+        "HIGH_3"
+      ],
+      [
+        "LOW_3",
+        "LOW_3",
+        "LOW_2",
+        "LOW_2",
+        "HIGH_2"
+      ],
+      [
+        "HIGH_3",
+        "HIGH_3",
+        "HIGH_1",
+        "HIGH_1",
+        "LOW_3"
+      ],
+      [
+        "LOW_3",
+        "LOW_3",
+        "LOW_4",
+        "LOW_4",
+        "LOW_2"
+      ]
+    ],
+    "finalBoard": [
+      [
+        "LOW_6",
+        "LOW_6",
+        "LOW_5",
+        "LOW_5",
+        "LOW_2"
+      ],
+      [
+        "HIGH_4",
+        "HIGH_4",
+        "LOW_5",
+        "LOW_5",
+        "HIGH_2"
+      ],
+      [
+        "LOW_3",
+        "LOW_3",
+        "LOW_4",
+        "LOW_4",
+        "HIGH_3"
+      ],
+      [
+        "LOW_3",
+        "LOW_3",
+        "LOW_2",
+        "LOW_2",
+        "HIGH_2"
+      ],
+      [
+        "HIGH_3",
+        "HIGH_3",
+        "HIGH_1",
+        "HIGH_1",
+        "LOW_3"
+      ],
+      [
+        "LOW_3",
+        "LOW_3",
+        "LOW_4",
+        "LOW_4",
+        "LOW_2"
+      ]
+    ],
+    "win": {
+      "wonCash": "0",
+      "wonCoins": 0.0,
+      "accumulatedWonCash": "0",
+      "accumulatedWonCoins": 0.0,
+      "accumulatedRoundWonCash": "0",
+      "accumulatedRoundWonCoins": 0.0,
+      "accumulatedAvalancheWonCash": "0",
+      "accumulatedAvalancheWonCoins": 0.0,
+      "prizes": []
+    }
+  },
+  "closed_flags_florageddon": {
+    "leftMultiplier": 1,
+    "rightMultiplier": 1,
+    "isGoldenBetActive": false,
+    "isBuyBonusActive": false,
+    "isSuperBuyBonusActive": false,
+    "gambleAwarded": false,
+    "freeSpinsAwarded": 0,
+    "isWinCapped": false,
+    "nextLeftIncrement": 1,
+    "nextRightIncrement": 1,
+    "version": "1.0.3",
+    "name": "Florageddon",
+    "stake": 0.2,
+    "totalStake": 0.2,
+    "currentWinnings": 0,
+    "totalWinnings": 0,
+    "baseGameWinnings": 0,
+    "currentAction": "Spin",
+    "nextActions": [
+      "Spin"
+    ],
+    "finished": true,
+    "reelId": "BaseGame",
+    "initialGrid": [
+      [
+        8,
+        12,
+        3
+      ],
+      [
+        11,
+        2,
+        2
+      ],
+      [
+        12,
+        11,
+        8
+      ],
+      [
+        7,
+        9,
+        6
+      ],
+      [
+        8,
+        5,
+        9
+      ]
+    ],
+    "finalGrid": [
+      [
+        8,
+        12,
+        3
+      ],
+      [
+        11,
+        2,
+        2
+      ],
+      [
+        12,
+        11,
+        8
+      ],
+      [
+        7,
+        9,
+        6
+      ],
+      [
+        8,
+        5,
+        9
+      ]
+    ],
+    "wins": []
+  },
+  "machine_neutral_age-asgard": {
+    "accC": 0,
+    "accWa": "0.00",
+    "allEvilNudgesBaseGame": [],
+    "allGoodNudgesBaseGame": [],
+    "clashedColumns": [],
+    "evilNudgesBaseGame": [],
+    "featuresUsed": [],
+    "finalBoard": [
+      [
+        "GOOD_LOW1",
+        "GOOD_HIGH2",
+        "GOOD_HIGH2",
+        "EVIL_HIGH3",
+        "EVIL_HIGH3",
+        "EVIL_HIGH2"
+      ],
+      [
+        "GOOD_LOW3",
+        "GOOD_LOW3",
+        "GOOD_LOW3",
+        "EVIL_LOW1",
+        "EVIL_LOW2",
+        "EVIL_LOW1"
+      ],
+      [
+        "GOOD_LOW1",
+        "GOOD_LOW1",
+        "GOOD_LOW3",
+        "EVIL_HIGH3",
+        "EVIL_LOW4",
+        "EVIL_LOW4"
+      ],
+      [
+        "GOOD_LOW3",
+        "GOOD_LOW3",
+        "GOOD_LOW3",
+        "EVIL_LOW2",
+        "EVIL_LOW2",
+        "EVIL_LOW2"
+      ],
+      [
+        "GOOD_HIGH3",
+        "GOOD_HIGH3",
+        "GOOD_HIGH3",
+        "EVIL_LOW4",
+        "EVIL_LOW4",
+        "EVIL_LOW4"
+      ]
+    ],
+    "goodNudgesBaseGame": [],
+    "naturallyNudgedColumnsFromEvilMachine": [],
+    "naturallyNudgedColumnsFromGoodMachine": [],
+    "newEvilWildColumnsBaseGame": [],
+    "newGoodWildColumnsBaseGame": [],
+    "noNewReSpinsBaseGame": true,
+    "notNudgedColumnsFromEvilMachine": [],
+    "notNudgedColumnsFromGoodMachine": [],
+    "reelSet": "M1,M3,M3,M3,M1,M2,M4,M4,M4,M2",
+    "reels": [
+      [
+        "GOOD_LOW1",
+        "GOOD_HIGH2",
+        "GOOD_HIGH2",
+        "EVIL_HIGH3",
+        "EVIL_HIGH3",
+        "EVIL_HIGH2"
+      ],
+      [
+        "GOOD_LOW3",
+        "GOOD_LOW3",
+        "GOOD_LOW3",
+        "EVIL_LOW1",
+        "EVIL_LOW2",
+        "EVIL_LOW1"
+      ],
+      [
+        "GOOD_LOW1",
+        "GOOD_LOW1",
+        "GOOD_LOW3",
+        "EVIL_HIGH3",
+        "EVIL_LOW4",
+        "EVIL_LOW4"
+      ],
+      [
+        "GOOD_LOW3",
+        "GOOD_LOW3",
+        "GOOD_LOW3",
+        "EVIL_LOW2",
+        "EVIL_LOW2",
+        "EVIL_LOW2"
+      ],
+      [
+        "GOOD_HIGH3",
+        "GOOD_HIGH3",
+        "GOOD_HIGH3",
+        "EVIL_LOW4",
+        "EVIL_LOW4",
+        "EVIL_LOW4"
+      ]
+    ],
+    "rpos": [
+      1214,
+      123,
+      639,
+      1053,
+      364,
+      1249,
+      705,
+      423,
+      199,
+      1492
+    ],
+    "spinName": "ageOfAsgardBaseGameSpin",
+    "wonCoins": 0,
+    "wonMoney": "0.00",
+    "wtw": []
+  },
+  "machine_neutral_valley-of-the-gods": {
+    "accC": 0,
+    "accWa": "0.00",
+    "block": "1101110001000001000111011",
+    "coinsBeforeMultiplier": 0,
+    "extraLife": 0,
+    "extraLifeCollection": 0,
+    "multiplier": 1,
+    "multiplierCollection": 0,
+    "reelSet": "R2,R2,R2,R3,R6",
+    "reels": [
+      [
+        "Low1",
+        "High2",
+        "High2",
+        "Low5",
+        "Low5"
+      ],
+      [
+        "Low2",
+        "High4",
+        "Low2",
+        "Low1",
+        "High4"
+      ],
+      [
+        "Low1",
+        "Low2",
+        "Low1",
+        "Low2",
+        "Low1"
+      ],
+      [
+        "Low2",
+        "Low5",
+        "Low2",
+        "Low2",
+        "High3"
+      ],
+      [
+        "Low4",
+        "Low5",
+        "Low5",
+        "Low5",
+        "Low6"
+      ]
+    ],
+    "rpos": [
+      18,
+      116,
+      56,
+      15,
+      6
+    ],
+    "scarabsToBlocks": [],
+    "scarabsToExtraLife": [],
+    "scarabsToMultiplier": [],
+    "waysToWin": 45,
+    "wonAmount": "0.00",
+    "wonCoins": 0,
+    "wts": [
+      "0000000000",
+      "0000000000000000000000000"
+    ],
+    "wtw": []
+  },
+  "gati_gigagong-gigablox": {
+    "ResultId": "fixture-result",
+    "ResultTime": "2026-10-13T00:00:00Z",
+    "Mode": "BASIC",
+    "Spin": [
+      {
+        "spinEvent": {
+          "lines": 10,
+          "spinsRemainingTotal": 0,
+          "spinsRemainingPlayerView": 0,
+          "cashWinSoFar": 0,
+          "totalWinnings": 0,
+          "reelSetName": null,
+          "resultsPanel": {
+            "reels": 6,
+            "reelList": [
+              {
+                "symbols": [
+                  {
+                    "value": 5
+                  },
+                  {
+                    "value": 5
+                  },
+                  {
+                    "value": 3
+                  },
+                  {
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "symbols": [
+                  {
+                    "value": 6
+                  },
+                  {
+                    "value": 0
+                  },
+                  {
+                    "value": 0
+                  },
+                  {
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "symbols": [
+                  {
+                    "value": 6
+                  },
+                  {
+                    "value": 0
+                  },
+                  {
+                    "value": 4
+                  },
+                  {
+                    "value": 5
+                  }
+                ]
+              },
+              {
+                "symbols": [
+                  {
+                    "value": 5
+                  },
+                  {
+                    "value": 5
+                  },
+                  {
+                    "value": 2
+                  },
+                  {
+                    "value": 2
+                  }
+                ]
+              },
+              {
+                "symbols": [
+                  {
+                    "value": 5
+                  },
+                  {
+                    "value": 5
+                  },
+                  {
+                    "value": 2
+                  },
+                  {
+                    "value": 2
+                  }
+                ]
+              },
+              {
+                "symbols": [
+                  {
+                    "value": 2
+                  },
+                  {
+                    "value": 6
+                  },
+                  {
+                    "value": 6
+                  },
+                  {
+                    "value": 5
+                  }
+                ]
+              }
+            ],
+            "symbolsAbove": [
+              {
+                "symbols": [
+                  {
+                    "value": 1
+                  },
+                  {
+                    "value": 7
+                  },
+                  {
+                    "value": 6
+                  },
+                  {
+                    "value": 6
+                  }
+                ]
+              },
+              {
+                "symbols": [
+                  {
+                    "value": 1
+                  },
+                  {
+                    "value": 5
+                  },
+                  {
+                    "value": 2
+                  },
+                  {
+                    "value": 3
+                  }
+                ]
+              },
+              {
+                "symbols": [
+                  {
+                    "value": 5
+                  },
+                  {
+                    "value": 7
+                  },
+                  {
+                    "value": 3
+                  },
+                  {
+                    "value": 7
+                  }
+                ]
+              },
+              {
+                "symbols": [
+                  {
+                    "value": 8
+                  },
+                  {
+                    "value": 8
+                  },
+                  {
+                    "value": 4
+                  },
+                  {
+                    "value": 4
+                  }
+                ]
+              },
+              {
+                "symbols": [
+                  {
+                    "value": 8
+                  },
+                  {
+                    "value": 8
+                  },
+                  {
+                    "value": 4
+                  },
+                  {
+                    "value": 4
+                  }
+                ]
+              },
+              {
+                "symbols": [
+                  {
+                    "value": 4
+                  },
+                  {
+                    "value": 4
+                  },
+                  {
+                    "value": 8
+                  },
+                  {
+                    "value": 8
+                  }
+                ]
+              }
+            ],
+            "symbolsBelow": [
+              {
+                "symbols": [
+                  {
+                    "value": 4
+                  },
+                  {
+                    "value": 8
+                  },
+                  {
+                    "value": 8
+                  },
+                  {
+                    "value": 2
+                  }
+                ]
+              },
+              {
+                "symbols": [
+                  {
+                    "value": 7
+                  },
+                  {
+                    "value": 7
+                  },
+                  {
+                    "value": 7
+                  },
+                  {
+                    "value": 6
+                  }
+                ]
+              },
+              {
+                "symbols": [
+                  {
+                    "value": 2
+                  },
+                  {
+                    "value": 2
+                  },
+                  {
+                    "value": 2
+                  },
+                  {
+                    "value": 6
+                  }
+                ]
+              },
+              {
+                "symbols": [
+                  {
+                    "value": 3
+                  },
+                  {
+                    "value": 3
+                  },
+                  {
+                    "value": 5
+                  },
+                  {
+                    "value": 5
+                  }
+                ]
+              },
+              {
+                "symbols": [
+                  {
+                    "value": 3
+                  },
+                  {
+                    "value": 3
+                  },
+                  {
+                    "value": 5
+                  },
+                  {
+                    "value": 5
+                  }
+                ]
+              },
+              {
+                "symbols": [
+                  {
+                    "value": 3
+                  },
+                  {
+                    "value": 7
+                  },
+                  {
+                    "value": 1
+                  },
+                  {
+                    "value": 2
+                  }
+                ]
+              }
+            ]
+          },
+          "blockSizes": [
+            1,
+            1,
+            1,
+            2,
+            1
+          ],
+          "addedWilds": [],
+          "scatterCount": 0,
+          "additionalSpinsAwarded": 0,
+          "initialGongMultiplier": 3,
+          "gongReelMultipliers": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "finalGongMultiplier": 3
+        },
+        "winningLinesEvent": {
+          "totalLineWinnings": 0,
+          "totalLineWinningsNonMultiplied": 0,
+          "winningLines": []
+        }
+      }
+    ]
+  },
+  "gati_giganimals-gigablox": {
+    "ResultId": "fixture-result",
+    "ResultTime": "2026-10-13T00:00:00Z",
+    "Mode": "BASIC",
+    "Spin": [
+      {
+        "spinEvent": {
+          "initialCollectionMeters": [
+            336,
+            96,
+            48,
+            240
+          ],
+          "initialCollectionMetersActive": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "lines": 5,
+          "spinsRemainingTotal": 0,
+          "spinsRemainingPlayerView": 0,
+          "cashWinSoFar": 20,
+          "totalWinnings": 20,
+          "reelSetName": null,
+          "resultsPanel": {
+            "reels": 6,
+            "reelList": [
+              {
+                "symbols": [
+                  {
+                    "value": 4
+                  },
+                  {
+                    "value": 4
+                  },
+                  {
+                    "value": 2
+                  },
+                  {
+                    "value": 2
+                  }
+                ]
+              },
+              {
+                "symbols": [
+                  {
+                    "value": 4
+                  },
+                  {
+                    "value": 4
+                  },
+                  {
+                    "value": 2
+                  },
+                  {
+                    "value": 2
+                  }
+                ]
+              },
+              {
+                "symbols": [
+                  {
+                    "value": 5
+                  },
+                  {
+                    "value": 3
+                  },
+                  {
+                    "value": 3
+                  },
+                  {
+                    "value": 2
+                  }
+                ]
+              },
+              {
+                "symbols": [
+                  {
+                    "value": 1
+                  },
+                  {
+                    "value": 1
+                  },
+                  {
+                    "value": 5
+                  },
+                  {
+                    "value": 2
+                  }
+                ]
+              },
+              {
+                "symbols": [
+                  {
+                    "value": 5
+                  },
+                  {
+                    "value": 5
+                  },
+                  {
+                    "value": 2
+                  },
+                  {
+                    "value": 3
+                  }
+                ]
+              },
+              {
+                "symbols": [
+                  {
+                    "value": 4
+                  },
+                  {
+                    "value": 1
+                  },
+                  {
+                    "value": 1
+                  },
+                  {
+                    "value": 5
+                  }
+                ]
+              }
+            ],
+            "symbolsAbove": [
+              {
+                "symbols": [
+                  {
+                    "value": 3
+                  },
+                  {
+                    "value": 3
+                  },
+                  {
+                    "value": 8
+                  },
+                  {
+                    "value": 8
+                  }
+                ]
+              },
+              {
+                "symbols": [
+                  {
+                    "value": 3
+                  },
+                  {
+                    "value": 3
+                  },
+                  {
+                    "value": 8
+                  },
+                  {
+                    "value": 8
+                  }
+                ]
+              },
+              {
+                "symbols": [
+                  {
+                    "value": 1
+                  },
+                  {
+                    "value": 1
+                  },
+                  {
+                    "value": 7
+                  },
+                  {
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "symbols": [
+                  {
+                    "value": 2
+                  },
+                  {
+                    "value": 3
+                  },
+                  {
+                    "value": 7
+                  },
+                  {
+                    "value": 7
+                  }
+                ]
+              },
+              {
+                "symbols": [
+                  {
+                    "value": 7
+                  },
+                  {
+                    "value": 1
+                  },
+                  {
+                    "value": 1
+                  },
+                  {
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "symbols": [
+                  {
+                    "value": 2
+                  },
+                  {
+                    "value": 8
+                  },
+                  {
+                    "value": 8
+                  },
+                  {
+                    "value": 7
+                  }
+                ]
+              }
+            ],
+            "symbolsBelow": [
+              {
+                "symbols": [
+                  {
+                    "value": 6
+                  },
+                  {
+                    "value": 6
+                  },
+                  {
+                    "value": 4
+                  },
+                  {
+                    "value": 4
+                  }
+                ]
+              },
+              {
+                "symbols": [
+                  {
+                    "value": 6
+                  },
+                  {
+                    "value": 6
+                  },
+                  {
+                    "value": 4
+                  },
+                  {
+                    "value": 4
+                  }
+                ]
+              },
+              {
+                "symbols": [
+                  {
+                    "value": 6
+                  },
+                  {
+                    "value": 8
+                  },
+                  {
+                    "value": 4
+                  },
+                  {
+                    "value": 4
+                  }
+                ]
+              },
+              {
+                "symbols": [
+                  {
+                    "value": 6
+                  },
+                  {
+                    "value": 8
+                  },
+                  {
+                    "value": 4
+                  },
+                  {
+                    "value": 4
+                  }
+                ]
+              },
+              {
+                "symbols": [
+                  {
+                    "value": 4
+                  },
+                  {
+                    "value": 6
+                  },
+                  {
+                    "value": 6
+                  },
+                  {
+                    "value": 8
+                  }
+                ]
+              },
+              {
+                "symbols": [
+                  {
+                    "value": 3
+                  },
+                  {
+                    "value": 6
+                  },
+                  {
+                    "value": 6
+                  },
+                  {
+                    "value": 6
+                  }
+                ]
+              }
+            ]
+          },
+          "blockSizes": [
+            2,
+            1,
+            1,
+            1,
+            1
+          ],
+          "addedWilds": [],
+          "scatterCount": 0,
+          "collectionMultiplier": 1,
+          "additionalSpinsAwarded": 0,
+          "finalCollectionMeters": [
+            336,
+            96,
+            53,
+            240
+          ],
+          "finalCollectionMetersActive": [
+            false,
+            false,
+            false,
+            false
+          ]
+        },
+        "winningLinesEvent": {
+          "totalLineWinnings": 20,
+          "totalLineWinningsNonMultiplied": 20,
+          "winningLines": [
+            {
+              "winAmount": 8,
+              "multiplier": 1,
+              "occurrences": 4,
+              "winningLine": 1,
+              "positions": [
+                {
+                  "reel": 0,
+                  "row": 3
+                },
+                {
+                  "reel": 1,
+                  "row": 3
+                },
+                {
+                  "reel": 2,
+                  "row": 3
+                },
+                {
+                  "reel": 3,
+                  "row": 3
+                }
+              ],
+              "symbol": {
+                "value": 2,
+                "ids": [
+                  4,
+                  4,
+                  4,
+                  4
+                ]
+              }
+            },
+            {
+              "winAmount": 4,
+              "multiplier": 1,
+              "occurrences": 3,
+              "winningLine": 6,
+              "positions": [
+                {
+                  "reel": 0,
+                  "row": 3
+                },
+                {
+                  "reel": 1,
+                  "row": 2
+                },
+                {
+                  "reel": 2,
+                  "row": 3
+                }
+              ],
+              "symbol": {
+                "value": 2,
+                "ids": [
+                  4,
+                  4,
+                  4
+                ]
+              }
+            },
+            {
+              "winAmount": 4,
+              "multiplier": 1,
+              "occurrences": 3,
+              "winningLine": 28,
+              "positions": [
+                {
+                  "reel": 0,
+                  "row": 3
+                },
+                {
+                  "reel": 1,
+                  "row": 2
+                },
+                {
+                  "reel": 2,
+                  "row": 3
+                }
+              ],
+              "symbol": {
+                "value": 2,
+                "ids": [
+                  4,
+                  4,
+                  4
+                ]
+              }
+            },
+            {
+              "winAmount": 4,
+              "multiplier": 1,
+              "occurrences": 3,
+              "winningLine": 29,
+              "positions": [
+                {
+                  "reel": 0,
+                  "row": 3
+                },
+                {
+                  "reel": 1,
+                  "row": 3
+                },
+                {
+                  "reel": 2,
+                  "row": 3
+                }
+              ],
+              "symbol": {
+                "value": 2,
+                "ids": [
+                  4,
+                  4,
+                  4
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Gamble": {
+      "Options": {
+        "collect": {},
+        "riskList": []
+      }
+    },
+    "FinalGameState": {
+      "inProgress": false,
+      "winAmount": 5,
+      "collectionCash": [
+        0,
+        0,
+        100,
+        0
+      ],
+      "collectionCount": [
+        0,
+        0,
+        5,
+        0
+      ],
+      "collectionMeters": [
+        336,
+        96,
+        53,
+        240
+      ],
+      "collectionMetersActive": [
+        false,
+        false,
+        false,
+        false
+      ]
+    }
+  }
+}

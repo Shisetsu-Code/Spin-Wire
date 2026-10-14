@@ -110,3 +110,104 @@ def test_foreign_launcher_cannot_link_gameid(tmp_path):
     p.http=HTTP()
     p.prepare_test_artifacts(g,timeout_s=1,stop_event=threading.Event(),progress=lambda _:None)
     assert not g.symbol
+
+
+def test_normal_spin_without_cmd_and_collect_without_coin_are_not_lost():
+    from tester_spin.providers.yggdrasil.protocol import play_records, discovered_modes
+    spin = har_entry()
+    spin['request']['postData']['text'] = 'gameid=10964&amount=2&coin=0.1'
+    spin['response']['content']['text'] = json.dumps({'code': 0, 'data': {'wager': {
+        'status': 'Pending', 'bets': [{'step': 1, 'betdata': {'cmds': ['C']},
+                                    'eventdata': {'nextCmds': 'C'}}]}}})
+    collect = har_entry()
+    collect['request']['postData']['text'] = 'gameid=10964&cmd=C&amount=0&step=2&betid=1'
+    collect['response']['content']['text'] = json.dumps({'code': 0, 'data': {'wager': {
+        'status': 'Finished', 'bets': [{'step': 2, 'status': 'RESULTED', 'betdata': {'cmd': 'C'}, 'eventdata': None}]}}})
+    records = play_records({'log': {'entries': [spin, collect]}})
+    assert len(records) == 2
+    assert records[0]['cmd'] == ''
+    assert records[0]['next_commands'] == ['C']
+    assert not records[0]['terminal_captured']
+    assert records[1]['terminal_captured']
+    modes = discovered_modes(records, '10964')
+    assert [m['id'] for m in modes] == ['SPIN', 'C']
+    assert modes[1]['kind'] == 'CONTINUATION'
+    assert not modes[1]['coverage_required']
+    assert not any(m.get('executable') for m in modes)
+
+
+def test_animation_finished_is_not_a_settled_wager():
+    from tester_spin.providers.yggdrasil.protocol import play_records
+    entry = har_entry()
+    entry['response']['content']['text'] = json.dumps({'code': 0, 'data': {'wager': {
+        'status': 'Pending', 'bets': [{'step': 1, 'betdata': {'cmds': ['C']},
+        'eventdata': {'response': {'clientData': {'isFinished': True}}}}]}}})
+    row = play_records({'log': {'entries': [entry]}})[0]
+    assert row['terminal_captured'] is False
+
+
+def test_http_failure_does_not_confirm_terminal():
+    from tester_spin.providers.yggdrasil.protocol import play_records
+    entry = har_entry()
+    entry['response']['status'] = 500
+    entry['response']['content']['text'] = json.dumps({'code': 0, 'data': {'wager': {'status': 'Finished', 'bets': [{'status': 'RESULTED'}]}}})
+    assert not play_records({'log': {'entries': [entry]}})[0]['terminal_captured']
+
+
+def test_unknown_next_command_blocks_terminal_evidence():
+    from tester_spin.providers.yggdrasil.protocol import play_records
+    entry = har_entry()
+    entry['response']['content']['text'] = json.dumps({'code': 0, 'data': {'wager': {
+        'status': 'Finished', 'bets': [{'status': 'RESULTED', 'eventdata': {'nextCmds': 'UNSUPPORTED COMMAND'}}]}}})
+    assert not play_records({'log': {'entries': [entry]}})[0]['terminal_captured']
+
+
+def test_mode_aggregates_later_terminal_capture():
+    from tester_spin.providers.yggdrasil.protocol import play_records, discovered_modes
+    pending, finished = har_entry(), har_entry()
+    pending['response']['content']['text'] = json.dumps({'code': 0, 'data': {'wager': {
+        'status': 'Pending', 'bets': [{'status': 'RESULTED'}]}}})
+    finished['response']['content']['text'] = json.dumps({'code': 0, 'data': {'wager': {
+        'status': 'Finished', 'bets': [{'status': 'RESULTED'}]}}})
+    rows = play_records({'log': {'entries': [pending, finished]}})
+    assert discovered_modes(rows, '10964')[1]['terminal_captured'] is True
+
+
+def test_numeric_client_launcher_links_official_game_identity(tmp_path):
+    from tester_spin.models import Game
+    p=provider(tmp_path);g=Game('yggdrasil','example','Example','https://yggdrasilgaming.com/games/example/')
+    class Response:
+        text='<embed data-iframe-src="https://staticdemo.yggdrasilgaming.com/10945/index.html?gameid=10945&amp;org=Demo&amp;appsrv=https://demo.yggdrasilgaming.com">'
+        def raise_for_status(self):pass
+    class HTTP:
+        def get(self,*a,**kw):return Response()
+    p.http=HTTP()
+    p.prepare_test_artifacts(g,timeout_s=1,stop_event=threading.Event(),progress=lambda _:None)
+    assert g.symbol=='10945'
+
+
+def test_official_pff_launcher_links_identity_without_authorizing_a_session(tmp_path):
+    from tester_spin.models import Game
+    p=provider(tmp_path);g=Game('yggdrasil','example','Example','https://yggdrasilgaming.com/games/example/')
+    class Response:
+        text='<embed data-iframe-src="https://staticpff.yggdrasilgaming.com/init/launchClient.html?gameid=10304">'
+        def raise_for_status(self):pass
+    class HTTP:
+        def get(self,*a,**kw):return Response()
+    p.http=HTTP()
+    p.prepare_test_artifacts(g,timeout_s=1,stop_event=threading.Event(),progress=lambda _:None)
+    assert g.symbol=='10304'
+    assert p.test_game(g,spins=1,timeout_s=1,stop_event=threading.Event(),progress=lambda _:None).status=='PARCIAL'
+
+
+def test_numeric_launcher_trims_page_whitespace_with_matching_path(tmp_path):
+    from tester_spin.models import Game
+    p=provider(tmp_path);g=Game('yggdrasil','example','Example','https://yggdrasilgaming.com/games/example/')
+    class Response:
+        text='<embed data-iframe-src="https://staticdemo.yggdrasilgaming.com/10945/index.html?gameid=%2010945%20&amp;org=Demo&amp;appsrv=https://demo.yggdrasilgaming.com">'
+        def raise_for_status(self):pass
+    class HTTP:
+        def get(self,*a,**kw):return Response()
+    p.http=HTTP()
+    p.prepare_test_artifacts(g,timeout_s=1,stop_event=threading.Event(),progress=lambda _:None)
+    assert g.symbol=='10945'

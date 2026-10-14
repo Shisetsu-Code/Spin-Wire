@@ -1,0 +1,177 @@
+{
+  "init": {
+    "prg_m": "cp,tp,r,acw",
+    "prg": "0,40,0,0.00",
+    "na": "s",
+    "bonuses": "0",
+    "c": "0.08",
+    "n_reel_set": "0",
+    "l": "25"
+  },
+  "choices": [
+    {
+      "before": {
+        "prg_m": "cp,tp,r,acw",
+        "fs_opt_mask": "fs,m,rs,rsv",
+        "prg": "24,40,0,4.20",
+        "na": "fso",
+        "fs_opt": "20,1,5,2~10,1,5;4,2~5,1,5;4;3,2",
+        "c": "0.08",
+        "n_reel_set": "0",
+        "l": "25"
+      },
+      "request": {
+        "action": "doFSOption",
+        "ind": "0"
+      },
+      "after": {
+        "fsmul": "1",
+        "prg_m": "cp,tp,r,acw",
+        "prg": "24,40,0,4.20",
+        "fsmax": "20",
+        "na": "s",
+        "fs": "1",
+        "n_reel_set": "1"
+      }
+    },
+    {
+      "before": {
+        "prg_m": "cp,tp,r,acw",
+        "fs_opt_mask": "fs,m,rs,rsv",
+        "prg": "28,40,0,4.88",
+        "na": "fso",
+        "fs_opt": "20,1,5,2~10,1,5;4,2~5,1,5;4;3,2",
+        "c": "0.08",
+        "n_reel_set": "0",
+        "l": "25"
+      },
+      "request": {
+        "action": "doFSOption",
+        "ind": "1"
+      },
+      "after": {
+        "fsmul": "1",
+        "prg_m": "cp,tp,r,acw",
+        "prg": "28,40,0,4.88",
+        "fsmax": "10",
+        "na": "s",
+        "fs": "1",
+        "n_reel_set": "2"
+      }
+    },
+    {
+      "before": {
+        "prg_m": "cp,tp,r,acw",
+        "wins": "0,0,0,0,0,0,0,0",
+        "prg": "40,40,0,7.20",
+        "level": "0",
+        "na": "b",
+        "status": "0,0,0,0,0,0,0,0",
+        "rw": "7.20",
+        "lifes": "1",
+        "bw": "1",
+        "wins_mask": "h,h,h,h,h,h,h,h",
+        "end": "0",
+        "c": "0.08",
+        "n_reel_set": "0",
+        "l": "25"
+      },
+      "request": {
+        "action": "doBonus",
+        "ind": "7"
+      },
+      "after": {
+        "wins": "10,20,4,50,100,8,6,2",
+        "level": "1",
+        "na": "cb",
+        "status": "0,0,0,0,0,0,0,1",
+        "rw": "14.40",
+        "lifes": "0",
+        "wins_mask": "m,m,m,m,m,m,m,m",
+        "end": "1"
+      }
+    },
+    {
+      "before": {
+        "prg_m": "cp,tp,r,acw",
+        "fs_opt_mask": "fs,m,rs,rsv",
+        "prg": "31,40,0,8.80",
+        "na": "fso",
+        "fs_opt": "20,1,5,2~10,1,5;4,2~5,1,5;4;3,2",
+        "c": "0.08",
+        "n_reel_set": "0",
+        "l": "25"
+      },
+      "request": {
+        "action": "doFSOption",
+        "ind": "2"
+      },
+      "after": {
+        "fsmul": "1",
+        "prg_m": "cp,tp,r,acw",
+        "prg": "31,40,0,8.80",
+        "fsmax": "5",
+        "na": "s",
+        "fs": "1",
+        "n_reel_set": "3"
+      }
+    },
+    {
+      "before": {
+        "prg_m": "cp,tp,r,acw",
+        "fs_opt_mask": "fs,m,rs,rsv",
+        "prg": "32,40,0,8.96",
+        "na": "fso",
+        "fs_opt": "20,1,5,2~10,1,5;4,2~5,1,5;4;3,2",
+        "c": "0.08",
+        "n_reel_set": "0",
+        "l": "25"
+      },
+      "request": {
+        "action": "doFSOption",
+        "ind": "2"
+      },
+      "after": {
+        "fsmul": "1",
+        "prg_m": "cp,tp,r,acw",
+        "prg": "32,40,0,8.96",
+        "fsmax": "5",
+        "na": "s",
+        "fs": "1",
+        "n_reel_set": "3"
+      }
+    },
+    {
+      "before": {
+        "prg_m": "cp,tp,r,acw",
+        "wins": "0,0,0,0,0,0,0,0",
+        "prg": "40,40,0,11.20",
+        "level": "0",
+        "na": "b",
+        "status": "0,0,0,0,0,0,0,0",
+        "rw": "11.20",
+        "lifes": "1",
+        "bw": "1",
+        "wins_mask": "h,h,h,h,h,h,h,h",
+        "end": "0",
+        "c": "0.08",
+        "n_reel_set": "0",
+        "l": "25"
+      },
+      "request": {
+        "action": "doBonus",
+        "ind": "4"
+      },
+      "after": {
+        "wins": "50,2,6,100,4,20,8,10",
+        "level": "1",
+        "na": "cb",
+        "status": "0,0,0,0,1,0,0,0",
+        "rw": "44.80",
+        "lifes": "0",
+        "wins_mask": "m,m,m,m,m,m,m,m",
+        "end": "1"
+      }
+    }
+  ]
+}

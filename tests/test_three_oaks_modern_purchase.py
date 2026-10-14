@@ -39,6 +39,12 @@ class SelectorPolicyTests(unittest.TestCase):
   for version,expected in [(None,'string'),('2','number')]:
    profile=client_contract(source,data={'context':{'available_buy_bonus':[1,2]},'settings':{'version':version}})
    self.assertEqual(profile['purchase_selector_type'],expected)
+ def test_version_mapping_without_parenthesized_function_is_equivalent(self):
+  source=self.source('r','var r=Y.serverData.get("version")?Number(t):String(t);')+';t.set("version",function(t){var e;return null!==(e=t.settings.version)&&void 0!==e?e:null});'
+  for version,expected in [(None,'string'),('2','number')]:
+   profile=client_contract(source,data={'context':{'available_buy_bonus':[1,2]},'settings':{'version':version}})
+   self.assertEqual(profile['purchase_modes'],[1,2])
+   self.assertEqual(profile['purchase_selector_type'],expected)
  def test_unknown_selector_type_is_visible_but_not_executable(self):
   profile=client_contract(self.source('unknownSelector()'),data={'context':{'available_buy_bonus':[1,2]}})
   self.assertTrue(profile['purchase_ui_observed']);self.assertEqual(profile['purchase_modes'],[])
@@ -90,11 +96,27 @@ class AdapterPurchaseEvidenceTests(unittest.TestCase):
   self.assertEqual(result.status,'PARCIAL');self.assertIn('Cantidad: 1',feature_summary(result.to_dict()))
   self.assertTrue(result.discovered_modes[1]['client_observed'])
   self.assertFalse(any(a and a['name']=='buy_spin' for a in sent))
- def test_extra_server_option_is_neither_counted_nor_executed(self):
+ def test_extra_server_option_is_expected_but_not_executed_without_contract(self):
   from tester_spin.feature_summary import feature_summary
   source=SelectorPolicyTests().source('n[e]','BO(r={},UE,1),BO(r,GE,2),n=r,')
   result,sent=self.run_adapter(source,[1,2,3])
-  self.assertEqual(result.status,'OK',result.error);self.assertIn('Cantidad: 2',feature_summary(result.to_dict()))
+  self.assertEqual(result.status,'PARCIAL',result.error);self.assertIn('Cantidad: 3',feature_summary(result.to_dict()))
   self.assertEqual([a['params']['selected_mode'] for a in sent if a and a['name']=='buy_spin'],[1,2])
   self.assertIs(result.discovered_modes[3]['client_observed'],False)
 if __name__=='__main__':unittest.main()
+
+class ConditionalPurchaseBranchTests(unittest.TestCase):
+ def test_client_predicate_selects_the_active_purchase_field(self):
+  from tester_spin.providers.three_oaks.code_primitives import flow_purchase_inputs,canonical_source
+  source=canonical_source((root/'three_oaks_conditional_buy_input.js').read_text())
+  data={'settings':{'buy_bonus_prices':{'1':100,'2':500}},'context':{'available_buy_bonus':[1,2]}}
+  profile=flow_purchase_inputs(source,data)
+  self.assertIsNotNone(profile)
+  self.assertEqual(profile['purchase_modes'],[1,2])
+  self.assertEqual(profile['purchase_params']['1'],['bet_per_line','lines','bet_factor','selected_mode'])
+  self.assertEqual(profile['purchase_selector_type'],'preserve')
+ def test_unobserved_legacy_branch_is_not_guessed(self):
+  from tester_spin.providers.three_oaks.code_primitives import flow_purchase_inputs,canonical_source
+  source=canonical_source((root/'three_oaks_conditional_buy_input.js').read_text())
+  data={'settings':{'freespins_buying_price_by_buy_spin_type':{'1':100}},'context':{'available_buy_bonus':[1,2]}}
+  self.assertFalse((flow_purchase_inputs(source,data) or {}).get("purchase_modes"))

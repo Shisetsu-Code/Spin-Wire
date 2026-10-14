@@ -1,0 +1,239 @@
+[
+  {
+    "wagerid": "fixture",
+    "status": "Pending",
+    "bets": [
+      {
+        "step": 1,
+        "betamount": "0.10",
+        "betcurrency": "EUR",
+        "wonamount": "0.00",
+        "status": "RESULTED",
+        "betdata": {
+          "lines": "1111111111111111111111111",
+          "coin": "0.004",
+          "nCoins": 25,
+          "cheat": null,
+          "clientData": null,
+          "initialBalance": "1000.00"
+        },
+        "eventdata": {
+          "accC": 15,
+          "accWa": "0.06",
+          "cardsCollection": {
+            "amount": [
+              50,
+              40,
+              20,
+              7,
+              50,
+              40,
+              20,
+              10,
+              10,
+              40,
+              20,
+              10,
+              50,
+              40,
+              20,
+              9,
+              50,
+              40,
+              20,
+              10,
+              30,
+              40,
+              20,
+              10,
+              50,
+              40,
+              20,
+              10,
+              40,
+              40,
+              20,
+              10,
+              50,
+              40,
+              15,
+              10
+            ],
+            "hasSeen": [
+              false,
+              false,
+              false,
+              true,
+              false,
+              false,
+              false,
+              false,
+              true,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              true,
+              false,
+              false,
+              false,
+              false,
+              true,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              true,
+              false,
+              false,
+              false,
+              false,
+              false,
+              true,
+              false
+            ],
+            "averageCoin": [
+              "0.00",
+              "0.00",
+              "0.00",
+              "0.00",
+              "0.00",
+              "0.00",
+              "0.00",
+              "0.00",
+              "0.00",
+              "0.00",
+              "0.00",
+              "0.00",
+              "0.00",
+              "0.00",
+              "0.00",
+              "0.00",
+              "0.00",
+              "0.00",
+              "0.00",
+              "0.00",
+              "0.00",
+              "0.00",
+              "0.00",
+              "0.00",
+              "0.00",
+              "0.00",
+              "0.00",
+              "0.00",
+              "0.00",
+              "0.00",
+              "0.00",
+              "0.00",
+              "0.00",
+              "0.00",
+              "0.00",
+              "0.00"
+            ]
+          },
+          "doubleAmount": "0.06",
+          "doubleCount": 1,
+          "nextCmds": "C",
+          "reelSet": "Reels",
+          "reels": [
+            [
+              "High4",
+              "Low2",
+              "High2"
+            ],
+            [
+              "High2",
+              "Low3",
+              "Freespin"
+            ],
+            [
+              "High2",
+              "Low3",
+              "Low4"
+            ],
+            [
+              "Low4",
+              "Low1",
+              "High4"
+            ],
+            [
+              "Wild",
+              "Low4",
+              "Low2"
+            ]
+          ],
+          "rpos": [
+            26,
+            0,
+            45,
+            26,
+            42
+          ],
+          "wonCash": "0.06",
+          "wonCoins": 15,
+          "wts": [
+            "00000000000000000000000010",
+            "001100100000000"
+          ],
+          "wtw": [
+            [
+              24,
+              15,
+              "001100100000000"
+            ]
+          ]
+        },
+        "prizes": null,
+        "prepaid": false
+      }
+    ],
+    "prepaid": false
+  },
+  {
+    "wagerid": "fixture",
+    "status": "Finished",
+    "bets": [
+      {
+        "step": 2,
+        "betamount": "0.00",
+        "betcurrency": "EUR",
+        "wonamount": "0.06",
+        "status": "RESULTED",
+        "betdata": {
+          "doubleA": "0.06",
+          "doubleN": 1,
+          "cmd": "C",
+          "cheat": null,
+          "lines": "1111111111111111111111111",
+          "coin": "0.004",
+          "nCoins": 25,
+          "variant": null,
+          "restoredAccumulatedWonCoin": 0
+        },
+        "eventdata": {
+          "exactWon": "0.0600"
+        },
+        "prizes": [
+          {
+            "prizeid": "2610130409110400010",
+            "type": "FIXED",
+            "descr": "Cash out",
+            "wonamount": "0.06",
+            "netamount": "0.06",
+            "woncurrency": "EUR",
+            "gameId": 7354,
+            "wonAspect": "CASH",
+            "prizedata": null
+          }
+        ],
+        "prepaid": false
+      }
+    ],
+    "prepaid": false
+  }
+]

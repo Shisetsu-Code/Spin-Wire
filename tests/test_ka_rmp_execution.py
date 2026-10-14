@@ -6,6 +6,8 @@ from tester_spin.models import Game
 from tester_spin.providers.ka_gaming.adapter import KAGamingProvider
 
 CLIENT='''Cc.I9e=function(a,b){var d=Nb.w4d(),e=Ob.vFc(a+"2070"+b.JKb+d),f=Ob.vFc(d+b.JKb+b.fKb),g=$b.Bb().PXh(),e=Rb(0==e%2?d+"1.0.266 (2070)"+e+g+f+a+"2070":g+a+f+b.fKb+e+"2070"+d);b.Jub=e+d}; PXh:function(){return"fixture-public-client-literal"}'''
+CAPABILITY_FIXTURE=json.loads((Path(__file__).parent/'fixtures/ka_oct11_declarations.json').read_text(encoding='utf-8'))
+CLIENT += '\n'+CAPABILITY_FIXTURE['common']
 class KARMPExecutionTests(unittest.TestCase):
  def run_demo(self, spin, allowed_cps=None, extra_modes=None, initial_state=None):
   directory=tempfile.TemporaryDirectory();self.addCleanup(directory.cleanup)
@@ -19,23 +21,30 @@ class KARMPExecutionTests(unittest.TestCase):
   if allowed_cps is not None: initial['cup']=allowed_cps
   def post(url,**kwargs):
    requests.append((url,json.loads(kwargs['data']),json.loads(kwargs['headers']['ctx'])))
-   response=MagicMock(status_code=200,text=json.dumps(initial if len(requests)==1 else spin))
-   response.json.return_value=initial if len(requests)==1 else spin
+   reply={**spin,'md':{**initial['sgr']['lsd'],**spin['md']}} if 'md' in spin else spin
+   reply=reply if len(requests)<=2 or spin.get('e') or spin.get('md',{}).get('fs') is True else {'e':False,'ec':0,'md':dict(initial['sgr']['lsd'])}
+   response=MagicMock(status_code=200,text=json.dumps(initial if len(requests)==1 else reply))
+   response.json.return_value=initial if len(requests)==1 else reply
    return response
   provider.http=MagicMock();provider.http.post.side_effect=post
-  provider.http.get.side_effect=[MagicMock(status_code=200,text='script.src="game.min.2070.js"'),MagicMock(status_code=200,text=CLIENT)]
+  provider.http.get.side_effect=[MagicMock(status_code=200,text='script.src="game.min.2070.js"'),MagicMock(status_code=200,text=CLIENT),MagicMock(status_code=200,text=next(r['client'] for r in CAPABILITY_FIXTURE['games'] if r['symbol']=='BonusVending').replace('BonusVending','GoldenBull'))]
   result=provider.test_game(Game('ka_gaming','goldenbull','GoldenBull','https://gamesdemo.kaga88.com/?g=GoldenBull&p=demo&u=123&t=123&ak=accessKey&cr=USD&loc=es',symbol='GoldenBull'),spins=1,timeout_s=2,stop_event=threading.Event(),progress=lambda _:None)
   return result,requests
  def test_cached_client_executes_fresh_authenticated_terminal_spin(self):
   result,requests=self.run_demo({'e':False,'ec':0,'md':{'fs':False,'rf':0,'acb':0,'sel':5,'cps':1,'atb':0,'dn':0.01}})
   self.assertEqual(result.status,'OK')
   self.assertEqual(result.successful_spins,1)
-  self.assertEqual(len(requests),3)
+  self.assertEqual(len(requests),5)
   self.assertEqual(requests[1][2]['u'],'server-user')
   self.assertEqual(requests[1][2]['c'],'fresh-session')
   self.assertEqual(requests[1][1]['sel'],5)
   self.assertEqual(requests[1][1]['dn'],0.01)
   self.assertTrue(result.attempts[0].terminal)
+ def test_changed_wager_cannot_be_hidden_by_later_base_probes(self):
+  result,requests=self.run_demo({'e':False,'ec':0,'md':{'fs':False,'rf':0,'acb':0,'sel':5,'cps':2,'atb':0,'dn':.01}})
+  self.assertEqual(result.status,'PARCIAL')
+  self.assertEqual(result.successful_spins,0)
+  self.assertEqual(len(requests),3)
  def test_provider_rejection_never_counts_as_success(self):
   result,_=self.run_demo({'e':True,'ec':6,'es':'not authenticated'})
   self.assertEqual(result.status,'ERROR')
@@ -64,10 +73,10 @@ class KARMPExecutionTests(unittest.TestCase):
   state={'fs':False,'rf':0,'acb':0,'fsr':0,'mb':False,'sel':10,'cps':5,'atb':0,'dn':.01,
    'as':[{'asi':123,'st':[7,6,3,0,6,7,4,3,0,4,7,5,4,0,4],'swi':[0]*20,'snm':[0]*20,'ssm':[0]*20,
           'swm':0,'sw':0,'swu':0,'fsw':0,'sm':[0,3],'tw':50}]}
-  result,requests=self.run_demo({'e':False,'ec':0,'md':state})
+  result,requests=self.run_demo({'e':False,'ec':0,'md':state},initial_state={k:v for k,v in state.items() if k!='as'})
   self.assertEqual(result.status,'OK')
   self.assertEqual(result.successful_spins,1)
-  self.assertEqual(len(requests),3)
+  self.assertEqual(len(requests),5)
   self.assertTrue(result.attempts[0].terminal)
  def test_unknown_or_incomplete_additional_spin_blocks_remain_partial(self):
   for additional in ([{'choice':1}],[{'asi':123,'st':[1,2,3],'tw':10}],{'pending':True}):
@@ -94,7 +103,7 @@ class KARMPExecutionTests(unittest.TestCase):
   result,requests=self.run_demo({'e':False,'ec':0,'md':state},initial_state=state)
   self.assertEqual(result.status,'OK')
   self.assertEqual(result.successful_spins,1)
-  self.assertEqual(len(requests),3)
+  self.assertEqual(len(requests),5)
 
  def test_each_game_test_has_one_fresh_session_not_one_per_spin(self):
   spin={'e':False,'ec':0,'md':{'fs':False,'rf':0,'acb':0}}

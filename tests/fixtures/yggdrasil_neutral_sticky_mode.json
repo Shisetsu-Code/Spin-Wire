@@ -1,0 +1,173 @@
+[
+  {
+    "accC": 0,
+    "accWa": "0.00",
+    "emperorShift": 0,
+    "newWildCount": 0,
+    "penguinMode": false,
+    "postStickyWilds": [],
+    "preStickyWilds": [],
+    "previousEmperorShift": 0,
+    "reelSet": "Reels",
+    "reels": [
+      [
+        "Low4",
+        "Low4",
+        "Low1"
+      ],
+      [
+        "Low3",
+        "Low2",
+        "Low2"
+      ],
+      [
+        "Low3",
+        "High2",
+        "High2"
+      ],
+      [
+        "High4",
+        "High3",
+        "High3"
+      ],
+      [
+        "High4",
+        "High1",
+        "High1"
+      ]
+    ],
+    "rpos": [
+      79,
+      194,
+      42,
+      68,
+      29
+    ],
+    "wonCoins": 0,
+    "wts": [
+      "0000000000000000000000",
+      "000000000000000"
+    ],
+    "wtw": []
+  },
+  {
+    "accC": 20,
+    "accWa": "0.08",
+    "doubleAmount": "0.08",
+    "doubleCount": 1,
+    "emperorShift": 0,
+    "newWildCount": 0,
+    "nextCmds": "C",
+    "penguinMode": false,
+    "postStickyWilds": [],
+    "preStickyWilds": [],
+    "previousEmperorShift": 0,
+    "reelSet": "Reels",
+    "reels": [
+      [
+        "Low1",
+        "Low4",
+        "Low4"
+      ],
+      [
+        "High3",
+        "High3",
+        "Low3"
+      ],
+      [
+        "Low3",
+        "Low3",
+        "High4"
+      ],
+      [
+        "High3",
+        "High4",
+        "High4"
+      ],
+      [
+        "High3",
+        "High4",
+        "Low2"
+      ]
+    ],
+    "rpos": [
+      78,
+      198,
+      50,
+      178,
+      51
+    ],
+    "wonCoins": 20,
+    "wts": [
+      "0000000000001000000000",
+      "000000001011010"
+    ],
+    "wtw": [
+      [
+        12,
+        20,
+        "000000001011010"
+      ]
+    ]
+  },
+  {
+    "accC": 40,
+    "accWa": "0.16",
+    "doubleAmount": "0.16",
+    "doubleCount": 1,
+    "emperorShift": 0,
+    "newWildCount": 0,
+    "nextCmds": "C",
+    "penguinMode": false,
+    "postStickyWilds": [],
+    "preStickyWilds": [],
+    "previousEmperorShift": 0,
+    "reelSet": "Reels",
+    "reels": [
+      [
+        "High1",
+        "High1",
+        "High2"
+      ],
+      [
+        "High2",
+        "High3",
+        "Low4"
+      ],
+      [
+        "High2",
+        "High2",
+        "Low4"
+      ],
+      [
+        "Low3",
+        "Low3",
+        "Low2"
+      ],
+      [
+        "Low2",
+        "High1",
+        "High1"
+      ]
+    ],
+    "rpos": [
+      1,
+      190,
+      44,
+      193,
+      40
+    ],
+    "wonCoins": 40,
+    "wts": [
+      "0100000000000000000000",
+      "001100110000000"
+    ],
+    "wtw": [
+      [
+        1,
+        40,
+        "001100110000000"
+      ]
+    ]
+  }
+]

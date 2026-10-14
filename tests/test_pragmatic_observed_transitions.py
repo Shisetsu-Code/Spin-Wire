@@ -75,6 +75,17 @@ class ObservedTransitions(unittest.TestCase):
         self.assertEqual(selection['domain'],[])
         self.assertIsNone(bonus_transition({**state,'g':state['g'].replace('whnwi:"0,1"','whnwi:"0,2"')}))
         with self.assertRaises(ValueError):bonus_transition(state,override=0)
+    def test_three_respin_collected_money_is_informational_not_manual_selection(self):
+        state={'na':'s','rs':'mc','rs_p':'7','rs_c':'1','rs_m':'3','tmb_win':'0.00',
+               'g':'{reg:{sw:"6"},top:{sw:"1"},collected:{mo_c:"1",mo_tv:"800",mo_tw:"80.00",mo_wpos:"16,22,28"}}'}
+        self.assertTrue(automatic_fs_respin(state))
+        for bad in [state['g'].replace('mo_c:"1"','choice:"1"'),
+                    state['g'].replace('mo_tw:"80.00"','mo_tw:"NaN"'),
+                    state['g'].replace('mo_wpos:"16,22,28"','mo_wpos:"16,16"'),
+                    state['g'].replace('mo_c:"1"','mo_c:"0"')]:
+            self.assertFalse(automatic_fs_respin({**state,'g':bad}))
+        self.assertFalse(automatic_fs_respin({**state,'trail':'sr~0'}))
+
     def test_chilli_har_three_respin_sequence_returns_to_base(self):
         from tester_spin.provider_return_checks import pragmatic_check
         fixture=json.loads((Path(__file__).parent/'fixtures/pragmatic_chilli_respin_har.json').read_text(encoding='utf-8-sig'))

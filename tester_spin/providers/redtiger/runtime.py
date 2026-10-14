@@ -7,7 +7,7 @@ from typing import Any
 
 import requests
 
-from tester_spin.providers.redtiger.result_tree import observed_modes, result_nodes
+from tester_spin.providers.redtiger.result_tree import observed_modes, result_nodes, walk_tree
 
 
 @dataclass(frozen=True, slots=True)
@@ -98,6 +98,8 @@ def stakes_from_settings(settings_response: dict[str, Any]) -> tuple[tuple[Decim
 
 def feature_buys_from_settings(settings_response: dict[str, Any]) -> tuple[FeatureBuy, ...]:
     game = settings_result(settings_response)["game"]
+    if game.get("hasFeatureBuy") is False:
+        return ()
     raw = game.get("featureBuy")
     if not isinstance(raw, list):
         return ()
@@ -114,6 +116,39 @@ def feature_buys_from_settings(settings_response: dict[str, Any]) -> tuple[Featu
         if candidate not in found:
             found.append(candidate)
     return tuple(found)
+
+
+def purchase_declaration(game: Any) -> dict[str, Any]:
+    """Require the enabled current settings contract, corroborated by math modes."""
+    domain = {'complete': False, 'source': 'SETTINGS.game.hasFeatureBuy/featureBuy/mathModes', 'options': []}
+    if not isinstance(game, dict):
+        return domain
+    if game.get('hasFeatureBuy') is False:
+        domain['complete'] = True
+        return domain
+    if game.get('hasFeatureBuy') is not True:
+        return domain
+    def contracts(items, math=False):
+        if not isinstance(items, list) or not items:
+            return None
+        found = {}
+        for item in items:
+            if not isinstance(item, dict):
+                return None
+            if math and item.get('type') != 'featureBuy':
+                return None
+            name = item.get('name')
+            raw_price = item.get('priceMultiplier' if math else 'price')
+            price = None if isinstance(raw_price, bool) else _decimal(raw_price)
+            if not isinstance(name, str) or not name.strip() or name != name.strip() or price is None or price <= 0 or name in found:
+                return None
+            found[name] = price
+        return found
+    advertised = contracts(game.get('featureBuy'))
+    effective = contracts(game.get('mathModes'), math=True)
+    if advertised and advertised == effective:
+        domain.update(complete=True, options=list(advertised))
+    return domain
 
 
 def decimal_json_number(value: Decimal) -> int | float:
@@ -164,48 +199,97 @@ def build_spin_payload(
     return payload
 
 
+def choice_state(payload: Any) -> dict[str, Any]:
+    result = payload.get('result') if isinstance(payload, dict) else None
+    game = result.get('game') if isinstance(result, dict) else None
+    if not isinstance(game, dict) or game.get('choices') is None:
+        return {'status': 'NONE'}
+    raw = game['choices']
+    unknown = {'status': 'UNKNOWN'}
+    if not isinstance(raw, dict) or 'selected' not in raw or 'available' not in raw:
+        return unknown
+    selected, available = raw.get('selected'), raw.get('available')
+    transactions = result.get('transactions')
+    round_id = transactions.get('roundId') if isinstance(transactions, dict) else None
+    state = {'status': 'UNKNOWN', 'round_id': round_id, 'selected': selected,
+             'available': available, 'has_state': game.get('hasState')}
+    if selected is None and isinstance(available, list) and available:
+        if (all(isinstance(v, str) and v.strip() and v == v.strip() for v in available)
+                and len(set(available)) == len(available)
+                and (type(round_id) is int and round_id > 0 or isinstance(round_id, str) and round_id.strip())):
+            state['status'] = 'PENDING'
+    elif isinstance(selected, str) and selected.strip() and available in (None, []):
+        state['status'] = 'RESOLVED'
+    return state
+
+
 def pending_choice_from_response(payload: Any) -> ChoicePrompt | None:
-    """Return a provider choice continuation announced by a successful action.
+    if not isinstance(payload, dict) or payload.get('success') is not True:
+        return None
+    state = choice_state(payload)
+    if state['status'] == 'PENDING':
+        return ChoicePrompt(round_id=state['round_id'], available=tuple(state['available']))
+    return None
 
-    Red Tiger can make a feature purchase a two-step transaction: the spin response
-    opens a round with ``game.choices.available`` and ``selected=null``; the client
-    must then POST the selected value to the sibling ``platform/game/choice``
-    endpoint using the same round id. Leaving that state unresolved makes the next
-    purchase fail even though the original purchase itself returned success=true.
-    """
-    if not isinstance(payload, dict) or payload.get("success") is not True:
-        return None
-    result = payload.get("result")
-    if not isinstance(result, dict):
-        return None
-    game = result.get("game")
-    transactions = result.get("transactions")
-    if not isinstance(game, dict) or not isinstance(transactions, dict):
-        return None
-    raw_choices = game.get("choices")
-    if not isinstance(raw_choices, dict):
-        return None
 
-    selected_raw = raw_choices.get("selected")
-    selected = str(selected_raw).strip() if selected_raw not in {None, ""} else None
-    if selected:
-        return None
+def choice_reply_warnings(prompt, selected, payload):
+    state = choice_state(payload)
+    result = payload.get('result') or {}
+    transactions = result.get('transactions')
+    round_id = transactions.get('roundId') if isinstance(transactions, dict) else None
+    warnings = []
+    if type(round_id) is not type(prompt.round_id) or round_id != prompt.round_id:
+        warnings.append('choice devolvió una ronda distinta de la solicitada')
+    if state['status'] == 'UNKNOWN':
+        warnings.append('choice devolvió un selector sin contrato reconocido')
+    if state['status'] == 'RESOLVED' and state['selected'] != selected:
+        warnings.append('choice confirmó una selección distinta de la solicitada')
+    return warnings
 
-    raw_available = raw_choices.get("available")
-    if not isinstance(raw_available, list):
-        return None
-    available: list[str] = []
-    for item in raw_available:
-        value = str(item or "").strip()
-        if value and value not in available:
-            available.append(value)
-    if not available:
-        return None
 
-    round_id = transactions.get("roundId")
-    if isinstance(round_id, bool) or round_id in {None, ""}:
-        return None
-    return ChoicePrompt(round_id=round_id, available=tuple(available), selected=None)
+def resolved_pickers(payload):
+    result = payload.get('result') if isinstance(payload, dict) else {}
+    game = result.get('game') if isinstance(result, dict) else {}
+    found = []
+    for path, value in walk_tree(game):
+        if not isinstance(value, dict) or 'picker' not in value:
+            continue
+        picker = value['picker']
+        record = {'path': path + '.picker', 'status': 'UNKNOWN', 'data': picker}
+        if isinstance(picker, dict) and isinstance(picker.get('options'), list) and isinstance(picker.get('choices'), list):
+            resolved = []
+            for choice in picker['choices']:
+                index = choice.get('option') if isinstance(choice, dict) else None
+                if type(index) is not int or not 0 <= index < len(picker['options']):
+                    break
+                option = picker['options'][index]
+                if not isinstance(option, dict) or option.get('name') != choice.get('name'):
+                    break
+                resolved.append({'index': index, 'name': option.get('name'), 'value': option.get('value')})
+            else:
+                record.update(status='RESOLVED', resolved=resolved)
+        found.append(record)
+    return found
+
+
+def choice_transition(prompt, selected, payload):
+    result = payload.get('result') or {}
+    game = result.get('game') or {}
+    state = choice_state(payload)
+    data = game.get('gameData') or {}
+    if not isinstance(data, dict):
+        data = {}
+    progress = data.get('progress') if isinstance(data, dict) else None
+    level = progress.get('level') if isinstance(progress, dict) else None
+    recurring = (state['status'] == 'PENDING' and state.get('available') == list(prompt.available)
+                 and state.get('round_id') == prompt.round_id and data.get('selected') == selected
+                 and data.get('spinMode') == 'Normal' and isinstance(level, dict)
+                 and type(level.get('current')) is int and type(level.get('next')) is int
+                 and 0 <= level['current'] < level['next'])
+    return {'round_id': prompt.round_id, 'available': list(prompt.available),
+            'selected': selected, 'response_choice': state, 'recurring_selector': recurring,
+            'game_data': sanitize_payload(game.get('gameData')),
+            'resolved_pickers': resolved_pickers(payload)}
 
 
 def choice_url_from_spin_url(spin_url: str) -> str:
@@ -252,6 +336,8 @@ def validate_spin_response(payload: Any) -> tuple[bool, list[str]]:
     game = result.get("game")
     if not isinstance(game, dict):
         return False, ["falta result.game objeto"]
+    if choice_state(payload)["status"] == "UNKNOWN":
+        warnings.append("selector remoto sin contrato reconocido")
     if not result_nodes(game):
         warnings.append("resultado sin nodos spinMode observables")
     return True, warnings
@@ -294,6 +380,8 @@ def response_summary(payload: Any) -> dict[str, Any]:
             }
             for node in nodes
         ],
+        "choice_state": choice_state(payload),
+        "resolved_pickers": resolved_pickers(payload),
         "pending_choice": (
             {
                 "round_id": prompt.round_id,
@@ -326,3 +414,23 @@ def sanitize_payload(value: Any) -> Any:
     if isinstance(value, list):
         return [sanitize_payload(item) for item in value]
     return value
+
+
+def purchase_executed(payload: Any, request: Any, feature: FeatureBuy) -> bool:
+    """Require charged declared cost plus returned bonus/choice outcome."""
+    if not isinstance(payload, dict) or payload.get('success') is not True:
+        return False
+    try:
+        sent = request['extras']['features']
+        stake = _decimal(request['stake'])
+        cost = _decimal(sent['featureBuyCost'])
+        if stake is None or stake <= 0 or cost is None or cost != stake * feature.multiplier or sent['featureBuy'] != feature.name:
+            return False
+        cash = payload['result']['user']['balance']['cash']
+        start, after = _decimal(cash['atStart']), _decimal(cash['afterBet'])
+        if start is None or after is None or start - after != cost:
+            return False
+        game = payload['result']['game']
+        return any(node.feature_count > 0 for node in result_nodes(game)) or pending_choice_from_response(payload) is not None
+    except (KeyError, TypeError, AttributeError):
+        return False

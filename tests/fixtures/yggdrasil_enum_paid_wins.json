@@ -1,0 +1,272 @@
+[
+  {
+    "Code": 2001,
+    "Completed": true,
+    "Bet": {
+      "Lines": 20,
+      "FeeMultiplier": 1.0,
+      "Amount": 1.0,
+      "GameMode": 0,
+      "Scale": 1.0,
+      "TotalBet": 20.0
+    },
+    "Round": {
+      "Info": {
+        "RID": 1,
+        "SRC": 1,
+        "IDX": 0,
+        "GameMode": 0,
+        "RoundType": 0,
+        "Count": 0,
+        "Passed": 1,
+        "Bet": 20
+      },
+      "TotalWin": 40,
+      "SpinWin": 40,
+      "VISData": {
+        "Grids": [
+          [
+            [
+              6,
+              9,
+              3
+            ],
+            [
+              7,
+              6,
+              8
+            ],
+            [
+              5,
+              3,
+              5
+            ],
+            [
+              7,
+              10,
+              6
+            ]
+          ],
+          [
+            [
+              6,
+              9,
+              3
+            ],
+            [
+              7,
+              9,
+              8
+            ],
+            [
+              5,
+              3,
+              5
+            ],
+            [
+              7,
+              10,
+              6
+            ]
+          ]
+        ],
+        "Prizes": [
+          {
+            "PrizeType": 10,
+            "Value": 20,
+            "RawValue": 20,
+            "Rule": 3,
+            "Combination": 1,
+            "Length": 3,
+            "Line": 2,
+            "Source": 1,
+            "Cells": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                2,
+                1
+              ]
+            ]
+          },
+          {
+            "PrizeType": 10,
+            "Value": 20,
+            "RawValue": 20,
+            "Rule": 3,
+            "Combination": 1,
+            "Length": 3,
+            "Line": 19,
+            "Source": 1,
+            "Cells": [
+              [
+                0,
+                2
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                2,
+                1
+              ]
+            ]
+          }
+        ],
+        "Events": [
+          {
+            "Type": 10,
+            "SymbolKit": 0,
+            "ReelStops": [
+              51,
+              119,
+              59,
+              94
+            ],
+            "Grids": [
+              0
+            ]
+          },
+          {
+            "Type": 60,
+            "Expansion": 3,
+            "Positions": [
+              [
+                [
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  1
+                ]
+              ]
+            ],
+            "Grid": 1
+          },
+          {
+            "Type": 20,
+            "Grid": 1,
+            "Rules": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10
+            ],
+            "Prizes": [
+              0,
+              2
+            ]
+          }
+        ],
+        "FEV": {
+          "60": [
+            1
+          ]
+        }
+      }
+    }
+  },
+  {
+    "Code": 2001,
+    "Completed": true,
+    "Bet": {
+      "Lines": 50,
+      "FeeMultiplier": 1.0,
+      "Amount": 0.4,
+      "GameMode": 0,
+      "Scale": 1.0,
+      "TotalBet": 20.0
+    },
+    "Round": {
+      "Info": {
+        "RID": 1,
+        "SRC": 1,
+        "IDX": 0,
+        "GameMode": 0,
+        "RoundType": 0,
+        "Count": 0,
+        "Passed": 1,
+        "Bet": 20
+      },
+      "VISData": {
+        "Grids": [
+          [
+            [
+              3,
+              10,
+              5
+            ],
+            [
+              5,
+              10,
+              4
+            ],
+            [
+              11,
+              4,
+              8
+            ],
+            [
+              4,
+              6,
+              12
+            ],
+            [
+              3,
+              6,
+              9
+            ]
+          ]
+        ],
+        "Prizes": [],
+        "Events": [
+          {
+            "Type": 10,
+            "SymbolKit": 0,
+            "ReelStops": [
+              46,
+              20,
+              15,
+              76,
+              107
+            ],
+            "Grids": [
+              0
+            ]
+          },
+          {
+            "Type": 20,
+            "Rules": [
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              13,
+              14
+            ]
+          }
+        ]
+      }
+    }
+  }
+]

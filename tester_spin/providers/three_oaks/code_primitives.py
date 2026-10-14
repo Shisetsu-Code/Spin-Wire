@@ -93,21 +93,53 @@ def handler_count(source, symbol):
     return len(re.findall(r'\.setActionHandler\((?:' + ID + r'(?:\.' + ID + r')*\.' + symbol + r'|"' + symbol.lower() + r'"),', source))
 
 
+def flow_bridge(source):
+    if 'params:args||{}' in source and 'EventsGame.play(action)' in source:
+        return True
+    pattern = r'_act\(('+ID+r'),('+ID+r'),('+ID+r')=null\)\{let ('+ID+r')=\{action:\{name:\1,params:\2\|\|\{\}\},bet:\3\};return '+ID+r'\.EventsGame\.play\(\4\),this\.deferred\.promise\}'
+    return bool(re.search(pattern, source))
+
+
 def flow_parameters(source, symbol):
-    if 'params:args||{}' not in source or 'EventsGame.play(action)' not in source:
+    if not flow_bridge(source):
         return None
     # A proven prototype replacement supplies the effective middleware, rather
     # than the superseded handler shipped in the same bundle.
-    overrides = list(re.finditer(r'Object\.assign\((' + ID + r')\.default\.prototype,\{initDefaultMiddleware:function[^{}]*\{', source))
+    overrides = list(re.finditer(r'Object\.assign\((' + ID + r')\.(default|FlowController)\.prototype,\{initDefaultMiddleware:function[^{}]*\{', source))
     if overrides:
         if len(overrides) != 1:
             return None
         override = overrides[0]
-        binding = re.search(r'var ' + re.escape(override[1]) + r'=(?:' + ID + r'\()?require\("[^"\n]*controllers/FlowController"\)', source[:override.start()])
+        prefix = source[:override.start()]
+        if override[2] == 'default':
+            binding = re.search(r'var ' + re.escape(override[1]) + r'=(?:' + ID + r'\()?require\("[^"\n]*controllers/FlowController"\)', prefix)
+        else:
+            binding = re.search(r'var ' + re.escape(override[1]) + r'=require\("(?:\.\./)*slotscore/core/controllers"\)', prefix)
+            if binding:
+                between = prefix[binding.end():]
+                alias = re.escape(override[1])
+                if re.search(alias + r'(?:\.' + ID + r')*=(?!=)|Object\.(?:assign|defineProperty)\(' + alias + r'(?:\.' + ID + r')*,|delete ' + alias + r'\b', between):
+                    return None
         body = block(source, override.end()-1)
-        if not binding or body is None or handler_count(source[override.end()+len(body)+1:], symbol):
+        if not binding or body is None:
+            return None
+        following = source[override.end()+len(body)+1:]
+        target = re.escape(override[1] + '.' + override[2] + '.prototype')
+        if handler_count(following, symbol) or re.search(target + r'\.initDefaultMiddleware=(?!=)|Object\.(?:assign|defineProperty)\(' + target + r',', following):
             return None
         source = body + ';params:args||{};EventsGame.play(action);'
+    expression_handlers = []
+    for start in re.finditer(r'\.setActionHandler\(('+ID+r'(?:\.'+ID+r')*\.'+symbol+r'),('+ID+r')=>', source):
+        action, arg = start[1], start[2]
+        model = 'this.app.model.'
+        body = '(('+arg+'='+arg+'||{}).bet_per_line="bet_per_line"in '+arg+'?'+arg+'.bet_per_line:'+model+'betPerLine(),'+arg+'.lines="lines"in '+arg+'?'+arg+'.lines:'+model+'gameLines(),'+arg+'.bet_factor="bet_factor"in '+arg+'?'+arg+'.bet_factor:'+model+'betFactor()[0],'+model+'setBetPerLine('+arg+'.bet_per_line),'+model+'setLines('+arg+'.lines),'+model+'setBetFactor('+arg+'.bet_factor),'
+        tail = 'this._act('+action+','+arg+','+model+'freespinsBuyingPrice()*'+model+'getRoundBet('+arg+'.bet_per_line,'+arg+'.bet_factor))))'
+        optional = arg+'&&"selected_mode"in '+arg+'&&'+model+'setFreespinsBuyingPrice('+model+'getBuyFeatureCostByType('+arg+'.selected_mode)),'
+        remaining = source[start.end():]
+        if remaining.startswith(body+tail) or remaining.startswith(body+optional+tail):
+            expression_handlers.append(start)
+    if expression_handlers and len(expression_handlers) == handler_count(source, symbol):
+        return ['bet_per_line','lines','bet_factor']
     handlers = action_handlers(source, symbol)
     if not handlers or len(handlers) != handler_count(source, symbol) or 'params:args||{}' not in source or 'EventsGame.play(action)' not in source:
         return None
@@ -130,13 +162,14 @@ def flow_parameters(source, symbol):
 
 
 def empty_flow_actions(source):
-    if 'params:args||{}' not in source or 'EventsGame.play(action)' not in source:
+    if not flow_bridge(source):
         return {}
     default_dispatch = bool(re.search(r'handlers\[action\]\|\|(?:function\(args\)\{return '+ID+r'\._act\(action,args\)\}|\(?args\)?=>this\._act\(action,args\))', source))
+    default_dispatch = default_dispatch or bool(re.search(r'getActionHandler\(('+ID+r')\)\{return this\.handlers\[\1\]\|\|\(('+ID+r')=>this\._act\(\1,\2\)\)\}', source))
     rules = {}
     states = {'BONUS_INIT':('bonus_init','spins'), 'RESPIN':('respin','bonus'),
               'FREESPIN_INIT':('freespin_init','spins'), 'FREESPIN':('freespin','freespins'),
-              'FREESPIN_STOP':('freespin_stop','freespins')}
+              'FREESPIN_STOP':('freespin_stop','freespins'), 'COLLECT_WIN':('collect_win','spins')}
     for symbol, (name, current) in states.items():
         if not (re.search(r'\.(?:act|actIfPossible)\('+ID+r'(?:\.'+ID+r')*\.'+symbol+r'\)',source) or re.search(r'\.flow\.(?:act|actIfPossible)\("'+name+r'"\)',source)):
             continue
@@ -145,6 +178,8 @@ def empty_flow_actions(source):
                and re.search(r'\._act\('+re.escape(action)+','+re.escape(arg)+r'\)',body)
                for action,arg,body in handlers):
             rules[name]={'current':current}
+            if name == 'collect_win':
+                rules[name]['currents'] = ['spins','freespins']
             if name == 'respin':
                 rules[name]['currents'] = ['spins','freespins','bonus']
     # The client derives the stop action from the advertised bonus origin.
@@ -180,11 +215,27 @@ def flow_purchase_inputs(source, data):
         if not body:
             continue
         sent = re.search(r'\.controllers\.flow\.act\('+ID+r'(?:\.'+ID+r')*\.BUY_SPIN,('+ID+r')\)',body)
+        optional_controller = False
+        if not sent:
+            sent = re.search(r'null==\(('+ID+r')='+ID+r'(?:\.'+ID+r')*\.controllers\)\|\|\1\.flow\.act\('+ID+r'(?:\.'+ID+r')*\.BUY_SPIN,('+ID+r')\)', body)
+            optional_controller = bool(sent)
         if not sent:
             continue
-        variable = sent[1]
+        variable = sent[2] if optional_controller else sent[1]
         prefix = body[:sent.start()]
-        assignments = re.findall(re.escape(variable)+r'\.('+ID+r')=([^;]+);',prefix)
+        # Resolve only the observed new-module branch, using its actual model
+        # predicate and current settings. The legacy serializer remains unknown.
+        conditional = re.search(r'if\('+ID+r'(?:\.'+ID+r')*\.isNewModule\(\)\)\{'+re.escape(variable)+r'\.selected_mode=('+ID+r')\}else\{'+re.escape(variable)+r'\.buy_spin_type=\1\}', prefix)
+        if conditional:
+            predicate = 'isNewModule=function(){return!this._get("settings.freespins_buying_price_by_buy_spin_type.1",0)}'
+            pricing = (data or {}).get('settings', {}).get('freespins_buying_price_by_buy_spin_type')
+            if predicate not in source or (pricing is not None and not isinstance(pricing, dict)):
+                continue
+            old_price = (pricing or {}).get('1', 0)
+            if old_price is not None and (not isinstance(old_price, (int,float,bool)) or old_price != 0):
+                continue
+            prefix = prefix[:conditional.start()] + variable + '.selected_mode=' + conditional[1] + ';' + prefix[conditional.end():]
+        assignments = re.findall(re.escape(variable)+r'\.('+ID+r')=([^;,]+)[;,]',prefix)
         fields = dict(assignments)
         if len(fields) != len(assignments) or not {'bet_per_line','lines'}.issubset(fields) or set(fields)-{'bet_per_line','lines','selected_mode'}:
             continue
@@ -243,7 +294,7 @@ def runner_spin_contract(runner_source, init_source):
     normal = r'action:\{name:"spin",params:\{bet_per_line:this\.model\.get\("bet_per_line"\),lines:this\.model\.get\("lines"\)\}\},bet:this\.model\.get\("bet"\)'
     if not re.search(normal, source) or '.onGamePlay({data:' not in source or '._getPlayParams()}' not in source:
         return None
-    forwarding = r'\.use\.custom_play\|\|'+ID+r'(?:\.'+ID+r')*\.flow\.play\.on\(function\(('+ID+r')\)\{return '+ID+r'(?:\.'+ID+r')*\.game\.play\(\1\.data\)\}\)'
+    forwarding = r'\.use\.custom_play\|\|'+ID+r'(?:\.'+ID+r')*\.flow\.play\.on\((?P<wrapper>\()?function\(('+ID+r')\)\{return '+ID+r'(?:\.'+ID+r')*\.game\.play\(\2\.data\)\}(?(wrapper)\))\)'
     if not re.search(forwarding, source):
         return None
     return {'spin_params':['bet_per_line','lines'], 'spin_route':'shared-runner-button',

@@ -86,18 +86,18 @@ def play_fields(data: dict, action: str, selected_mode=None, *, game_slug='', fa
         purchase_params = profile.get('purchase_params', {}).get(str(selected_mode)) if action == 'buy_spin' else None
         if purchase_params is not None:
             if (not isinstance(purchase_params, list) or not {'bet_per_line', 'lines'}.issubset(purchase_params)
-                    or set(purchase_params) - {'bet_per_line', 'lines', 'bet_factor', 'selected_mode', 'ante_bet', 'buy_spin_scatters_count'}):
+                    or set(purchase_params) - {'bet_per_line', 'lines', 'bet_factor', 'selected_mode', 'ante_bet', 'buy_spin_scatters_count', 'paid_feature'}):
                 raise ValueError('3 Oaks: contrato de compra inválido')
-            if not {'selected_mode','buy_spin_scatters_count'}.intersection(purchase_params) and context.get('available_buy_bonus') != [selected_mode]:
+            if not {'selected_mode','buy_spin_scatters_count','paid_feature'}.intersection(purchase_params) and context.get('available_buy_bonus') != [selected_mode]:
                 raise ValueError('3 Oaks: compra sin selector ambigua')
-        if not all(isinstance(state.get(k), (int, float)) and not isinstance(state.get(k), bool) and state[k] > 0 for k in ("bet_per_line", "lines")):
+        if not all(isinstance(state.get(k), (int, float)) and not isinstance(state.get(k), bool) and (state[k] > 0 or (k == "lines" and state[k] == 0 and 0 in settings.get("lines", []))) for k in ("bet_per_line", "lines")):
             raise ValueError("3 Oaks: perfil de apuesta pendiente")
         params = {"bet_per_line": state["bet_per_line"], "lines": state["lines"]}
         if action in {'spin','buy_spin'}:
             source = profile.get('purchase_value_sources' if action == 'buy_spin' else 'spin_value_sources', {}).get('lines')
             values = settings.get('bet_factor' if source == 'bet_factor_first' else 'lines')
             if source in {'bet_factor_first', 'settings_lines_first'}:
-                if not isinstance(values, list) or not values or not isinstance(values[0], (int, float)) or isinstance(values[0], bool) or values[0] <= 0:
+                if not isinstance(values, list) or not values or not isinstance(values[0], (int, float)) or isinstance(values[0], bool) or values[0] < 0 or (values[0] == 0 and source != 'settings_lines_first'):
                     raise ValueError('3 Oaks: origen de líneas de compra pendiente')
                 params['lines'] = values[0]
         if not captured_spin and (purchase_params is None or 'bet_factor' in purchase_params):
@@ -111,7 +111,7 @@ def play_fields(data: dict, action: str, selected_mode=None, *, game_slug='', fa
             if purchase_params is None or 'selected_mode' in purchase_params:
                 value = mapping.get('selected_mode', selected_mode)
                 params['selected_mode'] = str(value) if profile.get('purchase_selector_type') == 'string' else value
-            for field in ('buy_spin_scatters_count','ante_bet'):
+            for field in ('buy_spin_scatters_count','ante_bet','paid_feature'):
                 if purchase_params and field in purchase_params:
                     if field not in mapping:
                         raise ValueError('3 Oaks: transformación de compra pendiente')
@@ -124,6 +124,34 @@ def play_fields(data: dict, action: str, selected_mode=None, *, game_slug='', fa
             "quick_spin": False, "sound": True, "autogame": False,
             "mobile": "0", "portrait": False, "fullscreen": False, "viewportSize": "1280x720"}
 
+
+
+def affordable_purchase_fields(data, fields, selected_mode):
+    """Choose an advertised stake for the advertised price and current demo balance."""
+    import copy
+    import math
+    result = copy.deepcopy(fields)
+    settings = data.get('settings', {})
+    params = result.get('action', {}).get('params', {})
+    multiplier = settings.get('buy_bonus_prices', {}).get(str(selected_mode))
+    balance = data.get('user', {}).get('balance')
+    factors = settings.get('bet_factor')
+    bets = settings.get('bets')
+    def positive(value):
+        return isinstance(value, (int, float)) and not isinstance(value, bool) and math.isfinite(value) and value > 0
+    if (not positive(multiplier) or not isinstance(balance, (int, float)) or isinstance(balance, bool)
+            or not math.isfinite(balance) or balance < 0 or not isinstance(factors, list) or len(factors) != 1
+            or not positive(factors[0]) or not positive(params.get('bet_per_line'))
+            or params.get('ante_bet', 0) != 0):
+        return result
+    unit_cost = multiplier * factors[0]
+    if params['bet_per_line'] * unit_cost <= balance:
+        return result
+    choices = [v for v in bets if positive(v) and v <= params['bet_per_line'] and v * unit_cost <= balance] if isinstance(bets, list) else []
+    if not choices:
+        raise ValueError('3 Oaks: DEMO_BALANCE_INSUFFICIENT at minimum advertised stake')
+    params['bet_per_line'] = max(choices)
+    return result
 
 def source_continuation_rules(source: str) -> dict:
     """Certify legacy empty-argument calls from the current fetched client."""

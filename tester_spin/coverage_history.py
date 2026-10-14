@@ -43,6 +43,55 @@ def _archive_structural_replacements(pending, modes, migrations, source):
             del pending[key]
 
 
+def _archive_recurring_choice_replacements(pending, modes, migrations, source):
+    """Replace depth-expanded obligations only with current complete loop evidence."""
+    for marker in modes:
+        if (not isinstance(marker, dict) or marker.get('kind') != 'DIAGNOSTIC'
+                or marker.get('observed') is not True or marker.get('coverage_required') is not False
+                or marker.get('source') != 'choice_transition.gameData.progress.level'
+                or marker.get('coverage_scope') != 'available_actions_not_all_repeat_counts'):
+            continue
+        parent, anchor = marker.get('parent'), marker.get('entry_prefix')
+        options, repeats = marker.get('options'), marker.get('repeat_actions')
+        if (not isinstance(anchor, list) or not isinstance(options, list) or not options
+                or not isinstance(repeats, list) or not repeats
+                or not all(isinstance(v,str) and v for v in anchor + options + repeats)
+                or not set(repeats).issubset(options)):
+            continue
+        replacement = next((mode for mode in modes if isinstance(mode,dict)
+            and mode.get('kind') == 'CHOICE_BRANCH' and mode.get('parent') == parent
+            and mode.get('prefix') == anchor and mode.get('observed') is True
+            and mode.get('coverage_required') is True
+            and set(mode.get('required_options', [])) == set(options)
+            and set(options).issubset(mode.get('covered_options', []))), None)
+        if replacement is None:
+            continue
+        counts = replacement.get('sample_counts')
+        if not isinstance(counts,dict):
+            continue
+        for key, prior in list(pending.items()):
+            prefix = prior.get('prefix')
+            required = prior.get('required_options')
+            if (prior.get('kind') != 'CHOICE_BRANCH' or prior.get('parent') != parent
+                    or not isinstance(prefix,list) or len(prefix) <= len(anchor)
+                    or prefix[:len(anchor)] != anchor
+                    or not all(action in repeats for action in prefix[len(anchor):])
+                    or not isinstance(required,list) or not required
+                    or not set(required).issubset(options)):
+                continue
+            try:
+                target = max(1,int(prior.get('required_samples') or 1),int(replacement.get('required_samples') or 1))
+                if any(int(counts.get(option,0)) < target for option in required):
+                    continue
+            except (TypeError, ValueError):
+                continue
+            migrations.append({'policy':'redtiger-depth-to-recurring-actions/v1',
+                'previous_id':key, 'previous':copy.deepcopy(prior),
+                'replacement_id':replacement['id'], 'replacement_source':source,
+                'required_samples':target, 'evidence':copy.deepcopy(marker)})
+            del pending[key]
+
+
 def retain_pending_branches(directory, result):
     if directory is None:
         return
@@ -109,6 +158,14 @@ def retain_pending_branches(directory, result):
                 if record.get('provider') == result.provider and record.get('slug') == result.slug:
                     absorb(pending, record.get('discovered_modes', []), str(previous))
         _archive_structural_replacements(pending, result.discovered_modes, migrations, result.run_dir)
+        if result.provider == 'pragmatic':
+            from tester_spin.providers.pragmatic_history_migration import archive_normalized_menus
+            archive_normalized_menus(root, result, pending, migrations)
+        if result.provider == 'redtiger':
+            _archive_recurring_choice_replacements(pending, result.discovered_modes, migrations, result.run_dir)
+        if result.provider == 'yggdrasil':
+            from tester_spin.providers.yggdrasil.discounted_purchase import archive_price_variants
+            archive_price_variants(result, pending, migrations, result.run_dir)
         absorb(pending, result.discovered_modes, result.run_dir)
         current = {str(m.get('id')):m for m in result.discovered_modes if isinstance(m, dict)}
         for key, item in pending.items():

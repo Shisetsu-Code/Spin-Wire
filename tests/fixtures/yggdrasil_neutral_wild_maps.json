@@ -1,0 +1,98 @@
+[
+  {
+    "accC": 0,
+    "accWa": "0.00",
+    "addedWilds": {},
+    "nextWilds": {},
+    "reelSet": "Reels",
+    "reels": [
+      [
+        "SYM6",
+        "SYM8",
+        "SYM4"
+      ],
+      [
+        "SYM3",
+        "SYM3",
+        "SYM11"
+      ],
+      [
+        "SYM6",
+        "SYM12",
+        "SYM7"
+      ],
+      [
+        "SYM8",
+        "SYM5",
+        "SYM8"
+      ],
+      [
+        "SYM12",
+        "SYM11",
+        "SYM6"
+      ]
+    ],
+    "rpos": [
+      7,
+      136,
+      116,
+      182,
+      806
+    ],
+    "thisWilds": {},
+    "wonCoins": 0,
+    "wts": [
+      "0000000000000",
+      "000000000000000"
+    ],
+    "wtw": []
+  },
+  {
+    "accC": 0,
+    "accWa": "0.00",
+    "addedWilds": {},
+    "nextWilds": {},
+    "reelSet": "Reels",
+    "reels": [
+      [
+        "SYM10",
+        "SYM4",
+        "SYM8"
+      ],
+      [
+        "SYM6",
+        "SYM3",
+        "SYM7"
+      ],
+      [
+        "SYM6",
+        "SYM7",
+        "SYM8"
+      ],
+      [
+        "SYM5",
+        "SYM8",
+        "SYM5"
+      ],
+      [
+        "SYM11",
+        "SYM12",
+        "SYM7"
+      ]
+    ],
+    "rpos": [
+      84,
+      87,
+      82,
+      183,
+      55
+    ],
+    "thisWilds": {},
+    "wonCoins": 0,
+    "wts": [
+      "0000000000000",
+      "000000000000000"
+    ],
+    "wtw": []
+  }
+]

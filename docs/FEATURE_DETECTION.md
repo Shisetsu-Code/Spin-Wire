@@ -29,3 +29,19 @@ Pragmatic agrupa posiciones de un selector oculto sólo cuando el contrato estru
 ## Añadir una primitiva
 
 Documentar la acción y sus parámetros, la fuente activa que los produce, su dominio finito, las transiciones permitidas y el cierre de ronda. Añadir una regresión positiva y otra que rechace evidencia insuficiente. No usar el nombre del juego para habilitar rutas sin contrato. Si el formato cambia o aparecen alternativas incompatibles, conservar el pendiente y su causa.
+
+
+## Contraste de Pragmatic en la sesión actual
+
+`purInit` admite tablas de objetos con claves JS sin comillas. Se convierten las
+claves a JSON sin evaluar expresiones; duplicados y datos ambiguos no acreditan
+un dominio completo. `purInit_e` determina qué índices están habilitados.
+
+Las compras requieren el índice `pur` correcto en la petición y acuse explícito
+`purtr=1`/`puri` en la respuesta; un giro normal que ignore la compra no cuenta.
+Antebet exige el selector `bl` correcto y su valor aceptado en la respuesta.
+Ambos requieren terminal, HTTP válido, ausencia de advertencias, dos giros base y
+la cuota de muestras independientes. Un flag `validated` antiguo no sustituye
+estas comprobaciones en las declaraciones de Pragmatic.
+
+Los respins de tres ciclos con pantallas reg/top pueden devolver además bloques informativos de cobro. Se aceptan solamente grupos con los cuatro campos monetarios `mo_c/mo_tv/mo_tw/mo_wpos`, formatos numéricos acotados y posiciones únicas. Un campo de elección, formato desconocido o máscara manual mantiene el estado pendiente. Esta primitiva no marca la ronda como cerrada: el ejecutor sigue las acciones del servidor hasta terminar y verifica el regreso al giro base.

@@ -34,6 +34,15 @@ El finalizador común genera `sample-catalog.json` para todos los proveedores.
 - `scope=observed_paths_only`: el catálogo inventaría evidencia, no demuestra
   exhaustividad del juego ni asigna semántica a campos desconocidos.
 
+Red Tiger puede publicar `scope=observed_paths_and_recurring_controls` cuando el
+servidor confirma una escalera recurrente desde la entrada normal: mismo dominio,
+misma ronda, acción reconocida y avance de `gameData.progress.level`. En ese caso
+se agrupan las acciones disponibles por el modo de entrada, sin multiplicarlas
+por profundidad ni por el nombre del intento de exploración. Cada acción suma
+como máximo una muestra por ronda independiente y necesita cierre y dos giros
+base confirmados. Las secuencias completas y sus archivos se conservan; esta
+cobertura no afirma haber probado todos los niveles o desenlaces aleatorios.
+
 Los tags son literales del protocolo, no nombres inferidos de features. Los WS
 sin JSON de respuesta desglosado conservan su evidencia original para análisis.
 Los contratos especializados de emulación BGaming siguen siendo complementarios.

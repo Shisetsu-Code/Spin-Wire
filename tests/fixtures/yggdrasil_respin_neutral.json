@@ -1,0 +1,136 @@
+{
+  "step": 1,
+  "betamount": "0.10",
+  "betcurrency": "EUR",
+  "wonamount": "0.00",
+  "status": "RESULTED",
+  "betdata": {
+    "coin": "0.004",
+    "cashBet": "0.10",
+    "cmd": "BASE_SPIN",
+    "accWa": "0.00",
+    "accC": 0
+  },
+  "eventdata": {
+    "accC": 0,
+    "accWa": "0.00",
+    "boostData": {
+      "startedRespins": false,
+      "reachedColossalSymbolsReel": false,
+      "reachedHyperMode": false
+    },
+    "initialPlayerState": {
+      "d": "d"
+    },
+    "playerState": {
+      "d": "d"
+    },
+    "response": {
+      "coinWin": 0,
+      "cashWin": "0.00",
+      "clientData": {
+        "accC": 0,
+        "accWa": "0.00",
+        "consecutiveWins": 0,
+        "finalBoard": [
+          [
+            "LOW_4",
+            "LOW_1",
+            "LOW_1",
+            "HIGH_4"
+          ],
+          [
+            "LOW_3",
+            "LOW_3",
+            "LOW_3",
+            "LOW_3"
+          ],
+          [
+            "HIGH_4",
+            "HIGH_4",
+            "LOW_3",
+            "LOW_4"
+          ],
+          [
+            "HIGH_1",
+            "HIGH_1",
+            "LOW_2",
+            "LOW_3"
+          ],
+          [
+            "HIGH_2",
+            "HIGH_2",
+            "HIGH_4",
+            "LOW_4"
+          ],
+          [
+            "LOW_3",
+            "HIGH_2",
+            "HIGH_1",
+            "LOW_4"
+          ]
+        ],
+        "multiplier": 1,
+        "reels": [
+          [
+            "LOW_4",
+            "LOW_1",
+            "LOW_1",
+            "HIGH_4"
+          ],
+          [
+            "LOW_3",
+            "LOW_3",
+            "LOW_3",
+            "LOW_3"
+          ],
+          [
+            "HIGH_4",
+            "HIGH_4",
+            "LOW_3",
+            "LOW_4"
+          ],
+          [
+            "HIGH_1",
+            "HIGH_1",
+            "LOW_2",
+            "LOW_3"
+          ],
+          [
+            "HIGH_2",
+            "HIGH_2",
+            "HIGH_4",
+            "LOW_4"
+          ],
+          [
+            "LOW_3",
+            "HIGH_2",
+            "HIGH_1",
+            "LOW_4"
+          ]
+        ],
+        "reelsStripesNames": [
+          "normal",
+          "normal",
+          "normal",
+          "normal",
+          "normal",
+          "normal"
+        ],
+        "rpos": [
+          42,
+          32,
+          21,
+          42,
+          50,
+          28
+        ],
+        "wonCoins": 0,
+        "wonCoinsBeforeMultiplier": 0,
+        "wonMoney": "0.00",
+        "wonMoneyBeforeMultiplier": "0.00",
+        "wtw": []
+      }
+    }
+  }
+}

@@ -87,8 +87,10 @@ class TesterSpinApp(tk.Tk):
         outer = ttk.Frame(self, padding=10)
         outer.pack(fill="both", expand=True)
 
-        top = ttk.LabelFrame(outer, text="Proveedor y catálogo", padding=10)
-        top.pack(fill="x")
+        self.sections = ttk.Panedwindow(outer, orient="vertical")
+        self.sections.pack(fill="both", expand=True)
+        top = ttk.LabelFrame(self.sections, text="Proveedor y catálogo", padding=10)
+        self.sections.add(top, weight=0)
         row = FlowFrame(top)
         row.pack(fill="x")
 
@@ -117,8 +119,8 @@ class TesterSpinApp(tk.Tk):
         self.crawl_btn = ttk.Button(row, text="CARGAR / ACTUALIZAR CATÁLOGO", command=self._start_crawl)
         self.crawl_btn.pack(side="left")
 
-        opts = ttk.LabelFrame(outer, text="Prueba de juegos", padding=10)
-        opts.pack(fill="x", pady=(10, 0))
+        opts = ttk.LabelFrame(self.sections, text="Prueba de juegos", padding=10)
+        self.sections.add(opts, weight=0)
         row2 = FlowFrame(opts)
         row2.pack(fill="x")
 
@@ -154,8 +156,8 @@ class TesterSpinApp(tk.Tk):
         help_label.pack(fill="x", pady=(6,0))
         help_label.bind('<Configure>', lambda event: help_label.configure(wraplength=max(100,event.width)))
 
-        status_row = FlowFrame(outer)
-        status_row.pack(fill="x", pady=(8, 0))
+        status_row = FlowFrame(self.sections)
+        self.sections.add(status_row, weight=0)
         status_label = ttk.Label(status_row, textvariable=self.status_var)
         status_label._flow_wrap = True
         status_label.pack(side="left")
@@ -166,9 +168,9 @@ class TesterSpinApp(tk.Tk):
         self.status_var.trace_add("write", lambda *args: status_row._schedule())
         self.count_var.trace_add("write", lambda *args: status_row._schedule())
 
-        workspace = ttk.Panedwindow(outer, orient="vertical")
-        workspace.pack(fill="both", expand=True, pady=(8,0))
-        middle = ttk.Panedwindow(workspace, orient="horizontal")
+        workspace = self.workspace = ttk.Panedwindow(self.sections, orient="vertical")
+        self.sections.add(workspace, weight=1)
+        middle = self.middle = ttk.Panedwindow(workspace, orient="horizontal")
         workspace.add(middle, weight=5)
 
         list_frame = ttk.LabelFrame(middle, text="Juegos", padding=6)
@@ -176,7 +178,7 @@ class TesterSpinApp(tk.Tk):
         middle.add(list_frame, weight=4)
         middle.add(detail_frame, weight=2)
 
-        columns = ("name", "symbol", "status", "tested", "url")
+        columns = ("name", "symbol", "status", "tested", "url", "purchases", "antebets", "mechanics")
         self.tree = ttk.Treeview(list_frame, columns=columns, show="tree headings", selectmode="extended")
         self.tree.heading("#0", text="Miniatura")
         self.tree.heading("name", text="Nombre")
@@ -184,6 +186,13 @@ class TesterSpinApp(tk.Tk):
         self.tree.heading("status", text="Estado")
         self.tree.heading("tested", text="Última prueba")
         self.tree.heading("url", text="Link")
+        self.tree.heading("purchases", text="Cantidad de compras")
+        self.tree.heading("antebets", text="Cantidad de antebets")
+        self.tree.column("purchases", width=140, minwidth=45, anchor="center", stretch=False)
+        self.tree.column("antebets", width=140, minwidth=45, anchor="center", stretch=False)
+        self.tree.heading("mechanics", text="Mecánica particular")
+        self.tree.column("mechanics", width=250, minwidth=60, stretch=False)
+        self.tree.configure(displaycolumns=("name", "symbol", "status", "purchases", "antebets", "mechanics", "tested", "url"))
         self.tree.column("#0", width=84, minwidth=60, stretch=False)
         self.tree.column("name", width=180, minwidth=130)
         self.tree.column("symbol", width=90, minwidth=60, stretch=False)
@@ -200,29 +209,33 @@ class TesterSpinApp(tk.Tk):
         list_frame.columnconfigure(0, weight=1)
         self.tree.bind("<<TreeviewSelect>>", lambda _event: self._show_selected_game())
         self.tree.bind("<Double-1>", lambda _event: self._open_selected_url())
-        self.tree.bind("<Configure>", lambda event: self.tree.configure(displaycolumns=("name","symbol","status","tested","url") if event.width>=900 else ("name","symbol","status","tested") if event.width>=650 else ("name","symbol","status")))
 
-        self.preview_label = ttk.Label(detail_frame, text="Sin miniatura", anchor="center")
-        self.preview_label.pack(fill="x", pady=(0, 6))
-        detail_frame.bind("<Configure>", lambda event: self.after_idle(self._resize_preview), add="+")
-        selection_label = ttk.Label(detail_frame, textvariable=self.selection_var, font=("TkDefaultFont",12,"bold"))
+
+        self.detail_panes = ttk.Panedwindow(detail_frame, orient="vertical")
+        self.detail_panes.pack(fill="both", expand=True)
+        preview_frame = ttk.Frame(self.detail_panes)
+        self.detail_panes.add(preview_frame, weight=0)
+        self.preview_label = ttk.Label(preview_frame, text="Sin miniatura", anchor="center")
+        self.preview_label.pack(fill="both", expand=True, pady=(0, 6))
+        preview_frame.bind("<Configure>", lambda event: self.after_idle(self._resize_preview), add="+")
+        selection_label = self.preview_title = ttk.Label(preview_frame, textvariable=self.selection_var, font=("TkDefaultFont",12,"bold"))
         selection_label.pack(fill="x")
         selection_label.bind("<Configure>", lambda event: selection_label.configure(wraplength=max(60,event.width)))
-        detail_body = ttk.Frame(detail_frame)
-        detail_body.pack(fill="both", expand=True, pady=(6,6))
+        detail_body = ttk.Frame(self.detail_panes)
+        self.detail_panes.add(detail_body, weight=1)
         self.detail_text = tk.Text(detail_body, height=6, width=36, wrap="word", state="disabled")
         detail_scroll = ttk.Scrollbar(detail_body, orient="vertical", command=self.detail_text.yview)
         self.detail_text.configure(yscrollcommand=detail_scroll.set)
         detail_scroll.pack(side="right",fill="y")
         self.detail_text.pack(side="left",fill="both",expand=True)
-        manual_actions = FlowFrame(detail_frame, collapse_at=450, menu_label="Acciones del juego")
-        manual_actions.pack(side="bottom", fill="x", pady=(0,6), before=detail_body)
+        manual_actions = FlowFrame(self.detail_panes, collapse_at=450, menu_label="Acciones del juego")
+        self.detail_panes.add(manual_actions, weight=0)
         ttk.Button(manual_actions, text="Marcar OK manual",
                    command=lambda: self._set_selected_manual_ok(True)).pack(side="left")
         ttk.Button(manual_actions, text="Quitar OK manual",
                    command=lambda: self._set_selected_manual_ok(False)).pack(side="left", padx=(8, 0))
         detail_actions = manual_actions
-        detail_actions.pack(side="bottom", fill="x", before=manual_actions)
+
         ttk.Button(detail_actions, text="Abrir juego", command=self._open_selected_url).pack(side="left")
         ttk.Button(detail_actions, text="Abrir carpeta", command=self._open_selected_folder).pack(side="left", padx=(8, 0))
         ttk.Button(detail_actions, text="Probar este juego", command=self._test_selected).pack(side="left", padx=(8, 0))
@@ -236,7 +249,7 @@ class TesterSpinApp(tk.Tk):
         if self._preview_original is None:
             return
         parent = self.preview_label.master
-        size = (max(60,parent.winfo_width()-24), max(24,min(100,int(parent.winfo_height()*.12))))
+        size = (max(60,parent.winfo_width()-24), max(24, parent.winfo_height() - self.preview_title.winfo_reqheight() - 12))
         if size == self._preview_size:
             return
         self._preview_size = size
@@ -491,9 +504,7 @@ class TesterSpinApp(tk.Tk):
                 with Image.open(game.thumbnail_path) as original:
                     image = original.copy()
                 self._preview_original = image.copy()
-                image.thumbnail((max(80,self.preview_label.master.winfo_width()-24), max(24,min(100,int(self.preview_label.master.winfo_height()*.12)))), Image.Resampling.LANCZOS)
-                self._preview_image = ImageTk.PhotoImage(image)
-                self.preview_label.configure(image=self._preview_image, text="")
+                self._resize_preview()
                 return
             except Exception:
                 pass

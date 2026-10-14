@@ -37,13 +37,16 @@ def linked_preparation(attempt, result):
 
 
 def selection_artifacts(attempt, result, pattern, *, recursive_attempt=False):
-    """Yield (path, origin_mode, phase); bootstrap observations have SPIN origin."""
+    """Yield origins: paid attempt, normal base probe, or linked bootstrap."""
     if not attempt.artifact_dir:
         return
     directory = Path(attempt.artifact_dir)
     paths = directory.rglob(pattern) if recursive_attempt else directory.glob(pattern)
     for path in sorted(paths):
-        yield path, attempt.mode_id, 'attempt'
+        relative = path.relative_to(directory)
+        base_probe = (len(relative.parts) >= 3 and relative.parts[0] == 'return-to-base'
+                      and relative.parts[1].startswith('probe-'))
+        yield path, 'SPIN' if base_probe else attempt.mode_id, 'base_probe' if base_probe else 'attempt'
     preparation = linked_preparation(attempt, result)
     if preparation is not None:
         for path in sorted(preparation.rglob(pattern)):

@@ -1,0 +1,94 @@
+{
+  "step": 1,
+  "betamount": "0.20",
+  "betcurrency": "EUR",
+  "wonamount": "0.00",
+  "status": "RESULTED",
+  "betdata": {
+    "coin": "0.20",
+    "cashBet": "0.20",
+    "cmd": "BASE_SPIN",
+    "accWa": "0.00",
+    "accC": 0
+  },
+  "eventdata": {
+    "accC": 0,
+    "accWa": "0.00",
+    "boostData": {
+      "easy": 0,
+      "medium": 0,
+      "hard": 0
+    },
+    "initialPlayerState": {
+      "freespinsRemaining": 0,
+      "multiplier": 9,
+      "heights": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "goldenBet": false,
+      "buyBonus": true,
+      "variant": 0
+    },
+    "playerState": {
+      "freespinsRemaining": 0,
+      "multiplier": 1,
+      "heights": null,
+      "goldenBet": false,
+      "buyBonus": false,
+      "variant": 0
+    },
+    "response": {
+      "coinWin": 0,
+      "cashWin": "0.00",
+      "clientData": {
+        "bonusTriggered": false,
+        "boards": [
+          {
+            "board": [
+              [
+                1,
+                7,
+                5
+              ],
+              [
+                3,
+                5,
+                7
+              ],
+              [
+                4,
+                8,
+                1
+              ],
+              [
+                2,
+                7,
+                6
+              ],
+              [
+                1,
+                7,
+                6
+              ],
+              [
+                1,
+                1,
+                1
+              ]
+            ],
+            "total_ways": 729,
+            "multiplier": 1,
+            "scattersCount": 0,
+            "winningRows": []
+          }
+        ],
+        "wagerId": "fixture-sequence"
+      }
+    }
+  }
+}

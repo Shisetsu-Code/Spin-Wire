@@ -1,0 +1,57 @@
+{
+  "accC": 200,
+  "accWa": "2.00",
+  "currentSeason": "FALL",
+  "doubleAmount": "2.00",
+  "doubleCount": 1,
+  "multiplier": 4,
+  "nextCmds": "C",
+  "numberOfSpins": 3,
+  "reelSet": "ReelsMultiplier",
+  "reels": [
+    [
+      "SYM6",
+      "SYM7",
+      "SYM4"
+    ],
+    [
+      "SYM7",
+      "SYM9",
+      "SYM11"
+    ],
+    [
+      "SYM7",
+      "SYM8",
+      "SYM9"
+    ],
+    [
+      "SYM1",
+      "SYM11",
+      "SYM8"
+    ],
+    [
+      "SYM3",
+      "SYM9",
+      "SYM0"
+    ]
+  ],
+  "rpos": [
+    20,
+    6,
+    27,
+    36,
+    54
+  ],
+  "wonCoins": 200,
+  "wts": [
+    "000000001000000000000",
+    "010100100100000"
+  ],
+  "wtw": [
+    [
+      8,
+      200,
+      "010100100100000"
+    ]
+  ]
+}

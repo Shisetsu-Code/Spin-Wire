@@ -1,0 +1,94 @@
+{
+  "constraints": {
+    "rage_trigger": "100"
+  },
+  "clientData": {
+    "accC": 0,
+    "accWa": "0.00",
+    "avgCoinValueMap": {
+      "High4": 0.0,
+      "High3": 0.0,
+      "High2": 0.0,
+      "High1": 0.0
+    },
+    "defeatedDemons": 0,
+    "gameLevel": 0,
+    "rageStatus": {
+      "before": {
+        "High4": {
+          "rage": 0
+        },
+        "High3": {
+          "rage": 0
+        },
+        "High2": {
+          "rage": 0
+        },
+        "High1": {
+          "rage": 50
+        }
+      },
+      "after": {
+        "High4": {
+          "rage": 0
+        },
+        "High3": {
+          "rage": 0
+        },
+        "High2": {
+          "rage": 0
+        },
+        "High1": {
+          "rage": 50
+        }
+      }
+    },
+    "reelSet": "BaseReels",
+    "reels": [
+      [
+        "Low1",
+        "Low1",
+        "High1",
+        "Low1"
+      ],
+      [
+        "Low1",
+        "Low2",
+        "Low2",
+        "Low2"
+      ],
+      [
+        "Low2",
+        "High2",
+        "High2",
+        "High4"
+      ],
+      [
+        "Low1",
+        "Low2",
+        "Low2",
+        "Low3"
+      ],
+      [
+        "Low1",
+        "Low1",
+        "High1",
+        "High1"
+      ]
+    ],
+    "rpos": [
+      35,
+      19,
+      33,
+      52,
+      122
+    ],
+    "wonAmount": "0.00",
+    "wonCoins": 0,
+    "wts": [
+      "00000000000000000000000000",
+      "00000000000000000000"
+    ],
+    "wtw": []
+  }
+}

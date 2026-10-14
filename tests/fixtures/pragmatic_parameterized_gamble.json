@@ -1,0 +1,211 @@
+[
+  {
+    "before": {
+      "na": "b",
+      "g": "{gambling:{ask:\"0\",bgid:\"0\",bgt:\"69\",ch_k:\"play,sm5s7-6,sp7s5-6\",ch_v:\"0,1,2\",end:\"0\",level:\"0\",lifes:\"1\",rw:\"0.00\"}}"
+    },
+    "selected": "1",
+    "after": {
+      "na": "b",
+      "g": "{gambling:{ask:\"1\",bgid:\"0\",bgt:\"69\",ch_h:\"0~1\",ch_k:\"play,sm5s7-6,sp7s5-6;play,sm5s6-5,sp6s5-6\",ch_v:\"0,1,2;0,1,2\",end:\"0\",level:\"1\",lifes:\"1\",rw:\"0.00\"}}"
+    }
+  },
+  {
+    "before": {
+      "na": "b",
+      "g": "{gambling:{ask:\"1\",bgid:\"0\",bgt:\"69\",ch_h:\"0~1\",ch_k:\"play,sm5s7-6,sp7s5-6;play,sm5s6-5,sp6s5-6\",ch_v:\"0,1,2;0,1,2\",end:\"0\",level:\"1\",lifes:\"1\",rw:\"0.00\"}}"
+    },
+    "selected": "1",
+    "after": {
+      "na": "b",
+      "g": "{gambling:{ask:\"2\",bgid:\"0\",bgt:\"69\",ch_h:\"0~1,1~1\",ch_k:\"play,sm5s7-6,sp7s5-6;play,sm5s6-5,sp6s5-6;play,sm5s5-4,sp5s5-6\",ch_v:\"0,1,2;0,1,2;0,1,2\",end:\"0\",level:\"2\",lifes:\"1\",rw:\"0.00\"}}"
+    }
+  },
+  {
+    "before": {
+      "na": "b",
+      "g": "{gambling:{ask:\"2\",bgid:\"0\",bgt:\"69\",ch_h:\"0~1,1~1\",ch_k:\"play,sm5s7-6,sp7s5-6;play,sm5s6-5,sp6s5-6;play,sm5s5-4,sp5s5-6\",ch_v:\"0,1,2;0,1,2;0,1,2\",end:\"0\",level:\"2\",lifes:\"1\",rw:\"0.00\"}}"
+    },
+    "selected": "2",
+    "after": {
+      "na": "b",
+      "g": "{gambling:{ask:\"3\",bgid:\"0\",bgt:\"69\",ch_h:\"0~1,1~1,2~2\",ch_k:\"play,sm5s7-6,sp7s5-6;play,sm5s6-5,sp6s5-6;play,sm5s5-4,sp5s5-6;play,sm6s5-4,sp5s6-7\",ch_v:\"0,1,2;0,1,2;0,1,2;0,1,2\",end:\"0\",level:\"3\",lifes:\"1\",rw:\"0.00\"}}"
+    }
+  },
+  {
+    "before": {
+      "na": "b",
+      "g": "{gambling:{ask:\"3\",bgid:\"0\",bgt:\"69\",ch_h:\"0~1,1~1,2~2\",ch_k:\"play,sm5s7-6,sp7s5-6;play,sm5s6-5,sp6s5-6;play,sm5s5-4,sp5s5-6;play,sm6s5-4,sp5s6-7\",ch_v:\"0,1,2;0,1,2;0,1,2;0,1,2\",end:\"0\",level:\"3\",lifes:\"1\",rw:\"0.00\"}}"
+    },
+    "selected": "2",
+    "after": {
+      "na": "b",
+      "g": "{gambling:{ask:\"4\",bgid:\"0\",bgt:\"69\",ch_h:\"0~1,1~1,2~2,3~2\",ch_k:\"play,sm5s7-6,sp7s5-6;play,sm5s6-5,sp6s5-6;play,sm5s5-4,sp5s5-6;play,sm6s5-4,sp5s6-7;play,sm7s5-4,sp5s7-8\",ch_v:\"0,1,2;0,1,2;0,1,2;0,1,2;0,1,2\",end:\"0\",level:\"4\",lifes:\"1\",rw:\"0.00\"}}"
+    }
+  },
+  {
+    "before": {
+      "na": "b",
+      "g": "{gambling:{ask:\"4\",bgid:\"0\",bgt:\"69\",ch_h:\"0~1,1~1,2~2,3~2\",ch_k:\"play,sm5s7-6,sp7s5-6;play,sm5s6-5,sp6s5-6;play,sm5s5-4,sp5s5-6;play,sm6s5-4,sp5s6-7;play,sm7s5-4,sp5s7-8\",ch_v:\"0,1,2;0,1,2;0,1,2;0,1,2;0,1,2\",end:\"0\",level:\"4\",lifes:\"1\",rw:\"0.00\"}}"
+    },
+    "selected": "2",
+    "after": {
+      "na": "c",
+      "g": "{gambling:{bgid:\"0\",bgt:\"69\",ch_h:\"0~1,1~1,2~2,3~2,4~2\",ch_k:\"play,sm5s7-6,sp7s5-6;play,sm5s6-5,sp6s5-6;play,sm5s5-4,sp5s5-6;play,sm6s5-4,sp5s6-7;play,sm7s5-4,sp5s7-8\",ch_v:\"0,1,2;0,1,2;0,1,2;0,1,2;0,1,2\",end:\"1\",level:\"5\",lifes:\"0\",rw:\"0.00\"}}"
+    }
+  },
+  {
+    "before": {
+      "na": "b",
+      "g": "{gambling:{ask:\"0\",bgid:\"0\",bgt:\"69\",ch_k:\"play,sm5s8-7,sp8s5-6\",ch_v:\"0,1,2\",end:\"0\",level:\"0\",lifes:\"1\",rw:\"0.00\"}}"
+    },
+    "selected": "2",
+    "after": {
+      "na": "b",
+      "g": "{gambling:{ask:\"1\",bgid:\"0\",bgt:\"69\",ch_h:\"0~2\",ch_k:\"play,sm5s8-7,sp8s5-6;play,sm6s8-7,sp8s6-7\",ch_v:\"0,1,2;0,1,2\",end:\"0\",level:\"1\",lifes:\"1\",rw:\"0.00\"}}"
+    }
+  },
+  {
+    "before": {
+      "na": "b",
+      "g": "{gambling:{ask:\"1\",bgid:\"0\",bgt:\"69\",ch_h:\"0~2\",ch_k:\"play,sm5s8-7,sp8s5-6;play,sm6s8-7,sp8s6-7\",ch_v:\"0,1,2;0,1,2\",end:\"0\",level:\"1\",lifes:\"1\",rw:\"0.00\"}}"
+    },
+    "selected": "2",
+    "after": {
+      "na": "b",
+      "g": "{gambling:{ask:\"2\",bgid:\"0\",bgt:\"69\",ch_h:\"0~2,1~2\",ch_k:\"play,sm5s8-7,sp8s5-6;play,sm6s8-7,sp8s6-7;play,sm7s8-7,sp8s7-8\",ch_v:\"0,1,2;0,1,2;0,1,2\",end:\"0\",level:\"2\",lifes:\"1\",rw:\"0.00\"}}"
+    }
+  },
+  {
+    "before": {
+      "na": "b",
+      "g": "{gambling:{ask:\"2\",bgid:\"0\",bgt:\"69\",ch_h:\"0~2,1~2\",ch_k:\"play,sm5s8-7,sp8s5-6;play,sm6s8-7,sp8s6-7;play,sm7s8-7,sp8s7-8\",ch_v:\"0,1,2;0,1,2;0,1,2\",end:\"0\",level:\"2\",lifes:\"1\",rw:\"0.00\"}}"
+    },
+    "selected": "1",
+    "after": {
+      "na": "c",
+      "g": "{gambling:{bgid:\"0\",bgt:\"69\",ch_h:\"0~2,1~2,2~1\",ch_k:\"play,sm5s8-7,sp8s5-6;play,sm6s8-7,sp8s6-7;play,sm7s8-7,sp8s7-8\",ch_v:\"0,1,2;0,1,2;0,1,2\",end:\"1\",level:\"3\",lifes:\"0\",rw:\"0.00\"}}"
+    }
+  },
+  {
+    "before": {
+      "na": "b",
+      "g": "{gambling:{ask:\"0\",bgid:\"0\",bgt:\"69\",ch_k:\"play,sm5s7-6,sp7s5-6\",ch_v:\"0,1,2\",end:\"0\",level:\"0\",lifes:\"1\",rw:\"0.00\"}}"
+    },
+    "selected": "1",
+    "after": {
+      "na": "b",
+      "g": "{gambling:{ask:\"1\",bgid:\"0\",bgt:\"69\",ch_h:\"0~1\",ch_k:\"play,sm5s7-6,sp7s5-6;play,sm5s6-5,sp6s5-6\",ch_v:\"0,1,2;0,1,2\",end:\"0\",level:\"1\",lifes:\"1\",rw:\"0.00\"}}"
+    }
+  },
+  {
+    "before": {
+      "na": "b",
+      "g": "{gambling:{ask:\"1\",bgid:\"0\",bgt:\"69\",ch_h:\"0~1\",ch_k:\"play,sm5s7-6,sp7s5-6;play,sm5s6-5,sp6s5-6\",ch_v:\"0,1,2;0,1,2\",end:\"0\",level:\"1\",lifes:\"1\",rw:\"0.00\"}}"
+    },
+    "selected": "2",
+    "after": {
+      "na": "b",
+      "g": "{gambling:{ask:\"2\",bgid:\"0\",bgt:\"69\",ch_h:\"0~1,1~2\",ch_k:\"play,sm5s7-6,sp7s5-6;play,sm5s6-5,sp6s5-6;play,sm6s6-5,sp6s6-7\",ch_v:\"0,1,2;0,1,2;0,1,2\",end:\"0\",level:\"2\",lifes:\"1\",rw:\"0.00\"}}"
+    }
+  },
+  {
+    "before": {
+      "na": "b",
+      "g": "{gambling:{ask:\"2\",bgid:\"0\",bgt:\"69\",ch_h:\"0~1,1~2\",ch_k:\"play,sm5s7-6,sp7s5-6;play,sm5s6-5,sp6s5-6;play,sm6s6-5,sp6s6-7\",ch_v:\"0,1,2;0,1,2;0,1,2\",end:\"0\",level:\"2\",lifes:\"1\",rw:\"0.00\"}}"
+    },
+    "selected": "2",
+    "after": {
+      "na": "b",
+      "g": "{gambling:{ask:\"3\",bgid:\"0\",bgt:\"69\",ch_h:\"0~1,1~2,2~2\",ch_k:\"play,sm5s7-6,sp7s5-6;play,sm5s6-5,sp6s5-6;play,sm6s6-5,sp6s6-7;play,sm7s6-5,sp6s7-8\",ch_v:\"0,1,2;0,1,2;0,1,2;0,1,2\",end:\"0\",level:\"3\",lifes:\"1\",rw:\"0.00\"}}"
+    }
+  },
+  {
+    "before": {
+      "na": "b",
+      "g": "{gambling:{ask:\"3\",bgid:\"0\",bgt:\"69\",ch_h:\"0~1,1~2,2~2\",ch_k:\"play,sm5s7-6,sp7s5-6;play,sm5s6-5,sp6s5-6;play,sm6s6-5,sp6s6-7;play,sm7s6-5,sp6s7-8\",ch_v:\"0,1,2;0,1,2;0,1,2;0,1,2\",end:\"0\",level:\"3\",lifes:\"1\",rw:\"0.00\"}}"
+    },
+    "selected": "0",
+    "after": {
+      "na": "s",
+      "g": "{gambling:{bgid:\"0\",bgt:\"69\",ch_h:\"0~1,1~2,2~2,3~0\",ch_k:\"play,sm5s7-6,sp7s5-6;play,sm5s6-5,sp6s5-6;play,sm6s6-5,sp6s6-7;play,sm7s6-5,sp6s7-8\",ch_v:\"0,1,2;0,1,2;0,1,2;0,1,2\",end:\"1\",level:\"4\",lifes:\"1\",rw:\"0.00\"}}"
+    }
+  },
+  {
+    "before": {
+      "na": "b",
+      "g": "{gambling:{ask:\"0\",bgid:\"0\",bgt:\"69\",ch_k:\"play,sm5s6-5,sp6s5-6\",ch_v:\"0,1,2\",end:\"0\",level:\"0\",lifes:\"1\",rw:\"0.00\"}}"
+    },
+    "selected": "1",
+    "after": {
+      "na": "b",
+      "g": "{gambling:{ask:\"1\",bgid:\"0\",bgt:\"69\",ch_h:\"0~1\",ch_k:\"play,sm5s6-5,sp6s5-6;play,sm5s5-4,sp5s5-6\",ch_v:\"0,1,2;0,1,2\",end:\"0\",level:\"1\",lifes:\"1\",rw:\"0.00\"}}"
+    }
+  },
+  {
+    "before": {
+      "na": "b",
+      "g": "{gambling:{ask:\"1\",bgid:\"0\",bgt:\"69\",ch_h:\"0~1\",ch_k:\"play,sm5s6-5,sp6s5-6;play,sm5s5-4,sp5s5-6\",ch_v:\"0,1,2;0,1,2\",end:\"0\",level:\"1\",lifes:\"1\",rw:\"0.00\"}}"
+    },
+    "selected": "1",
+    "after": {
+      "na": "c",
+      "g": "{gambling:{bgid:\"0\",bgt:\"69\",ch_h:\"0~1,1~1\",ch_k:\"play,sm5s6-5,sp6s5-6;play,sm5s5-4,sp5s5-6\",ch_v:\"0,1,2;0,1,2\",end:\"1\",level:\"2\",lifes:\"0\",rw:\"0.00\"}}"
+    }
+  },
+  {
+    "before": {
+      "na": "b",
+      "g": "{gambling:{ask:\"0\",bgid:\"0\",bgt:\"69\",ch_k:\"play,sm5s6-5,sp6s5-6\",ch_v:\"0,1,2\",end:\"0\",level:\"0\",lifes:\"1\",rw:\"0.00\"}}"
+    },
+    "selected": "2",
+    "after": {
+      "na": "b",
+      "g": "{gambling:{ask:\"1\",bgid:\"0\",bgt:\"69\",ch_h:\"0~2\",ch_k:\"play,sm5s6-5,sp6s5-6;play,sm6s6-5,sp6s6-7\",ch_v:\"0,1,2;0,1,2\",end:\"0\",level:\"1\",lifes:\"1\",rw:\"0.00\"}}"
+    }
+  },
+  {
+    "before": {
+      "na": "b",
+      "g": "{gambling:{ask:\"1\",bgid:\"0\",bgt:\"69\",ch_h:\"0~2\",ch_k:\"play,sm5s6-5,sp6s5-6;play,sm6s6-5,sp6s6-7\",ch_v:\"0,1,2;0,1,2\",end:\"0\",level:\"1\",lifes:\"1\",rw:\"0.00\"}}"
+    },
+    "selected": "2",
+    "after": {
+      "na": "b",
+      "g": "{gambling:{ask:\"2\",bgid:\"0\",bgt:\"69\",ch_h:\"0~2,1~2\",ch_k:\"play,sm5s6-5,sp6s5-6;play,sm6s6-5,sp6s6-7;play,sm7s6-5,sp6s7-8\",ch_v:\"0,1,2;0,1,2;0,1,2\",end:\"0\",level:\"2\",lifes:\"1\",rw:\"0.00\"}}"
+    }
+  },
+  {
+    "before": {
+      "na": "b",
+      "g": "{gambling:{ask:\"2\",bgid:\"0\",bgt:\"69\",ch_h:\"0~2,1~2\",ch_k:\"play,sm5s6-5,sp6s5-6;play,sm6s6-5,sp6s6-7;play,sm7s6-5,sp6s7-8\",ch_v:\"0,1,2;0,1,2;0,1,2\",end:\"0\",level:\"2\",lifes:\"1\",rw:\"0.00\"}}"
+    },
+    "selected": "2",
+    "after": {
+      "na": "b",
+      "g": "{gambling:{ask:\"3\",bgid:\"0\",bgt:\"69\",ch_h:\"0~2,1~2,2~2\",ch_k:\"play,sm5s6-5,sp6s5-6;play,sm6s6-5,sp6s6-7;play,sm7s6-5,sp6s7-8;play,sm8s6-5\",ch_v:\"0,1,2;0,1,2;0,1,2;0,1\",end:\"0\",level:\"3\",lifes:\"1\",rw:\"0.00\"}}"
+    }
+  },
+  {
+    "before": {
+      "na": "b",
+      "g": "{gambling:{ask:\"3\",bgid:\"0\",bgt:\"69\",ch_h:\"0~2,1~2,2~2\",ch_k:\"play,sm5s6-5,sp6s5-6;play,sm6s6-5,sp6s6-7;play,sm7s6-5,sp6s7-8;play,sm8s6-5\",ch_v:\"0,1,2;0,1,2;0,1,2;0,1\",end:\"0\",level:\"3\",lifes:\"1\",rw:\"0.00\"}}"
+    },
+    "selected": "1",
+    "after": {
+      "na": "b",
+      "g": "{gambling:{ask:\"4\",bgid:\"0\",bgt:\"69\",ch_h:\"0~2,1~2,2~2,3~1\",ch_k:\"play,sm5s6-5,sp6s5-6;play,sm6s6-5,sp6s6-7;play,sm7s6-5,sp6s7-8;play,sm8s6-5;play,sm8s5-4\",ch_v:\"0,1,2;0,1,2;0,1,2;0,1;0,1\",end:\"0\",level:\"4\",lifes:\"1\",rw:\"0.00\"}}"
+    }
+  },
+  {
+    "before": {
+      "na": "b",
+      "g": "{gambling:{ask:\"4\",bgid:\"0\",bgt:\"69\",ch_h:\"0~2,1~2,2~2,3~1\",ch_k:\"play,sm5s6-5,sp6s5-6;play,sm6s6-5,sp6s6-7;play,sm7s6-5,sp6s7-8;play,sm8s6-5;play,sm8s5-4\",ch_v:\"0,1,2;0,1,2;0,1,2;0,1;0,1\",end:\"0\",level:\"4\",lifes:\"1\",rw:\"0.00\"}}"
+    },
+    "selected": "0",
+    "after": {
+      "na": "s",
+      "g": "{gambling:{bgid:\"0\",bgt:\"69\",ch_h:\"0~2,1~2,2~2,3~1,4~0\",ch_k:\"play,sm5s6-5,sp6s5-6;play,sm6s6-5,sp6s6-7;play,sm7s6-5,sp6s7-8;play,sm8s6-5;play,sm8s5-4\",ch_v:\"0,1,2;0,1,2;0,1,2;0,1;0,1\",end:\"1\",level:\"5\",lifes:\"1\",rw:\"0.00\"}}"
+    }
+  }
+]

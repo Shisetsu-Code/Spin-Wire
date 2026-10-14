@@ -1,0 +1,1154 @@
+[
+  {
+    "file": "www.hacksawgaming.com_Archive [26-10-11 08-03-28].har",
+    "sha256": "d2b4de2efbdb1bf9ce7ebf3a318b737b495cc1e0adcb00576a09763dd233fbe7",
+    "plays": [
+      {
+        "request": {
+          "bets": [
+            {
+              "betAmount": "200",
+              "buyBonus": "mod_rainbow_gold"
+            }
+          ]
+        },
+        "round": {
+          "status": "wfwpc",
+          "possibleActions": []
+        }
+      },
+      {
+        "request": {
+          "continueInstructions": {
+            "action": "win_presentation_complete"
+          }
+        },
+        "round": {
+          "status": "completed",
+          "possibleActions": []
+        }
+      },
+      {
+        "request": {
+          "bets": [
+            {
+              "betAmount": "200",
+              "buyBonus": "mod_rainbow_gold"
+            }
+          ]
+        },
+        "round": {
+          "status": "wfwpc",
+          "possibleActions": []
+        }
+      },
+      {
+        "request": {
+          "continueInstructions": {
+            "action": "win_presentation_complete"
+          }
+        },
+        "round": {
+          "status": "completed",
+          "possibleActions": []
+        }
+      },
+      {
+        "request": {
+          "bets": [
+            {
+              "betAmount": "200",
+              "buyBonus": "mod_rainbow"
+            }
+          ]
+        },
+        "round": {
+          "status": "wfwpc",
+          "possibleActions": []
+        }
+      },
+      {
+        "request": {
+          "continueInstructions": {
+            "action": "win_presentation_complete"
+          }
+        },
+        "round": {
+          "status": "completed",
+          "possibleActions": []
+        }
+      },
+      {
+        "request": {
+          "bets": [
+            {
+              "betAmount": "200"
+            }
+          ]
+        },
+        "round": {
+          "status": "completed",
+          "possibleActions": []
+        }
+      },
+      {
+        "request": {
+          "bets": [
+            {
+              "betAmount": "200"
+            }
+          ]
+        },
+        "round": {
+          "status": "completed",
+          "possibleActions": []
+        }
+      }
+    ],
+    "classification_source": "get_featureBuyItemType:function(){var e=this.featureBuyItemType;return null==e?me.startsWith(this.bonusGameId,\"mod_\")?\"FeatureSpinItem\":me.startsWith(this.bonusGameId,\"bob_\")?\"BestOfBonusItem\":\"BonusBuyItem\":e},",
+    "auth": {
+      "gameId": "2613",
+      "bonusGames": [
+        {
+          "bonusGameId": "mod_rainbow",
+          "betCostMultiplier": "35",
+          "expectedRtp": 96.29
+        },
+        {
+          "bonusGameId": "mod_rainbow_gold",
+          "betCostMultiplier": "100",
+          "expectedRtp": 96.28
+        }
+      ],
+      "betLevels": [
+        "5",
+        "10",
+        "20",
+        "40",
+        "60",
+        "80",
+        "100",
+        "120",
+        "140",
+        "160",
+        "180",
+        "200",
+        "300",
+        "400",
+        "500",
+        "600",
+        "700",
+        "800",
+        "900",
+        "1000",
+        "1500",
+        "2000",
+        "2500",
+        "3000",
+        "3500",
+        "4000",
+        "4500",
+        "5000",
+        "7500",
+        "10000",
+        "15000",
+        "20000",
+        "25000",
+        "30000",
+        "35000",
+        "40000"
+      ],
+      "disableBonusBuys": false,
+      "disableFeatureSpins": false,
+      "gameSettings": {
+        "disableBonusBuys": null,
+        "disableFeatureSpins": null,
+        "resetBetAfterSpin": null,
+        "disableBonusOrFeatureBuyByName": null,
+        "branding": null,
+        "brandingName": null,
+        "crashDisableChat": false,
+        "crashDisableScoreboard": false,
+        "crashMaxConcurrentBets": "3",
+        "crashMinAutoCashout": 0.0
+      },
+      "minimumRoundDuration": "0"
+    },
+    "client_source": "[\"hacksaw.common.types.FeatureBuyItem\"]=Ui;function Ui(e,t,n,i,s,a,r,l,o,h,u,c){this.customClassName=null,this.featureBuyItemType=null,this.betCostMultiplierBaseGameEffect=!1,this.volatility2=null,this.volatility=null,this.description=null,this.image=null,this.expectedRtp=null,this.enhancedChanceMultiplier=null,this.betCostMultiplier=null,this.bonusGameId=e,this.name=t,null!=n&&(this.betCostMultiplier=n),null!=i&&(this.enhancedChanceMultiplier=i),null!=s&&(this.expectedRtp=s),null!=a&&(this.image=a),null!=r&&(this.description=r),null!=l&&(this.volatility=l),null!=o&&(this.volatility2=o),null!=h&&(this.betCostMultiplierBaseGameEffect=h),null!=u&&(this.featureBuyItemType=u),null!=c&&(this.customClassName=c)};getFeatureBuyItems:function(){return[new Ui(\"mod_rainbow\",\"rainbow_feature_uc\",null,null,null,\"gameinfoassets/mod_rainbow.png\",\"rainbow_feature_desc\",\"high\",null,!0,null,null),new Ui(\"mod_rainbow_gold\",\"gold_rainbow_feature_uc\",null,null,null,\"gameinfoassets/mod_rainbow_gold.png\",\"gold_rainbow_feature_desc\",\"high\",null,!0,null,null)]};get_featureBuyItemType:function(){var e=this.featureBuyItemType;return null==e?me.startsWith(this.bonusGameId,\"mod_\")?\"FeatureSpinItem\":me.startsWith(this.bonusGameId,\"bob_\")?\"BestOfBonusItem\":\"BonusBuyItem\":e},"
+  },
+  {
+    "file": "www.hacksawgaming.com_Archive [26-10-11 08-04-28].har",
+    "sha256": "12080dad1097ef3a632e392af9bd46adcf83c08482fa936477226e444ce0e8d7",
+    "plays": [
+      {
+        "request": {
+          "bets": [
+            {
+              "betAmount": "200",
+              "buyBonus": "mod_4"
+            }
+          ]
+        },
+        "round": {
+          "status": "wfwpc",
+          "possibleActions": []
+        }
+      },
+      {
+        "request": {
+          "continueInstructions": {
+            "action": "win_presentation_complete"
+          }
+        },
+        "round": {
+          "status": "completed",
+          "possibleActions": []
+        }
+      },
+      {
+        "request": {
+          "bets": [
+            {
+              "betAmount": "200",
+              "buyBonus": "mod_3"
+            }
+          ]
+        },
+        "round": {
+          "status": "wfwpc",
+          "possibleActions": []
+        }
+      },
+      {
+        "request": {
+          "continueInstructions": {
+            "action": "win_presentation_complete"
+          }
+        },
+        "round": {
+          "status": "completed",
+          "possibleActions": []
+        }
+      },
+      {
+        "request": {
+          "bets": [
+            {
+              "betAmount": "200",
+              "buyBonus": "mod_3"
+            }
+          ]
+        },
+        "round": {
+          "status": "completed",
+          "possibleActions": []
+        }
+      },
+      {
+        "request": {
+          "bets": [
+            {
+              "betAmount": "200",
+              "buyBonus": "mod_2"
+            }
+          ]
+        },
+        "round": {
+          "status": "completed",
+          "possibleActions": []
+        }
+      },
+      {
+        "request": {
+          "bets": [
+            {
+              "betAmount": "200",
+              "buyBonus": "mod_2"
+            }
+          ]
+        },
+        "round": {
+          "status": "wfwpc",
+          "possibleActions": []
+        }
+      },
+      {
+        "request": {
+          "continueInstructions": {
+            "action": "win_presentation_complete"
+          }
+        },
+        "round": {
+          "status": "completed",
+          "possibleActions": []
+        }
+      },
+      {
+        "request": {
+          "bets": [
+            {
+              "betAmount": "200",
+              "buyBonus": "mod_2"
+            }
+          ]
+        },
+        "round": {
+          "status": "completed",
+          "possibleActions": []
+        }
+      },
+      {
+        "request": {
+          "bets": [
+            {
+              "betAmount": "200",
+              "buyBonus": "mod_1"
+            }
+          ]
+        },
+        "round": {
+          "status": "completed",
+          "possibleActions": []
+        }
+      },
+      {
+        "request": {
+          "bets": [
+            {
+              "betAmount": "200"
+            }
+          ]
+        },
+        "round": {
+          "status": "completed",
+          "possibleActions": []
+        }
+      }
+    ],
+    "classification_source": "get_featureBuyItemType:function(){var e=this.featureBuyItemType;return null==e?Ae.startsWith(this.bonusGameId,\"mod_\")?\"FeatureSpinItem\":Ae.startsWith(this.bonusGameId,\"bob_\")?\"BestOfBonusItem\":\"BonusBuyItem\":e},",
+    "auth": {
+      "gameId": "2356",
+      "bonusGames": [
+        {
+          "bonusGameId": "mod_1",
+          "betCostMultiplier": "11",
+          "expectedRtp": 96.23
+        },
+        {
+          "bonusGameId": "mod_2",
+          "betCostMultiplier": "105",
+          "expectedRtp": 96.32
+        },
+        {
+          "bonusGameId": "mod_3",
+          "betCostMultiplier": "1050",
+          "expectedRtp": 96.32
+        },
+        {
+          "bonusGameId": "mod_4",
+          "betCostMultiplier": "2100",
+          "expectedRtp": 96.17
+        }
+      ],
+      "betLevels": [
+        "5",
+        "10",
+        "20",
+        "40",
+        "60",
+        "80",
+        "100",
+        "120",
+        "140",
+        "160",
+        "180",
+        "200",
+        "300",
+        "400",
+        "500",
+        "600",
+        "700",
+        "800",
+        "900",
+        "1000",
+        "1500",
+        "2000",
+        "2500",
+        "3000",
+        "3500",
+        "4000",
+        "4500",
+        "5000",
+        "7500",
+        "10000"
+      ],
+      "disableBonusBuys": false,
+      "disableFeatureSpins": false,
+      "gameSettings": {
+        "disableBonusBuys": null,
+        "disableFeatureSpins": null,
+        "resetBetAfterSpin": null,
+        "disableBonusOrFeatureBuyByName": null,
+        "branding": null,
+        "brandingName": null,
+        "crashDisableChat": false,
+        "crashDisableScoreboard": false,
+        "crashMaxConcurrentBets": "3",
+        "crashMinAutoCashout": 0.0
+      },
+      "minimumRoundDuration": "0"
+    },
+    "client_source": "[\"hacksaw.common.types.FeatureBuyItem\"]=js;function js(e,t,n,s,i,a,r,l,o,h,u){this.customClassName=null,this.featureBuyItemType=null,this.betCostMultiplierBaseGameEffect=!1,this.volatility2=null,this.volatility=null,this.description=null,this.image=null,this.expectedRtp=null,this.betCostMultiplier=null,this.bonusGameId=e,this.name=t,null!=n&&(this.betCostMultiplier=n),null!=s&&(this.expectedRtp=s),null!=i&&(this.image=i),null!=a&&(this.description=a),null!=r&&(this.volatility=r),null!=l&&(this.volatility2=l),null!=o&&(this.betCostMultiplierBaseGameEffect=o),null!=h&&(this.featureBuyItemType=h),null!=u&&(this.customClassName=u)};getFeatureBuyItems:function(e){e=this.getHeavyCoreFeatureLocaleKey(e);return[new js(\"mod_1\",e+\"_uc\",null,null,\"gameinfoassets/bonus_asset_one.png\",e+\"_desc\",\"extreme\",null,!0,null,null),new js(\"mod_2\",\"power_core_featurespins_uc\",null,null,\"gameinfoassets/bonus_asset_one.png\",\"power_core_featurespins_desc\",\"extreme\",null,!0,null,null),new js(\"mod_3\",\"epic_core_featurespins_uc\",null,null,\"gameinfoassets/bonus_asset_two.png\",\"epic_core_featurespins_desc\",\"extreme\",null,!0,null,null),new js(\"mod_4\",\"super_core_featurespins_uc\",null,null,\"gameinfoassets/bonus_asset_two.png\",\"super_core_featurespins_desc\",\"extreme\",null,!0,null,null)]};get_featureBuyItemType:function(){var e=this.featureBuyItemType;return null==e?Ae.startsWith(this.bonusGameId,\"mod_\")?\"FeatureSpinItem\":Ae.startsWith(this.bonusGameId,\"bob_\")?\"BestOfBonusItem\":\"BonusBuyItem\":e},"
+  },
+  {
+    "file": "www.hacksawgaming.com_Archive [26-10-11 08-05-02].har",
+    "sha256": "6c06a1331719e5518601d6c4e48cc03d8e699d9497ab315f01af6b78a2ce07c4",
+    "plays": [
+      {
+        "request": {
+          "bets": [
+            {
+              "betAmount": "200",
+              "buyBonus": "mod_4"
+            }
+          ]
+        },
+        "round": {
+          "status": "wfwpc",
+          "possibleActions": []
+        }
+      },
+      {
+        "request": {
+          "continueInstructions": {
+            "action": "win_presentation_complete"
+          }
+        },
+        "round": {
+          "status": "completed",
+          "possibleActions": []
+        }
+      },
+      {
+        "request": {
+          "bets": [
+            {
+              "betAmount": "200",
+              "buyBonus": "mod_3"
+            }
+          ]
+        },
+        "round": {
+          "status": "wfwpc",
+          "possibleActions": []
+        }
+      },
+      {
+        "request": {
+          "continueInstructions": {
+            "action": "win_presentation_complete"
+          }
+        },
+        "round": {
+          "status": "completed",
+          "possibleActions": []
+        }
+      },
+      {
+        "request": {
+          "bets": [
+            {
+              "betAmount": "200",
+              "buyBonus": "mod_3"
+            }
+          ]
+        },
+        "round": {
+          "status": "completed",
+          "possibleActions": []
+        }
+      },
+      {
+        "request": {
+          "bets": [
+            {
+              "betAmount": "200",
+              "buyBonus": "mod_2"
+            }
+          ]
+        },
+        "round": {
+          "status": "completed",
+          "possibleActions": []
+        }
+      },
+      {
+        "request": {
+          "bets": [
+            {
+              "betAmount": "200",
+              "buyBonus": "mod_2"
+            }
+          ]
+        },
+        "round": {
+          "status": "wfwpc",
+          "possibleActions": []
+        }
+      },
+      {
+        "request": {
+          "continueInstructions": {
+            "action": "win_presentation_complete"
+          }
+        },
+        "round": {
+          "status": "completed",
+          "possibleActions": []
+        }
+      },
+      {
+        "request": {
+          "bets": [
+            {
+              "betAmount": "200",
+              "buyBonus": "mod_2"
+            }
+          ]
+        },
+        "round": {
+          "status": "completed",
+          "possibleActions": []
+        }
+      },
+      {
+        "request": {
+          "bets": [
+            {
+              "betAmount": "200",
+              "buyBonus": "mod_1"
+            }
+          ]
+        },
+        "round": {
+          "status": "completed",
+          "possibleActions": []
+        }
+      },
+      {
+        "request": {
+          "bets": [
+            {
+              "betAmount": "200"
+            }
+          ]
+        },
+        "round": {
+          "status": "completed",
+          "possibleActions": []
+        }
+      },
+      {
+        "request": {
+          "bets": [
+            {
+              "betAmount": "200",
+              "buyBonus": "mod_4"
+            }
+          ]
+        },
+        "round": {
+          "status": "wfwpc",
+          "possibleActions": []
+        }
+      },
+      {
+        "request": {
+          "continueInstructions": {
+            "action": "win_presentation_complete"
+          }
+        },
+        "round": {
+          "status": "completed",
+          "possibleActions": []
+        }
+      },
+      {
+        "request": {
+          "bets": [
+            {
+              "betAmount": "200",
+              "buyBonus": "mod_4"
+            }
+          ]
+        },
+        "round": {
+          "status": "wfwpc",
+          "possibleActions": []
+        }
+      },
+      {
+        "request": {
+          "continueInstructions": {
+            "action": "win_presentation_complete"
+          }
+        },
+        "round": {
+          "status": "completed",
+          "possibleActions": []
+        }
+      },
+      {
+        "request": {
+          "bets": [
+            {
+              "betAmount": "200",
+              "buyBonus": "mod_4"
+            }
+          ]
+        },
+        "round": {
+          "status": "completed",
+          "possibleActions": []
+        }
+      },
+      {
+        "request": {
+          "bets": [
+            {
+              "betAmount": "200",
+              "buyBonus": "mod_4"
+            }
+          ]
+        },
+        "round": {
+          "status": "wfwpc",
+          "possibleActions": []
+        }
+      },
+      {
+        "request": {
+          "continueInstructions": {
+            "action": "win_presentation_complete"
+          }
+        },
+        "round": {
+          "status": "completed",
+          "possibleActions": []
+        }
+      },
+      {
+        "request": {
+          "bets": [
+            {
+              "betAmount": "200",
+              "buyBonus": "mod_4"
+            }
+          ]
+        },
+        "round": {
+          "status": "wfwpc",
+          "possibleActions": []
+        }
+      },
+      {
+        "request": {
+          "continueInstructions": {
+            "action": "win_presentation_complete"
+          }
+        },
+        "round": {
+          "status": "completed",
+          "possibleActions": []
+        }
+      }
+    ],
+    "classification_source": "get_featureBuyItemType:function(){var e=this.featureBuyItemType;return null==e?Ae.startsWith(this.bonusGameId,\"mod_\")?\"FeatureSpinItem\":Ae.startsWith(this.bonusGameId,\"bob_\")?\"BestOfBonusItem\":\"BonusBuyItem\":e},",
+    "auth": {
+      "gameId": "2356",
+      "bonusGames": [
+        {
+          "bonusGameId": "mod_1",
+          "betCostMultiplier": "11",
+          "expectedRtp": 96.23
+        },
+        {
+          "bonusGameId": "mod_2",
+          "betCostMultiplier": "105",
+          "expectedRtp": 96.32
+        },
+        {
+          "bonusGameId": "mod_3",
+          "betCostMultiplier": "1050",
+          "expectedRtp": 96.32
+        },
+        {
+          "bonusGameId": "mod_4",
+          "betCostMultiplier": "2100",
+          "expectedRtp": 96.17
+        }
+      ],
+      "betLevels": [
+        "5",
+        "10",
+        "20",
+        "40",
+        "60",
+        "80",
+        "100",
+        "120",
+        "140",
+        "160",
+        "180",
+        "200",
+        "300",
+        "400",
+        "500",
+        "600",
+        "700",
+        "800",
+        "900",
+        "1000",
+        "1500",
+        "2000",
+        "2500",
+        "3000",
+        "3500",
+        "4000",
+        "4500",
+        "5000",
+        "7500",
+        "10000"
+      ],
+      "disableBonusBuys": false,
+      "disableFeatureSpins": false,
+      "gameSettings": {
+        "disableBonusBuys": null,
+        "disableFeatureSpins": null,
+        "resetBetAfterSpin": null,
+        "disableBonusOrFeatureBuyByName": null,
+        "branding": null,
+        "brandingName": null,
+        "crashDisableChat": false,
+        "crashDisableScoreboard": false,
+        "crashMaxConcurrentBets": "3",
+        "crashMinAutoCashout": 0.0
+      },
+      "minimumRoundDuration": "0"
+    },
+    "client_source": "[\"hacksaw.common.types.FeatureBuyItem\"]=js;function js(e,t,n,s,i,a,r,l,o,h,u){this.customClassName=null,this.featureBuyItemType=null,this.betCostMultiplierBaseGameEffect=!1,this.volatility2=null,this.volatility=null,this.description=null,this.image=null,this.expectedRtp=null,this.betCostMultiplier=null,this.bonusGameId=e,this.name=t,null!=n&&(this.betCostMultiplier=n),null!=s&&(this.expectedRtp=s),null!=i&&(this.image=i),null!=a&&(this.description=a),null!=r&&(this.volatility=r),null!=l&&(this.volatility2=l),null!=o&&(this.betCostMultiplierBaseGameEffect=o),null!=h&&(this.featureBuyItemType=h),null!=u&&(this.customClassName=u)};getFeatureBuyItems:function(e){e=this.getHeavyCoreFeatureLocaleKey(e);return[new js(\"mod_1\",e+\"_uc\",null,null,\"gameinfoassets/bonus_asset_one.png\",e+\"_desc\",\"extreme\",null,!0,null,null),new js(\"mod_2\",\"power_core_featurespins_uc\",null,null,\"gameinfoassets/bonus_asset_one.png\",\"power_core_featurespins_desc\",\"extreme\",null,!0,null,null),new js(\"mod_3\",\"epic_core_featurespins_uc\",null,null,\"gameinfoassets/bonus_asset_two.png\",\"epic_core_featurespins_desc\",\"extreme\",null,!0,null,null),new js(\"mod_4\",\"super_core_featurespins_uc\",null,null,\"gameinfoassets/bonus_asset_two.png\",\"super_core_featurespins_desc\",\"extreme\",null,!0,null,null)]};get_featureBuyItemType:function(){var e=this.featureBuyItemType;return null==e?Ae.startsWith(this.bonusGameId,\"mod_\")?\"FeatureSpinItem\":Ae.startsWith(this.bonusGameId,\"bob_\")?\"BestOfBonusItem\":\"BonusBuyItem\":e},"
+  },
+  {
+    "file": "www.hacksawgaming.com_Archive [26-10-11 08-09-28].har",
+    "sha256": "60d63b74106c69461b60918502893b2b597130834db16708ab2c840c8cc5d0c1",
+    "plays": [
+      {
+        "request": {
+          "bets": [
+            {
+              "betAmount": "200",
+              "buyBonus": "mod_epic"
+            }
+          ]
+        },
+        "round": {
+          "status": "wfwpc",
+          "possibleActions": []
+        }
+      },
+      {
+        "request": {
+          "continueInstructions": {
+            "action": "win_presentation_complete"
+          }
+        },
+        "round": {
+          "status": "completed",
+          "possibleActions": []
+        }
+      },
+      {
+        "request": {
+          "bets": [
+            {
+              "betAmount": "200",
+              "buyBonus": "mod_bonus"
+            }
+          ]
+        },
+        "round": {
+          "status": "completed",
+          "possibleActions": []
+        }
+      },
+      {
+        "request": {
+          "bets": [
+            {
+              "betAmount": "200",
+              "buyBonus": "fs"
+            }
+          ]
+        },
+        "round": {
+          "status": "wfwpc",
+          "possibleActions": []
+        }
+      },
+      {
+        "request": {
+          "continueInstructions": {
+            "action": "win_presentation_complete"
+          }
+        },
+        "round": {
+          "status": "completed",
+          "possibleActions": []
+        }
+      },
+      {
+        "request": {
+          "bets": [
+            {
+              "betAmount": "200",
+              "buyBonus": "fs_2"
+            }
+          ]
+        },
+        "round": {
+          "status": "wfwpc",
+          "possibleActions": []
+        }
+      },
+      {
+        "request": {
+          "continueInstructions": {
+            "action": "win_presentation_complete"
+          }
+        },
+        "round": {
+          "status": "completed",
+          "possibleActions": []
+        }
+      },
+      {
+        "request": {
+          "bets": [
+            {
+              "betAmount": "200",
+              "buyBonus": "mod_epic"
+            }
+          ]
+        },
+        "round": {
+          "status": "wfwpc",
+          "possibleActions": []
+        }
+      },
+      {
+        "request": {
+          "continueInstructions": {
+            "action": "win_presentation_complete"
+          }
+        },
+        "round": {
+          "status": "completed",
+          "possibleActions": []
+        }
+      },
+      {
+        "request": {
+          "bets": [
+            {
+              "betAmount": "200",
+              "buyBonus": "mod_bonus"
+            }
+          ]
+        },
+        "round": {
+          "status": "completed",
+          "possibleActions": []
+        }
+      }
+    ],
+    "classification_source": "get_featureBuyItemType:function(){var e=this.featureBuyItemType;return null==e?xe.startsWith(this.bonusGameId,\"mod_\")?\"FeatureSpinItem\":xe.startsWith(this.bonusGameId,\"bob_\")?\"BestOfBonusItem\":\"BonusBuyItem\":e},",
+    "auth": {
+      "gameId": "2458",
+      "bonusGames": [
+        {
+          "bonusGameId": "mod_bonus",
+          "betCostMultiplier": "5",
+          "expectedRtp": 96.35
+        },
+        {
+          "bonusGameId": "mod_epic",
+          "betCostMultiplier": "500",
+          "expectedRtp": 96.35
+        },
+        {
+          "bonusGameId": "fs",
+          "betCostMultiplier": "100",
+          "expectedRtp": 96.3
+        },
+        {
+          "bonusGameId": "fs_2",
+          "betCostMultiplier": "200",
+          "expectedRtp": 96.36
+        }
+      ],
+      "betLevels": [
+        "10",
+        "20",
+        "40",
+        "60",
+        "80",
+        "100",
+        "120",
+        "140",
+        "160",
+        "180",
+        "200",
+        "300",
+        "400",
+        "500",
+        "600",
+        "700",
+        "800",
+        "900",
+        "1000",
+        "1500",
+        "2000",
+        "2500",
+        "3000",
+        "3500",
+        "4000",
+        "4500",
+        "5000",
+        "7500"
+      ],
+      "disableBonusBuys": false,
+      "disableFeatureSpins": false,
+      "gameSettings": {
+        "disableBonusBuys": null,
+        "disableFeatureSpins": null,
+        "resetBetAfterSpin": null,
+        "disableBonusOrFeatureBuyByName": null,
+        "branding": null,
+        "brandingName": null,
+        "crashDisableChat": false,
+        "crashDisableScoreboard": false,
+        "crashMaxConcurrentBets": "3",
+        "crashMinAutoCashout": 0.0
+      },
+      "minimumRoundDuration": "0"
+    },
+    "client_source": "[\"hacksaw.common.types.FeatureBuyItem\"]=ji;function ji(e,t,n,i,s,a,r,l,o,h,u,c){this.customClassName=null,this.featureBuyItemType=null,this.betCostMultiplierBaseGameEffect=!1,this.volatility2=null,this.volatility=null,this.description=null,this.image=null,this.expectedRtp=null,this.enhancedChanceMultiplier=null,this.betCostMultiplier=null,this.bonusGameId=e,this.name=t,null!=n&&(this.betCostMultiplier=n),null!=i&&(this.enhancedChanceMultiplier=i),null!=s&&(this.expectedRtp=s),null!=a&&(this.image=a),null!=r&&(this.description=r),null!=l&&(this.volatility=l),null!=o&&(this.volatility2=o),null!=h&&(this.betCostMultiplierBaseGameEffect=h),null!=u&&(this.featureBuyItemType=u),null!=c&&(this.customClassName=c)};getFeatureBuyItems:function(){return[new ji(\"mod_bonus\",\"bonushunt_featurespins_uc\",null,null,null,\"gameinfoassets/mod_bonus.png\",\"bonushunt_featurespins_desc\",\"very_high\",null,null,null,null),new ji(\"mod_epic\",\"sacred_featurespins_uc\",null,null,null,\"gameinfoassets/mod_feature.png\",\"sacred_featurespins_desc\",\"very_high\",null,null,null,null),new ji(\"fs\",\"thunder_reign_uc\",null,null,null,\"gameinfoassets/freespins.png\",\"thunder_reign_desc\",\"high\",null,null,null,null),new ji(\"fs_2\",\"wrath_of_olympus_uc\",null,null,null,\"gameinfoassets/freespins_2.png\",\"wrath_of_olympus_desc\",\"very_high\",null,null,null,null)]};get_featureBuyItemType:function(){var e=this.featureBuyItemType;return null==e?xe.startsWith(this.bonusGameId,\"mod_\")?\"FeatureSpinItem\":xe.startsWith(this.bonusGameId,\"bob_\")?\"BestOfBonusItem\":\"BonusBuyItem\":e},"
+  },
+  {
+    "file": "www.hacksawgaming.com_Archive [26-10-11 08-14-54].har",
+    "sha256": "80c0ba9c5b833d4d4c8c598f0948c9adb841b9164f7d04ed7abf5f3a1c7bc04a",
+    "plays": [
+      {
+        "request": {
+          "bets": [
+            {
+              "betAmount": "200",
+              "buyBonus": "mod_bonus"
+            }
+          ]
+        },
+        "round": {
+          "status": "completed",
+          "possibleActions": []
+        }
+      },
+      {
+        "request": {
+          "bets": [
+            {
+              "betAmount": "200",
+              "buyBonus": "mod_collect"
+            }
+          ]
+        },
+        "round": {
+          "status": "wfwpc",
+          "possibleActions": []
+        }
+      },
+      {
+        "request": {
+          "continueInstructions": {
+            "action": "win_presentation_complete"
+          }
+        },
+        "round": {
+          "status": "completed",
+          "possibleActions": []
+        }
+      },
+      {
+        "request": {
+          "bets": [
+            {
+              "betAmount": "200",
+              "buyBonus": "fs"
+            }
+          ]
+        },
+        "round": {
+          "status": "wfwpc",
+          "possibleActions": []
+        }
+      },
+      {
+        "request": {
+          "continueInstructions": {
+            "action": "win_presentation_complete"
+          }
+        },
+        "round": {
+          "status": "completed",
+          "possibleActions": []
+        }
+      },
+      {
+        "request": {
+          "bets": [
+            {
+              "betAmount": "200",
+              "buyBonus": "fs_2"
+            }
+          ]
+        },
+        "round": {
+          "status": "wfwpc",
+          "possibleActions": []
+        }
+      },
+      {
+        "request": {
+          "continueInstructions": {
+            "action": "win_presentation_complete"
+          }
+        },
+        "round": {
+          "status": "completed",
+          "possibleActions": []
+        }
+      },
+      {
+        "request": {
+          "bets": [
+            {
+              "betAmount": "200",
+              "buyBonus": "mod_collect"
+            }
+          ]
+        },
+        "round": {
+          "status": "wfwpc",
+          "possibleActions": []
+        }
+      },
+      {
+        "request": {
+          "continueInstructions": {
+            "action": "win_presentation_complete"
+          }
+        },
+        "round": {
+          "status": "completed",
+          "possibleActions": []
+        }
+      },
+      {
+        "request": {
+          "bets": [
+            {
+              "betAmount": "200",
+              "buyBonus": "mod_bonus"
+            }
+          ]
+        },
+        "round": {
+          "status": "completed",
+          "possibleActions": []
+        }
+      }
+    ],
+    "classification_source": "get_featureBuyItemType:function(){var e=this.featureBuyItemType;return null==e?xe.startsWith(this.bonusGameId,\"mod_\")?\"FeatureSpinItem\":xe.startsWith(this.bonusGameId,\"bob_\")?\"BestOfBonusItem\":\"BonusBuyItem\":e},",
+    "auth": {
+      "gameId": "2378",
+      "bonusGames": [
+        {
+          "bonusGameId": "mod_bonus",
+          "betCostMultiplier": "3",
+          "expectedRtp": 96.27
+        },
+        {
+          "bonusGameId": "mod_collect",
+          "betCostMultiplier": "50",
+          "expectedRtp": 96.33
+        },
+        {
+          "bonusGameId": "fs",
+          "betCostMultiplier": "50",
+          "expectedRtp": 96.29
+        },
+        {
+          "bonusGameId": "fs_2",
+          "betCostMultiplier": "200",
+          "expectedRtp": 96.32
+        }
+      ],
+      "betLevels": [
+        "10",
+        "20",
+        "40",
+        "60",
+        "80",
+        "100",
+        "120",
+        "140",
+        "160",
+        "180",
+        "200",
+        "300",
+        "400",
+        "500",
+        "600",
+        "700",
+        "800",
+        "900",
+        "1000",
+        "1500",
+        "2000",
+        "2500",
+        "3000",
+        "3500",
+        "4000",
+        "4500",
+        "5000",
+        "7500",
+        "10000"
+      ],
+      "disableBonusBuys": false,
+      "disableFeatureSpins": false,
+      "gameSettings": {
+        "disableBonusBuys": null,
+        "disableFeatureSpins": null,
+        "resetBetAfterSpin": null,
+        "disableBonusOrFeatureBuyByName": null,
+        "branding": null,
+        "brandingName": null,
+        "crashDisableChat": false,
+        "crashDisableScoreboard": false,
+        "crashMaxConcurrentBets": "3",
+        "crashMinAutoCashout": 0.0
+      },
+      "minimumRoundDuration": "0"
+    },
+    "client_source": "[\"hacksaw.common.types.FeatureBuyItem\"]=qi;function qi(e,t,n,i,s,a,r,l,o,h,u){this.customClassName=null,this.featureBuyItemType=null,this.betCostMultiplierBaseGameEffect=!1,this.volatility2=null,this.volatility=null,this.description=null,this.image=null,this.expectedRtp=null,this.betCostMultiplier=null,this.bonusGameId=e,this.name=t,null!=n&&(this.betCostMultiplier=n),null!=i&&(this.expectedRtp=i),null!=s&&(this.image=s),null!=a&&(this.description=a),null!=r&&(this.volatility=r),null!=l&&(this.volatility2=l),null!=o&&(this.betCostMultiplierBaseGameEffect=o),null!=h&&(this.featureBuyItemType=h),null!=u&&(this.customClassName=u)};getFeatureBuyItems:function(){return[new qi(\"mod_bonus\",\"bonushunt_featurespins_uc\",null,null,\"gameinfoassets/fs_5.png\",\"bonushunt_featurespins_desc\",\"very_high\",null,null,null,null),new qi(\"mod_collect\",\"fishy_featurespins_uc\",null,null,\"gameinfoassets/collector.png\",\"fishy_featurespins_desc\",\"high\",null,!0,null,null),new qi(\"fs\",\"reel_it_in_uc\",null,null,\"gameinfoassets/3_fs.png\",\"reel_it_in_desc\",\"medium\",null,null,null,null),new qi(\"fs_2\",\"off_the_hook_uc\",null,null,\"gameinfoassets/4_fs.png\",\"off_the_hook_desc\",\"high\",null,null,null,null)]};get_featureBuyItemType:function(){var e=this.featureBuyItemType;return null==e?xe.startsWith(this.bonusGameId,\"mod_\")?\"FeatureSpinItem\":xe.startsWith(this.bonusGameId,\"bob_\")?\"BestOfBonusItem\":\"BonusBuyItem\":e},"
+  }
+]

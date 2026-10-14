@@ -10,6 +10,7 @@ from __future__ import annotations
 import argparse
 import multiprocessing as mp
 import os
+import re
 import sys
 import threading
 from pathlib import Path
@@ -54,7 +55,7 @@ def provider_for(key: str, data_root: Path):
     raise ValueError(f"Proveedor no registrado: {key}")
 
 
-def _run_one(project_root: str, provider_key: str, game, timeout_s: float) -> None:
+def _run_one(project_root: str, provider_key: str, game, timeout_s: float, spins: int = 1, shared_stop=None) -> None:
     os.chdir(project_root)
     if project_root not in sys.path:
         sys.path.insert(0, project_root)
@@ -64,16 +65,20 @@ def _run_one(project_root: str, provider_key: str, game, timeout_s: float) -> No
     data_root = Path(project_root) / "data"
     storage = Storage(data_root / "tester-spin.sqlite3")
     provider = provider_for(provider_key, data_root)
+    stop=shared_stop if shared_stop is not None else threading.Event()
+    def record(result):
+        storage.record_result(result)
+        if re.search(r"HTTP(?: Error)?\s+429\b",result.error or "",re.I):stop.set()
     run_game_tests(
         provider,
         [game],
         concurrency=1,
-        spins_per_game=1,
+        spins_per_game=max(1, int(spins)),
         delay_between_starts_s=0,
         timeout_s=timeout_s,
-        stop_event=threading.Event(),
+        stop_event=stop,
         progress=lambda message: print(f"[{game.name}] {message}", flush=True),
-        on_result=storage.record_result,
+        on_result=record,
     )
 
 
@@ -81,10 +86,11 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("provider")
     parser.add_argument("--limit", type=int, default=0)
+    parser.add_argument("--spins", type=int, default=1, help="muestras por modo y rama conocida")
     parser.add_argument("--timeout", type=float, default=35.0, help="provider request timeout")
     parser.add_argument("--wall-timeout", type=float, default=60.0, help="hard timeout for an entire game")
     parser.add_argument("--statuses", nargs="+", default=["ERROR", "PARCIAL", "SIN_DEMO"])
-    parser.add_argument("--game", help="slug exacto para reintentar un único juego ya almacenado")
+    parser.add_argument("--game", help="slug exacto para reintentar un ÃƒÂºnico juego ya almacenado")
     args = parser.parse_args()
 
     # Provider discovery launches Python helpers.  On Windows the inherited
@@ -95,7 +101,7 @@ def main() -> int:
 
     root = Path.cwd().resolve()
     if not (root / "tester_spin").is_dir():
-        raise SystemExit("Ejecutar desde la raíz de Tester-Spin.")
+        raise SystemExit("Ejecutar desde la raÃƒÂ­z de Tester-Spin.")
     sys.path.insert(0, str(root))
     from tester_spin.models import GameTestResult
     from tester_spin.storage import Storage
@@ -114,9 +120,13 @@ def main() -> int:
     print(f"QUEUE provider={provider.key} games={len(games)} statuses={sorted(allowed)}", flush=True)
 
     context = mp.get_context("spawn")
+    shared_stop=context.Event()
     for index, game in enumerate(games, start=1):
+        if shared_stop.is_set():
+            print("STOP proveedor: seÃ±al compartida de detenciÃ³n; no se abre otra sesiÃ³n",flush=True)
+            break
         print(f"START {index}/{len(games)} {game.name}", flush=True)
-        process = context.Process(target=_run_one, args=(str(root), provider.key, game, args.timeout))
+        process = context.Process(target=_run_one, args=(str(root), provider.key, game, args.timeout, args.spins, shared_stop))
         process.start()
         process.join(max(1.0, args.wall_timeout))
         if process.is_alive():
@@ -129,11 +139,11 @@ def main() -> int:
                     game_name=game.name,
                     game_url=game.url,
                     symbol=game.symbol,
-                    requested_spins=1,
+                    requested_spins=max(1,args.spins),
                     successful_spins=0,
-                    failed_spins=1,
+                    failed_spins=max(1,args.spins),
                     status="ERROR",
-                    error=f"RUNNER_WALL_TIMEOUT: excedió {args.wall_timeout:.0f}s; pendiente para revisión puntual.",
+                    error=f"RUNNER_WALL_TIMEOUT: excediÃƒÂ³ {args.wall_timeout:.0f}s; pendiente para revisiÃƒÂ³n puntual.",
                 )
             )
             print(f"TIMEOUT {game.name}", flush=True)

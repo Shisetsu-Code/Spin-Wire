@@ -3,7 +3,7 @@ import json,threading
 from unittest.mock import MagicMock
 from tester_spin.models import Game
 from tester_spin.providers.ka_gaming.adapter import KAGamingProvider
-from test_ka_rmp_execution import CLIENT
+from test_ka_rmp_execution import CLIENT, CAPABILITY_FIXTURE
 
 def test_har_purchase_is_scoped_and_contains_no_session(tmp_path):
     from tester_spin.providers.ka_gaming.evidence import purchase_modes_from_har
@@ -20,15 +20,19 @@ def test_imported_purchase_runs_free_games_without_rebuying(tmp_path,unknown):
     g=Game('ka_gaming','jadequest','JadeQuest','https://gamesdemo.kaga88.com/?g=JadeQuest&p=demo',symbol='JadeQuest')
     folder=p.provider_root/g.slug;folder.mkdir();(folder/'purchase_modes.json').write_text(json.dumps([{'id':'BUY_POS_1','kind':'PURCHASE','pos':[1],'source':'manual-har','observed':True,'validated':False,'coverage_required':True}]))
     calls=[];rest={'sel':40,'cps':1,'atb':0,'dn':.01,'fs':False,'rf':0,'acb':0,'fsr':0}
+    active=[False]
     states=iter([{**rest,'acb':1,'fsr':1,'pos':[1],**(unknown or {})},{**rest,'fs':True,'acb':1,'fsr':0},rest])
     def post(url,**kwargs):
         body=json.loads(kwargs['data']);calls.append(body)
-        if url.endswith('startGame'):value={'e':False,'ec':0,'un':'new','si':'session','sgr':{'lsd':rest}}
+        if url.endswith('startGame'):value={'e':False,'ec':0,'un':'new','si':'session','dbf':False,'sgr':{'lsd':rest}}
         elif url.endswith('endSession'):value={'e':False,'ec':0}
-        else:value={'e':False,'ec':0,'md':rest if len(calls)==2 else next(states)}
+        else:
+            state=next(states) if 'pos' in body or active[0] else rest
+            active[0]=state.get('acb')==1 or state.get('fs') is True
+            value={'e':False,'ec':0,'md':state}
         r=MagicMock(text=json.dumps(value));r.json.return_value=value;return r
     p.http=MagicMock();p.http.post.side_effect=post
-    p.http.get.side_effect=[MagicMock(status_code=200,text='script.src="game.min.2070.js"'),MagicMock(status_code=200,text=CLIENT)]
+    p.http.get.side_effect=[MagicMock(status_code=200,text='script.src="game.min.2070.js"'),MagicMock(status_code=200,text=CLIENT),MagicMock(status_code=200,text=next(r['client'] for r in CAPABILITY_FIXTURE['games'] if r['symbol']=='JadeQuest'))]
     result=p.test_game(g,spins=1,timeout_s=1,stop_event=threading.Event(),progress=lambda _:None)
     if unknown:
         assert result.status=='PARCIAL'
@@ -40,14 +44,13 @@ def test_imported_purchase_runs_free_games_without_rebuying(tmp_path,unknown):
     assert sum('pos' in b for b in calls)==1
     assert next(m for m in result.discovered_modes if m['id']=='BUY_POS_1')['validated']
 
-def test_catalog_purchase_uses_provider_candidate_without_claiming_validation(tmp_path):
+def test_catalog_purchase_flag_does_not_invent_selector(tmp_path):
     p=KAGamingProvider(tmp_path)
     g=Game('ka_gaming','hotcoinbf','HotCoinBF','https://gamesdemo.kaga88.com/?g=HotCoinBF&p=demo',symbol='HotCoinBF')
-    p._catalog_modes['hotcoinbf']=[{'id':'SPIN','kind':'SLOTS'},{'id':'BONUS_PURCHASE','kind':'BONUS_PURCHASE'}]
+    p._catalog_modes[g.slug]=[{'id':'SPIN','kind':'SLOTS'},{'id':'BONUS_PURCHASE','kind':'BONUS_PURCHASE'}]
     modes=p._discovered_modes(g)
-    buy=next(m for m in modes if m['id']=='BUY_POS_1')
-    assert buy['source']=='provider-family-candidate' and buy['pos']==[1]
-    assert not buy['validated'] and buy['coverage_required']
+    assert not any(m['id']=='BUY_POS_1' for m in modes)
+    assert next(m for m in modes if m['id']=='BONUS_FEATURE_UNCLASSIFIED')['executable'] is False
 
 
 def test_old_catalog_buy_flag_does_not_make_nonpurchase_game_buyable(tmp_path):
@@ -65,6 +68,7 @@ def test_ares_natural_free_games_complete_without_a_purchase(tmp_path):
     fixture=json.loads((Path(__file__).parent/'fixtures/ka_ares_natural_free_games.json').read_text(encoding='utf-8'))
     responses=[{'e':False,'ec':0,'un':'demo','si':'session','sgr':{'lsd':fixture['initial']}}]
     responses += [{'e':False,'ec':0,'md':state} for state in fixture['responses']]
+    responses += [{'e':False,'ec':0,'md':fixture['initial']}] * 2
     responses += [{'e':False,'ec':0}]
     calls=[]
     def post(url,**kwargs):
@@ -80,7 +84,7 @@ def test_ares_natural_free_games_complete_without_a_purchase(tmp_path):
     assert result.successful_spins==1 and len(result.attempts)==1
     assert result.attempts[0].wire_steps==17
     assert not any('pos' in body for body in calls)
-    assert len(calls)==19
+    assert len(calls)==21
 
 
 def test_tattooist_har_purchase_finishes_despite_retrigger_and_zero_remaining(tmp_path):
@@ -88,8 +92,9 @@ def test_tattooist_har_purchase_finishes_despite_retrigger_and_zero_remaining(tm
     from tester_spin.providers.ka_gaming.runtime import run_rmp_game
     fixture=json.loads((Path(__file__).parent/'fixtures/ka_tattooist_purchase.json').read_text(encoding='utf-8'))
     rest=fixture['initial']
-    responses=[{'e':False,'ec':0,'un':'demo','si':'session','sgr':{'lsd':rest}},{'e':False,'ec':0,'md':rest}]
+    responses=[{'e':False,'ec':0,'un':'demo','si':'session','sgr':{'lsd':rest}}]+[{'e':False,'ec':0,'md':rest}]*3
     responses += [{'e':False,'ec':0,'md':state} for state in fixture['responses']]
+    responses += [{'e':False,'ec':0,'md':rest}]*2
     responses += [{'e':False,'ec':0}]
     calls=[]
     def post(url,**kwargs):

@@ -1,0 +1,1099 @@
+[
+  [
+    {
+      "step": 1,
+      "betamount": "0.20",
+      "betcurrency": "EUR",
+      "wonamount": "0.00",
+      "status": "RESULTED",
+      "betdata": {
+        "lines": "11111111111111111111",
+        "coin": "0.01",
+        "nCoins": 1,
+        "cheat": null,
+        "clientData": null
+      },
+      "eventdata": {
+        "accC": 0,
+        "accWa": "0.00",
+        "city": "paris",
+        "reSpins": true,
+        "reelSet": "ReelsShiftingWild",
+        "reels": [
+          [
+            "High3",
+            "Low2",
+            "High1"
+          ],
+          [
+            "High4",
+            "Low3",
+            "Low1"
+          ],
+          [
+            "Low1",
+            "Low2",
+            "High3"
+          ],
+          [
+            "Low4",
+            "Low2",
+            "Low4"
+          ],
+          [
+            "Low1",
+            "Low3",
+            "High4"
+          ]
+        ],
+        "rpos": [
+          62,
+          100,
+          82,
+          61,
+          5
+        ],
+        "sticky": "Wild",
+        "stickyA": "000000000010000",
+        "stickyB": "000000000000000",
+        "stickyN": "000000000010000",
+        "walkingAfter": [
+          10
+        ],
+        "walkingBefore": [],
+        "walkingNew": [
+          10
+        ],
+        "wonCoins": 0,
+        "wts": [
+          "000000000000000000000",
+          "000000000000000"
+        ],
+        "wtw": []
+      }
+    },
+    {
+      "step": 2,
+      "betamount": "0.00",
+      "betcurrency": "EUR",
+      "wonamount": "0.00",
+      "status": "RESULTED",
+      "betdata": {
+        "lines": "11111111111111111111",
+        "coin": "0.01",
+        "nCoins": 1,
+        "cheat": null,
+        "clientData": null
+      },
+      "eventdata": {
+        "accC": 20,
+        "accWa": "0.20",
+        "city": "paris",
+        "reSpins": true,
+        "reelSet": "ReelsShiftingWild",
+        "reels": [
+          [
+            "Low3",
+            "Low4",
+            "High2"
+          ],
+          [
+            "High4",
+            "Low3",
+            "Low2"
+          ],
+          [
+            "Low4",
+            "High3",
+            "Low2"
+          ],
+          [
+            "Freespin",
+            "Low3",
+            "Low2"
+          ],
+          [
+            "High4",
+            "Low1",
+            "High4"
+          ]
+        ],
+        "rpos": [
+          47,
+          181,
+          16,
+          21,
+          51
+        ],
+        "sticky": "Wild",
+        "stickyA": "000000010000000",
+        "stickyB": "000000000010000",
+        "stickyN": "000000000000000",
+        "walkingAfter": [
+          7
+        ],
+        "walkingBefore": [
+          10
+        ],
+        "walkingNew": [],
+        "wonCoins": 20,
+        "wts": [
+          "000000100000000000000",
+          "100010010010000"
+        ],
+        "wtw": [
+          [
+            6,
+            20,
+            "100010010010000"
+          ]
+        ]
+      }
+    },
+    {
+      "step": 3,
+      "betamount": "0.00",
+      "betcurrency": "EUR",
+      "wonamount": "0.00",
+      "status": "RESULTED",
+      "betdata": {
+        "lines": "11111111111111111111",
+        "coin": "0.01",
+        "nCoins": 1,
+        "cheat": null,
+        "clientData": null
+      },
+      "eventdata": {
+        "accC": 20,
+        "accWa": "0.20",
+        "city": "paris",
+        "reSpins": true,
+        "reelSet": "ReelsShiftingWild",
+        "reels": [
+          [
+            "Low2",
+            "Low4",
+            "Low3"
+          ],
+          [
+            "Low2",
+            "Low1",
+            "High4"
+          ],
+          [
+            "Low1",
+            "High4",
+            "High3"
+          ],
+          [
+            "Low4",
+            "High2",
+            "Low3"
+          ],
+          [
+            "Low3",
+            "Low2",
+            "High3"
+          ]
+        ],
+        "rpos": [
+          35,
+          62,
+          52,
+          5,
+          95
+        ],
+        "sticky": "Wild",
+        "stickyA": "000010000000000",
+        "stickyB": "000000010000000",
+        "stickyN": "000000000000000",
+        "walkingAfter": [
+          4
+        ],
+        "walkingBefore": [
+          7
+        ],
+        "walkingNew": [],
+        "wonCoins": 0,
+        "wts": [
+          "000000000000000000000",
+          "000000000000000"
+        ],
+        "wtw": []
+      }
+    },
+    {
+      "step": 4,
+      "betamount": "0.00",
+      "betcurrency": "EUR",
+      "wonamount": "0.00",
+      "status": "RESULTED",
+      "betdata": {
+        "lines": "11111111111111111111",
+        "coin": "0.01",
+        "nCoins": 1,
+        "cheat": null,
+        "clientData": null
+      },
+      "eventdata": {
+        "accC": 34,
+        "accWa": "0.34",
+        "city": "paris",
+        "reSpins": true,
+        "reelSet": "ReelsShiftingWild",
+        "reels": [
+          [
+            "Low4",
+            "Low3",
+            "High2"
+          ],
+          [
+            "High3",
+            "Low2",
+            "Low1"
+          ],
+          [
+            "Low3",
+            "Low2",
+            "Low1"
+          ],
+          [
+            "Low3",
+            "Low4",
+            "High2"
+          ],
+          [
+            "Low1",
+            "Low2",
+            "High3"
+          ]
+        ],
+        "rpos": [
+          56,
+          67,
+          91,
+          124,
+          21
+        ],
+        "sticky": "Wild",
+        "stickyA": "010000000000000",
+        "stickyB": "000010000000000",
+        "stickyN": "000000000000000",
+        "walkingAfter": [
+          1
+        ],
+        "walkingBefore": [
+          4
+        ],
+        "walkingNew": [],
+        "wonCoins": 14,
+        "wts": [
+          "010000000100000000000",
+          "010011011000000"
+        ],
+        "wtw": [
+          [
+            1,
+            7,
+            "010010010000000"
+          ],
+          [
+            9,
+            7,
+            "010001001000000"
+          ]
+        ]
+      }
+    },
+    {
+      "step": 5,
+      "betamount": "0.00",
+      "betcurrency": "EUR",
+      "wonamount": "0.00",
+      "status": "RESULTED",
+      "betdata": {
+        "lines": "11111111111111111111",
+        "coin": "0.01",
+        "nCoins": 1,
+        "cheat": null,
+        "clientData": null
+      },
+      "eventdata": {
+        "accC": 34,
+        "accWa": "0.34",
+        "city": "paris",
+        "reSpins": true,
+        "reelSet": "ReelsShiftingWild",
+        "reels": [
+          [
+            "Freespin",
+            "High2",
+            "Low4"
+          ],
+          [
+            "High4",
+            "Low1",
+            "Low4"
+          ],
+          [
+            "High3",
+            "Low1",
+            "Low3"
+          ],
+          [
+            "Low2",
+            "Low4",
+            "Low3"
+          ],
+          [
+            "High4",
+            "Low2",
+            "Low4"
+          ]
+        ],
+        "rpos": [
+          54,
+          121,
+          4,
+          29,
+          7
+        ],
+        "sticky": "Wild",
+        "stickyA": "000000000000001",
+        "stickyB": "010000000000000",
+        "stickyN": "000000000000001",
+        "walkingAfter": [
+          14
+        ],
+        "walkingBefore": [
+          1
+        ],
+        "walkingNew": [
+          14
+        ],
+        "wonCoins": 0,
+        "wts": [
+          "000000000000000000000",
+          "000000000000000"
+        ],
+        "wtw": []
+      }
+    },
+    {
+      "step": 6,
+      "betamount": "0.00",
+      "betcurrency": "EUR",
+      "wonamount": "0.00",
+      "status": "RESULTED",
+      "betdata": {
+        "lines": "11111111111111111111",
+        "coin": "0.01",
+        "nCoins": 1,
+        "cheat": null,
+        "clientData": null
+      },
+      "eventdata": {
+        "accC": 34,
+        "accWa": "0.34",
+        "city": "paris",
+        "reSpins": true,
+        "reelSet": "ReelsShiftingWild",
+        "reels": [
+          [
+            "Low4",
+            "High4",
+            "Low3"
+          ],
+          [
+            "Low3",
+            "Low2",
+            "High4"
+          ],
+          [
+            "High3",
+            "Low2",
+            "Low3"
+          ],
+          [
+            "Low2",
+            "Freespin",
+            "High2"
+          ],
+          [
+            "High3",
+            "Low3",
+            "Low2"
+          ]
+        ],
+        "rpos": [
+          102,
+          185,
+          60,
+          46,
+          90
+        ],
+        "sticky": "Wild",
+        "stickyA": "000000000001000",
+        "stickyB": "000000000000001",
+        "stickyN": "000000000000000",
+        "walkingAfter": [
+          11
+        ],
+        "walkingBefore": [
+          14
+        ],
+        "walkingNew": [],
+        "wonCoins": 0,
+        "wts": [
+          "000000000000000000000",
+          "000000000000000"
+        ],
+        "wtw": []
+      }
+    },
+    {
+      "step": 7,
+      "betamount": "0.00",
+      "betcurrency": "EUR",
+      "wonamount": "0.00",
+      "status": "RESULTED",
+      "betdata": {
+        "lines": "11111111111111111111",
+        "coin": "0.01",
+        "nCoins": 1,
+        "cheat": null,
+        "clientData": null
+      },
+      "eventdata": {
+        "accC": 69,
+        "accWa": "0.69",
+        "city": "paris",
+        "reSpins": true,
+        "reelSet": "ReelsShiftingWild",
+        "reels": [
+          [
+            "Low2",
+            "High1",
+            "Low4"
+          ],
+          [
+            "Freespin",
+            "High1",
+            "High4"
+          ],
+          [
+            "Low2",
+            "High4",
+            "Low1"
+          ],
+          [
+            "Low4",
+            "Low2",
+            "Low4"
+          ],
+          [
+            "Low2",
+            "High3",
+            "Low1"
+          ]
+        ],
+        "rpos": [
+          63,
+          179,
+          50,
+          103,
+          3
+        ],
+        "sticky": "Wild",
+        "stickyA": "000000001000000",
+        "stickyB": "000000000001000",
+        "stickyN": "000000000000000",
+        "walkingAfter": [
+          8
+        ],
+        "walkingBefore": [
+          11
+        ],
+        "walkingNew": [],
+        "wonCoins": 35,
+        "wts": [
+          "000000000001000000000",
+          "010010001000000"
+        ],
+        "wtw": [
+          [
+            11,
+            35,
+            "010010001000000"
+          ]
+        ]
+      }
+    },
+    {
+      "step": 8,
+      "betamount": "0.00",
+      "betcurrency": "EUR",
+      "wonamount": "0.00",
+      "status": "RESULTED",
+      "betdata": {
+        "lines": "11111111111111111111",
+        "coin": "0.01",
+        "nCoins": 1,
+        "cheat": null,
+        "clientData": null
+      },
+      "eventdata": {
+        "accC": 69,
+        "accWa": "0.69",
+        "city": "paris",
+        "reSpins": true,
+        "reelSet": "ReelsShiftingWild",
+        "reels": [
+          [
+            "High2",
+            "Low3",
+            "High2"
+          ],
+          [
+            "Low1",
+            "Low2",
+            "Low1"
+          ],
+          [
+            "High3",
+            "Low2",
+            "High4"
+          ],
+          [
+            "Low1",
+            "Low4",
+            "High1"
+          ],
+          [
+            "Low1",
+            "Low2",
+            "High3"
+          ]
+        ],
+        "rpos": [
+          117,
+          196,
+          75,
+          35,
+          2
+        ],
+        "sticky": "Wild",
+        "stickyA": "000001000000000",
+        "stickyB": "000000001000000",
+        "stickyN": "000000000000000",
+        "walkingAfter": [
+          5
+        ],
+        "walkingBefore": [
+          8
+        ],
+        "walkingNew": [],
+        "wonCoins": 0,
+        "wts": [
+          "000000000000000000000",
+          "000000000000000"
+        ],
+        "wtw": []
+      }
+    },
+    {
+      "step": 9,
+      "betamount": "0.00",
+      "betcurrency": "EUR",
+      "wonamount": "0.00",
+      "status": "RESULTED",
+      "betdata": {
+        "lines": "11111111111111111111",
+        "coin": "0.01",
+        "nCoins": 1,
+        "cheat": null,
+        "clientData": null
+      },
+      "eventdata": {
+        "accC": 121,
+        "accWa": "1.21",
+        "city": "paris",
+        "reSpins": true,
+        "reelSet": "ReelsShiftingWild",
+        "reels": [
+          [
+            "Low4",
+            "High1",
+            "Freespin"
+          ],
+          [
+            "Low2",
+            "Low1",
+            "High4"
+          ],
+          [
+            "Low2",
+            "High4",
+            "Low1"
+          ],
+          [
+            "Low3",
+            "Low1",
+            "High2"
+          ],
+          [
+            "High4",
+            "Low1",
+            "Freespin"
+          ]
+        ],
+        "rpos": [
+          91,
+          57,
+          76,
+          83,
+          45
+        ],
+        "sticky": "Wild",
+        "stickyA": "001000000000000",
+        "stickyB": "000001000000000",
+        "stickyN": "000000000000000",
+        "walkingAfter": [
+          2
+        ],
+        "walkingBefore": [
+          5
+        ],
+        "walkingNew": [],
+        "wonCoins": 52,
+        "wts": [
+          "000000000000010100010",
+          "001111111010000"
+        ],
+        "wtw": [
+          [
+            13,
+            20,
+            "001001010000000"
+          ],
+          [
+            15,
+            25,
+            "001010001010000"
+          ],
+          [
+            19,
+            7,
+            "001100100000000"
+          ]
+        ]
+      }
+    },
+    {
+      "step": 10,
+      "betamount": "0.00",
+      "betcurrency": "EUR",
+      "wonamount": "0.00",
+      "status": "RESULTED",
+      "betdata": {
+        "lines": "11111111111111111111",
+        "coin": "0.01",
+        "nCoins": 1,
+        "cheat": null,
+        "clientData": null
+      },
+      "eventdata": {
+        "accC": 121,
+        "accWa": "1.21",
+        "city": "paris",
+        "doubleAmount": "1.21",
+        "doubleCount": 1,
+        "nextCmds": "C",
+        "reelSet": "ReelsShiftingWild",
+        "reels": [
+          [
+            "High2",
+            "Low1",
+            "Low4"
+          ],
+          [
+            "Low2",
+            "High4",
+            "High3"
+          ],
+          [
+            "Low1",
+            "Freespin",
+            "High3"
+          ],
+          [
+            "High1",
+            "Low4",
+            "High2"
+          ],
+          [
+            "High3",
+            "Low2",
+            "Low3"
+          ]
+        ],
+        "rpos": [
+          19,
+          111,
+          46,
+          56,
+          60
+        ],
+        "sticky": "Wild",
+        "stickyA": "000000000000000",
+        "stickyB": "001000000000000",
+        "stickyN": "000000000000000",
+        "walkingAfter": [],
+        "walkingBefore": [
+          2
+        ],
+        "walkingNew": [],
+        "wonCoins": 0,
+        "wts": [
+          "000000000000000000000",
+          "000000000000000"
+        ],
+        "wtw": []
+      }
+    },
+    {
+      "step": 11,
+      "betamount": "0.00",
+      "betcurrency": "EUR",
+      "wonamount": "1.21",
+      "status": "RESULTED",
+      "betdata": {
+        "doubleA": "1.21",
+        "doubleN": 1,
+        "cmd": "C",
+        "cheat": null,
+        "lines": "11111111111111111111",
+        "coin": "0.01",
+        "nCoins": 1,
+        "variant": null,
+        "restoredAccumulatedWonCoin": 0
+      },
+      "eventdata": {}
+    }
+  ],
+  [
+    {
+      "step": 1,
+      "betamount": "0.20",
+      "betcurrency": "EUR",
+      "wonamount": "0.00",
+      "status": "RESULTED",
+      "betdata": {
+        "lines": "11111111111111111111",
+        "coin": "0.01",
+        "nCoins": 1,
+        "cheat": null,
+        "clientData": null
+      },
+      "eventdata": {
+        "accC": 0,
+        "accWa": "0.00",
+        "city": "paris",
+        "reSpins": true,
+        "reelSet": "ReelsShiftingWild",
+        "reels": [
+          [
+            "High2",
+            "Low1",
+            "Low4"
+          ],
+          [
+            "Low2",
+            "High4",
+            "High3"
+          ],
+          [
+            "Low2",
+            "Low1",
+            "High4"
+          ],
+          [
+            "Low4",
+            "Low2",
+            "Low4"
+          ],
+          [
+            "High4",
+            "Low2",
+            "Wild"
+          ]
+        ],
+        "rpos": [
+          79,
+          45,
+          40,
+          145,
+          109
+        ],
+        "sticky": "Wild",
+        "stickyA": "000000100000000",
+        "stickyB": "000000000000000",
+        "stickyN": "000000100000000",
+        "walkingAfter": [
+          6
+        ],
+        "walkingBefore": [],
+        "walkingNew": [
+          6
+        ],
+        "wonCoins": 0,
+        "wts": [
+          "000000000000000000000",
+          "000000000000000"
+        ],
+        "wtw": []
+      }
+    },
+    {
+      "step": 2,
+      "betamount": "0.00",
+      "betcurrency": "EUR",
+      "wonamount": "0.00",
+      "status": "RESULTED",
+      "betdata": {
+        "lines": "11111111111111111111",
+        "coin": "0.01",
+        "nCoins": 1,
+        "cheat": null,
+        "clientData": null
+      },
+      "eventdata": {
+        "accC": 0,
+        "accWa": "0.00",
+        "city": "paris",
+        "reSpins": true,
+        "reelSet": "ReelsShiftingWild",
+        "reels": [
+          [
+            "High2",
+            "Freespin",
+            "High2"
+          ],
+          [
+            "Low2",
+            "Low1",
+            "High4"
+          ],
+          [
+            "High3",
+            "Low2",
+            "High4"
+          ],
+          [
+            "Low4",
+            "High2",
+            "High1"
+          ],
+          [
+            "Low2",
+            "High3",
+            "High4"
+          ]
+        ],
+        "rpos": [
+          53,
+          68,
+          75,
+          95,
+          71
+        ],
+        "sticky": "Wild",
+        "stickyA": "000100000000000",
+        "stickyB": "000000100000000",
+        "stickyN": "000000000000000",
+        "walkingAfter": [
+          3
+        ],
+        "walkingBefore": [
+          6
+        ],
+        "walkingNew": [],
+        "wonCoins": 0,
+        "wts": [
+          "000000000000000000000",
+          "000000000000000"
+        ],
+        "wtw": []
+      }
+    },
+    {
+      "step": 3,
+      "betamount": "0.00",
+      "betcurrency": "EUR",
+      "wonamount": "0.00",
+      "status": "RESULTED",
+      "betdata": {
+        "lines": "11111111111111111111",
+        "coin": "0.01",
+        "nCoins": 1,
+        "cheat": null,
+        "clientData": null
+      },
+      "eventdata": {
+        "accC": 20,
+        "accWa": "0.20",
+        "city": "paris",
+        "reSpins": true,
+        "reelSet": "ReelsShiftingWild",
+        "reels": [
+          [
+            "High1",
+            "Low4",
+            "High2"
+          ],
+          [
+            "Low1",
+            "High4",
+            "Low2"
+          ],
+          [
+            "High3",
+            "Low2",
+            "High4"
+          ],
+          [
+            "High2",
+            "Low3",
+            "High1"
+          ],
+          [
+            "High4",
+            "High1",
+            "High3"
+          ]
+        ],
+        "rpos": [
+          115,
+          157,
+          17,
+          6,
+          73
+        ],
+        "sticky": "Wild",
+        "stickyA": "100000000000000",
+        "stickyB": "000100000000000",
+        "stickyN": "000000000000000",
+        "walkingAfter": [
+          0
+        ],
+        "walkingBefore": [
+          3
+        ],
+        "walkingNew": [],
+        "wonCoins": 20,
+        "wts": [
+          "000010000000000000000",
+          "100010001000000"
+        ],
+        "wtw": [
+          [
+            4,
+            20,
+            "100010001000000"
+          ]
+        ]
+      }
+    },
+    {
+      "step": 4,
+      "betamount": "0.00",
+      "betcurrency": "EUR",
+      "wonamount": "0.00",
+      "status": "RESULTED",
+      "betdata": {
+        "lines": "11111111111111111111",
+        "coin": "0.01",
+        "nCoins": 1,
+        "cheat": null,
+        "clientData": null
+      },
+      "eventdata": {
+        "accC": 20,
+        "accWa": "0.20",
+        "city": "paris",
+        "doubleAmount": "0.20",
+        "doubleCount": 1,
+        "nextCmds": "C",
+        "reelSet": "ReelsShiftingWild",
+        "reels": [
+          [
+            "Low4",
+            "Low1",
+            "Low3"
+          ],
+          [
+            "High4",
+            "Low1",
+            "Low2"
+          ],
+          [
+            "High4",
+            "Low4",
+            "Low2"
+          ],
+          [
+            "Low2",
+            "Low1",
+            "Low4"
+          ],
+          [
+            "Low4",
+            "High3",
+            "Low2"
+          ]
+        ],
+        "rpos": [
+          50,
+          15,
+          30,
+          107,
+          9
+        ],
+        "sticky": "Wild",
+        "stickyA": "000000000000000",
+        "stickyB": "100000000000000",
+        "stickyN": "000000000000000",
+        "walkingAfter": [],
+        "walkingBefore": [
+          0
+        ],
+        "walkingNew": [],
+        "wonCoins": 0,
+        "wts": [
+          "000000000000000000000",
+          "000000000000000"
+        ],
+        "wtw": []
+      }
+    },
+    {
+      "step": 5,
+      "betamount": "0.00",
+      "betcurrency": "EUR",
+      "wonamount": "0.20",
+      "status": "RESULTED",
+      "betdata": {
+        "doubleA": "0.20",
+        "doubleN": 1,
+        "cmd": "C",
+        "cheat": null,
+        "lines": "11111111111111111111",
+        "coin": "0.01",
+        "nCoins": 1,
+        "variant": null,
+        "restoredAccumulatedWonCoin": 0
+      },
+      "eventdata": {}
+    }
+  ]
+]

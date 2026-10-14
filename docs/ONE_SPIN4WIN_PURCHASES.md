@@ -40,3 +40,19 @@ Una prueba real de Ten Lucky Spins, iniciada desde el enlace genérico del catá
 También se comprobó estáticamente el discovery corregido en seis entradas recientes (Cash'n Fruits X, Cash'n Fruits Hold And Win, Cash&Spins 243, Cash Amplifier 243, Burning Spins 243 y Buffalo's Wealth Win Spins). Cada una recorrió cuatro scripts y no produjo compras declaradas bajo el contrato conocido. Esta muestra no es una validación de compras de todo el catálogo ni prueba que no existan otras familias de compras.
 
 La aplicación ya abierta debe reiniciarse para cargar la corrección. Los OK antiguos no acreditan compras y no se reescriben. Verificación específica tras el fix: 49 pruebas aprobadas.
+
+## Constructores modernos y selectores configurados (2026-10-09)
+
+Las capturas de Burning Spins 243 y Lucky Lady Bug distinguen dos casos. Burning Spins 243 usa `class … extends BasicSlotView`: habilita `useBuyFeature`, declara coste x56 y configura `buyFeatureToPlayActionIndex=3`, con `sideBetPercent=3`. La cadena del diálogo copia ese índice a `buyFeaturePlayIndex` y el método `SlotNetworkController.play` lo serializa como cuarto campo. El selector de antebet es independiente; no se reutiliza como compra. Lucky Lady Bug contiene infraestructura compartida de compras pero no las habilita en su constructor.
+
+El detector admite constructores legacy y ES6. Lee únicamente asignaciones directas del constructor correspondiente al juego, respeta una deshabilitación posterior y excluye callbacks, clases anidadas, argumentos, comentarios y cadenas. Para autorizar un selector exige evidencia dentro de los métodos del dueño correcto y un único serializer `play` compatible. Un contrato de compra declarado sin serializer demostrado permanece pendiente, sin ejecutar un selector supuesto.
+
+Verificación DEMO de esta corrección: Burning Spins 243 completó SPIN y PURCHASE (2/2); Lucky Lady Bug completó solamente SPIN (1/1), sin modo PURCHASE. Los HAR originales no contienen mensajes WebSocket: aportan evidencia del cliente; la aceptación y el cierre de la compra se comprobaron en la ejecución nueva.
+
+## Cadenas de asignaciones y antebet (2026-10-09)
+
+Cash’n Fruits Fortune 27 asigna `sideBetPercent=sideBet=sideBetToPlayActionIndex=1` en su constructor. El detector resuelve esa cadena literal de derecha a izquierda, conserva la configuración efectiva y reconoce compra x70 con selector 3. El antebet utiliza la ruta distinta `sideBetPlayIndex`, selector 1, y el incremento de apuesta declarado por el cliente. No se reutiliza un selector de compra como antebet; una colisión de selectores no autoriza esa clasificación.
+
+La ejecución registra SPIN, PURCHASE y ANTE_BET como modalidades independientes. El antebet es una tirada modificada: no se exige que inicie un bonus comprado, pero sí respuesta válida, cierre terminal y comprobación de regreso cuando está activada. Su selector se envía solo en la entrada; las continuaciones no vuelven a comprar ni a activar el modificador. La deshabilitación `bf=f` impide ejecutar las rutas configuradas que dependen de `useBuyFeature`. El cierre terminal no constituye una medición independiente del coste adicional.
+
+Prueba DEMO: Cash’n Fruits Fortune 27 completó 3/3 modalidades y quedó OK. El resumen muestra una compra y antebet. Esta corrección procede del constructor y los métodos compartidos del cliente, sin excepciones por título.

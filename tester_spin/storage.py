@@ -343,6 +343,20 @@ class Storage:
             else:
                 con.execute("DELETE FROM manual_validations WHERE result_id=?", (row[0],))
 
+    def mechanics_history(self, artifact_runs=None):
+        """Read compact historical metadata without loading captured payloads."""
+        from tester_spin.mechanics import classify_mechanics, merge_mechanics
+        index = {}
+        with self._lock, self._connect() as con:
+            rows = con.execute("SELECT provider, slug, json_extract(payload_json, '$.mechanics') AS mechanics, json_extract(payload_json, '$.discovered_modes') AS modes, json_extract(payload_json, '$.run_dir') AS run_dir FROM test_results ORDER BY id").fetchall()
+        for row in rows:
+            key = f"{row['provider']}::{row['slug']}"
+            payload = {"mechanics": json.loads(row['mechanics'] or '{}'), "discovered_modes": json.loads(row['modes'] or '[]')}
+            index[key] = merge_mechanics(index.get(key, {}), classify_mechanics(payload))
+            if artifact_runs is not None and row["run_dir"]:
+                artifact_runs.append((key, str(row["run_dir"])))
+        return index
+
     def latest_results(self) -> list[dict]:
         """Latest automatic evidence plus a separate human assessment, if present."""
         with self._lock, self._connect() as con:

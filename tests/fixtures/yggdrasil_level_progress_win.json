@@ -1,0 +1,111 @@
+{
+  "accC": 25,
+  "accWa": "0.25",
+  "doubleAmount": "0.25",
+  "doubleCount": 1,
+  "gameState": {
+    "bonusSet": 1,
+    "coinsWon": 25,
+    "currentLevel": 1,
+    "currentMultiplier": 1,
+    "gridSnapshot": "00100100001001000000",
+    "lastBet": true,
+    "levelIncreased": false,
+    "mysteryWin": 0,
+    "spinsMade": 2,
+    "superMode": false,
+    "wildPattern": [
+      [
+        0,
+        1
+      ],
+      [
+        -1,
+        -1
+      ],
+      [
+        1,
+        -1
+      ]
+    ]
+  },
+  "nextCmds": "C",
+  "previousGameState": {
+    "bonusSet": 1,
+    "coinsWon": 0,
+    "currentLevel": 1,
+    "currentMultiplier": 1,
+    "gridSnapshot": "00000000000000000000",
+    "lastBet": true,
+    "levelIncreased": false,
+    "mysteryWin": 0,
+    "spinsMade": 1,
+    "superMode": false,
+    "wildPattern": [
+      [
+        0,
+        1
+      ],
+      [
+        -1,
+        -1
+      ],
+      [
+        1,
+        -1
+      ]
+    ]
+  },
+  "reelSet": "Reels5",
+  "reels": [
+    [
+      "High3",
+      "Low4",
+      "Low2",
+      "High3"
+    ],
+    [
+      "Low4",
+      "Low2",
+      "High2",
+      "Low4"
+    ],
+    [
+      "High4",
+      "Low3",
+      "Low2",
+      "Low1"
+    ],
+    [
+      "High2",
+      "Low2",
+      "Low4",
+      "High2"
+    ],
+    [
+      "Low1",
+      "Low4",
+      "Low3",
+      "Low4"
+    ]
+  ],
+  "rpos": [
+    64,
+    136,
+    13,
+    83,
+    42
+  ],
+  "wonCoins": 25,
+  "wts": [
+    "0000000000000100000000000000000",
+    "00100100001001000000"
+  ],
+  "wtw": [
+    [
+      13,
+      25,
+      "00100100001001000000"
+    ]
+  ]
+}

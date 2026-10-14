@@ -157,6 +157,11 @@ def run_game_tests(
         return result
 
     def deliver_result(result):
+        from tester_spin.mechanics import run_mechanics
+        try:
+            result.mechanics = run_mechanics(result.to_dict())
+        except (OSError, ValueError, TypeError, RecursionError) as exc:
+            progress(f"[{result.game_name}] Clasificación de mecánicas incompleta: {exc}")
         try:
             on_result(result)
         except Exception as exc:
@@ -176,6 +181,12 @@ def run_game_tests(
                         break
 
                 if stop_event.is_set():
+                    break
+                block_check = getattr(provider, "test_start_block_reason", None)
+                block_reason = block_check(timeout_s=timeout_s) if block_check is not None else ""
+                if block_reason:
+                    progress(f"{provider.display_name}: {block_reason}")
+                    stop_event.set()
                     break
                 game = queue[next_index]
                 next_index += 1

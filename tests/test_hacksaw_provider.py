@@ -3,6 +3,43 @@ import threading
 from pathlib import Path
 import pytest
 
+CLIENT_TYPES = '\n'.join([
+    'x["hacksaw.common.types.FeatureBuyItem"]=Q;',
+    'function Q(a,b,c){this.bonusGameId=a;this.featureBuyItemType=null;null!=c&&(this.featureBuyItemType=c)}',
+    'getFeatureBuyItems:function(){return[new Q("fs","title","BonusBuyItem"),new Q("mod_bonus","title","FeatureSpinItem"),new Q("bonus","title","BonusBuyItem")]}',
+])
+
+
+
+def with_money(http):
+    original=getattr(http,'post',None)
+    if original is None:return http
+    cash=500000;pending=0;factors={};wire_id=None;original_id=None
+    def post(url,**kw):
+        nonlocal cash,pending,factors,wire_id,original_id
+        body=kw['json'];response=original(url,**kw);value=response.value
+        if url.endswith('/authenticate'):
+            value.setdefault('bonusGames',[])
+            factors={str(b['bonusGameId']):float(b['betCostMultiplier']) for b in value['bonusGames']}
+        else:
+            if 'bets' in body:
+                b=body['bets'][0];cash-=int(int(b['betAmount'])*factors.get(str(b.get('buyBonus')),1));pending=0
+            rd=value.get('round',{})
+            if 'bets' in body:
+                original_id=rd.get('roundId');wire_id=str(original_id)+'-'+str(body['seq'])
+                if original_id:rd['roundId']=wire_id
+            elif rd.get('roundId')==original_id:
+                rd['roundId']=wire_id
+            for e in value.get('round',{}).get('events',[]):
+                pending+=int(e.get('wa',0))
+                for k in ['ba','bc','wc','awc']:e.setdefault(k,'0')
+                e.setdefault('wa','0');e.setdefault('awa',str(pending))
+            if value.get('round',{}).get('status')=='completed':cash+=pending
+        value['accountBalance']={'currencyCode':'EUR','balance':str(cash)}
+        response.text=json.dumps(value)
+        return response
+    http.post=post
+    return http
 
 def api():
     from tester_spin.providers import HacksawProvider
@@ -53,9 +90,9 @@ def test_offline_catalog_does_not_authorize_deletions(tmp_path):
     Provider,*_=api();p=Provider(tmp_path)
     class HTTP:
         def get(self,*a,**kw):raise OSError('offline')
-    p.http=HTTP()
+    p.http=with_money(HTTP())
     games=p.crawl_catalog(stop_event=threading.Event(),progress=lambda _:None)
-    assert len(games)==184 and len({g.symbol for g in games})==184
+    assert len(games)==186 and len({g.symbol for g in games})==186
     assert not p.catalog_crawl_authoritative
 
 
@@ -68,11 +105,14 @@ def test_runtime_stops_after_auth_and_exports_no_session_values(tmp_path):
         def raise_for_status(self):pass
         def json(self):return self.value
     class HTTP:
-        def get(self,url,**kw):return Response({'version':'1.12.3'})
+        def get(self,url,**kw):
+            answer=Response({'version':'1.12.3'})
+            answer.text=CLIENT_TYPES
+            return answer
         def post(self,url,**kw):
             assert url.endswith('/authenticate'), 'No apuesta con terminal desconocido'
             return Response({'statusCode':0,'sessionUuid':'PRIVATE_SESSION','bonusGames':[{'bonusGameId':'buy_a','betCostMultiplier':100}]})
-    p.http=HTTP()
+    p.http=with_money(HTTP())
     result=p.test_game(game,spins=1,timeout_s=1,stop_event=threading.Event(),progress=lambda _:None)
     assert result.status=='PARCIAL' and not result.successful_spins
     assert [m['id'] for m in result.discovered_modes]==['SPIN','BUY_buy_a']
@@ -105,7 +145,7 @@ def test_failed_retry_retains_previously_advertised_purchase_selectors(tmp_path)
     (p.game_dir(g)/'game.json').write_text(json.dumps({'discovered_modes':discover({'bonusGames':[{'bonusGameId':'fs','betCostMultiplier':'110'}]})}))
     class HTTP:
         def get(self,*a,**kw):raise OSError('temporary403')
-    p.http=HTTP()
+    p.http=with_money(HTTP())
     result=p.test_game(g,spins=1,timeout_s=1,stop_event=threading.Event(),progress=lambda _:None)
     assert result.status=='ERROR'
     assert [m['id'] for m in result.discovered_modes]==['SPIN','BUY_fs']
@@ -121,7 +161,10 @@ def test_spins_and_purchases_complete_same_round_and_finalize_with_independent_s
         def raise_for_status(self):pass
         def json(self):return self.value
     class HTTP:
-        def get(self,*a,**kw):return Response({'version':'1.12.3'})
+        def get(self,*a,**kw):
+            answer=Response({'version':'1.12.3'})
+            answer.text=CLIENT_TYPES
+            return answer
         def post(self,url,**kw):
             body=kw['json']
             if url.endswith('/authenticate'):
@@ -131,7 +174,7 @@ def test_spins_and_purchases_complete_same_round_and_finalize_with_independent_s
                 return Response({'statusCode':0,'round':{'roundId':body['roundId'],'status':'completed','possibleActions':[],'events':[]}})
             assert body['bets'][0]['betAmount']=='10'
             return Response({'statusCode':0,'round':{'roundId':str(body['seq']),'status':'wfwpc' if 'buyBonus' in body['bets'][0] else 'completed','possibleActions':[],'events':[{'et':2}]}})
-    p.http=HTTP()
+    p.http=with_money(HTTP())
     result=p.test_game(g,spins=2,timeout_s=1,stop_event=threading.Event(),progress=lambda _:None)
     p.finalize_test_result(result,progress=lambda _:None)
     assert result.status=='OK',result.error
@@ -155,14 +198,17 @@ def test_unknown_continuation_stays_partial_without_guessing(tmp_path,status,act
         def raise_for_status(self):pass
         def json(self):return self.value
     class HTTP:
-        def get(self,*a,**kw):return Response({'version':'1.12.3'})
+        def get(self,*a,**kw):
+            answer=Response({'version':'1.12.3'})
+            answer.text=CLIENT_TYPES
+            return answer
         def post(self,url,**kw):
             if url.endswith('/authenticate'):return Response({'statusCode':0,'sessionUuid':'SECRET','betLevels':['10'],'defaultBetLevel':'10'})
             assert 'continueInstructions' not in kw['json']
             return Response({'statusCode':0,'round':{'roundId':'r','status':status,'possibleActions':actions,'events':[]}})
-    p.http=HTTP()
+    p.http=with_money(HTTP())
     result=p.test_game(g,spins=2,timeout_s=1,stop_event=threading.Event(),progress=lambda _:None)
-    assert result.status=='PARCIAL' and result.successful_spins==0
+    assert result.status==('PARCIAL' if status=='started' else 'ERROR') and result.successful_spins==0
     assert len(result.attempts)==1
 
 
@@ -175,12 +221,15 @@ def test_confirmation_must_not_complete_a_different_round(tmp_path):
         def raise_for_status(self):pass
         def json(self):return self.value
     class HTTP:
-        def get(self,*a,**kw):return Response({'version':'1.12.3'})
+        def get(self,*a,**kw):
+            answer=Response({'version':'1.12.3'})
+            answer.text=CLIENT_TYPES
+            return answer
         def post(self,url,**kw):
             if url.endswith('/authenticate'):return Response({'statusCode':0,'sessionUuid':'SECRET','betLevels':['10'],'defaultBetLevel':'10'})
             confirm='continueInstructions' in kw['json']
             return Response({'statusCode':0,'round':{'roundId':'other' if confirm else 'r','status':'completed' if confirm else 'wfwpc','possibleActions':[],'events':[]}})
-    p.http=HTTP()
+    p.http=with_money(HTTP())
     result=p.test_game(g,spins=1,timeout_s=1,stop_event=threading.Event(),progress=lambda _:None)
     assert result.status!='OK' and result.successful_spins==0
 
@@ -191,7 +240,7 @@ def test_minimum_duration_uses_client_units(value,seconds):
     assert minimum_round_seconds(value)==seconds
 
 
-@pytest.mark.parametrize('primary,secondary', [('play','gamble'),('wild','warehouse'),('fs','lives')])
+@pytest.mark.parametrize('primary,secondary', [('play','gamble'),('wild','warehouse'),('fs','lives'),('ts','fs'),('fs','labyrinth'),('new_option_a','new_option_b')])
 def test_purchase_choice_covers_play_and_gamble_and_keeps_sample_paths_distinct(tmp_path,primary,secondary):
     Provider,*_=api();p=Provider(tmp_path)
     from tester_spin.models import Game
@@ -203,7 +252,10 @@ def test_purchase_choice_covers_play_and_gamble_and_keeps_sample_paths_distinct(
         def raise_for_status(self):pass
         def json(self):return self.value
     class HTTP:
-        def get(self,*a,**kw):return Response({'version':'1.2.3'})
+        def get(self,*a,**kw):
+            answer=Response({'version':'1.2.3'})
+            answer.text=CLIENT_TYPES
+            return answer
         def post(self,url,**kw):
             body=kw['json'];sequences.append(body['seq'])
             if url.endswith('/authenticate'):return Response({'statusCode':0,'sessionUuid':'PRIVATE','betLevels':['10'],
@@ -215,7 +267,7 @@ def test_purchase_choice_covers_play_and_gamble_and_keeps_sample_paths_distinct(
             elif 'buyBonus' in body['bets'][0]:status,actions='started',[primary,secondary]
             else:status,actions='completed',[]
             return Response({'statusCode':0,'round':{'roundId':'r','status':status,'possibleActions':actions,'events':[]}})
-    p.http=HTTP()
+    p.http=with_money(HTTP())
     result=p.test_game(g,spins=1,timeout_s=1,stop_event=threading.Event(),progress=lambda _:None)
     p.finalize_test_result(result,progress=lambda _:None)
     assert result.status=='OK',result.error
@@ -225,7 +277,7 @@ def test_purchase_choice_covers_play_and_gamble_and_keeps_sample_paths_distinct(
     assert len(result.attempts)==3
     samples=build_sample_catalog(result)
     assert len([g for g in samples['groups'] if g['mode_id']=='BUY_bonus'])==2
-    assert sequences==list(range(1,10 if secondary=='gamble' else 9))
+    assert sequences==list(range(1,12 if secondary=='gamble' else 11))
     assert p.build_farm_contract(g,result)['ready']
 
 @pytest.mark.parametrize('scenario', ['late_choice', 'missing_choice'])
@@ -240,7 +292,10 @@ def test_choice_coverage_stays_pending_and_retries_are_bounded(tmp_path, scenari
     class HTTP:
         roots=0
         decisions=0
-        def get(self,*a,**kw):return Response({'version':'1.2.3'})
+        def get(self,*a,**kw):
+            answer=Response({'version':'1.2.3'})
+            answer.text=CLIENT_TYPES
+            return answer
         def post(self,url,**kw):
             body=kw['json']
             if url.endswith('/authenticate'):return Response({'statusCode':0,'sessionUuid':'PRIVATE','betLevels':['10']})
@@ -254,10 +309,25 @@ def test_choice_coverage_stays_pending_and_retries_are_bounded(tmp_path, scenari
                 status='started' if scenario=='late_choice' and self.decisions==1 else 'completed'
                 actions=['play','gamble'] if status=='started' else []
             return Response({'statusCode':0,'round':{'roundId':'r','status':status,'possibleActions':actions,'events':[]}})
-    p.http=HTTP()
+    p.http=with_money(HTTP())
     result=p.test_game(g,spins=1,timeout_s=1,stop_event=threading.Event(),progress=lambda _:None)
     assert result.status=='PARCIAL'
     choice=next(m for m in result.discovered_modes if m['id']=='CHOICE_SPIN')
     assert set(choice['required_options'])=={'play','gamble'}
     assert choice['covered_options']==['play'] and not choice['validated']
     assert p.http.roots<=3
+
+
+def test_legacy_ready_contract_cannot_bypass_new_verification(tmp_path):
+    Provider,*_=api();provider=Provider(tmp_path)
+    from tester_spin.models import Game,GameTestResult
+    game=Game('hacksaw','2536','Example','https://www.hacksawgaming.com/games/example',symbol='2536')
+    result=GameTestResult('hacksaw','2536',game.name,game.url,1,1,0,'OK',symbol='2536')
+    result.discovered_modes=[{'id':'SPIN','kind':'SPIN','executable':True,'validated':True,
+        'required_options':['spin'],'covered_options':['spin'],'sample_counts':{'spin':1}}]
+    contract=provider.build_farm_contract(game,result)
+    assert not contract['ready']
+    assert 'HACKSAW_CURRENT_MONEY_AND_RETURN_PROOF_REQUIRED' in contract['unresolved']
+    contract['ready']=True
+    contract['protocol']['static'].pop('verification_contract',None)
+    assert 'HACKSAW_CURRENT_VERIFICATION_REQUIRED' in provider.validate_farm_contract(contract)

@@ -1,0 +1,114 @@
+{
+  "accC": 45,
+  "accWa": "0.18",
+  "awardFromTwoScatters": null,
+  "doubleAmount": "0.18",
+  "doubleCount": 1,
+  "finalReels": [
+    [
+      "Low2",
+      "High3",
+      "Wild"
+    ],
+    [
+      "High2",
+      "Low1",
+      "High1"
+    ],
+    [
+      "Wild",
+      "Low3",
+      "High2"
+    ],
+    [
+      "Low3",
+      "Low2",
+      "Low4"
+    ],
+    [
+      "Low4",
+      "Low3",
+      "High4"
+    ]
+  ],
+  "goldenbet": false,
+  "iconMapping": {
+    "Wild": "Wild",
+    "Low4": "Low4",
+    "High1": "High1",
+    "High4": "High4",
+    "High3": "High3",
+    "SYMX": "SYMX",
+    "High2": "High2",
+    "Freespin": "Freespin",
+    "Low1": "Low1",
+    "Low2": "Low2",
+    "Team2": "Team2",
+    "Low3": "Low3",
+    "Team1": "Team1"
+  },
+  "initialFreeSpins": 0,
+  "multiplierPositions": [],
+  "nextCmds": "C,*",
+  "randomWilds": [],
+  "reelSet": "Reels",
+  "reels": [
+    [
+      "Low2",
+      "High3",
+      "Wild"
+    ],
+    [
+      "High2",
+      "Low1",
+      "High1"
+    ],
+    [
+      "Wild",
+      "Low3",
+      "High2"
+    ],
+    [
+      "Low3",
+      "Low2",
+      "Low4"
+    ],
+    [
+      "Low4",
+      "Low3",
+      "High4"
+    ]
+  ],
+  "remainingFeatures": [],
+  "roundFeatures": [],
+  "rpos": [
+    0,
+    53,
+    39,
+    6,
+    39
+  ],
+  "spinFeatures": [],
+  "wonCoins": 45,
+  "wts": [
+    "000000000000001100100",
+    "001111100000000"
+  ],
+  "wtw": [
+    [
+      14,
+      20,
+      "001100100000000"
+    ],
+    [
+      15,
+      5,
+      "001010100000000"
+    ],
+    [
+      18,
+      20,
+      "001001100000000"
+    ]
+  ]
+}

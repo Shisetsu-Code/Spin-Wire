@@ -1,0 +1,3844 @@
+{
+  "BUY_BONUS": {
+    "code": 0,
+    "data": {
+      "wager": {
+        "wagerid": "fixture-parameter-round",
+        "status": "Pending",
+        "bets": [
+          {
+            "step": 1,
+            "betamount": "200.00",
+            "betcurrency": "EUR",
+            "wonamount": "0.00",
+            "status": "RESULTED",
+            "betdata": {
+              "coin": "10.00",
+              "cashBet": "200.00",
+              "clientParams": {
+                "bonusRound": true,
+                "playerChoice": 1
+              },
+              "cmd": "BUY_BONUS",
+              "accWa": "0.00",
+              "accC": 0,
+              "cmds": [
+                "Bonus"
+              ]
+            },
+            "eventdata": {
+              "accC": 0,
+              "accWa": "0.00",
+              "boostData": {
+                "Data": [
+                  {
+                    "Mission": "MoreThanOneSymbolWin",
+                    "Goal": 4,
+                    "Progress": 0,
+                    "States": []
+                  },
+                  {
+                    "Mission": "MoreThanFourCascades",
+                    "Goal": 3,
+                    "Progress": 0,
+                    "States": []
+                  },
+                  {
+                    "Mission": "TenOAKWin",
+                    "Goal": 25,
+                    "Progress": 0,
+                    "States": []
+                  }
+                ]
+              },
+              "nextCmds": "Bonus",
+              "response": {
+                "coinWin": 0,
+                "cashWin": "0.00",
+                "clientData": {
+                  "GoldenBet": false,
+                  "BuyBonus": true,
+                  "debug": "BG - INITIAL",
+                  "reelId": "BuyBonus",
+                  "initialBoard": [
+                    [
+                      "HIGH_1",
+                      "HIGH_4",
+                      "HIGH_4",
+                      "LOW_6",
+                      "LOW_6"
+                    ],
+                    [
+                      "HIGH_2",
+                      "LOW_1",
+                      "SCATTER",
+                      "LOW_4",
+                      "LOW_4"
+                    ],
+                    [
+                      "HIGH_3",
+                      "HIGH_3",
+                      "SCATTER",
+                      "LOW_2",
+                      "LOW_5"
+                    ],
+                    [
+                      "HIGH_4",
+                      "LOW_6",
+                      "LOW_6",
+                      "HIGH_1",
+                      "HIGH_1"
+                    ],
+                    [
+                      "LOW_4",
+                      "SCATTER",
+                      "LOW_1",
+                      "HIGH_2",
+                      "HIGH_2"
+                    ],
+                    [
+                      "LOW_5",
+                      "HIGH_3",
+                      "SCATTER",
+                      "LOW_2",
+                      "LOW_2"
+                    ]
+                  ],
+                  "finalBoard": [
+                    [
+                      "HIGH_1",
+                      "HIGH_4",
+                      "HIGH_4",
+                      "LOW_6",
+                      "LOW_6"
+                    ],
+                    [
+                      "HIGH_2",
+                      "LOW_1",
+                      "SCATTER",
+                      "LOW_4",
+                      "LOW_4"
+                    ],
+                    [
+                      "HIGH_3",
+                      "HIGH_3",
+                      "SCATTER",
+                      "LOW_2",
+                      "LOW_5"
+                    ],
+                    [
+                      "HIGH_4",
+                      "LOW_6",
+                      "LOW_6",
+                      "HIGH_1",
+                      "HIGH_1"
+                    ],
+                    [
+                      "LOW_4",
+                      "SCATTER",
+                      "LOW_1",
+                      "HIGH_2",
+                      "HIGH_2"
+                    ],
+                    [
+                      "LOW_5",
+                      "HIGH_3",
+                      "SCATTER",
+                      "LOW_2",
+                      "LOW_2"
+                    ]
+                  ],
+                  "freeSpinsAwarded": 8,
+                  "freeSpinsLeft": 8,
+                  "win": {
+                    "wonCash": "6.00",
+                    "wonCoins": 6.0,
+                    "accumulatedWonCash": "6.00",
+                    "accumulatedWonCoins": 6.0,
+                    "accumulatedRoundWonCash": "6.00",
+                    "accumulatedRoundWonCoins": 6.0,
+                    "accumulatedAvalancheWonCash": "6.00",
+                    "accumulatedAvalancheWonCoins": 6.0,
+                    "prizes": []
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "Bonus": {
+    "code": 0,
+    "data": {
+      "wager": {
+        "wagerid": "fixture-parameter-round",
+        "status": "Pending",
+        "bets": [
+          {
+            "step": 2,
+            "betamount": "0.00",
+            "betcurrency": "EUR",
+            "wonamount": "0.00",
+            "status": "RESULTED",
+            "betdata": {
+              "coin": "10.00",
+              "cashBet": "200.00",
+              "clientParams": {
+                "bonusRound": false,
+                "playerChoice": -1
+              },
+              "cmd": "Bonus",
+              "accWa": "6.00",
+              "accC": 6,
+              "cmds": [
+                "FreeSpin"
+              ]
+            },
+            "eventdata": {
+              "accC": 6,
+              "accWa": "6.00",
+              "boostData": {
+                "Data": [
+                  {
+                    "Mission": "MoreThanOneSymbolWin",
+                    "Goal": 4,
+                    "Progress": 0,
+                    "States": []
+                  },
+                  {
+                    "Mission": "MoreThanFourCascades",
+                    "Goal": 3,
+                    "Progress": 0,
+                    "States": []
+                  },
+                  {
+                    "Mission": "TenOAKWin",
+                    "Goal": 25,
+                    "Progress": 0,
+                    "States": []
+                  }
+                ]
+              },
+              "nextCmds": "FreeSpin",
+              "response": {
+                "coinWin": 6,
+                "cashWin": "6.00",
+                "clientData": {
+                  "GoldenBet": false,
+                  "BuyBonus": true,
+                  "freeSpinsAwarded": 8,
+                  "freeSpinsLeft": 8,
+                  "GambleAwarded": "False"
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "FreeSpin": {
+    "code": 0,
+    "data": {
+      "wager": {
+        "wagerid": "fixture-parameter-round",
+        "status": "Pending",
+        "bets": [
+          {
+            "step": 3,
+            "betamount": "0.00",
+            "betcurrency": "EUR",
+            "wonamount": "0.00",
+            "status": "RESULTED",
+            "betdata": {
+              "coin": "10.00",
+              "cashBet": "200.00",
+              "clientParams": {
+                "bonusRound": false
+              },
+              "cmd": "FreeSpin",
+              "accWa": "6.00",
+              "accC": 6
+            },
+            "eventdata": {
+              "accC": 6,
+              "accWa": "6.00",
+              "response": {
+                "coinWin": 0,
+                "cashWin": "0.00",
+                "clientData": {
+                  "GoldenBet": false,
+                  "BuyBonus": true,
+                  "debug": "FS #1 - INITIAL",
+                  "reelId": "freespins0",
+                  "initialBoard": [
+                    [
+                      "LOW_6",
+                      "LOW_6",
+                      "LOW_5",
+                      "LOW_5",
+                      "HIGH_2"
+                    ],
+                    [
+                      "LOW_2",
+                      "LOW_2",
+                      "HIGH_3",
+                      "HIGH_3",
+                      "HIGH_4"
+                    ],
+                    [
+                      "HIGH_3",
+                      "LOW_4",
+                      "LOW_4",
+                      "LOW_1",
+                      "LOW_1"
+                    ],
+                    [
+                      "LOW_6",
+                      "LOW_6",
+                      "LOW_1",
+                      "LOW_1",
+                      "HIGH_3"
+                    ],
+                    [
+                      "LOW_6",
+                      "LOW_6",
+                      "HIGH_4",
+                      "HIGH_4",
+                      "HIGH_3"
+                    ],
+                    [
+                      "LOW_4",
+                      "LOW_4",
+                      "LOW_1",
+                      "LOW_1",
+                      "LOW_2"
+                    ]
+                  ],
+                  "finalBoard": [
+                    [
+                      "LOW_6",
+                      "LOW_6",
+                      "LOW_5",
+                      "LOW_5",
+                      "HIGH_2"
+                    ],
+                    [
+                      "LOW_2",
+                      "LOW_2",
+                      "HIGH_3",
+                      "HIGH_3",
+                      "HIGH_4"
+                    ],
+                    [
+                      "HIGH_3",
+                      "LOW_4",
+                      "LOW_4",
+                      "LOW_1",
+                      "LOW_1"
+                    ],
+                    [
+                      "LOW_6",
+                      "LOW_6",
+                      "LOW_1",
+                      "LOW_1",
+                      "HIGH_3"
+                    ],
+                    [
+                      "LOW_6",
+                      "LOW_6",
+                      "HIGH_4",
+                      "HIGH_4",
+                      "HIGH_3"
+                    ],
+                    [
+                      "LOW_4",
+                      "LOW_4",
+                      "LOW_1",
+                      "LOW_1",
+                      "LOW_2"
+                    ]
+                  ],
+                  "freeSpinsLeft": 7,
+                  "win": {
+                    "wonCash": "0",
+                    "wonCoins": 0.0,
+                    "accumulatedWonCash": "0",
+                    "accumulatedWonCoins": 0.0,
+                    "accumulatedRoundWonCash": "0",
+                    "accumulatedRoundWonCoins": 0.0,
+                    "accumulatedAvalancheWonCash": "0",
+                    "accumulatedAvalancheWonCoins": 0.0,
+                    "bombMultiplier": 1,
+                    "prizes": []
+                  }
+                }
+              }
+            }
+          },
+          {
+            "step": 4,
+            "betamount": "0.00",
+            "betcurrency": "EUR",
+            "wonamount": "0.00",
+            "status": "RESULTED",
+            "betdata": null,
+            "eventdata": {
+              "accC": 9,
+              "accWa": "9.00",
+              "response": {
+                "coinWin": 3,
+                "cashWin": "3.00",
+                "clientData": {
+                  "debug": "FS #2 - INITIAL",
+                  "reelId": "freespins1",
+                  "initialBoard": [
+                    [
+                      "LOW_3",
+                      "LOW_3",
+                      "HIGH_1",
+                      "HIGH_1",
+                      "HIGH_4"
+                    ],
+                    [
+                      "HIGH_4",
+                      "HIGH_4",
+                      "LOW_1",
+                      "LOW_1",
+                      "HIGH_3"
+                    ],
+                    [
+                      "LOW_5",
+                      "HIGH_3",
+                      "HIGH_3",
+                      "LOW_3",
+                      "LOW_3"
+                    ],
+                    [
+                      "LOW_3",
+                      "HIGH_4",
+                      "HIGH_4",
+                      "LOW_1",
+                      "LOW_1"
+                    ],
+                    [
+                      "SCATTER",
+                      "HIGH_4",
+                      "HIGH_4",
+                      "LOW_6",
+                      "LOW_6"
+                    ],
+                    [
+                      "LOW_5",
+                      "HIGH_3",
+                      "HIGH_3",
+                      "HIGH_4",
+                      "HIGH_4"
+                    ]
+                  ],
+                  "finalBoard": [
+                    [
+                      "EMPTY",
+                      "LOW_3",
+                      "LOW_3",
+                      "HIGH_1",
+                      "HIGH_1"
+                    ],
+                    [
+                      "EMPTY",
+                      "EMPTY",
+                      "LOW_1",
+                      "LOW_1",
+                      "HIGH_3"
+                    ],
+                    [
+                      "LOW_5",
+                      "HIGH_3",
+                      "HIGH_3",
+                      "LOW_3",
+                      "LOW_3"
+                    ],
+                    [
+                      "EMPTY",
+                      "EMPTY",
+                      "LOW_3",
+                      "LOW_1",
+                      "LOW_1"
+                    ],
+                    [
+                      "EMPTY",
+                      "EMPTY",
+                      "SCATTER",
+                      "LOW_6",
+                      "LOW_6"
+                    ],
+                    [
+                      "EMPTY",
+                      "EMPTY",
+                      "LOW_5",
+                      "HIGH_3",
+                      "HIGH_3"
+                    ]
+                  ],
+                  "freeSpinsLeft": 6,
+                  "avalanche": {
+                    "positionsToRemove": [
+                      {
+                        "column": 0,
+                        "row": 4
+                      },
+                      {
+                        "column": 1,
+                        "row": 0
+                      },
+                      {
+                        "column": 1,
+                        "row": 1
+                      },
+                      {
+                        "column": 3,
+                        "row": 1
+                      },
+                      {
+                        "column": 3,
+                        "row": 2
+                      },
+                      {
+                        "column": 4,
+                        "row": 1
+                      },
+                      {
+                        "column": 4,
+                        "row": 2
+                      },
+                      {
+                        "column": 5,
+                        "row": 3
+                      },
+                      {
+                        "column": 5,
+                        "row": 4
+                      }
+                    ],
+                    "positionsShifts": [
+                      {
+                        "Origin": {
+                          "column": 0,
+                          "row": 0
+                        },
+                        "Target": {
+                          "column": 0,
+                          "row": 1
+                        }
+                      },
+                      {
+                        "Origin": {
+                          "column": 0,
+                          "row": 1
+                        },
+                        "Target": {
+                          "column": 0,
+                          "row": 2
+                        }
+                      },
+                      {
+                        "Origin": {
+                          "column": 0,
+                          "row": 2
+                        },
+                        "Target": {
+                          "column": 0,
+                          "row": 3
+                        }
+                      },
+                      {
+                        "Origin": {
+                          "column": 0,
+                          "row": 3
+                        },
+                        "Target": {
+                          "column": 0,
+                          "row": 4
+                        }
+                      },
+                      {
+                        "Origin": {
+                          "column": 2,
+                          "row": 0
+                        },
+                        "Target": {
+                          "column": 2,
+                          "row": 2
+                        }
+                      },
+                      {
+                        "Origin": {
+                          "column": 3,
+                          "row": 0
+                        },
+                        "Target": {
+                          "column": 3,
+                          "row": 2
+                        }
+                      },
+                      {
+                        "Origin": {
+                          "column": 4,
+                          "row": 0
+                        },
+                        "Target": {
+                          "column": 4,
+                          "row": 2
+                        }
+                      },
+                      {
+                        "Origin": {
+                          "column": 4,
+                          "row": 1
+                        },
+                        "Target": {
+                          "column": 4,
+                          "row": 3
+                        }
+                      },
+                      {
+                        "Origin": {
+                          "column": 4,
+                          "row": 2
+                        },
+                        "Target": {
+                          "column": 4,
+                          "row": 4
+                        }
+                      }
+                    ]
+                  },
+                  "win": {
+                    "wonCash": "3.0000",
+                    "wonCoins": 3.0,
+                    "accumulatedWonCash": "3.0000",
+                    "accumulatedWonCoins": 3.0,
+                    "accumulatedRoundWonCash": "3.0000",
+                    "accumulatedRoundWonCoins": 3.0,
+                    "accumulatedAvalancheWonCash": "3.0000",
+                    "accumulatedAvalancheWonCoins": 3.0,
+                    "bombMultiplier": 1,
+                    "prizes": [
+                      {
+                        "symbol": "HIGH_4",
+                        "cash": "3.0000",
+                        "coins": 3.0,
+                        "oak": 9,
+                        "positions": [
+                          {
+                            "x": 0,
+                            "y": 4
+                          },
+                          {
+                            "x": 1,
+                            "y": 0
+                          },
+                          {
+                            "x": 1,
+                            "y": 1
+                          },
+                          {
+                            "x": 3,
+                            "y": 1
+                          },
+                          {
+                            "x": 3,
+                            "y": 2
+                          },
+                          {
+                            "x": 4,
+                            "y": 1
+                          },
+                          {
+                            "x": 4,
+                            "y": 2
+                          },
+                          {
+                            "x": 5,
+                            "y": 3
+                          },
+                          {
+                            "x": 5,
+                            "y": 4
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          {
+            "step": 5,
+            "betamount": "0.00",
+            "betcurrency": "EUR",
+            "wonamount": "0.00",
+            "status": "RESULTED",
+            "betdata": null,
+            "eventdata": {
+              "accC": 11,
+              "accWa": "11.40",
+              "response": {
+                "coinWin": 2,
+                "cashWin": "2.40",
+                "clientData": {
+                  "GoldenBet": false,
+                  "BuyBonus": true,
+                  "debug": "FS #2 - CASCADE #1",
+                  "reelId": "freeSpinsRespin",
+                  "initialBoard": [
+                    [
+                      "LOW_3",
+                      "LOW_3",
+                      "HIGH_1",
+                      "HIGH_1",
+                      "WILD"
+                    ],
+                    [
+                      "HIGH_4",
+                      "HIGH_4",
+                      "LOW_1",
+                      "LOW_1",
+                      "HIGH_3"
+                    ],
+                    [
+                      "LOW_5",
+                      "HIGH_3",
+                      "HIGH_3",
+                      "LOW_3",
+                      "LOW_3"
+                    ],
+                    [
+                      "LOW_3",
+                      "LOW_3",
+                      "LOW_3",
+                      "LOW_1",
+                      "LOW_1"
+                    ],
+                    [
+                      "LOW_2",
+                      "LOW_2",
+                      "SCATTER",
+                      "LOW_6",
+                      "LOW_6"
+                    ],
+                    [
+                      "HIGH_4",
+                      "LOW_5",
+                      "LOW_5",
+                      "HIGH_3",
+                      "HIGH_3"
+                    ]
+                  ],
+                  "finalBoard": [
+                    [
+                      "EMPTY",
+                      "EMPTY",
+                      "EMPTY",
+                      "HIGH_1",
+                      "HIGH_1"
+                    ],
+                    [
+                      "HIGH_4",
+                      "HIGH_4",
+                      "LOW_1",
+                      "LOW_1",
+                      "HIGH_3"
+                    ],
+                    [
+                      "EMPTY",
+                      "EMPTY",
+                      "LOW_5",
+                      "HIGH_3",
+                      "HIGH_3"
+                    ],
+                    [
+                      "EMPTY",
+                      "EMPTY",
+                      "EMPTY",
+                      "LOW_1",
+                      "LOW_1"
+                    ],
+                    [
+                      "LOW_2",
+                      "LOW_2",
+                      "SCATTER",
+                      "LOW_6",
+                      "LOW_6"
+                    ],
+                    [
+                      "HIGH_4",
+                      "LOW_5",
+                      "LOW_5",
+                      "HIGH_3",
+                      "HIGH_3"
+                    ]
+                  ],
+                  "freeSpinsLeft": 6,
+                  "avalanche": {
+                    "positionsToRemove": [
+                      {
+                        "column": 0,
+                        "row": 0
+                      },
+                      {
+                        "column": 0,
+                        "row": 1
+                      },
+                      {
+                        "column": 2,
+                        "row": 3
+                      },
+                      {
+                        "column": 2,
+                        "row": 4
+                      },
+                      {
+                        "column": 3,
+                        "row": 0
+                      },
+                      {
+                        "column": 3,
+                        "row": 1
+                      },
+                      {
+                        "column": 3,
+                        "row": 2
+                      },
+                      {
+                        "column": 0,
+                        "row": 4
+                      }
+                    ],
+                    "positionsShifts": [
+                      {
+                        "Origin": {
+                          "column": 0,
+                          "row": 2
+                        },
+                        "Target": {
+                          "column": 0,
+                          "row": 3
+                        }
+                      },
+                      {
+                        "Origin": {
+                          "column": 0,
+                          "row": 3
+                        },
+                        "Target": {
+                          "column": 0,
+                          "row": 4
+                        }
+                      },
+                      {
+                        "Origin": {
+                          "column": 1,
+                          "row": 0
+                        },
+                        "Target": {
+                          "column": 1,
+                          "row": 2
+                        }
+                      },
+                      {
+                        "Origin": {
+                          "column": 1,
+                          "row": 1
+                        },
+                        "Target": {
+                          "column": 1,
+                          "row": 3
+                        }
+                      },
+                      {
+                        "Origin": {
+                          "column": 1,
+                          "row": 2
+                        },
+                        "Target": {
+                          "column": 1,
+                          "row": 4
+                        }
+                      }
+                    ]
+                  },
+                  "win": {
+                    "wonCash": "2.4000",
+                    "wonCoins": 2.4,
+                    "accumulatedWonCash": "2.4000",
+                    "accumulatedWonCoins": 2.4,
+                    "accumulatedRoundWonCash": "5.4000",
+                    "accumulatedRoundWonCoins": 5.4,
+                    "accumulatedAvalancheWonCash": "5.4000",
+                    "accumulatedAvalancheWonCoins": 5.4,
+                    "bombMultiplier": 4,
+                    "prizes": [
+                      {
+                        "symbol": "LOW_3",
+                        "cash": "2.4000",
+                        "coins": 2.4,
+                        "oak": 8,
+                        "positions": [
+                          {
+                            "x": 0,
+                            "y": 0
+                          },
+                          {
+                            "x": 0,
+                            "y": 1
+                          },
+                          {
+                            "x": 2,
+                            "y": 3
+                          },
+                          {
+                            "x": 2,
+                            "y": 4
+                          },
+                          {
+                            "x": 3,
+                            "y": 0
+                          },
+                          {
+                            "x": 3,
+                            "y": 1
+                          },
+                          {
+                            "x": 3,
+                            "y": 2
+                          },
+                          {
+                            "x": 0,
+                            "y": 4
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          {
+            "step": 6,
+            "betamount": "0.00",
+            "betcurrency": "EUR",
+            "wonamount": "0.00",
+            "status": "RESULTED",
+            "betdata": null,
+            "eventdata": {
+              "accC": 11,
+              "accWa": "11.40",
+              "response": {
+                "coinWin": 0,
+                "cashWin": "0.00",
+                "clientData": {
+                  "debug": "FS #2 - CASCADE #2",
+                  "reelId": "freeSpinsRespin",
+                  "initialBoard": [
+                    [
+                      "HIGH_4",
+                      "LOW_4",
+                      "LOW_4",
+                      "HIGH_1",
+                      "HIGH_1"
+                    ],
+                    [
+                      "HIGH_4",
+                      "HIGH_4",
+                      "LOW_1",
+                      "LOW_1",
+                      "HIGH_3"
+                    ],
+                    [
+                      "LOW_3",
+                      "LOW_5",
+                      "LOW_5",
+                      "HIGH_3",
+                      "HIGH_3"
+                    ],
+                    [
+                      "LOW_2",
+                      "LOW_2",
+                      "WILD",
+                      "LOW_1",
+                      "LOW_1"
+                    ],
+                    [
+                      "LOW_2",
+                      "LOW_2",
+                      "SCATTER",
+                      "LOW_6",
+                      "LOW_6"
+                    ],
+                    [
+                      "HIGH_4",
+                      "LOW_5",
+                      "LOW_5",
+                      "HIGH_3",
+                      "HIGH_3"
+                    ]
+                  ],
+                  "finalBoard": [
+                    [
+                      "HIGH_4",
+                      "LOW_4",
+                      "LOW_4",
+                      "HIGH_1",
+                      "HIGH_1"
+                    ],
+                    [
+                      "HIGH_4",
+                      "HIGH_4",
+                      "LOW_1",
+                      "LOW_1",
+                      "HIGH_3"
+                    ],
+                    [
+                      "LOW_3",
+                      "LOW_5",
+                      "LOW_5",
+                      "HIGH_3",
+                      "HIGH_3"
+                    ],
+                    [
+                      "LOW_2",
+                      "LOW_2",
+                      "WILD",
+                      "LOW_1",
+                      "LOW_1"
+                    ],
+                    [
+                      "LOW_2",
+                      "LOW_2",
+                      "SCATTER",
+                      "LOW_6",
+                      "LOW_6"
+                    ],
+                    [
+                      "HIGH_4",
+                      "LOW_5",
+                      "LOW_5",
+                      "HIGH_3",
+                      "HIGH_3"
+                    ]
+                  ],
+                  "freeSpinsLeft": 6,
+                  "win": {
+                    "wonCash": "0",
+                    "wonCoins": 0.0,
+                    "accumulatedWonCash": "5.4000",
+                    "accumulatedWonCoins": 5.4,
+                    "accumulatedRoundWonCash": "5.4000",
+                    "accumulatedRoundWonCoins": 5.4,
+                    "accumulatedAvalancheWonCash": "5.4000",
+                    "accumulatedAvalancheWonCoins": 5.4,
+                    "bombMultiplier": 14,
+                    "prizes": []
+                  }
+                }
+              }
+            }
+          },
+          {
+            "step": 7,
+            "betamount": "0.00",
+            "betcurrency": "EUR",
+            "wonamount": "0.00",
+            "status": "RESULTED",
+            "betdata": null,
+            "eventdata": {
+              "accC": 19,
+              "accWa": "19.80",
+              "response": {
+                "coinWin": 8,
+                "cashWin": "8.40",
+                "clientData": {
+                  "debug": "FS #3 - INITIAL",
+                  "reelId": "freespins1",
+                  "initialBoard": [
+                    [
+                      "LOW_1",
+                      "LOW_1",
+                      "LOW_3",
+                      "LOW_3",
+                      "LOW_5"
+                    ],
+                    [
+                      "LOW_3",
+                      "LOW_6",
+                      "LOW_6",
+                      "LOW_4",
+                      "LOW_4"
+                    ],
+                    [
+                      "LOW_5",
+                      "LOW_4",
+                      "LOW_4",
+                      "LOW_3",
+                      "LOW_3"
+                    ],
+                    [
+                      "LOW_1",
+                      "LOW_1",
+                      "LOW_4",
+                      "LOW_4",
+                      "HIGH_4"
+                    ],
+                    [
+                      "LOW_3",
+                      "LOW_3",
+                      "HIGH_4",
+                      "HIGH_4",
+                      "LOW_5"
+                    ],
+                    [
+                      "LOW_3",
+                      "LOW_3",
+                      "HIGH_4",
+                      "HIGH_4",
+                      "HIGH_3"
+                    ]
+                  ],
+                  "finalBoard": [
+                    [
+                      "EMPTY",
+                      "EMPTY",
+                      "LOW_1",
+                      "LOW_1",
+                      "LOW_5"
+                    ],
+                    [
+                      "EMPTY",
+                      "LOW_6",
+                      "LOW_6",
+                      "LOW_4",
+                      "LOW_4"
+                    ],
+                    [
+                      "EMPTY",
+                      "EMPTY",
+                      "LOW_5",
+                      "LOW_4",
+                      "LOW_4"
+                    ],
+                    [
+                      "LOW_1",
+                      "LOW_1",
+                      "LOW_4",
+                      "LOW_4",
+                      "HIGH_4"
+                    ],
+                    [
+                      "EMPTY",
+                      "EMPTY",
+                      "HIGH_4",
+                      "HIGH_4",
+                      "LOW_5"
+                    ],
+                    [
+                      "EMPTY",
+                      "EMPTY",
+                      "HIGH_4",
+                      "HIGH_4",
+                      "HIGH_3"
+                    ]
+                  ],
+                  "freeSpinsLeft": 5,
+                  "avalanche": {
+                    "positionsToRemove": [
+                      {
+                        "column": 0,
+                        "row": 2
+                      },
+                      {
+                        "column": 0,
+                        "row": 3
+                      },
+                      {
+                        "column": 1,
+                        "row": 0
+                      },
+                      {
+                        "column": 2,
+                        "row": 3
+                      },
+                      {
+                        "column": 2,
+                        "row": 4
+                      },
+                      {
+                        "column": 4,
+                        "row": 0
+                      },
+                      {
+                        "column": 4,
+                        "row": 1
+                      },
+                      {
+                        "column": 5,
+                        "row": 0
+                      },
+                      {
+                        "column": 5,
+                        "row": 1
+                      }
+                    ],
+                    "positionsShifts": [
+                      {
+                        "Origin": {
+                          "column": 0,
+                          "row": 0
+                        },
+                        "Target": {
+                          "column": 0,
+                          "row": 2
+                        }
+                      },
+                      {
+                        "Origin": {
+                          "column": 0,
+                          "row": 1
+                        },
+                        "Target": {
+                          "column": 0,
+                          "row": 3
+                        }
+                      },
+                      {
+                        "Origin": {
+                          "column": 2,
+                          "row": 0
+                        },
+                        "Target": {
+                          "column": 2,
+                          "row": 2
+                        }
+                      },
+                      {
+                        "Origin": {
+                          "column": 2,
+                          "row": 1
+                        },
+                        "Target": {
+                          "column": 2,
+                          "row": 3
+                        }
+                      },
+                      {
+                        "Origin": {
+                          "column": 2,
+                          "row": 2
+                        },
+                        "Target": {
+                          "column": 2,
+                          "row": 4
+                        }
+                      }
+                    ]
+                  },
+                  "win": {
+                    "wonCash": "8.4000",
+                    "wonCoins": 8.4,
+                    "accumulatedWonCash": "8.4000",
+                    "accumulatedWonCoins": 8.4,
+                    "accumulatedRoundWonCash": "8.4000",
+                    "accumulatedRoundWonCoins": 8.4,
+                    "accumulatedAvalancheWonCash": "8.4000",
+                    "accumulatedAvalancheWonCoins": 8.4,
+                    "bombMultiplier": 14,
+                    "prizes": [
+                      {
+                        "symbol": "LOW_3",
+                        "cash": "8.4000",
+                        "coins": 8.4,
+                        "oak": 9,
+                        "positions": [
+                          {
+                            "x": 0,
+                            "y": 2
+                          },
+                          {
+                            "x": 0,
+                            "y": 3
+                          },
+                          {
+                            "x": 1,
+                            "y": 0
+                          },
+                          {
+                            "x": 2,
+                            "y": 3
+                          },
+                          {
+                            "x": 2,
+                            "y": 4
+                          },
+                          {
+                            "x": 4,
+                            "y": 0
+                          },
+                          {
+                            "x": 4,
+                            "y": 1
+                          },
+                          {
+                            "x": 5,
+                            "y": 0
+                          },
+                          {
+                            "x": 5,
+                            "y": 1
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          {
+            "step": 8,
+            "betamount": "0.00",
+            "betcurrency": "EUR",
+            "wonamount": "0.00",
+            "status": "RESULTED",
+            "betdata": null,
+            "eventdata": {
+              "accC": 19,
+              "accWa": "19.80",
+              "response": {
+                "coinWin": 0,
+                "cashWin": "0.00",
+                "clientData": {
+                  "debug": "FS #3 - CASCADE #1",
+                  "reelId": "freeSpinsRespin",
+                  "initialBoard": [
+                    [
+                      "HIGH_3",
+                      "HIGH_3",
+                      "LOW_1",
+                      "LOW_1",
+                      "LOW_5"
+                    ],
+                    [
+                      "LOW_3",
+                      "LOW_6",
+                      "LOW_6",
+                      "LOW_4",
+                      "LOW_4"
+                    ],
+                    [
+                      "HIGH_4",
+                      "LOW_5",
+                      "LOW_5",
+                      "LOW_4",
+                      "LOW_4"
+                    ],
+                    [
+                      "LOW_1",
+                      "LOW_1",
+                      "LOW_4",
+                      "LOW_4",
+                      "HIGH_4"
+                    ],
+                    [
+                      "LOW_2",
+                      "LOW_2",
+                      "HIGH_4",
+                      "HIGH_4",
+                      "LOW_5"
+                    ],
+                    [
+                      "LOW_2",
+                      "WILD",
+                      "HIGH_4",
+                      "HIGH_4",
+                      "HIGH_3"
+                    ]
+                  ],
+                  "finalBoard": [
+                    [
+                      "HIGH_3",
+                      "HIGH_3",
+                      "LOW_1",
+                      "LOW_1",
+                      "LOW_5"
+                    ],
+                    [
+                      "LOW_3",
+                      "LOW_6",
+                      "LOW_6",
+                      "LOW_4",
+                      "LOW_4"
+                    ],
+                    [
+                      "HIGH_4",
+                      "LOW_5",
+                      "LOW_5",
+                      "LOW_4",
+                      "LOW_4"
+                    ],
+                    [
+                      "LOW_1",
+                      "LOW_1",
+                      "LOW_4",
+                      "LOW_4",
+                      "HIGH_4"
+                    ],
+                    [
+                      "LOW_2",
+                      "LOW_2",
+                      "HIGH_4",
+                      "HIGH_4",
+                      "LOW_5"
+                    ],
+                    [
+                      "LOW_2",
+                      "WILD",
+                      "HIGH_4",
+                      "HIGH_4",
+                      "HIGH_3"
+                    ]
+                  ],
+                  "freeSpinsLeft": 5,
+                  "win": {
+                    "wonCash": "0",
+                    "wonCoins": 0.0,
+                    "accumulatedWonCash": "8.4000",
+                    "accumulatedWonCoins": 8.4,
+                    "accumulatedRoundWonCash": "8.4000",
+                    "accumulatedRoundWonCoins": 8.4,
+                    "accumulatedAvalancheWonCash": "8.4000",
+                    "accumulatedAvalancheWonCoins": 8.4,
+                    "bombMultiplier": 16,
+                    "prizes": []
+                  }
+                }
+              }
+            }
+          },
+          {
+            "step": 9,
+            "betamount": "0.00",
+            "betcurrency": "EUR",
+            "wonamount": "0.00",
+            "status": "RESULTED",
+            "betdata": null,
+            "eventdata": {
+              "accC": 19,
+              "accWa": "19.80",
+              "response": {
+                "coinWin": 0,
+                "cashWin": "0.00",
+                "clientData": {
+                  "GoldenBet": false,
+                  "BuyBonus": true,
+                  "debug": "FS #4 - INITIAL",
+                  "reelId": "freespins0",
+                  "initialBoard": [
+                    [
+                      "LOW_6",
+                      "LOW_6",
+                      "LOW_2",
+                      "LOW_2",
+                      "HIGH_1"
+                    ],
+                    [
+                      "LOW_6",
+                      "LOW_6",
+                      "LOW_4",
+                      "LOW_4",
+                      "LOW_5"
+                    ],
+                    [
+                      "LOW_4",
+                      "LOW_4",
+                      "LOW_2",
+                      "LOW_2",
+                      "LOW_5"
+                    ],
+                    [
+                      "LOW_6",
+                      "LOW_4",
+                      "LOW_4",
+                      "LOW_5",
+                      "LOW_5"
+                    ],
+                    [
+                      "LOW_2",
+                      "HIGH_1",
+                      "HIGH_1",
+                      "HIGH_4",
+                      "HIGH_4"
+                    ],
+                    [
+                      "HIGH_4",
+                      "HIGH_4",
+                      "LOW_6",
+                      "LOW_6",
+                      "HIGH_1"
+                    ]
+                  ],
+                  "finalBoard": [
+                    [
+                      "LOW_6",
+                      "LOW_6",
+                      "LOW_2",
+                      "LOW_2",
+                      "HIGH_1"
+                    ],
+                    [
+                      "LOW_6",
+                      "LOW_6",
+                      "LOW_4",
+                      "LOW_4",
+                      "LOW_5"
+                    ],
+                    [
+                      "LOW_4",
+                      "LOW_4",
+                      "LOW_2",
+                      "LOW_2",
+                      "LOW_5"
+                    ],
+                    [
+                      "LOW_6",
+                      "LOW_4",
+                      "LOW_4",
+                      "LOW_5",
+                      "LOW_5"
+                    ],
+                    [
+                      "LOW_2",
+                      "HIGH_1",
+                      "HIGH_1",
+                      "HIGH_4",
+                      "HIGH_4"
+                    ],
+                    [
+                      "HIGH_4",
+                      "HIGH_4",
+                      "LOW_6",
+                      "LOW_6",
+                      "HIGH_1"
+                    ]
+                  ],
+                  "freeSpinsLeft": 4,
+                  "win": {
+                    "wonCash": "0",
+                    "wonCoins": 0.0,
+                    "accumulatedWonCash": "0",
+                    "accumulatedWonCoins": 0.0,
+                    "accumulatedRoundWonCash": "0",
+                    "accumulatedRoundWonCoins": 0.0,
+                    "accumulatedAvalancheWonCash": "0",
+                    "accumulatedAvalancheWonCoins": 0.0,
+                    "bombMultiplier": 16,
+                    "prizes": []
+                  }
+                }
+              }
+            }
+          },
+          {
+            "step": 10,
+            "betamount": "0.00",
+            "betcurrency": "EUR",
+            "wonamount": "0.00",
+            "status": "RESULTED",
+            "betdata": null,
+            "eventdata": {
+              "accC": 32,
+              "accWa": "32.60",
+              "response": {
+                "coinWin": 13,
+                "cashWin": "12.80",
+                "clientData": {
+                  "debug": "FS #5 - INITIAL",
+                  "reelId": "freespins0",
+                  "initialBoard": [
+                    [
+                      "LOW_2",
+                      "LOW_2",
+                      "LOW_6",
+                      "LOW_6",
+                      "LOW_4"
+                    ],
+                    [
+                      "HIGH_3",
+                      "HIGH_3",
+                      "LOW_6",
+                      "LOW_6",
+                      "LOW_1"
+                    ],
+                    [
+                      "LOW_4",
+                      "LOW_4",
+                      "LOW_6",
+                      "LOW_6",
+                      "LOW_2"
+                    ],
+                    [
+                      "HIGH_4",
+                      "LOW_4",
+                      "LOW_4",
+                      "LOW_2",
+                      "LOW_2"
+                    ],
+                    [
+                      "LOW_6",
+                      "LOW_6",
+                      "LOW_6",
+                      "LOW_4",
+                      "LOW_4"
+                    ],
+                    [
+                      "LOW_1",
+                      "LOW_1",
+                      "LOW_4",
+                      "LOW_4",
+                      "HIGH_1"
+                    ]
+                  ],
+                  "finalBoard": [
+                    [
+                      "EMPTY",
+                      "EMPTY",
+                      "EMPTY",
+                      "LOW_2",
+                      "LOW_2"
+                    ],
+                    [
+                      "EMPTY",
+                      "EMPTY",
+                      "HIGH_3",
+                      "HIGH_3",
+                      "LOW_1"
+                    ],
+                    [
+                      "EMPTY",
+                      "EMPTY",
+                      "EMPTY",
+                      "EMPTY",
+                      "LOW_2"
+                    ],
+                    [
+                      "EMPTY",
+                      "EMPTY",
+                      "HIGH_4",
+                      "LOW_2",
+                      "LOW_2"
+                    ],
+                    [
+                      "EMPTY",
+                      "EMPTY",
+                      "EMPTY",
+                      "EMPTY",
+                      "EMPTY"
+                    ],
+                    [
+                      "EMPTY",
+                      "EMPTY",
+                      "LOW_1",
+                      "LOW_1",
+                      "HIGH_1"
+                    ]
+                  ],
+                  "freeSpinsLeft": 3,
+                  "avalanche": {
+                    "positionsToRemove": [
+                      {
+                        "column": 0,
+                        "row": 2
+                      },
+                      {
+                        "column": 0,
+                        "row": 3
+                      },
+                      {
+                        "column": 1,
+                        "row": 2
+                      },
+                      {
+                        "column": 1,
+                        "row": 3
+                      },
+                      {
+                        "column": 2,
+                        "row": 2
+                      },
+                      {
+                        "column": 2,
+                        "row": 3
+                      },
+                      {
+                        "column": 4,
+                        "row": 0
+                      },
+                      {
+                        "column": 4,
+                        "row": 1
+                      },
+                      {
+                        "column": 4,
+                        "row": 2
+                      },
+                      {
+                        "column": 0,
+                        "row": 4
+                      },
+                      {
+                        "column": 2,
+                        "row": 0
+                      },
+                      {
+                        "column": 2,
+                        "row": 1
+                      },
+                      {
+                        "column": 3,
+                        "row": 1
+                      },
+                      {
+                        "column": 3,
+                        "row": 2
+                      },
+                      {
+                        "column": 4,
+                        "row": 3
+                      },
+                      {
+                        "column": 4,
+                        "row": 4
+                      },
+                      {
+                        "column": 5,
+                        "row": 2
+                      },
+                      {
+                        "column": 5,
+                        "row": 3
+                      }
+                    ],
+                    "positionsShifts": [
+                      {
+                        "Origin": {
+                          "column": 0,
+                          "row": 0
+                        },
+                        "Target": {
+                          "column": 0,
+                          "row": 3
+                        }
+                      },
+                      {
+                        "Origin": {
+                          "column": 0,
+                          "row": 1
+                        },
+                        "Target": {
+                          "column": 0,
+                          "row": 4
+                        }
+                      },
+                      {
+                        "Origin": {
+                          "column": 1,
+                          "row": 0
+                        },
+                        "Target": {
+                          "column": 1,
+                          "row": 2
+                        }
+                      },
+                      {
+                        "Origin": {
+                          "column": 1,
+                          "row": 1
+                        },
+                        "Target": {
+                          "column": 1,
+                          "row": 3
+                        }
+                      },
+                      {
+                        "Origin": {
+                          "column": 3,
+                          "row": 0
+                        },
+                        "Target": {
+                          "column": 3,
+                          "row": 2
+                        }
+                      },
+                      {
+                        "Origin": {
+                          "column": 5,
+                          "row": 0
+                        },
+                        "Target": {
+                          "column": 5,
+                          "row": 2
+                        }
+                      },
+                      {
+                        "Origin": {
+                          "column": 5,
+                          "row": 1
+                        },
+                        "Target": {
+                          "column": 5,
+                          "row": 3
+                        }
+                      }
+                    ]
+                  },
+                  "win": {
+                    "wonCash": "12.8000",
+                    "wonCoins": 12.8,
+                    "accumulatedWonCash": "12.8000",
+                    "accumulatedWonCoins": 12.8,
+                    "accumulatedRoundWonCash": "12.8000",
+                    "accumulatedRoundWonCoins": 12.8,
+                    "accumulatedAvalancheWonCash": "12.8000",
+                    "accumulatedAvalancheWonCoins": 12.8,
+                    "bombMultiplier": 16,
+                    "prizes": [
+                      {
+                        "symbol": "LOW_6",
+                        "cash": "4.8000",
+                        "coins": 4.8,
+                        "oak": 9,
+                        "positions": [
+                          {
+                            "x": 0,
+                            "y": 2
+                          },
+                          {
+                            "x": 0,
+                            "y": 3
+                          },
+                          {
+                            "x": 1,
+                            "y": 2
+                          },
+                          {
+                            "x": 1,
+                            "y": 3
+                          },
+                          {
+                            "x": 2,
+                            "y": 2
+                          },
+                          {
+                            "x": 2,
+                            "y": 3
+                          },
+                          {
+                            "x": 4,
+                            "y": 0
+                          },
+                          {
+                            "x": 4,
+                            "y": 1
+                          },
+                          {
+                            "x": 4,
+                            "y": 2
+                          }
+                        ]
+                      },
+                      {
+                        "symbol": "LOW_4",
+                        "cash": "8.0000",
+                        "coins": 8.0,
+                        "oak": 9,
+                        "positions": [
+                          {
+                            "x": 0,
+                            "y": 4
+                          },
+                          {
+                            "x": 2,
+                            "y": 0
+                          },
+                          {
+                            "x": 2,
+                            "y": 1
+                          },
+                          {
+                            "x": 3,
+                            "y": 1
+                          },
+                          {
+                            "x": 3,
+                            "y": 2
+                          },
+                          {
+                            "x": 4,
+                            "y": 3
+                          },
+                          {
+                            "x": 4,
+                            "y": 4
+                          },
+                          {
+                            "x": 5,
+                            "y": 2
+                          },
+                          {
+                            "x": 5,
+                            "y": 3
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          {
+            "step": 11,
+            "betamount": "0.00",
+            "betcurrency": "EUR",
+            "wonamount": "0.00",
+            "status": "RESULTED",
+            "betdata": null,
+            "eventdata": {
+              "accC": 47,
+              "accWa": "47.80",
+              "response": {
+                "coinWin": 15,
+                "cashWin": "15.20",
+                "clientData": {
+                  "GoldenBet": false,
+                  "BuyBonus": true,
+                  "debug": "FS #5 - CASCADE #1",
+                  "reelId": "freeSpinsRespin",
+                  "initialBoard": [
+                    [
+                      "HIGH_3",
+                      "LOW_5",
+                      "LOW_5",
+                      "LOW_2",
+                      "LOW_2"
+                    ],
+                    [
+                      "LOW_3",
+                      "LOW_3",
+                      "HIGH_3",
+                      "HIGH_3",
+                      "LOW_1"
+                    ],
+                    [
+                      "HIGH_1",
+                      "HIGH_1",
+                      "HIGH_4",
+                      "HIGH_4",
+                      "LOW_2"
+                    ],
+                    [
+                      "HIGH_4",
+                      "HIGH_4",
+                      "WILD",
+                      "LOW_2",
+                      "LOW_2"
+                    ],
+                    [
+                      "HIGH_3",
+                      "LOW_2",
+                      "LOW_2",
+                      "LOW_3",
+                      "LOW_3"
+                    ],
+                    [
+                      "LOW_6",
+                      "LOW_6",
+                      "LOW_1",
+                      "LOW_1",
+                      "HIGH_1"
+                    ]
+                  ],
+                  "finalBoard": [
+                    [
+                      "EMPTY",
+                      "EMPTY",
+                      "HIGH_3",
+                      "LOW_5",
+                      "LOW_5"
+                    ],
+                    [
+                      "LOW_3",
+                      "LOW_3",
+                      "HIGH_3",
+                      "HIGH_3",
+                      "LOW_1"
+                    ],
+                    [
+                      "EMPTY",
+                      "HIGH_1",
+                      "HIGH_1",
+                      "HIGH_4",
+                      "HIGH_4"
+                    ],
+                    [
+                      "EMPTY",
+                      "EMPTY",
+                      "EMPTY",
+                      "HIGH_4",
+                      "HIGH_4"
+                    ],
+                    [
+                      "EMPTY",
+                      "EMPTY",
+                      "HIGH_3",
+                      "LOW_3",
+                      "LOW_3"
+                    ],
+                    [
+                      "LOW_6",
+                      "LOW_6",
+                      "LOW_1",
+                      "LOW_1",
+                      "HIGH_1"
+                    ]
+                  ],
+                  "freeSpinsLeft": 3,
+                  "avalanche": {
+                    "positionsToRemove": [
+                      {
+                        "column": 0,
+                        "row": 3
+                      },
+                      {
+                        "column": 0,
+                        "row": 4
+                      },
+                      {
+                        "column": 2,
+                        "row": 4
+                      },
+                      {
+                        "column": 3,
+                        "row": 3
+                      },
+                      {
+                        "column": 3,
+                        "row": 4
+                      },
+                      {
+                        "column": 4,
+                        "row": 1
+                      },
+                      {
+                        "column": 4,
+                        "row": 2
+                      },
+                      {
+                        "column": 3,
+                        "row": 2
+                      }
+                    ],
+                    "positionsShifts": [
+                      {
+                        "Origin": {
+                          "column": 0,
+                          "row": 0
+                        },
+                        "Target": {
+                          "column": 0,
+                          "row": 2
+                        }
+                      },
+                      {
+                        "Origin": {
+                          "column": 0,
+                          "row": 1
+                        },
+                        "Target": {
+                          "column": 0,
+                          "row": 3
+                        }
+                      },
+                      {
+                        "Origin": {
+                          "column": 0,
+                          "row": 2
+                        },
+                        "Target": {
+                          "column": 0,
+                          "row": 4
+                        }
+                      },
+                      {
+                        "Origin": {
+                          "column": 1,
+                          "row": 0
+                        },
+                        "Target": {
+                          "column": 1,
+                          "row": 1
+                        }
+                      },
+                      {
+                        "Origin": {
+                          "column": 1,
+                          "row": 1
+                        },
+                        "Target": {
+                          "column": 1,
+                          "row": 2
+                        }
+                      },
+                      {
+                        "Origin": {
+                          "column": 1,
+                          "row": 2
+                        },
+                        "Target": {
+                          "column": 1,
+                          "row": 3
+                        }
+                      },
+                      {
+                        "Origin": {
+                          "column": 1,
+                          "row": 3
+                        },
+                        "Target": {
+                          "column": 1,
+                          "row": 4
+                        }
+                      },
+                      {
+                        "Origin": {
+                          "column": 2,
+                          "row": 0
+                        },
+                        "Target": {
+                          "column": 2,
+                          "row": 3
+                        }
+                      },
+                      {
+                        "Origin": {
+                          "column": 2,
+                          "row": 1
+                        },
+                        "Target": {
+                          "column": 2,
+                          "row": 4
+                        }
+                      },
+                      {
+                        "Origin": {
+                          "column": 3,
+                          "row": 0
+                        },
+                        "Target": {
+                          "column": 3,
+                          "row": 2
+                        }
+                      }
+                    ]
+                  },
+                  "win": {
+                    "wonCash": "15.2000",
+                    "wonCoins": 15.2,
+                    "accumulatedWonCash": "15.2000",
+                    "accumulatedWonCoins": 15.2,
+                    "accumulatedRoundWonCash": "28.0000",
+                    "accumulatedRoundWonCoins": 28.0,
+                    "accumulatedAvalancheWonCash": "28.0000",
+                    "accumulatedAvalancheWonCoins": 28.0,
+                    "bombMultiplier": 19,
+                    "prizes": [
+                      {
+                        "symbol": "LOW_2",
+                        "cash": "15.2000",
+                        "coins": 15.2,
+                        "oak": 8,
+                        "positions": [
+                          {
+                            "x": 0,
+                            "y": 3
+                          },
+                          {
+                            "x": 0,
+                            "y": 4
+                          },
+                          {
+                            "x": 2,
+                            "y": 4
+                          },
+                          {
+                            "x": 3,
+                            "y": 3
+                          },
+                          {
+                            "x": 3,
+                            "y": 4
+                          },
+                          {
+                            "x": 4,
+                            "y": 1
+                          },
+                          {
+                            "x": 4,
+                            "y": 2
+                          },
+                          {
+                            "x": 3,
+                            "y": 2
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          {
+            "step": 12,
+            "betamount": "0.00",
+            "betcurrency": "EUR",
+            "wonamount": "0.00",
+            "status": "RESULTED",
+            "betdata": null,
+            "eventdata": {
+              "accC": 47,
+              "accWa": "47.80",
+              "response": {
+                "coinWin": 0,
+                "cashWin": "0.00",
+                "clientData": {
+                  "debug": "FS #5 - CASCADE #2",
+                  "reelId": "freeSpinsRespin",
+                  "initialBoard": [
+                    [
+                      "LOW_2",
+                      "HIGH_3",
+                      "HIGH_3",
+                      "LOW_5",
+                      "LOW_5"
+                    ],
+                    [
+                      "LOW_3",
+                      "LOW_3",
+                      "HIGH_3",
+                      "HIGH_3",
+                      "LOW_1"
+                    ],
+                    [
+                      "LOW_1",
+                      "HIGH_1",
+                      "HIGH_1",
+                      "HIGH_4",
+                      "HIGH_4"
+                    ],
+                    [
+                      "LOW_2",
+                      "LOW_2",
+                      "HIGH_4",
+                      "HIGH_4",
+                      "WILD"
+                    ],
+                    [
+                      "LOW_5",
+                      "HIGH_3",
+                      "HIGH_3",
+                      "LOW_3",
+                      "LOW_3"
+                    ],
+                    [
+                      "LOW_6",
+                      "LOW_6",
+                      "LOW_1",
+                      "LOW_1",
+                      "HIGH_1"
+                    ]
+                  ],
+                  "finalBoard": [
+                    [
+                      "LOW_2",
+                      "HIGH_3",
+                      "HIGH_3",
+                      "LOW_5",
+                      "LOW_5"
+                    ],
+                    [
+                      "LOW_3",
+                      "LOW_3",
+                      "HIGH_3",
+                      "HIGH_3",
+                      "LOW_1"
+                    ],
+                    [
+                      "LOW_1",
+                      "HIGH_1",
+                      "HIGH_1",
+                      "HIGH_4",
+                      "HIGH_4"
+                    ],
+                    [
+                      "LOW_2",
+                      "LOW_2",
+                      "HIGH_4",
+                      "HIGH_4",
+                      "WILD"
+                    ],
+                    [
+                      "LOW_5",
+                      "HIGH_3",
+                      "HIGH_3",
+                      "LOW_3",
+                      "LOW_3"
+                    ],
+                    [
+                      "LOW_6",
+                      "LOW_6",
+                      "LOW_1",
+                      "LOW_1",
+                      "HIGH_1"
+                    ]
+                  ],
+                  "freeSpinsLeft": 3,
+                  "win": {
+                    "wonCash": "0",
+                    "wonCoins": 0.0,
+                    "accumulatedWonCash": "28.0000",
+                    "accumulatedWonCoins": 28.0,
+                    "accumulatedRoundWonCash": "28.0000",
+                    "accumulatedRoundWonCoins": 28.0,
+                    "accumulatedAvalancheWonCash": "28.0000",
+                    "accumulatedAvalancheWonCoins": 28.0,
+                    "bombMultiplier": 29,
+                    "prizes": []
+                  }
+                }
+              }
+            }
+          },
+          {
+            "step": 13,
+            "betamount": "0.00",
+            "betcurrency": "EUR",
+            "wonamount": "0.00",
+            "status": "RESULTED",
+            "betdata": null,
+            "eventdata": {
+              "accC": 47,
+              "accWa": "47.80",
+              "response": {
+                "coinWin": 0,
+                "cashWin": "0.00",
+                "clientData": {
+                  "GoldenBet": false,
+                  "BuyBonus": true,
+                  "debug": "FS #6 - INITIAL",
+                  "reelId": "freespins1",
+                  "initialBoard": [
+                    [
+                      "LOW_6",
+                      "LOW_4",
+                      "LOW_4",
+                      "LOW_5",
+                      "LOW_5"
+                    ],
+                    [
+                      "HIGH_2",
+                      "HIGH_2",
+                      "LOW_3",
+                      "LOW_3",
+                      "HIGH_4"
+                    ],
+                    [
+                      "LOW_6",
+                      "SCATTER",
+                      "LOW_5",
+                      "LOW_5",
+                      "LOW_1"
+                    ],
+                    [
+                      "LOW_3",
+                      "LOW_3",
+                      "HIGH_4",
+                      "HIGH_4",
+                      "LOW_6"
+                    ],
+                    [
+                      "LOW_3",
+                      "LOW_6",
+                      "LOW_6",
+                      "LOW_5",
+                      "LOW_5"
+                    ],
+                    [
+                      "HIGH_1",
+                      "HIGH_1",
+                      "HIGH_2",
+                      "HIGH_2",
+                      "LOW_6"
+                    ]
+                  ],
+                  "finalBoard": [
+                    [
+                      "LOW_6",
+                      "LOW_4",
+                      "LOW_4",
+                      "LOW_5",
+                      "LOW_5"
+                    ],
+                    [
+                      "HIGH_2",
+                      "HIGH_2",
+                      "LOW_3",
+                      "LOW_3",
+                      "HIGH_4"
+                    ],
+                    [
+                      "LOW_6",
+                      "SCATTER",
+                      "LOW_5",
+                      "LOW_5",
+                      "LOW_1"
+                    ],
+                    [
+                      "LOW_3",
+                      "LOW_3",
+                      "HIGH_4",
+                      "HIGH_4",
+                      "LOW_6"
+                    ],
+                    [
+                      "LOW_3",
+                      "LOW_6",
+                      "LOW_6",
+                      "LOW_5",
+                      "LOW_5"
+                    ],
+                    [
+                      "HIGH_1",
+                      "HIGH_1",
+                      "HIGH_2",
+                      "HIGH_2",
+                      "LOW_6"
+                    ]
+                  ],
+                  "freeSpinsLeft": 2,
+                  "win": {
+                    "wonCash": "0",
+                    "wonCoins": 0.0,
+                    "accumulatedWonCash": "0",
+                    "accumulatedWonCoins": 0.0,
+                    "accumulatedRoundWonCash": "0",
+                    "accumulatedRoundWonCoins": 0.0,
+                    "accumulatedAvalancheWonCash": "0",
+                    "accumulatedAvalancheWonCoins": 0.0,
+                    "bombMultiplier": 29,
+                    "prizes": []
+                  }
+                }
+              }
+            }
+          },
+          {
+            "step": 14,
+            "betamount": "0.00",
+            "betcurrency": "EUR",
+            "wonamount": "0.00",
+            "status": "RESULTED",
+            "betdata": null,
+            "eventdata": {
+              "accC": 627,
+              "accWa": "627.80",
+              "response": {
+                "coinWin": 580,
+                "cashWin": "580.00",
+                "clientData": {
+                  "debug": "FS #7 - INITIAL",
+                  "reelId": "freespins0",
+                  "initialBoard": [
+                    [
+                      "LOW_1",
+                      "LOW_1",
+                      "HIGH_1",
+                      "HIGH_1",
+                      "HIGH_2"
+                    ],
+                    [
+                      "LOW_4",
+                      "LOW_4",
+                      "HIGH_1",
+                      "HIGH_1",
+                      "LOW_1"
+                    ],
+                    [
+                      "LOW_5",
+                      "LOW_2",
+                      "LOW_2",
+                      "HIGH_1",
+                      "HIGH_1"
+                    ],
+                    [
+                      "HIGH_4",
+                      "LOW_6",
+                      "LOW_6",
+                      "LOW_1",
+                      "LOW_1"
+                    ],
+                    [
+                      "LOW_6",
+                      "LOW_4",
+                      "LOW_4",
+                      "LOW_2",
+                      "LOW_2"
+                    ],
+                    [
+                      "HIGH_1",
+                      "HIGH_1",
+                      "LOW_1",
+                      "LOW_1",
+                      "LOW_2"
+                    ]
+                  ],
+                  "finalBoard": [
+                    [
+                      "EMPTY",
+                      "EMPTY",
+                      "LOW_1",
+                      "LOW_1",
+                      "HIGH_2"
+                    ],
+                    [
+                      "EMPTY",
+                      "EMPTY",
+                      "LOW_4",
+                      "LOW_4",
+                      "LOW_1"
+                    ],
+                    [
+                      "EMPTY",
+                      "EMPTY",
+                      "LOW_5",
+                      "LOW_2",
+                      "LOW_2"
+                    ],
+                    [
+                      "HIGH_4",
+                      "LOW_6",
+                      "LOW_6",
+                      "LOW_1",
+                      "LOW_1"
+                    ],
+                    [
+                      "LOW_6",
+                      "LOW_4",
+                      "LOW_4",
+                      "LOW_2",
+                      "LOW_2"
+                    ],
+                    [
+                      "EMPTY",
+                      "EMPTY",
+                      "LOW_1",
+                      "LOW_1",
+                      "LOW_2"
+                    ]
+                  ],
+                  "freeSpinsLeft": 1,
+                  "avalanche": {
+                    "positionsToRemove": [
+                      {
+                        "column": 0,
+                        "row": 2
+                      },
+                      {
+                        "column": 0,
+                        "row": 3
+                      },
+                      {
+                        "column": 1,
+                        "row": 2
+                      },
+                      {
+                        "column": 1,
+                        "row": 3
+                      },
+                      {
+                        "column": 2,
+                        "row": 3
+                      },
+                      {
+                        "column": 2,
+                        "row": 4
+                      },
+                      {
+                        "column": 5,
+                        "row": 0
+                      },
+                      {
+                        "column": 5,
+                        "row": 1
+                      }
+                    ],
+                    "positionsShifts": [
+                      {
+                        "Origin": {
+                          "column": 0,
+                          "row": 0
+                        },
+                        "Target": {
+                          "column": 0,
+                          "row": 2
+                        }
+                      },
+                      {
+                        "Origin": {
+                          "column": 0,
+                          "row": 1
+                        },
+                        "Target": {
+                          "column": 0,
+                          "row": 3
+                        }
+                      },
+                      {
+                        "Origin": {
+                          "column": 1,
+                          "row": 0
+                        },
+                        "Target": {
+                          "column": 1,
+                          "row": 2
+                        }
+                      },
+                      {
+                        "Origin": {
+                          "column": 1,
+                          "row": 1
+                        },
+                        "Target": {
+                          "column": 1,
+                          "row": 3
+                        }
+                      },
+                      {
+                        "Origin": {
+                          "column": 2,
+                          "row": 0
+                        },
+                        "Target": {
+                          "column": 2,
+                          "row": 2
+                        }
+                      },
+                      {
+                        "Origin": {
+                          "column": 2,
+                          "row": 1
+                        },
+                        "Target": {
+                          "column": 2,
+                          "row": 3
+                        }
+                      },
+                      {
+                        "Origin": {
+                          "column": 2,
+                          "row": 2
+                        },
+                        "Target": {
+                          "column": 2,
+                          "row": 4
+                        }
+                      }
+                    ]
+                  },
+                  "win": {
+                    "wonCash": "580.0000",
+                    "wonCoins": 580.0,
+                    "accumulatedWonCash": "580.0000",
+                    "accumulatedWonCoins": 580.0,
+                    "accumulatedRoundWonCash": "580.0000",
+                    "accumulatedRoundWonCoins": 580.0,
+                    "accumulatedAvalancheWonCash": "580.0000",
+                    "accumulatedAvalancheWonCoins": 580.0,
+                    "bombMultiplier": 29,
+                    "prizes": [
+                      {
+                        "symbol": "HIGH_1",
+                        "cash": "580.0000",
+                        "coins": 580.0,
+                        "oak": 8,
+                        "positions": [
+                          {
+                            "x": 0,
+                            "y": 2
+                          },
+                          {
+                            "x": 0,
+                            "y": 3
+                          },
+                          {
+                            "x": 1,
+                            "y": 2
+                          },
+                          {
+                            "x": 1,
+                            "y": 3
+                          },
+                          {
+                            "x": 2,
+                            "y": 3
+                          },
+                          {
+                            "x": 2,
+                            "y": 4
+                          },
+                          {
+                            "x": 5,
+                            "y": 0
+                          },
+                          {
+                            "x": 5,
+                            "y": 1
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          {
+            "step": 15,
+            "betamount": "0.00",
+            "betcurrency": "EUR",
+            "wonamount": "0.00",
+            "status": "RESULTED",
+            "betdata": null,
+            "eventdata": {
+              "accC": 657,
+              "accWa": "657.80",
+              "response": {
+                "coinWin": 30,
+                "cashWin": "30.00",
+                "clientData": {
+                  "GoldenBet": false,
+                  "BuyBonus": true,
+                  "debug": "FS #7 - CASCADE #1",
+                  "reelId": "freeSpinsRespin",
+                  "initialBoard": [
+                    [
+                      "LOW_6",
+                      "LOW_6",
+                      "LOW_1",
+                      "LOW_1",
+                      "HIGH_2"
+                    ],
+                    [
+                      "LOW_5",
+                      "LOW_5",
+                      "LOW_4",
+                      "LOW_4",
+                      "LOW_1"
+                    ],
+                    [
+                      "LOW_5",
+                      "LOW_5",
+                      "LOW_5",
+                      "LOW_2",
+                      "LOW_2"
+                    ],
+                    [
+                      "HIGH_4",
+                      "LOW_6",
+                      "LOW_6",
+                      "LOW_1",
+                      "LOW_1"
+                    ],
+                    [
+                      "LOW_6",
+                      "LOW_4",
+                      "LOW_4",
+                      "LOW_2",
+                      "LOW_2"
+                    ],
+                    [
+                      "LOW_5",
+                      "WILD",
+                      "LOW_1",
+                      "LOW_1",
+                      "LOW_2"
+                    ]
+                  ],
+                  "finalBoard": [
+                    [
+                      "EMPTY",
+                      "EMPTY",
+                      "LOW_6",
+                      "LOW_6",
+                      "HIGH_2"
+                    ],
+                    [
+                      "EMPTY",
+                      "LOW_5",
+                      "LOW_5",
+                      "LOW_4",
+                      "LOW_4"
+                    ],
+                    [
+                      "LOW_5",
+                      "LOW_5",
+                      "LOW_5",
+                      "LOW_2",
+                      "LOW_2"
+                    ],
+                    [
+                      "EMPTY",
+                      "EMPTY",
+                      "HIGH_4",
+                      "LOW_6",
+                      "LOW_6"
+                    ],
+                    [
+                      "LOW_6",
+                      "LOW_4",
+                      "LOW_4",
+                      "LOW_2",
+                      "LOW_2"
+                    ],
+                    [
+                      "EMPTY",
+                      "EMPTY",
+                      "EMPTY",
+                      "LOW_5",
+                      "LOW_2"
+                    ]
+                  ],
+                  "freeSpinsLeft": 1,
+                  "avalanche": {
+                    "positionsToRemove": [
+                      {
+                        "column": 0,
+                        "row": 2
+                      },
+                      {
+                        "column": 0,
+                        "row": 3
+                      },
+                      {
+                        "column": 1,
+                        "row": 4
+                      },
+                      {
+                        "column": 3,
+                        "row": 3
+                      },
+                      {
+                        "column": 3,
+                        "row": 4
+                      },
+                      {
+                        "column": 5,
+                        "row": 2
+                      },
+                      {
+                        "column": 5,
+                        "row": 3
+                      },
+                      {
+                        "column": 5,
+                        "row": 1
+                      }
+                    ],
+                    "positionsShifts": [
+                      {
+                        "Origin": {
+                          "column": 0,
+                          "row": 0
+                        },
+                        "Target": {
+                          "column": 0,
+                          "row": 2
+                        }
+                      },
+                      {
+                        "Origin": {
+                          "column": 0,
+                          "row": 1
+                        },
+                        "Target": {
+                          "column": 0,
+                          "row": 3
+                        }
+                      },
+                      {
+                        "Origin": {
+                          "column": 1,
+                          "row": 0
+                        },
+                        "Target": {
+                          "column": 1,
+                          "row": 1
+                        }
+                      },
+                      {
+                        "Origin": {
+                          "column": 1,
+                          "row": 1
+                        },
+                        "Target": {
+                          "column": 1,
+                          "row": 2
+                        }
+                      },
+                      {
+                        "Origin": {
+                          "column": 1,
+                          "row": 2
+                        },
+                        "Target": {
+                          "column": 1,
+                          "row": 3
+                        }
+                      },
+                      {
+                        "Origin": {
+                          "column": 1,
+                          "row": 3
+                        },
+                        "Target": {
+                          "column": 1,
+                          "row": 4
+                        }
+                      },
+                      {
+                        "Origin": {
+                          "column": 2,
+                          "row": 0
+                        },
+                        "Target": {
+                          "column": 2,
+                          "row": 2
+                        }
+                      },
+                      {
+                        "Origin": {
+                          "column": 2,
+                          "row": 1
+                        },
+                        "Target": {
+                          "column": 2,
+                          "row": 3
+                        }
+                      },
+                      {
+                        "Origin": {
+                          "column": 2,
+                          "row": 2
+                        },
+                        "Target": {
+                          "column": 2,
+                          "row": 4
+                        }
+                      },
+                      {
+                        "Origin": {
+                          "column": 3,
+                          "row": 0
+                        },
+                        "Target": {
+                          "column": 3,
+                          "row": 3
+                        }
+                      }
+                    ]
+                  },
+                  "win": {
+                    "wonCash": "30.0000",
+                    "wonCoins": 30.0,
+                    "accumulatedWonCash": "30.0000",
+                    "accumulatedWonCoins": 30.0,
+                    "accumulatedRoundWonCash": "610.0000",
+                    "accumulatedRoundWonCoins": 610.0,
+                    "accumulatedAvalancheWonCash": "610.0000",
+                    "accumulatedAvalancheWonCoins": 610.0,
+                    "bombMultiplier": 30,
+                    "prizes": [
+                      {
+                        "symbol": "LOW_1",
+                        "cash": "30.0000",
+                        "coins": 30.0,
+                        "oak": 8,
+                        "positions": [
+                          {
+                            "x": 0,
+                            "y": 2
+                          },
+                          {
+                            "x": 0,
+                            "y": 3
+                          },
+                          {
+                            "x": 1,
+                            "y": 4
+                          },
+                          {
+                            "x": 3,
+                            "y": 3
+                          },
+                          {
+                            "x": 3,
+                            "y": 4
+                          },
+                          {
+                            "x": 5,
+                            "y": 2
+                          },
+                          {
+                            "x": 5,
+                            "y": 3
+                          },
+                          {
+                            "x": 5,
+                            "y": 1
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          {
+            "step": 16,
+            "betamount": "0.00",
+            "betcurrency": "EUR",
+            "wonamount": "0.00",
+            "status": "RESULTED",
+            "betdata": null,
+            "eventdata": {
+              "accC": 670,
+              "accWa": "670.60",
+              "response": {
+                "coinWin": 13,
+                "cashWin": "12.80",
+                "clientData": {
+                  "debug": "FS #7 - CASCADE #2",
+                  "reelId": "freeSpinsRespin",
+                  "initialBoard": [
+                    [
+                      "HIGH_3",
+                      "HIGH_3",
+                      "LOW_6",
+                      "LOW_6",
+                      "HIGH_2"
+                    ],
+                    [
+                      "LOW_6",
+                      "LOW_5",
+                      "LOW_5",
+                      "LOW_4",
+                      "LOW_4"
+                    ],
+                    [
+                      "LOW_5",
+                      "LOW_5",
+                      "LOW_5",
+                      "LOW_2",
+                      "LOW_2"
+                    ],
+                    [
+                      "HIGH_4",
+                      "HIGH_4",
+                      "HIGH_4",
+                      "LOW_6",
+                      "LOW_6"
+                    ],
+                    [
+                      "LOW_6",
+                      "LOW_4",
+                      "LOW_4",
+                      "LOW_2",
+                      "LOW_2"
+                    ],
+                    [
+                      "LOW_5",
+                      "LOW_5",
+                      "LOW_5",
+                      "WILD",
+                      "LOW_2"
+                    ]
+                  ],
+                  "finalBoard": [
+                    [
+                      "HIGH_3",
+                      "HIGH_3",
+                      "LOW_6",
+                      "LOW_6",
+                      "HIGH_2"
+                    ],
+                    [
+                      "EMPTY",
+                      "EMPTY",
+                      "LOW_6",
+                      "LOW_4",
+                      "LOW_4"
+                    ],
+                    [
+                      "EMPTY",
+                      "EMPTY",
+                      "EMPTY",
+                      "LOW_2",
+                      "LOW_2"
+                    ],
+                    [
+                      "HIGH_4",
+                      "HIGH_4",
+                      "HIGH_4",
+                      "LOW_6",
+                      "LOW_6"
+                    ],
+                    [
+                      "LOW_6",
+                      "LOW_4",
+                      "LOW_4",
+                      "LOW_2",
+                      "LOW_2"
+                    ],
+                    [
+                      "EMPTY",
+                      "EMPTY",
+                      "EMPTY",
+                      "EMPTY",
+                      "LOW_2"
+                    ]
+                  ],
+                  "freeSpinsLeft": 1,
+                  "avalanche": {
+                    "positionsToRemove": [
+                      {
+                        "column": 1,
+                        "row": 1
+                      },
+                      {
+                        "column": 1,
+                        "row": 2
+                      },
+                      {
+                        "column": 2,
+                        "row": 0
+                      },
+                      {
+                        "column": 2,
+                        "row": 1
+                      },
+                      {
+                        "column": 2,
+                        "row": 2
+                      },
+                      {
+                        "column": 5,
+                        "row": 0
+                      },
+                      {
+                        "column": 5,
+                        "row": 1
+                      },
+                      {
+                        "column": 5,
+                        "row": 2
+                      },
+                      {
+                        "column": 5,
+                        "row": 3
+                      }
+                    ],
+                    "positionsShifts": [
+                      {
+                        "Origin": {
+                          "column": 0,
+                          "row": 0
+                        },
+                        "Target": {
+                          "column": 0,
+                          "row": 2
+                        }
+                      }
+                    ]
+                  },
+                  "win": {
+                    "wonCash": "12.8000",
+                    "wonCoins": 12.8,
+                    "accumulatedWonCash": "12.8000",
+                    "accumulatedWonCoins": 12.8,
+                    "accumulatedRoundWonCash": "622.8000",
+                    "accumulatedRoundWonCoins": 622.8,
+                    "accumulatedAvalancheWonCash": "622.8000",
+                    "accumulatedAvalancheWonCoins": 622.8,
+                    "bombMultiplier": 32,
+                    "prizes": [
+                      {
+                        "symbol": "LOW_5",
+                        "cash": "12.8000",
+                        "coins": 12.8,
+                        "oak": 9,
+                        "positions": [
+                          {
+                            "x": 1,
+                            "y": 1
+                          },
+                          {
+                            "x": 1,
+                            "y": 2
+                          },
+                          {
+                            "x": 2,
+                            "y": 0
+                          },
+                          {
+                            "x": 2,
+                            "y": 1
+                          },
+                          {
+                            "x": 2,
+                            "y": 2
+                          },
+                          {
+                            "x": 5,
+                            "y": 0
+                          },
+                          {
+                            "x": 5,
+                            "y": 1
+                          },
+                          {
+                            "x": 5,
+                            "y": 2
+                          },
+                          {
+                            "x": 5,
+                            "y": 3
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          {
+            "step": 17,
+            "betamount": "0.00",
+            "betcurrency": "EUR",
+            "wonamount": "0.00",
+            "status": "RESULTED",
+            "betdata": null,
+            "eventdata": {
+              "accC": 697,
+              "accWa": "697.80",
+              "response": {
+                "coinWin": 27,
+                "cashWin": "27.20",
+                "clientData": {
+                  "debug": "FS #7 - CASCADE #3",
+                  "reelId": "freeSpinsRespin",
+                  "initialBoard": [
+                    [
+                      "HIGH_3",
+                      "HIGH_3",
+                      "LOW_6",
+                      "LOW_6",
+                      "HIGH_2"
+                    ],
+                    [
+                      "LOW_6",
+                      "LOW_6",
+                      "LOW_6",
+                      "LOW_4",
+                      "LOW_4"
+                    ],
+                    [
+                      "HIGH_3",
+                      "LOW_6",
+                      "LOW_6",
+                      "LOW_2",
+                      "LOW_2"
+                    ],
+                    [
+                      "HIGH_4",
+                      "HIGH_4",
+                      "HIGH_4",
+                      "LOW_6",
+                      "LOW_6"
+                    ],
+                    [
+                      "LOW_6",
+                      "LOW_4",
+                      "LOW_4",
+                      "LOW_2",
+                      "LOW_2"
+                    ],
+                    [
+                      "LOW_3",
+                      "LOW_3",
+                      "SCATTER",
+                      "WILD",
+                      "LOW_2"
+                    ]
+                  ],
+                  "finalBoard": [
+                    [
+                      "EMPTY",
+                      "EMPTY",
+                      "HIGH_3",
+                      "HIGH_3",
+                      "HIGH_2"
+                    ],
+                    [
+                      "EMPTY",
+                      "EMPTY",
+                      "EMPTY",
+                      "LOW_4",
+                      "LOW_4"
+                    ],
+                    [
+                      "EMPTY",
+                      "EMPTY",
+                      "HIGH_3",
+                      "LOW_2",
+                      "LOW_2"
+                    ],
+                    [
+                      "EMPTY",
+                      "EMPTY",
+                      "HIGH_4",
+                      "HIGH_4",
+                      "HIGH_4"
+                    ],
+                    [
+                      "EMPTY",
+                      "LOW_4",
+                      "LOW_4",
+                      "LOW_2",
+                      "LOW_2"
+                    ],
+                    [
+                      "EMPTY",
+                      "LOW_3",
+                      "LOW_3",
+                      "SCATTER",
+                      "LOW_2"
+                    ]
+                  ],
+                  "freeSpinsLeft": 1,
+                  "avalanche": {
+                    "positionsToRemove": [
+                      {
+                        "column": 0,
+                        "row": 2
+                      },
+                      {
+                        "column": 0,
+                        "row": 3
+                      },
+                      {
+                        "column": 1,
+                        "row": 0
+                      },
+                      {
+                        "column": 1,
+                        "row": 1
+                      },
+                      {
+                        "column": 1,
+                        "row": 2
+                      },
+                      {
+                        "column": 2,
+                        "row": 1
+                      },
+                      {
+                        "column": 2,
+                        "row": 2
+                      },
+                      {
+                        "column": 3,
+                        "row": 3
+                      },
+                      {
+                        "column": 3,
+                        "row": 4
+                      },
+                      {
+                        "column": 4,
+                        "row": 0
+                      },
+                      {
+                        "column": 5,
+                        "row": 3
+                      }
+                    ],
+                    "positionsShifts": [
+                      {
+                        "Origin": {
+                          "column": 0,
+                          "row": 0
+                        },
+                        "Target": {
+                          "column": 0,
+                          "row": 2
+                        }
+                      },
+                      {
+                        "Origin": {
+                          "column": 0,
+                          "row": 1
+                        },
+                        "Target": {
+                          "column": 0,
+                          "row": 3
+                        }
+                      },
+                      {
+                        "Origin": {
+                          "column": 2,
+                          "row": 0
+                        },
+                        "Target": {
+                          "column": 2,
+                          "row": 2
+                        }
+                      },
+                      {
+                        "Origin": {
+                          "column": 3,
+                          "row": 0
+                        },
+                        "Target": {
+                          "column": 3,
+                          "row": 2
+                        }
+                      },
+                      {
+                        "Origin": {
+                          "column": 3,
+                          "row": 1
+                        },
+                        "Target": {
+                          "column": 3,
+                          "row": 3
+                        }
+                      },
+                      {
+                        "Origin": {
+                          "column": 3,
+                          "row": 2
+                        },
+                        "Target": {
+                          "column": 3,
+                          "row": 4
+                        }
+                      },
+                      {
+                        "Origin": {
+                          "column": 5,
+                          "row": 0
+                        },
+                        "Target": {
+                          "column": 5,
+                          "row": 1
+                        }
+                      },
+                      {
+                        "Origin": {
+                          "column": 5,
+                          "row": 1
+                        },
+                        "Target": {
+                          "column": 5,
+                          "row": 2
+                        }
+                      },
+                      {
+                        "Origin": {
+                          "column": 5,
+                          "row": 2
+                        },
+                        "Target": {
+                          "column": 5,
+                          "row": 3
+                        }
+                      }
+                    ]
+                  },
+                  "win": {
+                    "wonCash": "27.2000",
+                    "wonCoins": 27.2,
+                    "accumulatedWonCash": "27.2000",
+                    "accumulatedWonCoins": 27.2,
+                    "accumulatedRoundWonCash": "650.0000",
+                    "accumulatedRoundWonCoins": 650.0,
+                    "accumulatedAvalancheWonCash": "650.0000",
+                    "accumulatedAvalancheWonCoins": 650.0,
+                    "bombMultiplier": 34,
+                    "prizes": [
+                      {
+                        "symbol": "LOW_6",
+                        "cash": "27.2000",
+                        "coins": 27.2,
+                        "oak": 11,
+                        "positions": [
+                          {
+                            "x": 0,
+                            "y": 2
+                          },
+                          {
+                            "x": 0,
+                            "y": 3
+                          },
+                          {
+                            "x": 1,
+                            "y": 0
+                          },
+                          {
+                            "x": 1,
+                            "y": 1
+                          },
+                          {
+                            "x": 1,
+                            "y": 2
+                          },
+                          {
+                            "x": 2,
+                            "y": 1
+                          },
+                          {
+                            "x": 2,
+                            "y": 2
+                          },
+                          {
+                            "x": 3,
+                            "y": 3
+                          },
+                          {
+                            "x": 3,
+                            "y": 4
+                          },
+                          {
+                            "x": 4,
+                            "y": 0
+                          },
+                          {
+                            "x": 5,
+                            "y": 3
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          {
+            "step": 18,
+            "betamount": "0.00",
+            "betcurrency": "EUR",
+            "wonamount": "0.00",
+            "status": "RESULTED",
+            "betdata": null,
+            "eventdata": {
+              "accC": 697,
+              "accWa": "697.80",
+              "response": {
+                "coinWin": 0,
+                "cashWin": "0.00",
+                "clientData": {
+                  "debug": "FS #7 - CASCADE #4",
+                  "reelId": "freeSpinsRespin",
+                  "initialBoard": [
+                    [
+                      "LOW_4",
+                      "LOW_4",
+                      "HIGH_3",
+                      "HIGH_3",
+                      "HIGH_2"
+                    ],
+                    [
+                      "HIGH_2",
+                      "LOW_3",
+                      "LOW_3",
+                      "LOW_4",
+                      "LOW_4"
+                    ],
+                    [
+                      "LOW_3",
+                      "HIGH_3",
+                      "HIGH_3",
+                      "LOW_2",
+                      "LOW_2"
+                    ],
+                    [
+                      "HIGH_2",
+                      "HIGH_4",
+                      "HIGH_4",
+                      "HIGH_4",
+                      "WILD"
+                    ],
+                    [
+                      "LOW_6",
+                      "LOW_4",
+                      "LOW_4",
+                      "LOW_2",
+                      "LOW_2"
+                    ],
+                    [
+                      "HIGH_1",
+                      "LOW_3",
+                      "LOW_3",
+                      "SCATTER",
+                      "LOW_2"
+                    ]
+                  ],
+                  "finalBoard": [
+                    [
+                      "LOW_4",
+                      "LOW_4",
+                      "HIGH_3",
+                      "HIGH_3",
+                      "HIGH_2"
+                    ],
+                    [
+                      "HIGH_2",
+                      "LOW_3",
+                      "LOW_3",
+                      "LOW_4",
+                      "LOW_4"
+                    ],
+                    [
+                      "LOW_3",
+                      "HIGH_3",
+                      "HIGH_3",
+                      "LOW_2",
+                      "LOW_2"
+                    ],
+                    [
+                      "HIGH_2",
+                      "HIGH_4",
+                      "HIGH_4",
+                      "HIGH_4",
+                      "WILD"
+                    ],
+                    [
+                      "LOW_6",
+                      "LOW_4",
+                      "LOW_4",
+                      "LOW_2",
+                      "LOW_2"
+                    ],
+                    [
+                      "HIGH_1",
+                      "LOW_3",
+                      "LOW_3",
+                      "SCATTER",
+                      "LOW_2"
+                    ]
+                  ],
+                  "freeSpinsLeft": 1,
+                  "win": {
+                    "wonCash": "0",
+                    "wonCoins": 0.0,
+                    "accumulatedWonCash": "650.0000",
+                    "accumulatedWonCoins": 650.0,
+                    "accumulatedRoundWonCash": "650.0000",
+                    "accumulatedRoundWonCoins": 650.0,
+                    "accumulatedAvalancheWonCash": "650.0000",
+                    "accumulatedAvalancheWonCoins": 650.0,
+                    "bombMultiplier": 36,
+                    "prizes": []
+                  }
+                }
+              }
+            }
+          },
+          {
+            "step": 19,
+            "betamount": "0.00",
+            "betcurrency": "EUR",
+            "wonamount": "0.00",
+            "status": "RESULTED",
+            "betdata": {
+              "coin": "10.00",
+              "cashBet": "200.00",
+              "clientParams": {
+                "bonusRound": false
+              },
+              "cmd": "FreeSpin",
+              "accWa": "697.80",
+              "accC": 697,
+              "cmds": [
+                "C"
+              ]
+            },
+            "eventdata": {
+              "accC": 697,
+              "accWa": "697.80",
+              "boostData": {
+                "Data": [
+                  {
+                    "Mission": "MoreThanOneSymbolWin",
+                    "Goal": 4,
+                    "Progress": 0,
+                    "States": []
+                  },
+                  {
+                    "Mission": "MoreThanFourCascades",
+                    "Goal": 3,
+                    "Progress": 0,
+                    "States": []
+                  },
+                  {
+                    "Mission": "TenOAKWin",
+                    "Goal": 25,
+                    "Progress": 0,
+                    "States": []
+                  }
+                ]
+              },
+              "nextCmds": "C",
+              "response": {
+                "coinWin": 0,
+                "cashWin": "0.00",
+                "clientData": {
+                  "GoldenBet": false,
+                  "BuyBonus": true,
+                  "debug": "FS #8 - INITIAL",
+                  "reelId": "freespins1",
+                  "initialBoard": [
+                    [
+                      "LOW_5",
+                      "LOW_3",
+                      "LOW_3",
+                      "HIGH_3",
+                      "HIGH_3"
+                    ],
+                    [
+                      "HIGH_1",
+                      "HIGH_1",
+                      "HIGH_4",
+                      "HIGH_4",
+                      "LOW_1"
+                    ],
+                    [
+                      "LOW_3",
+                      "LOW_3",
+                      "LOW_1",
+                      "LOW_1",
+                      "LOW_5"
+                    ],
+                    [
+                      "HIGH_3",
+                      "HIGH_3",
+                      "LOW_5",
+                      "LOW_5",
+                      "HIGH_4"
+                    ],
+                    [
+                      "SCATTER",
+                      "HIGH_1",
+                      "HIGH_1",
+                      "LOW_6",
+                      "LOW_6"
+                    ],
+                    [
+                      "LOW_5",
+                      "HIGH_3",
+                      "HIGH_3",
+                      "LOW_3",
+                      "LOW_3"
+                    ]
+                  ],
+                  "finalBoard": [
+                    [
+                      "LOW_5",
+                      "LOW_3",
+                      "LOW_3",
+                      "HIGH_3",
+                      "HIGH_3"
+                    ],
+                    [
+                      "HIGH_1",
+                      "HIGH_1",
+                      "HIGH_4",
+                      "HIGH_4",
+                      "LOW_1"
+                    ],
+                    [
+                      "LOW_3",
+                      "LOW_3",
+                      "LOW_1",
+                      "LOW_1",
+                      "LOW_5"
+                    ],
+                    [
+                      "HIGH_3",
+                      "HIGH_3",
+                      "LOW_5",
+                      "LOW_5",
+                      "HIGH_4"
+                    ],
+                    [
+                      "SCATTER",
+                      "HIGH_1",
+                      "HIGH_1",
+                      "LOW_6",
+                      "LOW_6"
+                    ],
+                    [
+                      "LOW_5",
+                      "HIGH_3",
+                      "HIGH_3",
+                      "LOW_3",
+                      "LOW_3"
+                    ]
+                  ],
+                  "win": {
+                    "wonCash": "0",
+                    "wonCoins": 0.0,
+                    "accumulatedWonCash": "0",
+                    "accumulatedWonCoins": 0.0,
+                    "accumulatedRoundWonCash": "0",
+                    "accumulatedRoundWonCoins": 0.0,
+                    "accumulatedAvalancheWonCash": "0",
+                    "accumulatedAvalancheWonCoins": 0.0,
+                    "bombMultiplier": 36,
+                    "prizes": []
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

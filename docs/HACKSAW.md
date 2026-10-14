@@ -1,34 +1,66 @@
-# Hacksaw Gaming en Tester Spin
+# Hacksaw: validación de catálogo y ejecución
 
-Integración del 30/09/2026: proveedor registrado en el selector y la cola de reintentos, con **184 juegos y 184 miniaturas**. Se usan los identificadores numéricos oficiales para conservar juegos sin página individual y URLs con caracteres codificados.
+El catálogo público oficial /games/slots contiene 186 juegos y coincide con las
+186 filas locales. Se añadieron Wicked Grin y Le Vampire y se actualizó el snapshot
+distribuido. Esta coincidencia no autoriza borrar registros ni certifica otras
+categorías del sitio.
 
-Estado actualizado: **los 184 juegos fueron probados**, con 181 OK y contrato listo, 2 parciales por elecciones no modeladas y 1 error del proveedor. Los 16 antes bloqueados por el límite de demo pasaron al reanudar; no quedan juegos sin probar. Ver [resultados completos y casos pendientes](VALIDATION.md).
+## Contrato común de OK
 
-El primer representante validado fue **Fist of Destruction Megamultiplier**, ID **2536**, cliente **1.12.3**, con las siguientes compras:
+La autenticación nueva declara bonusGames, sus selectores y betCostMultiplier.
+El constructor FeatureBuyItem del cliente de esa versión determina el tipo;
+compras y FeatureSpins permanecen separados. Se rechazan dominios ausentes,
+selectores duplicados, precios inválidos y roles sin demostrar. Menús alternativos
+literales se contrastan por selector: un tipo conflictivo impide certificarlo.
+No hay listas de juegos ni deducción de compra por precio o por alias.
 
-| Selector anunciado | Multiplicador |
-| --- | ---: |
-| mod_bonus | x3 |
-| mod_expand | x50 |
-| mod_expand_2 | x250 |
-| fs | x110 |
-| fs_2 | x275 |
+Cada ronda conserva ledger.json. El coste debe ser la apuesta base multiplicada
+por el factor declarado; el saldo debe reflejar ese débito. Los eventos wa suman
+el pago y awa debe coincidir con el acumulado. Los importes usan enteros exactos,
+en la moneda actual. La liquidación debe conservar saldo inicial menos coste más
+premio; cargos o créditos auxiliares, promociones y jackpots sin contrato quedan
+pendientes. No se pretende recalcular la matemática de los símbolos del juego.
 
-Formato observado: autenticación POST JSON a `https://rgs-demo.hacksawgaming.com/api/play/authenticate`, y apuesta POST JSON a `/api/play/bet`. El giro base lleva `bets[].betAmount`; las opciones agregan `bets[].buyBonus` con el selector anunciado para ese juego. El adaptador consulta la versión del cliente y genera una sesión nueva en cada prueba. No reutiliza sesiones guardadas.
+Las continuaciones no envían bets, conservan roundId y no vuelven a cargar la
+compra. Cuando el cliente solicita updateBalance=false, una respuesta intermedia
+puede omitir el saldo; no se inventa una observación. El saldo al pagar y al cerrar
+sigue siendo obligatorio y la liquidación final debe explicar todo el importe.
 
-Algunas respuestas llegan en estado `wfwpc`. El cliente publicado y las capturas confirmaron el cierre mediante otra petición al mismo `/play/bet`, con `continueInstructions.action=win_presentation_complete` y referencia a la ronda actual. Sólo se aprueba cuando la confirmación corresponde a la misma ronda, `round.status=completed` y `possibleActions=[]`. Las elecciones `play` y `gamble` también están implementadas y probadas, con muestras separadas y límites de rondas adicionales; ver [compras con elección](VALIDATION.md). Otras acciones quedan pendientes; HTTP200 por sí solo no basta.
+Después de completar las opciones se ejecutan, en la misma sesión, dos rondas
+BASIC consecutivas nuevas, cerradas y contabilizadas. Sus IDs deben ser distintos
+entre sí y de la última función. Un premio natural o una elección reinicia el
+contador de rondas normales; estados desconocidos detienen la comprobación.
+return-to-base.json conserva las respuestas y el resultado. Los límites de pasos
+y pruebas permanecen acotados. Un completed aislado ya no acredita OK.
 
-La prueba en el navegador remoto reportó incompatibilidad de dispositivo y su acceso directo a la API devolvió403. La conexión desde Tester Spin sí funcionó, por lo que pudo validarse el formato sin solucionar ese navegador. Los payloads completos quedan como evidencia local por intento; los contratos reutilizables excluyen los identificadores de sesión y ronda.
+Los contratos históricos sin hacksaw/verified-runtime/v2 y sin prueba monetaria
+no se pueden promover. La suite y la auditoría anterior habían demostrado que
+los OK históricos no incluían todos estos requisitos; esos resultados se han
+reemplazado con una pasada nueva completa, no con una reinterpretación de la marca.
 
-La integración conserva selectores previos si falla un reintento y respeta la duración mínima de ronda según las unidades del cliente. La actualización del catálogo no autoriza eliminar entradas a partir de una respuesta incompleta.
+## Resultado de la repetición
 
-Verificación: 23 pruebas de Hacksaw aprobadas, incluida cobertura, muestras por intento, selectores, confirmación de la misma ronda y exportación sin sesiones. Revisión independiente sin problemas pendientes.
+Se ejecutaron los 186 juegos por el ejecutor normal en una cola automática de un
+trabajador. Se aprendieron las variantes por grupos y se repitieron juntos los
+pendientes afectados; no se recorrió cada juego mediante el fuzzer.
 
-Suite completa: 761 pruebas y 73 subtests aprobados; cuatro fallos previos de BGaming:
+Resultado nuevo: 183 OK, 3 PARCIAL,
+0 ERROR. Todos los OK tienen retorno CONFIRMED.
 
-- `test_big_bucks_bundle_uses_bet_only_and_buy_bonus_x120`
-- `test_blazing_bundle_discovers_betting_actions_and_purchases`
-- `test_contract_registry_derives_legacy_views_without_choice_hardcoding`
-- `test_state_name_is_never_promoted_to_a_different_server_action`
+Una revisión independiente recalculó desde los archivos 885
+rondas pagadas y 372 rondas de retorno, contrastando
+dominios, precios, moneda, saldos, acumulados, cierre e identidades. Cero
+discrepancias en los 183 OK revisados.
 
-Fuentes: [catálogo oficial](https://www.hacksawgaming.com/games/slots), [página del representante](https://www.hacksawgaming.com/games/fist-of-destruction-megamultiplier) y su cliente público. Evidencia local en `data/providers/hacksaw/2536/analysis/` y `tests/` dentro de Tester Spin.
+Pendientes actuales:
+
+- Beam Boys: Hacksaw: declaración de opciones sin clasificación completa
+- Mystery Motel: Hacksaw: declaración de opciones sin clasificación completa
+- Tasty Treats: Hacksaw: declaración de opciones sin clasificación completa
+
+Verificación de código: 2047 pruebas correctas y tres warnings preexistentes.
+El ejecutable final del acceso directo del escritorio está actualizado y su
+arranque se comprobó. SHA256: 350a0d5390964c3af9b8fa896b8d1c62d944a3f98693c9b237cf9b321df8332c.
+
+Los HAR, sesiones y capturas originales permanecen locales. La evidencia de esta
+pasada se conserva en hacksaw-final-evidence.json y en el checkpoint local.

@@ -1,0 +1,115 @@
+{
+  "Code": 2001,
+  "Completed": true,
+  "Bet": {
+    "Lines": 20,
+    "FeeMultiplier": 1.0,
+    "Amount": 1.0,
+    "GameMode": 0,
+    "Scale": 1.0,
+    "TotalBet": 20.0
+  },
+  "Round": {
+    "Info": {
+      "RID": 1,
+      "SRC": 1,
+      "IDX": 0,
+      "GameMode": 0,
+      "RoundType": 0,
+      "Count": 0,
+      "Passed": 1,
+      "Bet": 20
+    },
+    "VISData": {
+      "Grids": [
+        [
+          [
+            6,
+            8,
+            6
+          ],
+          [
+            6,
+            2,
+            8
+          ],
+          [
+            7,
+            5,
+            8
+          ],
+          [
+            8,
+            5,
+            5
+          ]
+        ],
+        [
+          [
+            6,
+            8,
+            6
+          ],
+          [
+            6,
+            2,
+            8
+          ],
+          [
+            7,
+            5,
+            8
+          ],
+          [
+            8,
+            5,
+            5
+          ]
+        ]
+      ],
+      "Prizes": [],
+      "Events": [
+        {
+          "Type": 10,
+          "SymbolKit": 0,
+          "ReelStops": [
+            57,
+            84,
+            109,
+            22
+          ],
+          "Grids": [
+            0
+          ]
+        },
+        {
+          "Type": 60,
+          "Expansion": 3,
+          "Positions": [],
+          "Grid": 1
+        },
+        {
+          "Type": 20,
+          "Grid": 1,
+          "Rules": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ]
+        }
+      ],
+      "FEV": {
+        "60": [
+          1
+        ]
+      }
+    }
+  }
+}

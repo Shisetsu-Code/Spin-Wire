@@ -1,0 +1,86 @@
+{
+  "accC": 0,
+  "accWa": "0.00",
+  "finalBoard": [
+    [
+      "LOW_2",
+      "HIGH_2",
+      "HIGH_4"
+    ],
+    [
+      "LOW_1",
+      "LOW_1",
+      "LOW_4"
+    ],
+    [
+      "LOW_4",
+      "LOW_1",
+      "LOW_2"
+    ],
+    [
+      "HIGH_4",
+      "HIGH_4",
+      "LOW_2"
+    ],
+    [
+      "HIGH_4",
+      "HIGH_2",
+      "LOW_3"
+    ]
+  ],
+  "reelSet": "Base",
+  "reels": [
+    [
+      "LOW_2",
+      "HIGH_2",
+      "HIGH_4"
+    ],
+    [
+      "LOW_1",
+      "LOW_1",
+      "LOW_4"
+    ],
+    [
+      "LOW_4",
+      "LOW_1",
+      "LOW_2"
+    ],
+    [
+      "HIGH_4",
+      "HIGH_4",
+      "LOW_2"
+    ],
+    [
+      "HIGH_4",
+      "HIGH_2",
+      "LOW_3"
+    ]
+  ],
+  "rpos": [
+    8,
+    10,
+    34,
+    39,
+    24
+  ],
+  "spinData": {
+    "featuresData": {},
+    "bonusWon": {
+      "coins": 0,
+      "cash": "0.00"
+    },
+    "jackpotStatusBefore": {
+      "JACKPOT_EXPRESS_MAJOR": "34981.00",
+      "JACKPOT_EXPRESS_MINI": "578.27",
+      "JACKPOT_EXPRESS_SIDE": "2206.81"
+    },
+    "jackpotStatusAfter": {
+      "JACKPOT_EXPRESS_MAJOR": "34981.00",
+      "JACKPOT_EXPRESS_MINI": "578.27",
+      "JACKPOT_EXPRESS_SIDE": "2206.81"
+    }
+  },
+  "wonCoins": 0,
+  "wonMoney": "0.00",
+  "wtw": []
+}

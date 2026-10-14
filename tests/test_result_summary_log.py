@@ -17,11 +17,12 @@ class ResultSummaryLogTests(unittest.TestCase):
         events = queue.Queue()
         events.put(('test_result', result))
         logs = []
-        app = SimpleNamespace(_events=events, _games={}, _test_done=0, _test_total=1,
+        app = SimpleNamespace(_events=events, _games={}, _feature_results={}, _mechanics_index={}, _test_done=0, _test_total=1,
             _MAX_EVENTS_PER_TICK=100, _UI_DRAIN_BUDGET_S=1,
             progress=SimpleNamespace(configure=lambda **kwargs: None),
             status_var=SimpleNamespace(set=lambda value: None),
             _append_log=logs.append, after=lambda *args: None,
             _drain_events=lambda: None)
         CurrentTesterSpinApp._drain_events(app)
-        self.assertIn('Compras: Sí | Cantidad: 2 | Antebets: Sí', '\n'.join(logs))
+        self.assertEqual(app._feature_results['pragmatic::example'], result.to_dict())
+        self.assertIn('Compras: Sí | Cantidad: 2 detectadas; total sin confirmar | Antebets: Sí', '\n'.join(logs))

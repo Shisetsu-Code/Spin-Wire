@@ -1,0 +1,522 @@
+{
+  "common": "oda:function(){return!1},Xqa:function(){return 0},Oia:function(){return this.oda()?new Eba:null},t$a:function(){return!1},jhd:function(){return null},T6:function(){return!1},Wwb:function(){return 0}});xd.Tg=function(){return v.nb()?v.r5:mc.$e()?mc.Ica():[]};var yd=c.Node.extend({la:null,ctor:function(a){this._super();this.la=a;this.N(c.ja);this.Ca(I.Fbb);a=A.Bb().Xb(this.la);J&&a.fh()&&this.Jh()},fd:function(){},Mc:function(){},Xp:function(){},jyf:function(){},Jh:function(){var a=O.create(I.Qf.o\nt$a:function(){return!1},jhd:function(){return null},T6:function(){return!1},Wwb:function(){return 0}});xd.Tg=function(){return v.nb()?v.r5:mc.$e()?mc.Ica():[]};var yd=c.Node.extend({la:null,ctor:function(a){this._super();this.la=a;this.N(c.ja);this.Ca(I.Fbb);a=A.Bb().Xb(this.la);J&&a.fh()&&this.Jh()},fd:function(){},Mc:function(){},Xp:function(){},jyf:function(){},Jh:function(){var a=O.create(I.Qf.oi);a.D(V);a.B(this.width/2,this.height);this.C(a,1024)},Qaa:function(a){a=a||{};var b=c.Ck(a.zMi)\nthis.cee()?Ab.kW(this.la,[1],this.Ol,this.mj,this.ko,v.cq,function(a){b.N1(a)}):Ab.lc(this.la,this.Ol,this.mj,this.ko,v.cq,function(a){b.N1(a)})}},N1:function(a){var b=A.Bb().Xb(this.la);if(b&&I.$s()){var d=this.Ga();a&&a.Y?(b.T6()&&0<a.Y.vv().length&&\n1===this.K1()&&a.Y.sl()?this.WZh(a,0<yc.KC()):this.Ou(a,0<yc.KC()),this.Ij=a.Ij,this.Ku=a.Ku):(wc.Pv(),d&&d.gg());this.GA()}},Ou:function(a,b){var d=a.Y,e=this.Ga();e&&e.Ud(d.Gc,d,0<a.Ij.length||b);this.Y=d},WZh:function(a,b){for(var d=this.Ga(),e\nAb.kW=function(a,b,d,e,f,g,h){a=new gca(x.lh(x.Df),a.getName(),d,e,f,g);a.YSb(b);Ab.j2e(a,h)};Ab.j2e=function(a,b){v.KQ&&a.rTb(v.KQ.h5);Ic.Gab(a,function(a){if(a.Ln!==Dc.qE)R.MQb(a);else{a||b(null);var e=mc.$e();e&&(e.jpa(a.mga),e.RSb(a.Mga()));0<a.Ica().length&&mc.Amd(a.Ica());yc.acc(a.qib);if(e=a.Y)zc.acc(e.cwc),v.Xx=e,mc.qja(e.Pc());v.KQ=a.ke;xc.Noi(a);b(a)}})};\nAb.NH=function(a,b,d,e){a=new hca(d,a.getName(),b);v.KQ&&a.rTb(v.KQ.h5);Ic.Gab(a,function(a){a&&(a.Ln===Dc.wCe?e(a):a.Ln!==Dc.xCe&&a\na.pos=\n[];for(var b=0;b<this.ti.length;b++)a.pos.push(this.ti[b])}return JSON.stringify(a)},hj:function(){return this.Rib},NPb:function(){return this.hw},bDc:function(){return this.mj},hC:function(){return this.ko},Ddx:function(a){this.Wsc=a},Pex:function(a){this.H5b=a},vv:function(){return this.ti},YSb:function(a){this.ti=a},tae:function(){return this.h5},rTb:function(a){this.h5=a}});var ud=Dc.extend({Rib:-1,mga:-1,BT:null,Ku:-1,Y:null,Ij:null,qib:null,kZ:null,ke:null,ctor:function(){this._supe\nv.uoa=a.EQd;v.Cri=a.lWd;v.Xpe=a.LXd;null===v.xBc&&(v.xBc=a.LQd);v.wpf=a.nUd;v.Lnb=a.KXd;v.Ohe=a.LUd};var Cb=c.Li.extend({});Cb.iLb={};Cb.p3b={};Cb.V7a={};\nCb.Ezb=function(a,b,d){var e=new XMLHttpRequest;e.onreadystatechange=function(){if(4==this.readyState&&200==this.status){var f=e.responseText.split(\";\\n\"),g=[\" \",\"\\t\"],h=['\"'],k;for(k in f){var n=f[k];if(!n.afa(\"/*\")&&!n.afa(\"//\")){'\\n\"'==n.substr(0,2)&&(n=n.slice(2));var p=n.indexOf(\"=\");if(-1!=p){for(var w=n.substr(0,p);w.afa(\"\\n\");)w=w.repl\nb=a.dbf;c.mR(b)&&(this.EQd=b);b=a.rrb;c.mR(b)&&(this.lWd=b);b=a.srgp;c.mR(b)&&(this.LXd=b);b=a.dnre;c.mR(b)&&(this.LQd=b);b=a.mwdm;c.Ck(b)&&(this.nUd=parseFloat(b));b=a.svp;c.My(b)&&(this.HXd=b);b=a.sps;c.mR(b)&&(this.KXd=b);b=a.nmb;c.mR(b)&&(this.LUd=b)},xsp:function(){return this.ZKb},Gyr:function(){return this.GQd},\nFyr:function(){return this.FQd},Dyr:function(){return this.DQd},ewp:function(){return this.fcd},WPb:function(){return this.X_e},LAr:function(){return this.MXd},FAr:function(){retu\nAla:function(){var a=A.Bb().Xb(this.la);return a?a.Xqa(this.Ol,this.mj,this.ko,this.ti):0},zla:function(){return J?c.A(105,290*P.vH()):W},hnd:function(){var a=this.Ya(),b=A.Bb().Xb(this.la),d=mc.$e(),e=this.gf(),f=this.cc();a&&b&&d&&e&&f&&(this.de&&(a.Mh()?(N.Hb(this.de),this.de=null):N.Za(this.de,.3,0)),this.Oe(!1,!1),a.cg(!1),a.rk(!1),a.Nm(!1),a.Vu(),a.xC(),a.Fn(0,I.uj),a.Bq(),a.Er(this.Y.fi),this.Y.ke&&a.Qp(this.Y.ke.hh),this.Y&&0>=this.Y.Dl&&(v.fma()?a.L3a(v.KQ.oia-1):(b=R.$L(this.Ala()),J&&\nUc=Eba.extend({cR:null,Ia:function(){var a=this;this.cR=J?1:.8;this.Na(D.Ic);this.yc(!0);this.za(!0);this.Q(!0);this.N(174.5,240);this.$t(!0);this.Ka(function(){a.qa(!1);N.oa(D.Hzc);wc.Xoe(a.RJb,a.Du,function(){a.qa(!0)})});this.nbc();c.Ri.addListener({event:c.EventListener.fy,\nqy:function(b){if(a.isEnabled()){var d=b.Ix;b=d.Gr(b.Tp());d=c.rect(0,0,d.width,d.height);c.Nn(d,b)?a.Oie():c.Nn(d,b)||a.Xn()}}},this)},nbc:function(){this.j3h();this.S3h();this.Xn()},j3h:function(){var a=this.ha(\"ButtonNode\");a&&(a.Ca(\"\"),a.na());a=new c.Node;a.N(this.q());a.za(!0);a.Q(!0);a.D(H);a.B(this.width/2,this.height/2);a.da(this.cR);a.Ca(\"ButtonNode\");this.C(a,1);var b=T.Ta(\"buyfeature_button2_shadow_anim.json\",\"buyfeature_button2_shadow_anim.atlas\",.5);b.B(c.Cq(a.q()));a.C(b,1,this.Z3a);\nb=T.Ta(\"buyfeature_button2_anim.json\",\"buyfeature_button2_anim.atlas\",.5);b.B(c.Cq(a.q()));a.C(b,2,this.Z3a+1)},S3h:function(){var a=this.ha(\"ButtonNode\");if(a)if(this.vgf())this.Fte(this.RJb);else{var b=this.Dr(B(\"buy.chips.buy\"),32,115);b.B(this.width/2+21,this.height/2+48);a.C(b,3);var d=this.Dr(B(\"buy.feature.feature\"),20,115);d.B(b.O(),b.H()-b.height/2-d.height/2);a.C(d,4);b=new Tc(140,!0,!1);b.eu(this.RJb);b.D(H);b.B(this.width/2+2,this.height/2-.5);b.da(.85);a.C(b,5,this.nPc)}},vgf:function(){var a=\nthis.ha(\"ButtonNode\");return a?a.F(this.nPc):null},Dr:function(a,b,d){var e=B(\"buy.feature.buy.font\");a=G.M(a,e,parseFloat(b),c.size(d,b),c.X,c.L);a.ca(c.color.BLACK);a.U(G.V.W);a.Ha(!1);return a},xpp:function(){return this.cR},kdx:function(a){this.cR=a;this.nbc()},Fte:function(a){this.RJb=a;var b=this.vgf();b&&b.eu(a)},py:function(){t.prototype.py.call(this)},wlb:function(a,b){if(!a)return!1;var d=a.MF(0);return d&&d.ix&&d.ix.name&&d.ix.name===b},Xn:function(){var a=this.ha(\"ButtonNode\");if(a){var b=\nthis,d=a.F(this.Z3a),e=a.F(this.Z3a+1);d&&e&&!this.wlb(d,\"idle\")&&!this.wlb(e,\"idle\")&&(d.sa(0,\"idle\",!0),d.update(0),e.sa(0,\"idle\",!0),e.update(0),e.Cs(function(d){0===d.rh&&(a.pb(),a.G(b.Y8e()))}),a.pb(),a.G(this.Y8e()))}},Y8e:function(){var a=c.Cq(this.q()),b=c.Cd(a,c.A(.721,12));return c.I(c.moveTo(.75,b),c.moveTo(.75,a))},Oie:function(){var a=this.ha(\"ButtonNode\");if(a){var b=this,d=a.F(this.Z3a),e=a.F(this.Z3a+1);d&&e&&!this.wlb(d,\"mouseOver\")&&!this.wlb(e,\"mouseOver\")&&(d.sa(0,\"mouseOver\",\n!0),d.update(0),e.sa(0,\"mouseOver\",!0),e.update(0),e.Cs(function(d){0===d.rh&&(a.pb(),a.G(b.e9e()))}),a.pb(),a.G(this.e9e()))}},e9e:function(){var a=c.Cq(this.q()),b=this.cR;return c.I(c.Pb(c.moveTo(.5,c.Cd(a,c.A(0,10.0025))),c.P(.5,b-.02,b)),c.Pb(c.moveTo(.1,c.Cd(a,c.A(0,-12.5675))),c.P(.1,b+.02,b)),c.Pb(c.moveTo(.1336,c.Cd(a,c.A(0,6.925))),c.P(.1336,b-.02,b)),c.Pb(c.moveTo(.1336,a),c.P(.1336,b,b)))}})",
+  "games": [
+    {
+      "symbol": "JadeQuest",
+      "client": "new (xd.extend({ctor:function(a){\"undefined\"===typeof a?(this._super(null),A.Bb().Gg(\"JadeQuest\",this)):this._super(a)},Dg:function(){return!0},Cc:function(){return\"0\"},Ya:function(){return ce.create(this.Cc(),this.la)},tg:function(){return{Sog:\"res/images/icons/JadeQuest/JadeQuestIcon.atlas\",Tog:\"res/images/icons/JadeQuest/JadeQuestIcon.json\",Uog:\"res/images/icons/JadeQuest/JadeQuestIcon.png\"}},Ge:function(){var a=\"res/images/Games/JadeQuest/\";return a=c.Ke?a+\"webp/\":a+\"png/\"},Fd:function(){var a=\nthis.Ge(),b=this.jh(),d=this._super();return d=u(d,{gDr:a+\"jadequest_no_alpha_sheet0.plist\",hDr:a+\"jadequest_no_alpha_sheet0\"+b,dEr:a+\"jadequest_sheet0.plist\",eEr:a+\"jadequest_sheet0\"+b})},Cg:function(){this._super();E.Xa(\"jadequest_no_alpha_sheet0.plist\");E.Xa(\"jadequest_sheet0.plist\")},xg:function(){var a=this._super(),a=u(a,this.Fd());return u(a,{bDr:{type:\"font\",name:\"jadequest_DFPHaiBaoW12_GB\",Uh:[\"res/images/Games/JadeQuest/jadequest_DFPHaiBaoW12_GB.woff2\",\"res/images/Games/JadeQuest/jadequest_DFPHaiBaoW12_GB.woff\",\n\"res/images/Games/JadeQuest/jadequest_DFPHaiBaoW12_GB.ttf\"]},cDr:\"res/images/Games/JadeQuest/jadequest_intro_anim.atlas\",dDr:\"res/images/Games/JadeQuest/jadequest_intro_anim.json\",eDr:\"res/images/Games/JadeQuest/jadequest_intro_anim.png\",iDr:\"res/images/Games/JadeQuest/jadequest_outro_anim.atlas\",jDr:\"res/images/Games/JadeQuest/jadequest_outro_anim.json\",kDr:\"res/images/Games/JadeQuest/jadequest_outro_anim.png\",rDr:\"res/images/Games/JadeQuest/jadequest_s0_anim.atlas\",sDr:\"res/images/Games/JadeQuest/jadequest_s0_anim.json\",\ntDr:\"res/images/Games/JadeQuest/jadequest_s0_anim.png\",yDr:\"res/images/Games/JadeQuest/jadequest_s12_anim.atlas\",zDr:\"res/images/Games/JadeQuest/jadequest_s12_anim.json\",ADr:\"res/images/Games/JadeQuest/jadequest_s12_anim.png\",BDr:\"res/images/Games/JadeQuest/jadequest_s1_anim.atlas\",CDr:\"res/images/Games/JadeQuest/jadequest_s1_anim.json\",DDr:\"res/images/Games/JadeQuest/jadequest_s1_anim.png\",EDr:\"res/images/Games/JadeQuest/jadequest_s2_anim.atlas\",FDr:\"res/images/Games/JadeQuest/jadequest_s2_anim.json\",\nGDr:\"res/images/Games/JadeQuest/jadequest_s2_anim.png\",HDr:\"res/images/Games/JadeQuest/jadequest_s3_anim.atlas\",IDr:\"res/images/Games/JadeQuest/jadequest_s3_anim.json\",JDr:\"res/images/Games/JadeQuest/jadequest_s3_anim.png\",KDr:\"res/images/Games/JadeQuest/jadequest_s4_anim.atlas\",LDr:\"res/images/Games/JadeQuest/jadequest_s4_anim.json\",MDr:\"res/images/Games/JadeQuest/jadequest_s4_anim.png\",NDr:\"res/images/Games/JadeQuest/jadequest_s5_anim.atlas\",ODr:\"res/images/Games/JadeQuest/jadequest_s5_anim.json\",\nPDr:\"res/images/Games/JadeQuest/jadequest_s5_anim.png\",QDr:\"res/images/Games/JadeQuest/jadequest_s6_anim.atlas\",RDr:\"res/images/Games/JadeQuest/jadequest_s6_anim.json\",SDr:\"res/images/Games/JadeQuest/jadequest_s6_anim.png\",TDr:\"res/images/Games/JadeQuest/jadequest_s7_anim.atlas\",UDr:\"res/images/Games/JadeQuest/jadequest_s7_anim.json\",VDr:\"res/images/Games/JadeQuest/jadequest_s7_anim.png\",WDr:\"res/images/Games/JadeQuest/jadequest_s891011_anim.atlas\",XDr:\"res/images/Games/JadeQuest/jadequest_s891011_anim.json\",\nYDr:\"res/images/Games/JadeQuest/jadequest_s891011_anim.png\",fDr:\"res/images/Games/JadeQuest/jadequest_intro_bgm.mp3\",lDr:\"res/images/Games/JadeQuest/jadequest_outro_bgm.mp3\",mDr:\"res/images/Games/JadeQuest/jadequest_reelspin_bg.mp3\",nDr:\"res/images/Games/JadeQuest/jadequest_reelspin_click.mp3\",oDr:\"res/images/Games/JadeQuest/jadequest_reelspin_fg.mp3\",pDr:\"res/images/Games/JadeQuest/jadequest_respin_start.mp3\",qDr:\"res/images/Games/JadeQuest/jadequest_respin_triggered.mp3\",uDr:\"res/images/Games/JadeQuest/jadequest_s0_hit.mp3\",\nvDr:\"res/images/Games/JadeQuest/jadequest_s0_roaming.mp3\",wDr:\"res/images/Games/JadeQuest/jadequest_s0_transform.mp3\",xDr:\"res/images/Games/JadeQuest/jadequest_s0_win.mp3\",ZDr:\"res/images/Games/JadeQuest/jadequest_scatter1.mp3\",$Dr:\"res/images/Games/JadeQuest/jadequest_scatter2.mp3\",aEr:\"res/images/Games/JadeQuest/jadequest_scatter3.mp3\",bEr:\"res/images/Games/JadeQuest/jadequest_scatter4.mp3\",cEr:\"res/images/Games/JadeQuest/jadequest_scatter5.mp3\"})},Bg:function(){this._super();p8.ie();T.mb(\"jadequest_intro_anim.json\",\n\"jadequest_intro_anim.atlas\",.5);T.mb(\"jadequest_outro_anim.json\",\"jadequest_outro_anim.atlas\",.5);E.Xa(\"jadequest_no_alpha_sheet0.plist\");E.Xa(\"jadequest_sheet0.plist\");N.R(\"jadequest_intro_bgm.mp3\");N.R(\"jadequest_outro_bgm.mp3\");N.R(\"jadequest_reelspin_bg.mp3\");N.R(\"jadequest_reelspin_click.mp3\");N.R(\"jadequest_reelspin_fg.mp3\");N.R(\"jadequest_respin_start.mp3\");N.R(\"jadequest_respin_triggered.mp3\");N.R(\"jadequest_s0_hit.mp3\");N.R(\"jadequest_s0_roaming.mp3\");N.R(\"jadequest_s0_transform.mp3\");N.R(\"jadequest_s0_win.mp3\");\nN.R(\"jadequest_scatter1.mp3\");N.R(\"jadequest_scatter2.mp3\");N.R(\"jadequest_scatter3.mp3\");N.R(\"jadequest_scatter4.mp3\");N.R(\"jadequest_scatter5.mp3\")},Fg:function(){this._super();T.jg();E.rc(\"jadequest_no_alpha_sheet0.plist\");E.rc(\"jadequest_sheet0.plist\");N.Z(\"jadequest_intro_bgm.mp3\");N.Z(\"jadequest_outro_bgm.mp3\");N.Z(\"jadequest_reelspin_bg.mp3\");N.Z(\"jadequest_reelspin_click.mp3\");N.Z(\"jadequest_reelspin_fg.mp3\");N.Z(\"jadequest_respin_start.mp3\");N.Z(\"jadequest_respin_triggered.mp3\");N.Z(\"jadequest_s0_hit.mp3\");\nN.Z(\"jadequest_s0_roaming.mp3\");N.Z(\"jadequest_s0_transform.mp3\");N.Z(\"jadequest_s0_win.mp3\");N.Z(\"jadequest_scatter1.mp3\");N.Z(\"jadequest_scatter2.mp3\");N.Z(\"jadequest_scatter3.mp3\");N.Z(\"jadequest_scatter4.mp3\");N.Z(\"jadequest_scatter5.mp3\")},Ng:function(a){return new wvd(this.la,a)},Lg:function(){return new fd(this.la)},Je:function(){return new q8(this.la)},Ga:function(){return new r8(this.la)},Bd:function(){return 1.002},cc:function(){return Kd.create(this.la)},Kf:function(a,b){return new xvd(a,\nxvd.Vog.oe,b)},Jg:function(a,b,d){return new yvd(a,yvd.Wog.ag,b,d)},Sg:function(a,b,d){return new Ad(d,a,b,!1,v.nb())},Og:function(){return null},Bf:function(a,b,d){return new zvd(this.la,a,b,d)},Tc:function(a,b){return a*b},Xqa:function(a,b,d,e){return 80*this.Tc(a,b,d,e)},hd:function(){return 40},Hg:function(){return this.Tc(this.hd(),mc.Eg(),0)},tf:function(){},Nf:function(){return xd.Tg()},$c:function(a){return new s8(this.la,a)},fh:function(){return!0},oda:function(){return!v.tS()&&!v.uoa},Oia:function(){return new Uc}}))",
+      "initial": {
+        "dbf": false
+      },
+      "initial_state": {
+        "sel": 40,
+        "cps": 1,
+        "atb": 0,
+        "dn": 0.01,
+        "fs": false,
+        "rf": 0,
+        "acb": 0,
+        "fsr": 0,
+        "mb": false,
+        "as": []
+      },
+      "responses": [
+        {
+          "sel": 40,
+          "cps": 1,
+          "atb": 0,
+          "dn": 0.01,
+          "fs": false,
+          "rf": 0,
+          "acb": 1,
+          "fsr": 8,
+          "mb": false,
+          "pos": [
+            1
+          ]
+        },
+        {
+          "sel": 40,
+          "cps": 1,
+          "atb": 0,
+          "dn": 0.01,
+          "fs": true,
+          "rf": 0,
+          "acb": 1,
+          "fsr": 7,
+          "mb": false
+        },
+        {
+          "sel": 40,
+          "cps": 1,
+          "atb": 0,
+          "dn": 0.01,
+          "fs": true,
+          "rf": 0,
+          "acb": 1,
+          "fsr": 6,
+          "mb": false
+        },
+        {
+          "sel": 40,
+          "cps": 1,
+          "atb": 0,
+          "dn": 0.01,
+          "fs": true,
+          "rf": 0,
+          "acb": 1,
+          "fsr": 5,
+          "mb": false
+        },
+        {
+          "sel": 40,
+          "cps": 1,
+          "atb": 0,
+          "dn": 0.01,
+          "fs": true,
+          "rf": 0,
+          "acb": 1,
+          "fsr": 4,
+          "mb": false
+        },
+        {
+          "sel": 40,
+          "cps": 1,
+          "atb": 0,
+          "dn": 0.01,
+          "fs": true,
+          "rf": 0,
+          "acb": 1,
+          "fsr": 3,
+          "mb": false
+        },
+        {
+          "sel": 40,
+          "cps": 1,
+          "atb": 0,
+          "dn": 0.01,
+          "fs": true,
+          "rf": 0,
+          "acb": 1,
+          "fsr": 2,
+          "mb": false
+        },
+        {
+          "sel": 40,
+          "cps": 1,
+          "atb": 0,
+          "dn": 0.01,
+          "fs": true,
+          "rf": 0,
+          "acb": 1,
+          "fsr": 1,
+          "mb": false
+        },
+        {
+          "sel": 40,
+          "cps": 1,
+          "atb": 0,
+          "dn": 0.01,
+          "fs": true,
+          "rf": 0,
+          "acb": 1,
+          "fsr": 0,
+          "mb": false
+        },
+        {
+          "sel": 40,
+          "cps": 1,
+          "atb": 0,
+          "dn": 0.01,
+          "fs": false,
+          "rf": 0,
+          "acb": 0,
+          "fsr": 0,
+          "mb": false
+        }
+      ],
+      "har_sha256": "59bedcae4ae6d1a26a0e31315f0171b0429a65571eb73b1adc696a9a581a967e"
+    },
+    {
+      "symbol": "KickCashMonkey2",
+      "client": "new (xd.extend({ctor:function(a){\"undefined\"===typeof a?(this._super(null),A.Bb().Gg(\"KickCashMonkey2\",this)):this._super(a)},Dg:function(){return!0},Cc:function(){return\"0\"},Ge:function(){var a=\"res/images/Games/KickCashMonkey2/\";return a=c.Ke?a+\"webp/\":a+\"png/\"},tg:function(){return{Dqg:\"res/images/icons/KickCashMonkey2/KickCashMonkey2Icon.atlas\",Eqg:\"res/images/icons/KickCashMonkey2/KickCashMonkey2Icon.json\",Fqg:\"res/images/icons/KickCashMonkey2/KickCashMonkey2Icon.png\"}},Fd:function(){var a=this.Ge(),\nb=this.jh(),d=this._super();return d=u(d,{y_r:a+\"kickcashmonkey2_no_alpha_sheet0.plist\",z_r:a+\"kickcashmonkey2_no_alpha_sheet0\"+b,A_r:a+\"kickcashmonkey2_sheet0.plist\",B_r:a+\"kickcashmonkey2_sheet0\"+b})},Cg:function(){this._super();E.Xa(\"kickcashmonkey2_no_alpha_sheet0.plist\");E.Xa(\"kickcashmonkey2_sheet0.plist\")},xg:function(){var a=this._super(),a=u(a,this.Fd());return u(a,{x8h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_character_monkey_anim.atlas\",y8h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_character_monkey_anim.json\",\nz8h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_character_monkey_anim.png\",B8h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_intro_anim.atlas\",C8h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_intro_anim.json\",D8h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_intro_anim.png\",E8h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_kick_effect_anim.atlas\",F8h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_kick_effect_anim.json\",G8h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_kick_effect_anim.png\",\nN8h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_outro_anim.atlas\",O8h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_outro_anim.json\",P8h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_outro_anim.png\",R8h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_s0_anim.atlas\",S8h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_s0_anim.json\",T8h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_s0_anim.png\",U8h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_s11_anim.atlas\",V8h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_s11_anim.json\",\nW8h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_s11_anim.png\",X8h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_s12_anim.atlas\",Y8h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_s12_anim.json\",Z8h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_s12_anim.png\",$8h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_s13_anim.atlas\",a9h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_s13_anim.json\",b9h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_s13_anim.png\",c9h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_s1_anim.atlas\",\nd9h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_s1_anim.json\",e9h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_s1_anim.png\",f9h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_s21_anim.atlas\",g9h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_s21_anim.json\",h9h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_s21_anim.png\",i9h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_s22_anim.atlas\",j9h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_s22_anim.json\",k9h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_s22_anim.png\",\nl9h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_s26_anim.atlas\",m9h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_s26_anim.json\",n9h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_s26_anim.png\",o9h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_s27_anim.atlas\",p9h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_s27_anim.json\",q9h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_s27_anim.png\",r9h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_s2_anim.atlas\",s9h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_s2_anim.json\",\nt9h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_s2_anim.png\",u9h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_s33_anim.atlas\",v9h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_s33_anim.json\",w9h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_s33_anim.png\",x9h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_s3_anim.atlas\",y9h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_s3_anim.json\",z9h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_s3_anim.png\",A9h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_s4_anim.atlas\",\nB9h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_s4_anim.json\",C9h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_s4_anim.png\",D9h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_s5_anim.atlas\",E9h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_s5_anim.json\",F9h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_s5_anim.png\",G9h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_s678910_anim.atlas\",H9h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_s678910_anim.json\",I9h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_s678910_anim.png\",\nJ9h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_turn_wild_effect_anim.atlas\",K9h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_turn_wild_effect_anim.json\",L9h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_turn_wild_effect_anim.png\",t8h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_bgm_bg.mp3\",u8h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_bgm_fg.mp3\",v8h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_bgm_intro.mp3\",w8h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_bgm_outro.mp3\",\nA8h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_free_spin_symbol_win.mp3\",H8h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_kick_symbol_trigger.mp3\",I8h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_monkey_kick_cash_feature.mp3\",J8h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_monkey_throw_banana.mp3\",K8h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_multiplier_amount_update.mp3\",L8h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_mysterious_symbol_hit.mp3\",M8h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_mysterious_symbol_reveal.mp3\",\nQ8h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_reel_hit.mp3\",M9h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_wild_hit.mp3\",N9h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_wild_win.mp3\",O9h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_wooden_jackpot_reward_moving.mp3\",P9h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_wooden_multiplier_moving.mp3\",Q9h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_wooden_symbol_explode.mp3\",R9h:\"res/images/Games/KickCashMonkey2/kickcashmonkey_wooden_symbol_shake.mp3\"})},\nBg:function(){this._super();RZ.ie();T.mb(\"kickcashmonkey_kick_effect_anim.json\",\"kickcashmonkey_kick_effect_anim.atlas\",.5);T.mb(\"kickcashmonkey_turn_wild_effect_anim.json\",\"kickcashmonkey_turn_wild_effect_anim.atlas\",.5);T.mb(\"kickcashmonkey_character_monkey_anim.json\",\"kickcashmonkey_character_monkey_anim.atlas\",.5);T.mb(\"kickcashmonkey_intro_anim.json\",\"kickcashmonkey_intro_anim.atlas\",.5);T.mb(\"kickcashmonkey_outro_anim.json\",\"kickcashmonkey_outro_anim.atlas\",.5);E.Xa(\"kickcashmonkey2_no_alpha_sheet0.plist\");\nE.Xa(\"kickcashmonkey2_sheet0.plist\");N.R(\"kickcashmonkey_bgm_bg.mp3\");N.R(\"kickcashmonkey_bgm_fg.mp3\");N.R(\"kickcashmonkey_bgm_intro.mp3\");N.R(\"kickcashmonkey_bgm_outro.mp3\");N.R(\"kickcashmonkey_free_spin_symbol_win.mp3\");N.R(\"kickcashmonkey_kick_symbol_trigger.mp3\");N.R(\"kickcashmonkey_monkey_kick_cash_feature.mp3\");N.R(\"kickcashmonkey_monkey_throw_banana.mp3\");N.R(\"kickcashmonkey_multiplier_amount_update.mp3\");N.R(\"kickcashmonkey_mysterious_symbol_hit.mp3\");N.R(\"kickcashmonkey_mysterious_symbol_reveal.mp3\");\nN.R(\"kickcashmonkey_reel_hit.mp3\");N.R(\"kickcashmonkey_wild_hit.mp3\");N.R(\"kickcashmonkey_wild_win.mp3\");N.R(\"kickcashmonkey_wooden_jackpot_reward_moving.mp3\");N.R(\"kickcashmonkey_wooden_multiplier_moving.mp3\");N.R(\"kickcashmonkey_wooden_symbol_explode.mp3\");N.R(\"kickcashmonkey_wooden_symbol_shake.mp3\")},Fg:function(){this._super();T.jg();E.rc(\"kickcashmonkey2_no_alpha_sheet0.plist\");E.rc(\"kickcashmonkey2_sheet0.plist\");N.Z(\"kickcashmonkey_bgm_bg.mp3\");N.Z(\"kickcashmonkey_bgm_fg.mp3\");N.Z(\"kickcashmonkey_bgm_intro.mp3\");\nN.Z(\"kickcashmonkey_bgm_outro.mp3\");N.Z(\"kickcashmonkey_free_spin_symbol_win.mp3\");N.Z(\"kickcashmonkey_kick_symbol_trigger.mp3\");N.Z(\"kickcashmonkey_monkey_kick_cash_feature.mp3\");N.Z(\"kickcashmonkey_monkey_throw_banana.mp3\");N.Z(\"kickcashmonkey_multiplier_amount_update.mp3\");N.Z(\"kickcashmonkey_mysterious_symbol_hit.mp3\");N.Z(\"kickcashmonkey_mysterious_symbol_reveal.mp3\");N.Z(\"kickcashmonkey_reel_hit.mp3\");N.Z(\"kickcashmonkey_wild_hit.mp3\");N.Z(\"kickcashmonkey_wild_win.mp3\");N.Z(\"kickcashmonkey_wooden_jackpot_reward_moving.mp3\");\nN.Z(\"kickcashmonkey_wooden_multiplier_moving.mp3\");N.Z(\"kickcashmonkey_wooden_symbol_explode.mp3\");N.Z(\"kickcashmonkey_wooden_symbol_shake.mp3\")},Lg:function(){return new fd(this.la)},Ya:function(){return ce.create(this.Cc(),this.la)},Ng:function(a){return new X_c(this.la,a)},Je:function(){return new Y_c(this.la)},Ga:function(){return new Z_c(this.la)},Bd:function(){return 1},cc:function(){return Kd.create(this.la)},Kf:function(a,b){return new $_c(a,b)},Jg:function(a,b){return new a0c(a,b)},Bf:function(a,\nb,d){return new b0c(this.la,a,b,d)},Og:function(){return null},Sg:function(a,b,d){return new Ad(d,a,b,!1,v.nb())},Tc:function(a,b){return a*b},Hg:function(){return this.Tc(this.hd(),mc.Eg(),0)},hd:function(){return 25},tf:function(a,b,d){b={};b.numFreeGames=String(a);uc.Kj(Jb(\"free.game.retrigger.announcement\",b),\"\",this.Bd(),d,function(){},J?150:0)},Nf:function(){return xd.Tg()},$c:function(a){return new c0c(this.la,a)},fh:function(){return!0},oda:function(){return!v.tS()&&!v.uoa},Xqa:function(a,\nb,d,e){return 80*this.Tc(a,b,d,e)},Oia:function(){return new Uc}}))",
+      "initial": {
+        "dbf": false
+      },
+      "initial_state": {
+        "sel": 25,
+        "cps": 1,
+        "atb": 0,
+        "dn": 0.01,
+        "fs": false,
+        "rf": 0,
+        "acb": 0,
+        "fsr": 0,
+        "mb": false,
+        "as": []
+      },
+      "responses": [
+        {
+          "sel": 25,
+          "cps": 1,
+          "atb": 0,
+          "dn": 0.01,
+          "fs": false,
+          "rf": 0,
+          "acb": 0,
+          "fsr": 0,
+          "mb": false
+        },
+        {
+          "sel": 25,
+          "cps": 1,
+          "atb": 0,
+          "dn": 0.01,
+          "fs": false,
+          "rf": 0,
+          "acb": 0,
+          "fsr": 0,
+          "mb": false
+        },
+        {
+          "sel": 25,
+          "cps": 1,
+          "atb": 0,
+          "dn": 0.01,
+          "fs": false,
+          "rf": 0,
+          "acb": 1,
+          "fsr": 11,
+          "mb": false,
+          "pos": [
+            1
+          ]
+        },
+        {
+          "sel": 25,
+          "cps": 1,
+          "atb": 0,
+          "dn": 0.01,
+          "fs": true,
+          "rf": 0,
+          "acb": 1,
+          "fsr": 10,
+          "mb": false
+        },
+        {
+          "sel": 25,
+          "cps": 1,
+          "atb": 0,
+          "dn": 0.01,
+          "fs": true,
+          "rf": 0,
+          "acb": 1,
+          "fsr": 9,
+          "mb": false
+        },
+        {
+          "sel": 25,
+          "cps": 1,
+          "atb": 0,
+          "dn": 0.01,
+          "fs": true,
+          "rf": 0,
+          "acb": 1,
+          "fsr": 8,
+          "mb": false
+        },
+        {
+          "sel": 25,
+          "cps": 1,
+          "atb": 0,
+          "dn": 0.01,
+          "fs": true,
+          "rf": 0,
+          "acb": 1,
+          "fsr": 7,
+          "mb": false
+        },
+        {
+          "sel": 25,
+          "cps": 1,
+          "atb": 0,
+          "dn": 0.01,
+          "fs": true,
+          "rf": 0,
+          "acb": 1,
+          "fsr": 6,
+          "mb": false
+        },
+        {
+          "sel": 25,
+          "cps": 1,
+          "atb": 0,
+          "dn": 0.01,
+          "fs": true,
+          "rf": 0,
+          "acb": 1,
+          "fsr": 5,
+          "mb": false
+        },
+        {
+          "sel": 25,
+          "cps": 1,
+          "atb": 0,
+          "dn": 0.01,
+          "fs": true,
+          "rf": 0,
+          "acb": 1,
+          "fsr": 4,
+          "mb": false
+        },
+        {
+          "sel": 25,
+          "cps": 1,
+          "atb": 0,
+          "dn": 0.01,
+          "fs": true,
+          "rf": 0,
+          "acb": 1,
+          "fsr": 3,
+          "mb": false
+        },
+        {
+          "sel": 25,
+          "cps": 1,
+          "atb": 0,
+          "dn": 0.01,
+          "fs": true,
+          "rf": 0,
+          "acb": 1,
+          "fsr": 2,
+          "mb": false
+        },
+        {
+          "sel": 25,
+          "cps": 1,
+          "atb": 0,
+          "dn": 0.01,
+          "fs": true,
+          "rf": 0,
+          "acb": 1,
+          "fsr": 1,
+          "mb": false
+        },
+        {
+          "sel": 25,
+          "cps": 1,
+          "atb": 0,
+          "dn": 0.01,
+          "fs": true,
+          "rf": 0,
+          "acb": 1,
+          "fsr": 0,
+          "mb": false
+        },
+        {
+          "sel": 25,
+          "cps": 1,
+          "atb": 0,
+          "dn": 0.01,
+          "fs": false,
+          "rf": 0,
+          "acb": 0,
+          "fsr": 0,
+          "mb": false
+        }
+      ],
+      "har_sha256": "099359a1ba23263f06591e1523c96a74f70a30295f772b0c0275d0e0f9098aa6"
+    },
+    {
+      "symbol": "BonusVending",
+      "client": "new (xd.extend({ctor:function(a){\"undefined\"===typeof a?(this._super(null),A.Bb().Gg(\"BonusVending\",this)):this._super(a)},Dg:function(){return!0},Cc:function(){return\"0\"},Ya:function(){return ce.create(this.Cc(),this.la)},tg:function(){return{nOf:\"res/images/icons/BonusVending/BonusVendingIcon.atlas\",oOf:\"res/images/icons/BonusVending/BonusVendingIcon.json\",pOf:\"res/images/icons/BonusVending/BonusVendingIcon.png\"}},Fd:function(){var a=this._super();return a=c.Ke?u(a,{v0d:\"res/images/Games/BonusVending/webp/bonusvending_no_alpha_sheet0.plist\",\nw0d:\"res/images/Games/BonusVending/webp/bonusvending_no_alpha_sheet0.webp\",x0d:\"res/images/Games/BonusVending/webp/bonusvending_sheet0.plist\",y0d:\"res/images/Games/BonusVending/webp/bonusvending_sheet0.webp\"}):u(a,{v0d:\"res/images/Games/BonusVending/png/bonusvending_no_alpha_sheet0.plist\",w0d:\"res/images/Games/BonusVending/png/bonusvending_no_alpha_sheet0.png\",x0d:\"res/images/Games/BonusVending/png/bonusvending_sheet0.plist\",y0d:\"res/images/Games/BonusVending/png/bonusvending_sheet0.png\"})},Cg:function(){this._super();\nE.Xa(\"bonusvending_no_alpha_sheet0.plist\");E.Xa(\"bonusvending_sheet0.plist\")},xg:function(){var a=this._super(),a=c.Ke?u(a,{v0d:\"res/images/Games/BonusVending/webp/bonusvending_no_alpha_sheet0.plist\",w0d:\"res/images/Games/BonusVending/webp/bonusvending_no_alpha_sheet0.webp\",x0d:\"res/images/Games/BonusVending/webp/bonusvending_sheet0.plist\",y0d:\"res/images/Games/BonusVending/webp/bonusvending_sheet0.webp\"}):u(a,{v0d:\"res/images/Games/BonusVending/png/bonusvending_no_alpha_sheet0.plist\",w0d:\"res/images/Games/BonusVending/png/bonusvending_no_alpha_sheet0.png\",\nx0d:\"res/images/Games/BonusVending/png/bonusvending_sheet0.plist\",y0d:\"res/images/Games/BonusVending/png/bonusvending_sheet0.png\"});return u(a,{DHk:\"res/images/Games/BonusVending/bonusvending_s0_anim.atlas\",EHk:\"res/images/Games/BonusVending/bonusvending_s0_anim.json\",FHk:\"res/images/Games/BonusVending/bonusvending_s0_anim.png\",QHk:\"res/images/Games/BonusVending/bonusvending_s1_anim.atlas\",RHk:\"res/images/Games/BonusVending/bonusvending_s1_anim.json\",SHk:\"res/images/Games/BonusVending/bonusvending_s1_anim.png\",\nTHk:\"res/images/Games/BonusVending/bonusvending_s2_anim.atlas\",UHk:\"res/images/Games/BonusVending/bonusvending_s2_anim.json\",VHk:\"res/images/Games/BonusVending/bonusvending_s2_anim.png\",WHk:\"res/images/Games/BonusVending/bonusvending_s3_anim.atlas\",XHk:\"res/images/Games/BonusVending/bonusvending_s3_anim.json\",YHk:\"res/images/Games/BonusVending/bonusvending_s3_anim.png\",ZHk:\"res/images/Games/BonusVending/bonusvending_s4_anim.atlas\",$Hk:\"res/images/Games/BonusVending/bonusvending_s4_anim.json\",aIk:\"res/images/Games/BonusVending/bonusvending_s4_anim.png\",\nbIk:\"res/images/Games/BonusVending/bonusvending_s5_anim.atlas\",cIk:\"res/images/Games/BonusVending/bonusvending_s5_anim.json\",dIk:\"res/images/Games/BonusVending/bonusvending_s5_anim.png\",eIk:\"res/images/Games/BonusVending/bonusvending_s6_anim.atlas\",fIk:\"res/images/Games/BonusVending/bonusvending_s6_anim.json\",gIk:\"res/images/Games/BonusVending/bonusvending_s6_anim.png\",hIk:\"res/images/Games/BonusVending/bonusvending_s7_anim.atlas\",iIk:\"res/images/Games/BonusVending/bonusvending_s7_anim.json\",jIk:\"res/images/Games/BonusVending/bonusvending_s7_anim.png\",\nkIk:\"res/images/Games/BonusVending/bonusvending_s8_anim.atlas\",lIk:\"res/images/Games/BonusVending/bonusvending_s8_anim.json\",mIk:\"res/images/Games/BonusVending/bonusvending_s8_anim.png\",nIk:\"res/images/Games/BonusVending/bonusvending_s9_anim.atlas\",oIk:\"res/images/Games/BonusVending/bonusvending_s9_anim.json\",pIk:\"res/images/Games/BonusVending/bonusvending_s9_anim.png\",HHk:\"res/images/Games/BonusVending/bonusvending_s10_anim.atlas\",IHk:\"res/images/Games/BonusVending/bonusvending_s10_anim.json\",JHk:\"res/images/Games/BonusVending/bonusvending_s10_anim.png\",\nKHk:\"res/images/Games/BonusVending/bonusvending_s11_anim.atlas\",LHk:\"res/images/Games/BonusVending/bonusvending_s11_anim.json\",MHk:\"res/images/Games/BonusVending/bonusvending_s11_anim.png\",NHk:\"res/images/Games/BonusVending/bonusvending_s12_anim.atlas\",OHk:\"res/images/Games/BonusVending/bonusvending_s12_anim.json\",PHk:\"res/images/Games/BonusVending/bonusvending_s12_anim.png\",kHk:\"res/images/Games/BonusVending/bonusvending_intro_anim.atlas\",lHk:\"res/images/Games/BonusVending/bonusvending_intro_anim.json\",\nmHk:\"res/images/Games/BonusVending/bonusvending_intro_anim.png\",vHk:\"res/images/Games/BonusVending/bonusvending_outro_anim.atlas\",wHk:\"res/images/Games/BonusVending/bonusvending_outro_anim.json\",xHk:\"res/images/Games/BonusVending/bonusvending_outro_anim.png\",oHk:\"res/images/Games/BonusVending/bonusvending_mult_anim.atlas\",pHk:\"res/images/Games/BonusVending/bonusvending_mult_anim.json\",qHk:\"res/images/Games/BonusVending/bonusvending_mult_anim.png\",fHk:{type:\"font\",name:\"BonusVending_DomaineSansBlack\",\nUh:[\"res/images/Games/BonusVending/BonusVending_DomaineSansBlack.woff2\",\"res/images/Games/BonusVending/BonusVending_DomaineSansBlack.woff\",\"res/images/Games/BonusVending/BonusVending_DomaineSansBlack.ttf\"]},gHk:\"res/images/Games/BonusVending/bonusvending_announcement.mp3\",iHk:\"res/images/Games/BonusVending/bonusvending_expand_wild.mp3\",jHk:\"res/images/Games/BonusVending/bonusvending_instant_freegame.mp3\",nHk:\"res/images/Games/BonusVending/bonusvending_intro_bgm.mp3\",sHk:\"res/images/Games/BonusVending/bonusvending_multiplier3.mp3\",\ntHk:\"res/images/Games/BonusVending/bonusvending_multiplier6.mp3\",rHk:\"res/images/Games/BonusVending/bonusvending_multiplier10.mp3\",yHk:\"res/images/Games/BonusVending/bonusvending_outro_bgm.mp3\",zHk:\"res/images/Games/BonusVending/bonusvending_reelspin_bg.mp3\",AHk:\"res/images/Games/BonusVending/bonusvending_reelspin_click.mp3\",BHk:\"res/images/Games/BonusVending/bonusvending_reelspin_fg.mp3\",CHk:\"res/images/Games/BonusVending/bonusvending_rl_win.mp3\",GHk:\"res/images/Games/BonusVending/bonusvending_s0_hit.mp3\",\nqIk:\"res/images/Games/BonusVending/bonusvending_scatter1.mp3\",rIk:\"res/images/Games/BonusVending/bonusvending_scatter2.mp3\",sIk:\"res/images/Games/BonusVending/bonusvending_scatter3.mp3\",tIk:\"res/images/Games/BonusVending/bonusvending_scatter4.mp3\",uIk:\"res/images/Games/BonusVending/bonusvending_scatter5.mp3\",hHk:\"res/images/Games/BonusVending/bonusvending_coin_dropping.mp3\",uHk:\"res/images/Games/BonusVending/bonusvending_nowin.mp3\"})},Bg:function(){this._super();Zt.ie();E.Xa(\"bonusvending_no_alpha_sheet0.plist\");\nE.Xa(\"bonusvending_sheet0.plist\");N.R(\"bonusvending_announcement.mp3\");N.R(\"bonusvending_expand_wild.mp3\");N.R(\"bonusvending_instant_freegame.mp3\");N.R(\"bonusvending_intro_bgm.mp3\");N.R(\"bonusvending_multiplier3.mp3\");N.R(\"bonusvending_multiplier6.mp3\");N.R(\"bonusvending_multiplier10.mp3\");N.R(\"bonusvending_outro_bgm.mp3\");N.R(\"bonusvending_reelspin_bg.mp3\");N.R(\"bonusvending_reelspin_click.mp3\");N.R(\"bonusvending_reelspin_fg.mp3\");N.R(\"bonusvending_rl_win.mp3\");N.R(\"bonusvending_s0_hit.mp3\");N.R(\"bonusvending_scatter1.mp3\");\nN.R(\"bonusvending_scatter2.mp3\");N.R(\"bonusvending_scatter3.mp3\");N.R(\"bonusvending_scatter4.mp3\");N.R(\"bonusvending_scatter5.mp3\");N.R(\"bonusvending_coin_dropping.mp3\");N.R(\"bonusvending_nowin.mp3\")},Fg:function(){this._super();T.jg();E.rc(\"bonusvending_no_alpha_sheet0.plist\");E.rc(\"bonusvending_sheet0.plist\");N.Z(\"bonusvending_announcement.mp3\");N.Z(\"bonusvending_expand_wild.mp3\");N.Z(\"bonusvending_instant_freegame.mp3\");N.Z(\"bonusvending_intro_bgm.mp3\");N.Z(\"bonusvending_multiplier3.mp3\");N.Z(\"bonusvending_multiplier6.mp3\");\nN.Z(\"bonusvending_multiplier10.mp3\");N.Z(\"bonusvending_outro_bgm.mp3\");N.Z(\"bonusvending_reelspin_bg.mp3\");N.Z(\"bonusvending_reelspin_click.mp3\");N.Z(\"bonusvending_reelspin_fg.mp3\");N.Z(\"bonusvending_rl_win.mp3\");N.Z(\"bonusvending_s0_hit.mp3\");N.Z(\"bonusvending_scatter1.mp3\");N.Z(\"bonusvending_scatter2.mp3\");N.Z(\"bonusvending_scatter3.mp3\");N.Z(\"bonusvending_scatter4.mp3\");N.Z(\"bonusvending_scatter5.mp3\");N.Z(\"bonusvending_coin_dropping.mp3\");N.Z(\"bonusvending_nowin.mp3\")},Ng:function(a){return new $9a(this.la,\na)},Lg:function(){return new fd(this.la)},Je:function(){return new a$a(this.la)},Ga:function(){return new b$a(this.la)},Bd:function(){return 1.5},cc:function(){return Kd.create(this.la)},Kf:function(a,b){return new c$a(a,c$a.qOf.oe,b)},Jg:function(a,b){return new d$a(a,d$a.rOf.ag,b)},Sg:function(a,b,d){return new Ad(d,a,b,!1,v.nb())},Og:function(){return null},Bf:function(a,b,d){return new e$a(this.la,a,b,d)},Tc:function(a,b){return a*b},hd:function(){return 50},Hg:function(){return this.Tc(this.hd(),\nmc.Eg(),0)},tf:function(a,b){N.oa(\"bonusvending_announcement.mp3\");var d={},e=\"\";12===b?e=\"bonusvending_s12_\"+Gb()+\".png\":19===b&&(e=\"bonusvending_s19.png\");d.numFreeGames=String(a);J?uc.Kj(Jb(\"free.game.retrigger.announcement\",d),e,3,null,null,150):uc.Kj(Jb(\"free.game.retrigger.announcement\",d),e,3)},Nf:function(){return xd.Tg()},$c:function(a){return new f$a(this.la,a)},fh:function(){return!0}}))",
+      "initial": {
+        "dbf": false
+      },
+      "initial_state": {
+        "sel": 50,
+        "cps": 1,
+        "atb": 0,
+        "dn": 0.01,
+        "fs": false,
+        "rf": 0,
+        "acb": 0,
+        "fsr": 0,
+        "mb": false,
+        "as": [
+          {
+            "asi": 1,
+            "st": [
+              15,
+              15,
+              17
+            ],
+            "swm": 0,
+            "sw": 0,
+            "swu": 0,
+            "fsw": 0,
+            "tw": 0
+          }
+        ]
+      },
+      "responses": [
+        {
+          "sel": 50,
+          "cps": 1,
+          "atb": 0,
+          "dn": 0.01,
+          "fs": false,
+          "rf": 0,
+          "acb": 0,
+          "fsr": 0,
+          "mb": false,
+          "as": [
+            {
+              "asi": 1,
+              "st": [
+                15,
+                13,
+                16
+              ],
+              "swm": 0,
+              "sw": 0,
+              "swu": 0,
+              "fsw": 0,
+              "tw": 0
+            }
+          ]
+        },
+        {
+          "sel": 50,
+          "cps": 1,
+          "atb": 0,
+          "dn": 0.01,
+          "fs": false,
+          "rf": 0,
+          "acb": 0,
+          "fsr": 0,
+          "mb": false,
+          "as": [
+            {
+              "asi": 1,
+              "st": [
+                15,
+                14,
+                16
+              ],
+              "swm": 0,
+              "sw": 0,
+              "swu": 0,
+              "fsw": 0,
+              "tw": 0
+            }
+          ]
+        },
+        {
+          "sel": 50,
+          "cps": 1,
+          "atb": 0,
+          "dn": 0.01,
+          "fs": false,
+          "rf": 0,
+          "acb": 0,
+          "fsr": 0,
+          "mb": false,
+          "as": [
+            {
+              "asi": 1,
+              "st": [
+                14,
+                17,
+                15
+              ],
+              "swm": 0,
+              "sw": 0,
+              "swu": 0,
+              "fsw": 0,
+              "tw": 0
+            }
+          ]
+        },
+        {
+          "sel": 50,
+          "cps": 1,
+          "atb": 0,
+          "dn": 0.01,
+          "fs": false,
+          "rf": 0,
+          "acb": 0,
+          "fsr": 0,
+          "mb": false,
+          "as": [
+            {
+              "asi": 1,
+              "st": [
+                15,
+                14,
+                16
+              ],
+              "swm": 0,
+              "sw": 0,
+              "swu": 0,
+              "fsw": 0,
+              "tw": 0
+            }
+          ]
+        },
+        {
+          "sel": 50,
+          "cps": 1,
+          "atb": 0,
+          "dn": 0.01,
+          "fs": false,
+          "rf": 0,
+          "acb": 0,
+          "fsr": 0,
+          "mb": false,
+          "as": [
+            {
+              "asi": 1,
+              "st": [
+                18,
+                14,
+                17
+              ],
+              "swm": 0,
+              "sw": 0,
+              "swu": 0,
+              "fsw": 0,
+              "tw": 0
+            }
+          ]
+        },
+        {
+          "sel": 50,
+          "cps": 1,
+          "atb": 0,
+          "dn": 0.01,
+          "fs": false,
+          "rf": 0,
+          "acb": 0,
+          "fsr": 0,
+          "mb": false,
+          "as": [
+            {
+              "asi": 1,
+              "st": [
+                15,
+                14,
+                17
+              ],
+              "swm": 0,
+              "sw": 0,
+              "swu": 0,
+              "fsw": 0,
+              "tw": 0
+            }
+          ]
+        }
+      ],
+      "har_sha256": "037e05491db2798f5eba721ba550bdd89d5e1fbe9fb5e9c88389396fd5e32119"
+    }
+  ]
+}

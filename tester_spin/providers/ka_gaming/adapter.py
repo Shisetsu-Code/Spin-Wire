@@ -11,16 +11,6 @@ from tester_spin.providers.base import GameCallback, Progress, ProviderAdapter
 from tester_spin.providers.ka_gaming.catalog import CATALOG_URL, declared_modes_from_row, games_from_catalog
 
 
-# Official website purchase filter supplied by the user, 2026-10-01.
-# The legacy publicGameList bp flag also labels ordinary bonus games.
-PURCHASE_GAME_IDS = frozenset({
-    "hotcoinbf", "kickcashmonkey2", "buzzkillbonanza", "thenaughtytattooist",
-    "chaoscombat", "carnivalbeauty", "seasidepelican", "tropicalholiday",
-    "playfulkitten", "inkpaintingmaster", "fantasyoktoberfest",
-    "stellarfantasia", "jadequest", "thiefdog",
-})
-
-
 class KAGamingProvider(ProviderAdapter):
     key = "ka_gaming"
     display_name = "KA Gaming"
@@ -31,7 +21,9 @@ class KAGamingProvider(ProviderAdapter):
         self.data_root = Path(data_root)
         self.provider_root = self.data_root / "providers" / self.key
         self.provider_root.mkdir(parents=True, exist_ok=True)
-        self.http = requests.Session(impersonate="chrome", headers={"Accept-Language": "es-ES,es;q=0.9"})
+        from tester_spin.providers.ka_gaming.device_context import current_client_identity
+        agent,_=current_client_identity()
+        self.http = requests.Session(impersonate="chrome", headers={"Accept-Language": "es-ES,es;q=0.9","User-Agent":agent})
         self._modes_path = self.provider_root / "catalog_modes.json"
         self._catalog_modes = self._load_catalog_modes()
 
@@ -82,8 +74,21 @@ class KAGamingProvider(ProviderAdapter):
                 status="ERROR", discovered_modes=self._discovered_modes(game),
                 error=f"Actualización de cliente KA: {type(exc).__name__}: {exc}")
         if profile is not None:
+            sources = {'common':'', 'client':''}
+            try:
+                import re
+                from tester_spin.providers.ka_gaming.limits import REQUEST_GATE
+                if not re.fullmatch(r'[A-Za-z0-9_-]+', game.symbol or ''):
+                    raise ValueError('KA: simbolo de cliente invalido')
+                sources['common'] = (self.provider_root/'runtime'/('game.min.'+profile[0]+'.js')).read_text(encoding='utf-8')
+                REQUEST_GATE.acquire(stop_event)
+                response = self.http.get('https://gamesdemo.kaga88.com/res/js/'+profile[0]+'/'+game.symbol.lower()+'.js',timeout=timeout_s)
+                response.raise_for_status()
+                sources['client'] = response.text
+            except Exception as exc:
+                progress('KA: declaracion del cliente pendiente ('+type(exc).__name__+').')
             return run_rmp_game(game, http=self.http, root=self.provider_root, profile=profile,
-                modes=self._discovered_modes(game), spins=spins, timeout_s=timeout_s,
+                modes=self._discovered_modes(game), capabilities=sources, spins=spins, timeout_s=timeout_s,
                 stop_event=stop_event, progress=progress)
         progress(f"[{game.name}] KA Gaming: transporte WebSocket confirmado; falta capturar vds de una sesiÃ³n para ejecutar el spin.")
         return GameTestResult(
@@ -104,9 +109,11 @@ class KAGamingProvider(ProviderAdapter):
         declared = [dict(mode) for mode in self._catalog_modes.get(game.slug, [])]
         if not declared:
             declared = [{"id": "SPIN", "kind": "SLOTS", "source": "fallback", "executable": False, "coverage_required": False}]
-        if game.slug.casefold() not in PURCHASE_GAME_IDS:
-            declared = [m for m in declared if m["id"] not in {"BONUS_PURCHASE", "BUY_POS_1"}]
         for mode in declared:
+            if mode["id"] == "BONUS_PURCHASE":
+                mode.update(id="BONUS_FEATURE_UNCLASSIFIED", kind="FEATURE",
+                            coverage_required=False, executable=False, observed=False,
+                            reason="LEGACY_CATALOG_BP_IS_AMBIGUOUS")
             if mode["id"] == "SPIN":
                 mode.update({
                     "reason": "SESSION_VDS_CAPTURE_REQUIRED",
@@ -139,12 +146,7 @@ class KAGamingProvider(ProviderAdapter):
                     },
                 })
             else:
-                mode["reason"] = "WIRE_CONTRACT_NOT_OBSERVED"
-        if game.slug.casefold() in PURCHASE_GAME_IDS:
-            declared = [m for m in declared if m["id"] != "BONUS_PURCHASE"]
-            declared.append({"id":"BUY_POS_1","kind":"PURCHASE","pos":[1],
-                "source":"provider-family-candidate","validated":False,"observed":False,
-                "executable":False,"coverage_required":True,"request_shape":{"pos":[1]},"cost_multiplier":None})
+                mode.setdefault("reason", "WIRE_CONTRACT_NOT_OBSERVED")
         try:
             imported = json.loads((self.provider_root / game.slug / "purchase_modes.json").read_text(encoding="utf-8"))
         except (OSError, ValueError):

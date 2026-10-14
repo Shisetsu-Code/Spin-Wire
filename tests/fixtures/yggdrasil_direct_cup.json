@@ -1,0 +1,129 @@
+{
+  "accC": 100,
+  "accWa": "1.00",
+  "baseSilverCupWin": "COINS_100",
+  "bonusWin": 100,
+  "featureNames": [
+    "baseSilverCupFeature"
+  ],
+  "finalBoard": [
+    [
+      "LOW_1",
+      "HIGH_2",
+      "HIGH_1",
+      "HIGH_1"
+    ],
+    [
+      "HIGH_3",
+      "HIGH_3",
+      "LOW_1",
+      "LOW_1"
+    ],
+    [
+      "HIGH_4",
+      "HIGH_4",
+      "LOW_3",
+      "LOW_3"
+    ],
+    [
+      "LOW_3",
+      "HIGH_3",
+      "HIGH_3",
+      "BONUS_1"
+    ],
+    [
+      "HIGH_4",
+      "HIGH_4",
+      "HIGH_3",
+      "HIGH_3"
+    ]
+  ],
+  "gloryAfterSpin": {
+    "HIGH_1": {
+      "amount": 0,
+      "gathered": 0,
+      "coinsSum": "0.00"
+    },
+    "HIGH_4": {
+      "amount": 0,
+      "gathered": 0,
+      "coinsSum": "0.00"
+    },
+    "HIGH_2": {
+      "amount": 0,
+      "gathered": 0,
+      "coinsSum": "0.00"
+    },
+    "HIGH_3": {
+      "amount": 0,
+      "gathered": 0,
+      "coinsSum": "0.00"
+    }
+  },
+  "gloryBeforeSpin": {
+    "HIGH_1": {
+      "amount": 0,
+      "gathered": 0,
+      "coinsSum": "0.00"
+    },
+    "HIGH_4": {
+      "amount": 0,
+      "gathered": 0,
+      "coinsSum": "0.00"
+    },
+    "HIGH_2": {
+      "amount": 0,
+      "gathered": 0,
+      "coinsSum": "0.00"
+    },
+    "HIGH_3": {
+      "amount": 0,
+      "gathered": 0,
+      "coinsSum": "0.00"
+    }
+  },
+  "nextCmds": "C",
+  "reelSet": "BaseGameReels",
+  "reels": [
+    [
+      "LOW_1",
+      "HIGH_2",
+      "HIGH_1",
+      "HIGH_1"
+    ],
+    [
+      "HIGH_3",
+      "HIGH_3",
+      "LOW_1",
+      "LOW_1"
+    ],
+    [
+      "HIGH_4",
+      "HIGH_4",
+      "LOW_3",
+      "LOW_3"
+    ],
+    [
+      "LOW_3",
+      "HIGH_3",
+      "HIGH_3",
+      "BONUS_1"
+    ],
+    [
+      "HIGH_4",
+      "HIGH_4",
+      "HIGH_3",
+      "HIGH_3"
+    ]
+  ],
+  "rpos": [
+    294,
+    15,
+    42,
+    317,
+    213
+  ],
+  "wonCoins": 100,
+  "wonMoney": "1.00",
+  "wtw": []
+}

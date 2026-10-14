@@ -1,0 +1,245 @@
+{
+  "betdata": {
+    "coin": "0.01",
+    "cashBet": "0.20",
+    "cmd": "BASE_SPIN",
+    "accWa": "0.00",
+    "accC": 0
+  },
+  "eventdata": {
+    "accC": 0,
+    "accWa": "0.00",
+    "boostData": {
+      "collections": 0,
+      "multiplierIncreasedTo5": false,
+      "freeSpinsEntered": false
+    },
+    "initialPlayerState": {
+      "collectionsMap": {}
+    },
+    "playerState": {
+      "collectionsMap": {
+        "BASIC": {
+          "0.0100": {
+            "progressLimit": 20,
+            "value": 1,
+            "progress": 4
+          }
+        }
+      }
+    },
+    "response": {
+      "coinWin": 0,
+      "cashWin": "0.00",
+      "clientData": {
+        "actions": [
+          {
+            "name": "spinReels"
+          },
+          {
+            "name": "stopReels",
+            "symbols": [
+              {
+                "position": {
+                  "column": 0,
+                  "row": 0
+                },
+                "name": "LOW_5"
+              },
+              {
+                "position": {
+                  "column": 0,
+                  "row": 1
+                },
+                "name": "HIGH_4"
+              },
+              {
+                "position": {
+                  "column": 0,
+                  "row": 2
+                },
+                "name": "HIGH_4"
+              },
+              {
+                "position": {
+                  "column": 0,
+                  "row": 3
+                },
+                "name": "HIGH_1"
+              },
+              {
+                "position": {
+                  "column": 1,
+                  "row": 0
+                },
+                "name": "HIGH_5"
+              },
+              {
+                "position": {
+                  "column": 1,
+                  "row": 1
+                },
+                "name": "LOW_1"
+              },
+              {
+                "position": {
+                  "column": 1,
+                  "row": 2
+                },
+                "name": "LOW_1"
+              },
+              {
+                "position": {
+                  "column": 1,
+                  "row": 3
+                },
+                "name": "HIGH_2"
+              },
+              {
+                "position": {
+                  "column": 2,
+                  "row": 0
+                },
+                "name": "HIGH_3"
+              },
+              {
+                "position": {
+                  "column": 2,
+                  "row": 1
+                },
+                "name": "HIGH_5"
+              },
+              {
+                "position": {
+                  "column": 2,
+                  "row": 2
+                },
+                "name": "LOW_4"
+              },
+              {
+                "position": {
+                  "column": 2,
+                  "row": 3
+                },
+                "name": "HIGH_3"
+              },
+              {
+                "position": {
+                  "column": 3,
+                  "row": 0
+                },
+                "name": "HIGH_1"
+              },
+              {
+                "position": {
+                  "column": 3,
+                  "row": 1
+                },
+                "name": "HIGH_1"
+              },
+              {
+                "position": {
+                  "column": 3,
+                  "row": 2
+                },
+                "name": "HIGH_1"
+              },
+              {
+                "position": {
+                  "column": 3,
+                  "row": 3
+                },
+                "name": "HIGH_1"
+              },
+              {
+                "position": {
+                  "column": 4,
+                  "row": 0
+                },
+                "value": {
+                  "cash": 0.1,
+                  "coins": 10
+                },
+                "name": "CASH"
+              },
+              {
+                "position": {
+                  "column": 4,
+                  "row": 1
+                },
+                "value": {
+                  "cash": 0.4,
+                  "coins": 40
+                },
+                "name": "CASH"
+              },
+              {
+                "position": {
+                  "column": 4,
+                  "row": 2
+                },
+                "value": {
+                  "cash": 0.1,
+                  "coins": 10
+                },
+                "name": "CASH"
+              },
+              {
+                "position": {
+                  "column": 4,
+                  "row": 3
+                },
+                "value": {
+                  "cash": 0.1,
+                  "coins": 10
+                },
+                "name": "CASH"
+              },
+              {
+                "position": {
+                  "column": 5,
+                  "row": 0
+                },
+                "name": "LOW_3"
+              },
+              {
+                "position": {
+                  "column": 5,
+                  "row": 1
+                },
+                "name": "LOW_4"
+              },
+              {
+                "position": {
+                  "column": 5,
+                  "row": 2
+                },
+                "name": "LOW_4"
+              },
+              {
+                "position": {
+                  "column": 5,
+                  "row": 3
+                },
+                "name": "LOW_2"
+              }
+            ]
+          },
+          {
+            "name": "setCounters",
+            "counters": [
+              {
+                "name": "PROGRESS",
+                "value": 4
+              },
+              {
+                "name": "GENERAL_MULTIPLIER",
+                "value": 1
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

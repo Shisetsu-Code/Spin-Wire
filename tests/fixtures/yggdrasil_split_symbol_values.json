@@ -1,0 +1,89 @@
+{
+  "accC": 0,
+  "accWa": "0.00",
+  "allBonusAmountsInMoney": {
+    "BONUS4": "10.00",
+    "BONUS3": "5.00",
+    "BONUS6": "2500.00",
+    "BONUS5": "50.00",
+    "BONUS2": "2.00",
+    "BONUS1": "0.50"
+  },
+  "finalBoard": [
+    [
+      "LOW3",
+      "LOW1",
+      "LOW1"
+    ],
+    [
+      "HIGH2",
+      "HIGH2",
+      "HIGH2"
+    ],
+    [
+      "MYSTERY",
+      "HIGH2",
+      "HIGH2"
+    ],
+    [
+      "LOW3",
+      "LOW1",
+      "LOW1"
+    ],
+    [
+      "HIGH1",
+      "HIGH1",
+      "LOW2"
+    ]
+  ],
+  "reelSet": "BaseReels",
+  "reels": [
+    [
+      "LOW3",
+      "LOW1",
+      "LOW1"
+    ],
+    [
+      "HIGH2",
+      "HIGH2",
+      "HIGH2"
+    ],
+    [
+      "MYSTERY",
+      "HIGH2",
+      "HIGH2"
+    ],
+    [
+      "LOW3",
+      "LOW1",
+      "LOW1"
+    ],
+    [
+      "HIGH1",
+      "HIGH1",
+      "LOW2"
+    ]
+  ],
+  "rpos": [
+    63,
+    14,
+    18,
+    52,
+    41
+  ],
+  "splitFields": [
+    {
+      "position": {
+        "row": 0,
+        "column": 2
+      },
+      "symbol": "HIGH2",
+      "symbolsCount": 3,
+      "column": 2,
+      "row": 0
+    }
+  ],
+  "wonCoins": 0,
+  "wonMoney": "0.00",
+  "wtw": []
+}

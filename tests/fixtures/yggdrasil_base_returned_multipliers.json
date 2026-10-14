@@ -1,0 +1,247 @@
+{
+  "step": 1,
+  "betamount": "0.20",
+  "betcurrency": "EUR",
+  "wonamount": "0.00",
+  "status": "RESULTED",
+  "betdata": {
+    "coin": "0.20",
+    "cashBet": "0.20",
+    "cmd": "BASE_SPIN",
+    "accWa": "1.60",
+    "accC": 0,
+    "cmds": [
+      "C"
+    ]
+  },
+  "eventdata": {
+    "accC": 0,
+    "accWa": "1.60",
+    "boostData": {
+      "easy": 1,
+      "medium": 0,
+      "hard": 1
+    },
+    "initialPlayerState": {
+      "freespinsRemaining": 0,
+      "multiplier": 1,
+      "heights": null,
+      "goldenBet": false,
+      "buyBonus": false,
+      "variant": 0
+    },
+    "nextCmds": "C",
+    "playerState": {
+      "freespinsRemaining": 0,
+      "multiplier": 1,
+      "heights": null,
+      "goldenBet": false,
+      "buyBonus": false,
+      "variant": 0
+    },
+    "response": {
+      "coinWin": 0,
+      "cashWin": "1.60",
+      "clientData": {
+        "bonusTriggered": false,
+        "boards": [
+          {
+            "board": [
+              [
+                7,
+                1,
+                6
+              ],
+              [
+                4,
+                4,
+                7
+              ],
+              [
+                7,
+                4,
+                8
+              ],
+              [
+                5,
+                7,
+                7
+              ],
+              [
+                2,
+                7,
+                6
+              ],
+              [
+                3,
+                7,
+                5
+              ]
+            ],
+            "total_ways": 729,
+            "multiplier": 2,
+            "scattersCount": 0,
+            "winningRows": [
+              {
+                "symbol": 7,
+                "payout": 0.4,
+                "winningWays": 2,
+                "positions": [
+                  {
+                    "reel": 0,
+                    "row": 0
+                  },
+                  {
+                    "reel": 1,
+                    "row": 2
+                  },
+                  {
+                    "reel": 2,
+                    "row": 0
+                  },
+                  {
+                    "reel": 3,
+                    "row": 1
+                  },
+                  {
+                    "reel": 3,
+                    "row": 2
+                  },
+                  {
+                    "reel": 4,
+                    "row": 1
+                  },
+                  {
+                    "reel": 5,
+                    "row": 1
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "board": [
+              [
+                7,
+                1,
+                7,
+                6
+              ],
+              [
+                7,
+                1,
+                6
+              ],
+              [
+                4,
+                4,
+                7
+              ],
+              [
+                7,
+                4,
+                8
+              ],
+              [
+                5,
+                7,
+                7
+              ],
+              [
+                2,
+                7,
+                6
+              ]
+            ],
+            "total_ways": 972,
+            "multiplier": 3,
+            "scattersCount": 0,
+            "winningRows": [
+              {
+                "symbol": 7,
+                "payout": 1.2,
+                "winningWays": 4,
+                "positions": [
+                  {
+                    "reel": 0,
+                    "row": 0
+                  },
+                  {
+                    "reel": 0,
+                    "row": 2
+                  },
+                  {
+                    "reel": 1,
+                    "row": 0
+                  },
+                  {
+                    "reel": 2,
+                    "row": 2
+                  },
+                  {
+                    "reel": 3,
+                    "row": 0
+                  },
+                  {
+                    "reel": 4,
+                    "row": 1
+                  },
+                  {
+                    "reel": 4,
+                    "row": 2
+                  },
+                  {
+                    "reel": 5,
+                    "row": 1
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "board": [
+              [
+                5,
+                4,
+                4,
+                8,
+                4
+              ],
+              [
+                7,
+                1,
+                7,
+                6
+              ],
+              [
+                7,
+                1,
+                6
+              ],
+              [
+                4,
+                4,
+                7
+              ],
+              [
+                7,
+                4,
+                8
+              ],
+              [
+                5,
+                7,
+                7
+              ]
+            ],
+            "total_ways": 1620,
+            "multiplier": 4,
+            "scattersCount": 0,
+            "winningRows": []
+          }
+        ],
+        "wagerId": "fixture-sequence"
+      }
+    }
+  }
+}

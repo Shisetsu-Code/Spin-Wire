@@ -1,0 +1,812 @@
+[
+  {
+    "actions": [
+      {
+        "name": "stopReels",
+        "board": [
+          [
+            "LOW_4",
+            "HIGH_3",
+            "HIGH_4"
+          ],
+          [
+            "LOW_3",
+            "LOW_2",
+            "LOW_2"
+          ],
+          [
+            "HIGH_3",
+            "HIGH_1",
+            "HIGH_1"
+          ],
+          [
+            "HIGH_1",
+            "HIGH_2",
+            "LOW_1"
+          ],
+          [
+            "HIGH_2",
+            "HIGH_1",
+            "HIGH_1"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "actions": [
+      {
+        "name": "stopReels",
+        "board": [
+          [
+            "HIGH_2",
+            "LOW_4",
+            "HIGH_4"
+          ],
+          [
+            "HIGH_1",
+            "LOW_1",
+            "LOW_3"
+          ],
+          [
+            "HIGH_2",
+            "HIGH_2",
+            "LOW_2"
+          ],
+          [
+            "LOW_4",
+            "HIGH_1",
+            "HIGH_1"
+          ],
+          [
+            "LOW_1",
+            "SCATTER",
+            "LOW_2"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "actions": [
+      {
+        "name": "stopReels",
+        "board": [
+          [
+            "LOW_3",
+            "HIGH_2",
+            "HIGH_2"
+          ],
+          [
+            "LOW_1",
+            "LOW_4",
+            "HIGH_3"
+          ],
+          [
+            "LOW_3",
+            "LOW_1",
+            "LOW_4"
+          ],
+          [
+            "HIGH_4",
+            "HIGH_4",
+            "LOW_2"
+          ],
+          [
+            "HIGH_1",
+            "LOW_3",
+            "LOW_3"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "actions": [
+      {
+        "name": "stopReels",
+        "board": [
+          [
+            "HIGH_2",
+            "LOW_3",
+            "LOW_3"
+          ],
+          [
+            "HIGH_3",
+            "LOW_1",
+            "HIGH_4"
+          ],
+          [
+            "LOW_4",
+            "SCATTER",
+            "LOW_4"
+          ],
+          [
+            "HIGH_4",
+            "HIGH_3",
+            "LOW_1"
+          ],
+          [
+            "SCATTER",
+            "LOW_4",
+            "HIGH_4"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "actions": [
+      {
+        "name": "stopReels",
+        "board": [
+          [
+            "HIGH_1",
+            "HIGH_4",
+            "LOW_2"
+          ],
+          [
+            "LOW_4",
+            "LOW_1",
+            "HIGH_3"
+          ],
+          [
+            "HIGH_4",
+            "LOW_3",
+            "LOW_4"
+          ],
+          [
+            "LOW_4",
+            "LOW_2",
+            "HIGH_3"
+          ],
+          [
+            "HIGH_4",
+            "LOW_3",
+            "HIGH_2"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "actions": [
+      {
+        "name": "stopReels",
+        "board": [
+          [
+            "HIGH_3",
+            "HIGH_2",
+            "LOW_1"
+          ],
+          [
+            "HIGH_3",
+            "HIGH_4",
+            "LOW_4"
+          ],
+          [
+            "LOW_3",
+            "HIGH_1",
+            "LOW_2"
+          ],
+          [
+            "LOW_4",
+            "HIGH_2",
+            "LOW_1"
+          ],
+          [
+            "LOW_4",
+            "LOW_3",
+            "LOW_1"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "actions": [
+      {
+        "name": "stopReels",
+        "board": [
+          [
+            "LOW_1",
+            "LOW_2",
+            "HIGH_4"
+          ],
+          [
+            "HIGH_1",
+            "HIGH_1",
+            "LOW_3"
+          ],
+          [
+            "LOW_1",
+            "HIGH_1",
+            "LOW_2"
+          ],
+          [
+            "LOW_3",
+            "HIGH_1",
+            "LOW_4"
+          ],
+          [
+            "HIGH_3",
+            "HIGH_2",
+            "HIGH_1"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "actions": [
+      {
+        "name": "stopReels",
+        "board": [
+          [
+            "HIGH_2",
+            "HIGH_1",
+            "LOW_2"
+          ],
+          [
+            "HIGH_1",
+            "LOW_2",
+            "LOW_1"
+          ],
+          [
+            "HIGH_1",
+            "HIGH_4",
+            "HIGH_4"
+          ],
+          [
+            "HIGH_2",
+            "HIGH_2",
+            "LOW_1"
+          ],
+          [
+            "HIGH_4",
+            "HIGH_4",
+            "LOW_1"
+          ]
+        ]
+      },
+      {
+        "name": "showWinResult",
+        "positions": [
+          {
+            "column": 0,
+            "row": 1
+          },
+          {
+            "column": 1,
+            "row": 0
+          },
+          {
+            "column": 2,
+            "row": 0
+          }
+        ],
+        "win": [
+          {
+            "cashWin": 0.05,
+            "coinWin": 5
+          }
+        ],
+        "totalFreeSpinsWin": {
+          "cashWin": 0.05,
+          "coinWin": 5
+        }
+      },
+      {
+        "name": "showAvalancheAccumulatedWin",
+        "win": {
+          "cashWin": 0.05,
+          "coinWin": 5
+        }
+      },
+      {
+        "name": "destroySymbols",
+        "positions": [
+          {
+            "column": 0,
+            "row": 1
+          },
+          {
+            "column": 1,
+            "row": 0
+          },
+          {
+            "column": 2,
+            "row": 0
+          }
+        ]
+      },
+      {
+        "name": "bringNewSymbols",
+        "symbols": [
+          {
+            "position": {
+              "column": 2,
+              "row": 0
+            },
+            "type": "WILD"
+          }
+        ]
+      },
+      {
+        "name": "shiftSymbols",
+        "positionShifts": [
+          {
+            "origin": {
+              "column": 0,
+              "row": 0
+            },
+            "target": {
+              "column": 0,
+              "row": 1
+            }
+          }
+        ]
+      },
+      {
+        "name": "setGlobalMultiplier",
+        "multiplier": 2
+      },
+      {
+        "name": "fillSymbols",
+        "symbols": [
+          {
+            "position": {
+              "column": 0,
+              "row": 0
+            },
+            "type": "HIGH_4"
+          },
+          {
+            "position": {
+              "column": 1,
+              "row": 0
+            },
+            "type": "LOW_2"
+          }
+        ]
+      },
+      {
+        "name": "showWinResult",
+        "positions": [
+          {
+            "column": 0,
+            "row": 2
+          },
+          {
+            "column": 1,
+            "row": 0
+          },
+          {
+            "column": 1,
+            "row": 1
+          },
+          {
+            "column": 2,
+            "row": 0
+          }
+        ],
+        "win": [
+          {
+            "cashWin": 0.02,
+            "coinWin": 2
+          },
+          {
+            "cashWin": 0.04,
+            "coinWin": 4,
+            "multiplier": {
+              "value": 2
+            }
+          }
+        ],
+        "totalFreeSpinsWin": {
+          "cashWin": 0.09,
+          "coinWin": 9
+        }
+      },
+      {
+        "name": "showAvalancheAccumulatedWin",
+        "win": {
+          "cashWin": 0.09,
+          "coinWin": 9
+        }
+      },
+      {
+        "name": "destroySymbols",
+        "positions": [
+          {
+            "column": 0,
+            "row": 2
+          },
+          {
+            "column": 1,
+            "row": 0
+          },
+          {
+            "column": 1,
+            "row": 1
+          },
+          {
+            "column": 2,
+            "row": 0
+          }
+        ]
+      },
+      {
+        "name": "bringNewSymbols",
+        "symbols": [
+          {
+            "position": {
+              "column": 2,
+              "row": 0
+            },
+            "type": "WILD"
+          }
+        ]
+      },
+      {
+        "name": "shiftSymbols",
+        "positionShifts": [
+          {
+            "origin": {
+              "column": 0,
+              "row": 1
+            },
+            "target": {
+              "column": 0,
+              "row": 2
+            }
+          },
+          {
+            "origin": {
+              "column": 0,
+              "row": 0
+            },
+            "target": {
+              "column": 0,
+              "row": 1
+            }
+          }
+        ]
+      },
+      {
+        "name": "setGlobalMultiplier",
+        "multiplier": 4
+      },
+      {
+        "name": "fillSymbols",
+        "symbols": [
+          {
+            "position": {
+              "column": 0,
+              "row": 0
+            },
+            "type": "HIGH_4"
+          },
+          {
+            "position": {
+              "column": 1,
+              "row": 0
+            },
+            "type": "HIGH_2"
+          },
+          {
+            "position": {
+              "column": 1,
+              "row": 1
+            },
+            "type": "HIGH_2"
+          }
+        ]
+      },
+      {
+        "name": "showWinResult",
+        "positions": [
+          {
+            "column": 0,
+            "row": 2
+          },
+          {
+            "column": 1,
+            "row": 0
+          },
+          {
+            "column": 1,
+            "row": 1
+          },
+          {
+            "column": 2,
+            "row": 0
+          },
+          {
+            "column": 3,
+            "row": 0
+          },
+          {
+            "column": 3,
+            "row": 1
+          }
+        ],
+        "win": [
+          {
+            "cashWin": 0.24,
+            "coinWin": 24
+          },
+          {
+            "cashWin": 0.96,
+            "coinWin": 96,
+            "multiplier": {
+              "value": 4
+            }
+          }
+        ],
+        "totalFreeSpinsWin": {
+          "cashWin": 1.05,
+          "coinWin": 105
+        }
+      },
+      {
+        "name": "showAvalancheAccumulatedWin",
+        "win": {
+          "cashWin": 1.05,
+          "coinWin": 105
+        }
+      },
+      {
+        "name": "destroySymbols",
+        "positions": [
+          {
+            "column": 0,
+            "row": 2
+          },
+          {
+            "column": 1,
+            "row": 0
+          },
+          {
+            "column": 1,
+            "row": 1
+          },
+          {
+            "column": 2,
+            "row": 0
+          },
+          {
+            "column": 3,
+            "row": 0
+          },
+          {
+            "column": 3,
+            "row": 1
+          }
+        ]
+      },
+      {
+        "name": "bringNewSymbols",
+        "symbols": [
+          {
+            "position": {
+              "column": 2,
+              "row": 0
+            },
+            "type": "WILD"
+          }
+        ]
+      },
+      {
+        "name": "shiftSymbols",
+        "positionShifts": [
+          {
+            "origin": {
+              "column": 0,
+              "row": 1
+            },
+            "target": {
+              "column": 0,
+              "row": 2
+            }
+          },
+          {
+            "origin": {
+              "column": 0,
+              "row": 0
+            },
+            "target": {
+              "column": 0,
+              "row": 1
+            }
+          }
+        ]
+      },
+      {
+        "name": "setGlobalMultiplier",
+        "multiplier": 8
+      },
+      {
+        "name": "fillSymbols",
+        "symbols": [
+          {
+            "position": {
+              "column": 0,
+              "row": 0
+            },
+            "type": "LOW_4"
+          },
+          {
+            "position": {
+              "column": 1,
+              "row": 0
+            },
+            "type": "HIGH_2"
+          },
+          {
+            "position": {
+              "column": 1,
+              "row": 1
+            },
+            "type": "LOW_2"
+          },
+          {
+            "position": {
+              "column": 3,
+              "row": 0
+            },
+            "type": "HIGH_2"
+          },
+          {
+            "position": {
+              "column": 3,
+              "row": 1
+            },
+            "type": "LOW_2"
+          }
+        ]
+      },
+      {
+        "name": "showAccumulatedWin",
+        "win": {
+          "cashWin": 1.05,
+          "coinWin": 105
+        }
+      },
+      {
+        "name": "setGlobalMultiplier",
+        "multiplier": 1
+      }
+    ],
+    "finalBoard": [
+      [
+        "LOW_4",
+        "HIGH_4",
+        "HIGH_4"
+      ],
+      [
+        "HIGH_2",
+        "LOW_2",
+        "LOW_1"
+      ],
+      [
+        "WILD",
+        "HIGH_4",
+        "HIGH_4"
+      ],
+      [
+        "HIGH_2",
+        "LOW_2",
+        "LOW_1"
+      ],
+      [
+        "HIGH_4",
+        "HIGH_4",
+        "LOW_1"
+      ]
+    ]
+  },
+  {},
+  {
+    "actions": [
+      {
+        "name": "stopReels",
+        "board": [
+          [
+            "LOW_2",
+            "LOW_1",
+            "HIGH_2"
+          ],
+          [
+            "LOW_3",
+            "LOW_4",
+            "HIGH_1"
+          ],
+          [
+            "LOW_4",
+            "HIGH_2",
+            "LOW_1"
+          ],
+          [
+            "HIGH_2",
+            "LOW_1",
+            "LOW_3"
+          ],
+          [
+            "LOW_1",
+            "HIGH_2",
+            "LOW_4"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "actions": [
+      {
+        "name": "stopReels",
+        "board": [
+          [
+            "LOW_3",
+            "LOW_3",
+            "HIGH_4"
+          ],
+          [
+            "LOW_1",
+            "HIGH_4",
+            "LOW_3"
+          ],
+          [
+            "LOW_4",
+            "HIGH_3",
+            "LOW_2"
+          ],
+          [
+            "HIGH_3",
+            "LOW_3",
+            "HIGH_4"
+          ],
+          [
+            "HIGH_4",
+            "HIGH_2",
+            "HIGH_1"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "actions": [
+      {
+        "name": "stopReels",
+        "board": [
+          [
+            "HIGH_4",
+            "LOW_3",
+            "HIGH_1"
+          ],
+          [
+            "LOW_3",
+            "HIGH_4",
+            "HIGH_1"
+          ],
+          [
+            "HIGH_3",
+            "HIGH_3",
+            "LOW_1"
+          ],
+          [
+            "HIGH_4",
+            "LOW_1",
+            "LOW_2"
+          ],
+          [
+            "HIGH_2",
+            "HIGH_2",
+            "LOW_4"
+          ]
+        ]
+      }
+    ]
+  }
+]

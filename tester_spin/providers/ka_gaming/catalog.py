@@ -10,7 +10,7 @@ CATALOG_URL = "https://rmpdemo.kaga88.com/kaga/publicGameList"
 
 _FEATURE_MODE_IDS = {
     "fg": "FREE_GAMES",
-    "bp": "BONUS_PURCHASE",
+    "bp": "BONUS_FEATURE_UNCLASSIFIED",
     "br": "BONUS_RESPIN",
     "sk": "SKILL_FEATURE",
     "spg": "SPECIAL_GAME",
@@ -36,8 +36,12 @@ def declared_modes_from_row(row: dict[str, Any]) -> list[dict[str, Any]]:
     # it visible without turning an advertised feature into a required branch.
     modes = [{"id": "SPIN", "kind": variant, "source": "catalog", "executable": False, "coverage_required": False}]
     feature_ids = {str(feature).strip().casefold() for feature in row.get("availableFeatures", [])}
-    if bool(row.get("supportsBuyFeature")):
-        feature_ids.add("bp")
+    if row.get("supportsBuyFeature") is True:
+        modes.append({"id": "BUY_BONUS_UNRESOLVED", "kind": "UNKNOWN_FEATURE",
+                      "source": "catalog.supportsBuyFeature", "observed": True,
+                      "executable": False, "coverage_required": True,
+                      "required_options": ["DOMAIN_UNRESOLVED"], "covered_options": [],
+                      "reason": "CURRENT_PURCHASE_DOMAIN_REQUIRED"})
     for feature in sorted(feature_ids):
         mode_id = _FEATURE_MODE_IDS.get(feature, f"FEATURE_{feature.upper()}")
         modes.append({"id": mode_id, "kind": "FEATURE", "source": "catalog", "executable": False, "coverage_required": False})

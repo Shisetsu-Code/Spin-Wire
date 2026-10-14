@@ -1,0 +1,380 @@
+[
+  {
+    "step": 1,
+    "betamount": "0.10",
+    "betcurrency": "EUR",
+    "wonamount": "0.00",
+    "status": "RESULTED",
+    "betdata": {
+      "coin": "0.005",
+      "cashBet": "0.10",
+      "cmd": "BASE_SPIN",
+      "accWa": "0.00",
+      "accC": 0
+    },
+    "eventdata": {
+      "accC": 20,
+      "accWa": "0.10",
+      "initialPlayerState": {
+        "collections": {
+          "leftHunter": {
+            "amount": 50,
+            "gathered": 0,
+            "coinsSum": "0.00"
+          },
+          "rightHunter": {
+            "amount": 20,
+            "gathered": 0,
+            "coinsSum": "0.00"
+          },
+          "wolfHp": {
+            "amount": 600,
+            "gathered": 0,
+            "coinsSum": "0.00"
+          },
+          "userWonFreespins": false
+        },
+        "newUser": false
+      },
+      "response": {
+        "coinWin": 20,
+        "cashWin": "0.10",
+        "clientData": {
+          "accC": 20,
+          "accWa": "0.10",
+          "beforeCollections": {
+            "leftHunter": {
+              "amount": 50,
+              "gathered": 0,
+              "coinsSum": "0.00"
+            },
+            "rightHunter": {
+              "amount": 20,
+              "gathered": 0,
+              "coinsSum": "0.00"
+            },
+            "wolfHp": {
+              "amount": 600,
+              "gathered": 0,
+              "coinsSum": "0.00"
+            },
+            "userWonFreespins": false
+          },
+          "coinValue": "0.005",
+          "collections": {
+            "leftHunter": {
+              "amount": 50,
+              "gathered": 0,
+              "coinsSum": "0.00"
+            },
+            "rightHunter": {
+              "amount": 20,
+              "gathered": 0,
+              "coinsSum": "0.00"
+            },
+            "wolfHp": {
+              "amount": 600,
+              "gathered": 0,
+              "coinsSum": "0.00"
+            },
+            "userWonFreespins": false
+          },
+          "fights": [],
+          "finalBoard": [
+            [
+              "Wild",
+              "Low3",
+              "Low3"
+            ],
+            [
+              "Wild",
+              "Low1",
+              "Low1"
+            ],
+            [
+              "Low4",
+              "Low4",
+              "High3"
+            ],
+            [
+              "Low2",
+              "Low3",
+              "High3"
+            ],
+            [
+              "High4",
+              "High4",
+              "Low1"
+            ]
+          ],
+          "freespinsAwarded": {},
+          "leftHunterWeapon": 0,
+          "reelSet": "BaseReels1",
+          "reels": [
+            [
+              "Wild",
+              "Low3",
+              "Low3"
+            ],
+            [
+              "Wild",
+              "Low1",
+              "Low1"
+            ],
+            [
+              "Low4",
+              "Low4",
+              "High3"
+            ],
+            [
+              "Low2",
+              "Low3",
+              "High3"
+            ],
+            [
+              "High4",
+              "High4",
+              "Low1"
+            ]
+          ],
+          "respinWon": true,
+          "rightHunterWeapon": 0,
+          "rpos": [
+            86,
+            33,
+            20,
+            180,
+            48
+          ],
+          "spinName": "BaseSpin",
+          "stickyA": "100100000000000",
+          "stickyB": "000000000000000",
+          "stickyN": "100100000000000",
+          "wonCoins": 20,
+          "wonMoney": "0.10",
+          "wtw": [
+            [
+              2,
+              10,
+              "100100100000000",
+              "0.05",
+              10,
+              "0.05"
+            ],
+            [
+              12,
+              10,
+              "100100010000000",
+              "0.05",
+              10,
+              "0.05"
+            ]
+          ]
+        }
+      }
+    }
+  },
+  {
+    "step": 2,
+    "betamount": "0.00",
+    "betcurrency": "EUR",
+    "wonamount": "0.00",
+    "status": "RESULTED",
+    "betdata": {
+      "coin": "0.005",
+      "cashBet": "0.10",
+      "cmd": "BASE_SPIN",
+      "accWa": "0.20",
+      "accC": 40,
+      "cmds": [
+        "C"
+      ]
+    },
+    "eventdata": {
+      "accC": 40,
+      "accWa": "0.20",
+      "boostData": {
+        "collectedWolfSymbols": 0,
+        "collectedMaleHunterBonusSymbols": 0,
+        "collectedFemaleHunterBonusSymbols": 0,
+        "collectedMaleHunterRagePoints": 0,
+        "collectedFemaleHunterRagePoints": 0
+      },
+      "nextCmds": "C",
+      "playerState": {
+        "collections": {
+          "leftHunter": {
+            "amount": 50,
+            "gathered": 0,
+            "coinsSum": "0.00"
+          },
+          "rightHunter": {
+            "amount": 20,
+            "gathered": 0,
+            "coinsSum": "0.00"
+          },
+          "wolfHp": {
+            "amount": 600,
+            "gathered": 0,
+            "coinsSum": "0.00"
+          },
+          "userWonFreespins": false
+        },
+        "newUser": false
+      },
+      "response": {
+        "coinWin": 20,
+        "cashWin": "0.10",
+        "clientData": {
+          "accC": 40,
+          "accWa": "0.20",
+          "beforeCollections": {
+            "leftHunter": {
+              "amount": 50,
+              "gathered": 0,
+              "coinsSum": "0.00"
+            },
+            "rightHunter": {
+              "amount": 20,
+              "gathered": 0,
+              "coinsSum": "0.00"
+            },
+            "wolfHp": {
+              "amount": 600,
+              "gathered": 0,
+              "coinsSum": "0.00"
+            },
+            "userWonFreespins": false
+          },
+          "coinValue": "0.005",
+          "collections": {
+            "leftHunter": {
+              "amount": 50,
+              "gathered": 0,
+              "coinsSum": "0.00"
+            },
+            "rightHunter": {
+              "amount": 20,
+              "gathered": 0,
+              "coinsSum": "0.00"
+            },
+            "wolfHp": {
+              "amount": 600,
+              "gathered": 0,
+              "coinsSum": "0.00"
+            },
+            "userWonFreespins": false
+          },
+          "fights": [],
+          "finalBoard": [
+            [
+              "Wild",
+              "High4",
+              "High4"
+            ],
+            [
+              "Wild",
+              "Low1",
+              "Low1"
+            ],
+            [
+              "Low4",
+              "Low4",
+              "Low4"
+            ],
+            [
+              "High4",
+              "Low2",
+              "Low2"
+            ],
+            [
+              "Low2",
+              "Low4",
+              "Low1"
+            ]
+          ],
+          "freespinsAwarded": {},
+          "leftHunterWeapon": 0,
+          "reelSet": "RespinReels3",
+          "reels": [
+            [
+              "Low3",
+              "High4",
+              "High4"
+            ],
+            [
+              "High2",
+              "Low1",
+              "Low1"
+            ],
+            [
+              "Low4",
+              "Low4",
+              "Low4"
+            ],
+            [
+              "High4",
+              "Low2",
+              "Low2"
+            ],
+            [
+              "Low2",
+              "Low4",
+              "Low1"
+            ]
+          ],
+          "respinWon": false,
+          "rightHunterWeapon": 0,
+          "rpos": [
+            114,
+            5,
+            215,
+            134,
+            3
+          ],
+          "spinName": "BaseSpin",
+          "stickyA": "000000000000000",
+          "stickyB": "100100000000000",
+          "stickyN": "000000000000000",
+          "wonCoins": 20,
+          "wonMoney": "0.10",
+          "wtw": [
+            [
+              2,
+              10,
+              "100100100000000",
+              "0.05",
+              10,
+              "0.05"
+            ],
+            [
+              12,
+              10,
+              "100100010000000",
+              "0.05",
+              10,
+              "0.05"
+            ]
+          ]
+        }
+      }
+    }
+  },
+  {
+    "step": 3,
+    "betamount": "0.00",
+    "betcurrency": "EUR",
+    "wonamount": "0.20",
+    "status": "RESULTED",
+    "betdata": {
+      "coin": "0.005",
+      "cashBet": "0.10",
+      "cmd": "C",
+      "accWa": "0.20",
+      "accC": 40
+    },
+    "eventdata": {
+      "exactWon": "0.2000"
+    }
+  }
+]

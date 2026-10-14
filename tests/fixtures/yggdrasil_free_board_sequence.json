@@ -1,0 +1,1531 @@
+[
+  {
+    "step": 1,
+    "betamount": "0.10",
+    "betcurrency": "EUR",
+    "wonamount": "0.00",
+    "status": "RESULTED",
+    "betdata": {
+      "coin": "0.005",
+      "cashBet": "0.10",
+      "cmd": "BASE_SPIN",
+      "accWa": "0.00",
+      "accC": 0
+    },
+    "eventdata": {
+      "accC": 0,
+      "accWa": "0.00",
+      "response": {
+        "coinWin": 0,
+        "cashWin": "0.00",
+        "clientData": {
+          "win": {
+            "prizes": [],
+            "wonCoins": 0,
+            "wonCash": "0.00",
+            "accumulatedWonCoins": 0,
+            "accumulatedWonCash": "0.00",
+            "accumulatedRoundWonCoins": 0,
+            "accumulatedRoundWonCash": "0.00"
+          },
+          "reels": {
+            "reelSetName": "baseReels1",
+            "reelStopPositions": [
+              321,
+              140,
+              658,
+              437,
+              296
+            ]
+          },
+          "initialBoard": [
+            [
+              "LOW_3",
+              "SCATTER",
+              "HIGH_4"
+            ],
+            [
+              "HIGH_2",
+              "LOW_2",
+              "SCATTER"
+            ],
+            [
+              "LOW_3",
+              "HIGH_2",
+              "SCATTER"
+            ],
+            [
+              "LOW_3",
+              "LOW_2",
+              "HIGH_3"
+            ],
+            [
+              "HIGH_1",
+              "LOW_4",
+              "HIGH_3"
+            ]
+          ],
+          "finalBoard": [
+            [
+              "LOW_3",
+              "SCATTER",
+              "HIGH_4"
+            ],
+            [
+              "HIGH_2",
+              "LOW_2",
+              "SCATTER"
+            ],
+            [
+              "LOW_3",
+              "HIGH_2",
+              "SCATTER"
+            ],
+            [
+              "LOW_3",
+              "LOW_2",
+              "HIGH_3"
+            ],
+            [
+              "HIGH_1",
+              "LOW_4",
+              "HIGH_3"
+            ]
+          ],
+          "multiplier": 1,
+          "winPositions": [],
+          "freeSpinsAwarded": 8
+        }
+      }
+    }
+  },
+  {
+    "step": 2,
+    "betamount": "0.00",
+    "betcurrency": "EUR",
+    "wonamount": "0.00",
+    "status": "RESULTED",
+    "betdata": null,
+    "eventdata": {
+      "accC": 108,
+      "accWa": "0.54",
+      "response": {
+        "coinWin": 108,
+        "cashWin": "0.54",
+        "clientData": {
+          "win": {
+            "prizes": [
+              {
+                "symbol": "HIGH_2",
+                "oak": 3,
+                "positions": [
+                  {
+                    "x": 0,
+                    "y": 1
+                  },
+                  {
+                    "x": 1,
+                    "y": 1
+                  },
+                  {
+                    "x": 2,
+                    "y": 1
+                  }
+                ],
+                "coins": 20,
+                "cash": "0.10",
+                "payline": 0,
+                "multiplier": 1,
+                "coinsBeforeMultiplier": 20,
+                "cashBeforeMultiplier": "0.10"
+              },
+              {
+                "symbol": "HIGH_4",
+                "oak": 3,
+                "positions": [
+                  {
+                    "x": 0,
+                    "y": 2
+                  },
+                  {
+                    "x": 1,
+                    "y": 1
+                  },
+                  {
+                    "x": 2,
+                    "y": 0
+                  }
+                ],
+                "coins": 16,
+                "cash": "0.08",
+                "payline": 4,
+                "multiplier": 1,
+                "coinsBeforeMultiplier": 16,
+                "cashBeforeMultiplier": "0.08"
+              },
+              {
+                "symbol": "HIGH_2",
+                "oak": 3,
+                "positions": [
+                  {
+                    "x": 0,
+                    "y": 1
+                  },
+                  {
+                    "x": 1,
+                    "y": 0
+                  },
+                  {
+                    "x": 2,
+                    "y": 1
+                  }
+                ],
+                "coins": 20,
+                "cash": "0.10",
+                "payline": 15,
+                "multiplier": 1,
+                "coinsBeforeMultiplier": 20,
+                "cashBeforeMultiplier": "0.10"
+              },
+              {
+                "symbol": "HIGH_2",
+                "oak": 3,
+                "positions": [
+                  {
+                    "x": 0,
+                    "y": 1
+                  },
+                  {
+                    "x": 1,
+                    "y": 2
+                  },
+                  {
+                    "x": 2,
+                    "y": 1
+                  }
+                ],
+                "coins": 20,
+                "cash": "0.10",
+                "payline": 16,
+                "multiplier": 1,
+                "coinsBeforeMultiplier": 20,
+                "cashBeforeMultiplier": "0.10"
+              },
+              {
+                "symbol": "HIGH_4",
+                "oak": 3,
+                "positions": [
+                  {
+                    "x": 0,
+                    "y": 2
+                  },
+                  {
+                    "x": 1,
+                    "y": 0
+                  },
+                  {
+                    "x": 2,
+                    "y": 0
+                  }
+                ],
+                "coins": 16,
+                "cash": "0.08",
+                "payline": 18,
+                "multiplier": 1,
+                "coinsBeforeMultiplier": 16,
+                "cashBeforeMultiplier": "0.08"
+              },
+              {
+                "symbol": "HIGH_4",
+                "oak": 3,
+                "positions": [
+                  {
+                    "x": 0,
+                    "y": 2
+                  },
+                  {
+                    "x": 1,
+                    "y": 2
+                  },
+                  {
+                    "x": 2,
+                    "y": 0
+                  }
+                ],
+                "coins": 16,
+                "cash": "0.08",
+                "payline": 19,
+                "multiplier": 1,
+                "coinsBeforeMultiplier": 16,
+                "cashBeforeMultiplier": "0.08"
+              }
+            ],
+            "wonCoins": 108,
+            "wonCash": "0.54",
+            "accumulatedWonCoins": 108,
+            "accumulatedWonCash": "0.54",
+            "accumulatedRoundWonCoins": 0,
+            "accumulatedRoundWonCash": "0.00"
+          },
+          "reels": {
+            "reelSetName": "freeSpinReels0",
+            "reelStopPositions": [
+              482,
+              619,
+              166,
+              221,
+              669
+            ]
+          },
+          "initialBoard": [
+            [
+              "LOW_2",
+              "HIGH_2",
+              "HIGH_4"
+            ],
+            [
+              "WILD",
+              "LOW_2",
+              "LOW_3"
+            ],
+            [
+              "HIGH_4",
+              "HIGH_2",
+              "LOW_4"
+            ],
+            [
+              "LOW_2",
+              "SCATTER",
+              "LOW_1"
+            ],
+            [
+              "HIGH_3",
+              "LOW_3",
+              "LOW_4"
+            ]
+          ],
+          "finalBoard": [
+            [
+              "EMPTY",
+              "EMPTY",
+              "LOW_2"
+            ],
+            [
+              "EMPTY",
+              "EMPTY",
+              "EMPTY"
+            ],
+            [
+              "EMPTY",
+              "EMPTY",
+              "LOW_4"
+            ],
+            [
+              "LOW_2",
+              "SCATTER",
+              "LOW_1"
+            ],
+            [
+              "HIGH_3",
+              "LOW_3",
+              "LOW_4"
+            ]
+          ],
+          "multiplier": 1,
+          "winPositions": [
+            {
+              "row": 2,
+              "column": 1
+            },
+            {
+              "row": 1,
+              "column": 0
+            },
+            {
+              "row": 1,
+              "column": 1
+            },
+            {
+              "row": 1,
+              "column": 2
+            },
+            {
+              "row": 0,
+              "column": 1
+            },
+            {
+              "row": 0,
+              "column": 2
+            },
+            {
+              "row": 2,
+              "column": 0
+            }
+          ],
+          "positionShifts": [
+            {
+              "origin": {
+                "row": 0,
+                "column": 0
+              },
+              "target": {
+                "row": 2,
+                "column": 0
+              }
+            }
+          ],
+          "columnIndexToNewWildsNumber": {
+            "1": 3
+          },
+          "freeSpinsLeft": 8,
+          "respinAwarded": true
+        }
+      }
+    }
+  },
+  {
+    "step": 3,
+    "betamount": "0.00",
+    "betcurrency": "EUR",
+    "wonamount": "0.00",
+    "status": "RESULTED",
+    "betdata": null,
+    "eventdata": {
+      "accC": 236,
+      "accWa": "1.18",
+      "response": {
+        "coinWin": 128,
+        "cashWin": "0.64",
+        "clientData": {
+          "win": {
+            "prizes": [
+              {
+                "symbol": "LOW_4",
+                "oak": 3,
+                "positions": [
+                  {
+                    "x": 0,
+                    "y": 0
+                  },
+                  {
+                    "x": 1,
+                    "y": 0
+                  },
+                  {
+                    "x": 2,
+                    "y": 0
+                  }
+                ],
+                "coins": 16,
+                "cash": "0.08",
+                "payline": 1,
+                "multiplier": 2,
+                "coinsBeforeMultiplier": 8,
+                "cashBeforeMultiplier": "0.04"
+              },
+              {
+                "symbol": "LOW_4",
+                "oak": 3,
+                "positions": [
+                  {
+                    "x": 0,
+                    "y": 0
+                  },
+                  {
+                    "x": 1,
+                    "y": 1
+                  },
+                  {
+                    "x": 2,
+                    "y": 2
+                  }
+                ],
+                "coins": 16,
+                "cash": "0.08",
+                "payline": 3,
+                "multiplier": 2,
+                "coinsBeforeMultiplier": 8,
+                "cashBeforeMultiplier": "0.04"
+              },
+              {
+                "symbol": "LOW_4",
+                "oak": 3,
+                "positions": [
+                  {
+                    "x": 0,
+                    "y": 1
+                  },
+                  {
+                    "x": 1,
+                    "y": 0
+                  },
+                  {
+                    "x": 2,
+                    "y": 0
+                  }
+                ],
+                "coins": 16,
+                "cash": "0.08",
+                "payline": 7,
+                "multiplier": 2,
+                "coinsBeforeMultiplier": 8,
+                "cashBeforeMultiplier": "0.04"
+              },
+              {
+                "symbol": "LOW_4",
+                "oak": 3,
+                "positions": [
+                  {
+                    "x": 0,
+                    "y": 1
+                  },
+                  {
+                    "x": 1,
+                    "y": 2
+                  },
+                  {
+                    "x": 2,
+                    "y": 2
+                  }
+                ],
+                "coins": 16,
+                "cash": "0.08",
+                "payline": 8,
+                "multiplier": 2,
+                "coinsBeforeMultiplier": 8,
+                "cashBeforeMultiplier": "0.04"
+              },
+              {
+                "symbol": "LOW_4",
+                "oak": 3,
+                "positions": [
+                  {
+                    "x": 0,
+                    "y": 1
+                  },
+                  {
+                    "x": 1,
+                    "y": 1
+                  },
+                  {
+                    "x": 2,
+                    "y": 0
+                  }
+                ],
+                "coins": 16,
+                "cash": "0.08",
+                "payline": 9,
+                "multiplier": 2,
+                "coinsBeforeMultiplier": 8,
+                "cashBeforeMultiplier": "0.04"
+              },
+              {
+                "symbol": "LOW_4",
+                "oak": 3,
+                "positions": [
+                  {
+                    "x": 0,
+                    "y": 1
+                  },
+                  {
+                    "x": 1,
+                    "y": 1
+                  },
+                  {
+                    "x": 2,
+                    "y": 2
+                  }
+                ],
+                "coins": 16,
+                "cash": "0.08",
+                "payline": 10,
+                "multiplier": 2,
+                "coinsBeforeMultiplier": 8,
+                "cashBeforeMultiplier": "0.04"
+              },
+              {
+                "symbol": "LOW_4",
+                "oak": 3,
+                "positions": [
+                  {
+                    "x": 0,
+                    "y": 0
+                  },
+                  {
+                    "x": 1,
+                    "y": 1
+                  },
+                  {
+                    "x": 2,
+                    "y": 0
+                  }
+                ],
+                "coins": 16,
+                "cash": "0.08",
+                "payline": 13,
+                "multiplier": 2,
+                "coinsBeforeMultiplier": 8,
+                "cashBeforeMultiplier": "0.04"
+              },
+              {
+                "symbol": "LOW_4",
+                "oak": 3,
+                "positions": [
+                  {
+                    "x": 0,
+                    "y": 0
+                  },
+                  {
+                    "x": 1,
+                    "y": 2
+                  },
+                  {
+                    "x": 2,
+                    "y": 2
+                  }
+                ],
+                "coins": 16,
+                "cash": "0.08",
+                "payline": 17,
+                "multiplier": 2,
+                "coinsBeforeMultiplier": 8,
+                "cashBeforeMultiplier": "0.04"
+              }
+            ],
+            "wonCoins": 128,
+            "wonCash": "0.64",
+            "accumulatedWonCoins": 236,
+            "accumulatedWonCash": "1.18",
+            "accumulatedRoundWonCoins": 0,
+            "accumulatedRoundWonCash": "0.00"
+          },
+          "reels": {
+            "reelSetName": "NO_REEL_SET",
+            "reelStopPositions": null
+          },
+          "initialBoard": [
+            [
+              "LOW_4",
+              "LOW_4",
+              "LOW_2"
+            ],
+            [
+              "WILD",
+              "WILD",
+              "WILD"
+            ],
+            [
+              "LOW_4",
+              "LOW_3",
+              "LOW_4"
+            ],
+            [
+              "LOW_2",
+              "SCATTER",
+              "LOW_1"
+            ],
+            [
+              "HIGH_3",
+              "LOW_3",
+              "LOW_4"
+            ]
+          ],
+          "finalBoard": [
+            [
+              "EMPTY",
+              "EMPTY",
+              "LOW_2"
+            ],
+            [
+              "EMPTY",
+              "EMPTY",
+              "EMPTY"
+            ],
+            [
+              "EMPTY",
+              "EMPTY",
+              "LOW_3"
+            ],
+            [
+              "LOW_2",
+              "SCATTER",
+              "LOW_1"
+            ],
+            [
+              "HIGH_3",
+              "LOW_3",
+              "LOW_4"
+            ]
+          ],
+          "multiplier": 2,
+          "winPositions": [
+            {
+              "row": 2,
+              "column": 1
+            },
+            {
+              "row": 2,
+              "column": 2
+            },
+            {
+              "row": 1,
+              "column": 0
+            },
+            {
+              "row": 1,
+              "column": 1
+            },
+            {
+              "row": 0,
+              "column": 0
+            },
+            {
+              "row": 0,
+              "column": 1
+            },
+            {
+              "row": 0,
+              "column": 2
+            }
+          ],
+          "positionShifts": [
+            {
+              "origin": {
+                "row": 1,
+                "column": 2
+              },
+              "target": {
+                "row": 2,
+                "column": 2
+              }
+            }
+          ],
+          "columnIndexToNewWildsNumber": {},
+          "freeSpinsLeft": 8,
+          "respinAwarded": true
+        }
+      }
+    }
+  },
+  {
+    "step": 4,
+    "betamount": "0.00",
+    "betcurrency": "EUR",
+    "wonamount": "0.00",
+    "status": "RESULTED",
+    "betdata": null,
+    "eventdata": {
+      "accC": 236,
+      "accWa": "1.18",
+      "response": {
+        "coinWin": 0,
+        "cashWin": "0.00",
+        "clientData": {
+          "win": {
+            "prizes": [],
+            "wonCoins": 0,
+            "wonCash": "0.00",
+            "accumulatedWonCoins": 236,
+            "accumulatedWonCash": "1.18",
+            "accumulatedRoundWonCoins": 0,
+            "accumulatedRoundWonCash": "0.00"
+          },
+          "reels": {
+            "reelSetName": "NO_REEL_SET",
+            "reelStopPositions": null
+          },
+          "initialBoard": [
+            [
+              "LOW_3",
+              "LOW_4",
+              "LOW_2"
+            ],
+            [
+              "HIGH_3",
+              "LOW_1",
+              "HIGH_1"
+            ],
+            [
+              "LOW_3",
+              "HIGH_4",
+              "LOW_3"
+            ],
+            [
+              "LOW_2",
+              "SCATTER",
+              "LOW_1"
+            ],
+            [
+              "HIGH_3",
+              "LOW_3",
+              "LOW_4"
+            ]
+          ],
+          "finalBoard": [
+            [
+              "LOW_3",
+              "LOW_4",
+              "LOW_2"
+            ],
+            [
+              "HIGH_3",
+              "LOW_1",
+              "HIGH_1"
+            ],
+            [
+              "LOW_3",
+              "HIGH_4",
+              "LOW_3"
+            ],
+            [
+              "LOW_2",
+              "SCATTER",
+              "LOW_1"
+            ],
+            [
+              "HIGH_3",
+              "LOW_3",
+              "LOW_4"
+            ]
+          ],
+          "multiplier": 3,
+          "winPositions": [],
+          "freeSpinsLeft": 7
+        }
+      }
+    }
+  },
+  {
+    "step": 5,
+    "betamount": "0.00",
+    "betcurrency": "EUR",
+    "wonamount": "0.00",
+    "status": "RESULTED",
+    "betdata": null,
+    "eventdata": {
+      "accC": 236,
+      "accWa": "1.18",
+      "response": {
+        "coinWin": 0,
+        "cashWin": "0.00",
+        "clientData": {
+          "win": {
+            "prizes": [],
+            "wonCoins": 0,
+            "wonCash": "0.00",
+            "accumulatedWonCoins": 236,
+            "accumulatedWonCash": "1.18",
+            "accumulatedRoundWonCoins": 0,
+            "accumulatedRoundWonCash": "0.00"
+          },
+          "reels": {
+            "reelSetName": "freeSpinReels1",
+            "reelStopPositions": [
+              625,
+              121,
+              73,
+              367,
+              317
+            ]
+          },
+          "initialBoard": [
+            [
+              "SCATTER",
+              "LOW_3",
+              "HIGH_1"
+            ],
+            [
+              "SCATTER",
+              "HIGH_2",
+              "LOW_2"
+            ],
+            [
+              "HIGH_2",
+              "LOW_1",
+              "HIGH_3"
+            ],
+            [
+              "LOW_3",
+              "LOW_2",
+              "LOW_4"
+            ],
+            [
+              "HIGH_3",
+              "LOW_2",
+              "HIGH_2"
+            ]
+          ],
+          "finalBoard": [
+            [
+              "SCATTER",
+              "LOW_3",
+              "HIGH_1"
+            ],
+            [
+              "SCATTER",
+              "HIGH_2",
+              "LOW_2"
+            ],
+            [
+              "HIGH_2",
+              "LOW_1",
+              "HIGH_3"
+            ],
+            [
+              "LOW_3",
+              "LOW_2",
+              "LOW_4"
+            ],
+            [
+              "HIGH_3",
+              "LOW_2",
+              "HIGH_2"
+            ]
+          ],
+          "multiplier": 3,
+          "winPositions": [],
+          "freeSpinsLeft": 6
+        }
+      }
+    }
+  },
+  {
+    "step": 6,
+    "betamount": "0.00",
+    "betcurrency": "EUR",
+    "wonamount": "0.00",
+    "status": "RESULTED",
+    "betdata": null,
+    "eventdata": {
+      "accC": 236,
+      "accWa": "1.18",
+      "response": {
+        "coinWin": 0,
+        "cashWin": "0.00",
+        "clientData": {
+          "win": {
+            "prizes": [],
+            "wonCoins": 0,
+            "wonCash": "0.00",
+            "accumulatedWonCoins": 236,
+            "accumulatedWonCash": "1.18",
+            "accumulatedRoundWonCoins": 0,
+            "accumulatedRoundWonCash": "0.00"
+          },
+          "reels": {
+            "reelSetName": "freeSpinReels1",
+            "reelStopPositions": [
+              484,
+              354,
+              635,
+              227,
+              660
+            ]
+          },
+          "initialBoard": [
+            [
+              "LOW_3",
+              "HIGH_2",
+              "LOW_2"
+            ],
+            [
+              "HIGH_2",
+              "LOW_2",
+              "LOW_4"
+            ],
+            [
+              "LOW_1",
+              "LOW_4",
+              "HIGH_1"
+            ],
+            [
+              "HIGH_3",
+              "LOW_1",
+              "LOW_3"
+            ],
+            [
+              "LOW_4",
+              "LOW_3",
+              "HIGH_2"
+            ]
+          ],
+          "finalBoard": [
+            [
+              "LOW_3",
+              "HIGH_2",
+              "LOW_2"
+            ],
+            [
+              "HIGH_2",
+              "LOW_2",
+              "LOW_4"
+            ],
+            [
+              "LOW_1",
+              "LOW_4",
+              "HIGH_1"
+            ],
+            [
+              "HIGH_3",
+              "LOW_1",
+              "LOW_3"
+            ],
+            [
+              "LOW_4",
+              "LOW_3",
+              "HIGH_2"
+            ]
+          ],
+          "multiplier": 3,
+          "winPositions": [],
+          "freeSpinsLeft": 5
+        }
+      }
+    }
+  },
+  {
+    "step": 7,
+    "betamount": "0.00",
+    "betcurrency": "EUR",
+    "wonamount": "0.00",
+    "status": "RESULTED",
+    "betdata": null,
+    "eventdata": {
+      "accC": 236,
+      "accWa": "1.18",
+      "response": {
+        "coinWin": 0,
+        "cashWin": "0.00",
+        "clientData": {
+          "win": {
+            "prizes": [],
+            "wonCoins": 0,
+            "wonCash": "0.00",
+            "accumulatedWonCoins": 236,
+            "accumulatedWonCash": "1.18",
+            "accumulatedRoundWonCoins": 0,
+            "accumulatedRoundWonCash": "0.00"
+          },
+          "reels": {
+            "reelSetName": "freeSpinReels0",
+            "reelStopPositions": [
+              280,
+              540,
+              580,
+              202,
+              647
+            ]
+          },
+          "initialBoard": [
+            [
+              "HIGH_2",
+              "LOW_3",
+              "HIGH_4"
+            ],
+            [
+              "HIGH_4",
+              "LOW_2",
+              "HIGH_1"
+            ],
+            [
+              "HIGH_2",
+              "HIGH_3",
+              "LOW_1"
+            ],
+            [
+              "LOW_4",
+              "HIGH_2",
+              "SCATTER"
+            ],
+            [
+              "HIGH_2",
+              "LOW_3",
+              "SCATTER"
+            ]
+          ],
+          "finalBoard": [
+            [
+              "HIGH_2",
+              "LOW_3",
+              "HIGH_4"
+            ],
+            [
+              "HIGH_4",
+              "LOW_2",
+              "HIGH_1"
+            ],
+            [
+              "HIGH_2",
+              "HIGH_3",
+              "LOW_1"
+            ],
+            [
+              "LOW_4",
+              "HIGH_2",
+              "SCATTER"
+            ],
+            [
+              "HIGH_2",
+              "LOW_3",
+              "SCATTER"
+            ]
+          ],
+          "multiplier": 3,
+          "winPositions": [],
+          "freeSpinsLeft": 4
+        }
+      }
+    }
+  },
+  {
+    "step": 8,
+    "betamount": "0.00",
+    "betcurrency": "EUR",
+    "wonamount": "0.00",
+    "status": "RESULTED",
+    "betdata": null,
+    "eventdata": {
+      "accC": 236,
+      "accWa": "1.18",
+      "response": {
+        "coinWin": 0,
+        "cashWin": "0.00",
+        "clientData": {
+          "win": {
+            "prizes": [],
+            "wonCoins": 0,
+            "wonCash": "0.00",
+            "accumulatedWonCoins": 236,
+            "accumulatedWonCash": "1.18",
+            "accumulatedRoundWonCoins": 0,
+            "accumulatedRoundWonCash": "0.00"
+          },
+          "reels": {
+            "reelSetName": "freeSpinReels1",
+            "reelStopPositions": [
+              214,
+              109,
+              426,
+              437,
+              630
+            ]
+          },
+          "initialBoard": [
+            [
+              "HIGH_3",
+              "HIGH_1",
+              "HIGH_4"
+            ],
+            [
+              "HIGH_4",
+              "LOW_2",
+              "LOW_4"
+            ],
+            [
+              "HIGH_3",
+              "HIGH_2",
+              "LOW_1"
+            ],
+            [
+              "LOW_4",
+              "LOW_3",
+              "LOW_2"
+            ],
+            [
+              "LOW_3",
+              "SCATTER",
+              "HIGH_3"
+            ]
+          ],
+          "finalBoard": [
+            [
+              "HIGH_3",
+              "HIGH_1",
+              "HIGH_4"
+            ],
+            [
+              "HIGH_4",
+              "LOW_2",
+              "LOW_4"
+            ],
+            [
+              "HIGH_3",
+              "HIGH_2",
+              "LOW_1"
+            ],
+            [
+              "LOW_4",
+              "LOW_3",
+              "LOW_2"
+            ],
+            [
+              "LOW_3",
+              "SCATTER",
+              "HIGH_3"
+            ]
+          ],
+          "multiplier": 3,
+          "winPositions": [],
+          "freeSpinsLeft": 3
+        }
+      }
+    }
+  },
+  {
+    "step": 9,
+    "betamount": "0.00",
+    "betcurrency": "EUR",
+    "wonamount": "0.00",
+    "status": "RESULTED",
+    "betdata": null,
+    "eventdata": {
+      "accC": 236,
+      "accWa": "1.18",
+      "response": {
+        "coinWin": 0,
+        "cashWin": "0.00",
+        "clientData": {
+          "win": {
+            "prizes": [],
+            "wonCoins": 0,
+            "wonCash": "0.00",
+            "accumulatedWonCoins": 236,
+            "accumulatedWonCash": "1.18",
+            "accumulatedRoundWonCoins": 0,
+            "accumulatedRoundWonCash": "0.00"
+          },
+          "reels": {
+            "reelSetName": "freeSpinReels1",
+            "reelStopPositions": [
+              73,
+              121,
+              415,
+              364,
+              642
+            ]
+          },
+          "initialBoard": [
+            [
+              "LOW_1",
+              "LOW_3",
+              "LOW_4"
+            ],
+            [
+              "SCATTER",
+              "HIGH_2",
+              "LOW_2"
+            ],
+            [
+              "HIGH_1",
+              "LOW_4",
+              "HIGH_3"
+            ],
+            [
+              "LOW_2",
+              "LOW_4",
+              "LOW_1"
+            ],
+            [
+              "HIGH_3",
+              "LOW_1",
+              "SCATTER"
+            ]
+          ],
+          "finalBoard": [
+            [
+              "LOW_1",
+              "LOW_3",
+              "LOW_4"
+            ],
+            [
+              "SCATTER",
+              "HIGH_2",
+              "LOW_2"
+            ],
+            [
+              "HIGH_1",
+              "LOW_4",
+              "HIGH_3"
+            ],
+            [
+              "LOW_2",
+              "LOW_4",
+              "LOW_1"
+            ],
+            [
+              "HIGH_3",
+              "LOW_1",
+              "SCATTER"
+            ]
+          ],
+          "multiplier": 3,
+          "winPositions": [],
+          "freeSpinsLeft": 2
+        }
+      }
+    }
+  },
+  {
+    "step": 10,
+    "betamount": "0.00",
+    "betcurrency": "EUR",
+    "wonamount": "0.00",
+    "status": "RESULTED",
+    "betdata": null,
+    "eventdata": {
+      "accC": 236,
+      "accWa": "1.18",
+      "response": {
+        "coinWin": 0,
+        "cashWin": "0.00",
+        "clientData": {
+          "win": {
+            "prizes": [],
+            "wonCoins": 0,
+            "wonCash": "0.00",
+            "accumulatedWonCoins": 236,
+            "accumulatedWonCash": "1.18",
+            "accumulatedRoundWonCoins": 0,
+            "accumulatedRoundWonCash": "0.00"
+          },
+          "reels": {
+            "reelSetName": "freeSpinReels0",
+            "reelStopPositions": [
+              403,
+              527,
+              186,
+              199,
+              625
+            ]
+          },
+          "initialBoard": [
+            [
+              "LOW_4",
+              "HIGH_2",
+              "LOW_3"
+            ],
+            [
+              "LOW_3",
+              "LOW_1",
+              "LOW_2"
+            ],
+            [
+              "HIGH_3",
+              "HIGH_4",
+              "LOW_3"
+            ],
+            [
+              "LOW_3",
+              "HIGH_4",
+              "LOW_1"
+            ],
+            [
+              "HIGH_2",
+              "LOW_4",
+              "HIGH_4"
+            ]
+          ],
+          "finalBoard": [
+            [
+              "LOW_4",
+              "HIGH_2",
+              "LOW_3"
+            ],
+            [
+              "LOW_3",
+              "LOW_1",
+              "LOW_2"
+            ],
+            [
+              "HIGH_3",
+              "HIGH_4",
+              "LOW_3"
+            ],
+            [
+              "LOW_3",
+              "HIGH_4",
+              "LOW_1"
+            ],
+            [
+              "HIGH_2",
+              "LOW_4",
+              "HIGH_4"
+            ]
+          ],
+          "multiplier": 3,
+          "winPositions": [],
+          "freeSpinsLeft": 1
+        }
+      }
+    }
+  },
+  {
+    "step": 11,
+    "betamount": "0.00",
+    "betcurrency": "EUR",
+    "wonamount": "0.00",
+    "status": "RESULTED",
+    "betdata": {
+      "coin": "0.005",
+      "cashBet": "0.10",
+      "cmd": "BASE_SPIN",
+      "accWa": "1.18",
+      "accC": 236,
+      "cmds": [
+        "C"
+      ]
+    },
+    "eventdata": {
+      "accC": 236,
+      "accWa": "1.18",
+      "boostData": {
+        "boostDatas": [
+          {
+            "numberOfWilds": 0,
+            "multiplier": 1
+          },
+          {
+            "numberOfWilds": 0,
+            "multiplier": 1
+          },
+          {
+            "numberOfWilds": 0,
+            "multiplier": 2
+          },
+          {
+            "numberOfWilds": 0,
+            "multiplier": 3
+          },
+          {
+            "numberOfWilds": 0,
+            "multiplier": 3
+          },
+          {
+            "numberOfWilds": 0,
+            "multiplier": 3
+          },
+          {
+            "numberOfWilds": 0,
+            "multiplier": 3
+          },
+          {
+            "numberOfWilds": 0,
+            "multiplier": 3
+          },
+          {
+            "numberOfWilds": 0,
+            "multiplier": 3
+          },
+          {
+            "numberOfWilds": 0,
+            "multiplier": 3
+          },
+          {
+            "numberOfWilds": 0,
+            "multiplier": 3
+          }
+        ]
+      },
+      "nextCmds": "C",
+      "response": {
+        "coinWin": 0,
+        "cashWin": "0.00",
+        "clientData": {
+          "win": {
+            "prizes": [],
+            "wonCoins": 0,
+            "wonCash": "0.00",
+            "accumulatedWonCoins": 236,
+            "accumulatedWonCash": "1.18",
+            "accumulatedRoundWonCoins": 0,
+            "accumulatedRoundWonCash": "0.00"
+          },
+          "reels": {
+            "reelSetName": "freeSpinReels0",
+            "reelStopPositions": [
+              169,
+              60,
+              173,
+              28,
+              52
+            ]
+          },
+          "initialBoard": [
+            [
+              "LOW_4",
+              "LOW_2",
+              "LOW_3"
+            ],
+            [
+              "HIGH_2",
+              "HIGH_3",
+              "LOW_2"
+            ],
+            [
+              "HIGH_4",
+              "HIGH_2",
+              "LOW_3"
+            ],
+            [
+              "HIGH_1",
+              "LOW_3",
+              "LOW_4"
+            ],
+            [
+              "HIGH_2",
+              "HIGH_3",
+              "HIGH_1"
+            ]
+          ],
+          "finalBoard": [
+            [
+              "LOW_4",
+              "LOW_2",
+              "LOW_3"
+            ],
+            [
+              "HIGH_2",
+              "HIGH_3",
+              "LOW_2"
+            ],
+            [
+              "HIGH_4",
+              "HIGH_2",
+              "LOW_3"
+            ],
+            [
+              "HIGH_1",
+              "LOW_3",
+              "LOW_4"
+            ],
+            [
+              "HIGH_2",
+              "HIGH_3",
+              "HIGH_1"
+            ]
+          ],
+          "multiplier": 3,
+          "winPositions": [],
+          "freeSpinsLeft": 0
+        }
+      }
+    }
+  },
+  {
+    "step": 12,
+    "betamount": "0.00",
+    "betcurrency": "EUR",
+    "wonamount": "1.18",
+    "status": "RESULTED",
+    "betdata": {
+      "coin": "0.005",
+      "cashBet": "0.10",
+      "cmd": "C",
+      "accWa": "1.18",
+      "accC": 236
+    },
+    "eventdata": {
+      "exactWon": "1.1800"
+    }
+  }
+]

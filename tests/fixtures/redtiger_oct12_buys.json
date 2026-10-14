@@ -1,0 +1,6166 @@
+[
+  {
+    "capture": "games.evolution.com-777-diamond-strike_20261012_100707.har",
+    "request": {
+      "stake": 2,
+      "extras": {
+        "features": {
+          "featureBuy": "FreeSpins",
+          "featureBuyCost": 200
+        }
+      }
+    },
+    "response": {
+      "success": true,
+      "result": {
+        "game": {
+          "win": {
+            "lines": "0.00",
+            "freeSpins": "21.20",
+            "total": "21.20"
+          },
+          "winsMultipliers": {
+            "lines": "0.00",
+            "freeSpins": "10.60",
+            "total": "10.60"
+          },
+          "stake": "2.00",
+          "multiplier": 1,
+          "winLines": [],
+          "spinMode": "FreeSpins",
+          "scatters": [
+            {
+              "reel": 0,
+              "index": 0,
+              "tileId": 12
+            },
+            {
+              "reel": 2,
+              "index": 1,
+              "tileId": 12
+            },
+            {
+              "reel": 4,
+              "index": 0,
+              "tileId": 12
+            }
+          ],
+          "initialSpins": 7,
+          "freeSpins": [
+            {
+              "win": {
+                "lines": "0.00",
+                "total": "0.00"
+              },
+              "winsMultipliers": {
+                "lines": "0.00",
+                "total": "0.00"
+              },
+              "stake": "2.00",
+              "multiplier": 1,
+              "winLines": [],
+              "spinMode": "FreeSpins",
+              "reelsBuffer": [
+                [
+                  [
+                    2,
+                    5,
+                    1
+                  ],
+                  [
+                    8,
+                    2,
+                    7
+                  ],
+                  [
+                    4,
+                    3,
+                    7
+                  ]
+                ],
+                [
+                  [
+                    1,
+                    8,
+                    7
+                  ],
+                  [
+                    1,
+                    9,
+                    2
+                  ],
+                  [
+                    4,
+                    5,
+                    9
+                  ]
+                ],
+                [
+                  [
+                    2,
+                    7,
+                    1
+                  ],
+                  [
+                    9,
+                    6,
+                    1
+                  ],
+                  [
+                    9,
+                    4,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    11,
+                    3,
+                    7
+                  ],
+                  [
+                    2,
+                    8,
+                    3
+                  ],
+                  [
+                    2,
+                    7,
+                    3
+                  ]
+                ],
+                [
+                  [
+                    4,
+                    8,
+                    1
+                  ],
+                  [
+                    4,
+                    6,
+                    9
+                  ],
+                  [
+                    2,
+                    5,
+                    9
+                  ]
+                ]
+              ]
+            },
+            {
+              "win": {
+                "lines": "11.60",
+                "total": "11.60"
+              },
+              "winsMultipliers": {
+                "lines": "5.80",
+                "total": "5.80"
+              },
+              "stake": "2.00",
+              "multiplier": 1,
+              "winLines": [
+                {
+                  "index": 0,
+                  "start": 0,
+                  "length": 3,
+                  "tiles": [
+                    1,
+                    1,
+                    1,
+                    0,
+                    0
+                  ],
+                  "tile": 4,
+                  "multiplier": 1,
+                  "amount": "1.40",
+                  "multipliedAmount": "1.40",
+                  "extra": {
+                    "type": "LTR",
+                    "components": [
+                      1
+                    ]
+                  }
+                },
+                {
+                  "index": 3,
+                  "start": 0,
+                  "length": 3,
+                  "tiles": [
+                    1,
+                    1,
+                    1,
+                    0,
+                    0
+                  ],
+                  "tile": 5,
+                  "multiplier": 1,
+                  "amount": "2.00",
+                  "multipliedAmount": "2.00",
+                  "extra": {
+                    "type": "LTR",
+                    "components": [
+                      1
+                    ]
+                  }
+                },
+                {
+                  "index": 4,
+                  "start": 0,
+                  "length": 3,
+                  "tiles": [
+                    1,
+                    1,
+                    1,
+                    0,
+                    0
+                  ],
+                  "tile": 3,
+                  "multiplier": 1,
+                  "amount": "1.40",
+                  "multipliedAmount": "1.40",
+                  "extra": {
+                    "type": "LTR",
+                    "components": [
+                      1
+                    ]
+                  }
+                },
+                {
+                  "index": 5,
+                  "start": 0,
+                  "length": 3,
+                  "tiles": [
+                    1,
+                    1,
+                    1,
+                    0,
+                    0
+                  ],
+                  "tile": 3,
+                  "multiplier": 1,
+                  "amount": "1.40",
+                  "multipliedAmount": "1.40",
+                  "extra": {
+                    "type": "LTR",
+                    "components": [
+                      1
+                    ]
+                  }
+                },
+                {
+                  "index": 6,
+                  "start": 0,
+                  "length": 3,
+                  "tiles": [
+                    1,
+                    1,
+                    1,
+                    0,
+                    0
+                  ],
+                  "tile": 5,
+                  "multiplier": 1,
+                  "amount": "2.00",
+                  "multipliedAmount": "2.00",
+                  "extra": {
+                    "type": "LTR",
+                    "components": [
+                      1
+                    ]
+                  }
+                },
+                {
+                  "index": 9,
+                  "start": 0,
+                  "length": 4,
+                  "tiles": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    0
+                  ],
+                  "tile": 4,
+                  "multiplier": 1,
+                  "amount": "3.40",
+                  "multipliedAmount": "3.40",
+                  "extra": {
+                    "type": "LTR",
+                    "components": [
+                      1
+                    ]
+                  }
+                }
+              ],
+              "spinMode": "FreeSpins",
+              "expandingWilds": [
+                {
+                  "reel": 1,
+                  "index": 2,
+                  "tileId": 11
+                }
+              ],
+              "cloningTiles": [
+                {
+                  "reel": 1,
+                  "index": 2,
+                  "tileId": 11,
+                  "to": {
+                    "reel": 1,
+                    "index": 0
+                  }
+                },
+                {
+                  "reel": 1,
+                  "index": 2,
+                  "tileId": 11,
+                  "to": {
+                    "reel": 1,
+                    "index": 1
+                  }
+                },
+                {
+                  "reel": 1,
+                  "index": 2,
+                  "tileId": 11,
+                  "to": {
+                    "reel": 1,
+                    "index": 2
+                  }
+                }
+              ],
+              "randomWilds": [
+                {
+                  "reel": 0,
+                  "index": 1,
+                  "tileId": 10
+                }
+              ],
+              "reelsBuffer": [
+                [
+                  [
+                    4,
+                    6,
+                    9
+                  ],
+                  [
+                    5,
+                    10,
+                    3
+                  ],
+                  [
+                    6,
+                    5,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    7,
+                    2,
+                    10
+                  ],
+                  [
+                    3,
+                    4,
+                    11
+                  ],
+                  [
+                    2,
+                    7,
+                    4
+                  ]
+                ],
+                [
+                  [
+                    4,
+                    7,
+                    5
+                  ],
+                  [
+                    3,
+                    4,
+                    5
+                  ],
+                  [
+                    3,
+                    6,
+                    8
+                  ]
+                ],
+                [
+                  [
+                    6,
+                    8,
+                    5
+                  ],
+                  [
+                    4,
+                    1,
+                    6
+                  ],
+                  [
+                    4,
+                    2,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    9,
+                    6,
+                    2
+                  ],
+                  [
+                    5,
+                    6,
+                    7
+                  ],
+                  [
+                    4,
+                    8,
+                    1
+                  ]
+                ]
+              ]
+            },
+            {
+              "win": {
+                "lines": "0.00",
+                "total": "0.00"
+              },
+              "winsMultipliers": {
+                "lines": "0.00",
+                "total": "0.00"
+              },
+              "stake": "2.00",
+              "multiplier": 1,
+              "winLines": [],
+              "spinMode": "FreeSpins",
+              "expandingWilds": [
+                {
+                  "reel": 1,
+                  "index": 1,
+                  "tileId": 11
+                }
+              ],
+              "reelsBuffer": [
+                [
+                  [
+                    7,
+                    4,
+                    10
+                  ],
+                  [
+                    2,
+                    5,
+                    4
+                  ],
+                  [
+                    6,
+                    9,
+                    5
+                  ]
+                ],
+                [
+                  [
+                    4,
+                    9,
+                    3
+                  ],
+                  [
+                    5,
+                    11,
+                    6
+                  ],
+                  [
+                    3,
+                    2,
+                    6
+                  ]
+                ],
+                [
+                  [
+                    6,
+                    4,
+                    10
+                  ],
+                  [
+                    1,
+                    7,
+                    6
+                  ],
+                  [
+                    1,
+                    11,
+                    2
+                  ]
+                ],
+                [
+                  [
+                    7,
+                    4,
+                    2
+                  ],
+                  [
+                    3,
+                    4,
+                    7
+                  ],
+                  [
+                    6,
+                    4,
+                    2
+                  ]
+                ],
+                [
+                  [
+                    8,
+                    4,
+                    5
+                  ],
+                  [
+                    2,
+                    7,
+                    5
+                  ],
+                  [
+                    3,
+                    1,
+                    5
+                  ]
+                ]
+              ]
+            },
+            {
+              "win": {
+                "lines": "6.20",
+                "total": "6.20"
+              },
+              "winsMultipliers": {
+                "lines": "3.10",
+                "total": "3.10"
+              },
+              "stake": "2.00",
+              "multiplier": 1,
+              "winLines": [
+                {
+                  "index": 0,
+                  "start": 0,
+                  "length": 3,
+                  "tiles": [
+                    1,
+                    1,
+                    1,
+                    0,
+                    0
+                  ],
+                  "tile": 1,
+                  "multiplier": 1,
+                  "amount": "1.40",
+                  "multipliedAmount": "1.40",
+                  "extra": {
+                    "type": "LTR",
+                    "components": [
+                      1
+                    ]
+                  }
+                },
+                {
+                  "index": 1,
+                  "start": 0,
+                  "length": 4,
+                  "tiles": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    0
+                  ],
+                  "tile": 3,
+                  "multiplier": 1,
+                  "amount": "3.40",
+                  "multipliedAmount": "3.40",
+                  "extra": {
+                    "type": "LTR",
+                    "components": [
+                      1
+                    ]
+                  }
+                },
+                {
+                  "index": 7,
+                  "start": 0,
+                  "length": 3,
+                  "tiles": [
+                    1,
+                    1,
+                    1,
+                    0,
+                    0
+                  ],
+                  "tile": 3,
+                  "multiplier": 1,
+                  "amount": "1.40",
+                  "multipliedAmount": "1.40",
+                  "extra": {
+                    "type": "LTR",
+                    "components": [
+                      1
+                    ]
+                  }
+                }
+              ],
+              "spinMode": "FreeSpins",
+              "randomWilds": [
+                {
+                  "reel": 0,
+                  "index": 0,
+                  "tileId": 10
+                },
+                {
+                  "reel": 2,
+                  "index": 1,
+                  "tileId": 10
+                },
+                {
+                  "reel": 3,
+                  "index": 0,
+                  "tileId": 10
+                },
+                {
+                  "reel": 4,
+                  "index": 1,
+                  "tileId": 10
+                }
+              ],
+              "reelsBuffer": [
+                [
+                  [
+                    2,
+                    3,
+                    5
+                  ],
+                  [
+                    10,
+                    1,
+                    3
+                  ],
+                  [
+                    9,
+                    2,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    11,
+                    1,
+                    5
+                  ],
+                  [
+                    3,
+                    1,
+                    8
+                  ],
+                  [
+                    7,
+                    1,
+                    9
+                  ]
+                ],
+                [
+                  [
+                    3,
+                    10,
+                    2
+                  ],
+                  [
+                    3,
+                    10,
+                    5
+                  ],
+                  [
+                    8,
+                    7,
+                    2
+                  ]
+                ],
+                [
+                  [
+                    2,
+                    1,
+                    4
+                  ],
+                  [
+                    10,
+                    7,
+                    4
+                  ],
+                  [
+                    2,
+                    3,
+                    4
+                  ]
+                ],
+                [
+                  [
+                    5,
+                    9,
+                    3
+                  ],
+                  [
+                    7,
+                    10,
+                    1
+                  ],
+                  [
+                    8,
+                    5,
+                    10
+                  ]
+                ]
+              ]
+            },
+            {
+              "win": {
+                "lines": "3.40",
+                "total": "3.40"
+              },
+              "winsMultipliers": {
+                "lines": "1.70",
+                "total": "1.70"
+              },
+              "stake": "2.00",
+              "multiplier": 1,
+              "winLines": [
+                {
+                  "index": 4,
+                  "start": 0,
+                  "length": 3,
+                  "tiles": [
+                    1,
+                    1,
+                    1,
+                    0,
+                    0
+                  ],
+                  "tile": 7,
+                  "multiplier": 1,
+                  "amount": "3.40",
+                  "multipliedAmount": "3.40",
+                  "extra": {
+                    "type": "LTR",
+                    "components": [
+                      1
+                    ]
+                  }
+                }
+              ],
+              "spinMode": "FreeSpins",
+              "expandingWilds": [
+                {
+                  "reel": 2,
+                  "index": 0,
+                  "tileId": 11
+                }
+              ],
+              "cloningTiles": [
+                {
+                  "reel": 2,
+                  "index": 0,
+                  "tileId": 11,
+                  "to": {
+                    "reel": 2,
+                    "index": 0
+                  }
+                },
+                {
+                  "reel": 2,
+                  "index": 0,
+                  "tileId": 11,
+                  "to": {
+                    "reel": 2,
+                    "index": 1
+                  }
+                },
+                {
+                  "reel": 2,
+                  "index": 0,
+                  "tileId": 11,
+                  "to": {
+                    "reel": 2,
+                    "index": 2
+                  }
+                }
+              ],
+              "reelsBuffer": [
+                [
+                  [
+                    3,
+                    9,
+                    2
+                  ],
+                  [
+                    1,
+                    9,
+                    7
+                  ],
+                  [
+                    1,
+                    10,
+                    2
+                  ]
+                ],
+                [
+                  [
+                    5,
+                    2,
+                    11
+                  ],
+                  [
+                    3,
+                    7,
+                    2
+                  ],
+                  [
+                    10,
+                    3,
+                    4
+                  ]
+                ],
+                [
+                  [
+                    9,
+                    3,
+                    1
+                  ],
+                  [
+                    11,
+                    2,
+                    3
+                  ],
+                  [
+                    8,
+                    2,
+                    6
+                  ]
+                ],
+                [
+                  [
+                    2,
+                    11,
+                    4
+                  ],
+                  [
+                    5,
+                    6,
+                    3
+                  ],
+                  [
+                    4,
+                    6,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    4,
+                    8,
+                    1
+                  ],
+                  [
+                    4,
+                    6,
+                    9
+                  ],
+                  [
+                    2,
+                    5,
+                    9
+                  ]
+                ]
+              ]
+            },
+            {
+              "win": {
+                "lines": "0.00",
+                "total": "0.00"
+              },
+              "winsMultipliers": {
+                "lines": "0.00",
+                "total": "0.00"
+              },
+              "stake": "2.00",
+              "multiplier": 1,
+              "winLines": [],
+              "spinMode": "FreeSpins",
+              "expandingWilds": [
+                {
+                  "reel": 1,
+                  "index": 0,
+                  "tileId": 11
+                }
+              ],
+              "reelsBuffer": [
+                [
+                  [
+                    5,
+                    1,
+                    8
+                  ],
+                  [
+                    4,
+                    2,
+                    3
+                  ],
+                  [
+                    5,
+                    10,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    5,
+                    4,
+                    2
+                  ],
+                  [
+                    11,
+                    1,
+                    5
+                  ],
+                  [
+                    3,
+                    1,
+                    8
+                  ]
+                ],
+                [
+                  [
+                    4,
+                    1,
+                    2
+                  ],
+                  [
+                    7,
+                    1,
+                    5
+                  ],
+                  [
+                    4,
+                    7,
+                    5
+                  ]
+                ],
+                [
+                  [
+                    11,
+                    3,
+                    7
+                  ],
+                  [
+                    2,
+                    8,
+                    3
+                  ],
+                  [
+                    2,
+                    7,
+                    3
+                  ]
+                ],
+                [
+                  [
+                    3,
+                    4,
+                    2
+                  ],
+                  [
+                    1,
+                    3,
+                    8
+                  ],
+                  [
+                    1,
+                    2,
+                    3
+                  ]
+                ]
+              ]
+            },
+            {
+              "win": {
+                "lines": "0.00",
+                "total": "0.00"
+              },
+              "winsMultipliers": {
+                "lines": "0.00",
+                "total": "0.00"
+              },
+              "stake": "2.00",
+              "multiplier": 1,
+              "winLines": [],
+              "spinMode": "FreeSpins",
+              "expandingWilds": [
+                {
+                  "reel": 2,
+                  "index": 1,
+                  "tileId": 11
+                }
+              ],
+              "reelsBuffer": [
+                [
+                  [
+                    10,
+                    9,
+                    5
+                  ],
+                  [
+                    2,
+                    6,
+                    8
+                  ],
+                  [
+                    4,
+                    5,
+                    2
+                  ]
+                ],
+                [
+                  [
+                    5,
+                    2,
+                    11
+                  ],
+                  [
+                    3,
+                    7,
+                    2
+                  ],
+                  [
+                    10,
+                    3,
+                    4
+                  ]
+                ],
+                [
+                  [
+                    10,
+                    8,
+                    3
+                  ],
+                  [
+                    2,
+                    11,
+                    4
+                  ],
+                  [
+                    3,
+                    10,
+                    2
+                  ]
+                ],
+                [
+                  [
+                    5,
+                    6,
+                    3
+                  ],
+                  [
+                    4,
+                    6,
+                    1
+                  ],
+                  [
+                    8,
+                    9,
+                    2
+                  ]
+                ],
+                [
+                  [
+                    2,
+                    3,
+                    1
+                  ],
+                  [
+                    5,
+                    3,
+                    2
+                  ],
+                  [
+                    1,
+                    4,
+                    2
+                  ]
+                ]
+              ]
+            }
+          ],
+          "activator": {
+            "features": [
+              "Chance",
+              "FreeSpins",
+              "Mode_13"
+            ]
+          },
+          "bonus": {
+            "name": "FreeSpins",
+            "trigger": [
+              1,
+              1
+            ]
+          },
+          "reelsBuffer": [
+            [
+              [
+                9,
+                5,
+                2
+              ],
+              [
+                12,
+                8,
+                4
+              ],
+              [
+                5,
+                2,
+                8
+              ]
+            ],
+            [
+              [
+                2,
+                1,
+                5
+              ],
+              [
+                3,
+                1,
+                8
+              ],
+              [
+                7,
+                1,
+                9
+              ]
+            ],
+            [
+              [
+                5,
+                4,
+                7
+              ],
+              [
+                5,
+                12,
+                4
+              ],
+              [
+                5,
+                3,
+                6
+              ]
+            ],
+            [
+              [
+                2,
+                8,
+                3
+              ],
+              [
+                2,
+                7,
+                3
+              ],
+              [
+                2,
+                4,
+                5
+              ]
+            ],
+            [
+              [
+                4,
+                9,
+                6
+              ],
+              [
+                12,
+                5,
+                6
+              ],
+              [
+                7,
+                4,
+                8
+              ]
+            ]
+          ],
+          "features": [
+            "FreeSpins"
+          ],
+          "gameMode": 0,
+          "hasState": false
+        },
+        "transactions": {
+          "roundId": 196394953
+        },
+        "user": {
+          "balance": {
+            "cash": {
+              "atStart": "9996.00",
+              "afterBet": "9796.00",
+              "atEnd": "9817.20"
+            },
+            "freeBets": {
+              "atStart": "0.00",
+              "afterBet": "0.00",
+              "atEnd": "0.00"
+            },
+            "bonus": {
+              "atStart": "0.00",
+              "afterBet": "0.00",
+              "atEnd": "0.00"
+            },
+            "sessionCash": {
+              "atStart": "0.00",
+              "afterBet": "0.00",
+              "atEnd": "0.00"
+            },
+            "sessionFreeBets": {
+              "atStart": "0.00",
+              "afterBet": "0.00",
+              "atEnd": "0.00"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "capture": "games.evolution.com-777-super-strike_20261012_100818.har",
+    "request": {
+      "stake": 2,
+      "extras": {
+        "features": {
+          "featureBuy": "FreeSpins",
+          "featureBuyCost": 200
+        }
+      }
+    },
+    "response": {
+      "success": true,
+      "result": {
+        "game": {
+          "win": {
+            "lines": "0.00",
+            "freeSpins": "14.00",
+            "total": "14.00"
+          },
+          "winsMultipliers": {
+            "lines": "0.00",
+            "freeSpins": "7.00",
+            "total": "7.00"
+          },
+          "stake": "2.00",
+          "multiplier": 1,
+          "winLines": [],
+          "spinMode": "Normal",
+          "scatters": [
+            {
+              "reel": 0,
+              "index": 0,
+              "tileId": 13
+            },
+            {
+              "reel": 2,
+              "index": 1,
+              "tileId": 13
+            },
+            {
+              "reel": 4,
+              "index": 0,
+              "tileId": 13
+            }
+          ],
+          "initialSpins": 7,
+          "freeSpins": [
+            {
+              "win": {
+                "lines": "1.00",
+                "total": "1.00"
+              },
+              "winsMultipliers": {
+                "lines": "0.50",
+                "total": "0.50"
+              },
+              "stake": "2.00",
+              "multiplier": 1,
+              "winLines": [
+                {
+                  "index": 0,
+                  "start": 0,
+                  "length": 3,
+                  "tiles": [
+                    [
+                      1,
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      1,
+                      0
+                    ],
+                    [
+                      0,
+                      0,
+                      1
+                    ],
+                    [
+                      0,
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0,
+                      0
+                    ]
+                  ],
+                  "tile": 2,
+                  "multiplier": 1,
+                  "amount": "1.00",
+                  "multipliedAmount": "1.00",
+                  "ways": 1
+                }
+              ],
+              "spinMode": "FreeSpins",
+              "reelsBuffer": [
+                [
+                  [
+                    8,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    5,
+                    1
+                  ],
+                  [
+                    2,
+                    4,
+                    3
+                  ]
+                ],
+                [
+                  [
+                    1,
+                    3,
+                    11
+                  ],
+                  [
+                    7,
+                    2,
+                    1
+                  ],
+                  [
+                    8,
+                    3,
+                    7
+                  ]
+                ],
+                [
+                  [
+                    11,
+                    3,
+                    7
+                  ],
+                  [
+                    6,
+                    8,
+                    2
+                  ],
+                  [
+                    10,
+                    3,
+                    8
+                  ]
+                ],
+                [
+                  [
+                    1,
+                    8,
+                    4
+                  ],
+                  [
+                    3,
+                    8,
+                    1
+                  ],
+                  [
+                    6,
+                    2,
+                    9
+                  ]
+                ],
+                [
+                  [
+                    5,
+                    6,
+                    2
+                  ],
+                  [
+                    3,
+                    6,
+                    2
+                  ],
+                  [
+                    7,
+                    3,
+                    2
+                  ]
+                ]
+              ]
+            },
+            {
+              "win": {
+                "lines": "2.00",
+                "total": "2.00"
+              },
+              "winsMultipliers": {
+                "lines": "1.00",
+                "total": "1.00"
+              },
+              "stake": "2.00",
+              "multiplier": 1,
+              "winLines": [
+                {
+                  "index": 0,
+                  "start": 0,
+                  "length": 3,
+                  "tiles": [
+                    [
+                      0,
+                      0,
+                      1
+                    ],
+                    [
+                      1,
+                      0,
+                      1
+                    ],
+                    [
+                      1,
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0,
+                      0
+                    ]
+                  ],
+                  "tile": 1,
+                  "multiplier": 1,
+                  "amount": "2.00",
+                  "multipliedAmount": "2.00",
+                  "ways": 2
+                }
+              ],
+              "spinMode": "FreeSpins",
+              "randomWilds": [
+                {
+                  "reel": 1,
+                  "index": 2,
+                  "tileId": 11
+                }
+              ],
+              "reelsBuffer": [
+                [
+                  [
+                    6,
+                    2,
+                    4
+                  ],
+                  [
+                    3,
+                    6,
+                    1
+                  ],
+                  [
+                    2,
+                    5,
+                    3
+                  ]
+                ],
+                [
+                  [
+                    5,
+                    9,
+                    4
+                  ],
+                  [
+                    1,
+                    3,
+                    11
+                  ],
+                  [
+                    7,
+                    2,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    2,
+                    5,
+                    12
+                  ],
+                  [
+                    1,
+                    2,
+                    5
+                  ],
+                  [
+                    1,
+                    4,
+                    3
+                  ]
+                ],
+                [
+                  [
+                    3,
+                    8,
+                    1
+                  ],
+                  [
+                    6,
+                    2,
+                    9
+                  ],
+                  [
+                    3,
+                    5,
+                    4
+                  ]
+                ],
+                [
+                  [
+                    2,
+                    3,
+                    6
+                  ],
+                  [
+                    2,
+                    7,
+                    3
+                  ],
+                  [
+                    2,
+                    7,
+                    3
+                  ]
+                ]
+              ]
+            },
+            {
+              "win": {
+                "lines": "3.00",
+                "total": "3.00"
+              },
+              "winsMultipliers": {
+                "lines": "1.50",
+                "total": "1.50"
+              },
+              "stake": "2.00",
+              "multiplier": 1,
+              "winLines": [
+                {
+                  "index": 0,
+                  "start": 0,
+                  "length": 5,
+                  "tiles": [
+                    [
+                      1,
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0,
+                      1
+                    ],
+                    [
+                      1,
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      1,
+                      0
+                    ],
+                    [
+                      0,
+                      1,
+                      0
+                    ]
+                  ],
+                  "tile": 1,
+                  "multiplier": 1,
+                  "amount": "3.00",
+                  "multipliedAmount": "3.00",
+                  "ways": 1
+                }
+              ],
+              "spinMode": "FreeSpins",
+              "reelsBuffer": [
+                [
+                  [
+                    7,
+                    8,
+                    4
+                  ],
+                  [
+                    1,
+                    2,
+                    5
+                  ],
+                  [
+                    1,
+                    2,
+                    4
+                  ]
+                ],
+                [
+                  [
+                    1,
+                    3,
+                    11
+                  ],
+                  [
+                    7,
+                    2,
+                    1
+                  ],
+                  [
+                    8,
+                    3,
+                    7
+                  ]
+                ],
+                [
+                  [
+                    2,
+                    3,
+                    6
+                  ],
+                  [
+                    1,
+                    5,
+                    9
+                  ],
+                  [
+                    4,
+                    5,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    3,
+                    12,
+                    2
+                  ],
+                  [
+                    6,
+                    1,
+                    2
+                  ],
+                  [
+                    10,
+                    9,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    6,
+                    2,
+                    3
+                  ],
+                  [
+                    6,
+                    1,
+                    3
+                  ],
+                  [
+                    4,
+                    2,
+                    1
+                  ]
+                ]
+              ]
+            },
+            {
+              "win": {
+                "lines": "1.00",
+                "total": "1.00"
+              },
+              "winsMultipliers": {
+                "lines": "0.50",
+                "total": "0.50"
+              },
+              "stake": "2.00",
+              "multiplier": 1,
+              "winLines": [
+                {
+                  "index": 0,
+                  "start": 0,
+                  "length": 3,
+                  "tiles": [
+                    [
+                      0,
+                      0,
+                      1
+                    ],
+                    [
+                      0,
+                      0,
+                      1
+                    ],
+                    [
+                      0,
+                      0,
+                      1
+                    ],
+                    [
+                      0,
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0,
+                      0
+                    ]
+                  ],
+                  "tile": 4,
+                  "multiplier": 1,
+                  "amount": "1.00",
+                  "multipliedAmount": "1.00",
+                  "ways": 1
+                }
+              ],
+              "spinMode": "FreeSpins",
+              "randomWilds": [
+                {
+                  "reel": 1,
+                  "index": 2,
+                  "tileId": 11
+                }
+              ],
+              "reelsBuffer": [
+                [
+                  [
+                    5,
+                    3,
+                    4
+                  ],
+                  [
+                    7,
+                    8,
+                    4
+                  ],
+                  [
+                    1,
+                    2,
+                    5
+                  ]
+                ],
+                [
+                  [
+                    6,
+                    11,
+                    1
+                  ],
+                  [
+                    5,
+                    9,
+                    11
+                  ],
+                  [
+                    3,
+                    5,
+                    12
+                  ]
+                ],
+                [
+                  [
+                    3,
+                    11,
+                    1
+                  ],
+                  [
+                    6,
+                    3,
+                    4
+                  ],
+                  [
+                    7,
+                    11,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    1,
+                    8,
+                    4
+                  ],
+                  [
+                    3,
+                    8,
+                    1
+                  ],
+                  [
+                    6,
+                    2,
+                    9
+                  ]
+                ],
+                [
+                  [
+                    1,
+                    5,
+                    4
+                  ],
+                  [
+                    7,
+                    1,
+                    2
+                  ],
+                  [
+                    4,
+                    5,
+                    7
+                  ]
+                ]
+              ]
+            },
+            {
+              "win": {
+                "lines": "6.00",
+                "total": "6.00"
+              },
+              "winsMultipliers": {
+                "lines": "3.00",
+                "total": "3.00"
+              },
+              "stake": "2.00",
+              "multiplier": 1,
+              "winLines": [
+                {
+                  "index": 0,
+                  "start": 0,
+                  "length": 3,
+                  "tiles": [
+                    [
+                      1,
+                      0,
+                      0
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      0,
+                      0,
+                      1
+                    ],
+                    [
+                      0,
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0,
+                      0
+                    ]
+                  ],
+                  "tile": 3,
+                  "multiplier": 1,
+                  "amount": "3.00",
+                  "multipliedAmount": "3.00",
+                  "ways": 3
+                },
+                {
+                  "index": 0,
+                  "start": 0,
+                  "length": 3,
+                  "tiles": [
+                    [
+                      0,
+                      1,
+                      0
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0,
+                      0
+                    ]
+                  ],
+                  "tile": 2,
+                  "multiplier": 1,
+                  "amount": "3.00",
+                  "multipliedAmount": "3.00",
+                  "ways": 3
+                }
+              ],
+              "spinMode": "FreeSpins",
+              "expandingWilds": [
+                {
+                  "reel": 1,
+                  "index": 2,
+                  "tileId": 12
+                }
+              ],
+              "fatTiles": [
+                {
+                  "tileId": 12,
+                  "reel": 1,
+                  "index": 0,
+                  "width": 1,
+                  "height": 3
+                }
+              ],
+              "reelsBuffer": [
+                [
+                  [
+                    10,
+                    6,
+                    5
+                  ],
+                  [
+                    3,
+                    2,
+                    10
+                  ],
+                  [
+                    4,
+                    8,
+                    6
+                  ]
+                ],
+                [
+                  [
+                    5,
+                    9,
+                    11
+                  ],
+                  [
+                    3,
+                    5,
+                    12
+                  ],
+                  [
+                    1,
+                    4,
+                    2
+                  ]
+                ],
+                [
+                  [
+                    10,
+                    3,
+                    8
+                  ],
+                  [
+                    2,
+                    7,
+                    3
+                  ],
+                  [
+                    10,
+                    4,
+                    8
+                  ]
+                ],
+                [
+                  [
+                    3,
+                    8,
+                    7
+                  ],
+                  [
+                    1,
+                    8,
+                    4
+                  ],
+                  [
+                    3,
+                    8,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    10,
+                    4,
+                    5
+                  ],
+                  [
+                    6,
+                    1,
+                    8
+                  ],
+                  [
+                    9,
+                    5,
+                    1
+                  ]
+                ]
+              ]
+            },
+            {
+              "win": {
+                "lines": "1.00",
+                "total": "1.00"
+              },
+              "winsMultipliers": {
+                "lines": "0.50",
+                "total": "0.50"
+              },
+              "stake": "2.00",
+              "multiplier": 1,
+              "winLines": [
+                {
+                  "index": 0,
+                  "start": 0,
+                  "length": 3,
+                  "tiles": [
+                    [
+                      1,
+                      0,
+                      0
+                    ],
+                    [
+                      1,
+                      0,
+                      0
+                    ],
+                    [
+                      1,
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0,
+                      0
+                    ]
+                  ],
+                  "tile": 2,
+                  "multiplier": 1,
+                  "amount": "1.00",
+                  "multipliedAmount": "1.00",
+                  "ways": 1
+                }
+              ],
+              "spinMode": "FreeSpins",
+              "reelsBuffer": [
+                [
+                  [
+                    9,
+                    8,
+                    6
+                  ],
+                  [
+                    2,
+                    7,
+                    3
+                  ],
+                  [
+                    9,
+                    1,
+                    10
+                  ]
+                ],
+                [
+                  [
+                    1,
+                    12,
+                    4
+                  ],
+                  [
+                    2,
+                    10,
+                    7
+                  ],
+                  [
+                    6,
+                    11,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    4,
+                    6,
+                    9
+                  ],
+                  [
+                    2,
+                    8,
+                    6
+                  ],
+                  [
+                    7,
+                    9,
+                    5
+                  ]
+                ],
+                [
+                  [
+                    6,
+                    2,
+                    9
+                  ],
+                  [
+                    3,
+                    5,
+                    4
+                  ],
+                  [
+                    8,
+                    5,
+                    11
+                  ]
+                ],
+                [
+                  [
+                    6,
+                    2,
+                    3
+                  ],
+                  [
+                    6,
+                    2,
+                    7
+                  ],
+                  [
+                    3,
+                    2,
+                    7
+                  ]
+                ]
+              ]
+            },
+            {
+              "win": {
+                "lines": "0.00",
+                "total": "0.00"
+              },
+              "winsMultipliers": {
+                "lines": "0.00",
+                "total": "0.00"
+              },
+              "stake": "2.00",
+              "multiplier": 1,
+              "winLines": [],
+              "spinMode": "FreeSpins",
+              "winScatters": [
+                {
+                  "reel": 0,
+                  "index": 2,
+                  "tileId": 14
+                }
+              ],
+              "expandingWilds": [
+                {
+                  "reel": 2,
+                  "index": 1,
+                  "tileId": 12
+                }
+              ],
+              "reelsBuffer": [
+                [
+                  [
+                    10,
+                    6,
+                    5
+                  ],
+                  [
+                    3,
+                    2,
+                    14
+                  ],
+                  [
+                    4,
+                    8,
+                    6
+                  ]
+                ],
+                [
+                  [
+                    5,
+                    1,
+                    8
+                  ],
+                  [
+                    5,
+                    9,
+                    4
+                  ],
+                  [
+                    1,
+                    3,
+                    11
+                  ]
+                ],
+                [
+                  [
+                    7,
+                    11,
+                    1
+                  ],
+                  [
+                    5,
+                    12,
+                    4
+                  ],
+                  [
+                    6,
+                    9,
+                    2
+                  ]
+                ],
+                [
+                  [
+                    1,
+                    5,
+                    7
+                  ],
+                  [
+                    10,
+                    2,
+                    1
+                  ],
+                  [
+                    5,
+                    11,
+                    2
+                  ]
+                ],
+                [
+                  [
+                    7,
+                    3,
+                    2
+                  ],
+                  [
+                    7,
+                    3,
+                    4
+                  ],
+                  [
+                    6,
+                    2,
+                    3
+                  ]
+                ]
+              ]
+            }
+          ],
+          "activator": {
+            "features": [
+              "Chance",
+              "FreeSpins",
+              "Mode_13"
+            ]
+          },
+          "bonus": {
+            "name": "FreeSpins",
+            "trigger": [
+              1,
+              1
+            ]
+          },
+          "reelsBuffer": [
+            [
+              [
+                13,
+                7,
+                5
+              ],
+              [
+                13,
+                3,
+                7
+              ],
+              [
+                13,
+                3,
+                1
+              ]
+            ],
+            [
+              [
+                2,
+                8,
+                4
+              ],
+              [
+                10,
+                2,
+                4
+              ],
+              [
+                6,
+                2,
+                4
+              ]
+            ],
+            [
+              [
+                4,
+                13,
+                9
+              ],
+              [
+                10,
+                13,
+                6
+              ],
+              [
+                9,
+                13,
+                10
+              ]
+            ],
+            [
+              [
+                10,
+                4,
+                1
+              ],
+              [
+                5,
+                8,
+                3
+              ],
+              [
+                9,
+                5,
+                6
+              ]
+            ],
+            [
+              [
+                13,
+                3,
+                8
+              ],
+              [
+                13,
+                5,
+                7
+              ],
+              [
+                13,
+                4,
+                5
+              ]
+            ]
+          ],
+          "features": [
+            "FreeSpins"
+          ],
+          "gameMode": 0,
+          "hasState": false
+        },
+        "transactions": {
+          "roundId": 196394969
+        },
+        "user": {
+          "balance": {
+            "cash": {
+              "atStart": "10000.00",
+              "afterBet": "9800.00",
+              "atEnd": "9814.00"
+            },
+            "freeBets": {
+              "atStart": "0.00",
+              "afterBet": "0.00",
+              "atEnd": "0.00"
+            },
+            "bonus": {
+              "atStart": "0.00",
+              "afterBet": "0.00",
+              "atEnd": "0.00"
+            },
+            "sessionCash": {
+              "atStart": "0.00",
+              "afterBet": "0.00",
+              "atEnd": "0.00"
+            },
+            "sessionFreeBets": {
+              "atStart": "0.00",
+              "afterBet": "0.00",
+              "atEnd": "0.00"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "capture": "games.evolution.com-arc-of-zeus_20261012_101200.har",
+    "request": {
+      "stake": 2,
+      "extras": {
+        "features": {
+          "featureBuy": "FreeSpins",
+          "featureBuyCost": "200.00"
+        }
+      }
+    },
+    "response": {
+      "success": true,
+      "result": {
+        "game": {
+          "win": {
+            "total": "101.20",
+            "winMul": 50.6,
+            "stake": "2.00"
+          },
+          "state": [],
+          "nsp": {
+            "stake": 2,
+            "reels": [
+              [
+                "K",
+                "K",
+                "S",
+                "T",
+                "T",
+                "P",
+                "P",
+                "S",
+                "K",
+                "K"
+              ],
+              [
+                "Y",
+                "T",
+                "T",
+                "S",
+                "P",
+                "P",
+                "Y",
+                "Y",
+                "S",
+                "T"
+              ],
+              [
+                "T",
+                "P",
+                "P",
+                "S",
+                "Y",
+                "Y",
+                "Q",
+                "Q",
+                "S",
+                "Y"
+              ],
+              [
+                "X",
+                "Z",
+                "Z",
+                "A",
+                "A",
+                "X",
+                "X",
+                "X",
+                "Z",
+                "Z"
+              ],
+              [
+                "J",
+                "J",
+                "K",
+                "K",
+                "S",
+                "Z",
+                "Z",
+                "J",
+                "J",
+                "S"
+              ],
+              [
+                "Y",
+                "Q",
+                "Q",
+                "X",
+                "X",
+                "A",
+                "A",
+                "A",
+                "Y",
+                "Y"
+              ]
+            ],
+            "tiles": [],
+            "tilesMod": [],
+            "multiWays": [],
+            "winMul": "0.00",
+            "winning": "0.00",
+            "win": {
+              "winMul": 0,
+              "winning": 0
+            },
+            "winAmounts": [],
+            "collector": {
+              "spins": [
+                {
+                  "reels": [
+                    [
+                      "X",
+                      "T",
+                      "Y",
+                      "P",
+                      "P",
+                      "Y",
+                      "X",
+                      "X",
+                      "J",
+                      "A"
+                    ],
+                    [
+                      "Z",
+                      "Z",
+                      "T",
+                      "T",
+                      "Y",
+                      "Y",
+                      "Q",
+                      "Q",
+                      "T",
+                      "T"
+                    ],
+                    [
+                      "Q",
+                      "Q",
+                      "J",
+                      "J",
+                      "J",
+                      "P",
+                      "P",
+                      "X",
+                      "T",
+                      "T"
+                    ],
+                    [
+                      "T",
+                      "Q",
+                      "Q",
+                      "X",
+                      "X",
+                      "Y",
+                      "Y",
+                      "K",
+                      "K",
+                      "Q"
+                    ],
+                    [
+                      "Z",
+                      "P",
+                      "P",
+                      "T",
+                      "T",
+                      "Q",
+                      "Q",
+                      "Q",
+                      "K",
+                      "K"
+                    ],
+                    [
+                      "Q",
+                      "J",
+                      "Y",
+                      "Y",
+                      "T",
+                      "T",
+                      "Q",
+                      "Q",
+                      "Z",
+                      "Y"
+                    ]
+                  ],
+                  "tiles": {
+                    "0-5": {
+                      "action": "ways",
+                      "values": true,
+                      "value": 20
+                    },
+                    "4-8": {
+                      "action": "ways",
+                      "values": true,
+                      "value": 15
+                    }
+                  },
+                  "tilesMod": {
+                    "0-5": {
+                      "action": "ways",
+                      "values": true,
+                      "value": 20
+                    },
+                    "4-8": {
+                      "action": "ways",
+                      "values": true,
+                      "value": 15
+                    }
+                  },
+                  "stake": 2,
+                  "newAmounts": [
+                    {
+                      "value": 20,
+                      "total": 20,
+                      "x": 0,
+                      "y": 5
+                    },
+                    {
+                      "value": 15,
+                      "total": 15,
+                      "x": 4,
+                      "y": 8
+                    }
+                  ],
+                  "multiWays": [
+                    {
+                      "winSingleMul": "0.50",
+                      "winMul": "0.50",
+                      "winning": "1.00",
+                      "multiplier": 1,
+                      "cells": [
+                        [],
+                        {
+                          "6": 6,
+                          "7": 7
+                        },
+                        [],
+                        {
+                          "9": 9
+                        },
+                        {
+                          "5": 5,
+                          "6": 6,
+                          "7": 7
+                        },
+                        {
+                          "6": 6,
+                          "7": 7
+                        }
+                      ],
+                      "ways": 8,
+                      "symbol": "Q"
+                    }
+                  ],
+                  "winMul": "0.50",
+                  "winning": "1.00",
+                  "win": {
+                    "multiWays": [
+                      {
+                        "winSingleMul": "0.50",
+                        "winMul": "0.50",
+                        "winning": "1.00",
+                        "multiplier": 1,
+                        "cells": [
+                          [],
+                          {
+                            "6": 6,
+                            "7": 7
+                          },
+                          [],
+                          {
+                            "9": 9
+                          },
+                          {
+                            "5": 5,
+                            "6": 6,
+                            "7": 7
+                          },
+                          {
+                            "6": 6,
+                            "7": 7
+                          }
+                        ],
+                        "ways": 8,
+                        "symbol": "Q"
+                      }
+                    ],
+                    "winMul": "0.50",
+                    "winning": "1.00",
+                    "multiplier": 1
+                  },
+                  "winAmounts": [],
+                  "reactions": [
+                    {
+                      "reels": [
+                        [
+                          "X",
+                          "T",
+                          "Y",
+                          "P",
+                          "P",
+                          "Y",
+                          "X",
+                          "X",
+                          "J",
+                          "A"
+                        ],
+                        [
+                          "Q",
+                          "Q",
+                          "Z",
+                          "Z",
+                          "T",
+                          "T",
+                          "Y",
+                          "Y",
+                          "T",
+                          "T"
+                        ],
+                        [
+                          "Q",
+                          "Q",
+                          "J",
+                          "J",
+                          "J",
+                          "P",
+                          "P",
+                          "X",
+                          "T",
+                          "T"
+                        ],
+                        [
+                          "T",
+                          "T",
+                          "Q",
+                          "Q",
+                          "X",
+                          "X",
+                          "Y",
+                          "Y",
+                          "K",
+                          "K"
+                        ],
+                        [
+                          "A",
+                          "A",
+                          "S",
+                          "Z",
+                          "P",
+                          "P",
+                          "T",
+                          "T",
+                          "K",
+                          "K"
+                        ],
+                        [
+                          "T",
+                          "Q",
+                          "Q",
+                          "J",
+                          "Y",
+                          "Y",
+                          "T",
+                          "T",
+                          "Z",
+                          "Y"
+                        ]
+                      ],
+                      "multiWays": [
+                        {
+                          "winSingleMul": "0.20",
+                          "winMul": "0.20",
+                          "winning": "0.40",
+                          "multiplier": 1,
+                          "cells": [
+                            [],
+                            {
+                              "5": 5,
+                              "8": 8,
+                              "9": 9
+                            },
+                            {
+                              "8": 8,
+                              "9": 9
+                            },
+                            [],
+                            {
+                              "6": 6,
+                              "7": 7
+                            },
+                            {
+                              "6": 6,
+                              "7": 7
+                            }
+                          ],
+                          "ways": 9,
+                          "symbol": "T"
+                        }
+                      ],
+                      "stake": 2,
+                      "tiles": {
+                        "0-5": {
+                          "action": "ways",
+                          "values": true,
+                          "value": 20
+                        },
+                        "4-8": {
+                          "action": "ways",
+                          "values": true,
+                          "value": 15
+                        }
+                      },
+                      "tilesMod": {
+                        "0-5": {
+                          "action": "ways",
+                          "values": true,
+                          "value": 20
+                        },
+                        "4-8": {
+                          "action": "ways",
+                          "values": true,
+                          "value": 15
+                        }
+                      },
+                      "winMul": "0.20",
+                      "winning": "0.40",
+                      "win": {
+                        "multiWays": [
+                          {
+                            "winSingleMul": "0.20",
+                            "winMul": "0.20",
+                            "winning": "0.40",
+                            "multiplier": 1,
+                            "cells": [
+                              [],
+                              {
+                                "5": 5,
+                                "8": 8,
+                                "9": 9
+                              },
+                              {
+                                "8": 8,
+                                "9": 9
+                              },
+                              [],
+                              {
+                                "6": 6,
+                                "7": 7
+                              },
+                              {
+                                "6": 6,
+                                "7": 7
+                              }
+                            ],
+                            "ways": 9,
+                            "symbol": "T"
+                          }
+                        ],
+                        "winMul": "0.20",
+                        "winning": "0.40",
+                        "multiplier": 1
+                      },
+                      "winAmounts": []
+                    },
+                    {
+                      "reels": [
+                        [
+                          "X",
+                          "T",
+                          "Y",
+                          "P",
+                          "P",
+                          "Y",
+                          "X",
+                          "X",
+                          "J",
+                          "A"
+                        ],
+                        [
+                          "J",
+                          "J",
+                          "S",
+                          "Q",
+                          "Q",
+                          "Z",
+                          "Z",
+                          "T",
+                          "Y",
+                          "Y"
+                        ],
+                        [
+                          "X",
+                          "X",
+                          "Q",
+                          "Q",
+                          "J",
+                          "J",
+                          "J",
+                          "P",
+                          "P",
+                          "X"
+                        ],
+                        [
+                          "T",
+                          "T",
+                          "Q",
+                          "Q",
+                          "X",
+                          "X",
+                          "Y",
+                          "Y",
+                          "K",
+                          "K"
+                        ],
+                        [
+                          "T",
+                          "T",
+                          "A",
+                          "A",
+                          "S",
+                          "Z",
+                          "P",
+                          "P",
+                          "K",
+                          "K"
+                        ],
+                        [
+                          "X",
+                          "T",
+                          "T",
+                          "Q",
+                          "Q",
+                          "J",
+                          "Y",
+                          "Y",
+                          "Z",
+                          "Y"
+                        ]
+                      ],
+                      "multiWays": [
+                        {
+                          "winSingleMul": "2.50",
+                          "winMul": "2.50",
+                          "winning": "5.00",
+                          "multiplier": 1,
+                          "cells": [
+                            {
+                              "5": 5
+                            },
+                            {
+                              "8": 8,
+                              "9": 9
+                            },
+                            [],
+                            {
+                              "6": 6,
+                              "7": 7
+                            },
+                            [],
+                            {
+                              "6": 6,
+                              "7": 7,
+                              "9": 9
+                            }
+                          ],
+                          "ways": 8,
+                          "symbol": "Y"
+                        }
+                      ],
+                      "stake": 2,
+                      "tiles": {
+                        "0-5": {
+                          "action": "ways",
+                          "values": true,
+                          "value": 20
+                        },
+                        "4-8": {
+                          "action": "ways",
+                          "values": true,
+                          "value": 15
+                        }
+                      },
+                      "tilesMod": {
+                        "0-5": {
+                          "action": "ways",
+                          "values": true,
+                          "value": 0
+                        },
+                        "4-8": {
+                          "action": "ways",
+                          "values": true,
+                          "value": 15
+                        }
+                      },
+                      "winMul": "2.50",
+                      "winning": "5.00",
+                      "win": {
+                        "multiWays": [
+                          {
+                            "winSingleMul": "2.50",
+                            "winMul": "2.50",
+                            "winning": "5.00",
+                            "multiplier": 1,
+                            "cells": [
+                              {
+                                "5": 5
+                              },
+                              {
+                                "8": 8,
+                                "9": 9
+                              },
+                              [],
+                              {
+                                "6": 6,
+                                "7": 7
+                              },
+                              [],
+                              {
+                                "6": 6,
+                                "7": 7,
+                                "9": 9
+                              }
+                            ],
+                            "ways": 8,
+                            "symbol": "Y"
+                          }
+                        ],
+                        "winMul": "2.50",
+                        "winning": "5.00",
+                        "multiplier": 1
+                      },
+                      "winAmounts": [
+                        {
+                          "x": 0,
+                          "y": 5,
+                          "value": 20
+                        }
+                      ]
+                    },
+                    {
+                      "reels": [
+                        [
+                          "X",
+                          "X",
+                          "T",
+                          "Y",
+                          "P",
+                          "P",
+                          "X",
+                          "X",
+                          "J",
+                          "A"
+                        ],
+                        [
+                          "A",
+                          "A",
+                          "J",
+                          "J",
+                          "S",
+                          "Q",
+                          "Q",
+                          "Z",
+                          "Z",
+                          "T"
+                        ],
+                        [
+                          "X",
+                          "X",
+                          "Q",
+                          "Q",
+                          "J",
+                          "J",
+                          "J",
+                          "P",
+                          "P",
+                          "X"
+                        ],
+                        [
+                          "J",
+                          "T",
+                          "T",
+                          "T",
+                          "Q",
+                          "Q",
+                          "X",
+                          "X",
+                          "K",
+                          "K"
+                        ],
+                        [
+                          "T",
+                          "T",
+                          "A",
+                          "A",
+                          "S",
+                          "Z",
+                          "P",
+                          "P",
+                          "K",
+                          "K"
+                        ],
+                        [
+                          "J",
+                          "J",
+                          "J",
+                          "X",
+                          "T",
+                          "T",
+                          "Q",
+                          "Q",
+                          "J",
+                          "Z"
+                        ]
+                      ],
+                      "multiWays": [],
+                      "stake": 2,
+                      "tiles": {
+                        "4-8": {
+                          "action": "ways",
+                          "values": true,
+                          "value": 15
+                        }
+                      },
+                      "tilesMod": {
+                        "4-8": {
+                          "action": "ways",
+                          "values": true,
+                          "value": 15
+                        }
+                      },
+                      "winMul": "0.00",
+                      "winning": "0.00",
+                      "win": {
+                        "multiWays": [],
+                        "winMul": "0.00",
+                        "winning": "0.00",
+                        "multiplier": 1
+                      },
+                      "winAmounts": []
+                    }
+                  ],
+                  "fsCountBefore": 15,
+                  "fsCountCurrent": 14,
+                  "fsCountAfter": 14
+                },
+                {
+                  "reels": [
+                    [
+                      "P",
+                      "Y",
+                      "A",
+                      "A",
+                      "A",
+                      "Z",
+                      "Z",
+                      "S",
+                      "A",
+                      "A"
+                    ],
+                    [
+                      "J",
+                      "Z",
+                      "Y",
+                      "Q",
+                      "Q",
+                      "X",
+                      "X",
+                      "T",
+                      "T",
+                      "Z"
+                    ],
+                    [
+                      "Q",
+                      "Q",
+                      "Y",
+                      "Y",
+                      "Q",
+                      "Q",
+                      "T",
+                      "T",
+                      "Z",
+                      "Y"
+                    ],
+                    [
+                      "T",
+                      "T",
+                      "T",
+                      "A",
+                      "A",
+                      "Q",
+                      "Q",
+                      "P",
+                      "P",
+                      "J"
+                    ],
+                    [
+                      "Q",
+                      "Q",
+                      "Z",
+                      "X",
+                      "X",
+                      "J",
+                      "J",
+                      "Q",
+                      "Q",
+                      "Q"
+                    ],
+                    [
+                      "K",
+                      "A",
+                      "Q",
+                      "Q",
+                      "Z",
+                      "K",
+                      "T",
+                      "T",
+                      "T",
+                      "S"
+                    ]
+                  ],
+                  "tiles": {
+                    "4-8": {
+                      "action": "ways",
+                      "values": true,
+                      "value": 15
+                    }
+                  },
+                  "tilesMod": {
+                    "4-8": {
+                      "action": "ways",
+                      "values": true,
+                      "value": 15
+                    }
+                  },
+                  "stake": 2,
+                  "multiWays": [],
+                  "winMul": "0.00",
+                  "winning": "0.00",
+                  "win": {
+                    "multiWays": [],
+                    "winMul": "0.00",
+                    "winning": "0.00",
+                    "multiplier": 1
+                  },
+                  "winAmounts": [],
+                  "fsCountBefore": 14,
+                  "fsCountCurrent": 13,
+                  "fsCountAfter": 13
+                },
+                {
+                  "reels": [
+                    [
+                      "Z",
+                      "Z",
+                      "T",
+                      "A",
+                      "A",
+                      "A",
+                      "Y",
+                      "X",
+                      "X",
+                      "P"
+                    ],
+                    [
+                      "Q",
+                      "P",
+                      "P",
+                      "T",
+                      "T",
+                      "Z",
+                      "Y",
+                      "Y",
+                      "Y",
+                      "J"
+                    ],
+                    [
+                      "T",
+                      "T",
+                      "K",
+                      "K",
+                      "K",
+                      "J",
+                      "J",
+                      "S",
+                      "P",
+                      "P"
+                    ],
+                    [
+                      "Y",
+                      "Y",
+                      "J",
+                      "J",
+                      "S",
+                      "Y",
+                      "K",
+                      "K",
+                      "Q",
+                      "Q"
+                    ],
+                    [
+                      "T",
+                      "T",
+                      "Q",
+                      "Q",
+                      "Y",
+                      "P",
+                      "P",
+                      "T",
+                      "T",
+                      "Q"
+                    ],
+                    [
+                      "Q",
+                      "T",
+                      "T",
+                      "K",
+                      "J",
+                      "J",
+                      "J",
+                      "X",
+                      "X",
+                      "K"
+                    ]
+                  ],
+                  "tiles": {
+                    "4-8": {
+                      "action": "ways",
+                      "values": true,
+                      "value": 15
+                    }
+                  },
+                  "tilesMod": {
+                    "4-8": {
+                      "action": "ways",
+                      "values": true,
+                      "value": 15
+                    }
+                  },
+                  "stake": 2,
+                  "multiWays": [],
+                  "winMul": "0.00",
+                  "winning": "0.00",
+                  "win": {
+                    "multiWays": [],
+                    "winMul": "0.00",
+                    "winning": "0.00",
+                    "multiplier": 1
+                  },
+                  "winAmounts": [],
+                  "fsCountBefore": 13,
+                  "fsCountCurrent": 12,
+                  "fsCountAfter": 12
+                },
+                {
+                  "reels": [
+                    [
+                      "Y",
+                      "P",
+                      "P",
+                      "P",
+                      "Z",
+                      "A",
+                      "A",
+                      "Q",
+                      "X",
+                      "X"
+                    ],
+                    [
+                      "Q",
+                      "P",
+                      "P",
+                      "T",
+                      "T",
+                      "X",
+                      "X",
+                      "J",
+                      "J",
+                      "Q"
+                    ],
+                    [
+                      "P",
+                      "Q",
+                      "Q",
+                      "T",
+                      "T",
+                      "K",
+                      "K",
+                      "Q",
+                      "Q",
+                      "X"
+                    ],
+                    [
+                      "P",
+                      "J",
+                      "J",
+                      "Z",
+                      "Z",
+                      "T",
+                      "T",
+                      "T",
+                      "Q",
+                      "Q"
+                    ],
+                    [
+                      "P",
+                      "J",
+                      "J",
+                      "Q",
+                      "Q",
+                      "K",
+                      "K",
+                      "Z",
+                      "A",
+                      "A"
+                    ],
+                    [
+                      "J",
+                      "K",
+                      "K",
+                      "Z",
+                      "P",
+                      "Q",
+                      "Q",
+                      "X",
+                      "X",
+                      "Q"
+                    ]
+                  ],
+                  "tiles": {
+                    "4-8": {
+                      "action": "ways",
+                      "values": true,
+                      "value": 15
+                    }
+                  },
+                  "tilesMod": {
+                    "4-8": {
+                      "action": "ways",
+                      "values": true,
+                      "value": 15
+                    }
+                  },
+                  "stake": 2,
+                  "multiWays": [
+                    {
+                      "winSingleMul": "0.50",
+                      "winMul": "0.50",
+                      "winning": "1.00",
+                      "multiplier": 1,
+                      "cells": [
+                        {
+                          "7": 7
+                        },
+                        {
+                          "9": 9
+                        },
+                        {
+                          "7": 7,
+                          "8": 8
+                        },
+                        {
+                          "8": 8,
+                          "9": 9
+                        },
+                        [],
+                        {
+                          "5": 5,
+                          "6": 6,
+                          "9": 9
+                        }
+                      ],
+                      "ways": 9,
+                      "symbol": "Q"
+                    }
+                  ],
+                  "winMul": "0.50",
+                  "winning": "1.00",
+                  "win": {
+                    "multiWays": [
+                      {
+                        "winSingleMul": "0.50",
+                        "winMul": "0.50",
+                        "winning": "1.00",
+                        "multiplier": 1,
+                        "cells": [
+                          {
+                            "7": 7
+                          },
+                          {
+                            "9": 9
+                          },
+                          {
+                            "7": 7,
+                            "8": 8
+                          },
+                          {
+                            "8": 8,
+                            "9": 9
+                          },
+                          [],
+                          {
+                            "5": 5,
+                            "6": 6,
+                            "9": 9
+                          }
+                        ],
+                        "ways": 9,
+                        "symbol": "Q"
+                      }
+                    ],
+                    "winMul": "0.50",
+                    "winning": "1.00",
+                    "multiplier": 1
+                  },
+                  "winAmounts": [],
+                  "reactions": [
+                    {
+                      "reels": [
+                        [
+                          "J",
+                          "Y",
+                          "P",
+                          "P",
+                          "P",
+                          "Z",
+                          "A",
+                          "A",
+                          "X",
+                          "X"
+                        ],
+                        [
+                          "Q",
+                          "Q",
+                          "P",
+                          "P",
+                          "T",
+                          "T",
+                          "X",
+                          "X",
+                          "J",
+                          "J"
+                        ],
+                        [
+                          "K",
+                          "P",
+                          "P",
+                          "Q",
+                          "Q",
+                          "T",
+                          "T",
+                          "K",
+                          "K",
+                          "X"
+                        ],
+                        [
+                          "S",
+                          "P",
+                          "P",
+                          "J",
+                          "J",
+                          "Z",
+                          "Z",
+                          "T",
+                          "T",
+                          "T"
+                        ],
+                        [
+                          "P",
+                          "J",
+                          "J",
+                          "Q",
+                          "Q",
+                          "K",
+                          "K",
+                          "Z",
+                          "A",
+                          "A"
+                        ],
+                        [
+                          "Q",
+                          "Q",
+                          "J",
+                          "J",
+                          "K",
+                          "K",
+                          "Z",
+                          "P",
+                          "X",
+                          "X"
+                        ]
+                      ],
+                      "multiWays": [],
+                      "stake": 2,
+                      "tiles": {
+                        "4-8": {
+                          "action": "ways",
+                          "values": true,
+                          "value": 15
+                        }
+                      },
+                      "tilesMod": {
+                        "4-8": {
+                          "action": "ways",
+                          "values": true,
+                          "value": 15
+                        }
+                      },
+                      "winMul": "0.00",
+                      "winning": "0.00",
+                      "win": {
+                        "multiWays": [],
+                        "winMul": "0.00",
+                        "winning": "0.00",
+                        "multiplier": 1
+                      },
+                      "winAmounts": []
+                    }
+                  ],
+                  "fsCountBefore": 12,
+                  "fsCountCurrent": 11,
+                  "fsCountAfter": 11
+                },
+                {
+                  "reels": [
+                    [
+                      "X",
+                      "X",
+                      "P",
+                      "P",
+                      "Z",
+                      "Z",
+                      "K",
+                      "K",
+                      "A",
+                      "A"
+                    ],
+                    [
+                      "T",
+                      "T",
+                      "K",
+                      "K",
+                      "J",
+                      "J",
+                      "A",
+                      "A",
+                      "X",
+                      "Z"
+                    ],
+                    [
+                      "Z",
+                      "P",
+                      "P",
+                      "X",
+                      "X",
+                      "Q",
+                      "Q",
+                      "J",
+                      "J",
+                      "K"
+                    ],
+                    [
+                      "A",
+                      "J",
+                      "J",
+                      "Z",
+                      "P",
+                      "P",
+                      "K",
+                      "K",
+                      "Q",
+                      "Q"
+                    ],
+                    [
+                      "A",
+                      "A",
+                      "P",
+                      "T",
+                      "T",
+                      "K",
+                      "K",
+                      "X",
+                      "X",
+                      "P"
+                    ],
+                    [
+                      "J",
+                      "T",
+                      "T",
+                      "A",
+                      "A",
+                      "Q",
+                      "Q",
+                      "Y",
+                      "Y",
+                      "Z"
+                    ]
+                  ],
+                  "tiles": {
+                    "4-8": {
+                      "action": "ways",
+                      "values": true,
+                      "value": 15
+                    }
+                  },
+                  "tilesMod": {
+                    "4-8": {
+                      "action": "ways",
+                      "values": true,
+                      "value": 15
+                    }
+                  },
+                  "stake": 2,
+                  "multiWays": [],
+                  "winMul": "0.00",
+                  "winning": "0.00",
+                  "win": {
+                    "multiWays": [],
+                    "winMul": "0.00",
+                    "winning": "0.00",
+                    "multiplier": 1
+                  },
+                  "winAmounts": [],
+                  "fsCountBefore": 11,
+                  "fsCountCurrent": 10,
+                  "fsCountAfter": 10
+                },
+                {
+                  "reels": [
+                    [
+                      "Y",
+                      "S",
+                      "J",
+                      "P",
+                      "P",
+                      "K",
+                      "K",
+                      "A",
+                      "A",
+                      "Q"
+                    ],
+                    [
+                      "Q",
+                      "Q",
+                      "S",
+                      "Y",
+                      "T",
+                      "T",
+                      "Y",
+                      "Q",
+                      "Q",
+                      "X"
+                    ],
+                    [
+                      "Z",
+                      "J",
+                      "J",
+                      "Q",
+                      "Q",
+                      "T",
+                      "T",
+                      "K",
+                      "K",
+                      "Z"
+                    ],
+                    [
+                      "Q",
+                      "Q",
+                      "Q",
+                      "Q",
+                      "P",
+                      "P",
+                      "T",
+                      "T",
+                      "T",
+                      "A"
+                    ],
+                    [
+                      "T",
+                      "Y",
+                      "Q",
+                      "Q",
+                      "Q",
+                      "Y",
+                      "Z",
+                      "S",
+                      "J",
+                      "J"
+                    ],
+                    [
+                      "J",
+                      "J",
+                      "T",
+                      "T",
+                      "Y",
+                      "Y",
+                      "S",
+                      "A",
+                      "A",
+                      "J"
+                    ]
+                  ],
+                  "tiles": {
+                    "4-8": {
+                      "action": "ways",
+                      "values": true,
+                      "value": 15
+                    }
+                  },
+                  "tilesMod": {
+                    "4-8": {
+                      "action": "ways",
+                      "values": true,
+                      "value": 15
+                    }
+                  },
+                  "stake": 2,
+                  "multiWays": [],
+                  "winMul": "0.00",
+                  "winning": "0.00",
+                  "win": {
+                    "multiWays": [],
+                    "winMul": "0.00",
+                    "winning": "0.00",
+                    "multiplier": 1
+                  },
+                  "winAmounts": [],
+                  "fsCountBefore": 10,
+                  "fsCountCurrent": 9,
+                  "fsCountAfter": 9
+                },
+                {
+                  "reels": [
+                    [
+                      "T",
+                      "P",
+                      "P",
+                      "Z",
+                      "A",
+                      "A",
+                      "Y",
+                      "Q",
+                      "X",
+                      "X"
+                    ],
+                    [
+                      "T",
+                      "T",
+                      "Q",
+                      "Q",
+                      "P",
+                      "P",
+                      "T",
+                      "T",
+                      "J",
+                      "J"
+                    ],
+                    [
+                      "Q",
+                      "Q",
+                      "T",
+                      "T",
+                      "A",
+                      "A",
+                      "Q",
+                      "Q",
+                      "Y",
+                      "Y"
+                    ],
+                    [
+                      "K",
+                      "J",
+                      "J",
+                      "Y",
+                      "Y",
+                      "T",
+                      "T",
+                      "T",
+                      "Z",
+                      "Z"
+                    ],
+                    [
+                      "A",
+                      "T",
+                      "T",
+                      "X",
+                      "P",
+                      "Y",
+                      "Y",
+                      "Z",
+                      "Z",
+                      "T"
+                    ],
+                    [
+                      "J",
+                      "Q",
+                      "Q",
+                      "P",
+                      "P",
+                      "Z",
+                      "Z",
+                      "X",
+                      "X",
+                      "J"
+                    ]
+                  ],
+                  "tiles": {
+                    "4-8": {
+                      "action": "ways",
+                      "values": true,
+                      "value": 15
+                    }
+                  },
+                  "tilesMod": {
+                    "4-8": {
+                      "action": "ways",
+                      "values": true,
+                      "value": 15
+                    }
+                  },
+                  "stake": 2,
+                  "multiWays": [],
+                  "winMul": "0.00",
+                  "winning": "0.00",
+                  "win": {
+                    "multiWays": [],
+                    "winMul": "0.00",
+                    "winning": "0.00",
+                    "multiplier": 1
+                  },
+                  "winAmounts": [],
+                  "fsCountBefore": 9,
+                  "fsCountCurrent": 8,
+                  "fsCountAfter": 8
+                },
+                {
+                  "reels": [
+                    [
+                      "A",
+                      "P",
+                      "P",
+                      "P",
+                      "X",
+                      "X",
+                      "Z",
+                      "J",
+                      "Y",
+                      "Y"
+                    ],
+                    [
+                      "Y",
+                      "J",
+                      "J",
+                      "S",
+                      "Z",
+                      "Z",
+                      "K",
+                      "Q",
+                      "Q",
+                      "Y"
+                    ],
+                    [
+                      "Z",
+                      "P",
+                      "P",
+                      "X",
+                      "X",
+                      "S",
+                      "T",
+                      "T",
+                      "J",
+                      "J"
+                    ],
+                    [
+                      "A",
+                      "Z",
+                      "Z",
+                      "T",
+                      "T",
+                      "T",
+                      "Z",
+                      "Q",
+                      "Q",
+                      "K"
+                    ],
+                    [
+                      "X",
+                      "Z",
+                      "Z",
+                      "T",
+                      "T",
+                      "K",
+                      "K",
+                      "J",
+                      "J",
+                      "A"
+                    ],
+                    [
+                      "T",
+                      "S",
+                      "Y",
+                      "Y",
+                      "P",
+                      "P",
+                      "K",
+                      "K",
+                      "J",
+                      "J"
+                    ]
+                  ],
+                  "tiles": {
+                    "4-8": {
+                      "action": "ways",
+                      "values": true,
+                      "value": 15
+                    }
+                  },
+                  "tilesMod": {
+                    "4-8": {
+                      "action": "ways",
+                      "values": true,
+                      "value": 15
+                    }
+                  },
+                  "stake": 2,
+                  "multiWays": [],
+                  "winMul": "0.00",
+                  "winning": "0.00",
+                  "win": {
+                    "multiWays": [],
+                    "winMul": "0.00",
+                    "winning": "0.00",
+                    "multiplier": 1
+                  },
+                  "winAmounts": [],
+                  "fsCountBefore": 8,
+                  "fsCountCurrent": 7,
+                  "fsCountAfter": 7
+                },
+                {
+                  "reels": [
+                    [
+                      "K",
+                      "T",
+                      "Z",
+                      "X",
+                      "X",
+                      "K",
+                      "K",
+                      "Y",
+                      "A",
+                      "A"
+                    ],
+                    [
+                      "J",
+                      "A",
+                      "A",
+                      "Q",
+                      "Q",
+                      "T",
+                      "T",
+                      "K",
+                      "K",
+                      "K"
+                    ],
+                    [
+                      "P",
+                      "P",
+                      "K",
+                      "K",
+                      "T",
+                      "T",
+                      "Q",
+                      "Q",
+                      "Q",
+                      "Z"
+                    ],
+                    [
+                      "K",
+                      "K",
+                      "J",
+                      "J",
+                      "S",
+                      "T",
+                      "T",
+                      "X",
+                      "X",
+                      "A"
+                    ],
+                    [
+                      "K",
+                      "J",
+                      "J",
+                      "Q",
+                      "Q",
+                      "Q",
+                      "T",
+                      "T",
+                      "A",
+                      "A"
+                    ],
+                    [
+                      "J",
+                      "T",
+                      "T",
+                      "Q",
+                      "Q",
+                      "A",
+                      "K",
+                      "P",
+                      "P",
+                      "T"
+                    ]
+                  ],
+                  "tiles": {
+                    "4-8": {
+                      "action": "ways",
+                      "values": true,
+                      "value": 15
+                    }
+                  },
+                  "tilesMod": {
+                    "4-8": {
+                      "action": "ways",
+                      "values": true,
+                      "value": 15
+                    }
+                  },
+                  "stake": 2,
+                  "multiWays": [
+                    {
+                      "winSingleMul": "0.20",
+                      "winMul": "0.20",
+                      "winning": "0.40",
+                      "multiplier": 1,
+                      "cells": [
+                        [],
+                        {
+                          "5": 5,
+                          "6": 6
+                        },
+                        {
+                          "5": 5
+                        },
+                        {
+                          "5": 5,
+                          "6": 6
+                        },
+                        {
+                          "6": 6,
+                          "7": 7
+                        },
+                        {
+                          "9": 9
+                        }
+                      ],
+                      "ways": 8,
+                      "symbol": "T"
+                    }
+                  ],
+                  "winMul": "0.20",
+                  "winning": "0.40",
+                  "win": {
+                    "multiWays": [
+                      {
+                        "winSingleMul": "0.20",
+                        "winMul": "0.20",
+                        "winning": "0.40",
+                        "multiplier": 1,
+                        "cells": [
+                          [],
+                          {
+                            "5": 5,
+                            "6": 6
+                          },
+                          {
+                            "5": 5
+                          },
+                          {
+                            "5": 5,
+                            "6": 6
+                          },
+                          {
+                            "6": 6,
+                            "7": 7
+                          },
+                          {
+                            "9": 9
+                          }
+                        ],
+                        "ways": 8,
+                        "symbol": "T"
+                      }
+                    ],
+                    "winMul": "0.20",
+                    "winning": "0.40",
+                    "multiplier": 1
+                  },
+                  "winAmounts": [],
+                  "reactions": [
+                    {
+                      "reels": [
+                        [
+                          "K",
+                          "T",
+                          "Z",
+                          "X",
+                          "X",
+                          "K",
+                          "K",
+                          "Y",
+                          "A",
+                          "A"
+                        ],
+                        [
+                          "K",
+                          "J",
+                          "J",
+                          "A",
+                          "A",
+                          "Q",
+                          "Q",
+                          "K",
+                          "K",
+                          "K"
+                        ],
+                        [
+                          "Y",
+                          "P",
+                          "P",
+                          "K",
+                          "K",
+                          "T",
+                          "Q",
+                          "Q",
+                          "Q",
+                          "Z"
+                        ],
+                        [
+                          "Q",
+                          "Y",
+                          "K",
+                          "K",
+                          "J",
+                          "J",
+                          "S",
+                          "X",
+                          "X",
+                          "A"
+                        ],
+                        [
+                          "A",
+                          "Y",
+                          "K",
+                          "J",
+                          "J",
+                          "Q",
+                          "Q",
+                          "Q",
+                          "A",
+                          "A"
+                        ],
+                        [
+                          "J",
+                          "J",
+                          "T",
+                          "T",
+                          "Q",
+                          "Q",
+                          "A",
+                          "K",
+                          "P",
+                          "P"
+                        ]
+                      ],
+                      "multiWays": [
+                        {
+                          "winSingleMul": "0.50",
+                          "winMul": "0.50",
+                          "winning": "1.00",
+                          "multiplier": 1,
+                          "cells": [
+                            [],
+                            {
+                              "5": 5,
+                              "6": 6
+                            },
+                            {
+                              "6": 6,
+                              "7": 7,
+                              "8": 8
+                            },
+                            [],
+                            {
+                              "5": 5,
+                              "6": 6,
+                              "7": 7
+                            },
+                            {
+                              "5": 5
+                            }
+                          ],
+                          "ways": 9,
+                          "symbol": "Q"
+                        }
+                      ],
+                      "stake": 2,
+                      "tiles": {
+                        "4-8": {
+                          "action": "ways",
+                          "values": true,
+                          "value": 15
+                        }
+                      },
+                      "tilesMod": {
+                        "4-8": {
+                          "action": "ways",
+                          "values": true,
+                          "value": 15
+                        }
+                      },
+                      "winMul": "0.50",
+                      "winning": "1.00",
+                      "win": {
+                        "multiWays": [
+                          {
+                            "winSingleMul": "0.50",
+                            "winMul": "0.50",
+                            "winning": "1.00",
+                            "multiplier": 1,
+                            "cells": [
+                              [],
+                              {
+                                "5": 5,
+                                "6": 6
+                              },
+                              {
+                                "6": 6,
+                                "7": 7,
+                                "8": 8
+                              },
+                              [],
+                              {
+                                "5": 5,
+                                "6": 6,
+                                "7": 7
+                              },
+                              {
+                                "5": 5
+                              }
+                            ],
+                            "ways": 9,
+                            "symbol": "Q"
+                          }
+                        ],
+                        "winMul": "0.50",
+                        "winning": "1.00",
+                        "multiplier": 1
+                      },
+                      "winAmounts": []
+                    },
+                    {
+                      "reels": [
+                        [
+                          "K",
+                          "T",
+                          "Z",
+                          "X",
+                          "X",
+                          "K",
+                          "K",
+                          "Y",
+                          "A",
+                          "A"
+                        ],
+                        [
+                          "T",
+                          "K",
+                          "K",
+                          "J",
+                          "J",
+                          "A",
+                          "A",
+                          "K",
+                          "K",
+                          "K"
+                        ],
+                        [
+                          "T",
+                          "S",
+                          "Y",
+                          "Y",
+                          "P",
+                          "P",
+                          "K",
+                          "K",
+                          "T",
+                          "Z"
+                        ],
+                        [
+                          "Q",
+                          "Y",
+                          "K",
+                          "K",
+                          "J",
+                          "J",
+                          "S",
+                          "X",
+                          "X",
+                          "A"
+                        ],
+                        [
+                          "Y",
+                          "T",
+                          "T",
+                          "A",
+                          "Y",
+                          "K",
+                          "J",
+                          "J",
+                          "A",
+                          "A"
+                        ],
+                        [
+                          "P",
+                          "J",
+                          "J",
+                          "T",
+                          "T",
+                          "Q",
+                          "A",
+                          "K",
+                          "P",
+                          "P"
+                        ]
+                      ],
+                      "multiWays": [
+                        {
+                          "winSingleMul": "0.80",
+                          "winMul": "0.80",
+                          "winning": "1.60",
+                          "multiplier": 1,
+                          "cells": [
+                            {
+                              "5": 5,
+                              "6": 6
+                            },
+                            {
+                              "7": 7,
+                              "8": 8,
+                              "9": 9
+                            },
+                            {
+                              "6": 6,
+                              "7": 7
+                            },
+                            [],
+                            {
+                              "5": 5
+                            },
+                            {
+                              "7": 7
+                            }
+                          ],
+                          "ways": 9,
+                          "symbol": "K"
+                        },
+                        {
+                          "winSingleMul": "1.00",
+                          "winMul": "1.00",
+                          "winning": "2.00",
+                          "multiplier": 1,
+                          "cells": [
+                            {
+                              "8": 8,
+                              "9": 9
+                            },
+                            {
+                              "5": 5,
+                              "6": 6
+                            },
+                            [],
+                            {
+                              "9": 9
+                            },
+                            {
+                              "8": 8,
+                              "9": 9
+                            },
+                            {
+                              "6": 6
+                            }
+                          ],
+                          "ways": 8,
+                          "symbol": "A"
+                        }
+                      ],
+                      "stake": 2,
+                      "tiles": {
+                        "4-8": {
+                          "action": "ways",
+                          "values": true,
+                          "value": 15
+                        }
+                      },
+                      "tilesMod": {
+                        "4-8": {
+                          "action": "ways",
+                          "values": true,
+                          "value": 0
+                        }
+                      },
+                      "winMul": "1.80",
+                      "winning": "3.60",
+                      "win": {
+                        "multiWays": [
+                          {
+                            "winSingleMul": "0.80",
+                            "winMul": "0.80",
+                            "winning": "1.60",
+                            "multiplier": 1,
+                            "cells": [
+                              {
+                                "5": 5,
+                                "6": 6
+                              },
+                              {
+                                "7": 7,
+                                "8": 8,
+                                "9": 9
+                              },
+                              {
+                                "6": 6,
+                                "7": 7
+                              },
+                              [],
+                              {
+                                "5": 5
+                              },
+                              {
+                                "7": 7
+                              }
+                            ],
+                            "ways": 9,
+                            "symbol": "K"
+                          },
+                          {
+                            "winSingleMul": "1.00",
+                            "winMul": "1.00",
+                            "winning": "2.00",
+                            "multiplier": 1,
+                            "cells": [
+                              {
+                                "8": 8,
+                                "9": 9
+                              },
+                              {
+                                "5": 5,
+                                "6": 6
+                              },
+                              [],
+                              {
+                                "9": 9
+                              },
+                              {
+                                "8": 8,
+                                "9": 9
+                              },
+                              {
+                                "6": 6
+                              }
+                            ],
+                            "ways": 8,
+                            "symbol": "A"
+                          }
+                        ],
+                        "winMul": "1.80",
+                        "winning": "3.60",
+                        "multiplier": 1
+                      },
+                      "winAmounts": [
+                        {
+                          "x": 4,
+                          "y": 8,
+                          "value": 15
+                        }
+                      ]
+                    },
+                    {
+                      "reels": [
+                        [
+                          "T",
+                          "P",
+                          "P",
+                          "K",
+                          "K",
+                          "T",
+                          "Z",
+                          "X",
+                          "X",
+                          "Y"
+                        ],
+                        [
+                          "X",
+                          "X",
+                          "P",
+                          "P",
+                          "T",
+                          "T",
+                          "K",
+                          "K",
+                          "J",
+                          "J"
+                        ],
+                        [
+                          "P",
+                          "T",
+                          "T",
+                          "S",
+                          "Y",
+                          "Y",
+                          "P",
+                          "P",
+                          "T",
+                          "Z"
+                        ],
+                        [
+                          "Q",
+                          "Q",
+                          "Y",
+                          "K",
+                          "K",
+                          "J",
+                          "J",
+                          "S",
+                          "X",
+                          "X"
+                        ],
+                        [
+                          "Y",
+                          "Y",
+                          "Y",
+                          "Y",
+                          "T",
+                          "T",
+                          "A",
+                          "Y",
+                          "J",
+                          "J"
+                        ],
+                        [
+                          "K",
+                          "A",
+                          "P",
+                          "J",
+                          "J",
+                          "T",
+                          "T",
+                          "Q",
+                          "P",
+                          "P"
+                        ]
+                      ],
+                      "multiWays": [],
+                      "stake": 2,
+                      "tiles": {
+                        "1-8": {
+                          "action": "ways",
+                          "values": true,
+                          "value": 5
+                        }
+                      },
+                      "tilesMod": {
+                        "1-8": {
+                          "action": "ways",
+                          "values": true,
+                          "value": 5
+                        }
+                      },
+                      "winMul": "0.00",
+                      "winning": "0.00",
+                      "newAmounts": [
+                        {
+                          "value": 5,
+                          "total": 5,
+                          "x": 1,
+                          "y": 8
+                        }
+                      ],
+                      "win": {
+                        "multiWays": [],
+                        "winMul": "0.00",
+                        "winning": "0.00",
+                        "multiplier": 1
+                      },
+                      "winAmounts": []
+                    }
+                  ],
+                  "fsCountBefore": 7,
+                  "fsCountCurrent": 6,
+                  "fsCountAfter": 6
+                },
+                {
+                  "reels": [
+                    [
+                      "X",
+                      "X",
+                      "X",
+                      "P",
+                      "P",
+                      "P",
+                      "J",
+                      "Y",
+                      "Y",
+                      "X"
+                    ],
+                    [
+                      "A",
+                      "Z",
+                      "J",
+                      "J",
+                      "Q",
+                      "Q",
+                      "T",
+                      "T",
+                      "A",
+                      "A"
+                    ],
+                    [
+                      "A",
+                      "P",
+                      "P",
+                      "T",
+                      "T",
+                      "Q",
+                      "Q",
+                      "A",
+                      "A",
+                      "P"
+                    ],
+                    [
+                      "Y",
+                      "T",
+                      "T",
+                      "Q",
+                      "Q",
+                      "Y",
+                      "A",
+                      "A",
+                      "K",
+                      "K"
+                    ],
+                    [
+                      "X",
+                      "X",
+                      "S",
+                      "J",
+                      "J",
+                      "Q",
+                      "Q",
+                      "Q",
+                      "T",
+                      "T"
+                    ],
+                    [
+                      "J",
+                      "X",
+                      "X",
+                      "X",
+                      "Z",
+                      "Y",
+                      "Q",
+                      "Q",
+                      "T",
+                      "T"
+                    ]
+                  ],
+                  "tiles": {
+                    "1-8": {
+                      "action": "ways",
+                      "values": true,
+                      "value": 5
+                    }
+                  },
+                  "tilesMod": {
+                    "1-8": {
+                      "action": "ways",
+                      "values": true,
+                      "value": 5
+                    }
+                  },
+                  "stake": 2,
+                  "multiWays": [
+                    {
+                      "winSingleMul": "0.50",
+                      "winMul": "0.50",
+                      "winning": "1.00",
+                      "multiplier": 1,
+                      "cells": [
+                        [],
+                        {
+                          "5": 5
+                        },
+                        {
+                          "5": 5,
+                          "6": 6
+                        },
+                        [],
+                        {
+                          "5": 5,
+                          "6": 6,
+                          "7": 7
+                        },
+                        {
+                          "6": 6,
+                          "7": 7
+                        }
+                      ],
+                      "ways": 8,
+                      "symbol": "Q"
+                    }
+                  ],
+                  "winMul": "0.50",
+                  "winning": "1.00",
+                  "win": {
+                    "multiWays": [
+                      {
+                        "winSingleMul": "0.50",
+                        "winMul": "0.50",
+                        "winning": "1.00",
+                        "multiplier": 1,
+                        "cells": [
+                          [],
+                          {
+                            "5": 5
+                          },
+                          {
+                            "5": 5,
+                            "6": 6
+                          },
+                          [],
+                          {
+                            "5": 5,
+                            "6": 6,
+                            "7": 7
+                          },
+                          {
+                            "6": 6,
+                            "7": 7
+                          }
+                        ],
+                        "ways": 8,
+                        "symbol": "Q"
+                      }
+                    ],
+                    "winMul": "0.50",
+                    "winning": "1.00",
+                    "multiplier": 1
+                  },
+                  "winAmounts": [],
+                  "reactions": [
+                    {
+                      "reels": [
+                        [
+                          "X",
+                          "X",
+                          "X",
+                          "P",
+                          "P",
+                          "P",
+                          "J",
+                          "Y",
+                          "Y",
+                          "X"
+                        ],
+                        [
+                          "A",
+                          "A",
+                          "Z",
+                          "J",
+                          "J",
+                          "Q",
+                          "T",
+                          "T",
+                          "A",
+                          "A"
+                        ],
+                        [
+                          "K",
+                          "A",
+                          "A",
+                          "P",
+                          "P",
+                          "T",
+                          "T",
+                          "A",
+                          "A",
+                          "P"
+                        ],
+                        [
+                          "Y",
+                          "T",
+                          "T",
+                          "Q",
+                          "Q",
+                          "Y",
+                          "A",
+                          "A",
+                          "K",
+                          "K"
+                        ],
+                        [
+                          "T",
+                          "Z",
+                          "P",
+                          "X",
+                          "X",
+                          "S",
+                          "J",
+                          "J",
+                          "T",
+                          "T"
+                        ],
+                        [
+                          "J",
+                          "J",
+                          "J",
+                          "X",
+                          "X",
+                          "X",
+                          "Z",
+                          "Y",
+                          "T",
+                          "T"
+                        ]
+                      ],
+                      "multiWays": [
+                        {
+                          "winSingleMul": "0.20",
+                          "winMul": "0.20",
+                          "winning": "0.40",
+                          "multiplier": 1,
+                          "cells": [
+                            [],
+                            {
+                              "6": 6,
+                              "7": 7
+                            },
+                            {
+                              "5": 5,
+                              "6": 6
+                            },
+                            [],
+                            {
+                              "8": 8,
+                              "9": 9
+                            },
+                            {
+                              "8": 8,
+                              "9": 9
+                            }
+                          ],
+                          "ways": 8,
+                          "symbol": "T"
+                        }
+                      ],
+                      "stake": 2,
+                      "tiles": {
+                        "1-8": {
+                          "action": "ways",
+                          "values": true,
+                          "value": 5
+                        }
+                      },
+                      "tilesMod": {
+                        "1-8": {
+                          "action": "ways",
+                          "values": true,
+                          "value": 5
+                        }
+                      },
+                      "winMul": "0.20",
+                      "winning": "0.40",
+                      "win": {
+                        "multiWays": [
+                          {
+                            "winSingleMul": "0.20",
+                            "winMul": "0.20",
+                            "winning": "0.40",
+                            "multiplier": 1,
+                            "cells": [
+                              [],
+                              {
+                                "6": 6,
+                                "7": 7
+                              },
+                              {
+                                "5": 5,
+                                "6": 6
+                              },
+                              [],
+                              {
+                                "8": 8,
+                                "9": 9
+                              },
+                              {
+                                "8": 8,
+                                "9": 9
+                              }
+                            ],
+                            "ways": 8,
+                            "symbol": "T"
+                          }
+                        ],
+                        "winMul": "0.20",
+                        "winning": "0.40",
+                        "multiplier": 1
+                      },
+                      "winAmounts": []
+                    },
+                    {
+                      "reels": [
+                        [
+                          "X",
+                          "X",
+                          "X",
+                          "P",
+                          "P",
+                          "P",
+                          "J",
+                          "Y",
+                          "Y",
+                          "X"
+                        ],
+                        [
+                          "T",
+                          "T",
+                          "A",
+                          "A",
+                          "Z",
+                          "J",
+                          "J",
+                          "Q",
+                          "A",
+                          "A"
+                        ],
+                        [
+                          "T",
+                          "K",
+                          "K",
+                          "A",
+                          "A",
+                          "P",
+                          "P",
+                          "A",
+                          "A",
+                          "P"
+                        ],
+                        [
+                          "Y",
+                          "T",
+                          "T",
+                          "Q",
+                          "Q",
+                          "Y",
+                          "A",
+                          "A",
+                          "K",
+                          "K"
+                        ],
+                        [
+                          "K",
+                          "T",
+                          "T",
+                          "Z",
+                          "P",
+                          "X",
+                          "X",
+                          "S",
+                          "J",
+                          "J"
+                        ],
+                        [
+                          "T",
+                          "T",
+                          "J",
+                          "J",
+                          "J",
+                          "X",
+                          "X",
+                          "X",
+                          "Z",
+                          "Y"
+                        ]
+                      ],
+                      "multiWays": [],
+                      "stake": 2,
+                      "tiles": {
+                        "1-8": {
+                          "action": "ways",
+                          "values": true,
+                          "value": 5
+                        }
+                      },
+                      "tilesMod": {
+                        "1-8": {
+                          "action": "ways",
+                          "values": true,
+                          "value": 5
+                        }
+                      },
+                      "winMul": "0.00",
+                      "winning": "0.00",
+                      "win": {
+                        "multiWays": [],
+                        "winMul": "0.00",
+                        "winning": "0.00",
+                        "multiplier": 1
+                      },
+                      "winAmounts": []
+                    }
+                  ],
+                  "fsCountBefore": 6,
+                  "fsCountCurrent": 5,
+                  "fsCountAfter": 5
+                },
+                {
+                  "reels": [
+                    [
+                      "Z",
+                      "P",
+                      "P",
+                      "Y",
+                      "Y",
+                      "A",
+                      "A",
+                      "Y",
+                      "S",
+                      "Q"
+                    ],
+                    [
+                      "Q",
+                      "Q",
+                      "Z",
+                      "Z",
+                      "T",
+                      "T",
+                      "Y",
+                      "Y",
+                      "Q",
+                      "Q"
+                    ],
+                    [
+                      "J",
+                      "P",
+                      "P",
+                      "X",
+                      "T",
+                      "T",
+                      "Y",
+                      "Q",
+                      "Q",
+                      "T"
+                    ],
+                    [
+                      "Q",
+                      "T",
+                      "T",
+                      "T",
+                      "J",
+                      "J",
+                      "X",
+                      "X",
+                      "Z",
+                      "Z"
+                    ],
+                    [
+                      "Z",
+                      "P",
+                      "P",
+                      "T",
+                      "T",
+                      "Q",
+                      "Q",
+                      "Q",
+                      "K",
+                      "K"
+                    ],
+                    [
+                      "Q",
+                      "J",
+                      "Y",
+                      "Y",
+                      "T",
+                      "T",
+                      "Q",
+                      "Q",
+                      "Z",
+                      "Y"
+                    ]
+                  ],
+                  "tiles": {
+                    "1-8": {
+                      "action": "ways",
+                      "values": true,
+                      "value": 5
+                    }
+                  },
+                  "tilesMod": {
+                    "1-8": {
+                      "action": "ways",
+                      "values": true,
+                      "value": 0
+                    }
+                  },
+                  "stake": 2,
+                  "multiWays": [
+                    {
+                      "winSingleMul": "1.00",
+                      "winMul": "1.00",
+                      "winning": "2.00",
+                      "multiplier": 1,
+                      "cells": [
+                        {
+                          "9": 9
+                        },
+                        {
+                          "8": 8,
+                          "9": 9
+                        },
+                        {
+                          "7": 7,
+                          "8": 8
+                        },
+                        [],
+                        {
+                          "5": 5,
+                          "6": 6,
+                          "7": 7
+                        },
+                        {
+                          "6": 6,
+                          "7": 7
+                        }
+                      ],
+                      "ways": 10,
+                      "symbol": "Q"
+                    }
+                  ],
+                  "winMul": "1.00",
+                  "winning": "2.00",
+                  "win": {
+                    "multiWays": [
+                      {
+                        "winSingleMul": "1.00",
+                        "winMul": "1.00",
+                        "winning": "2.00",
+                        "multiplier": 1,
+                        "cells": [
+                          {
+                            "9": 9
+                          },
+                          {
+                            "8": 8,
+                            "9": 9
+                          },
+                          {
+                            "7": 7,
+                            "8": 8
+                          },
+                          [],
+                          {
+                            "5": 5,
+                            "6": 6,
+                            "7": 7
+                          },
+                          {
+                            "6": 6,
+                            "7": 7
+                          }
+                        ],
+                        "ways": 10,
+                        "symbol": "Q"
+                      }
+                    ],
+                    "winMul": "1.00",
+                    "winning": "2.00",
+                    "multiplier": 1
+                  },
+                  "winAmounts": [
+                    {
+                      "x": 1,
+                      "y": 8,
+                      "value": 5
+                    }
+                  ],
+                  "reactions": [
+                    {
+                      "reels": [
+                        [
+                          "Q",
+                          "Z",
+                          "P",
+                          "P",
+                          "Y",
+                          "Y",
+                          "A",
+                          "A",
+                          "Y",
+                          "S"
+                        ],
+                        [
+                          "J",
+                          "S",
+                          "Q",
+                          "Q",
+                          "Z",
+                          "Z",
+                          "T",
+                          "T",
+                          "Y",
+                          "Y"
+                        ],
+                        [
+                          "J",
+                          "J",
+                          "J",
+                          "P",
+                          "P",
+                          "X",
+                          "T",
+                          "T",
+                          "Y",
+                          "T"
+                        ],
+                        [
+                          "Q",
+                          "T",
+                          "T",
+                          "T",
+                          "J",
+                          "J",
+                          "X",
+                          "X",
+                          "Z",
+                          "Z"
+                        ],
+                        [
+                          "A",
+                          "A",
+                          "S",
+                          "Z",
+                          "P",
+                          "P",
+                          "T",
+                          "T",
+                          "K",
+                          "K"
+                        ],
+                        [
+                          "T",
+                          "Q",
+                          "Q",
+                          "J",
+                          "Y",
+                          "Y",
+                          "T",
+                          "T",
+                          "Z",
+                          "Y"
+                        ]
+                      ],
+                      "multiWays": [
+                        {
+                          "winSingleMul": "0.20",
+                          "winMul": "0.20",
+                          "winning": "0.40",
+                          "multiplier": 1,
+                          "cells": [
+                            [],
+                            {
+                              "6": 6,
+                              "7": 7
+                            },
+                            {
+                              "6": 6,
+                              "7": 7,
+                              "9": 9
+                            },
+                            [],
+                            {
+                              "6": 6,
+                              "7": 7
+                            },
+                            {
+                              "6": 6,
+                              "7": 7
+                            }
+                          ],
+                          "ways": 9,
+                          "symbol": "T"
+                        }
+                      ],
+                      "stake": 2,
+                      "tiles": [],
+                      "tilesMod": [],
+                      "winMul": "0.20",
+                      "winning": "0.40",
+                      "win": {
+                        "multiWays": [
+                          {
+                            "winSingleMul": "0.20",
+                            "winMul": "0.20",
+                            "winning": "0.40",
+                            "multiplier": 1,
+                            "cells": [
+                              [],
+                              {
+                                "6": 6,
+                                "7": 7
+                              },
+                              {
+                                "6": 6,
+                                "7": 7,
+                                "9": 9
+                              },
+                              [],
+                              {
+                                "6": 6,
+                                "7": 7
+                              },
+                              {
+                                "6": 6,
+                                "7": 7
+                              }
+                            ],
+                            "ways": 9,
+                            "symbol": "T"
+                          }
+                        ],
+                        "winMul": "0.20",
+                        "winning": "0.40",
+                        "multiplier": 1
+                      },
+                      "winAmounts": []
+                    },
+                    {
+                      "reels": [
+                        [
+                          "Q",
+                          "Z",
+                          "P",
+                          "P",
+                          "Y",
+                          "Y",
+                          "A",
+                          "A",
+                          "Y",
+                          "S"
+                        ],
+                        [
+                          "A",
+                          "J",
+                          "J",
+                          "S",
+                          "Q",
+                          "Q",
+                          "Z",
+                          "Z",
+                          "Y",
+                          "Y"
+                        ],
+                        [
+                          "X",
+                          "Q",
+                          "Q",
+                          "J",
+                          "J",
+                          "J",
+                          "P",
+                          "P",
+                          "X",
+                          "Y"
+                        ],
+                        [
+                          "Q",
+                          "T",
+                          "T",
+                          "T",
+                          "J",
+                          "J",
+                          "X",
+                          "X",
+                          "Z",
+                          "Z"
+                        ],
+                        [
+                          "T",
+                          "T",
+                          "A",
+                          "A",
+                          "S",
+                          "Z",
+                          "P",
+                          "P",
+                          "K",
+                          "K"
+                        ],
+                        [
+                          "X",
+                          "T",
+                          "T",
+                          "Q",
+                          "Q",
+                          "J",
+                          "Y",
+                          "Y",
+                          "Z",
+                          "Y"
+                        ]
+                      ],
+                      "multiWays": [
+                        {
+                          "winSingleMul": "2.50",
+                          "winMul": "2.50",
+                          "winning": "5.00",
+                          "multiplier": 1,
+                          "cells": [
+                            {
+                              "5": 5,
+                              "8": 8
+                            },
+                            {
+                              "8": 8,
+                              "9": 9
+                            },
+                            {
+                              "9": 9
+                            },
+                            [],
+                            [],
+                            {
+                              "6": 6,
+                              "7": 7,
+                              "9": 9
+                            }
+                          ],
+                          "ways": 8,
+                          "symbol": "Y"
+                        }
+                      ],
+                      "stake": 2,
+                      "tiles": [],
+                      "tilesMod": [],
+                      "winMul": "2.50",
+                      "winning": "5.00",
+                      "win": {
+                        "multiWays": [
+                          {
+                            "winSingleMul": "2.50",
+                            "winMul": "2.50",
+                            "winning": "5.00",
+                            "multiplier": 1,
+                            "cells": [
+                              {
+                                "5": 5,
+                                "8": 8
+                              },
+                              {
+                                "8": 8,
+                                "9": 9
+                              },
+                              {
+                                "9": 9
+                              },
+                              [],
+                              [],
+                              {
+                                "6": 6,
+                                "7": 7,
+                                "9": 9
+                              }
+                            ],
+                            "ways": 8,
+                            "symbol": "Y"
+                          }
+                        ],
+                        "winMul": "2.50",
+                        "winning": "5.00",
+                        "multiplier": 1
+                      },
+                      "winAmounts": []
+                    },
+                    {
+                      "reels": [
+                        [
+                          "A",
+                          "A",
+                          "Q",
+                          "Z",
+                          "P",
+                          "P",
+                          "Y",
+                          "A",
+                          "A",
+                          "S"
+                        ],
+                        [
+                          "Z",
+                          "A",
+                          "A",
+                          "J",
+                          "J",
+                          "S",
+                          "Q",
+                          "Q",
+                          "Z",
+                          "Z"
+                        ],
+                        [
+                          "X",
+                          "X",
+                          "Q",
+                          "Q",
+                          "J",
+                          "J",
+                          "J",
+                          "P",
+                          "P",
+                          "X"
+                        ],
+                        [
+                          "Q",
+                          "T",
+                          "T",
+                          "T",
+                          "J",
+                          "J",
+                          "X",
+                          "X",
+                          "Z",
+                          "Z"
+                        ],
+                        [
+                          "T",
+                          "T",
+                          "A",
+                          "A",
+                          "S",
+                          "Z",
+                          "P",
+                          "P",
+                          "K",
+                          "K"
+                        ],
+                        [
+                          "J",
+                          "J",
+                          "J",
+                          "X",
+                          "T",
+                          "T",
+                          "Q",
+                          "Q",
+                          "J",
+                          "Z"
+                        ]
+                      ],
+                      "multiWays": [],
+                      "stake": 2,
+                      "tiles": [],
+                      "tilesMod": [],
+                      "winMul": "0.00",
+                      "winning": "0.00",
+                      "win": {
+                        "multiWays": [],
+                        "winMul": "0.00",
+                        "winning": "0.00",
+                        "multiplier": 1
+                      },
+                      "winAmounts": []
+                    }
+                  ],
+                  "fsCountBefore": 5,
+                  "fsCountCurrent": 4,
+                  "fsCountAfter": 4
+                },
+                {
+                  "reels": [
+                    [
+                      "X",
+                      "X",
+                      "T",
+                      "Y",
+                      "P",
+                      "P",
+                      "Y",
+                      "X",
+                      "X",
+                      "J"
+                    ],
+                    [
+                      "J",
+                      "J",
+                      "Z",
+                      "Y",
+                      "Q",
+                      "Q",
+                      "X",
+                      "X",
+                      "T",
+                      "T"
+                    ],
+                    [
+                      "Q",
+                      "Q",
+                      "Y",
+                      "Y",
+                      "Q",
+                      "Q",
+                      "T",
+                      "T",
+                      "Z",
+                      "Y"
+                    ],
+                    [
+                      "T",
+                      "Q",
+                      "Q",
+                      "X",
+                      "X",
+                      "Y",
+                      "Y",
+                      "K",
+                      "K",
+                      "Q"
+                    ],
+                    [
+                      "Q",
+                      "Q",
+                      "Z",
+                      "X",
+                      "X",
+                      "J",
+                      "J",
+                      "Q",
+                      "Q",
+                      "Q"
+                    ],
+                    [
+                      "K",
+                      "A",
+                      "Q",
+                      "Q",
+                      "Z",
+                      "K",
+                      "T",
+                      "T",
+                      "T",
+                      "S"
+                    ]
+                  ],
+                  "tiles": [],
+                  "tilesMod": [],
+                  "stake": 2,
+                  "multiWays": [],
+                  "winMul": "0.00",
+                  "winning": "0.00",
+                  "win": {
+                    "multiWays": [],
+                    "winMul": "0.00",
+                    "winning": "0.00",
+                    "multiplier": 1
+                  },
+                  "winAmounts": [],
+                  "fsCountBefore": 4,
+                  "fsCountCurrent": 3,
+                  "fsCountAfter": 3
+                },
+                {
+                  "reels": [
+                    [
+                      "P",
+                      "Y",
+                      "A",
+                      "A",
+                      "A",
+                      "Z",
+                      "Z",
+                      "S",
+                      "A",
+                      "A"
+                    ],
+                    [
+                      "Q",
+                      "Q",
+                      "P",
+                      "P",
+                      "T",
+                      "T",
+                      "Z",
+                      "Y",
+                      "Y",
+                      "Y"
+                    ],
+                    [
+                      "T",
+                      "T",
+                      "K",
+                      "K",
+                      "K",
+                      "J",
+                      "J",
+                      "S",
+                      "P",
+                      "P"
+                    ],
+                    [
+                      "A",
+                      "A",
+                      "Q",
+                      "Q",
+                      "P",
+                      "P",
+                      "J",
+                      "J",
+                      "T",
+                      "T"
+                    ],
+                    [
+                      "T",
+                      "T",
+                      "Q",
+                      "Q",
+                      "Y",
+                      "P",
+                      "P",
+                      "T",
+                      "T",
+                      "Q"
+                    ],
+                    [
+                      "Q",
+                      "T",
+                      "T",
+                      "K",
+                      "J",
+                      "J",
+                      "J",
+                      "X",
+                      "X",
+                      "K"
+                    ]
+                  ],
+                  "tiles": [],
+                  "tilesMod": [],
+                  "stake": 2,
+                  "multiWays": [],
+                  "winMul": "0.00",
+                  "winning": "0.00",
+                  "win": {
+                    "multiWays": [],
+                    "winMul": "0.00",
+                    "winning": "0.00",
+                    "multiplier": 1
+                  },
+                  "winAmounts": [],
+                  "fsCountBefore": 3,
+                  "fsCountCurrent": 2,
+                  "fsCountAfter": 2
+                },
+                {
+                  "reels": [
+                    [
+                      "Z",
+                      "Z",
+                      "T",
+                      "A",
+                      "A",
+                      "A",
+                      "Y",
+                      "X",
+                      "X",
+                      "P"
+                    ],
+                    [
+                      "Q",
+                      "Q",
+                      "P",
+                      "P",
+                      "T",
+                      "T",
+                      "X",
+                      "X",
+                      "J",
+                      "J"
+                    ],
+                    [
+                      "P",
+                      "Q",
+                      "Q",
+                      "T",
+                      "T",
+                      "K",
+                      "K",
+                      "Q",
+                      "Q",
+                      "X"
+                    ],
+                    [
+                      "J",
+                      "S",
+                      "Y",
+                      "K",
+                      "K",
+                      "Q",
+                      "Q",
+                      "T",
+                      "T",
+                      "T"
+                    ],
+                    [
+                      "P",
+                      "J",
+                      "J",
+                      "Q",
+                      "Q",
+                      "K",
+                      "K",
+                      "Z",
+                      "A",
+                      "A"
+                    ],
+                    [
+                      "J",
+                      "K",
+                      "K",
+                      "Z",
+                      "P",
+                      "Q",
+                      "Q",
+                      "X",
+                      "X",
+                      "Q"
+                    ]
+                  ],
+                  "tiles": [],
+                  "tilesMod": [],
+                  "stake": 2,
+                  "multiWays": [],
+                  "winMul": "0.00",
+                  "winning": "0.00",
+                  "win": {
+                    "multiWays": [],
+                    "winMul": "0.00",
+                    "winning": "0.00",
+                    "multiplier": 1
+                  },
+                  "winAmounts": [],
+                  "fsCountBefore": 2,
+                  "fsCountCurrent": 1,
+                  "fsCountAfter": 1
+                },
+                {
+                  "reels": [
+                    [
+                      "Y",
+                      "P",
+                      "P",
+                      "P",
+                      "Z",
+                      "A",
+                      "A",
+                      "Q",
+                      "X",
+                      "X"
+                    ],
+                    [
+                      "T",
+                      "T",
+                      "K",
+                      "K",
+                      "J",
+                      "J",
+                      "A",
+                      "A",
+                      "X",
+                      "Z"
+                    ],
+                    [
+                      "P",
+                      "X",
+                      "X",
+                      "Q",
+                      "Q",
+                      "J",
+                      "J",
+                      "K",
+                      "K",
+                      "P"
+                    ],
+                    [
+                      "Z",
+                      "Z",
+                      "T",
+                      "T",
+                      "T",
+                      "Q",
+                      "Q",
+                      "Y",
+                      "Y",
+                      "J"
+                    ],
+                    [
+                      "A",
+                      "A",
+                      "P",
+                      "T",
+                      "T",
+                      "K",
+                      "K",
+                      "X",
+                      "X",
+                      "P"
+                    ],
+                    [
+                      "A",
+                      "A",
+                      "Q",
+                      "Q",
+                      "Y",
+                      "Y",
+                      "Z",
+                      "Q",
+                      "Q",
+                      "J"
+                    ]
+                  ],
+                  "tiles": [],
+                  "tilesMod": [],
+                  "stake": 2,
+                  "multiWays": [],
+                  "winMul": "0.00",
+                  "winning": "0.00",
+                  "win": {
+                    "multiWays": [],
+                    "winMul": "0.00",
+                    "winning": "0.00",
+                    "multiplier": 1
+                  },
+                  "winAmounts": [],
+                  "fsCountBefore": 1,
+                  "fsCountCurrent": 0,
+                  "fsCountAfter": 0
+                }
+              ],
+              "screen": [],
+              "win": {
+                "multiWays": [],
+                "winMul": 50.6,
+                "winning": 101.2,
+                "multiplier": 1
+              },
+              "winWays": {
+                "multiWays": [],
+                "winMul": "0.00",
+                "winning": "0.00",
+                "multiplier": 1
+              }
+            },
+            "featureBuy": {
+              "name": "FreeSpins",
+              "price": 100,
+              "config": []
+            }
+          },
+          "features": [
+            "FreeSpins"
+          ],
+          "hasState": false
+        },
+        "transactions": {
+          "roundId": 196395030
+        },
+        "user": {
+          "balance": {
+            "cash": {
+              "atStart": "10003.00",
+              "afterBet": "9803.00",
+              "atEnd": "9904.20"
+            },
+            "freeBets": {
+              "atStart": "0.00",
+              "afterBet": "0.00",
+              "atEnd": "0.00"
+            },
+            "bonus": {
+              "atStart": "0.00",
+              "afterBet": "0.00",
+              "atEnd": "0.00"
+            },
+            "sessionCash": {
+              "atStart": "0.00",
+              "afterBet": "0.00",
+              "atEnd": "0.00"
+            },
+            "sessionFreeBets": {
+              "atStart": "0.00",
+              "afterBet": "0.00",
+              "atEnd": "0.00"
+            }
+          }
+        }
+      }
+    }
+  }
+]

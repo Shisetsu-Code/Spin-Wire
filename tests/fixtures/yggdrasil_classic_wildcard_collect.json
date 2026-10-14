@@ -1,0 +1,107 @@
+{
+  "wagerid": "fixture-wildcard",
+  "status": "Pending",
+  "bets": [
+    {
+      "step": 1,
+      "status": "RESULTED",
+      "betamount": "0.20",
+      "betcurrency": "EUR",
+      "betdata": {
+        "lines": "11111111111111111111",
+        "coin": "0.01",
+        "nCoins": 20,
+        "cheat": null,
+        "clientData": null,
+        "initialBalance": 0
+      },
+      "eventdata": {
+        "accC": 60,
+        "accWa": "0.60",
+        "doubleAmount": "0.60",
+        "doubleCount": 1,
+        "finalReels": [
+          [
+            "High1",
+            "Wild",
+            "Low2"
+          ],
+          [
+            "High3",
+            "Low4",
+            "Low1"
+          ],
+          [
+            "High3",
+            "Low4",
+            "High2"
+          ],
+          [
+            "High4",
+            "Wild",
+            "Low4"
+          ],
+          [
+            "High4",
+            "Wild",
+            "High2"
+          ]
+        ],
+        "nextCmds": "C,*",
+        "reelSet": "Reels",
+        "reels": [
+          [
+            "High1",
+            "Wild",
+            "Low2"
+          ],
+          [
+            "High3",
+            "Low4",
+            "Low1"
+          ],
+          [
+            "High3",
+            "Low4",
+            "High2"
+          ],
+          [
+            "High4",
+            "Wild",
+            "Low4"
+          ],
+          [
+            "High4",
+            "Wild",
+            "High2"
+          ]
+        ],
+        "rpos": [
+          6,
+          36,
+          34,
+          2,
+          29
+        ],
+        "superBet": false,
+        "wonCoins": 60,
+        "wts": [
+          "010000001000000000000",
+          "010110110010010"
+        ],
+        "wtw": [
+          [
+            1,
+            50,
+            "010010010010010"
+          ],
+          [
+            8,
+            10,
+            "010100100000000"
+          ]
+        ]
+      }
+    }
+  ]
+}

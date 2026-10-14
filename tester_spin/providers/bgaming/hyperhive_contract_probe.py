@@ -30,7 +30,8 @@ def _has_req_bet_type_evidence(text: str) -> bool:
     A literal ``freebet`` assignment is deliberately not evidence that normal
     spins carry a bet_type field.
     """
-    source = text or ""
+    from tester_spin.providers.bgaming.forwarded_request import forwarded_request_contracts
+    source = (text or "") + "\n" + forwarded_request_contracts(text)
     aliases = _params_req_aliases(source)
     if aliases:
         for alias in aliases:

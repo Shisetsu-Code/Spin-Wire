@@ -1,0 +1,218 @@
+{
+  "step": 1,
+  "betamount": "20.00",
+  "betcurrency": "EUR",
+  "wonamount": "0.00",
+  "status": "RESULTED",
+  "betdata": {
+    "coin": "1.00",
+    "cashBet": "20.00",
+    "cmd": "BONUS1",
+    "accWa": "0.00",
+    "accC": 0,
+    "cmds": [
+      "FREESPINS"
+    ]
+  },
+  "eventdata": {
+    "accC": 0,
+    "accWa": "0.00",
+    "boostData": {
+      "isWinFreeSpins": false,
+      "isHit8MysteryOnScreen": false,
+      "isHit4RespinInARow": false
+    },
+    "initialPlayerState": {},
+    "nextCmds": "FREESPINS",
+    "playerState": {},
+    "response": {
+      "coinWin": 0,
+      "cashWin": "0.00",
+      "clientData": {
+        "rounds": [
+          {
+            "multiplier": 0,
+            "index": 1,
+            "reels": {
+              "type": "bonusType1",
+              "eventsLeft": [],
+              "eventsRight": [],
+              "winLeft": 0,
+              "winRight": 0,
+              "multLeft": 1,
+              "multRight": 1,
+              "win": 0,
+              "winSum": 0,
+              "cashWin": 0,
+              "hidden": [
+                {
+                  "x": 2,
+                  "y": 0,
+                  "changeTo": "A",
+                  "multi": 0,
+                  "persistent": false
+                },
+                {
+                  "x": 4,
+                  "y": 0,
+                  "changeTo": "A",
+                  "multi": 0,
+                  "persistent": false
+                },
+                {
+                  "x": 3,
+                  "y": 2,
+                  "changeTo": "A",
+                  "multi": 0,
+                  "persistent": false
+                },
+                {
+                  "x": 2,
+                  "y": 3,
+                  "changeTo": "A",
+                  "multi": 0,
+                  "persistent": false
+                },
+                {
+                  "x": 3,
+                  "y": 3,
+                  "changeTo": "A",
+                  "multi": 0,
+                  "persistent": false
+                },
+                {
+                  "x": 2,
+                  "y": 4,
+                  "changeTo": "A",
+                  "multi": 0,
+                  "persistent": false
+                },
+                {
+                  "x": 4,
+                  "y": 4,
+                  "changeTo": "A",
+                  "multi": 0,
+                  "persistent": false
+                }
+              ],
+              "scatter": [
+                {
+                  "x": 0,
+                  "y": 0,
+                  "persistent": false
+                },
+                {
+                  "x": 6,
+                  "y": 0,
+                  "persistent": false
+                }
+              ],
+              "positionsHidden": [
+                [
+                  "SCATTER",
+                  "10",
+                  "10"
+                ],
+                [
+                  "H3",
+                  "H3",
+                  "K",
+                  "K",
+                  "J"
+                ],
+                [
+                  "HIDDEN",
+                  "H3",
+                  "H3",
+                  "HIDDEN",
+                  "HIDDEN"
+                ],
+                [
+                  "H3",
+                  "H3",
+                  "HIDDEN",
+                  "HIDDEN",
+                  "A"
+                ],
+                [
+                  "HIDDEN",
+                  "10",
+                  "A",
+                  "H3",
+                  "HIDDEN"
+                ],
+                [
+                  "H4",
+                  "H4",
+                  "A",
+                  "A",
+                  "Q"
+                ],
+                [
+                  "SCATTER",
+                  "J",
+                  "J"
+                ]
+              ],
+              "positions": [
+                [
+                  "SCATTER",
+                  "10",
+                  "10"
+                ],
+                [
+                  "H3",
+                  "H3",
+                  "K",
+                  "K",
+                  "J"
+                ],
+                [
+                  "A",
+                  "H3",
+                  "H3",
+                  "A",
+                  "A"
+                ],
+                [
+                  "H3",
+                  "H3",
+                  "A",
+                  "A",
+                  "A"
+                ],
+                [
+                  "A",
+                  "10",
+                  "A",
+                  "H3",
+                  "A"
+                ],
+                [
+                  "H4",
+                  "H4",
+                  "A",
+                  "A",
+                  "Q"
+                ],
+                [
+                  "SCATTER",
+                  "J",
+                  "J"
+                ]
+              ],
+              "maxWinReached": false,
+              "freeSpin": {
+                "added": 14,
+                "left": 0,
+                "count": 0
+              }
+            }
+          }
+        ],
+        "winTypes": [],
+        "maxWinReached": false
+      }
+    }
+  }
+}

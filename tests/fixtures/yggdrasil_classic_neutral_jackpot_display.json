@@ -1,0 +1,53 @@
+{
+  "accC": 0,
+  "accWa": "0.00",
+  "accWaWithJackpot": "0.00",
+  "betAmountCache": "0.20",
+  "jackpot": {
+    "miniJackpot": "2353.53",
+    "mediumJackpot": "21467.17",
+    "currency": "EUR",
+    "ultraJackpot": "206594.19"
+  },
+  "reelSet": "Reels",
+  "reels": [
+    [
+      "Low2",
+      "High3",
+      "Low4"
+    ],
+    [
+      "High2",
+      "Low1",
+      "Low3"
+    ],
+    [
+      "Low3",
+      "High4",
+      "Low4"
+    ],
+    [
+      "High2",
+      "Low4",
+      "Low3"
+    ],
+    [
+      "Low4",
+      "High3",
+      "Low3"
+    ]
+  ],
+  "rpos": [
+    27,
+    68,
+    33,
+    42,
+    51
+  ],
+  "wonCoins": 0,
+  "wts": [
+    "000000000000000000000",
+    "000000000000000"
+  ],
+  "wtw": []
+}

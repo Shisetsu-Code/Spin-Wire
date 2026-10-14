@@ -23,7 +23,7 @@ El valor predeterminado legado del código sigue apuntando a `Tester-Spin.git`; 
 {
   "mode": "git",
   "repo_url": "https://github.com/Shisetsu-Code/Spin-Wire.git",
-  "branch": "main",
+  "branch": "feat/farm-contract-export-v1",
   "manifest_url": "",
   "data_dir": "C:\\Proyectos\\Tester-Spin\\data"
 }
@@ -31,7 +31,7 @@ El valor predeterminado legado del código sigue apuntando a `Tester-Spin.git`; 
 
 En cada apertura:
 
-1. consulta `origin/main`;
+1. consulta `origin/feat/farm-contract-export-v1`;
 2. si hay una versión nueva, sincroniza el checkout runtime administrado;
 3. si cambia `requirements.txt`, actualiza el venv;
 4. abre `run.py` usando el directorio de datos persistente;

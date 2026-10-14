@@ -1,0 +1,149 @@
+[
+  {
+    "accC": 0,
+    "accWa": "0.00",
+    "city": "paris",
+    "reelSet": "ReelsShiftingWild",
+    "reels": [
+      [
+        "Low3",
+        "High2",
+        "Low4"
+      ],
+      [
+        "Low2",
+        "Low2",
+        "Low1"
+      ],
+      [
+        "High4",
+        "Low2",
+        "Wild"
+      ],
+      [
+        "High1",
+        "Low1",
+        "Low4"
+      ],
+      [
+        "Low1",
+        "High4",
+        "Low2"
+      ]
+    ],
+    "rpos": [
+      111,
+      61,
+      109,
+      119,
+      108
+    ],
+    "walkingAfter": [],
+    "walkingBefore": [],
+    "walkingNew": [],
+    "wonCoins": 0,
+    "wts": [
+      "000000000000000000000",
+      "000000000000000"
+    ],
+    "wtw": []
+  },
+  {
+    "accC": 0,
+    "accWa": "0.00",
+    "city": "paris",
+    "reelSet": "ReelsShiftingWild",
+    "reels": [
+      [
+        "Low4",
+        "Low3",
+        "High2"
+      ],
+      [
+        "Low2",
+        "Low3",
+        "High4"
+      ],
+      [
+        "High4",
+        "Low1",
+        "Low4"
+      ],
+      [
+        "Low2",
+        "Low1",
+        "Low4"
+      ],
+      [
+        "Low2",
+        "Low3",
+        "High4"
+      ]
+    ],
+    "rpos": [
+      71,
+      41,
+      87,
+      107,
+      11
+    ],
+    "walkingAfter": [],
+    "walkingBefore": [],
+    "walkingNew": [],
+    "wonCoins": 0,
+    "wts": [
+      "000000000000000000000",
+      "000000000000000"
+    ],
+    "wtw": []
+  },
+  {
+    "accC": 0,
+    "accWa": "0.00",
+    "city": "paris",
+    "reelSet": "ReelsShiftingWild",
+    "reels": [
+      [
+        "Wild",
+        "Low4",
+        "Low3"
+      ],
+      [
+        "Low3",
+        "Low2",
+        "High4"
+      ],
+      [
+        "Low1",
+        "High4",
+        "High3"
+      ],
+      [
+        "Low1",
+        "Low4",
+        "Low2"
+      ],
+      [
+        "Low2",
+        "High3",
+        "High4"
+      ]
+    ],
+    "rpos": [
+      38,
+      185,
+      52,
+      60,
+      71
+    ],
+    "walkingAfter": [],
+    "walkingBefore": [],
+    "walkingNew": [],
+    "wonCoins": 0,
+    "wts": [
+      "000000000000000000000",
+      "000000000000000"
+    ],
+    "wtw": []
+  }
+]

@@ -2,12 +2,22 @@
 from __future__ import annotations
 
 
-def feature_summary(result: dict) -> str:
+def _feature_summary(result: dict, *, counts_only=False):
     modes = [m for m in result.get('discovered_modes', []) if isinstance(m, dict)]
     purchases = set()
     antebets = set()
     uncertain = set()
-    known = False
+    domains = result.get("feature_domains") or {}
+    complete = set()
+    declared = {}
+    for category in ("purchase", "ante"):
+        domain = domains.get(category) if isinstance(domains, dict) else None
+        if (isinstance(domain, dict) and domain.get("complete") is True
+                and isinstance(domain.get("source"), str) and domain["source"].strip()
+                and isinstance(domain.get("options"), list)
+                and all(isinstance(v, (str, int)) and not isinstance(v, bool) for v in domain["options"])):
+            complete.add(category)
+            declared[category] = {str(v) for v in domain["options"]}
     for mode in modes:
         mid = str(mode.get('id') or '')
         kind = str(mode.get('kind') or '').upper()
@@ -34,7 +44,6 @@ def feature_summary(result: dict) -> str:
         if (kind in {'CHOICE_BRANCH', 'CONTINUATION', 'FEATURE'} and not belatra_vip) or mode.get('origin_mode_id'):
             continue
         if mode.get('enabled') is False:
-            known = True
             continue
         is_ante = belatra_vip or kind.startswith('ANTE_BET') or mid.upper().startswith('ANTE_BET')
         # BGaming transports chance wagers via purchased_feature too, but they
@@ -51,7 +60,7 @@ def feature_summary(result: dict) -> str:
         # client offers no purchase button. Historic observed=True meant
         # server metadata, so only explicit client evidence confirms a buy.
         if (result.get('provider') == 'redtiger' and category == 'purchase'
-                and mode.get('client_observed') is not True):
+                and mode.get('client_observed') is not True and mode.get('server_declared') is not True):
             uncertain.add('purchase')
             continue
         client_purchase = (result.get('provider') == '3oaks' and category == 'purchase'
@@ -60,20 +69,41 @@ def feature_summary(result: dict) -> str:
                 or 'UNRESOLVED' in kind
                 or (mode.get('evidence_level') == 'SERVER_ADVERTISED'
                     and mode.get('client_observed') is False)):
+            if category and category not in complete:
+                uncertain.add(category)
+            continue
+        if mode.get('discovery_state') in {'DISCOVERED_LITERAL_ONLY', 'BASE_CONTRACT_UNRESOLVED'}:
             if category:
                 uncertain.add(category)
             continue
-        known = True
         if category == 'purchase':
             options = mode.get('required_options') if kind == 'PURCHASE_BRANCH' else None
             purchases.update((mid, str(option)) for option in options) if options else purchases.add((mid, ''))
         elif category == 'ante':
             antebets.add(mid)
+    if counts_only:
+        def amount(values, category):
+            if category in complete and category not in uncertain:
+                return len(declared[category])
+            return len(values) if values else None
+        return amount(purchases, 'purchase'), amount(antebets, 'ante')
     def label(values, category):
-        return 'Sí' if values else 'Sin datos' if not known or category in uncertain else 'No'
-    count = str(len(purchases)) if known and 'purchase' not in uncertain else (
-        f'{len(purchases)} confirmadas; otras sin confirmar' if purchases else 'Sin datos')
-    return f"Compras: {label(purchases, 'purchase')} | Cantidad: {count} | Antebets: {label(antebets, 'ante')}"
+        if declared.get(category) or values:
+            return 'Sí'
+        return 'No' if category in complete and category not in uncertain else 'Sin datos'
+    if 'purchase' in complete and 'purchase' not in uncertain:
+        count = str(len(declared['purchase']))
+    elif purchases:
+        count = f'{len(purchases)} detectadas; total sin confirmar'
+    else:
+        count = 'Sin datos'
+    summary = f"Compras: {label(purchases, 'purchase')} | Cantidad: {count} | Antebets: {label(antebets, 'ante')}"
+    if result.get('provider') == 'hacksaw':
+        domain = domains.get('feature_spin') if isinstance(domains, dict) else None
+        if isinstance(domain, dict) and domain.get('complete') is True and isinstance(domain.get('options'), list):
+            summary += f" | FeatureSpins: {len(set(map(str, domain['options'])))}"
+    return summary
+
 
 
 def provider_summary_lines(rows: list[dict]) -> list[str]:
@@ -85,3 +115,12 @@ def provider_summary_lines(rows: list[dict]) -> list[str]:
             name = ' '.join(str(row.get('game_name') or row.get('slug') or 'Sin nombre').split())
             lines.append(f'- {name}: {feature_summary(row)}')
     return lines
+
+
+def feature_summary(result: dict) -> str:
+    return _feature_summary(result)
+
+
+def feature_table_counts(result: dict) -> tuple[int | None, int | None]:
+    """Numeric options using the same evidence as reports; None is unknown."""
+    return _feature_summary(result, counts_only=True)

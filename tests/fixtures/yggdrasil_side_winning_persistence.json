@@ -1,0 +1,336 @@
+{
+  "step": 1,
+  "betamount": "0.20",
+  "betcurrency": "EUR",
+  "wonamount": "0.00",
+  "status": "RESULTED",
+  "betdata": {
+    "coin": "0.01",
+    "cashBet": "0.20",
+    "cmd": "BASE_SPIN",
+    "accWa": "0.02",
+    "accC": 2,
+    "cmds": [
+      "C"
+    ]
+  },
+  "eventdata": {
+    "accC": 2,
+    "accWa": "0.02",
+    "boostData": {
+      "isWinFreeSpins": false,
+      "isHit8MysteryOnScreen": false,
+      "isHit4RespinInARow": false
+    },
+    "initialPlayerState": {},
+    "nextCmds": "C",
+    "playerState": {},
+    "response": {
+      "coinWin": 2,
+      "cashWin": "0.02",
+      "clientData": {
+        "rounds": [
+          {
+            "multiplier": 0,
+            "index": 1,
+            "reels": {
+              "type": "MainGame",
+              "eventsLeft": [
+                {
+                  "type": "MainGame",
+                  "coords": [
+                    {
+                      "x": 0,
+                      "y": 0
+                    },
+                    {
+                      "x": 1,
+                      "y": 2
+                    },
+                    {
+                      "x": 1,
+                      "y": 3
+                    },
+                    {
+                      "x": 2,
+                      "y": 2
+                    }
+                  ],
+                  "win": 2,
+                  "winCash": 0.02,
+                  "id": 11,
+                  "symbol": "10",
+                  "multiplier": 1
+                }
+              ],
+              "eventsRight": [],
+              "winLeft": 2,
+              "winRight": 0,
+              "multLeft": 1,
+              "multRight": 1,
+              "win": 2,
+              "winSum": 0.02,
+              "cashWin": 0.02,
+              "hidden": [
+                {
+                  "x": 1,
+                  "y": 2,
+                  "changeTo": "10",
+                  "multi": 0,
+                  "persistent": true
+                },
+                {
+                  "x": 2,
+                  "y": 2,
+                  "changeTo": "10",
+                  "multi": 0,
+                  "persistent": true
+                },
+                {
+                  "x": 1,
+                  "y": 3,
+                  "changeTo": "10",
+                  "multi": 0,
+                  "persistent": true
+                }
+              ],
+              "scatter": [],
+              "positionsHidden": [
+                [
+                  "10",
+                  "H2",
+                  "H5"
+                ],
+                [
+                  "Q",
+                  "Q",
+                  "HIDDEN",
+                  "HIDDEN",
+                  "H2"
+                ],
+                [
+                  "A",
+                  "A",
+                  "HIDDEN",
+                  "H4",
+                  "H4"
+                ],
+                [
+                  "A",
+                  "A",
+                  "Q",
+                  "H1",
+                  "K"
+                ],
+                [
+                  "H4",
+                  "H2",
+                  "H2",
+                  "H2",
+                  "10"
+                ],
+                [
+                  "A",
+                  "A",
+                  "J",
+                  "A",
+                  "A"
+                ],
+                [
+                  "K",
+                  "H4",
+                  "H1"
+                ]
+              ],
+              "positions": [
+                [
+                  "10",
+                  "H2",
+                  "H5"
+                ],
+                [
+                  "Q",
+                  "Q",
+                  "10",
+                  "10",
+                  "H2"
+                ],
+                [
+                  "A",
+                  "A",
+                  "10",
+                  "H4",
+                  "H4"
+                ],
+                [
+                  "A",
+                  "A",
+                  "Q",
+                  "H1",
+                  "K"
+                ],
+                [
+                  "H4",
+                  "H2",
+                  "H2",
+                  "H2",
+                  "10"
+                ],
+                [
+                  "A",
+                  "A",
+                  "J",
+                  "A",
+                  "A"
+                ],
+                [
+                  "K",
+                  "H4",
+                  "H1"
+                ]
+              ],
+              "maxWinReached": false
+            }
+          },
+          {
+            "multiplier": 0,
+            "index": 1,
+            "reels": {
+              "type": "Respin",
+              "eventsLeft": [],
+              "eventsRight": [],
+              "winLeft": 0,
+              "winRight": 0,
+              "multLeft": 1,
+              "multRight": 1,
+              "win": 0,
+              "winSum": 0.02,
+              "cashWin": 0,
+              "hidden": [
+                {
+                  "x": 1,
+                  "y": 3,
+                  "changeTo": "10",
+                  "multi": 0,
+                  "persistent": false
+                },
+                {
+                  "x": 1,
+                  "y": 4,
+                  "changeTo": "10",
+                  "multi": 0,
+                  "persistent": false
+                },
+                {
+                  "x": 2,
+                  "y": 4,
+                  "changeTo": "10",
+                  "multi": 0,
+                  "persistent": false
+                }
+              ],
+              "scatter": [],
+              "positionsHidden": [
+                [
+                  "H4",
+                  "H5",
+                  "Q"
+                ],
+                [
+                  "J",
+                  "J",
+                  "H1",
+                  "HIDDEN",
+                  "HIDDEN"
+                ],
+                [
+                  "H2",
+                  "10",
+                  "H4",
+                  "H5",
+                  "HIDDEN"
+                ],
+                [
+                  "10",
+                  "10",
+                  "K",
+                  "H5",
+                  "H3"
+                ],
+                [
+                  "10",
+                  "Q",
+                  "Q",
+                  "H5",
+                  "H4"
+                ],
+                [
+                  "J",
+                  "A",
+                  "A",
+                  "K",
+                  "J"
+                ],
+                [
+                  "J",
+                  "H1",
+                  "K"
+                ]
+              ],
+              "positions": [
+                [
+                  "H4",
+                  "H5",
+                  "Q"
+                ],
+                [
+                  "J",
+                  "J",
+                  "H1",
+                  "10",
+                  "10"
+                ],
+                [
+                  "H2",
+                  "10",
+                  "H4",
+                  "H5",
+                  "10"
+                ],
+                [
+                  "10",
+                  "10",
+                  "K",
+                  "H5",
+                  "H3"
+                ],
+                [
+                  "10",
+                  "Q",
+                  "Q",
+                  "H5",
+                  "H4"
+                ],
+                [
+                  "J",
+                  "A",
+                  "A",
+                  "K",
+                  "J"
+                ],
+                [
+                  "J",
+                  "H1",
+                  "K"
+                ]
+              ],
+              "maxWinReached": false
+            }
+          }
+        ],
+        "winTypes": [],
+        "maxWinReached": false
+      }
+    }
+  }
+}

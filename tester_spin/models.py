@@ -3,6 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from typing import Any
+from tester_spin.mechanics import classify_mechanics
 
 
 def utc_now_iso() -> str:
@@ -97,6 +98,8 @@ class GameTestResult:
     attempts: list[SpinAttempt] = field(default_factory=list)
     samples_per_path: int = 1
     structural_map: dict[str, Any] = field(default_factory=dict)
+    feature_domains: dict[str, Any] = field(default_factory=dict)
+    mechanics: dict[str, Any] = field(default_factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -118,4 +121,6 @@ class GameTestResult:
             "attempts": [attempt.to_dict() for attempt in self.attempts],
             "samples_per_path": self.samples_per_path,
             "structural_map": self.structural_map,
+            "feature_domains": self.feature_domains,
+            "mechanics": classify_mechanics({"mechanics": self.mechanics, "discovered_modes": self.discovered_modes}),
         }

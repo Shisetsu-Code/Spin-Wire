@@ -1,0 +1,1041 @@
+[
+  [
+    {
+      "step": 1,
+      "betamount": "0.10",
+      "betcurrency": "EUR",
+      "wonamount": "0.00",
+      "status": "RESULTED",
+      "betdata": {
+        "coin": "0.004",
+        "cashBet": "0.10",
+        "cmd": "BASE_SPIN",
+        "accWa": "0.00",
+        "accC": 0
+      },
+      "eventdata": {
+        "accC": 10,
+        "accWa": "0.04",
+        "initialPlayerState": {
+          "d": "d"
+        },
+        "response": {
+          "coinWin": 10,
+          "cashWin": "0.04",
+          "clientData": {
+            "accC": 10,
+            "accWa": "0.04",
+            "consecutiveWins": 1,
+            "finalBoard": [
+              [
+                "HIGH_1",
+                "LOW_3",
+                "LOW_3",
+                "LOW_4"
+              ],
+              [
+                "LOW_3",
+                "LOW_4",
+                "LOW_4",
+                "LOW_4"
+              ],
+              [
+                "LOW_1",
+                "LOW_1",
+                "LOW_1",
+                "LOW_4"
+              ],
+              [
+                "LOW_1",
+                "LOW_2",
+                "LOW_2",
+                "HIGH_1"
+              ],
+              [
+                "LOW_4",
+                "LOW_4",
+                "LOW_4",
+                "LOW_2"
+              ],
+              [
+                "LOW_1",
+                "HIGH_3",
+                "HIGH_3",
+                "LOW_3"
+              ]
+            ],
+            "freeSpins": 1,
+            "freeSpinsAwarded": 1,
+            "multiplier": 1,
+            "reSpins": true,
+            "reels": [
+              [
+                "HIGH_1",
+                "LOW_3",
+                "LOW_3",
+                "LOW_4"
+              ],
+              [
+                "LOW_3",
+                "LOW_4",
+                "LOW_4",
+                "LOW_4"
+              ],
+              [
+                "LOW_1",
+                "LOW_1",
+                "LOW_1",
+                "LOW_4"
+              ],
+              [
+                "LOW_1",
+                "LOW_2",
+                "LOW_2",
+                "HIGH_1"
+              ],
+              [
+                "LOW_4",
+                "LOW_4",
+                "LOW_4",
+                "LOW_2"
+              ],
+              [
+                "LOW_1",
+                "HIGH_3",
+                "HIGH_3",
+                "LOW_3"
+              ]
+            ],
+            "reelsStripesNames": [
+              "normal",
+              "normal",
+              "normal",
+              "normal",
+              "normal",
+              "normal"
+            ],
+            "rpos": [
+              45,
+              33,
+              28,
+              15,
+              11,
+              12
+            ],
+            "wonCoins": 10,
+            "wonCoinsBeforeMultiplier": 10,
+            "wonMoney": "0.04",
+            "wonMoneyBeforeMultiplier": "0.04",
+            "wtw": [
+              [
+                4,
+                5,
+                "000100010001000000000000",
+                "0.02",
+                5,
+                "0.02"
+              ],
+              [
+                18,
+                5,
+                "000100100001000000000000",
+                "0.02",
+                5,
+                "0.02"
+              ]
+            ]
+          }
+        }
+      }
+    },
+    {
+      "step": 2,
+      "betamount": "0.00",
+      "betcurrency": "EUR",
+      "wonamount": "0.00",
+      "status": "RESULTED",
+      "betdata": null,
+      "eventdata": {
+        "accC": 25,
+        "accWa": "0.10",
+        "response": {
+          "coinWin": 15,
+          "cashWin": "0.06",
+          "clientData": {
+            "accC": 25,
+            "accWa": "0.10",
+            "colossalReel": {
+              "size": 2,
+              "reelIndex": 1,
+              "lastColossalReelIndex": 2
+            },
+            "colossalReelSymbols": {
+              "startRow": -1,
+              "symbols": [
+                "HIGH_1",
+                "LOW_1",
+                "LOW_4"
+              ]
+            },
+            "consecutiveWins": 2,
+            "finalBoard": [
+              [
+                "LOW_3",
+                "LOW_4",
+                "LOW_4",
+                "LOW_1"
+              ],
+              [
+                "HIGH_1",
+                "LOW_1",
+                "LOW_1",
+                "LOW_4"
+              ],
+              [
+                "HIGH_1",
+                "LOW_1",
+                "LOW_1",
+                "LOW_4"
+              ],
+              [
+                "LOW_2",
+                "LOW_2",
+                "LOW_2",
+                "LOW_3"
+              ],
+              [
+                "LOW_2",
+                "HIGH_4",
+                "LOW_1",
+                "LOW_1"
+              ],
+              [
+                "LOW_4",
+                "HIGH_3",
+                "LOW_1",
+                "LOW_1"
+              ]
+            ],
+            "freeSpins": 1,
+            "freeSpinsAwarded": 1,
+            "multiplier": 1,
+            "reSpins": true,
+            "reels": [
+              [
+                "LOW_3",
+                "LOW_4",
+                "LOW_4",
+                "LOW_1"
+              ],
+              [
+                "HIGH_1",
+                "LOW_1",
+                "LOW_1",
+                "LOW_4"
+              ],
+              [
+                "HIGH_1",
+                "LOW_1",
+                "LOW_1",
+                "LOW_4"
+              ],
+              [
+                "LOW_2",
+                "LOW_2",
+                "LOW_2",
+                "LOW_3"
+              ],
+              [
+                "LOW_2",
+                "HIGH_4",
+                "LOW_1",
+                "LOW_1"
+              ],
+              [
+                "LOW_4",
+                "HIGH_3",
+                "LOW_1",
+                "LOW_1"
+              ]
+            ],
+            "reelsStripesNames": [
+              "normal",
+              "colossal2x2",
+              "colossal2x2",
+              "normal",
+              "normal",
+              "normal"
+            ],
+            "rpos": [
+              21,
+              101,
+              101,
+              44,
+              8,
+              33
+            ],
+            "wonCoins": 15,
+            "wonCoinsBeforeMultiplier": 15,
+            "wonMoney": "0.06",
+            "wonMoneyBeforeMultiplier": "0.06",
+            "wtw": [
+              [
+                8,
+                5,
+                "000100100100000000000000",
+                "0.02",
+                5,
+                "0.02"
+              ],
+              [
+                11,
+                5,
+                "001000010001000000000000",
+                "0.02",
+                5,
+                "0.02"
+              ],
+              [
+                12,
+                5,
+                "000100100010000000000000",
+                "0.02",
+                5,
+                "0.02"
+              ]
+            ]
+          }
+        }
+      }
+    },
+    {
+      "step": 3,
+      "betamount": "0.00",
+      "betcurrency": "EUR",
+      "wonamount": "0.00",
+      "status": "RESULTED",
+      "betdata": {
+        "coin": "0.004",
+        "cashBet": "0.10",
+        "cmd": "BASE_SPIN",
+        "accWa": "0.10",
+        "accC": 25,
+        "cmds": [
+          "C"
+        ]
+      },
+      "eventdata": {
+        "accC": 25,
+        "accWa": "0.10",
+        "boostData": {
+          "startedRespins": true,
+          "reachedColossalSymbolsReel": true,
+          "reachedHyperMode": false
+        },
+        "nextCmds": "C",
+        "playerState": {
+          "d": "d"
+        },
+        "response": {
+          "coinWin": 0,
+          "cashWin": "0.00",
+          "clientData": {
+            "accC": 25,
+            "accWa": "0.10",
+            "colossalReel": {
+              "size": 3,
+              "reelIndex": 1,
+              "lastColossalReelIndex": 3
+            },
+            "colossalReelSymbols": {
+              "startRow": -1,
+              "symbols": [
+                "LOW_2",
+                "HIGH_2"
+              ]
+            },
+            "consecutiveWins": 2,
+            "finalBoard": [
+              [
+                "LOW_4",
+                "LOW_3",
+                "LOW_3",
+                "LOW_2"
+              ],
+              [
+                "LOW_2",
+                "LOW_2",
+                "HIGH_2",
+                "HIGH_2"
+              ],
+              [
+                "LOW_2",
+                "LOW_2",
+                "HIGH_2",
+                "HIGH_2"
+              ],
+              [
+                "LOW_2",
+                "LOW_2",
+                "HIGH_2",
+                "HIGH_2"
+              ],
+              [
+                "HIGH_2",
+                "HIGH_2",
+                "LOW_1",
+                "LOW_1"
+              ],
+              [
+                "LOW_2",
+                "LOW_2",
+                "LOW_2",
+                "LOW_2"
+              ]
+            ],
+            "multiplier": 1,
+            "reels": [
+              [
+                "LOW_4",
+                "LOW_3",
+                "LOW_3",
+                "LOW_2"
+              ],
+              [
+                "LOW_2",
+                "LOW_2",
+                "HIGH_2",
+                "HIGH_2"
+              ],
+              [
+                "LOW_2",
+                "LOW_2",
+                "HIGH_2",
+                "HIGH_2"
+              ],
+              [
+                "LOW_2",
+                "LOW_2",
+                "HIGH_2",
+                "HIGH_2"
+              ],
+              [
+                "HIGH_2",
+                "HIGH_2",
+                "LOW_1",
+                "LOW_1"
+              ],
+              [
+                "LOW_2",
+                "LOW_2",
+                "LOW_2",
+                "LOW_2"
+              ]
+            ],
+            "reelsStripesNames": [
+              "normal",
+              "colossal3x3",
+              "colossal3x3",
+              "colossal3x3",
+              "normal",
+              "normal"
+            ],
+            "rpos": [
+              14,
+              22,
+              22,
+              22,
+              45,
+              36
+            ],
+            "wonCoins": 0,
+            "wonCoinsBeforeMultiplier": 0,
+            "wonMoney": "0.00",
+            "wonMoneyBeforeMultiplier": "0.00",
+            "wtw": []
+          }
+        }
+      }
+    },
+    {
+      "step": 4,
+      "betamount": "0.00",
+      "betcurrency": "EUR",
+      "wonamount": "0.10",
+      "status": "RESULTED",
+      "betdata": {
+        "coin": "0.004",
+        "cashBet": "0.10",
+        "cmd": "C",
+        "accWa": "0.10",
+        "accC": 25
+      },
+      "eventdata": {
+        "exactWon": "0.1000"
+      }
+    }
+  ],
+  [
+    {
+      "step": 1,
+      "betamount": "0.10",
+      "betcurrency": "EUR",
+      "wonamount": "0.00",
+      "status": "RESULTED",
+      "betdata": {
+        "coin": "0.004",
+        "cashBet": "0.10",
+        "cmd": "BASE_SPIN",
+        "accWa": "0.00",
+        "accC": 0
+      },
+      "eventdata": {
+        "accC": 5,
+        "accWa": "0.02",
+        "initialPlayerState": {
+          "d": "d"
+        },
+        "response": {
+          "coinWin": 5,
+          "cashWin": "0.02",
+          "clientData": {
+            "accC": 5,
+            "accWa": "0.02",
+            "consecutiveWins": 1,
+            "finalBoard": [
+              [
+                "LOW_4",
+                "HIGH_1",
+                "HIGH_1",
+                "HIGH_4"
+              ],
+              [
+                "HIGH_4",
+                "LOW_4",
+                "LOW_1",
+                "LOW_1"
+              ],
+              [
+                "LOW_1",
+                "LOW_1",
+                "LOW_4",
+                "LOW_4"
+              ],
+              [
+                "LOW_2",
+                "HIGH_3",
+                "HIGH_3",
+                "LOW_1"
+              ],
+              [
+                "HIGH_3",
+                "LOW_1",
+                "LOW_1",
+                "HIGH_2"
+              ],
+              [
+                "LOW_1",
+                "LOW_1",
+                "HIGH_2",
+                "HIGH_2"
+              ]
+            ],
+            "freeSpins": 1,
+            "freeSpinsAwarded": 1,
+            "multiplier": 1,
+            "reSpins": true,
+            "reels": [
+              [
+                "LOW_4",
+                "HIGH_1",
+                "HIGH_1",
+                "HIGH_4"
+              ],
+              [
+                "HIGH_4",
+                "LOW_4",
+                "LOW_1",
+                "LOW_1"
+              ],
+              [
+                "LOW_1",
+                "LOW_1",
+                "LOW_4",
+                "LOW_4"
+              ],
+              [
+                "LOW_2",
+                "HIGH_3",
+                "HIGH_3",
+                "LOW_1"
+              ],
+              [
+                "HIGH_3",
+                "LOW_1",
+                "LOW_1",
+                "HIGH_2"
+              ],
+              [
+                "LOW_1",
+                "LOW_1",
+                "HIGH_2",
+                "HIGH_2"
+              ]
+            ],
+            "reelsStripesNames": [
+              "normal",
+              "normal",
+              "normal",
+              "normal",
+              "normal",
+              "normal"
+            ],
+            "rpos": [
+              22,
+              26,
+              13,
+              8,
+              0,
+              14
+            ],
+            "wonCoins": 5,
+            "wonCoinsBeforeMultiplier": 5,
+            "wonMoney": "0.02",
+            "wonMoneyBeforeMultiplier": "0.02",
+            "wtw": [
+              [
+                5,
+                5,
+                "100001000010000000000000",
+                "0.02",
+                5,
+                "0.02"
+              ]
+            ]
+          }
+        }
+      }
+    },
+    {
+      "step": 2,
+      "betamount": "0.00",
+      "betcurrency": "EUR",
+      "wonamount": "0.00",
+      "status": "RESULTED",
+      "betdata": null,
+      "eventdata": {
+        "accC": 400,
+        "accWa": "1.60",
+        "response": {
+          "coinWin": 395,
+          "cashWin": "1.58",
+          "clientData": {
+            "accC": 400,
+            "accWa": "1.60",
+            "colossalReel": {
+              "size": 2,
+              "reelIndex": 1,
+              "lastColossalReelIndex": 2
+            },
+            "colossalReelSymbols": {
+              "startRow": 0,
+              "symbols": [
+                "HIGH_3",
+                "WILD"
+              ]
+            },
+            "consecutiveWins": 2,
+            "finalBoard": [
+              [
+                "LOW_4",
+                "WILD",
+                "HIGH_4",
+                "HIGH_4"
+              ],
+              [
+                "HIGH_3",
+                "HIGH_3",
+                "WILD",
+                "WILD"
+              ],
+              [
+                "HIGH_3",
+                "HIGH_3",
+                "WILD",
+                "WILD"
+              ],
+              [
+                "LOW_1",
+                "LOW_1",
+                "HIGH_1",
+                "HIGH_1"
+              ],
+              [
+                "HIGH_4",
+                "HIGH_4",
+                "HIGH_4",
+                "HIGH_4"
+              ],
+              [
+                "HIGH_4",
+                "LOW_3",
+                "LOW_4",
+                "LOW_4"
+              ]
+            ],
+            "freeSpins": 1,
+            "freeSpinsAwarded": 1,
+            "multiplier": 1,
+            "reSpins": true,
+            "reels": [
+              [
+                "LOW_4",
+                "LOW_4",
+                "HIGH_4",
+                "HIGH_4"
+              ],
+              [
+                "HIGH_3",
+                "HIGH_3",
+                "WILD",
+                "WILD"
+              ],
+              [
+                "HIGH_3",
+                "HIGH_3",
+                "WILD",
+                "WILD"
+              ],
+              [
+                "LOW_1",
+                "LOW_1",
+                "HIGH_1",
+                "HIGH_1"
+              ],
+              [
+                "HIGH_4",
+                "HIGH_4",
+                "HIGH_4",
+                "HIGH_4"
+              ],
+              [
+                "HIGH_4",
+                "LOW_3",
+                "LOW_4",
+                "LOW_4"
+              ]
+            ],
+            "reelsStripesNames": [
+              "normal",
+              "colossal2x2",
+              "colossal2x2",
+              "normal",
+              "normal",
+              "normal"
+            ],
+            "rpos": [
+              25,
+              22,
+              22,
+              33,
+              51,
+              40
+            ],
+            "wonCoins": 395,
+            "wonCoinsBeforeMultiplier": 395,
+            "wonMoney": "1.58",
+            "wonMoneyBeforeMultiplier": "1.58",
+            "wtw": [
+              [
+                2,
+                15,
+                "010001000100000000000000",
+                "0.06",
+                15,
+                "0.06"
+              ],
+              [
+                3,
+                15,
+                "001000100010000000000000",
+                "0.06",
+                15,
+                "0.06"
+              ],
+              [
+                4,
+                15,
+                "000100010001000000000000",
+                "0.06",
+                15,
+                "0.06"
+              ],
+              [
+                6,
+                100,
+                "010000100001000000000000",
+                "0.40",
+                100,
+                "0.40"
+              ],
+              [
+                10,
+                100,
+                "010000100010000000000000",
+                "0.40",
+                100,
+                "0.40"
+              ],
+              [
+                11,
+                15,
+                "001000010001000000000000",
+                "0.06",
+                15,
+                "0.06"
+              ],
+              [
+                12,
+                15,
+                "000100100010000000000000",
+                "0.06",
+                15,
+                "0.06"
+              ],
+              [
+                14,
+                15,
+                "010010001000000000000000",
+                "0.06",
+                15,
+                "0.06"
+              ],
+              [
+                16,
+                15,
+                "010000100100000000000000",
+                "0.06",
+                15,
+                "0.06"
+              ],
+              [
+                17,
+                15,
+                "001000010010000000000000",
+                "0.06",
+                15,
+                "0.06"
+              ],
+              [
+                18,
+                15,
+                "000100100001000000000000",
+                "0.06",
+                15,
+                "0.06"
+              ],
+              [
+                20,
+                15,
+                "010010000100000000000000",
+                "0.06",
+                15,
+                "0.06"
+              ],
+              [
+                22,
+                15,
+                "010001000010000000000000",
+                "0.06",
+                15,
+                "0.06"
+              ],
+              [
+                23,
+                15,
+                "010001001000000000000000",
+                "0.06",
+                15,
+                "0.06"
+              ],
+              [
+                25,
+                15,
+                "000100010010000000000000",
+                "0.06",
+                15,
+                "0.06"
+              ]
+            ]
+          }
+        }
+      }
+    },
+    {
+      "step": 3,
+      "betamount": "0.00",
+      "betcurrency": "EUR",
+      "wonamount": "0.00",
+      "status": "RESULTED",
+      "betdata": {
+        "coin": "0.004",
+        "cashBet": "0.10",
+        "cmd": "BASE_SPIN",
+        "accWa": "1.60",
+        "accC": 400,
+        "cmds": [
+          "C"
+        ]
+      },
+      "eventdata": {
+        "accC": 400,
+        "accWa": "1.60",
+        "boostData": {
+          "startedRespins": true,
+          "reachedColossalSymbolsReel": true,
+          "reachedHyperMode": false
+        },
+        "nextCmds": "C",
+        "playerState": {
+          "d": "d"
+        },
+        "response": {
+          "coinWin": 0,
+          "cashWin": "0.00",
+          "clientData": {
+            "accC": 400,
+            "accWa": "1.60",
+            "colossalReel": {
+              "size": 3,
+              "reelIndex": 1,
+              "lastColossalReelIndex": 3
+            },
+            "colossalReelSymbols": {
+              "startRow": -2,
+              "symbols": [
+                "LOW_2",
+                "HIGH_3"
+              ]
+            },
+            "consecutiveWins": 2,
+            "finalBoard": [
+              [
+                "LOW_4",
+                "LOW_3",
+                "LOW_3",
+                "LOW_1"
+              ],
+              [
+                "LOW_2",
+                "HIGH_3",
+                "HIGH_3",
+                "HIGH_3"
+              ],
+              [
+                "LOW_2",
+                "HIGH_3",
+                "HIGH_3",
+                "HIGH_3"
+              ],
+              [
+                "LOW_2",
+                "HIGH_3",
+                "HIGH_3",
+                "HIGH_3"
+              ],
+              [
+                "LOW_1",
+                "LOW_2",
+                "LOW_2",
+                "LOW_2"
+              ],
+              [
+                "LOW_1",
+                "HIGH_3",
+                "HIGH_2",
+                "HIGH_2"
+              ]
+            ],
+            "multiplier": 1,
+            "reels": [
+              [
+                "LOW_4",
+                "LOW_3",
+                "LOW_3",
+                "LOW_1"
+              ],
+              [
+                "LOW_2",
+                "HIGH_3",
+                "HIGH_3",
+                "HIGH_3"
+              ],
+              [
+                "LOW_2",
+                "HIGH_3",
+                "HIGH_3",
+                "HIGH_3"
+              ],
+              [
+                "LOW_2",
+                "HIGH_3",
+                "HIGH_3",
+                "HIGH_3"
+              ],
+              [
+                "LOW_1",
+                "LOW_2",
+                "LOW_2",
+                "LOW_2"
+              ],
+              [
+                "LOW_1",
+                "HIGH_3",
+                "HIGH_2",
+                "HIGH_2"
+              ]
+            ],
+            "reelsStripesNames": [
+              "normal",
+              "colossal3x3",
+              "colossal3x3",
+              "colossal3x3",
+              "normal",
+              "normal"
+            ],
+            "rpos": [
+              21,
+              104,
+              104,
+              104,
+              52,
+              16
+            ],
+            "wonCoins": 0,
+            "wonCoinsBeforeMultiplier": 0,
+            "wonMoney": "0.00",
+            "wonMoneyBeforeMultiplier": "0.00",
+            "wtw": []
+          }
+        }
+      }
+    },
+    {
+      "step": 4,
+      "betamount": "0.00",
+      "betcurrency": "EUR",
+      "wonamount": "1.60",
+      "status": "RESULTED",
+      "betdata": {
+        "coin": "0.004",
+        "cashBet": "0.10",
+        "cmd": "C",
+        "accWa": "1.60",
+        "accC": 400
+      },
+      "eventdata": {
+        "exactWon": "1.6000"
+      }
+    }
+  ]
+]

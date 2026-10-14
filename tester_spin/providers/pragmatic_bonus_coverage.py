@@ -29,6 +29,21 @@ def _integer(value: Any, fallback: int = 0) -> int:
         return fallback
 
 
+def _canonical_selection(path, record):
+    # Re-evaluate legacy artifacts from their preceding RAW state; preserve files.
+    signature=str(record.get('branch_signature',''))
+    if not (signature.startswith('PRAGMATIC:range-pick:bgt=69:') or (signature.startswith('PRAGMATIC:bonus-choice:bgt=69:') and any(family in signature for family in ('family=gambling:','family=bg:')))):
+        return record
+    match=re.match(r'step-([0-9]+)-',path.name)
+    if not match or int(match[1])==0:return record
+    previous=list(path.parent.glob(f'step-{int(match[1])-1:03d}-*.response.json'))
+    if len(previous)!=1:return record
+    from tester_spin.providers.pragmatic_observed_transitions import bonus_transition
+    try:normalized=bonus_transition(_read(previous[0]),override=record.get('selected'))
+    except ValueError:return record
+    return normalized if normalized and normalized.get("coverage_policy") in {"parameterized-menu-actions/v1","repeatable-menu-actions/v1","hidden-position-structural/v1"} else record
+
+
 def annotate_bonus_coverage(result):
     """Refresh per-mode/state/source coverage from attempts and their base probes.
 
@@ -47,7 +62,7 @@ def annotate_bonus_coverage(result):
                          and _integer(proof.get('consecutive_base')) >= 2)
         accepted = defaultdict(set)
         for path, origin_mode, phase in selection_artifacts(attempt, result, 'step-*.bonus-selection.json', recursive_attempt=True):
-            record = _read(path)
+            record = _canonical_selection(path, _read(path))
             raw_domain = record.get('domain')
             if not isinstance(raw_domain, list) or not raw_domain:
                 continue
@@ -56,9 +71,18 @@ def annotate_bonus_coverage(result):
                 continue
             signature = str(record.get('coverage_branch_signature') or record.get('branch_signature') or '')
             structural = (record.get('coverage_policy') == 'hidden-position-structural/v1'
-                and re.fullmatch(r'PRAGMATIC:bonus-grid:bg_0:bgt=69:size=[0-9]+:level=[0-9]+', signature))
-            coverage_domain = {'0'} if structural else domain
-            policy = 'hidden-position-structural/v1' if structural else 'ordinal-options/v1'
+                and re.fullmatch(r'PRAGMATIC:(?:bonus-grid:bg_0:bgt=69:size=[0-9]+:level=[0-9]+|bonus-pick:bgt=69:size=[0-9]+:level=[0-9]+|progressive-grid:flat:size=[0-9]+:level=0)', signature))
+            parameterized = (record.get('coverage_policy') == 'parameterized-menu-actions/v1'
+                and signature == 'PRAGMATIC:parameterized-gamble:bgt=69:play-sm-sp')
+            repeatable = (record.get('coverage_policy') == 'repeatable-menu-actions/v1'
+                and signature == 'PRAGMATIC:repeatable-menu:bgt=69:family=bg:labels=y,n'
+                and domain == {'0', '1'})
+            domain_map = record.get('coverage_domain_map', {}) if parameterized else {}
+            if parameterized and (set(domain_map) != domain or not set(domain_map.values()) <= {'0','1','2'}):continue
+            coverage_domain = {'0'} if structural else set(domain_map.values()) if parameterized else domain
+            policy = ('hidden-position-structural/v1' if structural else
+                      'parameterized-menu-actions/v1' if parameterized else
+                      'repeatable-menu-actions/v1' if repeatable else 'ordinal-options/v1')
             source_hash = str(record.get('contract_sha256') or '')
             key = (origin_mode, signature, source_hash, policy)
             group = groups.setdefault(key, {'required': set(), 'counts': defaultdict(int), 'record': record, 'source_phases': set(), 'observed_domain':set()})
@@ -69,8 +93,28 @@ def annotate_bonus_coverage(result):
             response = _read(path.with_name(path.name.replace('.bonus-selection.json', '.response.json')))
             http = _read(path.with_name(path.name.replace('.bonus-selection.json', '.http.json')))
             valid_response = bool(response) and not server_error(response) and _integer(http.get('status'), 200) < 400
-            if phase == 'attempt' and valid_attempt and valid_response and signature and source_hash and selected in domain:
-                accepted[key].add('0' if structural else selected)
+            if parameterized:
+                from tester_spin.providers.pragmatic_observed_transitions import parameterized_gamble_acknowledged
+                valid_response = valid_response and parameterized_gamble_acknowledged(record,response)
+            if record.get('coverage_policy')=='repeatable-menu-actions/v1':
+                from tester_spin.providers.pragmatic_observed_transitions import repeatable_yes_no_acknowledged
+                valid_response=valid_response and repeatable_yes_no_acknowledged(record,response)
+            if structural and signature.startswith('PRAGMATIC:bonus-pick:bgt=69:'):
+                from tester_spin.providers.pragmatic_observed_transitions import range_pick_acknowledged
+                valid_response=valid_response and range_pick_acknowledged(record,response)
+            if signature.startswith('PRAGMATIC:progressive-grid:flat:'):
+                statuses = str(response.get('status','')).split(',')
+                valid_response = (valid_response and selected in domain
+                    and len(statuses) == len(domain)
+                    and all(value == ('1' if str(i) == selected else '0') for i,value in enumerate(statuses))
+                    and response.get('na') in {'cb','bc'} and response.get('end') == '1'
+                    and response.get('level') == '1' and response.get('lifes') == '0')
+            if signature.startswith('PRAGMATIC:mystery-choice:vs10bookfallen:'):
+                valid_response = (valid_response and selected in domain
+                    and response.get('ms') == str(int(selected)+3)
+                    and response.get('ch') == 'ind~'+selected)
+            if phase in {'attempt', 'base_probe'} and valid_attempt and valid_response and signature and source_hash and selected in domain:
+                accepted[key].add('0' if structural else domain_map.get(selected,selected))
         for key, choices in accepted.items():
             for selected in choices:
                 groups[key]['counts'][selected] += 1
@@ -99,7 +143,7 @@ def annotate_bonus_coverage(result):
             'observed': True, 'executable': bool(signature and source_hash), 'coverage_required': True,
             'branch_signature': f'{mode_id}:{signature}:{source_hash}' + (f':{policy}' if policy=='hidden-position-structural/v1' else ''),
             'coverage_policy':policy,
-            'coverage_class_labels':{'0':'hidden_position'} if policy=='hidden-position-structural/v1' else {},
+            'coverage_class_labels':{'0':'hidden_position'} if policy=='hidden-position-structural/v1' else record.get('coverage_class_labels',{}),
             'handler_sample_modes':sorted(shared_modes[(signature,source_hash)]) if policy=='hidden-position-structural/v1' else [mode_id],
             'observed_position_domain':sorted(group['observed_domain'],key=int),
             'contract_branch_signature': signature,
@@ -135,6 +179,8 @@ def expand_observed_bonus_choices(provider, game, result, *, spins, timeout_s, s
             return bool(match and 1<=int(match[1])<=14)
         return [row for row in result.discovered_modes if row.get('coverage_origin')==_ORIGIN
                 and (row.get('contract_branch_signature','').startswith('PRAGMATIC:bonus-choice:bgt=69:')
+                     or row.get('contract_branch_signature','').startswith('PRAGMATIC:mystery-choice:vs10bookfallen:')
+                     or row.get('contract_branch_signature') in {'PRAGMATIC:parameterized-gamble:bgt=69:play-sm-sp','PRAGMATIC:repeatable-menu:bgt=69:family=bg:labels=y,n'}
                      or supported_grid(row))]
     if not observed(): return result
     explored_modes=set()

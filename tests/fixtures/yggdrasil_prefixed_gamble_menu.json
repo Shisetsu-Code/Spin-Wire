@@ -1,0 +1,150 @@
+{
+  "wagerid": "fixture-refusal",
+  "status": "Pending",
+  "bets": [
+    {
+      "step": 1,
+      "status": "RESULTED",
+      "betamount": "20.00",
+      "betcurrency": "EUR",
+      "betdata": {
+        "coin": "0.01",
+        "cashBet": "20.00",
+        "initialBalance": 0,
+        "cmd": "BUY_A_BONUS",
+        "accWa": "0.00",
+        "accC": 0
+      },
+      "eventdata": {
+        "accC": 0,
+        "accWa": "0.00",
+        "initialPlayerState": {
+          "bonusProgress": {}
+        },
+        "response": {
+          "coinWin": 0,
+          "cashWin": "0.00",
+          "clientData": {
+            "initialBoard": [
+              [
+                "HIGH_4",
+                "HIGH_2",
+                "LOW_3"
+              ],
+              [
+                "WILD",
+                "HIGH_3",
+                "LOW_1"
+              ],
+              [
+                "LOW_2",
+                "HIGH_1",
+                "WILD"
+              ],
+              [
+                "WILD",
+                "HIGH_3",
+                "HIGH_3"
+              ],
+              [
+                "HIGH_3",
+                "HIGH_1",
+                "HIGH_3"
+              ]
+            ],
+            "finalBoard": [
+              [
+                "HIGH_4",
+                "HIGH_2",
+                "LOW_3"
+              ],
+              [
+                "WILD",
+                "HIGH_3",
+                "LOW_1"
+              ],
+              [
+                "LOW_2",
+                "HIGH_1",
+                "WILD"
+              ],
+              [
+                "WILD",
+                "HIGH_3",
+                "HIGH_3"
+              ],
+              [
+                "HIGH_3",
+                "HIGH_1",
+                "HIGH_3"
+              ]
+            ],
+            "freeSpinsAwarded": 1,
+            "wildsPositions": [
+              {
+                "row": 0,
+                "column": 1
+              },
+              {
+                "row": 0,
+                "column": 3
+              },
+              {
+                "row": 2,
+                "column": 2
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "step": 2,
+      "status": "RESULTED",
+      "betamount": "0.00",
+      "betcurrency": "EUR",
+      "betdata": {
+        "coin": "0.01",
+        "cashBet": "20.00",
+        "initialBalance": 0,
+        "cmd": "BUY_A_BONUS",
+        "accWa": "0.00",
+        "accC": 0,
+        "cmds": [
+          "NG_2_0_0_L_1",
+          "G_2_0_0_L_1"
+        ]
+      },
+      "eventdata": {
+        "accC": 0,
+        "accWa": "0.00",
+        "boostData": {
+          "boostDatas": [
+            {
+              "numberOf5OakNormalWins": 0,
+              "numberOfWilds": 0,
+              "betType": "BUY_A_BONUS"
+            },
+            {
+              "numberOf5OakNormalWins": 0,
+              "numberOfWilds": 0,
+              "betType": "G"
+            }
+          ]
+        },
+        "nextCmds": "NG_2_0_0_L_1,G_2_0_0_L_1",
+        "playerState": {
+          "bonusProgress": {}
+        },
+        "response": {
+          "coinWin": 0,
+          "cashWin": "0.00",
+          "clientData": {
+            "gambleSuccess": true,
+            "gambleLevel": 1
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "accC": 0,
+  "accWa": "0.00",
+  "finalBoard": [
+    [
+      "HIGH2",
+      "LOW2",
+      "LOW4"
+    ],
+    [
+      "LOW3",
+      "LOW1",
+      "HIGH4"
+    ],
+    [
+      "SPLITZ",
+      "SPLITZ",
+      "SPLITZ"
+    ],
+    [
+      "SPLITZ",
+      "SPLITZ",
+      "SPLITZ"
+    ],
+    [
+      "LOW1",
+      "HIGH2",
+      "LOW2"
+    ],
+    [
+      "HIGH3",
+      "LOW1",
+      "LOW3"
+    ]
+  ],
+  "reelSet": "BaseReels",
+  "reels": [
+    [
+      "HIGH2",
+      "LOW2",
+      "LOW4"
+    ],
+    [
+      "LOW3",
+      "LOW1",
+      "HIGH4"
+    ],
+    [
+      "SPLITZ",
+      "SPLITZ",
+      "SPLITZ"
+    ],
+    [
+      "SPLITZ",
+      "SPLITZ",
+      "SPLITZ"
+    ],
+    [
+      "LOW1",
+      "HIGH2",
+      "LOW2"
+    ],
+    [
+      "HIGH3",
+      "LOW1",
+      "LOW3"
+    ]
+  ],
+  "rpos": [
+    31,
+    4,
+    12,
+    12,
+    68,
+    13
+  ],
+  "splitzDetail": {
+    "revealedSymbol": "LOW2",
+    "splitzRowsIndexes": [
+      1,
+      0,
+      2
+    ],
+    "reelIndexesToRevealedRowsCounts": {
+      "2": 4,
+      "3": 5
+    }
+  },
+  "syncedReelsDetail": {
+    "startReelIndex": 2,
+    "size": 2,
+    "reelSetName": "syncedReels2",
+    "reelIndexToPickFromReelSet": 2
+  },
+  "winWays": 1620,
+  "wonCoins": 0,
+  "wonMoney": "0.00",
+  "wtw": []
+}

@@ -1,0 +1,161 @@
+[
+  {
+    "status": "Pending",
+    "bet": {
+      "step": 1,
+      "betamount": "0.10",
+      "betcurrency": "EUR",
+      "wonamount": "0.00",
+      "status": "RESULTED",
+      "prizes": null,
+      "prepaid": false,
+      "betdata": {
+        "lines": "1111111111",
+        "coin": "0.01",
+        "nCoins": 1,
+        "cheat": null,
+        "clientData": null
+      },
+      "eventdata": {
+        "accC": 100,
+        "accWa": "1.00",
+        "doubleAmount": "1.00",
+        "doubleCount": 1,
+        "nextCmds": "LS,C",
+        "reels": [
+          [
+            "BELL",
+            "BELL",
+            "BELL"
+          ],
+          [
+            "BELL",
+            "BELL",
+            "BELL"
+          ],
+          [
+            "BELL",
+            "BELL",
+            "BELL"
+          ],
+          [
+            "CHERRY",
+            "CHERRY",
+            "GRAPES"
+          ],
+          [
+            "CHERRY",
+            "CHERRY",
+            "CHERRY"
+          ]
+        ],
+        "rpos": [
+          50,
+          16,
+          47,
+          59,
+          59
+        ],
+        "stickyA": "000000000000000",
+        "stickyB": "000000000000000",
+        "stickyN": "000000000000000",
+        "wonCoins": 100,
+        "wts": [
+          "01111100000",
+          "111111111000000"
+        ],
+        "wtw": [
+          [
+            1,
+            20,
+            "010010010000000"
+          ],
+          [
+            2,
+            20,
+            "100100100000000"
+          ],
+          [
+            3,
+            20,
+            "001001001000000"
+          ],
+          [
+            4,
+            20,
+            "100010001000000"
+          ],
+          [
+            5,
+            20,
+            "001010100000000"
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "status": "Pending",
+    "bet": {
+      "step": 2,
+      "betamount": "0.00",
+      "betcurrency": "EUR",
+      "wonamount": "0.00",
+      "status": "RESULTED",
+      "prizes": null,
+      "prepaid": false,
+      "betdata": {
+        "doubleA": "1.00",
+        "doubleN": 1,
+        "cmd": "LS",
+        "cheat": null,
+        "lines": "1111111111",
+        "coin": "0.01",
+        "nCoins": 1,
+        "variant": null,
+        "restoredAccumulatedWonCoin": 0
+      },
+      "eventdata": {
+        "doubleAmount": "1.00",
+        "doubleCount": 1,
+        "doubleResult": "supermeter",
+        "nextCmds": "C,S",
+        "supermeter": 100
+      }
+    }
+  },
+  {
+    "status": "Finished",
+    "bet": {
+      "step": 3,
+      "betamount": "0.00",
+      "betcurrency": "EUR",
+      "wonamount": "1.00",
+      "status": "RESULTED",
+      "prizes": [
+        {
+          "type": "FIXED",
+          "descr": "Cash out",
+          "wonamount": "1.00",
+          "netamount": "1.00",
+          "woncurrency": "EUR",
+          "wonAspect": "CASH",
+          "prizedata": null
+        }
+      ],
+      "prepaid": false,
+      "betdata": {
+        "doubleA": "1.00",
+        "doubleN": 1,
+        "cmd": "C",
+        "cheat": null,
+        "lines": "1111111111",
+        "coin": "0.01",
+        "nCoins": 1,
+        "variant": null,
+        "restoredAccumulatedWonCoin": 0
+      },
+      "eventdata": {}
+    }
+  }
+]

@@ -126,28 +126,91 @@ def _purchase_request(enter: dict[str, Any], option: str) -> dict[str, Any]:
     return request
 
 
-def _continue_round(provider, state, response, *, timeout_s, artifact_dir):
-    """Follow only client-proven free-spin/settlement transitions, bounded."""
+def _bonus_info(gs, category):
+    values = gs.get("subGameInfo")
+    if not isinstance(values, list):
+        return None
+    matches = [v for v in values if isinstance(v, dict) and v.get("category") == category]
+    return matches[0] if len(matches) == 1 else None
+
+
+def _server_integer(value, minimum=0):
+    return isinstance(value, int) and not isinstance(value, bool) and value >= minimum
+
+
+def _continuation_request(gs):
+    """Select only controls demonstrated by official client and server state."""
+    cur, nxt = str(gs.get("phaseCur") or ""), str(gs.get("phaseNext") or "")
+    respin, free = gs.get("respinInfo"), gs.get("freeInfo")
+    # Active respins take priority even when phaseNext remains toNextFG.
+    if nxt in {"toRespin", "toNextFG"} and isinstance(respin, dict) and _server_integer(respin.get("nIt"), 1):
+        return {"q": "play", "userAction": "askRespin"}
+    if nxt == "toNextFG" and isinstance(free, dict) and _server_integer(free.get("remain"), 1):
+        return {"q": "play", "userAction": "askNextFG", "remainFG": free["remain"]}
+    if nxt in {"toPaid", "toDoubleDialog"}:
+        return {"q": "finish", "ghistId": gs["historyId"]}
+    if re.fullmatch(r"toBonus[0-9]+", nxt):
+        category = nxt[2:]
+        if not cur.startswith("Bonus"):
+            return {"q": "play", "userAction": "ask" + category, "wasAttempt": 0}
+        sub, other = _bonus_info(gs, category), gs.get("other")
+        if (cur == category and sub is not None
+                and isinstance(other, dict) and other.get("autochoice") == "start"
+                and _server_integer(sub.get("attempt"), 1)
+                and _server_integer(sub.get("respinRemain"), -1)
+                and _server_integer(sub.get("startRespin"))
+                and isinstance(sub.get("stopBox"), list) and sub["stopBox"]):
+            return {"q": "play", "userAction": "ask" + category + "start", "wasAttempt": sub["attempt"]}
+    return None
+
+
+def _bonus_acknowledged(request, gs):
+    match = re.fullmatch(r"ask(Bonus[0-9]+)(start)?", str(request.get("userAction") or ""))
+    if match is None:
+        return True
+    category, choice = match.groups()
+    sub = _bonus_info(gs, category)
+    if sub is None or not _server_integer(sub.get("attempt"), 1):
+        return False
+    cur, nxt = gs.get("phaseCur"), gs.get("phaseNext")
+    previous = request["wasAttempt"]
+    if not choice:
+        return cur == category and nxt == "to" + category and sub["attempt"] == 1
+    if sub.get("userChoice") != choice:
+        return False
+    if cur == category and nxt == "to" + category:
+        return sub["attempt"] == previous + 1
+    return (cur == category + "_finished" and nxt == "toPaid"
+            and sub["attempt"] in {previous, previous + 1}
+            and _server_integer(sub.get("respinRemain"), -1)
+            and sub["respinRemain"] <= 0)
+
+
+def _continue_round(provider, state, response, *, timeout_s, artifact_dir, finish_label=None):
+    """Complete demonstrated free/respin/automatic bonus paths, bounded."""
     steps = 1
     for _ in range(500):
+        from tester_spin.return_to_base import audit_stop_event
+        stop = audit_stop_event()
+        if stop is not None and stop.is_set():
+            raise InterruptedError("Detención solicitada")
         gs = response.get("gs") or {}
         cur, nxt = str(gs.get("phaseCur") or ""), str(gs.get("phaseNext") or "")
         if cur == "finished" and nxt == "toIdle":
             return True, steps, cur, nxt
         if gs.get("historyId") is None:
             raise RuntimeError("Belatra round response missing historyId")
-        free = gs.get("freeInfo")
-        if nxt == "toNextFG" and isinstance(free, dict) and free.get("remain", 0) > 0:
-            request = {"q": "play", "userAction": "askNextFG", "remainFG": free["remain"], "totalWasFG": free["total"]}
-        elif nxt in {"toPaid", "toDoubleDialog"}:
-            request = {"q": "finish", "ghistId": gs["historyId"]}
-        else:
+        request = _continuation_request(gs)
+        if request is None:
             return False, steps, cur, nxt
-        response = provider._post_direct_game(state, request, timeout_s=timeout_s, artifact_dir=artifact_dir, label=f"continue-{steps:03d}")
+        label = finish_label if request["q"] == "finish" and finish_label else f"continue-{steps:03d}"
+        response = provider._post_direct_game(state, request, timeout_s=timeout_s, artifact_dir=artifact_dir, label=label)
         steps += 1
+        final = response.get("gs") or {}
+        cur, nxt = str(final.get("phaseCur") or ""), str(final.get("phaseNext") or "")
+        if not _bonus_acknowledged(request, final):
+            return False, steps, cur, nxt
         if request["q"] == "finish":
-            final = response.get("gs") or {}
-            cur, nxt = str(final.get("phaseCur") or ""), str(final.get("phaseNext") or "")
             return cur == "finished" and nxt == "toIdle", steps, cur, nxt
     return False, steps, cur, nxt
 
@@ -336,28 +399,15 @@ def _execute_selector_variant(
         saw_double_dialog = phase_next == "toDoubleDialog"
         if history_id is None:
             raise RuntimeError("Belatra selector variant: start sin historyId.")
-        if phase_next not in {"toPaid", "toDoubleDialog"}:
-            if audit_enabled():
-                pending_return(artifact_dir, "Variante con estado no automatizado")
-            return False, 1, phase_cur, phase_next, saw_double_dialog
-        finish = provider._post_direct_game(
-            state,
-            {"q": "finish", "ghistId": history_id},
-            timeout_s=timeout_s,
-            artifact_dir=artifact_dir,
-            label="finish",
+        terminal, steps, final_cur, final_next = _continue_round(
+            provider, state, start, timeout_s=timeout_s,
+            artifact_dir=artifact_dir, finish_label="finish",
         )
-        finish_gs = finish.get("gs")
-        if not isinstance(finish_gs, dict):
-            raise RuntimeError("Belatra selector variant: finish sin gs.")
-        final_cur = str(finish_gs.get("phaseCur") or "")
-        final_next = str(finish_gs.get("phaseNext") or "")
-        terminal = final_cur == "finished" and final_next == "toIdle"
         if audit_enabled():
             from tester_spin.provider_return_checks import belatra_check
             proof = belatra_check(provider, state, artifact_dir, timeout_s) if terminal else pending_return(artifact_dir, 'Variante Belatra no terminal')
             terminal = terminal and proof['status'] == 'CONFIRMED'
-        return terminal, 2, final_cur, final_next, saw_double_dialog
+        return terminal, steps, final_cur, final_next, saw_double_dialog
     finally:
         _close_state(state)
         _write_json(
@@ -508,6 +558,8 @@ def expand_belatra_paths(
             }
         )
 
+    from tester_spin.feature_domains import initialization_domains
+    result.feature_domains = initialization_domains("belatra", gs, result.discovered_modes)
     buy_options = _buy_bonus_options(gs)
     buy_covered = []
     buy_executable = isinstance((gs.get("buyBonus") or {}).get("buyTotalBetK"), list)

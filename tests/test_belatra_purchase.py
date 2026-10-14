@@ -149,7 +149,7 @@ class PurchaseTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as folder:
             outcome=_continue_round(Provider(),{}, {'gs':{'phaseCur':'deal','phaseNext':'toNextFG','historyId':12,'freeInfo':{'remain':2,'total':10}}},timeout_s=1,artifact_dir=Path(folder))
         self.assertTrue(outcome[0])
-        self.assertEqual(requests,[{'q':'play','userAction':'askNextFG','remainFG':2,'totalWasFG':10},{'q':'finish','ghistId':12}])
+        self.assertEqual(requests,[{'q':'play','userAction':'askNextFG','remainFG':2},{'q':'finish','ghistId':12}])
 
     def test_unknown_phase_does_not_send_finish(self):
         class Provider:
@@ -168,5 +168,27 @@ class PurchaseTests(unittest.TestCase):
             result=_continue_round(Provider(),{}, {'gs':{'phaseNext':'toPaid','historyId':12}},timeout_s=1,artifact_dir=Path(folder))
         self.assertFalse(result[0])
         self.assertEqual(len(requests),1)
+
+    def test_base_spin_completes_triggered_free_spins_before_return_audit(self):
+        calls = []
+        responses = iter([
+            {'gs': {'phaseCur': 'basedeal', 'phaseNext': 'toNextFG', 'historyId': 12,
+                    'freeInfo': {'remain': 10, 'total': 10}}},
+            {'gs': {'phaseCur': 'freedeal', 'phaseNext': 'toPaid', 'historyId': 12}},
+            {'gs': {'phaseCur': 'finished', 'phaseNext': 'toIdle', 'historyId': 12}},
+        ])
+        class Provider(BelatraProvider):
+            def _post_direct_game(self, state, request, **kwargs):
+                calls.append(request)
+                return next(responses)
+        provider = Provider.__new__(Provider)
+        with tempfile.TemporaryDirectory() as folder:
+            outcome = provider._execute_direct_spin(
+                {'enter': {'gs': {'nlines': 20, 'betPerLine': 1, 'gdenom': 1}}},
+                timeout_s=1, attempt_dir=Path(folder))
+        self.assertEqual(outcome, (True, True, 3, 'finished', 'toIdle'))
+        self.assertEqual(calls[1], {'q': 'play', 'userAction': 'askNextFG',
+                                  'remainFG': 10})
+        self.assertEqual(calls[2], {'q': 'finish', 'ghistId': 12})
 
 if __name__=='__main__': unittest.main()

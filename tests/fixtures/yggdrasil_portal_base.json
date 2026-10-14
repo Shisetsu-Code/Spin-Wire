@@ -1,0 +1,375 @@
+{
+  "bet": {
+    "step": 1,
+    "betamount": "0.10",
+    "betcurrency": "EUR",
+    "wonamount": "0.00",
+    "status": "RESULTED",
+    "betdata": {
+      "coin": "0.01",
+      "cashBet": "0.10",
+      "cmd": "BASE_SPIN",
+      "accWa": "0.00",
+      "accC": 0
+    },
+    "eventdata": {
+      "accC": 0,
+      "accWa": "0.00",
+      "boostData": {
+        "vortexCreated": false
+      },
+      "initialPlayerState": {
+        "collectionGathered": {},
+        "reelsName": "BASE_REELS",
+        "portalSpinsAwarded": 0,
+        "portalReels": [
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "reelsPositions": [
+          1,
+          21,
+          14,
+          19,
+          14
+        ],
+        "previousReelsPositions": [
+          23,
+          2,
+          5,
+          8,
+          11
+        ],
+        "reels": [
+          "BaseOutside",
+          "BaseInside",
+          "BaseInside",
+          "BaseInside",
+          "BaseOutside"
+        ],
+        "previousReels": [
+          "BaseOutside",
+          "BaseInside",
+          "BaseInside",
+          "BaseInside",
+          "BaseOutside"
+        ],
+        "portalSpinsLeft": 0,
+        "stateChanges": [
+          {
+            "type": "NO_CHANGE",
+            "portalState": [],
+            "affectedReels": []
+          }
+        ],
+        "numberOfLines": 243,
+        "betAmount": "0.10",
+        "coinsPerBet": 10,
+        "pickAndClickResult": null,
+        "lastChangeOfWinWays": 0
+      },
+      "playerState": {
+        "collectionGathered": {},
+        "reelsName": "BASE_REELS",
+        "portalSpinsAwarded": 0,
+        "portalReels": [
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "reelsPositions": [
+          9,
+          10,
+          9,
+          6,
+          12
+        ],
+        "previousReelsPositions": [
+          23,
+          2,
+          5,
+          8,
+          11
+        ],
+        "reels": [
+          "BaseOutside",
+          "BaseInside",
+          "BaseInside",
+          "BaseInside",
+          "BaseOutside"
+        ],
+        "previousReels": [
+          "BaseOutside",
+          "BaseInside",
+          "BaseInside",
+          "BaseInside",
+          "BaseOutside"
+        ],
+        "portalSpinsLeft": 0,
+        "stateChanges": [
+          {
+            "type": "NO_CHANGE",
+            "portalState": [],
+            "affectedReels": []
+          }
+        ],
+        "numberOfLines": 243,
+        "betAmount": "0.10",
+        "coinsPerBet": 10,
+        "pickAndClickResult": null,
+        "lastChangeOfWinWays": 0
+      },
+      "response": {
+        "coinWin": 0,
+        "cashWin": "0.00",
+        "clientData": {
+          "accC": 0,
+          "accWa": "0.00",
+          "extraFreeSpins": 5,
+          "extraWilds": 2,
+          "gameStateAtSpinEnd": {
+            "collectionGathered": {},
+            "reelsName": "BASE_REELS",
+            "portalSpinsAwarded": 0,
+            "portalReels": [
+              false,
+              false,
+              false,
+              false,
+              false
+            ],
+            "reelsPositions": [
+              9,
+              10,
+              9,
+              6,
+              12
+            ],
+            "previousReelsPositions": [
+              23,
+              2,
+              5,
+              8,
+              11
+            ],
+            "reels": [
+              "BaseOutside",
+              "BaseInside",
+              "BaseInside",
+              "BaseInside",
+              "BaseOutside"
+            ],
+            "previousReels": [
+              "BaseOutside",
+              "BaseInside",
+              "BaseInside",
+              "BaseInside",
+              "BaseOutside"
+            ],
+            "portalSpinsLeft": 0,
+            "stateChanges": [
+              {
+                "type": "NO_CHANGE",
+                "portalState": [],
+                "affectedReels": []
+              }
+            ],
+            "numberOfLines": 243,
+            "betAmount": "0.10",
+            "coinsPerBet": 10,
+            "pickAndClickResult": null,
+            "lastChangeOfWinWays": 0
+          },
+          "gameStateAtSpinStart": {
+            "collectionGathered": {},
+            "reelsName": "BASE_REELS",
+            "portalSpinsAwarded": 0,
+            "portalReels": [
+              false,
+              false,
+              false,
+              false,
+              false
+            ],
+            "reelsPositions": [
+              9,
+              10,
+              9,
+              6,
+              12
+            ],
+            "previousReelsPositions": [
+              23,
+              2,
+              5,
+              8,
+              11
+            ],
+            "reels": [
+              "BaseOutside",
+              "BaseInside",
+              "BaseInside",
+              "BaseInside",
+              "BaseOutside"
+            ],
+            "previousReels": [
+              "BaseOutside",
+              "BaseInside",
+              "BaseInside",
+              "BaseInside",
+              "BaseOutside"
+            ],
+            "portalSpinsLeft": 0,
+            "stateChanges": [
+              {
+                "type": "NO_CHANGE",
+                "portalState": [],
+                "affectedReels": []
+              }
+            ],
+            "numberOfLines": 243,
+            "betAmount": "0.10",
+            "coinsPerBet": 10,
+            "pickAndClickResult": null,
+            "lastChangeOfWinWays": 0
+          },
+          "numberOfLinesAtSpinEnd": 243,
+          "numberOfLinesAtSpinStart": 243,
+          "reelSet": "BASE_REELS",
+          "reels": [
+            [
+              "High4",
+              "Low4",
+              "Low4",
+              "High5",
+              "Low5"
+            ],
+            [
+              "Low1",
+              "Low1",
+              "High5",
+              "Low2",
+              "Low2"
+            ],
+            [
+              "High4",
+              "Low1",
+              "Low1",
+              "High5",
+              "Low2"
+            ],
+            [
+              "High3",
+              "Low5",
+              "Low5",
+              "High4",
+              "Low1"
+            ],
+            [
+              "High5",
+              "Low5",
+              "Low5",
+              "Portal",
+              "Low3"
+            ]
+          ],
+          "rpos": [
+            9,
+            10,
+            9,
+            6,
+            12
+          ],
+          "waysOfWinning": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "waysOfWinningMultipliers": [
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "wonCoins": 0,
+          "wts": [
+            "0000000000000000000000000000",
+            "0000000000000000000000000"
+          ],
+          "wtw": []
+        }
+      }
+    },
+    "prizes": null,
+    "prepaid": false
+  },
+  "declared": {
+    "FreeSpinsBase": 5,
+    "ExtraWilds": 2,
+    "WindowHeight": 5,
+    "NonPortalReelHeight": 3,
+    "CoinsPerBetNormal": 10
+  },
+  "constraints": {
+    "collection_modes": [
+      "BASIC"
+    ],
+    "currency": "EUR",
+    "basic_amount": "0.1",
+    "basic_coin": "0.01"
+  }
+}
