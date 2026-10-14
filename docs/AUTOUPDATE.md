@@ -15,9 +15,9 @@ El código ejecutable de Tester-Spin y los datos persistentes están separados:
 
 Si el launcher se construye dentro del checkout actual y detecta `data\tester-spin.sqlite3`, conserva esa carpeta como directorio de datos. Esto permite seguir usando, por ejemplo, `C:\Proyectos\Tester-Spin\data` aunque el runtime se actualice en `%LOCALAPPDATA%`.
 
-## Canal Git privado (actual)
+## Canal Git compartido (actual)
 
-El valor predeterminado legado del código sigue apuntando a `Tester-Spin.git`; para este repositorio configurar `repo_url` con `https://github.com/Shisetsu-Code/Spin-Wire.git` y elegir la rama que se desea instalar. Ejemplo de configuración:
+El valor predeterminado es `Spin-Wire.git` y la rama `feat/farm-contract-export-v1`. La configuración histórica Tester-Spin/main migra automáticamente. Ejemplo:
 
 ```json
 {
@@ -34,12 +34,12 @@ En cada apertura:
 1. consulta `origin/feat/farm-contract-export-v1`;
 2. si hay una versión nueva, sincroniza el checkout runtime administrado;
 3. si cambia `requirements.txt`, actualiza el venv;
-4. abre `run.py` usando el directorio de datos persistente;
+4. fija el código por commit y abre `run.py`, o el menú de proveedores con `--providers`, conservando los datos persistentes;
 5. si GitHub/red no están disponibles y ya existe runtime, abre la última versión instalada.
 
 El checkout de desarrollo nunca se resetea: las operaciones destructivas de `git reset/clean` sólo ocurren sobre la copia administrada de `%LOCALAPPDATA%`.
 
-El repositorio es privado, por lo que este modo usa las credenciales Git ya configuradas en Windows/Git Credential Manager. No se guarda ni incrusta un PAT dentro del EXE.
+El repositorio Spin-Wire es público. El launcher no guarda ni incrusta un PAT en el EXE.
 
 ## Canal de distribución por manifest
 
@@ -107,3 +107,5 @@ Subir ambos archivos y configurar `manifest_url` una sola vez.
 ## Desarrollo
 
 `Abrir-Tester-Spin.cmd` continúa ejecutando el checkout de desarrollo y no usa el runtime administrado. Esto evita que el auto-updater interfiera con ramas, cambios locales o debugging.
+
+Los módulos independientes y la interfaz reciben la misma versión. [Detalles y catálogos](SHARED_CATALOGS.md).

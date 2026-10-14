@@ -11,7 +11,6 @@ from tkinter import messagebox, ttk
 from tester_spin.app_current import CurrentTesterSpinApp
 from tester_spin.app_project_actions import ProjectActionsMixin
 from tester_spin.models import Game
-from tester_spin.providers import RedTigerProvider, RubyPlayProvider, ThreeOaksProvider, YggdrasilProvider, HacksawProvider, NolimitCityProvider
 
 
 def _open_directory(path: Path) -> None:
@@ -43,20 +42,6 @@ class HARToolTesterSpinApp(ProjectActionsMixin, CurrentTesterSpinApp):
 
     def __init__(self) -> None:
         super().__init__()
-        # run.py enters through this application layer. New providers are only
-        # registered here; their protocol implementations remain isolated under
-        # providers/<name>/ and GUI/scheduler/storage stay protocol-neutral.
-        for provider in (
-            RubyPlayProvider(self.data_root),
-            RedTigerProvider(self.data_root),
-            ThreeOaksProvider(self.data_root),
-            YggdrasilProvider(self.data_root),
-            HacksawProvider(self.data_root),
-            NolimitCityProvider(self.data_root),
-        ):
-            self.registry.register(provider)
-            self._display_to_key[provider.display_name] = provider.key
-        self.provider_combo.configure(values=list(self._display_to_key))
 
     def _build(self) -> None:
         super()._build()

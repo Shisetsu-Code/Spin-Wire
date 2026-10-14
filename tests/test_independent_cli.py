@@ -7,7 +7,7 @@ def cli(*args):return subprocess.run([sys.executable,'-m','tester_spin.cli',*arg
 def test_provider_listing_works_without_gui():
  r=cli('providers');assert r.returncode==0,r.stderr
  values=json.loads(r.stdout)
- assert 'nolimit_city' in values and 'hacksaw' in values and len(values)==11
+ assert 'nolimit_city' in values and 'hacksaw' in values and len(values)==24
 
 def test_invalid_quota_rejected_before_loading_catalog_or_network(tmp_path):
  r=cli('run','nolimit_city','--data-root',str(tmp_path),'--wg-dir',str(tmp_path),'--games-per-ip','0')

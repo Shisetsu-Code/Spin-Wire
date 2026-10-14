@@ -14,14 +14,8 @@ from PIL import Image, ImageTk
 from tester_spin.responsive_ui import FlowFrame
 
 from tester_spin.models import Game, GameTestResult
-from tester_spin.providers import (
-    BGamingProvider,
-    BelatraProvider,
-    OneSpin4WinProvider,
-    PragmaticProvider,
-    KAGamingProvider,
-    ProviderRegistry,
-)
+from tester_spin.providers.base import ProviderRegistry
+from tester_spin.providers.registry import PROVIDERS, create_provider
 from tester_spin.scheduler import run_game_tests
 from tester_spin.storage import Storage
 
@@ -47,11 +41,8 @@ class TesterSpinApp(tk.Tk):
         self.storage = Storage(self.data_root / "tester-spin.sqlite3")
 
         self.registry = ProviderRegistry()
-        self.registry.register(PragmaticProvider(self.data_root))
-        self.registry.register(OneSpin4WinProvider(self.data_root))
-        self.registry.register(BelatraProvider(self.data_root))
-        self.registry.register(BGamingProvider(self.data_root))
-        self.registry.register(KAGamingProvider(self.data_root))
+        for key in PROVIDERS:
+            self.registry.register(create_provider(key,self.data_root))
         self._display_to_key = {provider.display_name: provider.key for provider in self.registry.all()}
 
         self._events: queue.Queue[tuple[str, object]] = queue.Queue()

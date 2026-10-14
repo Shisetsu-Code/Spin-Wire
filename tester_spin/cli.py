@@ -23,7 +23,7 @@ def parser():
     sub.add_parser('providers',help='listar los proveedores independientes')
     for name in ('catalog','run'):
         p=sub.add_parser(name);p.add_argument('provider',choices=PROVIDERS)
-        p.add_argument('--data-root',type=Path,default=Path('data'))
+        p.add_argument('--data-root',type=Path,default=Path(os.environ.get('TESTER_SPIN_DATA_ROOT','data')))
         p.add_argument('--wg-config',type=Path,action='append',default=[])
         p.add_argument('--wg-dir',type=Path)
         if name=='run':
@@ -76,6 +76,8 @@ def main(argv=None):
     from tester_spin.vpn.wireguard import WireGuardTunnel
     data_root=args.data_root.resolve();storage=Storage(data_root/'tester-spin.sqlite3')
     provider=create_provider(args.provider,data_root)
+    if args.command=='run' and not args.dry_run and not getattr(provider,'execution_supported',True):
+        print('Ejecutor pendiente: usa catalog para cargar este proveedor, sin iniciar pruebas ni cambiar la red.',file=sys.stderr);return 2
     stop=mp.get_context('spawn').Event()
     old_signal={}
     for sig in (signal.SIGINT,signal.SIGTERM):

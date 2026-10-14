@@ -5,10 +5,10 @@ on:
   workflow_dispatch:
     inputs:
       provider:
-        description: Proveedor
-        type: choice
+        description: Clave de proveedor (tester-spin providers)
+        type: string
         required: true
-        options: [pragmatic, 1spin4win, belatra, bgaming, ka_gaming, rubyplay, redtiger, 3oaks, yggdrasil, hacksaw, nolimit_city]
+        default: nolimit_city
       limit:
         description: Cantidad total de juegos (0 = todos)
         type: number
@@ -67,10 +67,12 @@ jobs:
         env:
           PROVIDER: ${{ inputs.provider }}
         run: |
+          python -m pip install .
+          python -c "import os; from tester_spin.providers.registry import PROVIDERS; assert os.environ['PROVIDER'] in PROVIDERS, 'Proveedor desconocido'"
           python -m pip install ".[${PROVIDER}]"
           sudo apt-get update -qq
           sudo apt-get install -y wireguard-tools resolvconf xvfb
-          if [[ "$PROVIDER" =~ ^(pragmatic|1spin4win|belatra|bgaming|rubyplay|redtiger|3oaks)$ ]]; then
+          if [[ "$PROVIDER" =~ ^(pragmatic|1spin4win|belatra|bgaming|rubyplay|redtiger|3oaks|playtech)$ ]]; then
             python -m playwright install --with-deps chromium
           fi
       - name: Preparar las configuraciones privadas
@@ -92,6 +94,16 @@ jobs:
           vpn=()
           if [[ "$USE_WIREGUARD" == "true" ]]; then
             vpn=(--wg-dir "$RUNNER_TEMP/tester-wireguard" --games-per-ip "$GAMES_PER_IP")
+          fi
+          supported=$(python -c "import os; from pathlib import Path; from tester_spin.providers.registry import create_provider; print(int(getattr(create_provider(os.environ['PROVIDER'],Path('data')),'execution_supported',True)))")
+          if [[ "$supported" == "0" ]]; then
+            catalog_vpn=()
+            if [[ "$USE_WIREGUARD" == "true" ]]; then
+              catalog_vpn=(--wg-dir "$RUNNER_TEMP/tester-wireguard")
+            fi
+            xvfb-run -a tester-spin catalog "$PROVIDER" --data-root data "${catalog_vpn[@]}"
+            python scripts/catalog-public-summary.py "$PROVIDER" --data-root data --output public-summary.json
+            exit 0
           fi
           xvfb-run -a tester-spin run "$PROVIDER" --data-root data --limit "$LIMIT" --offset "$OFFSET" --spins "$SPINS" --statuses ALL --wall-timeout 180 --public-summary public-summary.json "${vpn[@]}"
       - name: Descargar resumen sin sesiones ni claves

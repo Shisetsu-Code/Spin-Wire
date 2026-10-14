@@ -1,6 +1,6 @@
 # Ejecutores independientes por proveedor
 
-Los once proveedores usan el mismo núcleo de Tester-Spin. El registro carga solo
+Los proveedores usan el mismo núcleo de Tester-Spin; hay 24 registrados, de los cuales 13 tienen catálogo y ejecutor pendiente. El registro carga solo
 el módulo seleccionado. Las comprobaciones de declaración, dinero, cobertura,
 cierre, retorno y contratos siguen pasando por el scheduler y los finalizadores
 del programa. Separar la ejecución no convierte juegos PARCIAL en OK.
@@ -106,3 +106,5 @@ Security en una Demo nueva usando el mismo pipeline de validación.
 La verificación de WireGuard con servidores reales requiere perfiles suministrados
 por el usuario. No se certifica una conexión VPN a partir de pruebas simuladas.
 El lanzador independiente no cambia por sí mismo la configuración de la GUI.
+
+La interfaz y el menú independiente se actualizan desde el mismo runtime y commit. Véase [catálogos y actualización compartida](SHARED_CATALOGS.md).

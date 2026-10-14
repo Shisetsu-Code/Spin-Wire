@@ -88,6 +88,16 @@ def main() -> int:
         if not entrypoint.exists():
             raise RuntimeError(f"no existe {entrypoint}")
 
+        if '--providers' in sys.argv:
+            from tester_spin.runtime_entry import cli_command
+            command, console_env = cli_command(python_exe, app_dir, env, [])
+            # Start the menu from the active runtime, with a visible terminal.
+            command = command[:1] + ['-m', 'tester_spin.provider_menu']
+            subprocess.Popen(command, cwd=str(app_dir), env=console_env,
+                creationflags=getattr(subprocess, 'CREATE_NEW_CONSOLE', 0))
+            splash.close()
+            return 0
+
         splash.set("Abriendo Tester-Spin...")
         startup_log = updater.home / "app-startup.log"
         startup_log.parent.mkdir(parents=True, exist_ok=True)

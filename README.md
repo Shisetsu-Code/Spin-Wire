@@ -61,3 +61,5 @@ python -m pytest tests -q
 ```
 
 Las pruebas usan fixtures reducidos. Las capturas HAR completas, sesiones, datos locales y ejecutables generados no se publican en Git.
+
+Hay **24 proveedores registrados**: los 11 ejecutores existentes y 13 catálogos nuevos con ejecución pendiente. Los dos accesos del escritorio utilizan una única versión actualizable. [Catálogos, cobertura y actualización compartida](docs/SHARED_CATALOGS.md).

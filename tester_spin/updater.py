@@ -15,8 +15,8 @@ from pathlib import Path
 from typing import Callable
 
 APP_NAME = "Tester-Spin"
-DEFAULT_REPO_URL = "https://github.com/Shisetsu-Code/Tester-Spin.git"
-DEFAULT_BRANCH = "main"
+DEFAULT_REPO_URL = "https://github.com/Shisetsu-Code/Spin-Wire.git"
+DEFAULT_BRANCH = "feat/farm-contract-export-v1"
 MANIFEST_SCHEMA = "tester-spin-update/v1"
 Status = Callable[[str], None]
 
@@ -53,6 +53,14 @@ class UpdaterConfig:
 
     @classmethod
     def from_dict(cls, value: dict[str, object]) -> "UpdaterConfig":
+        value = dict(value)
+        if str(value.get("repo_url") or "").rstrip('/') in {
+            "https://github.com/Shisetsu-Code/Tester-Spin.git",
+            "https://github.com/Shisetsu-Code/Tester-Spin",
+        }:
+            value["repo_url"] = DEFAULT_REPO_URL
+            if str(value.get("branch") or "main") == "main":
+                value["branch"] = DEFAULT_BRANCH
         return cls(
             mode=str(value.get("mode") or "git").strip().lower(),
             repo_url=str(value.get("repo_url") or DEFAULT_REPO_URL).strip(),
@@ -153,7 +161,39 @@ class Updater:
             return self._prepare_manifest_runtime(status)
         if mode != "git":
             raise RuntimeError(f"modo de actualización no soportado: {mode}")
-        return self._prepare_git_runtime(status)
+        return self.pin_git_runtime(self._prepare_git_runtime(status), status)
+
+    def pin_git_runtime(self, repo: Path, status: Status) -> Path:
+        """Pin both entry points to one committed, immutable application tree.
+
+        Updating the managed Git checkout cannot alter imports of an active run.
+        No data, private profiles or untracked files enter this archive.
+        """
+        git = self._find_executable("git")
+        if not git:
+            return repo
+        revision = self._run([git, "-C", str(repo), "rev-parse", "HEAD"]).strip()
+        if not re.fullmatch(r"[a-f0-9]{40,64}", revision):
+            raise RuntimeError("Revisión de runtime inválida")
+        self.versions_root.mkdir(parents=True, exist_ok=True)
+        target = self.versions_root / ("git-" + revision)
+        if (target / "run.py").is_file():
+            return target
+        status("Preparando una versión compartida de la interfaz y los módulos...")
+        with tempfile.TemporaryDirectory(prefix=".git-runtime-", dir=self.versions_root) as temporary:
+            staging = Path(temporary)
+            archive = staging / "app.zip"
+            self._run([git, "-C", str(repo), "archive", "--format=zip", "--output=" + str(archive), revision])
+            extracted = staging / "app"
+            self.safe_extract_zip(archive, extracted)
+            if not (extracted / "run.py").is_file():
+                raise RuntimeError("Runtime sin punto de entrada")
+            try:
+                os.rename(extracted, target)
+            except FileExistsError:
+                if not (target / "run.py").is_file():
+                    raise
+        return target
 
     def _prepare_git_runtime(self, status: Status) -> Path:
         git = self._find_executable("git")
