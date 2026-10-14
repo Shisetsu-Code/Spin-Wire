@@ -109,3 +109,22 @@ def test_cli_uses_the_gui_shared_data_default(monkeypatch,tmp_path):
  assert parser().parse_args(['catalog','netent']).data_root==shared
  explicit=tmp_path/'explicit'
  assert parser().parse_args(['catalog','netent','--data-root',str(explicit)]).data_root==explicit
+
+def test_updater_can_change_branch_from_old_single_branch_install(tmp_path):
+ import subprocess
+ from tester_spin.updater import Updater
+ origin=tmp_path/'origin';origin.mkdir()
+ def git(directory,*args):
+  return subprocess.run(['git','-C',str(directory),*args],check=True,capture_output=True,text=True).stdout
+ git(origin,'init','-b','main')
+ (origin/'run.py').write_text('VERSION=1')
+ git(origin,'add','run.py');git(origin,'-c','user.name=Test','-c','user.email=test@example.invalid','commit','-m','initial')
+ git(origin,'checkout','-b','feature')
+ (origin/'run.py').write_text('VERSION=2')
+ git(origin,'add','run.py');git(origin,'-c','user.name=Test','-c','user.email=test@example.invalid','commit','-m','feature')
+ git(origin,'checkout','main')
+ updater=Updater(home=tmp_path/'home');updater.runtime_root.mkdir()
+ subprocess.run(['git','clone','--single-branch','--branch','main',str(origin),str(updater.runtime_root/'repo')],check=True,capture_output=True)
+ updater.config.repo_url=str(origin);updater.config.branch='feature'
+ installed=updater.prepare_runtime(lambda _:None)
+ assert (installed/'run.py').read_text()=='VERSION=2'

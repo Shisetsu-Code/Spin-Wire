@@ -223,7 +223,7 @@ class Updater:
             status("Buscando actualizaciones en GitHub...")
             try:
                 self._run([git, "-C", str(repo), "remote", "set-url", "origin", self.config.repo_url])
-                self._run([git, "-C", str(repo), "fetch", "--prune", "origin", self.config.branch])
+                self._run([git, "-C", str(repo), "fetch", "--prune", "origin", "+refs/heads/" + self.config.branch + ":refs/remotes/origin/" + self.config.branch])
                 before = self._run([git, "-C", str(repo), "rev-parse", "HEAD"])
                 target = self._run([git, "-C", str(repo), "rev-parse", f"origin/{self.config.branch}"])
                 if before != target:
