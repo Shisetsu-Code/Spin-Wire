@@ -25,3 +25,11 @@ release/
 
 # Built desktop binaries and local rollback copies are Release assets.
 /Tester-Spin*.exe
+
+# Local VPN profiles, sessions and runner outputs never belong in Git.
+*.conf
+*.conf.dpapi
+*.har
+*.private.*
+*.egg-info/
+/public-summary.json

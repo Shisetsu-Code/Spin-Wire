@@ -1,28 +1,13 @@
-from tester_spin.providers.base import ProviderAdapter, ProviderRegistry
-from tester_spin.providers.bgaming_farm_adapter import BGamingProvider
-from tester_spin.providers.belatra_farm_adapter import BelatraProvider
-from tester_spin.providers.one_spin4win_farm_adapter import OneSpin4WinProvider
-from tester_spin.providers.pragmatic_farm_adapter import PragmaticProvider
-from tester_spin.providers.redtiger.farm_adapter import RedTigerProvider
-from tester_spin.providers.ka_gaming.farm_adapter import KAGamingProvider
-from tester_spin.providers.rubyplay.farm_adapter import RubyPlayProvider
-from tester_spin.providers.three_oaks import ThreeOaksProvider
-from tester_spin.providers.yggdrasil import YggdrasilProvider
-from tester_spin.providers.hacksaw import HacksawProvider
-from tester_spin.providers.nolimit_city import NolimitCityProvider
+"""Compatible exports; implementations load only when requested."""
+from tester_spin.providers.base import ProviderAdapter,ProviderRegistry
+from tester_spin.providers.registry import PROVIDERS,provider_class
 
-__all__ = [
-    "ProviderAdapter",
-    "ProviderRegistry",
-    "PragmaticProvider",
-    "OneSpin4WinProvider",
-    "BelatraProvider",
-    "BGamingProvider",
-    "RubyPlayProvider",
-    "RedTigerProvider",
-    "KAGamingProvider",
-    "ThreeOaksProvider",
-    "YggdrasilProvider",
-    "HacksawProvider",
-    "NolimitCityProvider",
-]
+__all__=['ProviderAdapter','ProviderRegistry']+[value[1] for value in PROVIDERS.values()]
+
+def __getattr__(name):
+ for key,(_,class_name,_) in PROVIDERS.items():
+  if class_name==name:
+   value=provider_class(key);globals()[name]=value;return value
+ raise AttributeError(name)
+
+def __dir__():return sorted(set(globals())|set(__all__))

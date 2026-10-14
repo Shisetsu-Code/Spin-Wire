@@ -114,3 +114,17 @@ def test_websocket_wait_has_deadline(monkeypatch):
  monkeypatch.setattr(runtime,'select',lambda *args:None)
  session=runtime.NolimitSession();session.timeout=1;session.stop=threading.Event();session.socket=Socket()
  with pytest.raises(TimeoutError,match='no se reenvía'):session._receive()
+
+def test_bootstrap_rate_limit_keeps_http_code_without_session_data(tmp_path,monkeypatch):
+ import tester_spin.providers.nolimit_city.adapter as module
+ class Limited:
+  def open(self,*args):
+   exc=RuntimeError('secret-session-url')
+   exc.response=type('Response',(),{'status_code':429})()
+   raise exc
+  def close(self):pass
+ monkeypatch.setattr(module,'NolimitSession',Limited)
+ provider=NolimitCityProvider(tmp_path)
+ game=games_from_rows([{'code':'Example','name':'Example','studio':'Nolimit City','url':'https://playin.com/embed/v1/demo/Example'}])[0]
+ result=provider.test_game(game,spins=1,timeout_s=1,stop_event=threading.Event(),progress=lambda _:None)
+ assert 'HTTP 429' in result.error and 'secret-session-url' not in result.error

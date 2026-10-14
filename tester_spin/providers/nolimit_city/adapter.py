@@ -142,6 +142,8 @@ class NolimitCityProvider(ProviderAdapter):
         except Exception as exc:
             result.status='PARCIAL' if result.successful_spins else 'ERROR'
             result.error=str(exc) if isinstance(exc,(ValueError,TimeoutError)) else 'Nolimit City: '+type(exc).__name__+' en la conexión Demo'
+            http_status=getattr(getattr(exc,'response',None),'status_code',None)
+            if isinstance(http_status,int):result.error=f'Nolimit City: HTTP {http_status} en la conexión Demo'
         finally:
             session.close()
             result.failed_spins=max(0,requested-result.successful_spins)

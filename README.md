@@ -24,6 +24,8 @@ La grilla permite ordenar por cantidades de compras y antebets, identificar mec�
 
 Nolimit City tiene **140 demos oficiales y ejecutor Demo RC4/LZW**. Airport Security completó sus siete opciones declaradas y el retorno normal; el resto del catálogo requiere su propia ejecución. Las variantes desconocidas quedan PARCIAL con HAR local. [Primitivas y alcance](docs/NOLIMIT_CITY.md).
 
+Cada proveedor también puede ejecutarse por separado desde la PC o el workflow manual de GitHub Actions, con lotes WireGuard y máximo configurable de juegos por IP. El comando carga solo el proveedor elegido y conserva el pipeline de verificación. [Ejecutores independientes y configuración](docs/INDEPENDENT_RUNNERS.md).
+
 ## Interpretar resultados
 
 - **OK**: las operaciones requeridas y su cobertura comprobada terminaron correctamente.

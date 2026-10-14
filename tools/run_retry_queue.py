@@ -23,38 +23,8 @@ os.environ.setdefault("PYTHONIOENCODING", "utf-8")
 
 
 def provider_for(key: str, data_root: Path):
-    from tester_spin.providers import (
-        BGamingProvider,
-        BelatraProvider,
-        KAGamingProvider,
-        OneSpin4WinProvider,
-        PragmaticProvider,
-        RedTigerProvider,
-        RubyPlayProvider,
-        ThreeOaksProvider,
-        YggdrasilProvider,
-        HacksawProvider,
-        NolimitCityProvider,
-    )
-
-    providers = (
-        PragmaticProvider,
-        OneSpin4WinProvider,
-        BelatraProvider,
-        BGamingProvider,
-        KAGamingProvider,
-        RubyPlayProvider,
-        RedTigerProvider,
-        ThreeOaksProvider,
-        YggdrasilProvider,
-        HacksawProvider,
-        NolimitCityProvider,
-    )
-    for provider_type in providers:
-        provider = provider_type(data_root)
-        if provider.key == key:
-            return provider
-    raise ValueError(f"Proveedor no registrado: {key}")
+    from tester_spin.providers.registry import create_provider
+    return create_provider(key,data_root)
 
 
 def _run_one(project_root: str, provider_key: str, game, timeout_s: float, spins: int = 1, shared_stop=None) -> None:

@@ -1,0 +1,104 @@
+name: Ejecutar un proveedor
+run-name: ${{ inputs.provider }} · ${{ inputs.limit }} juegos
+
+on:
+  workflow_dispatch:
+    inputs:
+      provider:
+        description: Proveedor
+        type: choice
+        required: true
+        options: [pragmatic, 1spin4win, belatra, bgaming, ka_gaming, rubyplay, redtiger, 3oaks, yggdrasil, hacksaw, nolimit_city]
+      limit:
+        description: Cantidad total de juegos (0 = todos)
+        type: number
+        default: 20
+        required: true
+      offset:
+        description: Juegos a saltar al inicio del catálogo
+        type: number
+        default: 0
+      spins:
+        description: Muestras por modo
+        type: number
+        default: 1
+      use_wireguard:
+        description: Usar perfiles WireGuard del Secret WG_CONFIGS_JSON
+        type: boolean
+        default: true
+      games_per_ip:
+        description: Máximo de juegos intentados por IP en esta corrida
+        type: number
+        default: 10
+        required: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: tester-spin-provider-execution
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.12'
+      - run: python -m pip install ".[all]" 'pytest>=8,<10'
+      - name: Verificar aislamiento y control de lotes
+        run: python -m pytest tests/test_provider_registry_lazy.py tests/test_wireguard_batches.py tests/test_independent_batches.py tests/test_independent_cli.py tests/test_provider_workflow.py tests/test_process_tree.py tests/test_nolimit_executor.py -q
+  provider:
+    needs: verify
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.12'
+      - name: Preparar el proveedor seleccionado
+        env:
+          PROVIDER: ${{ inputs.provider }}
+        run: |
+          python -m pip install ".[${PROVIDER}]"
+          sudo apt-get update -qq
+          sudo apt-get install -y wireguard-tools resolvconf xvfb
+          if [[ "$PROVIDER" =~ ^(pragmatic|1spin4win|belatra|bgaming|rubyplay|redtiger|3oaks)$ ]]; then
+            python -m playwright install --with-deps chromium
+          fi
+      - name: Preparar las configuraciones privadas
+        if: inputs.use_wireguard
+        env:
+          WG_CONFIGS_JSON: ${{ secrets.WG_CONFIGS_JSON }}
+        run: python scripts/prepare-wireguard-profiles.py --output "$RUNNER_TEMP/tester-wireguard"
+      - name: Ejecutar el lote
+        env:
+          PROVIDER: ${{ inputs.provider }}
+          LIMIT: ${{ inputs.limit }}
+          OFFSET: ${{ inputs.offset }}
+          SPINS: ${{ inputs.spins }}
+          USE_WIREGUARD: ${{ inputs.use_wireguard }}
+          GAMES_PER_IP: ${{ inputs.games_per_ip }}
+          PYTHONUTF8: '1'
+          PYTHONIOENCODING: utf-8
+        run: |
+          vpn=()
+          if [[ "$USE_WIREGUARD" == "true" ]]; then
+            vpn=(--wg-dir "$RUNNER_TEMP/tester-wireguard" --games-per-ip "$GAMES_PER_IP")
+          fi
+          xvfb-run -a tester-spin run "$PROVIDER" --data-root data --limit "$LIMIT" --offset "$OFFSET" --spins "$SPINS" --statuses ALL --wall-timeout 180 --public-summary public-summary.json "${vpn[@]}"
+      - name: Descargar resumen sin sesiones ni claves
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: resumen-${{ inputs.provider }}-${{ github.run_id }}
+          path: public-summary.json
+          if-no-files-found: warn
+          retention-days: 14

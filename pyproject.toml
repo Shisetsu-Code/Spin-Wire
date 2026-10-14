@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tester-spin"
+dynamic = ["version"]
+description = "Provider-independent demo protocol tests with verified coverage and settlement"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = ["requests>=2.32,<3", "curl_cffi>=0.16,<1", "beautifulsoup4>=4.12,<5", "Pillow>=10.4,<12"]
+
+[project.optional-dependencies]
+pragmatic = ["playwright>=1.55,<2"]
+"1spin4win" = ["playwright>=1.55,<2", "websocket-client>=1.8,<2"]
+belatra = ["playwright>=1.55,<2", "cryptography>=45,<47"]
+bgaming = ["playwright>=1.55,<2"]
+ka_gaming = []
+rubyplay = ["playwright>=1.55,<2"]
+redtiger = ["playwright>=1.55,<2"]
+"3oaks" = ["playwright>=1.55,<2"]
+yggdrasil = []
+hacksaw = []
+nolimit_city = []
+all = ["playwright>=1.55,<2", "websocket-client>=1.8,<2", "cryptography>=45,<47"]
+
+[project.scripts]
+tester-spin = "tester_spin.cli:main"
+
+[tool.setuptools.dynamic]
+version = {attr = "tester_spin.__version__"}
+
+[tool.setuptools.packages.find]
+include = ["tester_spin*"]
+namespaces = false
+
+[tool.setuptools.package-data]
+"*" = ["*.json", "*.js", "*.html", "*.txt"]
+tester_spin = ["assets/*"]
