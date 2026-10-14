@@ -9,6 +9,7 @@ from tester_spin.providers.rubyplay.farm_adapter import RubyPlayProvider
 from tester_spin.providers.three_oaks import ThreeOaksProvider
 from tester_spin.providers.yggdrasil import YggdrasilProvider
 from tester_spin.providers.hacksaw import HacksawProvider
+from tester_spin.providers.nolimit_city import NolimitCityProvider
 
 __all__ = [
     "ProviderAdapter",
@@ -23,4 +24,5 @@ __all__ = [
     "ThreeOaksProvider",
     "YggdrasilProvider",
     "HacksawProvider",
+    "NolimitCityProvider",
 ]

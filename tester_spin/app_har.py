@@ -11,7 +11,7 @@ from tkinter import messagebox, ttk
 from tester_spin.app_current import CurrentTesterSpinApp
 from tester_spin.app_project_actions import ProjectActionsMixin
 from tester_spin.models import Game
-from tester_spin.providers import RedTigerProvider, RubyPlayProvider, ThreeOaksProvider, YggdrasilProvider, HacksawProvider
+from tester_spin.providers import RedTigerProvider, RubyPlayProvider, ThreeOaksProvider, YggdrasilProvider, HacksawProvider, NolimitCityProvider
 
 
 def _open_directory(path: Path) -> None:
@@ -52,6 +52,7 @@ class HARToolTesterSpinApp(ProjectActionsMixin, CurrentTesterSpinApp):
             ThreeOaksProvider(self.data_root),
             YggdrasilProvider(self.data_root),
             HacksawProvider(self.data_root),
+            NolimitCityProvider(self.data_root),
         ):
             self.registry.register(provider)
             self._display_to_key[provider.display_name] = provider.key

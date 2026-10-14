@@ -22,6 +22,8 @@ Yggdrasil queda pausado en **137 OK, 8 parciales y 14 errores de 159 juegos**; n
 
 La grilla permite ordenar por cantidades de compras y antebets, identificar mecánicas particulares y ajustar las secciones con el mouse. [Distribución de la interfaz](docs/DESKTOP_LAYOUT.md) y [mecánicas](docs/GAME_MECHANICS.md).
 
+Nolimit City está incorporado con **140 demos oficiales cargadas como PENDIENTE**. Su ejecutor y los dominios de opciones todavía requieren evidencia de HAR. [Catálogo y alcance](docs/NOLIMIT_CITY.md).
+
 ## Interpretar resultados
 
 - **OK**: las operaciones requeridas y su cobertura comprobada terminaron correctamente.
@@ -39,6 +41,7 @@ Una bandera del servidor no basta para contar una compra ni convertirla automát
 - [3 Oaks: primitivas y límites](docs/THREE_OAKS.md)
 - [Red Tiger: evidencia y estado base](docs/REDTIGER.md)
 - [Pragmatic: reglas y evidencia](docs/PRAGMATIC_GAME_RULES.md)
+- [Nolimit City: catálogo y estado de integración](docs/NOLIMIT_CITY.md)
 - [Auditoría de declaraciones por proveedor](docs/PROVIDER_CAPABILITY_AUDIT.md)
 - [Hacksaw: compras, contabilidad y retorno](docs/HACKSAW.md)
 - [Yggdrasil: primitivas y estado actual](docs/YGGDRASIL.md)

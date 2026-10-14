@@ -192,3 +192,11 @@ Cada OK contrasta precio declarado, débito, eventos acumulados, liquidación y
 dos rondas BASIC nuevas posteriores. Los contratos antiguos no satisfacen el
 contrato v2. Auditoría independiente sin discrepancias; 2047 pruebas correctas.
 Evidencia y pendientes: [HACKSAW.md](HACKSAW.md).
+
+
+## Nolimit City: incorporación de catálogo
+
+140 demos del estudio cargadas desde el feed oficial con identidad estable y
+enlaces Playin. Estado PENDIENTE; dominios de compras, Action Spins y antebets
+sin confirmar. No existe todavía un ejecutor de rondas validado. No se heredan
+primitivas de Red Tiger por compartir plataforma. [Alcance](NOLIMIT_CITY.md).

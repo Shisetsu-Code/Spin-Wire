@@ -34,6 +34,7 @@ def provider_for(key: str, data_root: Path):
         ThreeOaksProvider,
         YggdrasilProvider,
         HacksawProvider,
+        NolimitCityProvider,
     )
 
     providers = (
@@ -47,6 +48,7 @@ def provider_for(key: str, data_root: Path):
         ThreeOaksProvider,
         YggdrasilProvider,
         HacksawProvider,
+        NolimitCityProvider,
     )
     for provider_type in providers:
         provider = provider_type(data_root)
